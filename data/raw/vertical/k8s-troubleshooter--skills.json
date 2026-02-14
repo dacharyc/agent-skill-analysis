@@ -1,0 +1,58 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/devops-skills/k8s-troubleshooter/skills",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"skills\", got \"k8s-troubleshooter\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"k8s-troubleshooter\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (335 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 8 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2144
+      },
+      {
+        "file": "references/common_issues.md",
+        "tokens": 3994
+      },
+      {
+        "file": "references/helm_troubleshooting.md",
+        "tokens": 4161
+      },
+      {
+        "file": "references/incident_response.md",
+        "tokens": 2423
+      },
+      {
+        "file": "references/performance_troubleshooting.md",
+        "tokens": 4178
+      }
+    ],
+    "total": 16900
+  }
+}

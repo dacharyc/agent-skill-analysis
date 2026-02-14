@@ -1,0 +1,51 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/insecure-defaults/skills/insecure-defaults",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"insecure-defaults\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (237 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Grep Glob Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/examples.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1123
+      },
+      {
+        "file": "references/examples.md",
+        "tokens": 2531
+      }
+    ],
+    "total": 3654
+  }
+}

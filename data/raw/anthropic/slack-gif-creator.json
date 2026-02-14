@@ -1,0 +1,81 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/slack-gif-creator",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: core/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: requirements.txt \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"slack-gif-creator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (227 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1920
+      }
+    ],
+    "total": 1920
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2262
+      },
+      {
+        "file": "core/easing.py",
+        "tokens": 2018
+      },
+      {
+        "file": "core/frame_composer.py",
+        "tokens": 1198
+      },
+      {
+        "file": "core/gif_builder.py",
+        "tokens": 2132
+      },
+      {
+        "file": "core/validators.py",
+        "tokens": 932
+      },
+      {
+        "file": "requirements.txt",
+        "tokens": 37
+      }
+    ],
+    "total": 8579
+  }
+}

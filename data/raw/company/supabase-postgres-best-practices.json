@@ -1,0 +1,235 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/supabase-skills/skills/supabase-postgres-best-practices",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "AGENTS.md is for repo-level agent configuration, not skill content \u2014 move it outside the skill directory (e.g. to the repository root) where agents discover it automatically"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: CLAUDE.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"supabase-postgres-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (183 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (5 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.postgresql.org/docs/current/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://supabase.com/docs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://wiki.postgresql.org/wiki/Performance_Optimization (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://supabase.com/docs/guides/database/overview (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://supabase.com/docs/guides/auth/row-level-security (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 410
+      },
+      {
+        "file": "references/_contributing.md",
+        "tokens": 1018
+      },
+      {
+        "file": "references/_sections.md",
+        "tokens": 350
+      },
+      {
+        "file": "references/_template.md",
+        "tokens": 234
+      },
+      {
+        "file": "references/advanced-full-text-search.md",
+        "tokens": 354
+      },
+      {
+        "file": "references/advanced-jsonb-indexing.md",
+        "tokens": 341
+      },
+      {
+        "file": "references/conn-idle-timeout.md",
+        "tokens": 278
+      },
+      {
+        "file": "references/conn-limits.md",
+        "tokens": 318
+      },
+      {
+        "file": "references/conn-pooling.md",
+        "tokens": 311
+      },
+      {
+        "file": "references/conn-prepared-statements.md",
+        "tokens": 327
+      },
+      {
+        "file": "references/data-batch-inserts.md",
+        "tokens": 338
+      },
+      {
+        "file": "references/data-n-plus-one.md",
+        "tokens": 372
+      },
+      {
+        "file": "references/data-pagination.md",
+        "tokens": 361
+      },
+      {
+        "file": "references/data-upsert.md",
+        "tokens": 348
+      },
+      {
+        "file": "references/lock-advisory.md",
+        "tokens": 339
+      },
+      {
+        "file": "references/lock-deadlock-prevention.md",
+        "tokens": 443
+      },
+      {
+        "file": "references/lock-short-transactions.md",
+        "tokens": 303
+      },
+      {
+        "file": "references/lock-skip-locked.md",
+        "tokens": 345
+      },
+      {
+        "file": "references/monitor-explain-analyze.md",
+        "tokens": 386
+      },
+      {
+        "file": "references/monitor-pg-stat-statements.md",
+        "tokens": 329
+      },
+      {
+        "file": "references/monitor-vacuum-analyze.md",
+        "tokens": 378
+      },
+      {
+        "file": "references/query-composite-indexes.md",
+        "tokens": 342
+      },
+      {
+        "file": "references/query-covering-indexes.md",
+        "tokens": 296
+      },
+      {
+        "file": "references/query-index-types.md",
+        "tokens": 362
+      },
+      {
+        "file": "references/query-missing-indexes.md",
+        "tokens": 293
+      },
+      {
+        "file": "references/query-partial-indexes.md",
+        "tokens": 292
+      },
+      {
+        "file": "references/schema-constraints.md",
+        "tokens": 474
+      },
+      {
+        "file": "references/schema-data-types.md",
+        "tokens": 328
+      },
+      {
+        "file": "references/schema-foreign-key-indexes.md",
+        "tokens": 413
+      },
+      {
+        "file": "references/schema-lowercase-identifiers.md",
+        "tokens": 393
+      },
+      {
+        "file": "references/schema-partitioning.md",
+        "tokens": 385
+      },
+      {
+        "file": "references/schema-primary-keys.md",
+        "tokens": 432
+      },
+      {
+        "file": "references/security-privileges.md",
+        "tokens": 333
+      },
+      {
+        "file": "references/security-rls-basics.md",
+        "tokens": 319
+      },
+      {
+        "file": "references/security-rls-performance.md",
+        "tokens": 357
+      }
+    ],
+    "total": 12902
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "AGENTS.md",
+        "tokens": 518
+      },
+      {
+        "file": "CLAUDE.md",
+        "tokens": 518
+      },
+      {
+        "file": "README.md",
+        "tokens": 801
+      }
+    ],
+    "total": 1837
+  }
+}

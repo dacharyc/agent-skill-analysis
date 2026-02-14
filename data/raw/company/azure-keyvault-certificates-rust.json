@@ -1,0 +1,56 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-keyvault-certificates-rust",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-keyvault-certificates-rust\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (219 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.rs/azure_security_keyvault_certificates (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/keyvault/azure_security_keyvault_certificates (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://crates.io/crates/azure_security_keyvault_certificates (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 928
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 979
+      }
+    ],
+    "total": 1907
+  }
+}

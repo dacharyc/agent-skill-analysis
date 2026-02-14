@@ -1,0 +1,73 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/security-threat-model",
+  "passed": true,
+  "errors": 0,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"security-threat-model\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (412 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 10 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "warning",
+      "category": "Markdown",
+      "message": "references/prompt-template.md has an unclosed code fence starting at line 98 \u2014 this may cause agents to misinterpret everything after it as code"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1019
+      },
+      {
+        "file": "references/prompt-template.md",
+        "tokens": 2658
+      },
+      {
+        "file": "references/security-controls-and-assets.md",
+        "tokens": 374
+      }
+    ],
+    "total": 4051
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2231
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 50
+      }
+    ],
+    "total": 2281
+  }
+}

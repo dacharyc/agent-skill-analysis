@@ -1,0 +1,125 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/literature-review",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"literature-review\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (480 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 14 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://meshb.nlm.nih.gov/search (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://doi.org/10.xxx/yyy (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "http://www.prisma-statement.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://training.cochrane.org/handbook (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://amstar.ca/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pubmed.ncbi.nlm.nih.gov/advanced/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/books/NBK3827/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://apastyle.apa.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nature.com/nature-portfolio/editorial-policies/reporting-standards (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nlm.nih.gov/bsd/uniform_requirements.html (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5582 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 631 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5582
+      },
+      {
+        "file": "references/citation_styles.md",
+        "tokens": 1769
+      },
+      {
+        "file": "references/database_strategies.md",
+        "tokens": 3824
+      }
+    ],
+    "total": 11175
+  }
+}

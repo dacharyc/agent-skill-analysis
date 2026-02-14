@@ -1,0 +1,60 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/medchem",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"medchem\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (178 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://medchem-docs.datamol.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/datamol-io/medchem (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2544
+      },
+      {
+        "file": "references/api_guide.md",
+        "tokens": 3411
+      },
+      {
+        "file": "references/rules_catalog.md",
+        "tokens": 3398
+      }
+    ],
+    "total": 9353
+  }
+}

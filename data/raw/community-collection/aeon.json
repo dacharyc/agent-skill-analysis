@@ -1,0 +1,111 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/aeon",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"aeon\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (442 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 9 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"BSD-3-Clause license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.aeon-toolkit.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/aeon-toolkit/aeon (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.aeon-toolkit.org/en/stable/examples.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.aeon-toolkit.org/en/stable/api_reference.html (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2571
+      },
+      {
+        "file": "references/anomaly_detection.md",
+        "tokens": 1186
+      },
+      {
+        "file": "references/classification.md",
+        "tokens": 1124
+      },
+      {
+        "file": "references/clustering.md",
+        "tokens": 897
+      },
+      {
+        "file": "references/datasets_benchmarking.md",
+        "tokens": 2210
+      },
+      {
+        "file": "references/distances.md",
+        "tokens": 1655
+      },
+      {
+        "file": "references/forecasting.md",
+        "tokens": 1001
+      },
+      {
+        "file": "references/networks.md",
+        "tokens": 1883
+      },
+      {
+        "file": "references/regression.md",
+        "tokens": 915
+      },
+      {
+        "file": "references/segmentation.md",
+        "tokens": 1157
+      },
+      {
+        "file": "references/similarity_search.md",
+        "tokens": 1304
+      },
+      {
+        "file": "references/transformations.md",
+        "tokens": 1730
+      }
+    ],
+    "total": 17633
+  }
+}

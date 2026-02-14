@@ -1,0 +1,87 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/playwright",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: NOTICE.txt \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"playwright\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (209 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://playwright.dev (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://example.com (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://example.com/form (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 897
+      },
+      {
+        "file": "references/cli.md",
+        "tokens": 546
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 477
+      }
+    ],
+    "total": 1920
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2260
+      },
+      {
+        "file": "NOTICE.txt",
+        "tokens": 83
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 68
+      }
+    ],
+    "total": 2411
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/testing-handbook-skills/skills/ossfuzz",
+  "passed": false,
+  "errors": 2,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"ossfuzz\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (144 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"type\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://google.github.io/oss-fuzz/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://issues.oss-fuzz.com/issues?q=status:open (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://google.github.io/oss-fuzz/getting-started/bug-disclosure-guidelines/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://oss-fuzz-build-logs.storage.googleapis.com/index.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://oss-fuzz-introspector.storage.googleapis.com/index.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ossf/fuzz-introspector/blob/main/doc/CaseStudies.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://appsec.guide/docs/fuzzing/techniques/asan/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/sanitizers/wiki/AddressSanitizerLeakSanitizer (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cloud.google.com/storage/docs/gsutil_install (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://google.github.io/oss-fuzz/advanced-topics/code-coverage/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/blob/master/infra/base-images/base-image/Dockerfile (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/infra/base-images/base-clang (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/infra/base-images/base-builder (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/infra/base-images/base-builder-go (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/infra/base-images (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/infra/base-images/base-runner (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/infra/base-images/base-runner-debug (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/tree/master/projects (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/curl/curl-fuzzer (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ossf/criticality_score (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/pull/11444#issuecomment-1875907472 (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz/pull/11444 (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://blog.trailofbits.com/2024/02/23/continuously-fuzzing-python-c-extensions/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://google.github.io/oss-fuzz/getting-started/new-project-guide/rust-lang/#projectyaml (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://google.github.io/oss-fuzz/getting-started/accepting-new-projects/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz` (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google/oss-fuzz (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/yourorg/yourproject (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3949
+      }
+    ],
+    "total": 3949
+  }
+}

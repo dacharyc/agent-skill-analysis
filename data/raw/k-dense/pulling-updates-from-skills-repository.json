@@ -1,0 +1,47 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/meta/pulling-updates-from-skills-repository",
+  "passed": false,
+  "errors": 2,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name \"Pulling Updates from Skills Repository\" must be lowercase alphanumeric with hyphens, no leading/trailing/consecutive hyphens"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"pulling-updates-from-skills-repository\", got \"Pulling Updates from Skills Repository\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (79 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"when_to_use\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 889
+      }
+    ],
+    "total": 889
+  }
+}

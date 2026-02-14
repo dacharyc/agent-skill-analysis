@@ -1,0 +1,37 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/better-auth-skills/better-auth/twoFactor",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"twoFactor\", got \"two-factor-authentication-best-practices\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"two-factor-authentication-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (144 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2455
+      }
+    ],
+    "total": 2455
+  }
+}

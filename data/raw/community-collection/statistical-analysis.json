@@ -1,0 +1,77 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/statistical-analysis",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"statistical-analysis\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (321 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://apastyle.apa.org/ (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5218 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 625 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5218
+      },
+      {
+        "file": "references/assumptions_and_diagnostics.md",
+        "tokens": 2848
+      },
+      {
+        "file": "references/bayesian_statistics.md",
+        "tokens": 4532
+      },
+      {
+        "file": "references/effect_sizes_and_power.md",
+        "tokens": 4416
+      },
+      {
+        "file": "references/reporting_standards.md",
+        "tokens": 5398
+      },
+      {
+        "file": "references/test_selection_guide.md",
+        "tokens": 1180
+      }
+    ],
+    "total": 23592
+  }
+}

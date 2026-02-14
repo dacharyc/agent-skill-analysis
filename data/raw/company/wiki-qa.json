@@ -1,0 +1,46 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-qa",
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-qa\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (202 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file#Lline (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/src/path/file.ts#L42 (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 491
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 532
+      }
+    ],
+    "total": 1023
+  }
+}

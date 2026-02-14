@@ -1,0 +1,96 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/scikit-learn",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"scikit-learn\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (381 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 11 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"BSD-3-Clause license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://scikit-learn.org/stable/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://scikit-learn.org/stable/user_guide.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://scikit-learn.org/stable/api/index.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://scikit-learn.org/stable/auto_examples/index.html (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 514 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3498
+      },
+      {
+        "file": "references/model_evaluation.md",
+        "tokens": 4116
+      },
+      {
+        "file": "references/pipelines_and_composition.md",
+        "tokens": 3369
+      },
+      {
+        "file": "references/preprocessing.md",
+        "tokens": 3721
+      },
+      {
+        "file": "references/quick_reference.md",
+        "tokens": 2753
+      },
+      {
+        "file": "references/supervised_learning.md",
+        "tokens": 2703
+      },
+      {
+        "file": "references/unsupervised_learning.md",
+        "tokens": 3745
+      }
+    ],
+    "total": 23905
+  }
+}

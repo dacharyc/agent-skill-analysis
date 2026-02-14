@@ -1,0 +1,91 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/zarr-python",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"zarr-python\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (168 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://zarr.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://zarr-specs.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/zarr-developers/zarr-python (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://gitter.im/zarr-developers/community (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.xarray.dev/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.dask.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://numcodecs.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5665 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 772 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5665
+      },
+      {
+        "file": "references/api_reference.md",
+        "tokens": 3802
+      }
+    ],
+    "total": 9467
+  }
+}

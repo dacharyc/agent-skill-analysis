@@ -1,0 +1,66 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/testing/condition-based-waiting",
+  "passed": false,
+  "errors": 2,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: example.ts \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name \"Condition-Based Waiting\" must be lowercase alphanumeric with hyphens, no leading/trailing/consecutive hyphens"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"condition-based-waiting\", got \"Condition-Based Waiting\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (74 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"languages\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"when_to_use\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 860
+      }
+    ],
+    "total": 860
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "example.ts",
+        "tokens": 1220
+      }
+    ],
+    "total": 1220
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/packer/builders/skills/aws-ami-builder",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"aws-ami-builder\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (125 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/integrations/hashicorp/amazon/latest/components/builder/ebs (HTTP 429)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 951
+      }
+    ],
+    "total": 951
+  }
+}

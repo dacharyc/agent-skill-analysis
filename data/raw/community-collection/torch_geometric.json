@@ -1,0 +1,94 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/torch_geometric",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"torch_geometric\", got \"torch-geometric\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"torch-geometric\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (175 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 8 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pytorch-geometric.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/pyg-team/pytorch_geometric (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/pyg-team/pytorch_geometric/tree/master/examples (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5196 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 669 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5196
+      },
+      {
+        "file": "references/datasets_reference.md",
+        "tokens": 4161
+      },
+      {
+        "file": "references/layers_reference.md",
+        "tokens": 4260
+      },
+      {
+        "file": "references/transforms_reference.md",
+        "tokens": 4319
+      }
+    ],
+    "total": 17936
+  }
+}

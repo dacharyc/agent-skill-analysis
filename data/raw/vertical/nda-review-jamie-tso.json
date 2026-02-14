@@ -1,0 +1,96 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/nda-review-jamie-tso",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"nda-review-jamie-tso\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (269 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/KEY_CLAUSES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/PARTY_OBLIGATIONS.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/DURATION_SCOPE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/REMEDIES_LIABILITY.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/STANDARD_EXCEPTIONS.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2647
+      },
+      {
+        "file": "references/DURATION_SCOPE.md",
+        "tokens": 697
+      },
+      {
+        "file": "references/KEY_CLAUSES.md",
+        "tokens": 1216
+      },
+      {
+        "file": "references/PARTY_OBLIGATIONS.md",
+        "tokens": 736
+      },
+      {
+        "file": "references/REMEDIES_LIABILITY.md",
+        "tokens": 813
+      },
+      {
+        "file": "references/STANDARD_EXCEPTIONS.md",
+        "tokens": 550
+      }
+    ],
+    "total": 6659
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      }
+    ],
+    "total": 7275
+  }
+}

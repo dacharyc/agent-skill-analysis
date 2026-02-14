@@ -1,0 +1,101 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/datamol",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"datamol\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (336 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 8 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "=[O:2] (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.datamol.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.rdkit.org/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/datamol-io/datamol (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5189 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 699 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5189
+      },
+      {
+        "file": "references/conformers_module.md",
+        "tokens": 1380
+      },
+      {
+        "file": "references/core_api.md",
+        "tokens": 1013
+      },
+      {
+        "file": "references/descriptors_viz.md",
+        "tokens": 1927
+      },
+      {
+        "file": "references/fragments_scaffolds.md",
+        "tokens": 1466
+      },
+      {
+        "file": "references/io_module.md",
+        "tokens": 1144
+      },
+      {
+        "file": "references/reactions_data.md",
+        "tokens": 1818
+      }
+    ],
+    "total": 13937
+  }
+}

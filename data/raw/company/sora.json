@@ -1,0 +1,97 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/sora",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"sora\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (353 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 11 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://platform.openai.com/api-keys (HTTP 403 \u2014 may block automated requests)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1843
+      },
+      {
+        "file": "references/cinematic-shots.md",
+        "tokens": 413
+      },
+      {
+        "file": "references/cli.md",
+        "tokens": 2173
+      },
+      {
+        "file": "references/codex-network.md",
+        "tokens": 232
+      },
+      {
+        "file": "references/prompting.md",
+        "tokens": 1336
+      },
+      {
+        "file": "references/sample-prompts.md",
+        "tokens": 907
+      },
+      {
+        "file": "references/social-ads.md",
+        "tokens": 410
+      },
+      {
+        "file": "references/troubleshooting.md",
+        "tokens": 683
+      },
+      {
+        "file": "references/video-api.md",
+        "tokens": 390
+      }
+    ],
+    "total": 8387
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2231
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 69
+      }
+    ],
+    "total": 2300
+  }
+}

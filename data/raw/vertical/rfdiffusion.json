@@ -1,0 +1,104 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/protein-design-skills/skills/rfdiffusion",
+  "passed": false,
+  "errors": 2,
+  "warnings": 6,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"rfdiffusion\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (539 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"category\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"tags\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"proteinbase_slug\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"proteinbase_url\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../../docs/installation.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/hgbrian/biomodals (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/RosettaCommons/RFdiffusion.git (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://files.ipd.uw.edu/pub/RFdiffusion/models/Complex_base_ckpt.pt (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2471
+      },
+      {
+        "file": "references/hotspot-selection.md",
+        "tokens": 704
+      },
+      {
+        "file": "references/parameters.md",
+        "tokens": 1093
+      }
+    ],
+    "total": 4268
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "examples/binder-walkthrough.md",
+        "tokens": 923
+      }
+    ],
+    "total": 923
+  }
+}

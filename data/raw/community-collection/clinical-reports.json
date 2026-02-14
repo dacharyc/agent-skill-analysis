@@ -1,0 +1,108 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/clinical-reports",
+  "passed": true,
+  "errors": 0,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"clinical-reports\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (323 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 12 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT License\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 8593 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1125 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 36533 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 8593
+      },
+      {
+        "file": "references/README.md",
+        "tokens": 1891
+      },
+      {
+        "file": "references/case_report_guidelines.md",
+        "tokens": 3972
+      },
+      {
+        "file": "references/clinical_trial_reporting.md",
+        "tokens": 4599
+      },
+      {
+        "file": "references/data_presentation.md",
+        "tokens": 4768
+      },
+      {
+        "file": "references/diagnostic_reports_standards.md",
+        "tokens": 4455
+      },
+      {
+        "file": "references/medical_terminology.md",
+        "tokens": 4541
+      },
+      {
+        "file": "references/patient_documentation.md",
+        "tokens": 5491
+      },
+      {
+        "file": "references/peer_review_standards.md",
+        "tokens": 3125
+      },
+      {
+        "file": "references/regulatory_compliance.md",
+        "tokens": 3691
+      }
+    ],
+    "total": 45126
+  }
+}

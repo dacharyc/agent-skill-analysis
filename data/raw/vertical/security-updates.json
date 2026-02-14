@@ -1,0 +1,82 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/zephyr-skills/skills/security-updates",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"security-updates\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (307 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/mcuboot_integration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/image_signing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/dfu_protocols.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/rollback_protection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/crypto_basics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 560
+      },
+      {
+        "file": "references/crypto_basics.md",
+        "tokens": 418
+      },
+      {
+        "file": "references/dfu_protocols.md",
+        "tokens": 498
+      },
+      {
+        "file": "references/image_signing.md",
+        "tokens": 401
+      },
+      {
+        "file": "references/mcuboot_integration.md",
+        "tokens": 544
+      },
+      {
+        "file": "references/rollback_protection.md",
+        "tokens": 438
+      }
+    ],
+    "total": 2859
+  }
+}

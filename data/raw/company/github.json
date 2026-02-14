@@ -1,0 +1,60 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/callstack-skills/skills/github",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"github\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (208 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 137
+      },
+      {
+        "file": "references/stacked-pr-workflow.md",
+        "tokens": 741
+      }
+    ],
+    "total": 878
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 43
+      }
+    ],
+    "total": 43
+  }
+}

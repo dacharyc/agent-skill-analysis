@@ -1,0 +1,66 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/protein-design-skills/skills/alphafold",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"alphafold\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (423 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"category\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"tags\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../../docs/installation.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/deepmind/alphafold.git (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1261
+      },
+      {
+        "file": "references/multimer.md",
+        "tokens": 965
+      }
+    ],
+    "total": 2226
+  }
+}

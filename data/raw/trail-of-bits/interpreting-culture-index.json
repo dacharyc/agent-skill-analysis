@@ -1,0 +1,162 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/culture-index/skills/interpreting-culture-index",
+  "passed": true,
+  "errors": 0,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: workflows/ (contains 11 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: scripts/culture_index/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"interpreting-culture-index\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (397 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 13 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 25794 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2921
+      },
+      {
+        "file": "references/anti-patterns.md",
+        "tokens": 1912
+      },
+      {
+        "file": "references/conversation-starters.md",
+        "tokens": 2279
+      },
+      {
+        "file": "references/interview-trait-signals.md",
+        "tokens": 1828
+      },
+      {
+        "file": "references/motivators.md",
+        "tokens": 1472
+      },
+      {
+        "file": "references/patterns-archetypes.md",
+        "tokens": 1542
+      },
+      {
+        "file": "references/primary-traits.md",
+        "tokens": 2867
+      },
+      {
+        "file": "references/secondary-traits.md",
+        "tokens": 1993
+      },
+      {
+        "file": "references/team-composition.md",
+        "tokens": 1465
+      }
+    ],
+    "total": 18279
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "templates/burnout-report.md",
+        "tokens": 890
+      },
+      {
+        "file": "templates/comparison-report.md",
+        "tokens": 859
+      },
+      {
+        "file": "templates/hiring-profile.md",
+        "tokens": 1103
+      },
+      {
+        "file": "templates/individual-report.md",
+        "tokens": 715
+      },
+      {
+        "file": "templates/predicted-profile.md",
+        "tokens": 1458
+      },
+      {
+        "file": "templates/team-report.md",
+        "tokens": 973
+      },
+      {
+        "file": "workflows/analyze-team.md",
+        "tokens": 1327
+      },
+      {
+        "file": "workflows/coach-manager.md",
+        "tokens": 2128
+      },
+      {
+        "file": "workflows/compare-profiles.md",
+        "tokens": 1569
+      },
+      {
+        "file": "workflows/define-hiring-profile.md",
+        "tokens": 1970
+      },
+      {
+        "file": "workflows/detect-burnout.md",
+        "tokens": 1602
+      },
+      {
+        "file": "workflows/extract-from-pdf.md",
+        "tokens": 945
+      },
+      {
+        "file": "workflows/interpret-individual.md",
+        "tokens": 1499
+      },
+      {
+        "file": "workflows/interview-debrief.md",
+        "tokens": 2001
+      },
+      {
+        "file": "workflows/mediate-conflict.md",
+        "tokens": 2392
+      },
+      {
+        "file": "workflows/plan-onboarding.md",
+        "tokens": 2395
+      },
+      {
+        "file": "workflows/predict-from-interview.md",
+        "tokens": 1968
+      }
+    ],
+    "total": 25794
+  }
+}

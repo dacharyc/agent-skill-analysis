@@ -1,0 +1,67 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/statute-analysis-rafal-fryc",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"statute-analysis-rafal-fryc\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (519 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2406
+      },
+      {
+        "file": "references/canons_of_construction.md",
+        "tokens": 1726
+      },
+      {
+        "file": "references/index.md",
+        "tokens": 237
+      },
+      {
+        "file": "references/practical_lessons.md",
+        "tokens": 2004
+      },
+      {
+        "file": "references/statutory_structure.md",
+        "tokens": 1744
+      }
+    ],
+    "total": 8117
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      }
+    ],
+    "total": 7275
+  }
+}

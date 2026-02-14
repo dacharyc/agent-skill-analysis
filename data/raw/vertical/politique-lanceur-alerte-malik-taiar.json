@@ -1,0 +1,125 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/politique-lanceur-alerte-malik-taiar",
+  "passed": false,
+  "errors": 1,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SKILL.fr.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"politique-lanceur-alerte-malik-taiar\", got \"whistleblower-policy-malik-taiar\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"whistleblower-policy-malik-taiar\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (285 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/DECRET_PROCEDURE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/RGPD_CNIL.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/FONCTION_PUBLIQUE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/VIGILANCE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/TEXTES_LEGAUX.md (exists)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000046357368 (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6030 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 508 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6030
+      },
+      {
+        "file": "references/DECRET_PROCEDURE.md",
+        "tokens": 6035
+      },
+      {
+        "file": "references/FONCTION_PUBLIQUE.md",
+        "tokens": 999
+      },
+      {
+        "file": "references/RGPD_CNIL.md",
+        "tokens": 6762
+      },
+      {
+        "file": "references/TEXTES_LEGAUX.md",
+        "tokens": 7675
+      },
+      {
+        "file": "references/VIGILANCE.md",
+        "tokens": 1229
+      }
+    ],
+    "total": 28730
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      },
+      {
+        "file": "SKILL.fr.md",
+        "tokens": 7355
+      }
+    ],
+    "total": 14630
+  }
+}

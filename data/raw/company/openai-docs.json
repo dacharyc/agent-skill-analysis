@@ -1,0 +1,60 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/openai-docs",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"openai-docs\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (336 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developers.openai.com/mcp` (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 700
+      }
+    ],
+    "total": 700
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2231
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 121
+      }
+    ],
+    "total": 2352
+  }
+}

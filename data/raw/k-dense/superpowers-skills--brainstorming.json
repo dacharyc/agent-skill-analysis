@@ -1,0 +1,47 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/collaboration/brainstorming",
+  "passed": false,
+  "errors": 2,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name \"Brainstorming Ideas Into Designs\" must be lowercase alphanumeric with hyphens, no leading/trailing/consecutive hyphens"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"brainstorming\", got \"Brainstorming Ideas Into Designs\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (81 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"when_to_use\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 562
+      }
+    ],
+    "total": 562
+  }
+}

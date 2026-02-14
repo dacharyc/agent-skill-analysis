@@ -1,0 +1,87 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/statsmodels",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"statsmodels\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (327 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"BSD-3-Clause license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.statsmodels.org/stable/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.statsmodels.org/stable/user-guide.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.statsmodels.org/stable/examples/index.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.statsmodels.org/stable/api.html (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 607 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4917
+      },
+      {
+        "file": "references/discrete_choice.md",
+        "tokens": 4426
+      },
+      {
+        "file": "references/glm.md",
+        "tokens": 4393
+      },
+      {
+        "file": "references/linear_models.md",
+        "tokens": 3319
+      },
+      {
+        "file": "references/stats_diagnostics.md",
+        "tokens": 5803
+      },
+      {
+        "file": "references/time_series.md",
+        "tokens": 5120
+      }
+    ],
+    "total": 27978
+  }
+}

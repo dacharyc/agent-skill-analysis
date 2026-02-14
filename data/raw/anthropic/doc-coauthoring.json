@@ -1,0 +1,37 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/doc-coauthoring",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"doc-coauthoring\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (428 chars)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://claude.ai (HTTP 403 \u2014 may block automated requests)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3172
+      }
+    ],
+    "total": 3172
+  }
+}

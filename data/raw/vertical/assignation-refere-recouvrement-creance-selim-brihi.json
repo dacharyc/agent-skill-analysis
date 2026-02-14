@@ -1,0 +1,87 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/assignation-refere-recouvrement-creance-selim-brihi",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"assignation-refere-recouvrement-creance-selim-brihi\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (485 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/workflow-collecte.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/structure-assignation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/variantes-cas-particuliers.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/conseils-strategie.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1080
+      },
+      {
+        "file": "references/conseils-strategie.md",
+        "tokens": 3378
+      },
+      {
+        "file": "references/structure-assignation.md",
+        "tokens": 8424
+      },
+      {
+        "file": "references/variantes-cas-particuliers.md",
+        "tokens": 3680
+      },
+      {
+        "file": "references/workflow-collecte.md",
+        "tokens": 1148
+      }
+    ],
+    "total": 17710
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      }
+    ],
+    "total": 7275
+  }
+}

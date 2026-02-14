@@ -1,0 +1,66 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/debugging/root-cause-tracing",
+  "passed": false,
+  "errors": 2,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: find-polluter.sh \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name \"Root Cause Tracing\" must be lowercase alphanumeric with hyphens, no leading/trailing/consecutive hyphens"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"root-cause-tracing\", got \"Root Cause Tracing\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (78 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"when_to_use\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"languages\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1314
+      }
+    ],
+    "total": 1314
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "find-polluter.sh",
+        "tokens": 458
+      }
+    ],
+    "total": 458
+  }
+}

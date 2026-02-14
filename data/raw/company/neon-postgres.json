@@ -1,0 +1,214 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/neon-skills/skills/neon-postgres",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"neon-postgres\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (329 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/llms.txt (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/branching` (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/branching.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/autoscaling.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/scale-to-zero.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/branch-restore.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/read-replicas.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/connect/connection-pooling.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/introduction/ip-allow.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/auth/overview.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/data-api/overview.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/serverless/serverless-driver.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/reference/javascript-sdk.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/reference/api-reference.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/reference/typescript-sdk.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/reference/python-sdk.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/reference/neon-cli.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/guides/logical-replication-guide.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/guides/nextjs.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/guides/django.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/guides/drizzle.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/guides/prisma.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/docs/get-started/orms.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://api-docs.neon.tech/reference/getting-started-with-neon-api (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neon.com/api_spec/release/v2.json (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1602
+      },
+      {
+        "file": "references/connection-methods.md",
+        "tokens": 1674
+      },
+      {
+        "file": "references/devtools.md",
+        "tokens": 780
+      },
+      {
+        "file": "references/features.md",
+        "tokens": 566
+      },
+      {
+        "file": "references/getting-started.md",
+        "tokens": 984
+      },
+      {
+        "file": "references/neon-auth.md",
+        "tokens": 3268
+      },
+      {
+        "file": "references/neon-cli.md",
+        "tokens": 917
+      },
+      {
+        "file": "references/neon-drizzle.md",
+        "tokens": 1572
+      },
+      {
+        "file": "references/neon-js.md",
+        "tokens": 3333
+      },
+      {
+        "file": "references/neon-python-sdk.md",
+        "tokens": 918
+      },
+      {
+        "file": "references/neon-rest-api.md",
+        "tokens": 836
+      },
+      {
+        "file": "references/neon-serverless.md",
+        "tokens": 1575
+      },
+      {
+        "file": "references/neon-typescript-sdk.md",
+        "tokens": 1218
+      },
+      {
+        "file": "references/what-is-neon.md",
+        "tokens": 466
+      }
+    ],
+    "total": 19709
+  }
+}

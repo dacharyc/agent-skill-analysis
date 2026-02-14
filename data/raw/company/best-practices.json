@@ -1,0 +1,62 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/better-auth-skills/better-auth/best-practices",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"best-practices\", got \"better-auth-best-practices\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"better-auth-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (90 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://better-auth.com/docs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://better-auth.com/docs/reference/options (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://better-auth.com/llms.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/better-auth/better-auth (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/better-auth/better-auth/blob/main/packages/core/src/types/init-options.ts (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1546
+      }
+    ],
+    "total": 1546
+  }
+}

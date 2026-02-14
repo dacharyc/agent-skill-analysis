@@ -1,0 +1,105 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/vite",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: GENERATION.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vite\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (187 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-features.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-plugin-api.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/build-and-ssr.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/environment-api.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/rolldown-migration.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 556
+      },
+      {
+        "file": "references/build-and-ssr.md",
+        "tokens": 1112
+      },
+      {
+        "file": "references/core-config.md",
+        "tokens": 726
+      },
+      {
+        "file": "references/core-features.md",
+        "tokens": 1010
+      },
+      {
+        "file": "references/core-plugin-api.md",
+        "tokens": 1040
+      },
+      {
+        "file": "references/environment-api.md",
+        "tokens": 567
+      },
+      {
+        "file": "references/rolldown-migration.md",
+        "tokens": 789
+      }
+    ],
+    "total": 5800
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "GENERATION.md",
+        "tokens": 51
+      }
+    ],
+    "total": 51
+  }
+}

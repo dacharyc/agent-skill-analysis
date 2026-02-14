@@ -1,0 +1,68 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/skill-creator",
+  "passed": false,
+  "errors": 3,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"skill-creator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (170 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/tools.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/streaming.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for- (HTTP 404)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 610 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4293
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 2772
+      },
+      {
+        "file": "references/azure-sdk-patterns.md",
+        "tokens": 3069
+      },
+      {
+        "file": "references/output-patterns.md",
+        "tokens": 910
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 792
+      }
+    ],
+    "total": 11836
+  }
+}

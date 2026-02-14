@@ -1,0 +1,186 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/venue-templates",
+  "passed": false,
+  "errors": 1,
+  "warnings": 8,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/examples/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/grants/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/journals/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/posters/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"venue-templates\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (471 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 19 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nature.com/nature/for-authors (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.science.org/content/page/instructions-authors (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://plos.org/resources/for-authors/ (HTTP 404)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.cell.com/author-guidelines (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neurips.cc/Conferences/2024/CallForPapers (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://icml.cc/Conferences/2024/StyleAuthorInstructions (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cvpr.thecvf.com/Conferences/2024/AuthorGuidelines (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nsf.gov/publications/pub_summ.jsp?ods_key=pappg (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://grants.nih.gov/grants/how-to-apply-application-guide.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://science.osti.gov/grants (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5331 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 682 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 43408 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5331
+      },
+      {
+        "file": "references/cell_press_style.md",
+        "tokens": 3361
+      },
+      {
+        "file": "references/conferences_formatting.md",
+        "tokens": 4437
+      },
+      {
+        "file": "references/cs_conference_style.md",
+        "tokens": 3560
+      },
+      {
+        "file": "references/grants_requirements.md",
+        "tokens": 5658
+      },
+      {
+        "file": "references/journals_formatting.md",
+        "tokens": 4677
+      },
+      {
+        "file": "references/medical_journal_styles.md",
+        "tokens": 3785
+      },
+      {
+        "file": "references/ml_conference_style.md",
+        "tokens": 4100
+      },
+      {
+        "file": "references/nature_science_style.md",
+        "tokens": 3030
+      },
+      {
+        "file": "references/posters_guidelines.md",
+        "tokens": 4448
+      },
+      {
+        "file": "references/reviewer_expectations.md",
+        "tokens": 3556
+      },
+      {
+        "file": "references/venue_writing_styles.md",
+        "tokens": 2796
+      }
+    ],
+    "total": 48739
+  }
+}

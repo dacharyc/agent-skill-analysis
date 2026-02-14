@@ -1,0 +1,136 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/modern-python/skills/modern-python",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"modern-python\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (159 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/prek.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/security-setup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/pyproject.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/pep723-scripts.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/ruff-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/uv-commands.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/migration-checklist.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/testing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/dependabot.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/trailofbits/cookiecutter-python (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2614
+      },
+      {
+        "file": "references/dependabot.md",
+        "tokens": 394
+      },
+      {
+        "file": "references/migration-checklist.md",
+        "tokens": 839
+      },
+      {
+        "file": "references/pep723-scripts.md",
+        "tokens": 1304
+      },
+      {
+        "file": "references/prek.md",
+        "tokens": 1581
+      },
+      {
+        "file": "references/pyproject.md",
+        "tokens": 1560
+      },
+      {
+        "file": "references/ruff-config.md",
+        "tokens": 1582
+      },
+      {
+        "file": "references/security-setup.md",
+        "tokens": 1603
+      },
+      {
+        "file": "references/testing.md",
+        "tokens": 1341
+      },
+      {
+        "file": "references/uv-commands.md",
+        "tokens": 1179
+      }
+    ],
+    "total": 13997
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "templates/dependabot.yml",
+        "tokens": 222
+      },
+      {
+        "file": "templates/pre-commit-config.yaml",
+        "tokens": 610
+      }
+    ],
+    "total": 832
+  }
+}

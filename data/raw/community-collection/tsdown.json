@@ -1,0 +1,372 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/tsdown",
+  "passed": true,
+  "errors": 0,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SYNC.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"tsdown\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (201 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/guide-getting-started.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-config-file.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/reference-cli.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/guide-migrate-from-tsup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-plugins.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-hooks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-programmatic.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-rolldown-options.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-ci.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-entry.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-output-format.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-output-directory.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-dts.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-target.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-platform.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-tree-shaking.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-minification.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-sourcemap.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-watch-mode.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-cleaning.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-log-level.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-dependencies.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-shims.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-cjs-default.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-package-exports.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-css.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-unbundle.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/option-lint.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/recipe-react.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/recipe-vue.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/recipe-wasm.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://tsdown.dev (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/rolldown/tsdown (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rolldown.rs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://tsdown.dev/guide/migrate-from-tsup (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 36892 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2508
+      },
+      {
+        "file": "references/README.md",
+        "tokens": 1151
+      },
+      {
+        "file": "references/advanced-ci.md",
+        "tokens": 550
+      },
+      {
+        "file": "references/advanced-hooks.md",
+        "tokens": 1762
+      },
+      {
+        "file": "references/advanced-plugins.md",
+        "tokens": 1702
+      },
+      {
+        "file": "references/advanced-programmatic.md",
+        "tokens": 1684
+      },
+      {
+        "file": "references/advanced-rolldown-options.md",
+        "tokens": 571
+      },
+      {
+        "file": "references/guide-getting-started.md",
+        "tokens": 722
+      },
+      {
+        "file": "references/guide-migrate-from-tsup.md",
+        "tokens": 1146
+      },
+      {
+        "file": "references/option-cjs-default.md",
+        "tokens": 480
+      },
+      {
+        "file": "references/option-cleaning.md",
+        "tokens": 1251
+      },
+      {
+        "file": "references/option-config-file.md",
+        "tokens": 1379
+      },
+      {
+        "file": "references/option-css.md",
+        "tokens": 53
+      },
+      {
+        "file": "references/option-dependencies.md",
+        "tokens": 1454
+      },
+      {
+        "file": "references/option-dts.md",
+        "tokens": 1232
+      },
+      {
+        "file": "references/option-entry.md",
+        "tokens": 964
+      },
+      {
+        "file": "references/option-lint.md",
+        "tokens": 758
+      },
+      {
+        "file": "references/option-log-level.md",
+        "tokens": 477
+      },
+      {
+        "file": "references/option-minification.md",
+        "tokens": 956
+      },
+      {
+        "file": "references/option-output-directory.md",
+        "tokens": 1255
+      },
+      {
+        "file": "references/option-output-format.md",
+        "tokens": 962
+      },
+      {
+        "file": "references/option-package-exports.md",
+        "tokens": 1429
+      },
+      {
+        "file": "references/option-platform.md",
+        "tokens": 1311
+      },
+      {
+        "file": "references/option-shims.md",
+        "tokens": 1461
+      },
+      {
+        "file": "references/option-sourcemap.md",
+        "tokens": 1432
+      },
+      {
+        "file": "references/option-target.md",
+        "tokens": 997
+      },
+      {
+        "file": "references/option-tree-shaking.md",
+        "tokens": 1314
+      },
+      {
+        "file": "references/option-unbundle.md",
+        "tokens": 1421
+      },
+      {
+        "file": "references/option-watch-mode.md",
+        "tokens": 1194
+      },
+      {
+        "file": "references/recipe-react.md",
+        "tokens": 1631
+      },
+      {
+        "file": "references/recipe-vue.md",
+        "tokens": 1801
+      },
+      {
+        "file": "references/recipe-wasm.md",
+        "tokens": 764
+      },
+      {
+        "file": "references/reference-cli.md",
+        "tokens": 1628
+      }
+    ],
+    "total": 39400
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.md",
+        "tokens": 247
+      },
+      {
+        "file": "README.md",
+        "tokens": 459
+      },
+      {
+        "file": "SYNC.md",
+        "tokens": 62
+      }
+    ],
+    "total": 768
+  }
+}

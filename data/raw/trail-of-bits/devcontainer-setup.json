@@ -1,0 +1,66 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/devcontainer-setup/skills/devcontainer-setup",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"devcontainer-setup\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (258 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1895
+      },
+      {
+        "file": "references/dockerfile-best-practices.md",
+        "tokens": 805
+      },
+      {
+        "file": "references/features-vs-dockerfile.md",
+        "tokens": 137
+      }
+    ],
+    "total": 2837
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "resources/Dockerfile",
+        "tokens": 1104
+      },
+      {
+        "file": "resources/devcontainer.json",
+        "tokens": 667
+      },
+      {
+        "file": "resources/install.sh",
+        "tokens": 3089
+      },
+      {
+        "file": "resources/post_install.py",
+        "tokens": 1384
+      }
+    ],
+    "total": 6244
+  }
+}

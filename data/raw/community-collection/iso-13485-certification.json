@@ -1,0 +1,73 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/iso-13485-certification",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/templates/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"iso-13485-certification\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (626 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5312 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 673 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5312
+      },
+      {
+        "file": "references/gap-analysis-checklist.md",
+        "tokens": 7522
+      },
+      {
+        "file": "references/iso-13485-requirements.md",
+        "tokens": 4894
+      },
+      {
+        "file": "references/mandatory-documents.md",
+        "tokens": 4675
+      },
+      {
+        "file": "references/quality-manual-guide.md",
+        "tokens": 5715
+      }
+    ],
+    "total": 28118
+  }
+}

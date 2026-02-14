@@ -1,0 +1,174 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/canvas-design",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: canvas-fonts/ (contains 81 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"canvas-design\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (289 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 26657 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 26,657 tokens of non-standard content but only 2,281 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2281
+      }
+    ],
+    "total": 2281
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2262
+      },
+      {
+        "file": "canvas-fonts/ArsenalSC-OFL.txt",
+        "tokens": 895
+      },
+      {
+        "file": "canvas-fonts/BigShoulders-OFL.txt",
+        "tokens": 903
+      },
+      {
+        "file": "canvas-fonts/Boldonse-OFL.txt",
+        "tokens": 900
+      },
+      {
+        "file": "canvas-fonts/BricolageGrotesque-OFL.txt",
+        "tokens": 907
+      },
+      {
+        "file": "canvas-fonts/CrimsonPro-OFL.txt",
+        "tokens": 903
+      },
+      {
+        "file": "canvas-fonts/DMMono-OFL.txt",
+        "tokens": 902
+      },
+      {
+        "file": "canvas-fonts/EricaOne-OFL.txt",
+        "tokens": 910
+      },
+      {
+        "file": "canvas-fonts/GeistMono-OFL.txt",
+        "tokens": 900
+      },
+      {
+        "file": "canvas-fonts/Gloock-OFL.txt",
+        "tokens": 903
+      },
+      {
+        "file": "canvas-fonts/IBMPlexMono-OFL.txt",
+        "tokens": 896
+      },
+      {
+        "file": "canvas-fonts/InstrumentSans-OFL.txt",
+        "tokens": 901
+      },
+      {
+        "file": "canvas-fonts/Italiana-OFL.txt",
+        "tokens": 909
+      },
+      {
+        "file": "canvas-fonts/JetBrainsMono-OFL.txt",
+        "tokens": 903
+      },
+      {
+        "file": "canvas-fonts/Jura-OFL.txt",
+        "tokens": 901
+      },
+      {
+        "file": "canvas-fonts/LibreBaskerville-OFL.txt",
+        "tokens": 913
+      },
+      {
+        "file": "canvas-fonts/Lora-OFL.txt",
+        "tokens": 913
+      },
+      {
+        "file": "canvas-fonts/NationalPark-OFL.txt",
+        "tokens": 904
+      },
+      {
+        "file": "canvas-fonts/NothingYouCouldDo-OFL.txt",
+        "tokens": 899
+      },
+      {
+        "file": "canvas-fonts/Outfit-OFL.txt",
+        "tokens": 903
+      },
+      {
+        "file": "canvas-fonts/PixelifySans-OFL.txt",
+        "tokens": 905
+      },
+      {
+        "file": "canvas-fonts/PoiretOne-OFL.txt",
+        "tokens": 902
+      },
+      {
+        "file": "canvas-fonts/RedHatMono-OFL.txt",
+        "tokens": 903
+      },
+      {
+        "file": "canvas-fonts/Silkscreen-OFL.txt",
+        "tokens": 902
+      },
+      {
+        "file": "canvas-fonts/SmoochSans-OFL.txt",
+        "tokens": 904
+      },
+      {
+        "file": "canvas-fonts/Tektur-OFL.txt",
+        "tokens": 904
+      },
+      {
+        "file": "canvas-fonts/WorkSans-OFL.txt",
+        "tokens": 905
+      },
+      {
+        "file": "canvas-fonts/YoungSerif-OFL.txt",
+        "tokens": 905
+      }
+    ],
+    "total": 26657
+  }
+}

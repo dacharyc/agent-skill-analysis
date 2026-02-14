@@ -1,0 +1,89 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/spec-to-code-compliance/skills/spec-to-code-compliance",
+  "passed": false,
+  "errors": 4,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"spec-to-code-compliance\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (238 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "resources/IR_EXAMPLES.md#example-1-spec-ir-record (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "resources/IR_EXAMPLES.md#example-2-code-ir-record (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "resources/IR_EXAMPLES.md#example-3-alignment-record-positive-case (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "resources/IR_EXAMPLES.md#example-4-divergence-finding-critical-issue (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/OUTPUT_REQUIREMENTS.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/COMPLETENESS_CHECKLIST.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/IR_EXAMPLES.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2269
+      }
+    ],
+    "total": 2269
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "resources/COMPLETENESS_CHECKLIST.md",
+        "tokens": 738
+      },
+      {
+        "file": "resources/IR_EXAMPLES.md",
+        "tokens": 3744
+      },
+      {
+        "file": "resources/OUTPUT_REQUIREMENTS.md",
+        "tokens": 1214
+      }
+    ],
+    "total": 5696
+  }
+}

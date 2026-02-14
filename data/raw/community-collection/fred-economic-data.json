@@ -1,0 +1,105 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/fred-economic-data",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"fred-economic-data\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (362 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 12 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Unknown\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://fredaccount.stlouisfed.org (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://fred.stlouisfed.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://fred.stlouisfed.org/docs/api/fred/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://geofred.stlouisfed.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://alfred.stlouisfed.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://fred.stlouisfed.org/legal/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2789
+      },
+      {
+        "file": "references/api_basics.md",
+        "tokens": 1191
+      },
+      {
+        "file": "references/categories.md",
+        "tokens": 2904
+      },
+      {
+        "file": "references/geofred.md",
+        "tokens": 3637
+      },
+      {
+        "file": "references/releases.md",
+        "tokens": 4433
+      },
+      {
+        "file": "references/series.md",
+        "tokens": 4073
+      },
+      {
+        "file": "references/sources.md",
+        "tokens": 2831
+      },
+      {
+        "file": "references/tags.md",
+        "tokens": 3159
+      }
+    ],
+    "total": 25017
+  }
+}

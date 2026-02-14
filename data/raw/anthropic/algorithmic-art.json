@@ -1,0 +1,64 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/algorithmic-art",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"algorithmic-art\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (324 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4076
+      }
+    ],
+    "total": 4076
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2262
+      },
+      {
+        "file": "templates/generator_template.js",
+        "tokens": 1445
+      },
+      {
+        "file": "templates/viewer.html",
+        "tokens": 4230
+      }
+    ],
+    "total": 7937
+  }
+}

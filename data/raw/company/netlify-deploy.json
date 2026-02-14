@@ -1,0 +1,107 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/netlify-deploy",
+  "passed": false,
+  "errors": 2,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"netlify-deploy\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (192 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/cli-commands.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/deployment-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/netlify-toml.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://app.netlify.com/user/applications#personal-access-tokens (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/username/repo (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/user/repo (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.netlify.com/cli/get-started/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.netlify.com/configure-builds/file-based-configuration/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1590
+      },
+      {
+        "file": "references/cli-commands.md",
+        "tokens": 704
+      },
+      {
+        "file": "references/deployment-patterns.md",
+        "tokens": 1778
+      },
+      {
+        "file": "references/netlify-toml.md",
+        "tokens": 1098
+      }
+    ],
+    "total": 5170
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2231
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 74
+      }
+    ],
+    "total": 2305
+  }
+}

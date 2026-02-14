@@ -1,0 +1,61 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/meta/testing-skills-with-subagents",
+  "passed": false,
+  "errors": 2,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name \"Testing Skills With Subagents\" must be lowercase alphanumeric with hyphens, no leading/trailing/consecutive hyphens"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"testing-skills-with-subagents\", got \"Testing Skills With Subagents\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (123 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"when_to_use\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2835
+      }
+    ],
+    "total": 2835
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "examples/CLAUDE_MD_TESTING.md",
+        "tokens": 1279
+      }
+    ],
+    "total": 1279
+  }
+}

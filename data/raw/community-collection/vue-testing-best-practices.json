@@ -1,0 +1,194 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/vue-testing-best-practices",
+  "passed": true,
+  "errors": 0,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SYNC.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 11 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vue-testing-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (132 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"author\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-vitest-recommended-for-vue.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-component-blackbox-approach.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-async-await-flushpromises.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-composables-helper-wrapper.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-pinia-store-setup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-suspense-async-components.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-no-snapshot-only.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-e2e-playwright-recommended.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/testing-browser-vs-node-runners.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/async-component-testing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/teleport-testing-complexity.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vuejs.org/guide/scaling-up/testing (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://test-utils.vuejs.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vitest.dev/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://playwright.dev/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 411
+      }
+    ],
+    "total": 411
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.md",
+        "tokens": 234
+      },
+      {
+        "file": "SYNC.md",
+        "tokens": 63
+      },
+      {
+        "file": "reference/async-component-testing.md",
+        "tokens": 1075
+      },
+      {
+        "file": "reference/teleport-testing-complexity.md",
+        "tokens": 1030
+      },
+      {
+        "file": "reference/testing-async-await-flushpromises.md",
+        "tokens": 1229
+      },
+      {
+        "file": "reference/testing-browser-vs-node-runners.md",
+        "tokens": 1363
+      },
+      {
+        "file": "reference/testing-component-blackbox-approach.md",
+        "tokens": 1051
+      },
+      {
+        "file": "reference/testing-composables-helper-wrapper.md",
+        "tokens": 1517
+      },
+      {
+        "file": "reference/testing-e2e-playwright-recommended.md",
+        "tokens": 1613
+      },
+      {
+        "file": "reference/testing-no-snapshot-only.md",
+        "tokens": 1490
+      },
+      {
+        "file": "reference/testing-pinia-store-setup.md",
+        "tokens": 1555
+      },
+      {
+        "file": "reference/testing-suspense-async-components.md",
+        "tokens": 1512
+      },
+      {
+        "file": "reference/testing-vitest-recommended-for-vue.md",
+        "tokens": 1277
+      }
+    ],
+    "total": 15009
+  }
+}

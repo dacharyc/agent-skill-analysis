@@ -1,0 +1,177 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/vitepress",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: GENERATION.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vitepress\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (156 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-cli.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-routing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-markdown.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-code-blocks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-vue.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-data-loading.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-dynamic-routes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/theme-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/theme-customization.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/theme-custom.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-i18n.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-ssr.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/recipes-deploy.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 636
+      },
+      {
+        "file": "references/advanced-i18n.md",
+        "tokens": 1431
+      },
+      {
+        "file": "references/advanced-ssr.md",
+        "tokens": 1012
+      },
+      {
+        "file": "references/core-cli.md",
+        "tokens": 608
+      },
+      {
+        "file": "references/core-config.md",
+        "tokens": 1078
+      },
+      {
+        "file": "references/core-markdown.md",
+        "tokens": 1015
+      },
+      {
+        "file": "references/core-routing.md",
+        "tokens": 966
+      },
+      {
+        "file": "references/features-code-blocks.md",
+        "tokens": 997
+      },
+      {
+        "file": "references/features-data-loading.md",
+        "tokens": 1111
+      },
+      {
+        "file": "references/features-dynamic-routes.md",
+        "tokens": 1146
+      },
+      {
+        "file": "references/features-vue.md",
+        "tokens": 953
+      },
+      {
+        "file": "references/recipes-deploy.md",
+        "tokens": 1175
+      },
+      {
+        "file": "references/theme-config.md",
+        "tokens": 1476
+      },
+      {
+        "file": "references/theme-custom.md",
+        "tokens": 1279
+      },
+      {
+        "file": "references/theme-customization.md",
+        "tokens": 1651
+      }
+    ],
+    "total": 16534
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "GENERATION.md",
+        "tokens": 53
+      }
+    ],
+    "total": 53
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/drugbank-database",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"drugbank-database\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (475 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 13 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Unknown\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1967
+      },
+      {
+        "file": "references/chemical-analysis.md",
+        "tokens": 4836
+      },
+      {
+        "file": "references/data-access.md",
+        "tokens": 1476
+      },
+      {
+        "file": "references/drug-queries.md",
+        "tokens": 3043
+      },
+      {
+        "file": "references/interactions.md",
+        "tokens": 3140
+      },
+      {
+        "file": "references/targets-pathways.md",
+        "tokens": 4291
+      }
+    ],
+    "total": 18753
+  }
+}

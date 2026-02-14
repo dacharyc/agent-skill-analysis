@@ -1,0 +1,138 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/constant-time-analysis/skills/constant-time-analysis",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"constant-time-analysis\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (306 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 16 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/compiled.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/swift.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/vm-compiled.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/kotlin.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/php.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/javascript.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/python.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ruby.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/veorq/cryptocoding (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://kyberslash.cr.yp.to/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.bearssl.org/constanttime.html (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2139
+      },
+      {
+        "file": "references/compiled.md",
+        "tokens": 1136
+      },
+      {
+        "file": "references/javascript.md",
+        "tokens": 1037
+      },
+      {
+        "file": "references/kotlin.md",
+        "tokens": 1663
+      },
+      {
+        "file": "references/php.md",
+        "tokens": 1278
+      },
+      {
+        "file": "references/python.md",
+        "tokens": 1302
+      },
+      {
+        "file": "references/ruby.md",
+        "tokens": 1369
+      },
+      {
+        "file": "references/swift.md",
+        "tokens": 2053
+      },
+      {
+        "file": "references/vm-compiled.md",
+        "tokens": 2718
+      }
+    ],
+    "total": 14695
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "README.md",
+        "tokens": 902
+      }
+    ],
+    "total": 902
+  }
+}

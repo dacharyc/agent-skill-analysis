@@ -1,0 +1,61 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/xlsx",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: scripts/office/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"xlsx\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (945 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 19 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Proprietary. LICENSE.txt has complete terms\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2616
+      }
+    ],
+    "total": 2616
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 307
+      }
+    ],
+    "total": 307
+  }
+}

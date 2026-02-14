@@ -1,0 +1,94 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.system/skill-creator",
+  "passed": false,
+  "errors": 6,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"skill-creator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (225 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "FORMS.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REFERENCE.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "EXAMPLES.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "DOCX-JS.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REDLINING.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "OOXML.md (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3858
+      },
+      {
+        "file": "references/openai_yaml.md",
+        "tokens": 494
+      }
+    ],
+    "total": 4352
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2262
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 41
+      }
+    ],
+    "total": 2303
+  }
+}

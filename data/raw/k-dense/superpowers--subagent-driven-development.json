@@ -1,0 +1,64 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers/skills/subagent-driven-development",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: code-quality-reviewer-prompt.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: implementer-prompt.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: spec-reviewer-prompt.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"subagent-driven-development\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (85 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2237
+      }
+    ],
+    "total": 2237
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "code-quality-reviewer-prompt.md",
+        "tokens": 140
+      },
+      {
+        "file": "implementer-prompt.md",
+        "tokens": 503
+      },
+      {
+        "file": "spec-reviewer-prompt.md",
+        "tokens": 406
+      }
+    ],
+    "total": 1049
+  }
+}

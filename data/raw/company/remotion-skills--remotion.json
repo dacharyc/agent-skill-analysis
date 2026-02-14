@@ -1,0 +1,383 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/remotion-skills/skills/remotion",
+  "passed": false,
+  "errors": 2,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 37 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"remotion\", got \"remotion-best-practices\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"remotion-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (53 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./rules/subtitles.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./rules/ffmpeg.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./rules/audio-visualization.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/3d.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/animations.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/assets.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/audio.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/calculate-metadata.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/can-decode.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/charts.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/compositions.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/extract-frames.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/fonts.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/get-audio-duration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/get-video-dimensions.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/get-video-duration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/gifs.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/images.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/light-leaks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/lottie.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/measuring-dom-nodes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/measuring-text.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/sequencing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/tailwind.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/text-animations.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/timing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/transitions.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/transparent-videos.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/trimming.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/videos.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/parameters.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/maps.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/voiceover.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 28328 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 28,328 tokens of non-standard content but only 960 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 960
+      }
+    ],
+    "total": 960
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "rules/3d.md",
+        "tokens": 620
+      },
+      {
+        "file": "rules/animations.md",
+        "tokens": 192
+      },
+      {
+        "file": "rules/assets/charts-bar-chart.tsx",
+        "tokens": 1098
+      },
+      {
+        "file": "rules/assets/text-animations-typewriter.tsx",
+        "tokens": 620
+      },
+      {
+        "file": "rules/assets/text-animations-word-highlight.tsx",
+        "tokens": 672
+      },
+      {
+        "file": "rules/assets.md",
+        "tokens": 409
+      },
+      {
+        "file": "rules/audio-visualization.md",
+        "tokens": 1324
+      },
+      {
+        "file": "rules/audio.md",
+        "tokens": 977
+      },
+      {
+        "file": "rules/calculate-metadata.md",
+        "tokens": 738
+      },
+      {
+        "file": "rules/can-decode.md",
+        "tokens": 401
+      },
+      {
+        "file": "rules/charts.md",
+        "tokens": 821
+      },
+      {
+        "file": "rules/compositions.md",
+        "tokens": 883
+      },
+      {
+        "file": "rules/display-captions.md",
+        "tokens": 1320
+      },
+      {
+        "file": "rules/extract-frames.md",
+        "tokens": 1325
+      },
+      {
+        "file": "rules/ffmpeg.md",
+        "tokens": 296
+      },
+      {
+        "file": "rules/fonts.md",
+        "tokens": 909
+      },
+      {
+        "file": "rules/get-audio-duration.md",
+        "tokens": 344
+      },
+      {
+        "file": "rules/get-video-dimensions.md",
+        "tokens": 403
+      },
+      {
+        "file": "rules/get-video-duration.md",
+        "tokens": 341
+      },
+      {
+        "file": "rules/gifs.md",
+        "tokens": 969
+      },
+      {
+        "file": "rules/images.md",
+        "tokens": 693
+      },
+      {
+        "file": "rules/import-srt-captions.md",
+        "tokens": 581
+      },
+      {
+        "file": "rules/light-leaks.md",
+        "tokens": 570
+      },
+      {
+        "file": "rules/lottie.md",
+        "tokens": 459
+      },
+      {
+        "file": "rules/maps.md",
+        "tokens": 2971
+      },
+      {
+        "file": "rules/measuring-dom-nodes.md",
+        "tokens": 233
+      },
+      {
+        "file": "rules/measuring-text.md",
+        "tokens": 746
+      },
+      {
+        "file": "rules/parameters.md",
+        "tokens": 642
+      },
+      {
+        "file": "rules/sequencing.md",
+        "tokens": 684
+      },
+      {
+        "file": "rules/subtitles.md",
+        "tokens": 229
+      },
+      {
+        "file": "rules/tailwind.md",
+        "tokens": 98
+      },
+      {
+        "file": "rules/text-animations.md",
+        "tokens": 147
+      },
+      {
+        "file": "rules/timing.md",
+        "tokens": 1084
+      },
+      {
+        "file": "rules/transcribe-captions.md",
+        "tokens": 483
+      },
+      {
+        "file": "rules/transitions.md",
+        "tokens": 1357
+      },
+      {
+        "file": "rules/transparent-videos.md",
+        "tokens": 587
+      },
+      {
+        "file": "rules/trimming.md",
+        "tokens": 295
+      },
+      {
+        "file": "rules/videos.md",
+        "tokens": 976
+      },
+      {
+        "file": "rules/voiceover.md",
+        "tokens": 831
+      }
+    ],
+    "total": 28328
+  }
+}

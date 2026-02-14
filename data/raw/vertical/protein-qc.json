@@ -1,0 +1,63 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/protein-design-skills/skills/protein-qc",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"protein-qc\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (610 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"category\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"tags\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2592
+      },
+      {
+        "file": "references/binding-qc.md",
+        "tokens": 1301
+      },
+      {
+        "file": "references/composite-scoring.md",
+        "tokens": 2265
+      },
+      {
+        "file": "references/expression-qc.md",
+        "tokens": 2017
+      },
+      {
+        "file": "references/structural-qc.md",
+        "tokens": 2052
+      }
+    ],
+    "total": 10227
+  }
+}

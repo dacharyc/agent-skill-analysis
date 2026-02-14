@@ -1,0 +1,42 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-researcher",
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-researcher\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (304 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file#Lline (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file_path#Lline_number (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 943
+      }
+    ],
+    "total": 943
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/collaboration/remembering-conversations",
+  "passed": false,
+  "errors": 3,
+  "warnings": 6,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: DEPLOYMENT.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: INDEXING.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: tool/ (contains 12 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name \"Remembering Conversations\" must be lowercase alphanumeric with hyphens, no leading/trailing/consecutive hyphens"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"remembering-conversations\", got \"Remembering Conversations\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (115 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"when_to_use\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 65136 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 65,136 tokens of non-standard content but only 386 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 386
+      }
+    ],
+    "total": 386
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "DEPLOYMENT.md",
+        "tokens": 2196
+      },
+      {
+        "file": "INDEXING.md",
+        "tokens": 908
+      },
+      {
+        "file": "tool/hooks/sessionEnd",
+        "tokens": 97
+      },
+      {
+        "file": "tool/index-conversations",
+        "tokens": 607
+      },
+      {
+        "file": "tool/install-hook",
+        "tokens": 574
+      },
+      {
+        "file": "tool/migrate-to-config.sh",
+        "tokens": 1070
+      },
+      {
+        "file": "tool/package-lock.json",
+        "tokens": 38097
+      },
+      {
+        "file": "tool/package.json",
+        "tokens": 245
+      },
+      {
+        "file": "tool/prompts/search-agent.md",
+        "tokens": 1190
+      },
+      {
+        "file": "tool/search-conversations",
+        "tokens": 665
+      },
+      {
+        "file": "tool/src/db.test.ts",
+        "tokens": 837
+      },
+      {
+        "file": "tool/src/db.ts",
+        "tokens": 847
+      },
+      {
+        "file": "tool/src/embeddings.ts",
+        "tokens": 253
+      },
+      {
+        "file": "tool/src/index-cli.ts",
+        "tokens": 878
+      },
+      {
+        "file": "tool/src/indexer.ts",
+        "tokens": 2798
+      },
+      {
+        "file": "tool/src/parser.ts",
+        "tokens": 704
+      },
+      {
+        "file": "tool/src/paths.ts",
+        "tokens": 321
+      },
+      {
+        "file": "tool/src/search-agent-template.test.ts",
+        "tokens": 906
+      },
+      {
+        "file": "tool/src/search-cli.ts",
+        "tokens": 187
+      },
+      {
+        "file": "tool/src/search.ts",
+        "tokens": 1237
+      },
+      {
+        "file": "tool/src/summarizer.ts",
+        "tokens": 1318
+      },
+      {
+        "file": "tool/src/types.ts",
+        "tokens": 73
+      },
+      {
+        "file": "tool/src/verify.test.ts",
+        "tokens": 2699
+      },
+      {
+        "file": "tool/src/verify.ts",
+        "tokens": 1229
+      },
+      {
+        "file": "tool/test-deployment.sh",
+        "tokens": 3476
+      },
+      {
+        "file": "tool/test-install-hook.sh",
+        "tokens": 1635
+      },
+      {
+        "file": "tool/tsconfig.json",
+        "tokens": 89
+      }
+    ],
+    "total": 65136
+  }
+}

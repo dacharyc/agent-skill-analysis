@@ -1,0 +1,254 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/turborepo",
+  "passed": true,
+  "errors": 0,
+  "warnings": 15,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SYNC.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: command/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/best-practices/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/boundaries/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/caching/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/ci/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/cli/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/configuration/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/environment/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/filtering/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/watch/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"turborepo\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (462 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 19 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/configuration/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/configuration/tasks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/configuration/global-options.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/configuration/gotchas.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/caching/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/caching/remote-cache.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/caching/gotchas.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/environment/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/environment/modes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/environment/gotchas.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/filtering/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/filtering/patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/ci/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/ci/github-actions.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/ci/vercel.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/ci/patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/cli/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/cli/commands.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/best-practices/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/best-practices/structure.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/best-practices/packages.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/best-practices/dependencies.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/watch/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/boundaries/RULE.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://turborepo.dev/docs (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6329 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 902 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6329
+      }
+    ],
+    "total": 6329
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.md",
+        "tokens": 205
+      },
+      {
+        "file": "SYNC.md",
+        "tokens": 65
+      },
+      {
+        "file": "command/turborepo.md",
+        "tokens": 607
+      }
+    ],
+    "total": 877
+  }
+}

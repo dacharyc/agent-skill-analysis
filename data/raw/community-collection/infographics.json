@@ -1,0 +1,64 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/infographics",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"infographics\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (269 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/keys (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 559 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4066
+      },
+      {
+        "file": "references/color_palettes.md",
+        "tokens": 4698
+      },
+      {
+        "file": "references/design_principles.md",
+        "tokens": 4139
+      },
+      {
+        "file": "references/infographic_types.md",
+        "tokens": 7254
+      }
+    ],
+    "total": 20157
+  }
+}

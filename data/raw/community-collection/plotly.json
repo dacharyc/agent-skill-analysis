@@ -1,0 +1,102 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/plotly",
+  "passed": false,
+  "errors": 5,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"plotly\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (238 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/plotly-express.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/graph-objects.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/chart-types.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/layouts-styling.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/export-interactivity.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://plotly.com/python/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://plotly.com/python-api-reference/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://community.plotly.com/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1965
+      },
+      {
+        "file": "references/chart-types.md",
+        "tokens": 2655
+      },
+      {
+        "file": "references/export-interactivity.md",
+        "tokens": 2420
+      },
+      {
+        "file": "references/graph-objects.md",
+        "tokens": 1820
+      },
+      {
+        "file": "references/layouts-styling.md",
+        "tokens": 2723
+      },
+      {
+        "file": "references/plotly-express.md",
+        "tokens": 1340
+      }
+    ],
+    "total": 12923
+  }
+}

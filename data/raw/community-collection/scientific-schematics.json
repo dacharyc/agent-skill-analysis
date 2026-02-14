@@ -1,0 +1,109 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/scientific-schematics",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"scientific-schematics\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (347 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/keys (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://schemdraw.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://networkx.org/documentation/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://matplotlib.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nature.com/nature/for-authors/final-submission (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.science.org/content/page/instructions-preparing-initial-manuscript (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://www.consort-statement.org/consort-statement/flow-diagram (HTTP 404)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5440 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 613 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5440
+      },
+      {
+        "file": "references/QUICK_REFERENCE.md",
+        "tokens": 1281
+      },
+      {
+        "file": "references/README.md",
+        "tokens": 2129
+      },
+      {
+        "file": "references/best_practices.md",
+        "tokens": 4090
+      }
+    ],
+    "total": 12940
+  }
+}

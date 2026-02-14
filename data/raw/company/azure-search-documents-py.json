@@ -1,0 +1,83 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-search-documents-py",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-search-documents-py\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (239 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 6 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/vector-search.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/semantic-ranking.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/setup_vector_index.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/agentic-retrieval.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 522 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3109
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 4536
+      },
+      {
+        "file": "references/agentic-retrieval.md",
+        "tokens": 1626
+      },
+      {
+        "file": "references/semantic-ranking.md",
+        "tokens": 1519
+      },
+      {
+        "file": "references/vector-search.md",
+        "tokens": 1476
+      }
+    ],
+    "total": 12266
+  }
+}

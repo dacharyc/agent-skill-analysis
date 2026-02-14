@@ -1,0 +1,81 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/scientific-critical-thinking",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"scientific-critical-thinking\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (340 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 564 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4848
+      },
+      {
+        "file": "references/common_biases.md",
+        "tokens": 2288
+      },
+      {
+        "file": "references/evidence_hierarchy.md",
+        "tokens": 2817
+      },
+      {
+        "file": "references/experimental_design.md",
+        "tokens": 3646
+      },
+      {
+        "file": "references/logical_fallacies.md",
+        "tokens": 3913
+      },
+      {
+        "file": "references/scientific_method.md",
+        "tokens": 1212
+      },
+      {
+        "file": "references/statistical_pitfalls.md",
+        "tokens": 3406
+      }
+    ],
+    "total": 22130
+  }
+}

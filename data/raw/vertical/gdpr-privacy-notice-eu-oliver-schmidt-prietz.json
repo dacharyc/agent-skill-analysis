@@ -1,0 +1,94 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/gdpr-privacy-notice-eu-oliver-schmidt-prietz",
+  "passed": true,
+  "errors": 0,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"gdpr-privacy-notice-eu-oliver-schmidt-prietz\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (593 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 5 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5120 tokens (spec recommends < 5000)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5120
+      },
+      {
+        "file": "references/DE.md",
+        "tokens": 2251
+      },
+      {
+        "file": "references/EU_COMMON.md",
+        "tokens": 4094
+      },
+      {
+        "file": "references/FR.md",
+        "tokens": 1850
+      },
+      {
+        "file": "references/NOTICE_TYPES.md",
+        "tokens": 7265
+      },
+      {
+        "file": "references/OTHER_EU.md",
+        "tokens": 1429
+      },
+      {
+        "file": "references/templates.md",
+        "tokens": 6285
+      }
+    ],
+    "total": 28294
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      },
+      {
+        "file": "README.md",
+        "tokens": 1206
+      }
+    ],
+    "total": 8481
+  }
+}

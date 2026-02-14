@@ -1,0 +1,85 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/web-asset-generator/skills/web-asset-generator",
+  "passed": false,
+  "errors": 1,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: CLAUDE.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: scripts/lib/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"web-asset-generator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (340 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.facebook.com/tools/debug/ (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://cards-dev.twitter.com/validator (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.linkedin.com/post-inspector/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.opengraph.xyz/ (HTTP 429)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6618 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 763 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6618
+      },
+      {
+        "file": "references/specifications.md",
+        "tokens": 1492
+      }
+    ],
+    "total": 8110
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "CLAUDE.md",
+        "tokens": 1502
+      }
+    ],
+    "total": 1502
+  }
+}

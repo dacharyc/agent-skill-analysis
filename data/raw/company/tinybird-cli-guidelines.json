@@ -1,0 +1,74 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/tinybird-skills/skills/tinybird-cli-guidelines",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 8 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"tinybird-cli-guidelines\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (151 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 226
+      }
+    ],
+    "total": 226
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "rules/append-data.md",
+        "tokens": 187
+      },
+      {
+        "file": "rules/build-deploy.md",
+        "tokens": 459
+      },
+      {
+        "file": "rules/cli-commands.md",
+        "tokens": 1245
+      },
+      {
+        "file": "rules/data-operations.md",
+        "tokens": 443
+      },
+      {
+        "file": "rules/local-development.md",
+        "tokens": 328
+      },
+      {
+        "file": "rules/mock-data.md",
+        "tokens": 321
+      },
+      {
+        "file": "rules/secrets.md",
+        "tokens": 189
+      },
+      {
+        "file": "rules/tokens.md",
+        "tokens": 388
+      }
+    ],
+    "total": 3560
+  }
+}

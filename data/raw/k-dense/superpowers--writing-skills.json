@@ -1,0 +1,96 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers/skills/writing-skills",
+  "passed": true,
+  "errors": 0,
+  "warnings": 7,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: anthropic-best-practices.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: graphviz-conventions.dot \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: persuasion-principles.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: render-graphs.js \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: testing-skills-with-subagents.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"writing-skills\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (97 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 652 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4989
+      }
+    ],
+    "total": 4989
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "anthropic-best-practices.md",
+        "tokens": 10912
+      },
+      {
+        "file": "examples/CLAUDE_MD_TESTING.md",
+        "tokens": 1279
+      },
+      {
+        "file": "graphviz-conventions.dot",
+        "tokens": 1539
+      },
+      {
+        "file": "persuasion-principles.md",
+        "tokens": 1361
+      },
+      {
+        "file": "render-graphs.js",
+        "tokens": 1260
+      },
+      {
+        "file": "testing-skills-with-subagents.md",
+        "tokens": 2866
+      }
+    ],
+    "total": 19217
+  }
+}

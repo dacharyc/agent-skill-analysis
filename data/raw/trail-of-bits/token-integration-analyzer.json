@@ -1,0 +1,70 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/building-secure-contracts/skills/token-integration-analyzer",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"token-integration-analyzer\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (409 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/ASSESSMENT_CATEGORIES.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "resources/ASSESSMENT_CATEGORIES.md#7-weird-erc20-patterns (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/REPORT_TEMPLATES.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Markdown",
+      "message": "SKILL.md has an unclosed code fence starting at line 314 \u2014 this may cause agents to misinterpret everything after it as code"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2801
+      }
+    ],
+    "total": 2801
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "resources/ASSESSMENT_CATEGORIES.md",
+        "tokens": 3277
+      },
+      {
+        "file": "resources/REPORT_TEMPLATES.md",
+        "tokens": 882
+      }
+    ],
+    "total": 4159
+  }
+}

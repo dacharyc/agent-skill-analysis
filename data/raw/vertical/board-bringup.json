@@ -1,0 +1,60 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/zephyr-skills/skills/board-bringup",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"board-bringup\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (278 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/hwmv2_structure.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/board_files.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/hwmv2_structure.md#revision-management (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 331
+      },
+      {
+        "file": "references/board_files.md",
+        "tokens": 216
+      },
+      {
+        "file": "references/hwmv2_structure.md",
+        "tokens": 283
+      }
+    ],
+    "total": 830
+  }
+}

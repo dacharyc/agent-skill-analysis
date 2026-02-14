@@ -1,0 +1,79 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/gget",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"gget\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (306 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"BSD-2-Clause license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pachterlab.github.io/gget/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/pachterlab/gget/issues (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://doi.org/10.1093/bioinformatics/btac836 (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 7084 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 865 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 7084
+      },
+      {
+        "file": "references/database_info.md",
+        "tokens": 2480
+      },
+      {
+        "file": "references/module_reference.md",
+        "tokens": 4907
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 6788
+      }
+    ],
+    "total": 21259
+  }
+}

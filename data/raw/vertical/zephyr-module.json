@@ -1,0 +1,60 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/zephyr-skills/skills/zephyr-module",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"zephyr-module\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (266 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/module_definition.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/west_integration.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/module_definition.md#the-glue-pattern (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 289
+      },
+      {
+        "file": "references/module_definition.md",
+        "tokens": 266
+      },
+      {
+        "file": "references/west_integration.md",
+        "tokens": 160
+      }
+    ],
+    "total": 715
+  }
+}

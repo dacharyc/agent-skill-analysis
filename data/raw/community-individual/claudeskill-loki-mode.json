@@ -1,0 +1,5896 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claudeskill-loki-mode",
+  "passed": false,
+  "errors": 4,
+  "warnings": 43,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "CHANGELOG.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: CLAUDE.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: CODEOWNERS \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "CODE_OF_CONDUCT.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "CONTRIBUTING.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: DOCKER_README.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: Dockerfile \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: Dockerfile.sandbox \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: VERSION \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: action.yml \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agent-skills/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: api/ (contains 12 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: api-examples/ (contains 5 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: autonomy/ (contains 18 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: benchmarks/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: bin/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: blog/ (contains 5 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: collab/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: completions/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: dashboard/ (contains 16 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: dashboard-ui/ (contains 15 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: demo/ (contains 9 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: docker-compose.yml \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: docs/ (contains 16 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: events/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: index.html \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: integrations/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: learning/ (contains 9 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: mcp/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: memory/ (contains 14 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: package.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: providers/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: skills/ (contains 13 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: state/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: swarm/ (contains 8 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 14 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: tests/ (contains 41 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: vscode-extension/ (contains 12 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: wiki/ (contains 27 files) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"claudeskill-loki-mode\", got \"loki-mode\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"loki-mode\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (169 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "references/memory-system.md is 13041 tokens \u2014 consider splitting into smaller focused files so agents load only what they need"
+    },
+    {
+      "level": "error",
+      "category": "Tokens",
+      "message": "total reference files: 67435 tokens \u2014 this will consume 25-40% of a typical context window; reduce content or split into a skill with fewer references"
+    },
+    {
+      "level": "error",
+      "category": "Tokens",
+      "message": "non-standard files total 3028296 tokens \u2014 if an agent loads these, they will consume most of the context window and severely degrade performance; move essential content into references/ or remove unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 3,028,296 tokens of non-standard content but only 70,188 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2753
+      },
+      {
+        "file": "references/advanced-patterns.md",
+        "tokens": 3125
+      },
+      {
+        "file": "references/agent-types.md",
+        "tokens": 2208
+      },
+      {
+        "file": "references/agents.md",
+        "tokens": 5565
+      },
+      {
+        "file": "references/business-ops.md",
+        "tokens": 2987
+      },
+      {
+        "file": "references/competitive-analysis.md",
+        "tokens": 1704
+      },
+      {
+        "file": "references/confidence-routing.md",
+        "tokens": 2420
+      },
+      {
+        "file": "references/core-workflow.md",
+        "tokens": 2303
+      },
+      {
+        "file": "references/cursor-learnings.md",
+        "tokens": 1306
+      },
+      {
+        "file": "references/deployment.md",
+        "tokens": 3437
+      },
+      {
+        "file": "references/lab-research-patterns.md",
+        "tokens": 3523
+      },
+      {
+        "file": "references/mcp-integration.md",
+        "tokens": 1184
+      },
+      {
+        "file": "references/memory-system.md",
+        "tokens": 13041
+      },
+      {
+        "file": "references/multi-provider.md",
+        "tokens": 2751
+      },
+      {
+        "file": "references/openai-patterns.md",
+        "tokens": 3944
+      },
+      {
+        "file": "references/production-patterns.md",
+        "tokens": 3315
+      },
+      {
+        "file": "references/prompt-repetition.md",
+        "tokens": 1396
+      },
+      {
+        "file": "references/quality-control.md",
+        "tokens": 3097
+      },
+      {
+        "file": "references/sdlc-phases.md",
+        "tokens": 2382
+      },
+      {
+        "file": "references/task-queue.md",
+        "tokens": 2302
+      },
+      {
+        "file": "references/tool-orchestration.md",
+        "tokens": 5445
+      }
+    ],
+    "total": 70188
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "CHANGELOG.md",
+        "tokens": 58792
+      },
+      {
+        "file": "CLAUDE.md",
+        "tokens": 3559
+      },
+      {
+        "file": "CODEOWNERS",
+        "tokens": 6
+      },
+      {
+        "file": "CODE_OF_CONDUCT.md",
+        "tokens": 364
+      },
+      {
+        "file": "CONTRIBUTING.md",
+        "tokens": 697
+      },
+      {
+        "file": "DOCKER_README.md",
+        "tokens": 603
+      },
+      {
+        "file": "Dockerfile",
+        "tokens": 1209
+      },
+      {
+        "file": "Dockerfile.sandbox",
+        "tokens": 2606
+      },
+      {
+        "file": "LICENSE",
+        "tokens": 222
+      },
+      {
+        "file": "README.md",
+        "tokens": 9722
+      },
+      {
+        "file": "VERSION",
+        "tokens": 6
+      },
+      {
+        "file": "action.yml",
+        "tokens": 3814
+      },
+      {
+        "file": "agent-skills/README.md",
+        "tokens": 947
+      },
+      {
+        "file": "agent-skills/checkpoint-mode/SKILL.md",
+        "tokens": 1016
+      },
+      {
+        "file": "agent-skills/prompt-optimization/SKILL.md",
+        "tokens": 582
+      },
+      {
+        "file": "api/README.md",
+        "tokens": 1853
+      },
+      {
+        "file": "api/client.ts",
+        "tokens": 2227
+      },
+      {
+        "file": "api/middleware/auth.ts",
+        "tokens": 720
+      },
+      {
+        "file": "api/middleware/cors.ts",
+        "tokens": 754
+      },
+      {
+        "file": "api/middleware/error.ts",
+        "tokens": 1506
+      },
+      {
+        "file": "api/middleware/timing.ts",
+        "tokens": 719
+      },
+      {
+        "file": "api/mod.ts",
+        "tokens": 284
+      },
+      {
+        "file": "api/openapi.yaml",
+        "tokens": 6160
+      },
+      {
+        "file": "api/routes/events.ts",
+        "tokens": 1001
+      },
+      {
+        "file": "api/routes/health.ts",
+        "tokens": 1966
+      },
+      {
+        "file": "api/routes/learning.ts",
+        "tokens": 3090
+      },
+      {
+        "file": "api/routes/learning_test.ts",
+        "tokens": 3280
+      },
+      {
+        "file": "api/routes/memory.ts",
+        "tokens": 9017
+      },
+      {
+        "file": "api/routes/sessions.ts",
+        "tokens": 1836
+      },
+      {
+        "file": "api/routes/tasks.ts",
+        "tokens": 1129
+      },
+      {
+        "file": "api/server.js",
+        "tokens": 5383
+      },
+      {
+        "file": "api/server.ts",
+        "tokens": 3198
+      },
+      {
+        "file": "api/server_test.ts",
+        "tokens": 2830
+      },
+      {
+        "file": "api/services/cli-bridge.ts",
+        "tokens": 3272
+      },
+      {
+        "file": "api/services/event-bus.ts",
+        "tokens": 1110
+      },
+      {
+        "file": "api/services/learning-collector.ts",
+        "tokens": 4403
+      },
+      {
+        "file": "api/services/learning-collector_test.ts",
+        "tokens": 2916
+      },
+      {
+        "file": "api/services/state-notifications.ts",
+        "tokens": 2340
+      },
+      {
+        "file": "api/services/state-watcher.ts",
+        "tokens": 3584
+      },
+      {
+        "file": "api/test.js",
+        "tokens": 3450
+      },
+      {
+        "file": "api/types/api.ts",
+        "tokens": 574
+      },
+      {
+        "file": "api/types/events.ts",
+        "tokens": 717
+      },
+      {
+        "file": "api/types/memory.ts",
+        "tokens": 1244
+      },
+      {
+        "file": "api-examples/README.md",
+        "tokens": 710
+      },
+      {
+        "file": "api-examples/bash-api.sh",
+        "tokens": 993
+      },
+      {
+        "file": "api-examples/deno-api.ts",
+        "tokens": 1677
+      },
+      {
+        "file": "api-examples/node-api.js",
+        "tokens": 1535
+      },
+      {
+        "file": "api-examples/python-api.py",
+        "tokens": 1581
+      },
+      {
+        "file": "autonomy/CONSTITUTION.md",
+        "tokens": 3725
+      },
+      {
+        "file": "autonomy/NOTIFY_INTEGRATION.md",
+        "tokens": 2064
+      },
+      {
+        "file": "autonomy/README.md",
+        "tokens": 1410
+      },
+      {
+        "file": "autonomy/api-server.js",
+        "tokens": 4194
+      },
+      {
+        "file": "autonomy/completion-council.sh",
+        "tokens": 10723
+      },
+      {
+        "file": "autonomy/config.example.yaml",
+        "tokens": 891
+      },
+      {
+        "file": "autonomy/context-tracker.py",
+        "tokens": 2990
+      },
+      {
+        "file": "autonomy/hooks/quality-gate.sh",
+        "tokens": 417
+      },
+      {
+        "file": "autonomy/hooks/session-init.sh",
+        "tokens": 466
+      },
+      {
+        "file": "autonomy/hooks/store-episode.sh",
+        "tokens": 413
+      },
+      {
+        "file": "autonomy/hooks/track-metrics.sh",
+        "tokens": 210
+      },
+      {
+        "file": "autonomy/hooks/validate-bash.sh",
+        "tokens": 630
+      },
+      {
+        "file": "autonomy/issue-parser.sh",
+        "tokens": 5178
+      },
+      {
+        "file": "autonomy/loki",
+        "tokens": 63342
+      },
+      {
+        "file": "autonomy/notification-checker.py",
+        "tokens": 2715
+      },
+      {
+        "file": "autonomy/notify.sh",
+        "tokens": 2604
+      },
+      {
+        "file": "autonomy/run.sh",
+        "tokens": 70250
+      },
+      {
+        "file": "autonomy/sandbox.sh",
+        "tokens": 13299
+      },
+      {
+        "file": "autonomy/seccomp-sandbox.json",
+        "tokens": 2644
+      },
+      {
+        "file": "autonomy/serve.sh",
+        "tokens": 1864
+      },
+      {
+        "file": "autonomy/telemetry.sh",
+        "tokens": 853
+      },
+      {
+        "file": "autonomy/voice.sh",
+        "tokens": 3620
+      },
+      {
+        "file": "benchmarks/datasets/humaneval.jsonl",
+        "tokens": 71508
+      },
+      {
+        "file": "benchmarks/datasets/swebench-lite.json",
+        "tokens": 99
+      },
+      {
+        "file": "benchmarks/embedding-benchmark.py",
+        "tokens": 4451
+      },
+      {
+        "file": "benchmarks/prepare-submission.sh",
+        "tokens": 1779
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-23-56/SUMMARY.md",
+        "tokens": 278
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-23-56/humaneval-results.json",
+        "tokens": 122
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-23-56/swebench-results.json",
+        "tokens": 111
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/SUMMARY.md",
+        "tokens": 327
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-results.json",
+        "tokens": 11276
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/0.py",
+        "tokens": 160
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/1.py",
+        "tokens": 202
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/10.py",
+        "tokens": 175
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/100.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/101.py",
+        "tokens": 144
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/102.py",
+        "tokens": 132
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/103.py",
+        "tokens": 163
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/104.py",
+        "tokens": 163
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/105.py",
+        "tokens": 378
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/106.py",
+        "tokens": 212
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/107.py",
+        "tokens": 281
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/108.py",
+        "tokens": 210
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/109.py",
+        "tokens": 410
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/11.py",
+        "tokens": 118
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/110.py",
+        "tokens": 263
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/111.py",
+        "tokens": 232
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/112.py",
+        "tokens": 194
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/113.py",
+        "tokens": 231
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/114.py",
+        "tokens": 140
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/115.py",
+        "tokens": 364
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/116.py",
+        "tokens": 183
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/117.py",
+        "tokens": 247
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/118.py",
+        "tokens": 219
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/119.py",
+        "tokens": 263
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/12.py",
+        "tokens": 143
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/120.py",
+        "tokens": 236
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/121.py",
+        "tokens": 120
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/122.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/123.py",
+        "tokens": 307
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/124.py",
+        "tokens": 464
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/125.py",
+        "tokens": 204
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/126.py",
+        "tokens": 326
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/127.py",
+        "tokens": 413
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/128.py",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/129.py",
+        "tokens": 649
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/13.py",
+        "tokens": 82
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/130.py",
+        "tokens": 322
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/131.py",
+        "tokens": 124
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/132.py",
+        "tokens": 266
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/133.py",
+        "tokens": 169
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/134.py",
+        "tokens": 196
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/135.py",
+        "tokens": 134
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/136.py",
+        "tokens": 200
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/137.py",
+        "tokens": 209
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/138.py",
+        "tokens": 85
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/139.py",
+        "tokens": 127
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/14.py",
+        "tokens": 70
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/140.py",
+        "tokens": 234
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/141.py",
+        "tokens": 366
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/142.py",
+        "tokens": 225
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/143.py",
+        "tokens": 254
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/144.py",
+        "tokens": 204
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/145.py",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/146.py",
+        "tokens": 201
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/147.py",
+        "tokens": 250
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/148.py",
+        "tokens": 312
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/149.py",
+        "tokens": 216
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/15.py",
+        "tokens": 79
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/150.py",
+        "tokens": 127
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/151.py",
+        "tokens": 192
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/152.py",
+        "tokens": 243
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/153.py",
+        "tokens": 356
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/154.py",
+        "tokens": 153
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/155.py",
+        "tokens": 123
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/156.py",
+        "tokens": 252
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/157.py",
+        "tokens": 135
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/158.py",
+        "tokens": 132
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/159.py",
+        "tokens": 299
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/16.py",
+        "tokens": 74
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/160.py",
+        "tokens": 244
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/161.py",
+        "tokens": 167
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/162.py",
+        "tokens": 94
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/163.py",
+        "tokens": 150
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/17.py",
+        "tokens": 224
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/18.py",
+        "tokens": 148
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/19.py",
+        "tokens": 210
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/2.py",
+        "tokens": 85
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/20.py",
+        "tokens": 255
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/21.py",
+        "tokens": 159
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/22.py",
+        "tokens": 109
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/23.py",
+        "tokens": 42
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/24.py",
+        "tokens": 79
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/25.py",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/26.py",
+        "tokens": 106
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/27.py",
+        "tokens": 48
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/28.py",
+        "tokens": 57
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/29.py",
+        "tokens": 95
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/3.py",
+        "tokens": 143
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/30.py",
+        "tokens": 121
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/31.py",
+        "tokens": 168
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/32.py",
+        "tokens": 479
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/33.py",
+        "tokens": 226
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/34.py",
+        "tokens": 73
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/35.py",
+        "tokens": 81
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/36.py",
+        "tokens": 117
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/37.py",
+        "tokens": 157
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/38.py",
+        "tokens": 162
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/39.py",
+        "tokens": 231
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/4.py",
+        "tokens": 139
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/40.py",
+        "tokens": 214
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/41.py",
+        "tokens": 148
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/42.py",
+        "tokens": 115
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/43.py",
+        "tokens": 181
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/44.py",
+        "tokens": 128
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/45.py",
+        "tokens": 50
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/46.py",
+        "tokens": 248
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/47.py",
+        "tokens": 128
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/48.py",
+        "tokens": 73
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/49.py",
+        "tokens": 110
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/5.py",
+        "tokens": 133
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/50.py",
+        "tokens": 116
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/51.py",
+        "tokens": 134
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/52.py",
+        "tokens": 84
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/53.py",
+        "tokens": 52
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/54.py",
+        "tokens": 143
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/55.py",
+        "tokens": 111
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/56.py",
+        "tokens": 140
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/57.py",
+        "tokens": 149
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/58.py",
+        "tokens": 120
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/59.py",
+        "tokens": 135
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/6.py",
+        "tokens": 190
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/60.py",
+        "tokens": 101
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/61.py",
+        "tokens": 138
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/62.py",
+        "tokens": 120
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/63.py",
+        "tokens": 226
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/64.py",
+        "tokens": 166
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/65.py",
+        "tokens": 118
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/66.py",
+        "tokens": 120
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/67.py",
+        "tokens": 233
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/68.py",
+        "tokens": 391
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/69.py",
+        "tokens": 209
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/7.py",
+        "tokens": 100
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/70.py",
+        "tokens": 184
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/71.py",
+        "tokens": 191
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/72.py",
+        "tokens": 252
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/73.py",
+        "tokens": 196
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/74.py",
+        "tokens": 236
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/75.py",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/76.py",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/77.py",
+        "tokens": 140
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/78.py",
+        "tokens": 345
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/79.py",
+        "tokens": 148
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/8.py",
+        "tokens": 145
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/80.py",
+        "tokens": 181
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/81.py",
+        "tokens": 517
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/82.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/83.py",
+        "tokens": 298
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/84.py",
+        "tokens": 150
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/85.py",
+        "tokens": 90
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/86.py",
+        "tokens": 152
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/87.py",
+        "tokens": 323
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/88.py",
+        "tokens": 252
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/89.py",
+        "tokens": 214
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/9.py",
+        "tokens": 142
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/90.py",
+        "tokens": 161
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/91.py",
+        "tokens": 158
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/92.py",
+        "tokens": 182
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/93.py",
+        "tokens": 220
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/94.py",
+        "tokens": 418
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/95.py",
+        "tokens": 240
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/96.py",
+        "tokens": 249
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/97.py",
+        "tokens": 121
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/98.py",
+        "tokens": 115
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-00-49-17/humaneval-solutions/99.py",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/SUMMARY.md",
+        "tokens": 346
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/astropy__astropy-12907.patch",
+        "tokens": 262
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/astropy__astropy-14182.patch",
+        "tokens": 613
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/astropy__astropy-14365.patch",
+        "tokens": 379
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/astropy__astropy-14995.patch",
+        "tokens": 257
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/astropy__astropy-6938.patch",
+        "tokens": 248
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/astropy__astropy-7746.patch",
+        "tokens": 390
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-10914.patch",
+        "tokens": 801
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-10924.patch",
+        "tokens": 495
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11001.patch",
+        "tokens": 1070
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11019.patch",
+        "tokens": 4482
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11039.patch",
+        "tokens": 906
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11049.patch",
+        "tokens": 273
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11099.patch",
+        "tokens": 319
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11133.patch",
+        "tokens": 320
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11179.patch",
+        "tokens": 633
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11283.patch",
+        "tokens": 540
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11422.patch",
+        "tokens": 393
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11564.patch",
+        "tokens": 2545
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11583.patch",
+        "tokens": 260
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11620.patch",
+        "tokens": 237
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11630.patch",
+        "tokens": 384
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11742.patch",
+        "tokens": 303
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11797.patch",
+        "tokens": 494
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11815.patch",
+        "tokens": 238
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11848.patch",
+        "tokens": 202
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11905.patch",
+        "tokens": 159
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11910.patch",
+        "tokens": 513
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11964.patch",
+        "tokens": 693
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-11999.patch",
+        "tokens": 253
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12113.patch",
+        "tokens": 370
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12125.patch",
+        "tokens": 324
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12184.patch",
+        "tokens": 359
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12284.patch",
+        "tokens": 478
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12286.patch",
+        "tokens": 465
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12308.patch",
+        "tokens": 268
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12453.patch",
+        "tokens": 275
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12470.patch",
+        "tokens": 701
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12497.patch",
+        "tokens": 360
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12589.patch",
+        "tokens": 1881
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12700.patch",
+        "tokens": 285
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12708.patch",
+        "tokens": 896
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12747.patch",
+        "tokens": 191
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12856.patch",
+        "tokens": 201
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12908.patch",
+        "tokens": 163
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12915.patch",
+        "tokens": 819
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-12983.patch",
+        "tokens": 313
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13028.patch",
+        "tokens": 204
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13033.patch",
+        "tokens": 303
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13158.patch",
+        "tokens": 179
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13220.patch",
+        "tokens": 594
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13230.patch",
+        "tokens": 173
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13265.patch",
+        "tokens": 552
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13315.patch",
+        "tokens": 679
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13321.patch",
+        "tokens": 439
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13401.patch",
+        "tokens": 326
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13447.patch",
+        "tokens": 368
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13448.patch",
+        "tokens": 1761
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13551.patch",
+        "tokens": 255
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13590.patch",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13658.patch",
+        "tokens": 229
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13660.patch",
+        "tokens": 332
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13710.patch",
+        "tokens": 248
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13757.patch",
+        "tokens": 841
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13768.patch",
+        "tokens": 304
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13925.patch",
+        "tokens": 1489
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13933.patch",
+        "tokens": 665
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-13964.patch",
+        "tokens": 293
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14016.patch",
+        "tokens": 1639
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14017.patch",
+        "tokens": 1025
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14155.patch",
+        "tokens": 825
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14238.patch",
+        "tokens": 2025
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14382.patch",
+        "tokens": 216
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14411.patch",
+        "tokens": 201
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14534.patch",
+        "tokens": 260
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14580.patch",
+        "tokens": 171
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14608.patch",
+        "tokens": 329
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14667.patch",
+        "tokens": 454
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14672.patch",
+        "tokens": 553
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14730.patch",
+        "tokens": 779
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14752.patch",
+        "tokens": 363
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14787.patch",
+        "tokens": 304
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14855.patch",
+        "tokens": 218
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14915.patch",
+        "tokens": 205
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14997.patch",
+        "tokens": 528
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-14999.patch",
+        "tokens": 335
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15061.patch",
+        "tokens": 241
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15202.patch",
+        "tokens": 218
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15213.patch",
+        "tokens": 819
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15252.patch",
+        "tokens": 637
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15320.patch",
+        "tokens": 459
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15347.patch",
+        "tokens": 467
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15388.patch",
+        "tokens": 297
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15400.patch",
+        "tokens": 184
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15498.patch",
+        "tokens": 206
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15695.patch",
+        "tokens": 393
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15738.patch",
+        "tokens": 3673
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15781.patch",
+        "tokens": 245
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15789.patch",
+        "tokens": 505
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15790.patch",
+        "tokens": 356
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15814.patch",
+        "tokens": 230
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15819.patch",
+        "tokens": 1316
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15851.patch",
+        "tokens": 172
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15902.patch",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-15996.patch",
+        "tokens": 365
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16041.patch",
+        "tokens": 307
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16046.patch",
+        "tokens": 193
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16139.patch",
+        "tokens": 261
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16229.patch",
+        "tokens": 1653
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16255.patch",
+        "tokens": 252
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16379.patch",
+        "tokens": 335
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16400.patch",
+        "tokens": 399
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16408.patch",
+        "tokens": 308
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16527.patch",
+        "tokens": 187
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16595.patch",
+        "tokens": 175
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16816.patch",
+        "tokens": 328
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16820.patch",
+        "tokens": 2017
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-16873.patch",
+        "tokens": 363
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-17051.patch",
+        "tokens": 513
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/django__django-17087.patch",
+        "tokens": 249
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-18869.patch",
+        "tokens": 838
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-22711.patch",
+        "tokens": 581
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-22835.patch",
+        "tokens": 632
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23299.patch",
+        "tokens": 866
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23314.patch",
+        "tokens": 197
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23476.patch",
+        "tokens": 1003
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23562.patch",
+        "tokens": 436
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23563.patch",
+        "tokens": 338
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23913.patch",
+        "tokens": 1726
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23964.patch",
+        "tokens": 348
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-23987.patch",
+        "tokens": 570
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-24149.patch",
+        "tokens": 265
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-24265.patch",
+        "tokens": 949
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-24334.patch",
+        "tokens": 202
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-24970.patch",
+        "tokens": 379
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-25079.patch",
+        "tokens": 116
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-25311.patch",
+        "tokens": 411
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-25332.patch",
+        "tokens": 345
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-25433.patch",
+        "tokens": 2722
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-25442.patch",
+        "tokens": 323
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-25498.patch",
+        "tokens": 715
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-26011.patch",
+        "tokens": 962
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/matplotlib__matplotlib-26020.patch",
+        "tokens": 376
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/mwaskom__seaborn-2848.patch",
+        "tokens": 706
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/mwaskom__seaborn-3010.patch",
+        "tokens": 600
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/mwaskom__seaborn-3190.patch",
+        "tokens": 236
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/mwaskom__seaborn-3407.patch",
+        "tokens": 480
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pallets__flask-4045.patch",
+        "tokens": 254
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pallets__flask-4992.patch",
+        "tokens": 348
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pallets__flask-5063.patch",
+        "tokens": 1030
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/psf__requests-1963.patch",
+        "tokens": 1261
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/psf__requests-2148.patch",
+        "tokens": 309
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/psf__requests-2317.patch",
+        "tokens": 515
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/psf__requests-2674.patch",
+        "tokens": 1503
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/psf__requests-3362.patch",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/psf__requests-863.patch",
+        "tokens": 387
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pydata__xarray-3364.patch",
+        "tokens": 3941
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pydata__xarray-4094.patch",
+        "tokens": 481
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pydata__xarray-4248.patch",
+        "tokens": 1296
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pydata__xarray-4493.patch",
+        "tokens": 352
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pydata__xarray-5131.patch",
+        "tokens": 574
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pylint-dev__pylint-5859.patch",
+        "tokens": 188
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pylint-dev__pylint-6506.patch",
+        "tokens": 268
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pylint-dev__pylint-7080.patch",
+        "tokens": 359
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pylint-dev__pylint-7114.patch",
+        "tokens": 1989
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pylint-dev__pylint-7228.patch",
+        "tokens": 407
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pylint-dev__pylint-7993.patch",
+        "tokens": 288
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-11143.patch",
+        "tokens": 302
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-11148.patch",
+        "tokens": 683
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-5103.patch",
+        "tokens": 3231
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-5221.patch",
+        "tokens": 314
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-5227.patch",
+        "tokens": 268
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-5413.patch",
+        "tokens": 382
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-5495.patch",
+        "tokens": 341
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-5692.patch",
+        "tokens": 346
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-6116.patch",
+        "tokens": 135
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-7168.patch",
+        "tokens": 324
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-7220.patch",
+        "tokens": 5591
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-7373.patch",
+        "tokens": 440
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-7432.patch",
+        "tokens": 1043
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-7490.patch",
+        "tokens": 877
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-8365.patch",
+        "tokens": 1096
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-8906.patch",
+        "tokens": 516
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/pytest-dev__pytest-9359.patch",
+        "tokens": 388
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-10297.patch",
+        "tokens": 687
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-10508.patch",
+        "tokens": 226
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-10949.patch",
+        "tokens": 1251
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-11040.patch",
+        "tokens": 385
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-11281.patch",
+        "tokens": 592
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-12471.patch",
+        "tokens": 803
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13142.patch",
+        "tokens": 424
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13241.patch",
+        "tokens": 380
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13439.patch",
+        "tokens": 388
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13496.patch",
+        "tokens": 563
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13497.patch",
+        "tokens": 231
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13584.patch",
+        "tokens": 263
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-13779.patch",
+        "tokens": 242
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-14087.patch",
+        "tokens": 491
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-14092.patch",
+        "tokens": 442
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-14894.patch",
+        "tokens": 293
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-14983.patch",
+        "tokens": 220
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-15512.patch",
+        "tokens": 749
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-15535.patch",
+        "tokens": 550
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-25500.patch",
+        "tokens": 520
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-25570.patch",
+        "tokens": 1193
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-25638.patch",
+        "tokens": 641
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/scikit-learn__scikit-learn-25747.patch",
+        "tokens": 417
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-10325.patch",
+        "tokens": 2019
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-10451.patch",
+        "tokens": 1508
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-11445.patch",
+        "tokens": 1313
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-7686.patch",
+        "tokens": 311
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-7738.patch",
+        "tokens": 571
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-7975.patch",
+        "tokens": 1115
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8273.patch",
+        "tokens": 408
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8282.patch",
+        "tokens": 1079
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8435.patch",
+        "tokens": 1447
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8474.patch",
+        "tokens": 841
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8506.patch",
+        "tokens": 627
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8595.patch",
+        "tokens": 254
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8627.patch",
+        "tokens": 523
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8713.patch",
+        "tokens": 405
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8721.patch",
+        "tokens": 362
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sphinx-doc__sphinx-8801.patch",
+        "tokens": 779
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-11400.patch",
+        "tokens": 336
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-11870.patch",
+        "tokens": 1138
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-11897.patch",
+        "tokens": 1465
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-12171.patch",
+        "tokens": 223
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-12236.patch",
+        "tokens": 321
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-12419.patch",
+        "tokens": 360
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-12454.patch",
+        "tokens": 510
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-12481.patch",
+        "tokens": 761
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13031.patch",
+        "tokens": 448
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13043.patch",
+        "tokens": 344
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13146.patch",
+        "tokens": 387
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13177.patch",
+        "tokens": 392
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13437.patch",
+        "tokens": 197
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13471.patch",
+        "tokens": 324
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13480.patch",
+        "tokens": 136
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13647.patch",
+        "tokens": 465
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13773.patch",
+        "tokens": 292
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13895.patch",
+        "tokens": 437
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13915.patch",
+        "tokens": 1115
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-13971.patch",
+        "tokens": 296
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-14024.patch",
+        "tokens": 415
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-14308.patch",
+        "tokens": 353
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-14317.patch",
+        "tokens": 464
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-14396.patch",
+        "tokens": 424
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-14774.patch",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-14817.patch",
+        "tokens": 623
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-15011.patch",
+        "tokens": 343
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-15308.patch",
+        "tokens": 229
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-15345.patch",
+        "tokens": 385
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-15346.patch",
+        "tokens": 382
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-15609.patch",
+        "tokens": 404
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-15678.patch",
+        "tokens": 852
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-16106.patch",
+        "tokens": 785
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-16281.patch",
+        "tokens": 1483
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-16503.patch",
+        "tokens": 981
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-16792.patch",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-16988.patch",
+        "tokens": 165
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-17022.patch",
+        "tokens": 712
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-17139.patch",
+        "tokens": 449
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-17630.patch",
+        "tokens": 1149
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-17655.patch",
+        "tokens": 303
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18057.patch",
+        "tokens": 397
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18087.patch",
+        "tokens": 1192
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18189.patch",
+        "tokens": 213
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18199.patch",
+        "tokens": 336
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18532.patch",
+        "tokens": 1228
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18621.patch",
+        "tokens": 167
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18698.patch",
+        "tokens": 1200
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-18835.patch",
+        "tokens": 313
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-19007.patch",
+        "tokens": 712
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-19254.patch",
+        "tokens": 745
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-19487.patch",
+        "tokens": 324
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20049.patch",
+        "tokens": 1239
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20154.patch",
+        "tokens": 588
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20212.patch",
+        "tokens": 238
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20322.patch",
+        "tokens": 268
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20442.patch",
+        "tokens": 326
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20590.patch",
+        "tokens": 243
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-20639.patch",
+        "tokens": 958
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21055.patch",
+        "tokens": 491
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21171.patch",
+        "tokens": 401
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21379.patch",
+        "tokens": 350
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21612.patch",
+        "tokens": 309
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21614.patch",
+        "tokens": 388
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21627.patch",
+        "tokens": 312
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-21847.patch",
+        "tokens": 324
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-22005.patch",
+        "tokens": 497
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-22714.patch",
+        "tokens": 5616
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-22840.patch",
+        "tokens": 1006
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-23117.patch",
+        "tokens": 307
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-23191.patch",
+        "tokens": 3098
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-23262.patch",
+        "tokens": 295
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-24066.patch",
+        "tokens": 933
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-24102.patch",
+        "tokens": 226
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-24152.patch",
+        "tokens": 313
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-24213.patch",
+        "tokens": 297
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-patches/sympy__sympy-24909.patch",
+        "tokens": 308
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-predictions.json",
+        "tokens": 217577
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-24-17/swebench-results.json",
+        "tokens": 217781
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/SUMMARY.md",
+        "tokens": 346
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/astropy__astropy-12907.patch",
+        "tokens": 464
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/astropy__astropy-14182.patch",
+        "tokens": 437
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/astropy__astropy-14365.patch",
+        "tokens": 568
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/astropy__astropy-14995.patch",
+        "tokens": 211
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/astropy__astropy-6938.patch",
+        "tokens": 161
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/astropy__astropy-7746.patch",
+        "tokens": 278
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-10914.patch",
+        "tokens": 780
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-10924.patch",
+        "tokens": 427
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11001.patch",
+        "tokens": 391
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11019.patch",
+        "tokens": 885
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11039.patch",
+        "tokens": 434
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11049.patch",
+        "tokens": 118
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11099.patch",
+        "tokens": 279
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11133.patch",
+        "tokens": 249
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11179.patch",
+        "tokens": 533
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11283.patch",
+        "tokens": 431
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11422.patch",
+        "tokens": 283
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11564.patch",
+        "tokens": 549
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11583.patch",
+        "tokens": 274
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11620.patch",
+        "tokens": 235
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11630.patch",
+        "tokens": 778
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11742.patch",
+        "tokens": 320
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11797.patch",
+        "tokens": 193
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11815.patch",
+        "tokens": 234
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11848.patch",
+        "tokens": 181
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11905.patch",
+        "tokens": 195
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11910.patch",
+        "tokens": 254
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11964.patch",
+        "tokens": 382
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-11999.patch",
+        "tokens": 332
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12113.patch",
+        "tokens": 302
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12125.patch",
+        "tokens": 250
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12184.patch",
+        "tokens": 1320
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12284.patch",
+        "tokens": 333
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12286.patch",
+        "tokens": 335
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12308.patch",
+        "tokens": 349
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12453.patch",
+        "tokens": 310
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12470.patch",
+        "tokens": 1633
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12497.patch",
+        "tokens": 234
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12589.patch",
+        "tokens": 340
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12700.patch",
+        "tokens": 213
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12708.patch",
+        "tokens": 349
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12747.patch",
+        "tokens": 521
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12856.patch",
+        "tokens": 593
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12908.patch",
+        "tokens": 278
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12915.patch",
+        "tokens": 377
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-12983.patch",
+        "tokens": 274
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-13028.patch",
+        "tokens": 207
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-13033.patch",
+        "tokens": 402
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-13158.patch",
+        "tokens": 120
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-patches/django__django-13220.patch",
+        "tokens": 482
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-predictions.json",
+        "tokens": 23663
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-01-35-39/swebench-results.json",
+        "tokens": 23867
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/SUMMARY.md",
+        "tokens": 221
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/astropy__astropy-12907.patch",
+        "tokens": 255
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/astropy__astropy-14182.patch",
+        "tokens": 174
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/astropy__astropy-14365.patch",
+        "tokens": 571
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/astropy__astropy-14995.patch",
+        "tokens": 254
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/astropy__astropy-6938.patch",
+        "tokens": 139
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/astropy__astropy-7746.patch",
+        "tokens": 332
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-10914.patch",
+        "tokens": 753
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-10924.patch",
+        "tokens": 258
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11001.patch",
+        "tokens": 220
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11019.patch",
+        "tokens": 1259
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11039.patch",
+        "tokens": 407
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11049.patch",
+        "tokens": 160
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11099.patch",
+        "tokens": 234
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11133.patch",
+        "tokens": 155
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11179.patch",
+        "tokens": 115
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11283.patch",
+        "tokens": 327
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11422.patch",
+        "tokens": 209
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11564.patch",
+        "tokens": 1215
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11583.patch",
+        "tokens": 226
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11620.patch",
+        "tokens": 149
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11630.patch",
+        "tokens": 315
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11742.patch",
+        "tokens": 394
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11797.patch",
+        "tokens": 171
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11815.patch",
+        "tokens": 240
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11848.patch",
+        "tokens": 225
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11905.patch",
+        "tokens": 249
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11910.patch",
+        "tokens": 1177
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11964.patch",
+        "tokens": 559
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-11999.patch",
+        "tokens": 198
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12113.patch",
+        "tokens": 198
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12125.patch",
+        "tokens": 202
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12184.patch",
+        "tokens": 1004
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12284.patch",
+        "tokens": 140
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12286.patch",
+        "tokens": 458
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12308.patch",
+        "tokens": 270
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12453.patch",
+        "tokens": 249
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12470.patch",
+        "tokens": 245
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12497.patch",
+        "tokens": 167
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12589.patch",
+        "tokens": 598
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12700.patch",
+        "tokens": 242
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12708.patch",
+        "tokens": 716
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12747.patch",
+        "tokens": 127
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12856.patch",
+        "tokens": 549
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12908.patch",
+        "tokens": 222
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12915.patch",
+        "tokens": 136
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-12983.patch",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13028.patch",
+        "tokens": 153
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13033.patch",
+        "tokens": 233
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13158.patch",
+        "tokens": 102
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13220.patch",
+        "tokens": 1178
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13230.patch",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13265.patch",
+        "tokens": 837
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13315.patch",
+        "tokens": 160
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13321.patch",
+        "tokens": 266
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13401.patch",
+        "tokens": 261
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13447.patch",
+        "tokens": 336
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13448.patch",
+        "tokens": 871
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13551.patch",
+        "tokens": 192
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13590.patch",
+        "tokens": 124
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13658.patch",
+        "tokens": 241
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13660.patch",
+        "tokens": 196
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13710.patch",
+        "tokens": 342
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13757.patch",
+        "tokens": 428
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13768.patch",
+        "tokens": 233
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13925.patch",
+        "tokens": 206
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13933.patch",
+        "tokens": 296
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-13964.patch",
+        "tokens": 155
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14016.patch",
+        "tokens": 951
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14017.patch",
+        "tokens": 170
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14155.patch",
+        "tokens": 1266
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14238.patch",
+        "tokens": 203
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14382.patch",
+        "tokens": 139
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14411.patch",
+        "tokens": 103
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14534.patch",
+        "tokens": 112
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14580.patch",
+        "tokens": 143
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14608.patch",
+        "tokens": 296
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14667.patch",
+        "tokens": 295
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14672.patch",
+        "tokens": 96
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14730.patch",
+        "tokens": 344
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14752.patch",
+        "tokens": 297
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14787.patch",
+        "tokens": 336
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14855.patch",
+        "tokens": 236
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14915.patch",
+        "tokens": 175
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14997.patch",
+        "tokens": 120
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-14999.patch",
+        "tokens": 301
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15061.patch",
+        "tokens": 155
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15202.patch",
+        "tokens": 231
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15213.patch",
+        "tokens": 119
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15252.patch",
+        "tokens": 494
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15320.patch",
+        "tokens": 133
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15347.patch",
+        "tokens": 172
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15388.patch",
+        "tokens": 259
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15400.patch",
+        "tokens": 195
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15498.patch",
+        "tokens": 121
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15695.patch",
+        "tokens": 410
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15738.patch",
+        "tokens": 2289
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15781.patch",
+        "tokens": 173
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15789.patch",
+        "tokens": 631
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15790.patch",
+        "tokens": 341
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15814.patch",
+        "tokens": 115
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15819.patch",
+        "tokens": 1142
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15851.patch",
+        "tokens": 364
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15902.patch",
+        "tokens": 161
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-15996.patch",
+        "tokens": 259
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16041.patch",
+        "tokens": 199
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16046.patch",
+        "tokens": 138
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16139.patch",
+        "tokens": 144
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16229.patch",
+        "tokens": 232
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16255.patch",
+        "tokens": 135
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16379.patch",
+        "tokens": 159
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16400.patch",
+        "tokens": 315
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16408.patch",
+        "tokens": 486
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16527.patch",
+        "tokens": 125
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16595.patch",
+        "tokens": 378
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16816.patch",
+        "tokens": 256
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16820.patch",
+        "tokens": 1038
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16873.patch",
+        "tokens": 230
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-16910.patch",
+        "tokens": 380
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-17051.patch",
+        "tokens": 162
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/django__django-17087.patch",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-18869.patch",
+        "tokens": 272
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-22711.patch",
+        "tokens": 443
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-22835.patch",
+        "tokens": 337
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23299.patch",
+        "tokens": 732
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23314.patch",
+        "tokens": 111
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23476.patch",
+        "tokens": 201
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23562.patch",
+        "tokens": 200
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23563.patch",
+        "tokens": 152
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23913.patch",
+        "tokens": 832
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23964.patch",
+        "tokens": 155
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-23987.patch",
+        "tokens": 624
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-24149.patch",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-24265.patch",
+        "tokens": 512
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-24334.patch",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-24970.patch",
+        "tokens": 326
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-25079.patch",
+        "tokens": 380
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-25311.patch",
+        "tokens": 577
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-25332.patch",
+        "tokens": 447
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-25433.patch",
+        "tokens": 1110
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-25442.patch",
+        "tokens": 271
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-25498.patch",
+        "tokens": 523
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-26011.patch",
+        "tokens": 553
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/matplotlib__matplotlib-26020.patch",
+        "tokens": 492
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/mwaskom__seaborn-2848.patch",
+        "tokens": 989
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/mwaskom__seaborn-3010.patch",
+        "tokens": 143
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/mwaskom__seaborn-3190.patch",
+        "tokens": 688
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/mwaskom__seaborn-3407.patch",
+        "tokens": 331
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pallets__flask-4045.patch",
+        "tokens": 213
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pallets__flask-4992.patch",
+        "tokens": 418
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pallets__flask-5063.patch",
+        "tokens": 904
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/psf__requests-1963.patch",
+        "tokens": 243
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/psf__requests-2148.patch",
+        "tokens": 717
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/psf__requests-2317.patch",
+        "tokens": 342
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/psf__requests-2674.patch",
+        "tokens": 584
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/psf__requests-3362.patch",
+        "tokens": 177
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/psf__requests-863.patch",
+        "tokens": 153
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pydata__xarray-3364.patch",
+        "tokens": 1668
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pydata__xarray-4094.patch",
+        "tokens": 161
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pydata__xarray-4248.patch",
+        "tokens": 1447
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pydata__xarray-4493.patch",
+        "tokens": 185
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pydata__xarray-5131.patch",
+        "tokens": 216
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pylint-dev__pylint-5859.patch",
+        "tokens": 132
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pylint-dev__pylint-6506.patch",
+        "tokens": 332
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pylint-dev__pylint-7080.patch",
+        "tokens": 362
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pylint-dev__pylint-7114.patch",
+        "tokens": 571
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pylint-dev__pylint-7228.patch",
+        "tokens": 742
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pylint-dev__pylint-7993.patch",
+        "tokens": 629
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-11143.patch",
+        "tokens": 154
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-11148.patch",
+        "tokens": 279
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-5103.patch",
+        "tokens": 3155
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-5221.patch",
+        "tokens": 143
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-5227.patch",
+        "tokens": 147
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-5413.patch",
+        "tokens": 217
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-5495.patch",
+        "tokens": 514
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-5692.patch",
+        "tokens": 636
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-6116.patch",
+        "tokens": 161
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-7168.patch",
+        "tokens": 136
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-7220.patch",
+        "tokens": 3636
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-7373.patch",
+        "tokens": 381
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-7432.patch",
+        "tokens": 1077
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-7490.patch",
+        "tokens": 22
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-8365.patch",
+        "tokens": 295
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-8906.patch",
+        "tokens": 259
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/pytest-dev__pytest-9359.patch",
+        "tokens": 957
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-10297.patch",
+        "tokens": 268
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-10508.patch",
+        "tokens": 375
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-10949.patch",
+        "tokens": 668
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-11040.patch",
+        "tokens": 1183
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-11281.patch",
+        "tokens": 1008
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-12471.patch",
+        "tokens": 241
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13142.patch",
+        "tokens": 183
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13241.patch",
+        "tokens": 276
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13439.patch",
+        "tokens": 251
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13496.patch",
+        "tokens": 584
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13497.patch",
+        "tokens": 224
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13584.patch",
+        "tokens": 385
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-13779.patch",
+        "tokens": 222
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-14087.patch",
+        "tokens": 243
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-14092.patch",
+        "tokens": 606
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-14894.patch",
+        "tokens": 486
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-14983.patch",
+        "tokens": 363
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-15512.patch",
+        "tokens": 1420
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-15535.patch",
+        "tokens": 202
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-25500.patch",
+        "tokens": 743
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-25570.patch",
+        "tokens": 883
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-25638.patch",
+        "tokens": 811
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/scikit-learn__scikit-learn-25747.patch",
+        "tokens": 129
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-10325.patch",
+        "tokens": 1419
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-10451.patch",
+        "tokens": 948
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-11445.patch",
+        "tokens": 824
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-7686.patch",
+        "tokens": 584
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-7738.patch",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-7975.patch",
+        "tokens": 853
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8273.patch",
+        "tokens": 1020
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8282.patch",
+        "tokens": 457
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8435.patch",
+        "tokens": 596
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8474.patch",
+        "tokens": 240
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8506.patch",
+        "tokens": 314
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8595.patch",
+        "tokens": 486
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8627.patch",
+        "tokens": 607
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8713.patch",
+        "tokens": 175
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8721.patch",
+        "tokens": 160
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sphinx-doc__sphinx-8801.patch",
+        "tokens": 1044
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-11400.patch",
+        "tokens": 608
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-11870.patch",
+        "tokens": 473
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-11897.patch",
+        "tokens": 1510
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-12171.patch",
+        "tokens": 183
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-12236.patch",
+        "tokens": 201
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-12419.patch",
+        "tokens": 350
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-12454.patch",
+        "tokens": 204
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-12481.patch",
+        "tokens": 484
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13031.patch",
+        "tokens": 685
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13043.patch",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13146.patch",
+        "tokens": 611
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13177.patch",
+        "tokens": 136
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13437.patch",
+        "tokens": 145
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13471.patch",
+        "tokens": 142
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13480.patch",
+        "tokens": 186
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13647.patch",
+        "tokens": 274
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13773.patch",
+        "tokens": 356
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13895.patch",
+        "tokens": 649
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13915.patch",
+        "tokens": 726
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-13971.patch",
+        "tokens": 169
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-14024.patch",
+        "tokens": 830
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-14308.patch",
+        "tokens": 2092
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-14317.patch",
+        "tokens": 545
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-14396.patch",
+        "tokens": 388
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-14774.patch",
+        "tokens": 148
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-14817.patch",
+        "tokens": 212
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-15011.patch",
+        "tokens": 366
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-15308.patch",
+        "tokens": 208
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-15345.patch",
+        "tokens": 148
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-15346.patch",
+        "tokens": 376
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-15609.patch",
+        "tokens": 149
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-15678.patch",
+        "tokens": 822
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-16106.patch",
+        "tokens": 577
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-16281.patch",
+        "tokens": 891
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-16503.patch",
+        "tokens": 206
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-16792.patch",
+        "tokens": 245
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-16988.patch",
+        "tokens": 191
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-17022.patch",
+        "tokens": 394
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-17139.patch",
+        "tokens": 561
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-17630.patch",
+        "tokens": 1309
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-17655.patch",
+        "tokens": 197
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18057.patch",
+        "tokens": 282
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18087.patch",
+        "tokens": 596
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18189.patch",
+        "tokens": 179
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18199.patch",
+        "tokens": 263
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18532.patch",
+        "tokens": 731
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18621.patch",
+        "tokens": 223
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18698.patch",
+        "tokens": 553
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-18835.patch",
+        "tokens": 327
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-19007.patch",
+        "tokens": 1368
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-19254.patch",
+        "tokens": 820
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-19487.patch",
+        "tokens": 474
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20049.patch",
+        "tokens": 365
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20154.patch",
+        "tokens": 238
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20212.patch",
+        "tokens": 122
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20322.patch",
+        "tokens": 213
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20442.patch",
+        "tokens": 730
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20590.patch",
+        "tokens": 104
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-20639.patch",
+        "tokens": 255
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21055.patch",
+        "tokens": 347
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21171.patch",
+        "tokens": 279
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21379.patch",
+        "tokens": 208
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21612.patch",
+        "tokens": 596
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21614.patch",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21627.patch",
+        "tokens": 266
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-21847.patch",
+        "tokens": 249
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-22005.patch",
+        "tokens": 374
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-22714.patch",
+        "tokens": 276
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-22840.patch",
+        "tokens": 181
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-23117.patch",
+        "tokens": 194
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-23191.patch",
+        "tokens": 506
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-23262.patch",
+        "tokens": 171
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-24066.patch",
+        "tokens": 320
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-24102.patch",
+        "tokens": 233
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-24152.patch",
+        "tokens": 263
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-24213.patch",
+        "tokens": 218
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-patches/sympy__sympy-24909.patch",
+        "tokens": 427
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-predictions.json",
+        "tokens": 149476
+      },
+      {
+        "file": "benchmarks/results/2026-01-05-10-37-54/swebench-loki-results.json",
+        "tokens": 149610
+      },
+      {
+        "file": "benchmarks/results/SUMMARY.md",
+        "tokens": 221
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-results.json",
+        "tokens": 5906
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/0.py",
+        "tokens": 184
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/1.py",
+        "tokens": 228
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/10.py",
+        "tokens": 199
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/100.py",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/101.py",
+        "tokens": 151
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/102.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/103.py",
+        "tokens": 206
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/104.py",
+        "tokens": 162
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/105.py",
+        "tokens": 366
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/106.py",
+        "tokens": 242
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/107.py",
+        "tokens": 305
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/108.py",
+        "tokens": 227
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/109.py",
+        "tokens": 469
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/11.py",
+        "tokens": 142
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/110.py",
+        "tokens": 289
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/111.py",
+        "tokens": 259
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/112.py",
+        "tokens": 228
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/113.py",
+        "tokens": 271
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/114.py",
+        "tokens": 186
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/115.py",
+        "tokens": 364
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/116.py",
+        "tokens": 207
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/117.py",
+        "tokens": 270
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/118.py",
+        "tokens": 246
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/119.py",
+        "tokens": 286
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/12.py",
+        "tokens": 167
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/120.py",
+        "tokens": 253
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/121.py",
+        "tokens": 136
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/122.py",
+        "tokens": 178
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/123.py",
+        "tokens": 330
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/124.py",
+        "tokens": 484
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/125.py",
+        "tokens": 228
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/126.py",
+        "tokens": 357
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/127.py",
+        "tokens": 372
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/128.py",
+        "tokens": 212
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/129.py",
+        "tokens": 652
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/13.py",
+        "tokens": 118
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/130.py",
+        "tokens": 353
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/131.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/132.py",
+        "tokens": 245
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/133.py",
+        "tokens": 191
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/134.py",
+        "tokens": 194
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/135.py",
+        "tokens": 158
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/136.py",
+        "tokens": 228
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/137.py",
+        "tokens": 233
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/138.py",
+        "tokens": 109
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/139.py",
+        "tokens": 157
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/14.py",
+        "tokens": 98
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/140.py",
+        "tokens": 180
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/141.py",
+        "tokens": 392
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/142.py",
+        "tokens": 253
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/143.py",
+        "tokens": 278
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/144.py",
+        "tokens": 228
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/145.py",
+        "tokens": 199
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/146.py",
+        "tokens": 208
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/147.py",
+        "tokens": 287
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/148.py",
+        "tokens": 336
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/149.py",
+        "tokens": 240
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/15.py",
+        "tokens": 103
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/150.py",
+        "tokens": 176
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/151.py",
+        "tokens": 205
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/152.py",
+        "tokens": 266
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/153.py",
+        "tokens": 397
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/154.py",
+        "tokens": 203
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/155.py",
+        "tokens": 147
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/156.py",
+        "tokens": 257
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/157.py",
+        "tokens": 219
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/158.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/159.py",
+        "tokens": 319
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/16.py",
+        "tokens": 98
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/160.py",
+        "tokens": 262
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/161.py",
+        "tokens": 191
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/162.py",
+        "tokens": 118
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/163.py",
+        "tokens": 173
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/17.py",
+        "tokens": 244
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/18.py",
+        "tokens": 164
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/19.py",
+        "tokens": 245
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/2.py",
+        "tokens": 109
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/20.py",
+        "tokens": 279
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/21.py",
+        "tokens": 183
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/22.py",
+        "tokens": 133
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/23.py",
+        "tokens": 66
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/24.py",
+        "tokens": 103
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/25.py",
+        "tokens": 203
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/26.py",
+        "tokens": 129
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/27.py",
+        "tokens": 72
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/28.py",
+        "tokens": 81
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/29.py",
+        "tokens": 119
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/3.py",
+        "tokens": 167
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/30.py",
+        "tokens": 145
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/31.py",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/32.py",
+        "tokens": 357
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/33.py",
+        "tokens": 225
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/34.py",
+        "tokens": 97
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/35.py",
+        "tokens": 105
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/36.py",
+        "tokens": 141
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/37.py",
+        "tokens": 181
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/38.py",
+        "tokens": 282
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/39.py",
+        "tokens": 255
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/4.py",
+        "tokens": 192
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/40.py",
+        "tokens": 291
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/41.py",
+        "tokens": 172
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/42.py",
+        "tokens": 139
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/43.py",
+        "tokens": 205
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/44.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/45.py",
+        "tokens": 74
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/46.py",
+        "tokens": 296
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/47.py",
+        "tokens": 152
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/48.py",
+        "tokens": 97
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/49.py",
+        "tokens": 188
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/5.py",
+        "tokens": 164
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/50.py",
+        "tokens": 82
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/51.py",
+        "tokens": 181
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/52.py",
+        "tokens": 108
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/53.py",
+        "tokens": 76
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/54.py",
+        "tokens": 167
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/55.py",
+        "tokens": 117
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/56.py",
+        "tokens": 164
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/57.py",
+        "tokens": 177
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/58.py",
+        "tokens": 144
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/59.py",
+        "tokens": 201
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/6.py",
+        "tokens": 222
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/60.py",
+        "tokens": 125
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/61.py",
+        "tokens": 162
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/62.py",
+        "tokens": 144
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/63.py",
+        "tokens": 250
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/64.py",
+        "tokens": 196
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/65.py",
+        "tokens": 131
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/66.py",
+        "tokens": 156
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/67.py",
+        "tokens": 266
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/68.py",
+        "tokens": 414
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/69.py",
+        "tokens": 233
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/7.py",
+        "tokens": 124
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/70.py",
+        "tokens": 236
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/71.py",
+        "tokens": 274
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/72.py",
+        "tokens": 257
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/73.py",
+        "tokens": 220
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/74.py",
+        "tokens": 260
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/75.py",
+        "tokens": 278
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/76.py",
+        "tokens": 204
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/77.py",
+        "tokens": 170
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/78.py",
+        "tokens": 369
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/79.py",
+        "tokens": 172
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/8.py",
+        "tokens": 169
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/80.py",
+        "tokens": 208
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/81.py",
+        "tokens": 543
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/82.py",
+        "tokens": 152
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/83.py",
+        "tokens": 89
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/84.py",
+        "tokens": 174
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/85.py",
+        "tokens": 114
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/86.py",
+        "tokens": 176
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/87.py",
+        "tokens": 329
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/88.py",
+        "tokens": 272
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/89.py",
+        "tokens": 214
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/9.py",
+        "tokens": 166
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/90.py",
+        "tokens": 178
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/91.py",
+        "tokens": 193
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/92.py",
+        "tokens": 229
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/93.py",
+        "tokens": 189
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/94.py",
+        "tokens": 420
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/95.py",
+        "tokens": 263
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/96.py",
+        "tokens": 281
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/97.py",
+        "tokens": 135
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/98.py",
+        "tokens": 149
+      },
+      {
+        "file": "benchmarks/results/humaneval-loki-solutions/99.py",
+        "tokens": 276
+      },
+      {
+        "file": "benchmarks/run-benchmarks.sh",
+        "tokens": 15620
+      },
+      {
+        "file": "benchmarks/submission-template/README.md",
+        "tokens": 940
+      },
+      {
+        "file": "benchmarks/submission-template/metadata.yaml",
+        "tokens": 550
+      },
+      {
+        "file": "bin/loki-mode.js",
+        "tokens": 156
+      },
+      {
+        "file": "bin/postinstall.js",
+        "tokens": 1092
+      },
+      {
+        "file": "blog/README.md",
+        "tokens": 1301
+      },
+      {
+        "file": "blog/benchmarks.html",
+        "tokens": 8418
+      },
+      {
+        "file": "blog/css/style.css",
+        "tokens": 6290
+      },
+      {
+        "file": "blog/index.html",
+        "tokens": 10010
+      },
+      {
+        "file": "blog/js/main.js",
+        "tokens": 2043
+      },
+      {
+        "file": "collab/__init__.py",
+        "tokens": 438
+      },
+      {
+        "file": "collab/api.py",
+        "tokens": 3050
+      },
+      {
+        "file": "collab/presence.py",
+        "tokens": 4487
+      },
+      {
+        "file": "collab/sync.py",
+        "tokens": 5515
+      },
+      {
+        "file": "collab/test_collab.py",
+        "tokens": 4539
+      },
+      {
+        "file": "collab/websocket.py",
+        "tokens": 3103
+      },
+      {
+        "file": "completions/_loki",
+        "tokens": 1921
+      },
+      {
+        "file": "completions/loki.bash",
+        "tokens": 1112
+      },
+      {
+        "file": "dashboard/Dockerfile",
+        "tokens": 636
+      },
+      {
+        "file": "dashboard/__init__.py",
+        "tokens": 107
+      },
+      {
+        "file": "dashboard/audit.py",
+        "tokens": 3656
+      },
+      {
+        "file": "dashboard/auth.py",
+        "tokens": 4400
+      },
+      {
+        "file": "dashboard/control.py",
+        "tokens": 4189
+      },
+      {
+        "file": "dashboard/database.py",
+        "tokens": 406
+      },
+      {
+        "file": "dashboard/docker-compose.yml",
+        "tokens": 381
+      },
+      {
+        "file": "dashboard/frontend/index.html",
+        "tokens": 194
+      },
+      {
+        "file": "dashboard/frontend/package-lock.json",
+        "tokens": 35968
+      },
+      {
+        "file": "dashboard/frontend/package.json",
+        "tokens": 289
+      },
+      {
+        "file": "dashboard/frontend/postcss.config.js",
+        "tokens": 22
+      },
+      {
+        "file": "dashboard/frontend/src/App.tsx",
+        "tokens": 1345
+      },
+      {
+        "file": "dashboard/frontend/src/api.ts",
+        "tokens": 1914
+      },
+      {
+        "file": "dashboard/frontend/src/components/KanbanBoard.tsx",
+        "tokens": 4376
+      },
+      {
+        "file": "dashboard/frontend/src/components/KanbanColumn.tsx",
+        "tokens": 1191
+      },
+      {
+        "file": "dashboard/frontend/src/components/TaskCard.tsx",
+        "tokens": 1594
+      },
+      {
+        "file": "dashboard/frontend/src/components/TaskModal.tsx",
+        "tokens": 3735
+      },
+      {
+        "file": "dashboard/frontend/src/components/index.ts",
+        "tokens": 98
+      },
+      {
+        "file": "dashboard/frontend/src/components/types.ts",
+        "tokens": 727
+      },
+      {
+        "file": "dashboard/frontend/src/components/wrappers/LokiMemoryBrowserWrapper.tsx",
+        "tokens": 1039
+      },
+      {
+        "file": "dashboard/frontend/src/components/wrappers/LokiSessionControlWrapper.tsx",
+        "tokens": 926
+      },
+      {
+        "file": "dashboard/frontend/src/components/wrappers/LokiTaskBoardWrapper.tsx",
+        "tokens": 1031
+      },
+      {
+        "file": "dashboard/frontend/src/components/wrappers/index.ts",
+        "tokens": 420
+      },
+      {
+        "file": "dashboard/frontend/src/hooks/index.ts",
+        "tokens": 62
+      },
+      {
+        "file": "dashboard/frontend/src/hooks/useWebComponent.ts",
+        "tokens": 1967
+      },
+      {
+        "file": "dashboard/frontend/src/index.css",
+        "tokens": 2700
+      },
+      {
+        "file": "dashboard/frontend/src/main.tsx",
+        "tokens": 58
+      },
+      {
+        "file": "dashboard/frontend/tailwind.config.js",
+        "tokens": 1400
+      },
+      {
+        "file": "dashboard/frontend/tsconfig.json",
+        "tokens": 169
+      },
+      {
+        "file": "dashboard/frontend/tsconfig.node.json",
+        "tokens": 60
+      },
+      {
+        "file": "dashboard/frontend/vite.config.ts",
+        "tokens": 93
+      },
+      {
+        "file": "dashboard/models.py",
+        "tokens": 1608
+      },
+      {
+        "file": "dashboard/registry.py",
+        "tokens": 2598
+      },
+      {
+        "file": "dashboard/requirements.txt",
+        "tokens": 73
+      },
+      {
+        "file": "dashboard/run.py",
+        "tokens": 296
+      },
+      {
+        "file": "dashboard/secrets.py",
+        "tokens": 1064
+      },
+      {
+        "file": "dashboard/server.py",
+        "tokens": 27756
+      },
+      {
+        "file": "dashboard/static/index.html",
+        "tokens": 74678
+      },
+      {
+        "file": "dashboard/telemetry.py",
+        "tokens": 627
+      },
+      {
+        "file": "dashboard-ui/FEATURE-MATRIX.md",
+        "tokens": 2560
+      },
+      {
+        "file": "dashboard-ui/README.md",
+        "tokens": 2220
+      },
+      {
+        "file": "dashboard-ui/STYLE-GUIDE.md",
+        "tokens": 3139
+      },
+      {
+        "file": "dashboard-ui/components/loki-checkpoint-viewer.js",
+        "tokens": 3876
+      },
+      {
+        "file": "dashboard-ui/components/loki-context-tracker.js",
+        "tokens": 5793
+      },
+      {
+        "file": "dashboard-ui/components/loki-cost-dashboard.js",
+        "tokens": 5326
+      },
+      {
+        "file": "dashboard-ui/components/loki-council-dashboard.js",
+        "tokens": 6517
+      },
+      {
+        "file": "dashboard-ui/components/loki-learning-dashboard.js",
+        "tokens": 10728
+      },
+      {
+        "file": "dashboard-ui/components/loki-log-stream.js",
+        "tokens": 4189
+      },
+      {
+        "file": "dashboard-ui/components/loki-memory-browser.js",
+        "tokens": 8141
+      },
+      {
+        "file": "dashboard-ui/components/loki-notification-center.js",
+        "tokens": 4378
+      },
+      {
+        "file": "dashboard-ui/components/loki-overview.js",
+        "tokens": 2465
+      },
+      {
+        "file": "dashboard-ui/components/loki-session-control.js",
+        "tokens": 4101
+      },
+      {
+        "file": "dashboard-ui/components/loki-task-board.js",
+        "tokens": 4826
+      },
+      {
+        "file": "dashboard-ui/core/loki-api-client.js",
+        "tokens": 6365
+      },
+      {
+        "file": "dashboard-ui/core/loki-state.js",
+        "tokens": 2410
+      },
+      {
+        "file": "dashboard-ui/core/loki-theme.js",
+        "tokens": 3601
+      },
+      {
+        "file": "dashboard-ui/core/loki-unified-styles.js",
+        "tokens": 10167
+      },
+      {
+        "file": "dashboard-ui/esbuild.config.cjs",
+        "tokens": 925
+      },
+      {
+        "file": "dashboard-ui/index.html",
+        "tokens": 6226
+      },
+      {
+        "file": "dashboard-ui/index.js",
+        "tokens": 956
+      },
+      {
+        "file": "dashboard-ui/jest.config.js",
+        "tokens": 129
+      },
+      {
+        "file": "dashboard-ui/package-lock.json",
+        "tokens": 73585
+      },
+      {
+        "file": "dashboard-ui/package.json",
+        "tokens": 678
+      },
+      {
+        "file": "dashboard-ui/playwright.config.js",
+        "tokens": 124
+      },
+      {
+        "file": "dashboard-ui/scripts/build-standalone.js",
+        "tokens": 10109
+      },
+      {
+        "file": "dashboard-ui/scripts/check-parity.js",
+        "tokens": 3643
+      },
+      {
+        "file": "dashboard-ui/tests/e2e/checkpoint.spec.js",
+        "tokens": 1246
+      },
+      {
+        "file": "dashboard-ui/tests/e2e/dashboard.spec.js",
+        "tokens": 3484
+      },
+      {
+        "file": "dashboard-ui/tests/feature-parity.test.js",
+        "tokens": 4975
+      },
+      {
+        "file": "dashboard-ui/tests/loki-learning-dashboard.test.js",
+        "tokens": 4820
+      },
+      {
+        "file": "dashboard-ui/tests/setup.js",
+        "tokens": 691
+      },
+      {
+        "file": "dashboard-ui/tests/visual-regression.test.js",
+        "tokens": 4056
+      },
+      {
+        "file": "dashboard-ui/types/index.d.ts",
+        "tokens": 7097
+      },
+      {
+        "file": "demo/README.md",
+        "tokens": 785
+      },
+      {
+        "file": "demo/record-demo.sh",
+        "tokens": 559
+      },
+      {
+        "file": "demo/record-full-demo.sh",
+        "tokens": 1627
+      },
+      {
+        "file": "demo/recordings/loki-demo.cast",
+        "tokens": 3841
+      },
+      {
+        "file": "demo/run-demo-auto.sh",
+        "tokens": 1962
+      },
+      {
+        "file": "demo/run-demo.sh",
+        "tokens": 2173
+      },
+      {
+        "file": "demo/vhs-tape.tape",
+        "tokens": 1129
+      },
+      {
+        "file": "demo/voice-over-script.md",
+        "tokens": 1639
+      },
+      {
+        "file": "docker-compose.yml",
+        "tokens": 250
+      },
+      {
+        "file": "docs/ACKNOWLEDGEMENTS.md",
+        "tokens": 5586
+      },
+      {
+        "file": "docs/COMPARISON.md",
+        "tokens": 7091
+      },
+      {
+        "file": "docs/COMPETITIVE-ANALYSIS.md",
+        "tokens": 3707
+      },
+      {
+        "file": "docs/DASHBOARD_V2_CHECKLIST.md",
+        "tokens": 1701
+      },
+      {
+        "file": "docs/INSTALLATION.md",
+        "tokens": 5784
+      },
+      {
+        "file": "docs/SYNERGY-ROADMAP.md",
+        "tokens": 3415
+      },
+      {
+        "file": "docs/SYNERGY-TASKS.md",
+        "tokens": 1818
+      },
+      {
+        "file": "docs/TOOL-INTEGRATION.md",
+        "tokens": 1805
+      },
+      {
+        "file": "docs/architecture/DASHBOARD_V2_ARCHITECTURE.md",
+        "tokens": 6374
+      },
+      {
+        "file": "docs/auto-claude-comparison.md",
+        "tokens": 2341
+      },
+      {
+        "file": "docs/cursor-comparison.md",
+        "tokens": 1848
+      },
+      {
+        "file": "docs/dashboard-guide.md",
+        "tokens": 3345
+      },
+      {
+        "file": "docs/loki-mode-presentation.pptx",
+        "tokens": 115742
+      },
+      {
+        "file": "docs/screenshots/README.md",
+        "tokens": 958
+      },
+      {
+        "file": "docs/thick2thin.md",
+        "tokens": 1511
+      },
+      {
+        "file": "events/__init__.py",
+        "tokens": 154
+      },
+      {
+        "file": "events/bus.py",
+        "tokens": 2919
+      },
+      {
+        "file": "events/bus.ts",
+        "tokens": 2225
+      },
+      {
+        "file": "events/emit.sh",
+        "tokens": 854
+      },
+      {
+        "file": "examples/api-only.md",
+        "tokens": 492
+      },
+      {
+        "file": "examples/full-stack-demo.md",
+        "tokens": 743
+      },
+      {
+        "file": "examples/simple-todo-app.md",
+        "tokens": 348
+      },
+      {
+        "file": "examples/static-landing-page.md",
+        "tokens": 439
+      },
+      {
+        "file": "index.html",
+        "tokens": 460
+      },
+      {
+        "file": "integrations/openclaw/README.md",
+        "tokens": 1411
+      },
+      {
+        "file": "integrations/openclaw/SKILL.md",
+        "tokens": 974
+      },
+      {
+        "file": "integrations/openclaw/bridge/__init__.py",
+        "tokens": 11
+      },
+      {
+        "file": "integrations/openclaw/bridge/__main__.py",
+        "tokens": 590
+      },
+      {
+        "file": "integrations/openclaw/bridge/schema_map.py",
+        "tokens": 1574
+      },
+      {
+        "file": "integrations/openclaw/bridge/watcher.py",
+        "tokens": 720
+      },
+      {
+        "file": "integrations/openclaw/scripts/format-progress.sh",
+        "tokens": 677
+      },
+      {
+        "file": "integrations/openclaw/scripts/poll-status.sh",
+        "tokens": 688
+      },
+      {
+        "file": "integrations/vibe-kanban.md",
+        "tokens": 2200
+      },
+      {
+        "file": "learning/__init__.py",
+        "tokens": 778
+      },
+      {
+        "file": "learning/aggregate.sh",
+        "tokens": 1795
+      },
+      {
+        "file": "learning/aggregator.py",
+        "tokens": 8157
+      },
+      {
+        "file": "learning/emit.sh",
+        "tokens": 3735
+      },
+      {
+        "file": "learning/emitter.py",
+        "tokens": 3469
+      },
+      {
+        "file": "learning/signals.py",
+        "tokens": 4582
+      },
+      {
+        "file": "learning/signals.ts",
+        "tokens": 4934
+      },
+      {
+        "file": "learning/suggest.sh",
+        "tokens": 1782
+      },
+      {
+        "file": "learning/suggestions.py",
+        "tokens": 5379
+      },
+      {
+        "file": "mcp/__init__.py",
+        "tokens": 130
+      },
+      {
+        "file": "mcp/learning_collector.py",
+        "tokens": 4005
+      },
+      {
+        "file": "mcp/requirements.txt",
+        "tokens": 9
+      },
+      {
+        "file": "mcp/resources.py",
+        "tokens": 2498
+      },
+      {
+        "file": "mcp/server.py",
+        "tokens": 8091
+      },
+      {
+        "file": "mcp/tools.py",
+        "tokens": 1469
+      },
+      {
+        "file": "memory/__init__.py",
+        "tokens": 731
+      },
+      {
+        "file": "memory/consolidation.py",
+        "tokens": 6584
+      },
+      {
+        "file": "memory/embeddings.py",
+        "tokens": 9239
+      },
+      {
+        "file": "memory/engine.py",
+        "tokens": 9066
+      },
+      {
+        "file": "memory/layers/__init__.py",
+        "tokens": 155
+      },
+      {
+        "file": "memory/layers/index_layer.py",
+        "tokens": 1918
+      },
+      {
+        "file": "memory/layers/loader.py",
+        "tokens": 2388
+      },
+      {
+        "file": "memory/layers/timeline_layer.py",
+        "tokens": 2044
+      },
+      {
+        "file": "memory/namespace.py",
+        "tokens": 3370
+      },
+      {
+        "file": "memory/retrieval.py",
+        "tokens": 10655
+      },
+      {
+        "file": "memory/schemas.py",
+        "tokens": 5827
+      },
+      {
+        "file": "memory/storage.py",
+        "tokens": 9378
+      },
+      {
+        "file": "memory/test_importance.py",
+        "tokens": 2979
+      },
+      {
+        "file": "memory/tests/test_namespace.py",
+        "tokens": 3829
+      },
+      {
+        "file": "memory/token_economics.py",
+        "tokens": 4221
+      },
+      {
+        "file": "memory/unified_access.py",
+        "tokens": 3934
+      },
+      {
+        "file": "memory/vector_index.py",
+        "tokens": 2884
+      },
+      {
+        "file": "package.json",
+        "tokens": 566
+      },
+      {
+        "file": "providers/claude.sh",
+        "tokens": 1130
+      },
+      {
+        "file": "providers/codex.sh",
+        "tokens": 1074
+      },
+      {
+        "file": "providers/gemini.sh",
+        "tokens": 1507
+      },
+      {
+        "file": "providers/loader.sh",
+        "tokens": 1349
+      },
+      {
+        "file": "skills/00-index.md",
+        "tokens": 1191
+      },
+      {
+        "file": "skills/agents.md",
+        "tokens": 1888
+      },
+      {
+        "file": "skills/artifacts.md",
+        "tokens": 1124
+      },
+      {
+        "file": "skills/compound-learning.md",
+        "tokens": 2118
+      },
+      {
+        "file": "skills/github-integration.md",
+        "tokens": 1608
+      },
+      {
+        "file": "skills/model-selection.md",
+        "tokens": 4338
+      },
+      {
+        "file": "skills/parallel-workflows.md",
+        "tokens": 3263
+      },
+      {
+        "file": "skills/patterns-advanced.md",
+        "tokens": 1137
+      },
+      {
+        "file": "skills/production.md",
+        "tokens": 1774
+      },
+      {
+        "file": "skills/providers.md",
+        "tokens": 1428
+      },
+      {
+        "file": "skills/quality-gates.md",
+        "tokens": 4091
+      },
+      {
+        "file": "skills/testing.md",
+        "tokens": 953
+      },
+      {
+        "file": "skills/troubleshooting.md",
+        "tokens": 5831
+      },
+      {
+        "file": "state/__init__.py",
+        "tokens": 54
+      },
+      {
+        "file": "state/index.ts",
+        "tokens": 79
+      },
+      {
+        "file": "state/manager.py",
+        "tokens": 11736
+      },
+      {
+        "file": "state/manager.ts",
+        "tokens": 10777
+      },
+      {
+        "file": "state/test_manager.py",
+        "tokens": 5318
+      },
+      {
+        "file": "state/test_manager.ts",
+        "tokens": 3526
+      },
+      {
+        "file": "swarm/__init__.py",
+        "tokens": 446
+      },
+      {
+        "file": "swarm/bft.py",
+        "tokens": 9945
+      },
+      {
+        "file": "swarm/cli.py",
+        "tokens": 3551
+      },
+      {
+        "file": "swarm/intelligence.py",
+        "tokens": 5197
+      },
+      {
+        "file": "swarm/messages.py",
+        "tokens": 3912
+      },
+      {
+        "file": "swarm/patterns.py",
+        "tokens": 4588
+      },
+      {
+        "file": "swarm/registry.py",
+        "tokens": 4908
+      },
+      {
+        "file": "swarm/tests/__init__.py",
+        "tokens": 6
+      },
+      {
+        "file": "swarm/tests/test_bft.py",
+        "tokens": 6542
+      },
+      {
+        "file": "templates/README.md",
+        "tokens": 1254
+      },
+      {
+        "file": "templates/ai-chatbot.md",
+        "tokens": 3019
+      },
+      {
+        "file": "templates/api-only.md",
+        "tokens": 492
+      },
+      {
+        "file": "templates/blog-platform.md",
+        "tokens": 2626
+      },
+      {
+        "file": "templates/chrome-extension.md",
+        "tokens": 1888
+      },
+      {
+        "file": "templates/cli-tool.md",
+        "tokens": 1669
+      },
+      {
+        "file": "templates/discord-bot.md",
+        "tokens": 2085
+      },
+      {
+        "file": "templates/e-commerce.md",
+        "tokens": 2915
+      },
+      {
+        "file": "templates/full-stack-demo.md",
+        "tokens": 743
+      },
+      {
+        "file": "templates/mobile-app.md",
+        "tokens": 2033
+      },
+      {
+        "file": "templates/rest-api-auth.md",
+        "tokens": 2134
+      },
+      {
+        "file": "templates/saas-starter.md",
+        "tokens": 1897
+      },
+      {
+        "file": "templates/simple-todo-app.md",
+        "tokens": 348
+      },
+      {
+        "file": "templates/static-landing-page.md",
+        "tokens": 443
+      },
+      {
+        "file": "tests/run-all-tests.sh",
+        "tokens": 854
+      },
+      {
+        "file": "tests/run-shellcheck.sh",
+        "tokens": 863
+      },
+      {
+        "file": "tests/test-agent-timeout.sh",
+        "tokens": 2638
+      },
+      {
+        "file": "tests/test-api-server.sh",
+        "tokens": 1714
+      },
+      {
+        "file": "tests/test-bootstrap.sh",
+        "tokens": 1830
+      },
+      {
+        "file": "tests/test-checkpoint-cli.sh",
+        "tokens": 3137
+      },
+      {
+        "file": "tests/test-circuit-breaker.sh",
+        "tokens": 2837
+      },
+      {
+        "file": "tests/test-cli-commands.sh",
+        "tokens": 1128
+      },
+      {
+        "file": "tests/test-cli-provider-flag.sh",
+        "tokens": 4064
+      },
+      {
+        "file": "tests/test-compound-cli.sh",
+        "tokens": 3867
+      },
+      {
+        "file": "tests/test-context-optimization.sh",
+        "tokens": 4502
+      },
+      {
+        "file": "tests/test-cross-project-learning.sh",
+        "tokens": 1628
+      },
+      {
+        "file": "tests/test-embeddings.sh",
+        "tokens": 5899
+      },
+      {
+        "file": "tests/test-event-bus.sh",
+        "tokens": 1892
+      },
+      {
+        "file": "tests/test-hooks.sh",
+        "tokens": 1715
+      },
+      {
+        "file": "tests/test-human-input-directive.sh",
+        "tokens": 1677
+      },
+      {
+        "file": "tests/test-issue-parser.sh",
+        "tokens": 1104
+      },
+      {
+        "file": "tests/test-json-prd.sh",
+        "tokens": 1514
+      },
+      {
+        "file": "tests/test-learning-aggregator.sh",
+        "tokens": 4534
+      },
+      {
+        "file": "tests/test-learning-emit.sh",
+        "tokens": 2198
+      },
+      {
+        "file": "tests/test-learning-suggestions.sh",
+        "tokens": 3881
+      },
+      {
+        "file": "tests/test-mcp-learning-collector.sh",
+        "tokens": 4073
+      },
+      {
+        "file": "tests/test-mcp-server.sh",
+        "tokens": 1694
+      },
+      {
+        "file": "tests/test-memory-cli.sh",
+        "tokens": 3445
+      },
+      {
+        "file": "tests/test-memory-engine.sh",
+        "tokens": 4203
+      },
+      {
+        "file": "tests/test-memory-layers.sh",
+        "tokens": 5988
+      },
+      {
+        "file": "tests/test-memory-retrieval.sh",
+        "tokens": 5737
+      },
+      {
+        "file": "tests/test-provider-degraded-mode.sh",
+        "tokens": 3705
+      },
+      {
+        "file": "tests/test-provider-invocation.sh",
+        "tokens": 2487
+      },
+      {
+        "file": "tests/test-provider-loader.sh",
+        "tokens": 2127
+      },
+      {
+        "file": "tests/test-rate-limiting.sh",
+        "tokens": 2880
+      },
+      {
+        "file": "tests/test-state-notifications.sh",
+        "tokens": 3469
+      },
+      {
+        "file": "tests/test-state-recovery.sh",
+        "tokens": 2994
+      },
+      {
+        "file": "tests/test-state-versioning.sh",
+        "tokens": 2521
+      },
+      {
+        "file": "tests/test-state-versioning.ts",
+        "tokens": 2080
+      },
+      {
+        "file": "tests/test-swarm-intelligence.sh",
+        "tokens": 5719
+      },
+      {
+        "file": "tests/test-task-queue.sh",
+        "tokens": 2987
+      },
+      {
+        "file": "tests/test-unified-memory.sh",
+        "tokens": 4014
+      },
+      {
+        "file": "tests/test-vibe-kanban-export.sh",
+        "tokens": 2015
+      },
+      {
+        "file": "tests/test-wrapper.sh",
+        "tokens": 2496
+      },
+      {
+        "file": "tests/test_token_economics.py",
+        "tokens": 6342
+      },
+      {
+        "file": "vscode-extension/CHANGELOG.md",
+        "tokens": 143
+      },
+      {
+        "file": "vscode-extension/LICENSE",
+        "tokens": 222
+      },
+      {
+        "file": "vscode-extension/README.md",
+        "tokens": 1375
+      },
+      {
+        "file": "vscode-extension/VERSION",
+        "tokens": 6
+      },
+      {
+        "file": "vscode-extension/esbuild.js",
+        "tokens": 561
+      },
+      {
+        "file": "vscode-extension/media/loki-dashboard.js",
+        "tokens": 41057
+      },
+      {
+        "file": "vscode-extension/media/loki-dashboard.js.map",
+        "tokens": 105689
+      },
+      {
+        "file": "vscode-extension/package-lock.json",
+        "tokens": 61749
+      },
+      {
+        "file": "vscode-extension/package.json",
+        "tokens": 2484
+      },
+      {
+        "file": "vscode-extension/scripts/generate-icon.js",
+        "tokens": 1010
+      },
+      {
+        "file": "vscode-extension/src/api/client.ts",
+        "tokens": 3068
+      },
+      {
+        "file": "vscode-extension/src/api/index.ts",
+        "tokens": 53
+      },
+      {
+        "file": "vscode-extension/src/api/types.ts",
+        "tokens": 2089
+      },
+      {
+        "file": "vscode-extension/src/api/validators.ts",
+        "tokens": 1918
+      },
+      {
+        "file": "vscode-extension/src/cli/detector.ts",
+        "tokens": 2252
+      },
+      {
+        "file": "vscode-extension/src/cli/executor.ts",
+        "tokens": 2822
+      },
+      {
+        "file": "vscode-extension/src/cli/index.ts",
+        "tokens": 139
+      },
+      {
+        "file": "vscode-extension/src/commands/index.ts",
+        "tokens": 3145
+      },
+      {
+        "file": "vscode-extension/src/extension.ts",
+        "tokens": 7607
+      },
+      {
+        "file": "vscode-extension/src/providers/sessionTreeProvider.ts",
+        "tokens": 2673
+      },
+      {
+        "file": "vscode-extension/src/providers/taskTreeProvider.ts",
+        "tokens": 1517
+      },
+      {
+        "file": "vscode-extension/src/services/learning-collector.ts",
+        "tokens": 3666
+      },
+      {
+        "file": "vscode-extension/src/services/memory-integration.ts",
+        "tokens": 5714
+      },
+      {
+        "file": "vscode-extension/src/utils/config.ts",
+        "tokens": 969
+      },
+      {
+        "file": "vscode-extension/src/utils/constants.ts",
+        "tokens": 94
+      },
+      {
+        "file": "vscode-extension/src/utils/logger.ts",
+        "tokens": 1038
+      },
+      {
+        "file": "vscode-extension/src/utils/webview.ts",
+        "tokens": 108
+      },
+      {
+        "file": "vscode-extension/src/views/chatViewProvider.ts",
+        "tokens": 4470
+      },
+      {
+        "file": "vscode-extension/src/views/checkpointProvider.ts",
+        "tokens": 1587
+      },
+      {
+        "file": "vscode-extension/src/views/dashboardWebview.ts",
+        "tokens": 3137
+      },
+      {
+        "file": "vscode-extension/src/views/logsViewProvider.ts",
+        "tokens": 4155
+      },
+      {
+        "file": "vscode-extension/src/views/memoryViewProvider.ts",
+        "tokens": 3719
+      },
+      {
+        "file": "vscode-extension/src/views/statusBarItem.ts",
+        "tokens": 2055
+      },
+      {
+        "file": "vscode-extension/test/runTest.ts",
+        "tokens": 758
+      },
+      {
+        "file": "vscode-extension/test/suite/dashboardWebview.test.ts",
+        "tokens": 3379
+      },
+      {
+        "file": "vscode-extension/test/suite/index.ts",
+        "tokens": 278
+      },
+      {
+        "file": "vscode-extension/test/suite/learning-collector.test.ts",
+        "tokens": 2138
+      },
+      {
+        "file": "vscode-extension/test/suite/memory-integration.test.ts",
+        "tokens": 6009
+      },
+      {
+        "file": "vscode-extension/tsconfig.json",
+        "tokens": 185
+      },
+      {
+        "file": "wiki/API-Reference.md",
+        "tokens": 6296
+      },
+      {
+        "file": "wiki/Architecture.md",
+        "tokens": 4215
+      },
+      {
+        "file": "wiki/Audit-Logging.md",
+        "tokens": 2504
+      },
+      {
+        "file": "wiki/CLI-Reference.md",
+        "tokens": 5961
+      },
+      {
+        "file": "wiki/Checkpoints.md",
+        "tokens": 2526
+      },
+      {
+        "file": "wiki/Completion-Council.md",
+        "tokens": 1125
+      },
+      {
+        "file": "wiki/Configuration.md",
+        "tokens": 1931
+      },
+      {
+        "file": "wiki/Contributing.md",
+        "tokens": 1406
+      },
+      {
+        "file": "wiki/Cross-Project-Learning.md",
+        "tokens": 1819
+      },
+      {
+        "file": "wiki/Dashboard.md",
+        "tokens": 1550
+      },
+      {
+        "file": "wiki/Enterprise-Features.md",
+        "tokens": 3404
+      },
+      {
+        "file": "wiki/Environment-Variables.md",
+        "tokens": 3012
+      },
+      {
+        "file": "wiki/FAQ.md",
+        "tokens": 1469
+      },
+      {
+        "file": "wiki/Getting-Started.md",
+        "tokens": 730
+      },
+      {
+        "file": "wiki/GitHub-Integration.md",
+        "tokens": 907
+      },
+      {
+        "file": "wiki/Home.md",
+        "tokens": 955
+      },
+      {
+        "file": "wiki/Installation.md",
+        "tokens": 891
+      },
+      {
+        "file": "wiki/Knowledge-Compounding.md",
+        "tokens": 1563
+      },
+      {
+        "file": "wiki/Network-Security.md",
+        "tokens": 1416
+      },
+      {
+        "file": "wiki/Notifications.md",
+        "tokens": 2112
+      },
+      {
+        "file": "wiki/Prometheus-Metrics.md",
+        "tokens": 1372
+      },
+      {
+        "file": "wiki/Providers.md",
+        "tokens": 1567
+      },
+      {
+        "file": "wiki/Sandbox-Mode.md",
+        "tokens": 1531
+      },
+      {
+        "file": "wiki/Security.md",
+        "tokens": 2025
+      },
+      {
+        "file": "wiki/Troubleshooting.md",
+        "tokens": 1830
+      },
+      {
+        "file": "wiki/Use-Cases.md",
+        "tokens": 2008
+      },
+      {
+        "file": "wiki/_Sidebar.md",
+        "tokens": 200
+      }
+    ],
+    "total": 3028296
+  }
+}

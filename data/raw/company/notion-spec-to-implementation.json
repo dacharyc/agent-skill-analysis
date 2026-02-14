@@ -1,0 +1,136 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/notion-spec-to-implementation",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: evaluations/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 8 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"notion-spec-to-implementation\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (160 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.notion.com/mcp` (HTTP 401)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 762
+      }
+    ],
+    "total": 762
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 202
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 126
+      },
+      {
+        "file": "evaluations/README.md",
+        "tokens": 923
+      },
+      {
+        "file": "evaluations/basic-spec-implementation.json",
+        "tokens": 517
+      },
+      {
+        "file": "evaluations/spec-to-tasks.json",
+        "tokens": 578
+      },
+      {
+        "file": "examples/api-feature.md",
+        "tokens": 3420
+      },
+      {
+        "file": "examples/database-migration.md",
+        "tokens": 588
+      },
+      {
+        "file": "examples/ui-component.md",
+        "tokens": 387
+      },
+      {
+        "file": "reference/milestone-summary-template.md",
+        "tokens": 117
+      },
+      {
+        "file": "reference/progress-tracking.md",
+        "tokens": 2295
+      },
+      {
+        "file": "reference/progress-update-template.md",
+        "tokens": 97
+      },
+      {
+        "file": "reference/quick-implementation-plan.md",
+        "tokens": 124
+      },
+      {
+        "file": "reference/spec-parsing.md",
+        "tokens": 1553
+      },
+      {
+        "file": "reference/standard-implementation-plan.md",
+        "tokens": 854
+      },
+      {
+        "file": "reference/task-creation-template.md",
+        "tokens": 146
+      },
+      {
+        "file": "reference/task-creation.md",
+        "tokens": 1974
+      }
+    ],
+    "total": 13901
+  }
+}

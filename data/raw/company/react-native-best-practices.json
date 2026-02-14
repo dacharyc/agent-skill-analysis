@@ -1,0 +1,192 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/callstack-skills/skills/react-native-best-practices",
+  "passed": true,
+  "errors": 0,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: POWER.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/images/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"react-native-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (273 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 11 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 37545 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2258
+      },
+      {
+        "file": "references/bundle-analyze-app.md",
+        "tokens": 1369
+      },
+      {
+        "file": "references/bundle-analyze-js.md",
+        "tokens": 1635
+      },
+      {
+        "file": "references/bundle-barrel-exports.md",
+        "tokens": 1224
+      },
+      {
+        "file": "references/bundle-code-splitting.md",
+        "tokens": 1206
+      },
+      {
+        "file": "references/bundle-hermes-mmap.md",
+        "tokens": 936
+      },
+      {
+        "file": "references/bundle-library-size.md",
+        "tokens": 1095
+      },
+      {
+        "file": "references/bundle-native-assets.md",
+        "tokens": 1166
+      },
+      {
+        "file": "references/bundle-r8-android.md",
+        "tokens": 1199
+      },
+      {
+        "file": "references/bundle-tree-shaking.md",
+        "tokens": 1398
+      },
+      {
+        "file": "references/js-animations-reanimated.md",
+        "tokens": 1808
+      },
+      {
+        "file": "references/js-atomic-state.md",
+        "tokens": 1571
+      },
+      {
+        "file": "references/js-concurrent-react.md",
+        "tokens": 1556
+      },
+      {
+        "file": "references/js-lists-flatlist-flashlist.md",
+        "tokens": 1376
+      },
+      {
+        "file": "references/js-measure-fps.md",
+        "tokens": 1195
+      },
+      {
+        "file": "references/js-memory-leaks.md",
+        "tokens": 1264
+      },
+      {
+        "file": "references/js-profile-react.md",
+        "tokens": 1199
+      },
+      {
+        "file": "references/js-react-compiler.md",
+        "tokens": 2176
+      },
+      {
+        "file": "references/js-uncontrolled-components.md",
+        "tokens": 1248
+      },
+      {
+        "file": "references/native-android-16kb-alignment.md",
+        "tokens": 848
+      },
+      {
+        "file": "references/native-measure-tti.md",
+        "tokens": 1599
+      },
+      {
+        "file": "references/native-memory-leaks.md",
+        "tokens": 1352
+      },
+      {
+        "file": "references/native-memory-patterns.md",
+        "tokens": 1627
+      },
+      {
+        "file": "references/native-platform-setup.md",
+        "tokens": 786
+      },
+      {
+        "file": "references/native-profiling.md",
+        "tokens": 1186
+      },
+      {
+        "file": "references/native-sdks-over-polyfills.md",
+        "tokens": 1320
+      },
+      {
+        "file": "references/native-threading-model.md",
+        "tokens": 1359
+      },
+      {
+        "file": "references/native-turbo-modules.md",
+        "tokens": 1575
+      },
+      {
+        "file": "references/native-view-flattening.md",
+        "tokens": 1272
+      }
+    ],
+    "total": 39803
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "POWER.md",
+        "tokens": 1488
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 44
+      }
+    ],
+    "total": 1532
+  }
+}

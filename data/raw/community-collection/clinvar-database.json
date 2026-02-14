@@ -1,0 +1,79 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/clinvar-database",
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"clinvar-database\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (191 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Unknown\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/clinvar/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://submit.ncbi.nlm.nih.gov/subs/clinvar/ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/clinvar/docs/ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://clinicalgenome.org/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3249
+      },
+      {
+        "file": "references/api_reference.md",
+        "tokens": 1833
+      },
+      {
+        "file": "references/clinical_significance.md",
+        "tokens": 1938
+      },
+      {
+        "file": "references/data_formats.md",
+        "tokens": 2873
+      }
+    ],
+    "total": 9893
+  }
+}

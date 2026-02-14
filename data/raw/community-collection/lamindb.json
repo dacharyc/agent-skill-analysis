@@ -1,0 +1,96 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/lamindb",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"lamindb\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (650 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 22 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.lamin.ai (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.lamin.ai/api (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/laminlabs/lamindb (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.lamin.ai/tutorial (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.lamin.ai/faq (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3272
+      },
+      {
+        "file": "references/annotation-validation.md",
+        "tokens": 2931
+      },
+      {
+        "file": "references/core-concepts.md",
+        "tokens": 2299
+      },
+      {
+        "file": "references/data-management.md",
+        "tokens": 2689
+      },
+      {
+        "file": "references/integrations.md",
+        "tokens": 3332
+      },
+      {
+        "file": "references/ontologies.md",
+        "tokens": 3355
+      },
+      {
+        "file": "references/setup-deployment.md",
+        "tokens": 3589
+      }
+    ],
+    "total": 21467
+  }
+}

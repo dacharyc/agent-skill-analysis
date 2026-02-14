@@ -1,0 +1,64 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/dwarf-expert/skills/dwarf-expert",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"dwarf-expert\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (266 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Bash Grep Glob WebSearch\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1101
+      }
+    ],
+    "total": 1101
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "reference/coding.md",
+        "tokens": 684
+      },
+      {
+        "file": "reference/dwarfdump.md",
+        "tokens": 1533
+      },
+      {
+        "file": "reference/readelf.md",
+        "tokens": 140
+      }
+    ],
+    "total": 2357
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/protein-design-skills/skills/boltzgen",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"boltzgen\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (427 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"category\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"tags\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"proteinbase_slug\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"proteinbase_url\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../../docs/installation.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/hgbrian/biomodals (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/HannesStark/boltzgen.git (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1988
+      },
+      {
+        "file": "references/yaml-spec.md",
+        "tokens": 1668
+      }
+    ],
+    "total": 3656
+  }
+}

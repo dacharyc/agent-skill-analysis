@@ -1,0 +1,41 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-architect",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-architect\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (250 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file#Lline (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 826
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 582
+      }
+    ],
+    "total": 1408
+  }
+}

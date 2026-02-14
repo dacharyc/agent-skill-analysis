@@ -1,0 +1,132 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/notion-knowledge-capture",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: evaluations/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 7 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"notion-knowledge-capture\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (162 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.notion.com/mcp` (HTTP 401)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 733
+      }
+    ],
+    "total": 733
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 202
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 121
+      },
+      {
+        "file": "evaluations/README.md",
+        "tokens": 697
+      },
+      {
+        "file": "evaluations/conversation-to-wiki.json",
+        "tokens": 408
+      },
+      {
+        "file": "evaluations/decision-record.json",
+        "tokens": 473
+      },
+      {
+        "file": "examples/conversation-to-faq.md",
+        "tokens": 4021
+      },
+      {
+        "file": "examples/decision-capture.md",
+        "tokens": 841
+      },
+      {
+        "file": "examples/how-to-guide.md",
+        "tokens": 708
+      },
+      {
+        "file": "reference/database-best-practices.md",
+        "tokens": 695
+      },
+      {
+        "file": "reference/decision-log-database.md",
+        "tokens": 476
+      },
+      {
+        "file": "reference/documentation-database.md",
+        "tokens": 699
+      },
+      {
+        "file": "reference/faq-database.md",
+        "tokens": 478
+      },
+      {
+        "file": "reference/how-to-guide-database.md",
+        "tokens": 300
+      },
+      {
+        "file": "reference/learning-database.md",
+        "tokens": 319
+      },
+      {
+        "file": "reference/team-wiki-database.md",
+        "tokens": 216
+      }
+    ],
+    "total": 10654
+  }
+}

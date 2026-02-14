@@ -1,0 +1,297 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/document-skills/pptx",
+  "passed": false,
+  "errors": 2,
+  "warnings": 6,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: html2pptx.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: ooxml/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: ooxml.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pptx\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (149 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Proprietary. LICENSE.txt has complete terms\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "html2pptx.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/html2pptx.js (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "ooxml.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6559 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 515 lines (spec recommends < 500)"
+    },
+    {
+      "level": "error",
+      "category": "Tokens",
+      "message": "non-standard files total 333940 tokens \u2014 if an agent loads these, they will consume most of the context window and severely degrade performance; move essential content into references/ or remove unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 333,940 tokens of non-standard content but only 6,559 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6559
+      }
+    ],
+    "total": 6559
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 307
+      },
+      {
+        "file": "html2pptx.md",
+        "tokens": 6002
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-chart.xsd",
+        "tokens": 24793
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-chartDrawing.xsd",
+        "tokens": 2260
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-diagram.xsd",
+        "tokens": 16030
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-lockedCanvas.xsd",
+        "tokens": 182
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-main.xsd",
+        "tokens": 47377
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-picture.xsd",
+        "tokens": 394
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-spreadsheetDrawing.xsd",
+        "tokens": 2858
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/dml-wordprocessingDrawing.xsd",
+        "tokens": 4678
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/pml.xsd",
+        "tokens": 26453
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-additionalCharacteristics.xsd",
+        "tokens": 371
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-bibliography.xsd",
+        "tokens": 2187
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-commonSimpleTypes.xsd",
+        "tokens": 2081
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-customXmlDataProperties.xsd",
+        "tokens": 372
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-customXmlSchemaProperties.xsd",
+        "tokens": 261
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesCustom.xsd",
+        "tokens": 813
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesExtended.xsd",
+        "tokens": 1105
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-documentPropertiesVariantTypes.xsd",
+        "tokens": 2490
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-math.xsd",
+        "tokens": 8024
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/shared-relationshipReference.xsd",
+        "tokens": 420
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/sml.xsd",
+        "tokens": 74717
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/vml-main.xsd",
+        "tokens": 8184
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/vml-officeDrawing.xsd",
+        "tokens": 8025
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/vml-presentationDrawing.xsd",
+        "tokens": 169
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/vml-spreadsheetDrawing.xsd",
+        "tokens": 1794
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/vml-wordprocessingDrawing.xsd",
+        "tokens": 1222
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/wml.xsd",
+        "tokens": 54492
+      },
+      {
+        "file": "ooxml/schemas/ISO-IEC29500-4_2016/xml.xsd",
+        "tokens": 1120
+      },
+      {
+        "file": "ooxml/schemas/ecma/fouth-edition/opc-contentTypes.xsd",
+        "tokens": 684
+      },
+      {
+        "file": "ooxml/schemas/ecma/fouth-edition/opc-coreProperties.xsd",
+        "tokens": 780
+      },
+      {
+        "file": "ooxml/schemas/ecma/fouth-edition/opc-digSig.xsd",
+        "tokens": 1357
+      },
+      {
+        "file": "ooxml/schemas/ecma/fouth-edition/opc-relationships.xsd",
+        "tokens": 396
+      },
+      {
+        "file": "ooxml/schemas/mce/mc.xsd",
+        "tokens": 875
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-2010.xsd",
+        "tokens": 7981
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-2012.xsd",
+        "tokens": 1198
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-2018.xsd",
+        "tokens": 273
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-cex-2018.xsd",
+        "tokens": 537
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-cid-2016.xsd",
+        "tokens": 307
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-sdtdatahash-2020.xsd",
+        "tokens": 175
+      },
+      {
+        "file": "ooxml/schemas/microsoft/wml-symex-2015.xsd",
+        "tokens": 231
+      },
+      {
+        "file": "ooxml/scripts/pack.py",
+        "tokens": 1179
+      },
+      {
+        "file": "ooxml/scripts/unpack.py",
+        "tokens": 275
+      },
+      {
+        "file": "ooxml/scripts/validate.py",
+        "tokens": 444
+      },
+      {
+        "file": "ooxml/scripts/validation/__init__.py",
+        "tokens": 79
+      },
+      {
+        "file": "ooxml/scripts/validation/base.py",
+        "tokens": 7970
+      },
+      {
+        "file": "ooxml/scripts/validation/docx.py",
+        "tokens": 1987
+      },
+      {
+        "file": "ooxml/scripts/validation/pptx.py",
+        "tokens": 2448
+      },
+      {
+        "file": "ooxml/scripts/validation/redlining.py",
+        "tokens": 2156
+      },
+      {
+        "file": "ooxml.md",
+        "tokens": 3427
+      }
+    ],
+    "total": 333940
+  }
+}

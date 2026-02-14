@@ -1,0 +1,213 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/devops-skills/monitoring-observability",
+  "passed": false,
+  "errors": 3,
+  "warnings": 6,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: monitoring-observability.skill \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/templates/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"monitoring-observability\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (446 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/metrics_design.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/analyze_metrics.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/log_analyzer.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/logging_guide.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/alert_quality_checker.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/templates/prometheus-alerts/webapp-alerts.yml (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/templates/prometheus-alerts/kubernetes-alerts.yml (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/alerting_best_practices.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/templates/runbooks/incident-runbook-template.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/dashboard_generator.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/slo_calculator.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/slo_sla_guide.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/templates/otel-config/collector-config.yaml (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tracing_guide.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/datadog_cost_analyzer.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/dql_promql_translation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/datadog_migration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tool_comparison.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/health_check_validator.py (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:9090 (request failed: Head \"http://localhost:9090\": dial tcp 127.0.0.1:9090: connect: connection refused)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.example.com/health (request failed: Head \"https://api.example.com/health\": dial tcp: lookup api.example.com: no such host)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.example.com/readiness (request failed: Head \"https://api.example.com/readiness\": dial tcp: lookup api.example.com: no such host)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6096 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 866 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 29293 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 76857 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6096
+      },
+      {
+        "file": "references/alerting_best_practices.md",
+        "tokens": 3766
+      },
+      {
+        "file": "references/datadog_migration.md",
+        "tokens": 4144
+      },
+      {
+        "file": "references/dql_promql_translation.md",
+        "tokens": 3424
+      },
+      {
+        "file": "references/logging_guide.md",
+        "tokens": 3903
+      },
+      {
+        "file": "references/metrics_design.md",
+        "tokens": 2338
+      },
+      {
+        "file": "references/slo_sla_guide.md",
+        "tokens": 3986
+      },
+      {
+        "file": "references/tool_comparison.md",
+        "tokens": 3873
+      },
+      {
+        "file": "references/tracing_guide.md",
+        "tokens": 3859
+      }
+    ],
+    "total": 35389
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "monitoring-observability.skill",
+        "tokens": 76857
+      }
+    ],
+    "total": 76857
+  }
+}

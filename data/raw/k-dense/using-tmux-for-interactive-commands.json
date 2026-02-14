@@ -1,0 +1,46 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-lab/skills/using-tmux-for-interactive-commands",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: tmux-wrapper.sh \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"using-tmux-for-interactive-commands\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (230 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1321
+      }
+    ],
+    "total": 1321
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "tmux-wrapper.sh",
+        "tokens": 524
+      }
+    ],
+    "total": 524
+  }
+}

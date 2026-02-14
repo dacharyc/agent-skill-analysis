@@ -1,0 +1,69 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/zephyr-skills/skills/devicetree",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"devicetree\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (239 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/dt_syntax.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/dt_bindings.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/dt_overlays.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/dt_overlays.md#advanced-customization-from-golioth (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 412
+      },
+      {
+        "file": "references/dt_bindings.md",
+        "tokens": 273
+      },
+      {
+        "file": "references/dt_overlays.md",
+        "tokens": 373
+      },
+      {
+        "file": "references/dt_syntax.md",
+        "tokens": 464
+      }
+    ],
+    "total": 1522
+  }
+}

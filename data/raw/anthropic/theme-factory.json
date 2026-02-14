@@ -1,0 +1,101 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/theme-factory",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: theme-showcase.pdf \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: themes/ (contains 10 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"theme-factory\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (262 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 583
+      }
+    ],
+    "total": 583
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2262
+      },
+      {
+        "file": "themes/arctic-frost.md",
+        "tokens": 147
+      },
+      {
+        "file": "themes/botanical-garden.md",
+        "tokens": 144
+      },
+      {
+        "file": "themes/desert-rose.md",
+        "tokens": 141
+      },
+      {
+        "file": "themes/forest-canopy.md",
+        "tokens": 141
+      },
+      {
+        "file": "themes/golden-hour.md",
+        "tokens": 138
+      },
+      {
+        "file": "themes/midnight-galaxy.md",
+        "tokens": 144
+      },
+      {
+        "file": "themes/modern-minimalist.md",
+        "tokens": 140
+      },
+      {
+        "file": "themes/ocean-depths.md",
+        "tokens": 147
+      },
+      {
+        "file": "themes/sunset-boulevard.md",
+        "tokens": 145
+      },
+      {
+        "file": "themes/tech-innovation.md",
+        "tokens": 142
+      }
+    ],
+    "total": 3691
+  }
+}

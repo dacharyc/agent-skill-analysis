@@ -1,0 +1,218 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/nuxt",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: GENERATION.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"nuxt\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (168 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-directory-structure.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-cli.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-routing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-data-fetching.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-modules.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-deployment.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-composables.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-components-autoimport.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-components.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-state.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-server.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/rendering-modes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-data-fetching.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-ssr.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-layers.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-hooks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-module-authoring.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 25986 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 697
+      },
+      {
+        "file": "references/advanced-hooks.md",
+        "tokens": 1633
+      },
+      {
+        "file": "references/advanced-layers.md",
+        "tokens": 1436
+      },
+      {
+        "file": "references/advanced-module-authoring.md",
+        "tokens": 3033
+      },
+      {
+        "file": "references/best-practices-data-fetching.md",
+        "tokens": 2001
+      },
+      {
+        "file": "references/best-practices-ssr.md",
+        "tokens": 1645
+      },
+      {
+        "file": "references/core-cli.md",
+        "tokens": 1268
+      },
+      {
+        "file": "references/core-config.md",
+        "tokens": 771
+      },
+      {
+        "file": "references/core-data-fetching.md",
+        "tokens": 1363
+      },
+      {
+        "file": "references/core-deployment.md",
+        "tokens": 1226
+      },
+      {
+        "file": "references/core-directory-structure.md",
+        "tokens": 1614
+      },
+      {
+        "file": "references/core-modules.md",
+        "tokens": 1392
+      },
+      {
+        "file": "references/core-routing.md",
+        "tokens": 1027
+      },
+      {
+        "file": "references/features-components-autoimport.md",
+        "tokens": 1354
+      },
+      {
+        "file": "references/features-components.md",
+        "tokens": 1319
+      },
+      {
+        "file": "references/features-composables.md",
+        "tokens": 1383
+      },
+      {
+        "file": "references/features-server.md",
+        "tokens": 1363
+      },
+      {
+        "file": "references/features-state.md",
+        "tokens": 953
+      },
+      {
+        "file": "references/rendering-modes.md",
+        "tokens": 1205
+      }
+    ],
+    "total": 26683
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "GENERATION.md",
+        "tokens": 53
+      }
+    ],
+    "total": 53
+  }
+}

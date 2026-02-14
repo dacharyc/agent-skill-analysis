@@ -1,0 +1,173 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/vscode-extension-builder-lawvable",
+  "passed": true,
+  "errors": 0,
+  "warnings": 6,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/basic-command/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/custom-editor/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/file-bridge/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/tree-view/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/webview-react/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vscode-extension-builder-lawvable\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (430 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/api-reference.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/webview-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tree-view-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/custom-editor-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/conversion-guide.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/build-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/contribution-points.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ai-integration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/basic-command/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/webview-react/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/tree-view/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/custom-editor/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/file-bridge/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1725
+      },
+      {
+        "file": "references/ai-integration.md",
+        "tokens": 3188
+      },
+      {
+        "file": "references/api-reference.md",
+        "tokens": 2423
+      },
+      {
+        "file": "references/build-config.md",
+        "tokens": 2367
+      },
+      {
+        "file": "references/contribution-points.md",
+        "tokens": 2933
+      },
+      {
+        "file": "references/conversion-guide.md",
+        "tokens": 2637
+      },
+      {
+        "file": "references/custom-editor-patterns.md",
+        "tokens": 3108
+      },
+      {
+        "file": "references/tree-view-patterns.md",
+        "tokens": 2944
+      },
+      {
+        "file": "references/webview-patterns.md",
+        "tokens": 3283
+      }
+    ],
+    "total": 24608
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      }
+    ],
+    "total": 7275
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/black-forest-labs-skills/skills/flux-best-practices",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "AGENTS.md is for repo-level agent configuration, not skill content \u2014 move it outside the skill directory (e.g. to the repository root) where agents discover it automatically"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: metadata.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 12 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"flux-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (217 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 8 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/core-principles.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/flux2-models.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/flux1-models.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/t2i-prompting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/i2i-prompting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/json-structured-prompting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/hex-color-prompting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/typography-text.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/multi-reference-editing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/negative-prompt-alternatives.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "rules/model-selection-guide.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 29537 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 29,537 tokens of non-standard content but only 881 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 881
+      }
+    ],
+    "total": 881
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "AGENTS.md",
+        "tokens": 13288
+      },
+      {
+        "file": "metadata.json",
+        "tokens": 130
+      },
+      {
+        "file": "rules/_sections.md",
+        "tokens": 352
+      },
+      {
+        "file": "rules/core-principles.md",
+        "tokens": 859
+      },
+      {
+        "file": "rules/flux1-models.md",
+        "tokens": 934
+      },
+      {
+        "file": "rules/flux2-models.md",
+        "tokens": 1540
+      },
+      {
+        "file": "rules/hex-color-prompting.md",
+        "tokens": 1452
+      },
+      {
+        "file": "rules/i2i-prompting.md",
+        "tokens": 1460
+      },
+      {
+        "file": "rules/json-structured-prompting.md",
+        "tokens": 1608
+      },
+      {
+        "file": "rules/model-selection-guide.md",
+        "tokens": 2124
+      },
+      {
+        "file": "rules/multi-reference-editing.md",
+        "tokens": 1358
+      },
+      {
+        "file": "rules/negative-prompt-alternatives.md",
+        "tokens": 1541
+      },
+      {
+        "file": "rules/t2i-prompting.md",
+        "tokens": 1409
+      },
+      {
+        "file": "rules/typography-text.md",
+        "tokens": 1482
+      }
+    ],
+    "total": 29537
+  }
+}

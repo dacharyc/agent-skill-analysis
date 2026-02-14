@@ -1,0 +1,57 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/code-generation/skills/azure-verified-modules",
+  "passed": false,
+  "errors": 2,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-verified-modules\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (184 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://azure.github.io/Azure-Verified-Modules/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://azure.github.io/Azure-Verified-Modules/specs/terraform/ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.terraform.io/docs/extend/best-practices/naming.html (HTTP 429)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/terraform-docs/terraform-docs (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 610 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3926
+      }
+    ],
+    "total": 3926
+  }
+}

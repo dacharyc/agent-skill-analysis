@@ -1,0 +1,33 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/clawsec-skills/skills/prompt-agent",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: HEARTBEAT.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: skill.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "parsing frontmatter YAML: yaml: unmarshal errors:\n  line 5: cannot unmarshal !!map into string"
+    }
+  ]
+}

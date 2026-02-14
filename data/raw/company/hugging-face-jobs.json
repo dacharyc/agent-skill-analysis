@@ -1,0 +1,142 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-jobs",
+  "passed": false,
+  "errors": 2,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: index.html \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hugging-face-jobs\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (561 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 14 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://hf.co/pro (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://hf.co/enterprise (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/hub/en/spaces-config-reference (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/webhooks (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/jobs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/cli#hf-jobs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/package_reference/hf_api (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.astral.sh/uv/guides/scripts/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/uv-scripts (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/quick-start#authentication (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/settings/tokens (HTTP 401)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/jobs/username/job-id (HTTP 401)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 7924 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1032 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 7924
+      },
+      {
+        "file": "references/hardware_guide.md",
+        "tokens": 2598
+      },
+      {
+        "file": "references/hub_saving.md",
+        "tokens": 1930
+      },
+      {
+        "file": "references/token_usage.md",
+        "tokens": 3226
+      },
+      {
+        "file": "references/troubleshooting.md",
+        "tokens": 2566
+      }
+    ],
+    "total": 18244
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "index.html",
+        "tokens": 1865
+      }
+    ],
+    "total": 1865
+  }
+}

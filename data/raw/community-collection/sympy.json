@@ -1,0 +1,82 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/sympy",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"sympy\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (612 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"https://github.com/sympy/sympy/blob/master/LICENSE\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.sympy.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.sympy.org/latest/tutorials/intro-tutorial/index.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.sympy.org/latest/reference/index.html (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/sympy/sympy/tree/master/examples (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3876
+      },
+      {
+        "file": "references/advanced-topics.md",
+        "tokens": 4575
+      },
+      {
+        "file": "references/code-generation-printing.md",
+        "tokens": 3644
+      },
+      {
+        "file": "references/core-capabilities.md",
+        "tokens": 2593
+      },
+      {
+        "file": "references/matrices-linear-algebra.md",
+        "tokens": 3330
+      },
+      {
+        "file": "references/physics-mechanics.md",
+        "tokens": 3451
+      }
+    ],
+    "total": 21469
+  }
+}

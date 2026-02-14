@@ -1,0 +1,105 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/cloudflare-skills/skills/agents-sdk",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"agents-sdk\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (284 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 10 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/workflows.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/callable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/state-scheduling.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/streaming-chat.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/mcp.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/email.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/codemode.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/agents/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1350
+      },
+      {
+        "file": "references/callable.md",
+        "tokens": 522
+      },
+      {
+        "file": "references/codemode.md",
+        "tokens": 1336
+      },
+      {
+        "file": "references/email.md",
+        "tokens": 845
+      },
+      {
+        "file": "references/mcp.md",
+        "tokens": 929
+      },
+      {
+        "file": "references/state-scheduling.md",
+        "tokens": 973
+      },
+      {
+        "file": "references/streaming-chat.md",
+        "tokens": 1024
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 894
+      }
+    ],
+    "total": 7873
+  }
+}

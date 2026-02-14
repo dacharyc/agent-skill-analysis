@@ -1,0 +1,100 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/speech",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"speech\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (309 chars)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://platform.openai.com/api-keys (HTTP 403 \u2014 may block automated requests)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1629
+      },
+      {
+        "file": "references/accessibility.md",
+        "tokens": 174
+      },
+      {
+        "file": "references/audio-api.md",
+        "tokens": 292
+      },
+      {
+        "file": "references/cli.md",
+        "tokens": 890
+      },
+      {
+        "file": "references/codex-network.md",
+        "tokens": 232
+      },
+      {
+        "file": "references/ivr.md",
+        "tokens": 188
+      },
+      {
+        "file": "references/narration.md",
+        "tokens": 163
+      },
+      {
+        "file": "references/prompting.md",
+        "tokens": 340
+      },
+      {
+        "file": "references/sample-prompts.md",
+        "tokens": 235
+      },
+      {
+        "file": "references/voice-directions.md",
+        "tokens": 495
+      },
+      {
+        "file": "references/voiceover.md",
+        "tokens": 193
+      }
+    ],
+    "total": 4831
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2231
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 66
+      }
+    ],
+    "total": 2297
+  }
+}

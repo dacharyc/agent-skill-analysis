@@ -1,0 +1,88 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/datacommons-client",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"datacommons-client\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (466 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 11 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Unknown\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://datacommons.org/tools/statvar (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://apikeys.datacommons.org/ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.datacommons.org/api/python/v2/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://datacommons.org/browser/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/datacommonsorg/api-python (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1831
+      },
+      {
+        "file": "references/getting_started.md",
+        "tokens": 2473
+      },
+      {
+        "file": "references/node.md",
+        "tokens": 1394
+      },
+      {
+        "file": "references/observation.md",
+        "tokens": 1276
+      },
+      {
+        "file": "references/resolve.md",
+        "tokens": 1748
+      }
+    ],
+    "total": 8722
+  }
+}

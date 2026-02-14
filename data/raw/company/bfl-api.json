@@ -1,0 +1,135 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/black-forest-labs-skills/skills/bfl-api",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: metadata.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: references/code-examples/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"bfl-api\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (180 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/api-key-setup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/endpoints.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/polling-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/rate-limiting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/error-handling.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/webhook-integration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/code-examples/curl-examples.sh (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/code-examples/python-client.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/code-examples/typescript-client.ts (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://bfl.ai/pricing (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://dashboard.bfl.ai/get-started (HTTP 429)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2574
+      },
+      {
+        "file": "references/api-key-setup.md",
+        "tokens": 413
+      },
+      {
+        "file": "references/endpoints.md",
+        "tokens": 2151
+      },
+      {
+        "file": "references/error-handling.md",
+        "tokens": 1950
+      },
+      {
+        "file": "references/polling-patterns.md",
+        "tokens": 1525
+      },
+      {
+        "file": "references/rate-limiting.md",
+        "tokens": 1474
+      },
+      {
+        "file": "references/webhook-integration.md",
+        "tokens": 2011
+      }
+    ],
+    "total": 12098
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "metadata.json",
+        "tokens": 96
+      }
+    ],
+    "total": 96
+  }
+}

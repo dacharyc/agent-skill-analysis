@@ -1,0 +1,99 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/omero-integration",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"omero-integration\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (193 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Unknown\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://omero.readthedocs.io/en/stable/developers/Python.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://omero.readthedocs.io/en/stable/developers/Python.html#omero-blitzgateway (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://omero.readthedocs.io/en/stable/developers/Model.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://forum.image.sc/tag/omero (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 29698 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1855
+      },
+      {
+        "file": "references/advanced.md",
+        "tokens": 3725
+      },
+      {
+        "file": "references/connection.md",
+        "tokens": 1921
+      },
+      {
+        "file": "references/data_access.md",
+        "tokens": 3494
+      },
+      {
+        "file": "references/image_processing.md",
+        "tokens": 4256
+      },
+      {
+        "file": "references/metadata.md",
+        "tokens": 4103
+      },
+      {
+        "file": "references/rois.md",
+        "tokens": 4611
+      },
+      {
+        "file": "references/scripts.md",
+        "tokens": 3853
+      },
+      {
+        "file": "references/tables.md",
+        "tokens": 3735
+      }
+    ],
+    "total": 31553
+  }
+}

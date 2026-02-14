@@ -1,0 +1,47 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/packer/hcp/skills/push-to-registry",
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"push-to-registry\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (179 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/hcp/docs/packer (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/docs/templates/hcl_templates/blocks/build/hcp_packer_registry (HTTP 429)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://registry.terraform.io/providers/hashicorp/hcp/latest/docs/data-sources/packer_artifact (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1150
+      }
+    ],
+    "total": 1150
+  }
+}

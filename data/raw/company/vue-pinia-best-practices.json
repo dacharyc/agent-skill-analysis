@@ -1,0 +1,111 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/vuejs-skills/skills/vue-pinia-best-practices",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vue-pinia-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (81 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"author\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/pinia-no-active-pinia-error.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/pinia-setup-store-return-all-state.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/pinia-store-destructuring-breaks-reactivity.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/store-method-binding-parentheses.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/state-url-for-ephemeral-filters.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/state-use-pinia-for-large-apps.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 219
+      }
+    ],
+    "total": 219
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "reference/pinia-no-active-pinia-error.md",
+        "tokens": 1610
+      },
+      {
+        "file": "reference/pinia-setup-store-return-all-state.md",
+        "tokens": 1450
+      },
+      {
+        "file": "reference/pinia-store-destructuring-breaks-reactivity.md",
+        "tokens": 1286
+      },
+      {
+        "file": "reference/state-url-for-ephemeral-filters.md",
+        "tokens": 1801
+      },
+      {
+        "file": "reference/state-use-pinia-for-large-apps.md",
+        "tokens": 1570
+      },
+      {
+        "file": "reference/store-method-binding-parentheses.md",
+        "tokens": 1241
+      }
+    ],
+    "total": 8958
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/devops-skills/aws-cost-optimization",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/templates/"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"aws-cost-optimization\", got \"aws-cost-finops\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"aws-cost-finops\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (436 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://aws.amazon.com/aws-cost-management/aws-budgets/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.finops.org (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 605 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3911
+      },
+      {
+        "file": "references/best_practices.md",
+        "tokens": 2779
+      },
+      {
+        "file": "references/finops_governance.md",
+        "tokens": 4143
+      },
+      {
+        "file": "references/service_alternatives.md",
+        "tokens": 4099
+      }
+    ],
+    "total": 14932
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/pymc",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"pymc\", got \"pymc-bayesian-modeling\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pymc-bayesian-modeling\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (175 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache License, Version 2.0\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 565 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4213
+      },
+      {
+        "file": "references/distributions.md",
+        "tokens": 2893
+      },
+      {
+        "file": "references/sampling_inference.md",
+        "tokens": 2594
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 3870
+      }
+    ],
+    "total": 13570
+  }
+}

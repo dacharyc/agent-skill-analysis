@@ -1,0 +1,88 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/esm",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"esm\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (502 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://forge.evolutionaryscale.ai (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/evolutionaryscale/esm (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.science.org/doi/10.1126/science.ads0018 (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.evolutionaryscale.ai/blog/esm3-release (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.evolutionaryscale.ai/blog/esm-cambrian (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://bit.ly/3FKwcWd (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2410
+      },
+      {
+        "file": "references/esm-c-api.md",
+        "tokens": 3811
+      },
+      {
+        "file": "references/esm3-api.md",
+        "tokens": 2790
+      },
+      {
+        "file": "references/forge-api.md",
+        "tokens": 3934
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 5046
+      }
+    ],
+    "total": 17991
+  }
+}

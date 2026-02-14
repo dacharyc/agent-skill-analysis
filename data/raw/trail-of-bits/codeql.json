@@ -1,0 +1,99 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/static-analysis/skills/codeql",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: workflows/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"codeql\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (407 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Bash Read Write Glob Grep AskUserQuestion Task TaskCreate TaskList TaskUpdate\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "workflows/build-database.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "workflows/create-data-extensions.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "workflows/run-analysis.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1074
+      },
+      {
+        "file": "references/diagnostic-query-templates.md",
+        "tokens": 2648
+      },
+      {
+        "file": "references/language-details.md",
+        "tokens": 1295
+      },
+      {
+        "file": "references/performance-tuning.md",
+        "tokens": 815
+      },
+      {
+        "file": "references/ruleset-catalog.md",
+        "tokens": 513
+      },
+      {
+        "file": "references/threat-models.md",
+        "tokens": 550
+      }
+    ],
+    "total": 6895
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "workflows/build-database.md",
+        "tokens": 5377
+      },
+      {
+        "file": "workflows/create-data-extensions.md",
+        "tokens": 5031
+      },
+      {
+        "file": "workflows/run-analysis.md",
+        "tokens": 3562
+      }
+    ],
+    "total": 13970
+  }
+}

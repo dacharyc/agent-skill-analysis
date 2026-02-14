@@ -1,0 +1,107 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/gdpr-breach-sentinel-oliver-schmidt-prietz",
+  "passed": true,
+  "errors": 0,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"gdpr-breach-sentinel-oliver-schmidt-prietz\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (817 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 6 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/enisa-methodology.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/edpb-cases.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/templates.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ico.org.uk/for-organisations/report-a-breach/ (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 8631 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 662 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 8631
+      },
+      {
+        "file": "references/edpb-cases.md",
+        "tokens": 1917
+      },
+      {
+        "file": "references/enisa-methodology.md",
+        "tokens": 2857
+      },
+      {
+        "file": "references/templates.md",
+        "tokens": 4347
+      }
+    ],
+    "total": 17752
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      },
+      {
+        "file": "README.md",
+        "tokens": 1345
+      }
+    ],
+    "total": 8620
+  }
+}

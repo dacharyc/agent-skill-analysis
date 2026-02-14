@@ -1,0 +1,57 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-onboarding",
+  "passed": false,
+  "errors": 5,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-onboarding\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (205 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file#Lline (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./contributor-guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./staff-engineer-guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./executive-guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./product-manager-guide.md (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3047
+      }
+    ],
+    "total": 3047
+  }
+}

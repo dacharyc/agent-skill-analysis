@@ -1,0 +1,61 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-mgmt-mongodbatlas-dotnet",
+  "passed": false,
+  "errors": 2,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-mgmt-mongodbatlas-dotnet\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (314 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.nuget.org/packages/Azure.ResourceManager.MongoDBAtlas (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/azure/partner-solutions/mongodb-atlas/ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.mongodbatlas (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mongodbatlas (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2291
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 1007
+      }
+    ],
+    "total": 3298
+  }
+}

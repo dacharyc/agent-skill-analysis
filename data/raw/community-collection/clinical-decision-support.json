@@ -1,0 +1,95 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/clinical-decision-support",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"clinical-decision-support\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (549 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT License\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5924 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 504 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 37898 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5924
+      },
+      {
+        "file": "references/README.md",
+        "tokens": 1119
+      },
+      {
+        "file": "references/biomarker_classification.md",
+        "tokens": 7875
+      },
+      {
+        "file": "references/clinical_decision_algorithms.md",
+        "tokens": 5921
+      },
+      {
+        "file": "references/evidence_synthesis.md",
+        "tokens": 7560
+      },
+      {
+        "file": "references/outcome_analysis.md",
+        "tokens": 6404
+      },
+      {
+        "file": "references/patient_cohort_analysis.md",
+        "tokens": 4272
+      },
+      {
+        "file": "references/treatment_recommendations.md",
+        "tokens": 4747
+      }
+    ],
+    "total": 43822
+  }
+}

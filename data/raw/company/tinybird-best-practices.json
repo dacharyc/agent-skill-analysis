@@ -1,0 +1,95 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/tinybird-skills/skills/tinybird-best-practices",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 12 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"tinybird-best-practices\", got \"tinybird\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"tinybird\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (134 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 265
+      }
+    ],
+    "total": 265
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "rules/connection-files.md",
+        "tokens": 275
+      },
+      {
+        "file": "rules/copy-files.md",
+        "tokens": 159
+      },
+      {
+        "file": "rules/datasource-files.md",
+        "tokens": 444
+      },
+      {
+        "file": "rules/deduplication-patterns.md",
+        "tokens": 842
+      },
+      {
+        "file": "rules/endpoint-files.md",
+        "tokens": 196
+      },
+      {
+        "file": "rules/endpoint-optimization.md",
+        "tokens": 1520
+      },
+      {
+        "file": "rules/materialized-files.md",
+        "tokens": 358
+      },
+      {
+        "file": "rules/pipe-files.md",
+        "tokens": 102
+      },
+      {
+        "file": "rules/project-files.md",
+        "tokens": 286
+      },
+      {
+        "file": "rules/sink-files.md",
+        "tokens": 222
+      },
+      {
+        "file": "rules/sql.md",
+        "tokens": 475
+      },
+      {
+        "file": "rules/tests.md",
+        "tokens": 206
+      }
+    ],
+    "total": 5085
+  }
+}

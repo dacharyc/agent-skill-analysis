@@ -1,0 +1,55 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-cli",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hugging-face-cli\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (322 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 9 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/commands.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/examples.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1732
+      },
+      {
+        "file": "references/commands.md",
+        "tokens": 7102
+      },
+      {
+        "file": "references/examples.md",
+        "tokens": 2296
+      }
+    ],
+    "total": 11130
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-ai-vision-imageanalysis-java",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-ai-vision-imageanalysis-java\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (175 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/ai-services/computer-vision/concept-describe-images-40 (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1849
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 1597
+      },
+      {
+        "file": "references/examples.md",
+        "tokens": 5005
+      }
+    ],
+    "total": 8451
+  }
+}

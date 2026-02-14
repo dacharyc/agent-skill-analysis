@@ -1,0 +1,47 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/packer/builders/skills/windows-builder",
+  "passed": false,
+  "errors": 3,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"windows-builder\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (153 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/guides/windows (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/docs/communicators/winrm (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/docs/provisioners/powershell (HTTP 429)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1196
+      }
+    ],
+    "total": 1196
+  }
+}

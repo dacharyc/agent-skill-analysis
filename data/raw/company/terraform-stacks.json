@@ -1,0 +1,54 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/module-generation/skills/terraform-stacks",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"terraform-stacks\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (409 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 565 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3214
+      },
+      {
+        "file": "references/component-blocks.md",
+        "tokens": 3319
+      },
+      {
+        "file": "references/deployment-blocks.md",
+        "tokens": 5398
+      },
+      {
+        "file": "references/examples.md",
+        "tokens": 7955
+      }
+    ],
+    "total": 19886
+  }
+}

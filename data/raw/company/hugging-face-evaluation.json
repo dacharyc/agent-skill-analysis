@@ -1,0 +1,92 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-evaluation",
+  "passed": false,
+  "errors": 2,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: requirements.txt \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hugging-face-evaluation\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (264 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "... (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/huggingface/lighteval/blob/main/examples/tasks/all_tasks.txt (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://source-url.com (request failed: Head \"https://source-url.com\": dial tcp: lookup source-url.com: no such host)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5913 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 648 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5913
+      }
+    ],
+    "total": 5913
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "examples/USAGE_EXAMPLES.md",
+        "tokens": 2420
+      },
+      {
+        "file": "examples/artificial_analysis_to_hub.py",
+        "tokens": 910
+      },
+      {
+        "file": "examples/example_readme_tables.md",
+        "tokens": 920
+      },
+      {
+        "file": "examples/metric_mapping.json",
+        "tokens": 326
+      },
+      {
+        "file": "requirements.txt",
+        "tokens": 170
+      }
+    ],
+    "total": 4746
+  }
+}

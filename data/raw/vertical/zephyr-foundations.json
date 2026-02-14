@@ -1,0 +1,88 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/zephyr-skills/skills/zephyr-foundations",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/foundation_examples/"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"zephyr-foundations\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (342 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/zephyr_macros.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/concurrency.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/devicetree_basics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/error_handling.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/foundation_examples/template_driver.c (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 437
+      },
+      {
+        "file": "references/concurrency.md",
+        "tokens": 371
+      },
+      {
+        "file": "references/devicetree_basics.md",
+        "tokens": 350
+      },
+      {
+        "file": "references/error_handling.md",
+        "tokens": 294
+      },
+      {
+        "file": "references/zephyr_macros.md",
+        "tokens": 403
+      }
+    ],
+    "total": 1855
+  }
+}

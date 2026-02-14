@@ -1,0 +1,59 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/podcast-generation",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"podcast-generation\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (386 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/architecture.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/code-examples.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/pcm_to_wav.py (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 823
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 3057
+      },
+      {
+        "file": "references/architecture.md",
+        "tokens": 774
+      },
+      {
+        "file": "references/code-examples.md",
+        "tokens": 1494
+      }
+    ],
+    "total": 6148
+  }
+}

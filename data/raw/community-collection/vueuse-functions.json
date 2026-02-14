@@ -1,0 +1,2901 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/vueuse-functions",
+  "passed": false,
+  "errors": 3,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SYNC.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vueuse-functions\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (97 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "compatibility: (54 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createGlobalState.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createInjectionState.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createSharedComposable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/injectLocal.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/provideLocal.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAsyncState.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDebouncedRefHistory.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useLastChanged.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useLocalStorage.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useManualRefHistory.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRefHistory.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSessionStorage.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useStorage.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useStorageAsync.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useThrottledRefHistory.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useActiveElement.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDocumentVisibility.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDraggable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDropZone.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useElementBounding.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useElementSize.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useElementVisibility.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIntersectionObserver.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMouseInElement.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMutationObserver.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useParentElement.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useResizeObserver.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWindowFocus.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWindowScroll.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWindowSize.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useBluetooth.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useBreakpoints.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useBroadcastChannel.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useBrowserLocation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useClipboard.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useClipboardItems.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useColorMode.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCssVar.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDark.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useEventListener.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useEyeDropper.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFavicon.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFileDialog.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFileSystemAccess.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFullscreen.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useGamepad.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useImage.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMediaControls.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMediaQuery.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMemory.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useObjectUrl.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePerformanceObserver.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePermission.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePreferredColorScheme.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePreferredContrast.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePreferredDark.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePreferredLanguages.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePreferredReducedMotion.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePreferredReducedTransparency.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useScreenOrientation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useScreenSafeArea.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useScriptTag.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useShare.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSSRWidth.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../useMediaQuery/index.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../useBreakpoints/index.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useStyleTag.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTextareaAutosize.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTextDirection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTitle.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useUrlSearchParams.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useVibrate.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWakeLock.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWebNotification.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWebWorker.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWebWorkerFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/onClickOutside.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/onElementRemoval.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/onKeyStroke.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/onLongPress.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/onStartTyping.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useBattery.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDeviceMotion.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDeviceOrientation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDevicePixelRatio.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDevicesList.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDisplayMedia.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useElementByPoint.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useElementHover.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFocus.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFocusWithin.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFps.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useGeolocation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIdle.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useInfiniteScroll.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useKeyModifier.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMagicKeys.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMouse.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMousePressed.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useNavigatorLanguage.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useNetwork.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useOnline.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePageLeave.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useParallax.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePointer.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePointerLock.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePointerSwipe.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useScroll.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useScrollLock.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSpeechRecognition.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSpeechSynthesis.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSwipe.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTextSelection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useUserMedia.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useEventSource.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFetch.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useWebSocket.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAnimate.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useInterval.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIntervalFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useNow.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRafFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTimeout.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTimeoutFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTimestamp.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTransition.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/computedInject.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createReusableTemplate.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createTemplatePromise.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/templateRef.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tryOnBeforeMount.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tryOnBeforeUnmount.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tryOnMounted.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tryOnScopeDispose.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tryOnUnmounted.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/unrefElement.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCurrentElement.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMounted.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTemplateRefsList.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useVirtualList.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useVModel.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useVModels.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/until.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchArray.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchAtMost.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchDebounced.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchDeep.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchIgnorable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchImmediate.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchOnce.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchPausable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchThrottled.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchTriggerable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchWithFilter.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/whenever.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/computedAsync.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/computedEager.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/computedWithControl.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createRef.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/extendRef.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/reactify.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/reactifyObject.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/reactiveComputed.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/reactiveOmit.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/reactivePick.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/refAutoReset.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/refDebounced.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/refDefault.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/refManualReset.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/refThrottled.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/refWithControl.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/syncRef.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/syncRefs.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/toReactive.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/toRef.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/toRefs.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayDifference.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayEvery.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayFilter.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayFind.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayFindIndex.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayFindLast.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayIncludes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayJoin.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayMap.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayReduce.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArraySome.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useArrayUnique.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSorted.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCountdown.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDateFormat.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTimeAgo.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTimeAgoIntl.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createEventHook.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createUnrefFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/get.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/isDefined.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/makeDestructurable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/set.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAsyncQueue.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useBase64.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCached.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCloned.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useConfirmDialog.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCounter.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCycleList.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDebounceFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useEventBus.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMemoize.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useOffsetPagination.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePrevious.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useStepper.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSupported.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useThrottleFn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTimeoutPoll.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useToggle.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useToNumber.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useToString.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIpcRenderer.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIpcRendererInvoke.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIpcRendererOn.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useZoomFactor.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useZoomLevel.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAuth.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFirestore.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRTDB.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAsyncValidator.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAxios.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useChangeCase.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCookies.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useDrauu.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFocusTrap.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFuse.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useIDBKeyval.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useJwt.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useNProgress.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useQRCode.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSortable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createGenericProjection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/createProjection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/logicAnd.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/logicNot.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/logicOr.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAbs.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useAverage.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useCeil.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useClamp.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useFloor.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMath.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMax.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useMin.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/usePrecision.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useProjection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRound.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSum.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useTrunc.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRouteHash.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRouteParams.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useRouteQuery.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/from.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/toObserver.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useExtractedObservable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useObservable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSubject.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/useSubscription.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/watchExtractedObservable.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vueuse.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Testing_media_queries (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/NavigatorLanguage/languages (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-transparency (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Screen_Orientation_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/notification (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/docs/Web/API/Window/devicePixelRatio (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/getModifierState (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Pointer_Lock_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Window/getSelection (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/EventSource (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/WebSocket (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vuejs.org/api/reactivity-utilities.html#torefs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.electronjs.org/docs/api/ipc-renderer (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.electronjs.org/docs/api/ipc-renderer#ipcrendererinvokechannel-args (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.electronjs.org/docs/api/ipc-renderer#ipcrendereronchannel-listener (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.electronjs.org/docs/api/ipc-renderer#ipcrendererremovelistenerchannel-listener (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.electronjs.org/docs/api/web-frame#webframe (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://firebase.google.com/docs/auth (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://firebase.google.com/docs/firestore (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://firebase.google.com/docs/database (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/vueuse/head#api (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/yiminghe/async-validator (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/axios/axios (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/blakeembrey/change-case (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.npmjs.com/package/universal-cookie (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/antfu/drauu (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/focus-trap/focus-trap (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/krisk/fuse (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.npmjs.com/package/idb-keyval (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/auth0/jwt-decode (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/rstacruz/nprogress (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/soldair/node-qrcode (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/SortableJS/Sortable (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://motion.vueuse.org/api/use-element-style (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://motion.vueuse.org/api/use-element-transform (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://motion.vueuse.org/api/use-motion (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://motion.vueuse.org/api/use-motion-properties (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://motion.vueuse.org/api/use-motion-variants (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://motion.vueuse.org/api/use-spring (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rxjs.dev/api/index/function/from (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rxjs.dev/api/index/function/fromEvent (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rxjs.dev/guide/observer (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rxjs.dev/guide/observable (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rxjs.dev/guide/subject (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://rxjs.dev/guide/subscription (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vue-schema-org.netlify.app/api/core/create-schema-org.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vue-schema-org.netlify.app/api/core/use-schema-org.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/vueuse/sound#examples (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 8460 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "error",
+      "category": "Tokens",
+      "message": "total reference files: 152789 tokens \u2014 this will consume 25-40% of a typical context window; reduce content or split into a skill with fewer references"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 8460
+      },
+      {
+        "file": "references/computedAsync.md",
+        "tokens": 1086
+      },
+      {
+        "file": "references/computedEager.md",
+        "tokens": 506
+      },
+      {
+        "file": "references/computedInject.md",
+        "tokens": 564
+      },
+      {
+        "file": "references/computedWithControl.md",
+        "tokens": 538
+      },
+      {
+        "file": "references/createEventHook.md",
+        "tokens": 510
+      },
+      {
+        "file": "references/createGenericProjection.md",
+        "tokens": 178
+      },
+      {
+        "file": "references/createGlobalState.md",
+        "tokens": 448
+      },
+      {
+        "file": "references/createInjectionState.md",
+        "tokens": 1217
+      },
+      {
+        "file": "references/createProjection.md",
+        "tokens": 178
+      },
+      {
+        "file": "references/createRef.md",
+        "tokens": 359
+      },
+      {
+        "file": "references/createReusableTemplate.md",
+        "tokens": 2242
+      },
+      {
+        "file": "references/createSharedComposable.md",
+        "tokens": 269
+      },
+      {
+        "file": "references/createTemplatePromise.md",
+        "tokens": 1533
+      },
+      {
+        "file": "references/createUnrefFn.md",
+        "tokens": 326
+      },
+      {
+        "file": "references/extendRef.md",
+        "tokens": 400
+      },
+      {
+        "file": "references/from.md",
+        "tokens": 312
+      },
+      {
+        "file": "references/get.md",
+        "tokens": 113
+      },
+      {
+        "file": "references/injectLocal.md",
+        "tokens": 185
+      },
+      {
+        "file": "references/isDefined.md",
+        "tokens": 163
+      },
+      {
+        "file": "references/logicAnd.md",
+        "tokens": 182
+      },
+      {
+        "file": "references/logicNot.md",
+        "tokens": 158
+      },
+      {
+        "file": "references/logicOr.md",
+        "tokens": 181
+      },
+      {
+        "file": "references/makeDestructurable.md",
+        "tokens": 206
+      },
+      {
+        "file": "references/onClickOutside.md",
+        "tokens": 1005
+      },
+      {
+        "file": "references/onElementRemoval.md",
+        "tokens": 312
+      },
+      {
+        "file": "references/onKeyStroke.md",
+        "tokens": 1089
+      },
+      {
+        "file": "references/onLongPress.md",
+        "tokens": 913
+      },
+      {
+        "file": "references/onStartTyping.md",
+        "tokens": 190
+      },
+      {
+        "file": "references/provideLocal.md",
+        "tokens": 216
+      },
+      {
+        "file": "references/reactify.md",
+        "tokens": 853
+      },
+      {
+        "file": "references/reactifyObject.md",
+        "tokens": 324
+      },
+      {
+        "file": "references/reactiveComputed.md",
+        "tokens": 145
+      },
+      {
+        "file": "references/reactiveOmit.md",
+        "tokens": 459
+      },
+      {
+        "file": "references/reactivePick.md",
+        "tokens": 557
+      },
+      {
+        "file": "references/refAutoReset.md",
+        "tokens": 280
+      },
+      {
+        "file": "references/refDebounced.md",
+        "tokens": 465
+      },
+      {
+        "file": "references/refDefault.md",
+        "tokens": 141
+      },
+      {
+        "file": "references/refManualReset.md",
+        "tokens": 215
+      },
+      {
+        "file": "references/refThrottled.md",
+        "tokens": 782
+      },
+      {
+        "file": "references/refWithControl.md",
+        "tokens": 919
+      },
+      {
+        "file": "references/set.md",
+        "tokens": 117
+      },
+      {
+        "file": "references/syncRef.md",
+        "tokens": 1261
+      },
+      {
+        "file": "references/syncRefs.md",
+        "tokens": 629
+      },
+      {
+        "file": "references/templateRef.md",
+        "tokens": 414
+      },
+      {
+        "file": "references/toObserver.md",
+        "tokens": 247
+      },
+      {
+        "file": "references/toReactive.md",
+        "tokens": 196
+      },
+      {
+        "file": "references/toRef.md",
+        "tokens": 558
+      },
+      {
+        "file": "references/toRefs.md",
+        "tokens": 459
+      },
+      {
+        "file": "references/tryOnBeforeMount.md",
+        "tokens": 162
+      },
+      {
+        "file": "references/tryOnBeforeUnmount.md",
+        "tokens": 133
+      },
+      {
+        "file": "references/tryOnMounted.md",
+        "tokens": 155
+      },
+      {
+        "file": "references/tryOnScopeDispose.md",
+        "tokens": 128
+      },
+      {
+        "file": "references/tryOnUnmounted.md",
+        "tokens": 133
+      },
+      {
+        "file": "references/unrefElement.md",
+        "tokens": 342
+      },
+      {
+        "file": "references/until.md",
+        "tokens": 1073
+      },
+      {
+        "file": "references/useAbs.md",
+        "tokens": 115
+      },
+      {
+        "file": "references/useActiveElement.md",
+        "tokens": 306
+      },
+      {
+        "file": "references/useAnimate.md",
+        "tokens": 837
+      },
+      {
+        "file": "references/useArrayDifference.md",
+        "tokens": 708
+      },
+      {
+        "file": "references/useArrayEvery.md",
+        "tokens": 377
+      },
+      {
+        "file": "references/useArrayFilter.md",
+        "tokens": 532
+      },
+      {
+        "file": "references/useArrayFind.md",
+        "tokens": 296
+      },
+      {
+        "file": "references/useArrayFindIndex.md",
+        "tokens": 382
+      },
+      {
+        "file": "references/useArrayFindLast.md",
+        "tokens": 318
+      },
+      {
+        "file": "references/useArrayIncludes.md",
+        "tokens": 401
+      },
+      {
+        "file": "references/useArrayJoin.md",
+        "tokens": 493
+      },
+      {
+        "file": "references/useArrayMap.md",
+        "tokens": 432
+      },
+      {
+        "file": "references/useArrayReduce.md",
+        "tokens": 535
+      },
+      {
+        "file": "references/useArraySome.md",
+        "tokens": 371
+      },
+      {
+        "file": "references/useArrayUnique.md",
+        "tokens": 517
+      },
+      {
+        "file": "references/useAsyncQueue.md",
+        "tokens": 474
+      },
+      {
+        "file": "references/useAsyncState.md",
+        "tokens": 905
+      },
+      {
+        "file": "references/useAsyncValidator.md",
+        "tokens": 432
+      },
+      {
+        "file": "references/useAuth.md",
+        "tokens": 758
+      },
+      {
+        "file": "references/useAverage.md",
+        "tokens": 170
+      },
+      {
+        "file": "references/useAxios.md",
+        "tokens": 1895
+      },
+      {
+        "file": "references/useBase64.md",
+        "tokens": 609
+      },
+      {
+        "file": "references/useBattery.md",
+        "tokens": 511
+      },
+      {
+        "file": "references/useBluetooth.md",
+        "tokens": 1100
+      },
+      {
+        "file": "references/useBreakpoints.md",
+        "tokens": 1027
+      },
+      {
+        "file": "references/useBroadcastChannel.md",
+        "tokens": 399
+      },
+      {
+        "file": "references/useBrowserLocation.md",
+        "tokens": 429
+      },
+      {
+        "file": "references/useCached.md",
+        "tokens": 280
+      },
+      {
+        "file": "references/useCeil.md",
+        "tokens": 120
+      },
+      {
+        "file": "references/useChangeCase.md",
+        "tokens": 500
+      },
+      {
+        "file": "references/useClamp.md",
+        "tokens": 266
+      },
+      {
+        "file": "references/useClipboard.md",
+        "tokens": 727
+      },
+      {
+        "file": "references/useClipboardItems.md",
+        "tokens": 659
+      },
+      {
+        "file": "references/useCloned.md",
+        "tokens": 482
+      },
+      {
+        "file": "references/useColorMode.md",
+        "tokens": 1129
+      },
+      {
+        "file": "references/useConfirmDialog.md",
+        "tokens": 1025
+      },
+      {
+        "file": "references/useCookies.md",
+        "tokens": 1219
+      },
+      {
+        "file": "references/useCountdown.md",
+        "tokens": 521
+      },
+      {
+        "file": "references/useCounter.md",
+        "tokens": 466
+      },
+      {
+        "file": "references/useCssVar.md",
+        "tokens": 265
+      },
+      {
+        "file": "references/useCurrentElement.md",
+        "tokens": 375
+      },
+      {
+        "file": "references/useCycleList.md",
+        "tokens": 406
+      },
+      {
+        "file": "references/useDark.md",
+        "tokens": 840
+      },
+      {
+        "file": "references/useDateFormat.md",
+        "tokens": 1546
+      },
+      {
+        "file": "references/useDebounceFn.md",
+        "tokens": 707
+      },
+      {
+        "file": "references/useDebouncedRefHistory.md",
+        "tokens": 254
+      },
+      {
+        "file": "references/useDeviceMotion.md",
+        "tokens": 665
+      },
+      {
+        "file": "references/useDeviceOrientation.md",
+        "tokens": 460
+      },
+      {
+        "file": "references/useDevicePixelRatio.md",
+        "tokens": 294
+      },
+      {
+        "file": "references/useDevicesList.md",
+        "tokens": 472
+      },
+      {
+        "file": "references/useDisplayMedia.md",
+        "tokens": 396
+      },
+      {
+        "file": "references/useDocumentVisibility.md",
+        "tokens": 192
+      },
+      {
+        "file": "references/useDraggable.md",
+        "tokens": 1285
+      },
+      {
+        "file": "references/useDrauu.md",
+        "tokens": 395
+      },
+      {
+        "file": "references/useDropZone.md",
+        "tokens": 575
+      },
+      {
+        "file": "references/useElementBounding.md",
+        "tokens": 726
+      },
+      {
+        "file": "references/useElementByPoint.md",
+        "tokens": 260
+      },
+      {
+        "file": "references/useElementHover.md",
+        "tokens": 398
+      },
+      {
+        "file": "references/useElementSize.md",
+        "tokens": 404
+      },
+      {
+        "file": "references/useElementVisibility.md",
+        "tokens": 732
+      },
+      {
+        "file": "references/useEventBus.md",
+        "tokens": 607
+      },
+      {
+        "file": "references/useEventListener.md",
+        "tokens": 1424
+      },
+      {
+        "file": "references/useEventSource.md",
+        "tokens": 1151
+      },
+      {
+        "file": "references/useExtractedObservable.md",
+        "tokens": 1200
+      },
+      {
+        "file": "references/useEyeDropper.md",
+        "tokens": 414
+      },
+      {
+        "file": "references/useFavicon.md",
+        "tokens": 365
+      },
+      {
+        "file": "references/useFetch.md",
+        "tokens": 3707
+      },
+      {
+        "file": "references/useFileDialog.md",
+        "tokens": 505
+      },
+      {
+        "file": "references/useFileSystemAccess.md",
+        "tokens": 1155
+      },
+      {
+        "file": "references/useFirestore.md",
+        "tokens": 769
+      },
+      {
+        "file": "references/useFloor.md",
+        "tokens": 115
+      },
+      {
+        "file": "references/useFocus.md",
+        "tokens": 631
+      },
+      {
+        "file": "references/useFocusTrap.md",
+        "tokens": 1398
+      },
+      {
+        "file": "references/useFocusWithin.md",
+        "tokens": 340
+      },
+      {
+        "file": "references/useFps.md",
+        "tokens": 107
+      },
+      {
+        "file": "references/useFullscreen.md",
+        "tokens": 439
+      },
+      {
+        "file": "references/useFuse.md",
+        "tokens": 642
+      },
+      {
+        "file": "references/useGamepad.md",
+        "tokens": 1454
+      },
+      {
+        "file": "references/useGeolocation.md",
+        "tokens": 597
+      },
+      {
+        "file": "references/useIDBKeyval.md",
+        "tokens": 512
+      },
+      {
+        "file": "references/useIdle.md",
+        "tokens": 470
+      },
+      {
+        "file": "references/useImage.md",
+        "tokens": 598
+      },
+      {
+        "file": "references/useInfiniteScroll.md",
+        "tokens": 967
+      },
+      {
+        "file": "references/useIntersectionObserver.md",
+        "tokens": 639
+      },
+      {
+        "file": "references/useInterval.md",
+        "tokens": 339
+      },
+      {
+        "file": "references/useIntervalFn.md",
+        "tokens": 222
+      },
+      {
+        "file": "references/useIpcRenderer.md",
+        "tokens": 1145
+      },
+      {
+        "file": "references/useIpcRendererInvoke.md",
+        "tokens": 449
+      },
+      {
+        "file": "references/useIpcRendererOn.md",
+        "tokens": 467
+      },
+      {
+        "file": "references/useJwt.md",
+        "tokens": 375
+      },
+      {
+        "file": "references/useKeyModifier.md",
+        "tokens": 595
+      },
+      {
+        "file": "references/useLastChanged.md",
+        "tokens": 370
+      },
+      {
+        "file": "references/useLocalStorage.md",
+        "tokens": 256
+      },
+      {
+        "file": "references/useMagicKeys.md",
+        "tokens": 1323
+      },
+      {
+        "file": "references/useManualRefHistory.md",
+        "tokens": 1350
+      },
+      {
+        "file": "references/useMath.md",
+        "tokens": 250
+      },
+      {
+        "file": "references/useMax.md",
+        "tokens": 170
+      },
+      {
+        "file": "references/useMediaControls.md",
+        "tokens": 4090
+      },
+      {
+        "file": "references/useMediaQuery.md",
+        "tokens": 381
+      },
+      {
+        "file": "references/useMemoize.md",
+        "tokens": 1126
+      },
+      {
+        "file": "references/useMemory.md",
+        "tokens": 278
+      },
+      {
+        "file": "references/useMin.md",
+        "tokens": 170
+      },
+      {
+        "file": "references/useMounted.md",
+        "tokens": 125
+      },
+      {
+        "file": "references/useMouse.md",
+        "tokens": 669
+      },
+      {
+        "file": "references/useMouseInElement.md",
+        "tokens": 747
+      },
+      {
+        "file": "references/useMousePressed.md",
+        "tokens": 652
+      },
+      {
+        "file": "references/useMutationObserver.md",
+        "tokens": 343
+      },
+      {
+        "file": "references/useNProgress.md",
+        "tokens": 456
+      },
+      {
+        "file": "references/useNavigatorLanguage.md",
+        "tokens": 347
+      },
+      {
+        "file": "references/useNetwork.md",
+        "tokens": 681
+      },
+      {
+        "file": "references/useNow.md",
+        "tokens": 342
+      },
+      {
+        "file": "references/useObjectUrl.md",
+        "tokens": 326
+      },
+      {
+        "file": "references/useObservable.md",
+        "tokens": 442
+      },
+      {
+        "file": "references/useOffsetPagination.md",
+        "tokens": 1060
+      },
+      {
+        "file": "references/useOnline.md",
+        "tokens": 150
+      },
+      {
+        "file": "references/usePageLeave.md",
+        "tokens": 178
+      },
+      {
+        "file": "references/useParallax.md",
+        "tokens": 349
+      },
+      {
+        "file": "references/useParentElement.md",
+        "tokens": 241
+      },
+      {
+        "file": "references/usePerformanceObserver.md",
+        "tokens": 198
+      },
+      {
+        "file": "references/usePermission.md",
+        "tokens": 421
+      },
+      {
+        "file": "references/usePointer.md",
+        "tokens": 490
+      },
+      {
+        "file": "references/usePointerLock.md",
+        "tokens": 296
+      },
+      {
+        "file": "references/usePointerSwipe.md",
+        "tokens": 437
+      },
+      {
+        "file": "references/usePrecision.md",
+        "tokens": 242
+      },
+      {
+        "file": "references/usePreferredColorScheme.md",
+        "tokens": 209
+      },
+      {
+        "file": "references/usePreferredContrast.md",
+        "tokens": 199
+      },
+      {
+        "file": "references/usePreferredDark.md",
+        "tokens": 152
+      },
+      {
+        "file": "references/usePreferredLanguages.md",
+        "tokens": 205
+      },
+      {
+        "file": "references/usePreferredReducedMotion.md",
+        "tokens": 204
+      },
+      {
+        "file": "references/usePreferredReducedTransparency.md",
+        "tokens": 207
+      },
+      {
+        "file": "references/usePrevious.md",
+        "tokens": 178
+      },
+      {
+        "file": "references/useProjection.md",
+        "tokens": 201
+      },
+      {
+        "file": "references/useQRCode.md",
+        "tokens": 270
+      },
+      {
+        "file": "references/useRTDB.md",
+        "tokens": 378
+      },
+      {
+        "file": "references/useRafFn.md",
+        "tokens": 388
+      },
+      {
+        "file": "references/useRefHistory.md",
+        "tokens": 2123
+      },
+      {
+        "file": "references/useResizeObserver.md",
+        "tokens": 638
+      },
+      {
+        "file": "references/useRound.md",
+        "tokens": 115
+      },
+      {
+        "file": "references/useRouteHash.md",
+        "tokens": 128
+      },
+      {
+        "file": "references/useRouteParams.md",
+        "tokens": 219
+      },
+      {
+        "file": "references/useRouteQuery.md",
+        "tokens": 212
+      },
+      {
+        "file": "references/useSSRWidth.md",
+        "tokens": 223
+      },
+      {
+        "file": "references/useScreenOrientation.md",
+        "tokens": 575
+      },
+      {
+        "file": "references/useScreenSafeArea.md",
+        "tokens": 351
+      },
+      {
+        "file": "references/useScriptTag.md",
+        "tokens": 676
+      },
+      {
+        "file": "references/useScroll.md",
+        "tokens": 1438
+      },
+      {
+        "file": "references/useScrollLock.md",
+        "tokens": 317
+      },
+      {
+        "file": "references/useSessionStorage.md",
+        "tokens": 256
+      },
+      {
+        "file": "references/useShare.md",
+        "tokens": 375
+      },
+      {
+        "file": "references/useSortable.md",
+        "tokens": 1212
+      },
+      {
+        "file": "references/useSorted.md",
+        "tokens": 614
+      },
+      {
+        "file": "references/useSpeechRecognition.md",
+        "tokens": 547
+      },
+      {
+        "file": "references/useSpeechSynthesis.md",
+        "tokens": 686
+      },
+      {
+        "file": "references/useStepper.md",
+        "tokens": 887
+      },
+      {
+        "file": "references/useStorage.md",
+        "tokens": 1584
+      },
+      {
+        "file": "references/useStorageAsync.md",
+        "tokens": 822
+      },
+      {
+        "file": "references/useStyleTag.md",
+        "tokens": 639
+      },
+      {
+        "file": "references/useSubject.md",
+        "tokens": 341
+      },
+      {
+        "file": "references/useSubscription.md",
+        "tokens": 157
+      },
+      {
+        "file": "references/useSum.md",
+        "tokens": 174
+      },
+      {
+        "file": "references/useSupported.md",
+        "tokens": 111
+      },
+      {
+        "file": "references/useSwipe.md",
+        "tokens": 412
+      },
+      {
+        "file": "references/useTemplateRefsList.md",
+        "tokens": 181
+      },
+      {
+        "file": "references/useTextDirection.md",
+        "tokens": 369
+      },
+      {
+        "file": "references/useTextSelection.md",
+        "tokens": 226
+      },
+      {
+        "file": "references/useTextareaAutosize.md",
+        "tokens": 552
+      },
+      {
+        "file": "references/useThrottleFn.md",
+        "tokens": 455
+      },
+      {
+        "file": "references/useThrottledRefHistory.md",
+        "tokens": 326
+      },
+      {
+        "file": "references/useTimeAgo.md",
+        "tokens": 920
+      },
+      {
+        "file": "references/useTimeAgoIntl.md",
+        "tokens": 781
+      },
+      {
+        "file": "references/useTimeout.md",
+        "tokens": 353
+      },
+      {
+        "file": "references/useTimeoutFn.md",
+        "tokens": 236
+      },
+      {
+        "file": "references/useTimeoutPoll.md",
+        "tokens": 215
+      },
+      {
+        "file": "references/useTimestamp.md",
+        "tokens": 391
+      },
+      {
+        "file": "references/useTitle.md",
+        "tokens": 635
+      },
+      {
+        "file": "references/useToNumber.md",
+        "tokens": 267
+      },
+      {
+        "file": "references/useToString.md",
+        "tokens": 140
+      },
+      {
+        "file": "references/useToggle.md",
+        "tokens": 364
+      },
+      {
+        "file": "references/useTransition.md",
+        "tokens": 2544
+      },
+      {
+        "file": "references/useTrunc.md",
+        "tokens": 149
+      },
+      {
+        "file": "references/useUrlSearchParams.md",
+        "tokens": 741
+      },
+      {
+        "file": "references/useUserMedia.md",
+        "tokens": 5766
+      },
+      {
+        "file": "references/useVModel.md",
+        "tokens": 745
+      },
+      {
+        "file": "references/useVModels.md",
+        "tokens": 374
+      },
+      {
+        "file": "references/useVibrate.md",
+        "tokens": 544
+      },
+      {
+        "file": "references/useVirtualList.md",
+        "tokens": 1290
+      },
+      {
+        "file": "references/useWakeLock.md",
+        "tokens": 425
+      },
+      {
+        "file": "references/useWebNotification.md",
+        "tokens": 1033
+      },
+      {
+        "file": "references/useWebSocket.md",
+        "tokens": 1650
+      },
+      {
+        "file": "references/useWebWorker.md",
+        "tokens": 443
+      },
+      {
+        "file": "references/useWebWorkerFn.md",
+        "tokens": 645
+      },
+      {
+        "file": "references/useWindowFocus.md",
+        "tokens": 191
+      },
+      {
+        "file": "references/useWindowScroll.md",
+        "tokens": 300
+      },
+      {
+        "file": "references/useWindowSize.md",
+        "tokens": 388
+      },
+      {
+        "file": "references/useZoomFactor.md",
+        "tokens": 309
+      },
+      {
+        "file": "references/useZoomLevel.md",
+        "tokens": 306
+      },
+      {
+        "file": "references/watchArray.md",
+        "tokens": 333
+      },
+      {
+        "file": "references/watchAtMost.md",
+        "tokens": 327
+      },
+      {
+        "file": "references/watchDebounced.md",
+        "tokens": 417
+      },
+      {
+        "file": "references/watchDeep.md",
+        "tokens": 311
+      },
+      {
+        "file": "references/watchExtractedObservable.md",
+        "tokens": 1147
+      },
+      {
+        "file": "references/watchIgnorable.md",
+        "tokens": 778
+      },
+      {
+        "file": "references/watchImmediate.md",
+        "tokens": 261
+      },
+      {
+        "file": "references/watchOnce.md",
+        "tokens": 269
+      },
+      {
+        "file": "references/watchPausable.md",
+        "tokens": 539
+      },
+      {
+        "file": "references/watchThrottled.md",
+        "tokens": 416
+      },
+      {
+        "file": "references/watchTriggerable.md",
+        "tokens": 643
+      },
+      {
+        "file": "references/watchWithFilter.md",
+        "tokens": 337
+      },
+      {
+        "file": "references/whenever.md",
+        "tokens": 484
+      }
+    ],
+    "total": 161249
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.md",
+        "tokens": 230
+      },
+      {
+        "file": "SYNC.md",
+        "tokens": 64
+      }
+    ],
+    "total": 294
+  }
+}

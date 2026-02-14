@@ -1,0 +1,67 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/histolab",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"histolab\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (320 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 671 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4571
+      },
+      {
+        "file": "references/filters_preprocessing.md",
+        "tokens": 2902
+      },
+      {
+        "file": "references/slide_management.md",
+        "tokens": 1094
+      },
+      {
+        "file": "references/tile_extraction.md",
+        "tokens": 2765
+      },
+      {
+        "file": "references/tissue_masks.md",
+        "tokens": 1650
+      },
+      {
+        "file": "references/visualization.md",
+        "tokens": 3637
+      }
+    ],
+    "total": 16619
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/google-gemini-skills/skills/gemini-api-dev",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"gemini-api-dev\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (429 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 14 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/models.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/image-generation.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/function-calling.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/structured-output.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/text-generation.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/image-understanding.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/embeddings.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/interactions.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ai.google.dev/gemini-api/docs/migrate.md.txt (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://central.sonatype.com/artifact/com.google.genai/google-genai/versions (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1369
+      }
+    ],
+    "total": 1369
+  }
+}

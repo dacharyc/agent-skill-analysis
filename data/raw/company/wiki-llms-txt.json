@@ -1,0 +1,57 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-llms-txt",
+  "passed": false,
+  "errors": 4,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-llms-txt\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (243 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "url (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "URL (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./wiki/onboarding/contributor-guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./onboarding/contributor-guide.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://llmstxt.org/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1171
+      }
+    ],
+    "total": 1171
+  }
+}

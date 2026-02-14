@@ -1,0 +1,74 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/building-secure-contracts/skills/code-maturity-assessor",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"code-maturity-assessor\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (333 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 9 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/ASSESSMENT_CRITERIA.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/EXAMPLE_REPORT.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/REPORT_FORMAT.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1492
+      }
+    ],
+    "total": 1492
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "resources/ASSESSMENT_CRITERIA.md",
+        "tokens": 2113
+      },
+      {
+        "file": "resources/EXAMPLE_REPORT.md",
+        "tokens": 1861
+      },
+      {
+        "file": "resources/REPORT_FORMAT.md",
+        "tokens": 187
+      }
+    ],
+    "total": 4161
+  }
+}

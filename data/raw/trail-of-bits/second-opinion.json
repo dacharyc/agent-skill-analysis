@@ -1,0 +1,70 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/second-opinion/skills/second-opinion",
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"second-opinion\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (245 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Bash Read Glob Grep AskUserQuestion\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/codex-invocation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/gemini-invocation.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/gemini-cli-extensions/code-review` (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/gemini-cli-extensions/security` (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2441
+      },
+      {
+        "file": "references/codex-invocation.md",
+        "tokens": 754
+      },
+      {
+        "file": "references/gemini-invocation.md",
+        "tokens": 1023
+      }
+    ],
+    "total": 4218
+  }
+}

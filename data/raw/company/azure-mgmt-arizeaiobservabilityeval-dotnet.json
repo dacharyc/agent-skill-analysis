@@ -1,0 +1,56 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-mgmt-arizeaiobservabilityeval-dotnet",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-mgmt-arizeaiobservabilityeval-dotnet\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (350 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.nuget.org/packages/Azure.ResourceManager.ArizeAIObservabilityEval (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arize.com/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1582
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 1167
+      }
+    ],
+    "total": 2749
+  }
+}

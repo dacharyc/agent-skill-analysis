@@ -1,0 +1,147 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/vue-router-best-practices",
+  "passed": true,
+  "errors": 0,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SYNC.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 8 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vue-router-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (99 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"author\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-beforeenter-no-param-trigger.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-beforerouteenter-no-this.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-guard-async-await-pattern.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-navigation-guard-infinite-loop.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-navigation-guard-next-deprecated.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-param-change-no-lifecycle.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-simple-routing-cleanup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reference/router-use-vue-router-for-production.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 254
+      }
+    ],
+    "total": 254
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.md",
+        "tokens": 234
+      },
+      {
+        "file": "SYNC.md",
+        "tokens": 63
+      },
+      {
+        "file": "reference/router-beforeenter-no-param-trigger.md",
+        "tokens": 1201
+      },
+      {
+        "file": "reference/router-beforerouteenter-no-this.md",
+        "tokens": 1158
+      },
+      {
+        "file": "reference/router-guard-async-await-pattern.md",
+        "tokens": 1353
+      },
+      {
+        "file": "reference/router-navigation-guard-infinite-loop.md",
+        "tokens": 1325
+      },
+      {
+        "file": "reference/router-navigation-guard-next-deprecated.md",
+        "tokens": 1024
+      },
+      {
+        "file": "reference/router-param-change-no-lifecycle.md",
+        "tokens": 1298
+      },
+      {
+        "file": "reference/router-simple-routing-cleanup.md",
+        "tokens": 1237
+      },
+      {
+        "file": "reference/router-use-vue-router-for-production.md",
+        "tokens": 1266
+      }
+    ],
+    "total": 10159
+  }
+}

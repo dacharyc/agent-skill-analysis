@@ -1,0 +1,78 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/cloudflare-skills/skills/building-ai-agent-on-cloudflare",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"building-ai-agent-on-cloudflare\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (439 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 10 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/agent-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/troubleshooting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/examples.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/state-patterns.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://my-agent.workers.dev/agents/MyAgent/test-user (request failed: Head \"https://my-agent.workers.dev/agents/MyAgent/test-user\": dial tcp: lookup my-agent.workers.dev: no such host)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2104
+      },
+      {
+        "file": "references/agent-patterns.md",
+        "tokens": 2769
+      },
+      {
+        "file": "references/examples.md",
+        "tokens": 983
+      },
+      {
+        "file": "references/state-patterns.md",
+        "tokens": 1913
+      },
+      {
+        "file": "references/troubleshooting.md",
+        "tokens": 1958
+      }
+    ],
+    "total": 9727
+  }
+}

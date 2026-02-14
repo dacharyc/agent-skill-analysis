@@ -1,0 +1,67 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/module-generation/skills/refactor-module",
+  "passed": false,
+  "errors": 3,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"refactor-module\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (158 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "./examples/ (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://raw.githubusercontent.com/hashicorp/agent-skills/refs/heads/main/terraform/code-generation/skills/terraform-style-guide/SKILL.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://raw.githubusercontent.com/hashicorp/agent-skills/refs/heads/main/terraform/code-generation/skills/azure-verified-modules/SKILL.md (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/language/modules/develop (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/cloud-docs/registry/design (HTTP 429)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 532 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3408
+      }
+    ],
+    "total": 3408
+  }
+}

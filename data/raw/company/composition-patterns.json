@@ -1,0 +1,124 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/vercel-skills/skills/composition-patterns",
+  "passed": false,
+  "errors": 1,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "AGENTS.md is for repo-level agent configuration, not skill content \u2014 move it outside the skill directory (e.g. to the repository root) where agents discover it automatically"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: metadata.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 10 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"composition-patterns\", got \"vercel-composition-patterns\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vercel-composition-patterns\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (310 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 533
+      }
+    ],
+    "total": 533
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "AGENTS.md",
+        "tokens": 5129
+      },
+      {
+        "file": "README.md",
+        "tokens": 476
+      },
+      {
+        "file": "metadata.json",
+        "tokens": 123
+      },
+      {
+        "file": "rules/_sections.md",
+        "tokens": 176
+      },
+      {
+        "file": "rules/_template.md",
+        "tokens": 80
+      },
+      {
+        "file": "rules/architecture-avoid-boolean-props.md",
+        "tokens": 515
+      },
+      {
+        "file": "rules/architecture-compound-components.md",
+        "tokens": 582
+      },
+      {
+        "file": "rules/patterns-children-over-render-props.md",
+        "tokens": 432
+      },
+      {
+        "file": "rules/patterns-explicit-variants.md",
+        "tokens": 514
+      },
+      {
+        "file": "rules/react19-no-forwardref.md",
+        "tokens": 257
+      },
+      {
+        "file": "rules/state-context-interface.md",
+        "tokens": 1090
+      },
+      {
+        "file": "rules/state-decouple-implementation.md",
+        "tokens": 591
+      },
+      {
+        "file": "rules/state-lift-state.md",
+        "tokens": 702
+      }
+    ],
+    "total": 10667
+  }
+}

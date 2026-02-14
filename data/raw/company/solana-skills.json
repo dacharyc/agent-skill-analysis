@@ -1,0 +1,187 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/solana-skills/skill",
+  "passed": false,
+  "errors": 1,
+  "warnings": 11,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: confidential-transfers.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: frontend-framework-kit.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: idl-codegen.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: kit-web3-interop.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: payments.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: programs-anchor.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: programs-pinocchio.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: resources.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: security.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: testing.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"skill\", got \"solana-dev\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"solana-dev\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (518 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"user-invocable\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "frontend-framework-kit.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "kit-web3-interop.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "programs-anchor.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "programs-pinocchio.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "testing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "idl-codegen.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "payments.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "confidential-transfers.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "security.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 843
+      }
+    ],
+    "total": 843
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "confidential-transfers.md",
+        "tokens": 5864
+      },
+      {
+        "file": "frontend-framework-kit.md",
+        "tokens": 681
+      },
+      {
+        "file": "idl-codegen.md",
+        "tokens": 364
+      },
+      {
+        "file": "kit-web3-interop.md",
+        "tokens": 494
+      },
+      {
+        "file": "payments.md",
+        "tokens": 339
+      },
+      {
+        "file": "programs-anchor.md",
+        "tokens": 1872
+      },
+      {
+        "file": "programs-pinocchio.md",
+        "tokens": 4181
+      },
+      {
+        "file": "resources.md",
+        "tokens": 941
+      },
+      {
+        "file": "security.md",
+        "tokens": 1828
+      },
+      {
+        "file": "testing.md",
+        "tokens": 2046
+      }
+    ],
+    "total": 18610
+  }
+}

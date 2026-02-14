@@ -1,0 +1,84 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/torchdrug",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"torchdrug\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (350 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://torchdrug.ai/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/DeepGraphLearning/torchdrug (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3194
+      },
+      {
+        "file": "references/core_concepts.md",
+        "tokens": 3439
+      },
+      {
+        "file": "references/datasets.md",
+        "tokens": 2942
+      },
+      {
+        "file": "references/knowledge_graphs.md",
+        "tokens": 1935
+      },
+      {
+        "file": "references/models_architectures.md",
+        "tokens": 3139
+      },
+      {
+        "file": "references/molecular_generation.md",
+        "tokens": 2128
+      },
+      {
+        "file": "references/molecular_property_prediction.md",
+        "tokens": 1302
+      },
+      {
+        "file": "references/protein_modeling.md",
+        "tokens": 1722
+      },
+      {
+        "file": "references/retrosynthesis.md",
+        "tokens": 2480
+      }
+    ],
+    "total": 22281
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/imaging-data-commons",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"imaging-data-commons\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (283 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"This skill is provided under the MIT License. IDC data itself has individual licensing (mostly CC-BY, some CC-NC) that must be respected when using the data.\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (4 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/imagingdatacommons/idc-index (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dicom.nema.org/medical/dicom/current/output/chtml/part06/chapter_6.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.canceridc.dev/portal/getting-started (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ImagingDataCommons/SlicerIDCBrowser (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://idc-index.readthedocs.io/en/latest/indices_reference.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ImagingDataCommons/idc-claude-skill/releases (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://portal.imaging.datacommons.cancer.gov/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.canceridc.dev/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://discourse.canceridc.dev/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://portal.imaging.datacommons.cancer.gov/explore/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ImagingDataCommons/IDC-Tutorials (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ImagingDataCommons/idc-index (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://doi.org/10.1148/rg.230180 (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 10076 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1173 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 10076
+      },
+      {
+        "file": "references/bigquery_guide.md",
+        "tokens": 4605
+      },
+      {
+        "file": "references/cli_guide.md",
+        "tokens": 1879
+      },
+      {
+        "file": "references/cloud_storage_guide.md",
+        "tokens": 3760
+      },
+      {
+        "file": "references/dicomweb_guide.md",
+        "tokens": 3701
+      }
+    ],
+    "total": 24021
+  }
+}

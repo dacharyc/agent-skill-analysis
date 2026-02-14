@@ -1,0 +1,103 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/differential-review/skills/differential-review",
+  "passed": true,
+  "errors": 0,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: adversarial.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: methodology.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: patterns.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: reporting.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"differential-review\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (305 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Grep Glob Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "methodology.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "adversarial.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "reporting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "patterns.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1471
+      }
+    ],
+    "total": 1471
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "adversarial.md",
+        "tokens": 1185
+      },
+      {
+        "file": "methodology.md",
+        "tokens": 1687
+      },
+      {
+        "file": "patterns.md",
+        "tokens": 1729
+      },
+      {
+        "file": "reporting.md",
+        "tokens": 1798
+      }
+    ],
+    "total": 6399
+  }
+}

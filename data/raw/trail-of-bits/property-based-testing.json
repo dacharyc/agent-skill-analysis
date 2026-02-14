@@ -1,0 +1,74 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"property-based-testing\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (287 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1353
+      },
+      {
+        "file": "references/design.md",
+        "tokens": 1313
+      },
+      {
+        "file": "references/generating.md",
+        "tokens": 1434
+      },
+      {
+        "file": "references/interpreting-failures.md",
+        "tokens": 1596
+      },
+      {
+        "file": "references/libraries.md",
+        "tokens": 864
+      },
+      {
+        "file": "references/refactoring.md",
+        "tokens": 1371
+      },
+      {
+        "file": "references/reviewing.md",
+        "tokens": 1435
+      },
+      {
+        "file": "references/strategies.md",
+        "tokens": 935
+      }
+    ],
+    "total": 10301
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "README.md",
+        "tokens": 735
+      }
+    ],
+    "total": 735
+  }
+}

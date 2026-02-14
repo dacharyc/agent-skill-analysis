@@ -1,0 +1,79 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator",
+  "passed": true,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"semgrep-rule-variant-creator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (231 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Bash Read Write Edit Glob Grep WebFetch\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/rule-syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/pattern-syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/pattern-examples (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/testing-rules (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://appsec.guide/docs/static-analysis/semgrep/advanced/ (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1725
+      },
+      {
+        "file": "references/applicability-analysis.md",
+        "tokens": 1622
+      },
+      {
+        "file": "references/language-syntax-guide.md",
+        "tokens": 1712
+      },
+      {
+        "file": "references/workflow.md",
+        "tokens": 3403
+      }
+    ],
+    "total": 8462
+  }
+}

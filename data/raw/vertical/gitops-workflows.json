@@ -1,0 +1,43 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/devops-skills/gitops-workflows",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/applicationsets/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/argocd/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/flux/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/progressive-delivery/"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "deep nesting detected: assets/secrets/"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "parsing frontmatter YAML: yaml: line 2: mapping values are not allowed in this context"
+    }
+  ]
+}

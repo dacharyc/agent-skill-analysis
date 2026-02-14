@@ -1,0 +1,152 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/notion-research-documentation",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: evaluations/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 11 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"notion-research-documentation\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (180 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.notion.com/mcp` (HTTP 401)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 717
+      }
+    ],
+    "total": 717
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 202
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 120
+      },
+      {
+        "file": "evaluations/README.md",
+        "tokens": 865
+      },
+      {
+        "file": "evaluations/basic-research.json",
+        "tokens": 357
+      },
+      {
+        "file": "evaluations/research-to-database.json",
+        "tokens": 343
+      },
+      {
+        "file": "examples/competitor-analysis.md",
+        "tokens": 2107
+      },
+      {
+        "file": "examples/market-research.md",
+        "tokens": 455
+      },
+      {
+        "file": "examples/technical-investigation.md",
+        "tokens": 1524
+      },
+      {
+        "file": "examples/trip-planning.md",
+        "tokens": 1069
+      },
+      {
+        "file": "reference/advanced-search.md",
+        "tokens": 1074
+      },
+      {
+        "file": "reference/citations.md",
+        "tokens": 1177
+      },
+      {
+        "file": "reference/comparison-format.md",
+        "tokens": 176
+      },
+      {
+        "file": "reference/comparison-template.md",
+        "tokens": 232
+      },
+      {
+        "file": "reference/comprehensive-report-format.md",
+        "tokens": 209
+      },
+      {
+        "file": "reference/comprehensive-report-template.md",
+        "tokens": 289
+      },
+      {
+        "file": "reference/format-selection-guide.md",
+        "tokens": 644
+      },
+      {
+        "file": "reference/quick-brief-format.md",
+        "tokens": 182
+      },
+      {
+        "file": "reference/quick-brief-template.md",
+        "tokens": 130
+      },
+      {
+        "file": "reference/research-summary-format.md",
+        "tokens": 170
+      },
+      {
+        "file": "reference/research-summary-template.md",
+        "tokens": 268
+      }
+    ],
+    "total": 11593
+  }
+}

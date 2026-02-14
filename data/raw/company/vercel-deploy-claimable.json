@@ -1,0 +1,62 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/vercel-skills/skills/claude.ai/vercel-deploy-claimable",
+  "passed": false,
+  "errors": 2,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"vercel-deploy-claimable\", got \"vercel-deploy\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vercel-deploy\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (317 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 5 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://skill-deploy-abc123.vercel.app (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vercel.com/claim-deployment?code=... (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://claude.ai/settings/capabilities (HTTP 403 \u2014 may block automated requests)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 727
+      }
+    ],
+    "total": 727
+  }
+}

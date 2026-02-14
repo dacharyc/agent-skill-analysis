@@ -1,0 +1,62 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/code-generation/skills/terraform-test",
+  "passed": false,
+  "errors": 3,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"terraform-test\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (340 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/language/tests (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/cli/commands/test (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/language/tests/best-practices (HTTP 429)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 9943 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1663 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 9943
+      }
+    ],
+    "total": 9943
+  }
+}

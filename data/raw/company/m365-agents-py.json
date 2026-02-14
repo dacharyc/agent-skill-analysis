@@ -1,0 +1,76 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/m365-agents-py",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"m365-agents-py\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (340 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 7 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "storage=STORAGE, adapter=ADAPTER, authorization=AUTHORIZATION, **agents_sdk_config (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/acceptance-criteria.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/Agents-for-python (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pypi.org/search/?q=microsoft-agents (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2578
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 2124
+      }
+    ],
+    "total": 4702
+  }
+}

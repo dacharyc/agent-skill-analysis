@@ -1,0 +1,170 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/render-deploy",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"render-deploy\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (229 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/codebase-analysis.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/blueprint-spec.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/runtimes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/service-types.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/configuration-guide.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/direct-creation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/deployment-details.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/post-deploy-checks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/troubleshooting-basics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://raw.githubusercontent.com/render-oss/cli/main/bin/install.sh (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dashboard.render.com/u/*/settings#api-keys (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.render.com/mcp (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dashboard.render.com/blueprint/new?repo= (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dashboard.render.com/blueprint/new?repo=https://github.com/username/repo-name (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3946
+      },
+      {
+        "file": "references/blueprint-spec.md",
+        "tokens": 4179
+      },
+      {
+        "file": "references/codebase-analysis.md",
+        "tokens": 646
+      },
+      {
+        "file": "references/configuration-guide.md",
+        "tokens": 3135
+      },
+      {
+        "file": "references/deployment-details.md",
+        "tokens": 1290
+      },
+      {
+        "file": "references/direct-creation.md",
+        "tokens": 799
+      },
+      {
+        "file": "references/error-patterns.md",
+        "tokens": 210
+      },
+      {
+        "file": "references/post-deploy-checks.md",
+        "tokens": 271
+      },
+      {
+        "file": "references/runtimes.md",
+        "tokens": 2577
+      },
+      {
+        "file": "references/service-types.md",
+        "tokens": 2820
+      },
+      {
+        "file": "references/troubleshooting-basics.md",
+        "tokens": 302
+      }
+    ],
+    "total": 20175
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2231
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 114
+      }
+    ],
+    "total": 2345
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/static-analysis/skills/semgrep",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"semgrep\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (343 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Bash Read Glob Grep Write Task AskUserQuestion TaskCreate TaskList TaskUpdate WebFetch\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/getting-started/ (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.npmjs.com/package/@microsoft/sarif-multitool (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/trailofbits/semgrep-rules (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Markdown",
+      "message": "references/scanner-task-prompt.md has an unclosed code fence starting at line 102 \u2014 this may cause agents to misinterpret everything after it as code"
+    },
+    {
+      "level": "warning",
+      "category": "Markdown",
+      "message": "references/triage-task-prompt.md has an unclosed code fence starting at line 122 \u2014 this may cause agents to misinterpret everything after it as code"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3951
+      },
+      {
+        "file": "references/rulesets.md",
+        "tokens": 2207
+      },
+      {
+        "file": "references/scanner-task-prompt.md",
+        "tokens": 913
+      },
+      {
+        "file": "references/triage-task-prompt.md",
+        "tokens": 854
+      }
+    ],
+    "total": 7925
+  }
+}

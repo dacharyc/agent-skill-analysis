@@ -1,0 +1,81 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/pyhealth",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pyhealth\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (493 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 18 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pyhealth.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/sunlabuiuc/PyHealth/issues (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4079
+      },
+      {
+        "file": "references/datasets.md",
+        "tokens": 1306
+      },
+      {
+        "file": "references/medical_coding.md",
+        "tokens": 2318
+      },
+      {
+        "file": "references/models.md",
+        "tokens": 3340
+      },
+      {
+        "file": "references/preprocessing.md",
+        "tokens": 3191
+      },
+      {
+        "file": "references/tasks.md",
+        "tokens": 2546
+      },
+      {
+        "file": "references/training_evaluation.md",
+        "tokens": 4168
+      }
+    ],
+    "total": 20948
+  }
+}

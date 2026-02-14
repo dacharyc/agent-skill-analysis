@@ -1,0 +1,93 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-mgmt-apimanagement-dotnet",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-mgmt-apimanagement-dotnet\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (393 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 8 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/service-management.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/apis-operations.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/products-subscriptions.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/policies.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/azure/api-management/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/azure/api-management/api-management-policies (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.apimanagement (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2069
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 1793
+      },
+      {
+        "file": "references/apis-operations.md",
+        "tokens": 936
+      },
+      {
+        "file": "references/products-subscriptions.md",
+        "tokens": 911
+      },
+      {
+        "file": "references/service-management.md",
+        "tokens": 866
+      }
+    ],
+    "total": 6575
+  }
+}

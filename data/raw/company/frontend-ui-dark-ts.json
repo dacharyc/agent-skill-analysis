@@ -1,0 +1,68 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/frontend-ui-dark-ts",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"frontend-ui-dark-ts\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (228 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/design-tokens.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/components.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/patterns.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 585 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4245
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 2581
+      },
+      {
+        "file": "references/components.md",
+        "tokens": 6800
+      },
+      {
+        "file": "references/design-tokens.md",
+        "tokens": 4749
+      },
+      {
+        "file": "references/patterns.md",
+        "tokens": 7321
+      }
+    ],
+    "total": 25696
+  }
+}

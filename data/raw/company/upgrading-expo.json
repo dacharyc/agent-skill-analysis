@@ -1,0 +1,81 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/expo-skills/plugins/upgrading-expo/skills/upgrading-expo",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"upgrading-expo\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (71 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.expo.dev/router/migrate/from-expo-webpack/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://exp.host/--/api/v2/versions (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://expo.dev/changelog (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1109
+      },
+      {
+        "file": "references/expo-av-to-audio.md",
+        "tokens": 917
+      },
+      {
+        "file": "references/expo-av-to-video.md",
+        "tokens": 1102
+      },
+      {
+        "file": "references/native-tabs.md",
+        "tokens": 882
+      },
+      {
+        "file": "references/new-architecture.md",
+        "tokens": 471
+      },
+      {
+        "file": "references/react-19.md",
+        "tokens": 472
+      },
+      {
+        "file": "references/react-compiler.md",
+        "tokens": 371
+      }
+    ],
+    "total": 5324
+  }
+}

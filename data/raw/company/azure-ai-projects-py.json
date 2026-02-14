@@ -1,0 +1,146 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-ai-projects-py",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-ai-projects-py\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (393 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/agents.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tools.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/connections.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/deployments.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/datasets-indexes.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/evaluation.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/async-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/built-in-evaluators.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/custom-evaluators.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/api-reference.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/run_batch_evaluation.py (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "references/acceptance-criteria.md is 11090 tokens \u2014 consider splitting into smaller focused files so agents load only what they need"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 34685 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1979
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 11090
+      },
+      {
+        "file": "references/agents.md",
+        "tokens": 1571
+      },
+      {
+        "file": "references/api-reference.md",
+        "tokens": 6707
+      },
+      {
+        "file": "references/async-patterns.md",
+        "tokens": 1472
+      },
+      {
+        "file": "references/built-in-evaluators.md",
+        "tokens": 2962
+      },
+      {
+        "file": "references/connections.md",
+        "tokens": 1036
+      },
+      {
+        "file": "references/custom-evaluators.md",
+        "tokens": 2960
+      },
+      {
+        "file": "references/datasets-indexes.md",
+        "tokens": 957
+      },
+      {
+        "file": "references/deployments.md",
+        "tokens": 812
+      },
+      {
+        "file": "references/evaluation.md",
+        "tokens": 2468
+      },
+      {
+        "file": "references/tools.md",
+        "tokens": 2650
+      }
+    ],
+    "total": 36664
+  }
+}

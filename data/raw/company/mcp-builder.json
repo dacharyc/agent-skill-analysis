@@ -1,0 +1,96 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/mcp-builder",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 5 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"mcp-builder\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (307 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./reference/microsoft_mcp_patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./reference/mcp_best_practices.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./reference/node_mcp_server.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./reference/python_mcp_server.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./reference/evaluation.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 25105 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2582
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 3215
+      }
+    ],
+    "total": 5797
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "reference/evaluation.md",
+        "tokens": 4919
+      },
+      {
+        "file": "reference/mcp_best_practices.md",
+        "tokens": 2787
+      },
+      {
+        "file": "reference/microsoft_mcp_patterns.md",
+        "tokens": 4933
+      },
+      {
+        "file": "reference/node_mcp_server.md",
+        "tokens": 6760
+      },
+      {
+        "file": "reference/python_mcp_server.md",
+        "tokens": 5706
+      }
+    ],
+    "total": 25105
+  }
+}

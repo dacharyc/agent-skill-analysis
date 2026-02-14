@@ -1,0 +1,168 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/pnpm",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: GENERATION.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pnpm\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (186 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-cli.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-config.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-workspaces.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-store.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-catalogs.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-overrides.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-patches.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-aliases.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-hooks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-peer-deps.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-ci.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-migration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-performance.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 568
+      },
+      {
+        "file": "references/best-practices-ci.md",
+        "tokens": 1506
+      },
+      {
+        "file": "references/best-practices-migration.md",
+        "tokens": 1400
+      },
+      {
+        "file": "references/best-practices-performance.md",
+        "tokens": 1132
+      },
+      {
+        "file": "references/core-cli.md",
+        "tokens": 992
+      },
+      {
+        "file": "references/core-config.md",
+        "tokens": 1037
+      },
+      {
+        "file": "references/core-store.md",
+        "tokens": 1018
+      },
+      {
+        "file": "references/core-workspaces.md",
+        "tokens": 1081
+      },
+      {
+        "file": "references/features-aliases.md",
+        "tokens": 819
+      },
+      {
+        "file": "references/features-catalogs.md",
+        "tokens": 811
+      },
+      {
+        "file": "references/features-hooks.md",
+        "tokens": 1113
+      },
+      {
+        "file": "references/features-overrides.md",
+        "tokens": 952
+      },
+      {
+        "file": "references/features-patches.md",
+        "tokens": 1080
+      },
+      {
+        "file": "references/features-peer-deps.md",
+        "tokens": 1124
+      }
+    ],
+    "total": 14633
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "GENERATION.md",
+        "tokens": 63
+      }
+    ],
+    "total": 63
+  }
+}

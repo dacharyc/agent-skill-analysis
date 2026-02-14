@@ -1,0 +1,41 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/github-issue-creator",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"github-issue-creator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (268 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "attachment-name.png (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 748
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 2393
+      }
+    ],
+    "total": 3141
+  }
+}

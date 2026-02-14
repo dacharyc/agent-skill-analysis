@@ -1,0 +1,111 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-paper-publisher",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hugging-face-paper-publisher\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (204 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arxiv.org/abs/2301.12345 (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/papers/2301.12345 (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/papers (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/hub/en/model-cards (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/hub/en/datasets-cards (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/spaces/tfrere/research-article-template (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arxiv.org/help/submit (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 619 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4305
+      },
+      {
+        "file": "references/quick_reference.md",
+        "tokens": 1301
+      }
+    ],
+    "total": 5606
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "examples/example_usage.md",
+        "tokens": 2298
+      },
+      {
+        "file": "templates/arxiv.md",
+        "tokens": 2112
+      },
+      {
+        "file": "templates/ml-report.md",
+        "tokens": 1958
+      },
+      {
+        "file": "templates/modern.md",
+        "tokens": 1719
+      },
+      {
+        "file": "templates/standard.md",
+        "tokens": 716
+      }
+    ],
+    "total": 8803
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/transformers",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"transformers\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (344 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 12 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "compatibility: (42 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/settings/tokens (HTTP 401)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1125
+      },
+      {
+        "file": "references/generation.md",
+        "tokens": 2335
+      },
+      {
+        "file": "references/models.md",
+        "tokens": 2111
+      },
+      {
+        "file": "references/pipelines.md",
+        "tokens": 2134
+      },
+      {
+        "file": "references/tokenizers.md",
+        "tokens": 2490
+      },
+      {
+        "file": "references/training.md",
+        "tokens": 2589
+      }
+    ],
+    "total": 12784
+  }
+}

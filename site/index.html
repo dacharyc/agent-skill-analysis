@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Skill Analysis — Interactive Report</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Agent Skill Analysis</h1>
+        <p class="subtitle">Structural validation, content quality, and cross-contamination risk across 254 Agent Skills</p>
+    </header>
+
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#validation">Validation</a>
+        <a href="#content">Content Quality</a>
+        <a href="#contamination">Contamination Risk</a>
+        <a href="#table">All Skills</a>
+    </nav>
+
+    <main>
+        <!-- Overview Dashboard -->
+        <section id="overview">
+            <h2>Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-total">—</div>
+                    <div class="stat-label">Total Skills</div>
+                </div>
+                <div class="stat-card pass">
+                    <div class="stat-value" id="stat-passed">—</div>
+                    <div class="stat-label">Passed Validation</div>
+                </div>
+                <div class="stat-card fail">
+                    <div class="stat-value" id="stat-failed">—</div>
+                    <div class="stat-label">Failed Validation</div>
+                </div>
+                <div class="stat-card warn">
+                    <div class="stat-value" id="stat-high-risk">—</div>
+                    <div class="stat-label">High Risk</div>
+                </div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-container">
+                    <canvas id="chart-pass-fail"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart-risk"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Validation Results -->
+        <section id="validation">
+            <h2>Validation Results by Source</h2>
+            <div class="chart-container wide">
+                <canvas id="chart-by-source"></canvas>
+            </div>
+            <div class="chart-container wide">
+                <canvas id="chart-tokens"></canvas>
+            </div>
+        </section>
+
+        <!-- Content Quality -->
+        <section id="content">
+            <h2>Content Quality</h2>
+            <div class="chart-row">
+                <div class="chart-container">
+                    <canvas id="chart-density"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart-specificity"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contamination Risk -->
+        <section id="contamination">
+            <h2>Cross-Contamination Risk</h2>
+            <p>Skills that reference multi-interface tools or mix code examples across languages pose a risk of cross-contaminating agent behavior.</p>
+            <div class="chart-container wide">
+                <canvas id="chart-risk-detail"></canvas>
+            </div>
+            <div id="high-risk-list">
+                <h3>High-Risk Skills</h3>
+                <div id="high-risk-cards"></div>
+            </div>
+        </section>
+
+        <!-- Filterable Table -->
+        <section id="table">
+            <h2>All Skills</h2>
+            <div class="filters">
+                <label>
+                    Source:
+                    <select id="filter-source">
+                        <option value="">All</option>
+                    </select>
+                </label>
+                <label>
+                    Status:
+                    <select id="filter-status">
+                        <option value="">All</option>
+                        <option value="passed">Passed</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                </label>
+                <label>
+                    Risk:
+                    <select id="filter-risk">
+                        <option value="">All</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </label>
+                <label>
+                    Search:
+                    <input type="text" id="filter-search" placeholder="Skill name...">
+                </label>
+                <button id="btn-download-csv">Download CSV</button>
+            </div>
+            <div class="table-wrapper">
+                <table id="skills-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="name">Name</th>
+                            <th data-sort="source">Source</th>
+                            <th data-sort="passed">Status</th>
+                            <th data-sort="errors">Errors</th>
+                            <th data-sort="warnings">Warnings</th>
+                            <th data-sort="total_tokens">Tokens</th>
+                            <th data-sort="information_density">Density</th>
+                            <th data-sort="instruction_specificity">Specificity</th>
+                            <th data-sort="risk_score">Risk</th>
+                        </tr>
+                    </thead>
+                    <tbody id="skills-tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="skill-detail" class="detail-panel hidden">
+                <button id="close-detail">&times;</button>
+                <div id="detail-content"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data: <a href="https://github.com/dacharyc/skill-validator">skill-validator</a> | Analysis: February 2026</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

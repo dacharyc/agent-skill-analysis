@@ -1,0 +1,75 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/pytorch-lightning",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pytorch-lightning\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (275 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 10 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1558
+      },
+      {
+        "file": "references/best_practices.md",
+        "tokens": 3971
+      },
+      {
+        "file": "references/callbacks.md",
+        "tokens": 3565
+      },
+      {
+        "file": "references/data_module.md",
+        "tokens": 3316
+      },
+      {
+        "file": "references/distributed_training.md",
+        "tokens": 3663
+      },
+      {
+        "file": "references/lightning_module.md",
+        "tokens": 3210
+      },
+      {
+        "file": "references/logging.md",
+        "tokens": 3473
+      },
+      {
+        "file": "references/trainer.md",
+        "tokens": 3704
+      }
+    ],
+    "total": 26460
+  }
+}

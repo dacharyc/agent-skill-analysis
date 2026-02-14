@@ -1,0 +1,66 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/wordpress-skills/skills/wp-rest-api",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wp-rest-api\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (302 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 9 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "compatibility: (109 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1078
+      },
+      {
+        "file": "references/authentication.md",
+        "tokens": 143
+      },
+      {
+        "file": "references/custom-content-types.md",
+        "tokens": 186
+      },
+      {
+        "file": "references/discovery-and-params.md",
+        "tokens": 190
+      },
+      {
+        "file": "references/responses-and-fields.md",
+        "tokens": 264
+      },
+      {
+        "file": "references/routes-and-endpoints.md",
+        "tokens": 343
+      },
+      {
+        "file": "references/schema.md",
+        "tokens": 221
+      }
+    ],
+    "total": 2425
+  }
+}

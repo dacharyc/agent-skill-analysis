@@ -1,0 +1,74 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/zephyr-skills/skills/kernel-services",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"kernel-services\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (375 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/zbus.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/smf.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/settings_workqueue.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/settings_workqueue.md#settings-subsystem (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "../hardware-io/SKILL.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 532
+      },
+      {
+        "file": "references/settings_workqueue.md",
+        "tokens": 502
+      },
+      {
+        "file": "references/smf.md",
+        "tokens": 567
+      },
+      {
+        "file": "references/zbus.md",
+        "tokens": 653
+      }
+    ],
+    "total": 2254
+  }
+}

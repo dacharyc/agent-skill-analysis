@@ -1,0 +1,88 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-datasets",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 6 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hugging-face-datasets\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (257 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 539 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3969
+      }
+    ],
+    "total": 3969
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "examples/diverse_training_examples.json",
+        "tokens": 4125
+      },
+      {
+        "file": "examples/system_prompt_template.txt",
+        "tokens": 1184
+      },
+      {
+        "file": "examples/training_examples.json",
+        "tokens": 1564
+      },
+      {
+        "file": "templates/chat.json",
+        "tokens": 524
+      },
+      {
+        "file": "templates/classification.json",
+        "tokens": 463
+      },
+      {
+        "file": "templates/completion.json",
+        "tokens": 611
+      },
+      {
+        "file": "templates/custom.json",
+        "tokens": 596
+      },
+      {
+        "file": "templates/qa.json",
+        "tokens": 620
+      },
+      {
+        "file": "templates/tabular.json",
+        "tokens": 643
+      }
+    ],
+    "total": 10330
+  }
+}

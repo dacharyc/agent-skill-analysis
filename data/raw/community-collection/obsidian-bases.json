@@ -1,0 +1,57 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/obsidian-skills/skills/obsidian-bases",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"obsidian-bases\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (256 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/bases/syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/bases/functions (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/bases/views (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/formulas (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 648 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4621
+      }
+    ],
+    "total": 4621
+  }
+}

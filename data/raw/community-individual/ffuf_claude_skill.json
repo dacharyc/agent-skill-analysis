@@ -1,0 +1,179 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/ffuf_claude_skill/ffuf-skill",
+  "passed": false,
+  "errors": 17,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: ffuf_helper.py \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"ffuf-skill\", got \"ffuf-web-fuzzing\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"ffuf-web-fuzzing\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (153 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ffuf/ffuf/releases/latest (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/FUZZ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://target.com (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/script.php?FUZZ=test_value (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/script.php?id=FUZZ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://target.com/?PARAM=VAL (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/login.php (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/api (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://target.com/login (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://127.0.0.1:8080 (request failed: Head \"http://127.0.0.1:8080\": dial tcp 127.0.0.1:8080: connect: connection refused)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/page.php?id=FUZZ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/search?q=FUZZ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/execute?cmd=FUZZ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/danielmiessler/SecLists (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.target.com/v1/FUZZ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://FUZZ.target.com (request failed: Head \"https://FUZZ.target.com\": dial tcp: lookup FUZZ.target.com: no such host)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ffuf/ffuf (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ffuf/ffuf/wiki (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://codingo.io/tools/ffuf/bounty/2020/09/17/everything-you-need-to-know-about-ffuf.html (request failed: Head \"https://codingo.io/tools/ffuf/bounty/2020/09/17/everything-you-need-to-know-about-ffuf.html\": dial tcp: lookup codingo.io: no such host)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://ffuf.me (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/page?FUZZ=value (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://target.com/endpoint` (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://127.0.0.1:8080` (invalid URL: parse \"http://127.0.0.1:8080`\": invalid port \":8080`\" after host)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4924
+      }
+    ],
+    "total": 4924
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "ffuf_helper.py",
+        "tokens": 1828
+      },
+      {
+        "file": "resources/REQUEST_TEMPLATES.md",
+        "tokens": 1571
+      },
+      {
+        "file": "resources/WORDLISTS.md",
+        "tokens": 1318
+      }
+    ],
+    "total": 4717
+  }
+}

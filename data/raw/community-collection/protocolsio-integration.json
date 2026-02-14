@@ -1,0 +1,86 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/protocolsio-integration",
+  "passed": false,
+  "errors": 2,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"protocolsio-integration\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (493 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 8 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Unknown\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://protocols.io/api/v3 (HTTP 400)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://apidoc.protocols.io/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.protocols.io/ (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3194
+      },
+      {
+        "file": "references/additional_features.md",
+        "tokens": 2400
+      },
+      {
+        "file": "references/authentication.md",
+        "tokens": 759
+      },
+      {
+        "file": "references/discussions.md",
+        "tokens": 1560
+      },
+      {
+        "file": "references/file_manager.md",
+        "tokens": 2723
+      },
+      {
+        "file": "references/protocols_api.md",
+        "tokens": 1931
+      },
+      {
+        "file": "references/workspaces.md",
+        "tokens": 1774
+      }
+    ],
+    "total": 14341
+  }
+}

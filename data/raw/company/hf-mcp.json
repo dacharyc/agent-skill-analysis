@@ -1,0 +1,37 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/hf-mcp/skills/hf-mcp",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hf-mcp\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (222 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/settings/mcp (HTTP 401)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1279
+      }
+    ],
+    "total": 1279
+  }
+}

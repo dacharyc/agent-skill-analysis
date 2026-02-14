@@ -1,0 +1,142 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/clawsec-skills/skills/clawsec-suite",
+  "passed": true,
+  "errors": 0,
+  "warnings": 9,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "CHANGELOG.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: HEARTBEAT.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: advisories/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: hooks/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: skill.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: test/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"clawsec-suite\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (189 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"homepage\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"clawdis\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2900
+      }
+    ],
+    "total": 2900
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "CHANGELOG.md",
+        "tokens": 875
+      },
+      {
+        "file": "HEARTBEAT.md",
+        "tokens": 1998
+      },
+      {
+        "file": "advisories/feed-signing-public.pem",
+        "tokens": 54
+      },
+      {
+        "file": "advisories/feed.json",
+        "tokens": 1847
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/HOOK.md",
+        "tokens": 475
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/handler.ts",
+        "tokens": 1788
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/lib/feed.mjs",
+        "tokens": 3813
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/lib/matching.ts",
+        "tokens": 1431
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/lib/state.ts",
+        "tokens": 629
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/lib/types.ts",
+        "tokens": 202
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/lib/utils.mjs",
+        "tokens": 116
+      },
+      {
+        "file": "hooks/clawsec-advisory-guardian/lib/version.mjs",
+        "tokens": 828
+      },
+      {
+        "file": "skill.json",
+        "tokens": 1726
+      },
+      {
+        "file": "test/feed_verification.test.mjs",
+        "tokens": 3884
+      },
+      {
+        "file": "test/guarded_install.test.mjs",
+        "tokens": 2967
+      }
+    ],
+    "total": 22633
+  }
+}

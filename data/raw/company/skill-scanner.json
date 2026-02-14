@@ -1,0 +1,54 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/sentry-skills/plugins/sentry-skills/skills/skill-scanner",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"skill-scanner\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (329 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 5 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read, Grep, Glob, Bash\""
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1825
+      },
+      {
+        "file": "references/dangerous-code-patterns.md",
+        "tokens": 1342
+      },
+      {
+        "file": "references/permission-analysis.md",
+        "tokens": 1030
+      },
+      {
+        "file": "references/prompt-injection-patterns.md",
+        "tokens": 1246
+      }
+    ],
+    "total": 5443
+  }
+}

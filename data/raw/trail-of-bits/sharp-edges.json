@@ -1,0 +1,201 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/sharp-edges/skills/sharp-edges",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"sharp-edges\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (376 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 10 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Grep Glob\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/config-patterns.md#unvalidated-constructor-parameters (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/crypto-apis.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/config-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/auth-patterns.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/case-studies.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-c.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-go.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-rust.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-swift.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-java.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-kotlin.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-csharp.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-php.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-javascript.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-python.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/lang-ruby.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/language-specific.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 30184 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2419
+      },
+      {
+        "file": "references/auth-patterns.md",
+        "tokens": 1698
+      },
+      {
+        "file": "references/case-studies.md",
+        "tokens": 2026
+      },
+      {
+        "file": "references/config-patterns.md",
+        "tokens": 2295
+      },
+      {
+        "file": "references/crypto-apis.md",
+        "tokens": 1301
+      },
+      {
+        "file": "references/lang-c.md",
+        "tokens": 1538
+      },
+      {
+        "file": "references/lang-csharp.md",
+        "tokens": 1820
+      },
+      {
+        "file": "references/lang-go.md",
+        "tokens": 1813
+      },
+      {
+        "file": "references/lang-java.md",
+        "tokens": 1739
+      },
+      {
+        "file": "references/lang-javascript.md",
+        "tokens": 1905
+      },
+      {
+        "file": "references/lang-kotlin.md",
+        "tokens": 1687
+      },
+      {
+        "file": "references/lang-php.md",
+        "tokens": 1786
+      },
+      {
+        "file": "references/lang-python.md",
+        "tokens": 1848
+      },
+      {
+        "file": "references/lang-ruby.md",
+        "tokens": 1750
+      },
+      {
+        "file": "references/lang-rust.md",
+        "tokens": 1794
+      },
+      {
+        "file": "references/lang-swift.md",
+        "tokens": 1641
+      },
+      {
+        "file": "references/language-specific.md",
+        "tokens": 3543
+      }
+    ],
+    "total": 32603
+  }
+}

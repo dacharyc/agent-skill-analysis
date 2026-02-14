@@ -1,0 +1,125 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/testing-handbook-skills/skills/testing-handbook-generator",
+  "passed": false,
+  "errors": 4,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: agent-prompt.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: discovery.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: templates/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: testing.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"testing-handbook-generator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (206 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "discovery.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "agent-prompt.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "testing.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "plugins/testing-handbook-skills/ (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "plugins/testing-handbook-skills/skills/libfuzzer/ (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "plugins/testing-handbook-skills/skills/aflpp/ (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "plugins/testing-handbook-skills/skills/semgrep/ (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "templates/ (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3245
+      }
+    ],
+    "total": 3245
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "agent-prompt.md",
+        "tokens": 2655
+      },
+      {
+        "file": "discovery.md",
+        "tokens": 3955
+      },
+      {
+        "file": "templates/domain-skill.md",
+        "tokens": 3480
+      },
+      {
+        "file": "templates/fuzzer-skill.md",
+        "tokens": 2700
+      },
+      {
+        "file": "templates/technique-skill.md",
+        "tokens": 3066
+      },
+      {
+        "file": "templates/tool-skill.md",
+        "tokens": 2169
+      },
+      {
+        "file": "testing.md",
+        "tokens": 3716
+      }
+    ],
+    "total": 21741
+  }
+}

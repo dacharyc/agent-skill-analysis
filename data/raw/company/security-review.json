@@ -1,0 +1,166 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/sentry-skills/plugins/sentry-skills/skills/security-review",
+  "passed": true,
+  "errors": 0,
+  "warnings": 6,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: infrastructure/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: languages/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"security-review\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (312 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 5 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"LICENSE\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read, Grep, Glob, Bash, Task\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cheatsheetseries.owasp.org/ (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Markdown",
+      "message": "SKILL.md has an unclosed code fence starting at line 265 \u2014 this may cause agents to misinterpret everything after it as code"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 43736 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2755
+      },
+      {
+        "file": "references/api-security.md",
+        "tokens": 3183
+      },
+      {
+        "file": "references/authentication.md",
+        "tokens": 2221
+      },
+      {
+        "file": "references/authorization.md",
+        "tokens": 2324
+      },
+      {
+        "file": "references/business-logic.md",
+        "tokens": 2863
+      },
+      {
+        "file": "references/cryptography.md",
+        "tokens": 2440
+      },
+      {
+        "file": "references/csrf.md",
+        "tokens": 2386
+      },
+      {
+        "file": "references/data-protection.md",
+        "tokens": 2454
+      },
+      {
+        "file": "references/deserialization.md",
+        "tokens": 2515
+      },
+      {
+        "file": "references/error-handling.md",
+        "tokens": 2709
+      },
+      {
+        "file": "references/file-security.md",
+        "tokens": 3097
+      },
+      {
+        "file": "references/injection.md",
+        "tokens": 1756
+      },
+      {
+        "file": "references/logging.md",
+        "tokens": 2881
+      },
+      {
+        "file": "references/misconfiguration.md",
+        "tokens": 2658
+      },
+      {
+        "file": "references/modern-threats.md",
+        "tokens": 3026
+      },
+      {
+        "file": "references/ssrf.md",
+        "tokens": 2845
+      },
+      {
+        "file": "references/supply-chain.md",
+        "tokens": 2434
+      },
+      {
+        "file": "references/xss.md",
+        "tokens": 1944
+      }
+    ],
+    "total": 46491
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE",
+        "tokens": 197
+      },
+      {
+        "file": "infrastructure/docker.md",
+        "tokens": 2500
+      },
+      {
+        "file": "languages/javascript.md",
+        "tokens": 2554
+      },
+      {
+        "file": "languages/python.md",
+        "tokens": 2391
+      }
+    ],
+    "total": 7642
+  }
+}

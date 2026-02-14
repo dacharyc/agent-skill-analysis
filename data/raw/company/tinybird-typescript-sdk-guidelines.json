@@ -1,0 +1,70 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/tinybird-skills/skills/tinybird-typescript-sdk-guidelines",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 7 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"tinybird-typescript-sdk-guidelines\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (204 chars)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 246
+      }
+    ],
+    "total": 246
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "rules/cli-commands.md",
+        "tokens": 502
+      },
+      {
+        "file": "rules/configuration.md",
+        "tokens": 377
+      },
+      {
+        "file": "rules/defining-datasources.md",
+        "tokens": 450
+      },
+      {
+        "file": "rules/defining-endpoints.md",
+        "tokens": 601
+      },
+      {
+        "file": "rules/getting-started.md",
+        "tokens": 321
+      },
+      {
+        "file": "rules/low-level-api.md",
+        "tokens": 420
+      },
+      {
+        "file": "rules/typed-client.md",
+        "tokens": 422
+      }
+    ],
+    "total": 3093
+  }
+}

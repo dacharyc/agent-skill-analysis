@@ -1,0 +1,100 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/pennylane",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pennylane\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (446 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Apache-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.pennylane.ai (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pennylane.ai/codebook (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pennylane.ai/qml/demonstrations (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://discuss.pennylane.ai (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/PennyLaneAI/pennylane (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 25242 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1903
+      },
+      {
+        "file": "references/advanced_features.md",
+        "tokens": 4504
+      },
+      {
+        "file": "references/devices_backends.md",
+        "tokens": 3712
+      },
+      {
+        "file": "references/getting_started.md",
+        "tokens": 1458
+      },
+      {
+        "file": "references/optimization.md",
+        "tokens": 4608
+      },
+      {
+        "file": "references/quantum_chemistry.md",
+        "tokens": 4078
+      },
+      {
+        "file": "references/quantum_circuits.md",
+        "tokens": 2885
+      },
+      {
+        "file": "references/quantum_ml.md",
+        "tokens": 3997
+      }
+    ],
+    "total": 27145
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-changelog",
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-changelog\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (210 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/commit/abc1234 (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file_path (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 361
+      }
+    ],
+    "total": 361
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/agent-framework-azure-ai-py",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"agent-framework-azure-ai-py\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (391 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 9 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/tools.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/mcp.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/threads.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2056
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 1757
+      },
+      {
+        "file": "references/advanced.md",
+        "tokens": 2878
+      },
+      {
+        "file": "references/mcp.md",
+        "tokens": 1758
+      },
+      {
+        "file": "references/threads.md",
+        "tokens": 1802
+      },
+      {
+        "file": "references/tools.md",
+        "tokens": 1551
+      }
+    ],
+    "total": 11802
+  }
+}

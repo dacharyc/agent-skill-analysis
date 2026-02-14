@@ -1,0 +1,56 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/firebase-apk-scanner/skills/firebase-apk-scanner",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"firebase-apk-scanner\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (329 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Bash({baseDir}/scanner.sh:*), Bash(apktool:*), Bash(curl:*), Read, Grep, Glob\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"disable-model-invocation\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"argument-hint\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/vulnerabilities.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1442
+      },
+      {
+        "file": "references/vulnerabilities.md",
+        "tokens": 5275
+      }
+    ],
+    "total": 6717
+  }
+}

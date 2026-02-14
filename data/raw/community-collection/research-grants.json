@@ -1,0 +1,104 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/research-grants",
+  "passed": true,
+  "errors": 0,
+  "warnings": 4,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"research-grants\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (254 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 11 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Read Write Edit Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 7707 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 949 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 36992 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 7707
+      },
+      {
+        "file": "references/README.md",
+        "tokens": 2053
+      },
+      {
+        "file": "references/broader_impacts.md",
+        "tokens": 4405
+      },
+      {
+        "file": "references/darpa_guidelines.md",
+        "tokens": 4506
+      },
+      {
+        "file": "references/doe_guidelines.md",
+        "tokens": 4397
+      },
+      {
+        "file": "references/nih_guidelines.md",
+        "tokens": 6587
+      },
+      {
+        "file": "references/nsf_guidelines.md",
+        "tokens": 4636
+      },
+      {
+        "file": "references/nstc_guidelines.md",
+        "tokens": 5898
+      },
+      {
+        "file": "references/specific_aims_guide.md",
+        "tokens": 4510
+      }
+    ],
+    "total": 44699
+  }
+}

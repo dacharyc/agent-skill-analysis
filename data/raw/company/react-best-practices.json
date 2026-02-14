@@ -1,0 +1,330 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/vercel-skills/skills/react-best-practices",
+  "passed": false,
+  "errors": 2,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "AGENTS.md is for repo-level agent configuration, not skill content \u2014 move it outside the skill directory (e.g. to the repository root) where agents discover it automatically"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: metadata.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 59 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"react-best-practices\", got \"vercel-react-best-practices\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vercel-react-best-practices\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (329 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 40956 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 40,956 tokens of non-standard content but only 1,405 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1405
+      }
+    ],
+    "total": 1405
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "AGENTS.md",
+        "tokens": 20064
+      },
+      {
+        "file": "README.md",
+        "tokens": 849
+      },
+      {
+        "file": "metadata.json",
+        "tokens": 217
+      },
+      {
+        "file": "rules/_sections.md",
+        "tokens": 317
+      },
+      {
+        "file": "rules/_template.md",
+        "tokens": 141
+      },
+      {
+        "file": "rules/advanced-event-handler-refs.md",
+        "tokens": 356
+      },
+      {
+        "file": "rules/advanced-init-once.md",
+        "tokens": 237
+      },
+      {
+        "file": "rules/advanced-use-latest.md",
+        "tokens": 268
+      },
+      {
+        "file": "rules/async-api-routes.md",
+        "tokens": 241
+      },
+      {
+        "file": "rules/async-defer-await.md",
+        "tokens": 454
+      },
+      {
+        "file": "rules/async-dependencies.md",
+        "tokens": 292
+      },
+      {
+        "file": "rules/async-parallel.md",
+        "tokens": 144
+      },
+      {
+        "file": "rules/async-suspense-boundaries.md",
+        "tokens": 592
+      },
+      {
+        "file": "rules/bundle-barrel-imports.md",
+        "tokens": 581
+      },
+      {
+        "file": "rules/bundle-conditional.md",
+        "tokens": 215
+      },
+      {
+        "file": "rules/bundle-defer-third-party.md",
+        "tokens": 220
+      },
+      {
+        "file": "rules/bundle-dynamic-imports.md",
+        "tokens": 198
+      },
+      {
+        "file": "rules/bundle-preload.md",
+        "tokens": 277
+      },
+      {
+        "file": "rules/client-event-listeners.md",
+        "tokens": 476
+      },
+      {
+        "file": "rules/client-localstorage-schema.md",
+        "tokens": 455
+      },
+      {
+        "file": "rules/client-passive-event-listeners.md",
+        "tokens": 377
+      },
+      {
+        "file": "rules/client-swr-dedup.md",
+        "tokens": 312
+      },
+      {
+        "file": "rules/js-batch-dom-css.md",
+        "tokens": 780
+      },
+      {
+        "file": "rules/js-cache-function-results.md",
+        "tokens": 460
+      },
+      {
+        "file": "rules/js-cache-property-access.md",
+        "tokens": 139
+      },
+      {
+        "file": "rules/js-cache-storage.md",
+        "tokens": 392
+      },
+      {
+        "file": "rules/js-combine-iterations.md",
+        "tokens": 181
+      },
+      {
+        "file": "rules/js-early-exit.md",
+        "tokens": 271
+      },
+      {
+        "file": "rules/js-hoist-regexp.md",
+        "tokens": 294
+      },
+      {
+        "file": "rules/js-index-maps.md",
+        "tokens": 234
+      },
+      {
+        "file": "rules/js-length-check-first.md",
+        "tokens": 374
+      },
+      {
+        "file": "rules/js-min-max-loop.md",
+        "tokens": 604
+      },
+      {
+        "file": "rules/js-set-map-lookups.md",
+        "tokens": 155
+      },
+      {
+        "file": "rules/js-tosorted-immutable.md",
+        "tokens": 438
+      },
+      {
+        "file": "rules/rendering-activity.md",
+        "tokens": 132
+      },
+      {
+        "file": "rules/rendering-animate-svg-wrapper.md",
+        "tokens": 294
+      },
+      {
+        "file": "rules/rendering-conditional-render.md",
+        "tokens": 273
+      },
+      {
+        "file": "rules/rendering-content-visibility.md",
+        "tokens": 206
+      },
+      {
+        "file": "rules/rendering-hoist-jsx.md",
+        "tokens": 245
+      },
+      {
+        "file": "rules/rendering-hydration-no-flicker.md",
+        "tokens": 508
+      },
+      {
+        "file": "rules/rendering-hydration-suppress-warning.md",
+        "tokens": 204
+      },
+      {
+        "file": "rules/rendering-svg-precision.md",
+        "tokens": 169
+      },
+      {
+        "file": "rules/rendering-usetransition-loading.md",
+        "tokens": 475
+      },
+      {
+        "file": "rules/rerender-defer-reads.md",
+        "tokens": 236
+      },
+      {
+        "file": "rules/rerender-dependencies.md",
+        "tokens": 214
+      },
+      {
+        "file": "rules/rerender-derived-state-no-effect.md",
+        "tokens": 309
+      },
+      {
+        "file": "rules/rerender-derived-state.md",
+        "tokens": 175
+      },
+      {
+        "file": "rules/rerender-functional-setstate.md",
+        "tokens": 662
+      },
+      {
+        "file": "rules/rerender-lazy-state-init.md",
+        "tokens": 462
+      },
+      {
+        "file": "rules/rerender-memo-with-default-value.md",
+        "tokens": 253
+      },
+      {
+        "file": "rules/rerender-memo.md",
+        "tokens": 280
+      },
+      {
+        "file": "rules/rerender-move-effect-to-event.md",
+        "tokens": 299
+      },
+      {
+        "file": "rules/rerender-simple-expression-in-memo.md",
+        "tokens": 232
+      },
+      {
+        "file": "rules/rerender-transitions.md",
+        "tokens": 254
+      },
+      {
+        "file": "rules/rerender-use-ref-transient-values.md",
+        "tokens": 456
+      },
+      {
+        "file": "rules/server-after-nonblocking.md",
+        "tokens": 464
+      },
+      {
+        "file": "rules/server-auth-actions.md",
+        "tokens": 596
+      },
+      {
+        "file": "rules/server-cache-lru.md",
+        "tokens": 326
+      },
+      {
+        "file": "rules/server-cache-react.md",
+        "tokens": 522
+      },
+      {
+        "file": "rules/server-dedup-props.md",
+        "tokens": 500
+      },
+      {
+        "file": "rules/server-parallel-fetching.md",
+        "tokens": 364
+      },
+      {
+        "file": "rules/server-serialization.md",
+        "tokens": 241
+      }
+    ],
+    "total": 40956
+  }
+}

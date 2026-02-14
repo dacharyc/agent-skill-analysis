@@ -1,0 +1,84 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/diffdock",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"diffdock\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (188 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/gcorso/DiffDock.git (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:7860 (request failed: Head \"http://localhost:7860\": dial tcp 127.0.0.1:7860: connect: connection refused)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/spaces/reginabarzilaygroup/DiffDock-Web (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/gcorso/DiffDock (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arxiv.org/abs/2402.18396 (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arxiv.org/abs/2210.01776 (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3715
+      },
+      {
+        "file": "references/confidence_and_limitations.md",
+        "tokens": 1560
+      },
+      {
+        "file": "references/parameters_reference.md",
+        "tokens": 1309
+      },
+      {
+        "file": "references/workflows_examples.md",
+        "tokens": 2786
+      }
+    ],
+    "total": 9370
+  }
+}

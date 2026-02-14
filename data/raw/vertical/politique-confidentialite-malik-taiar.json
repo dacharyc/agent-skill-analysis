@@ -1,0 +1,136 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/politique-confidentialite-malik-taiar",
+  "passed": false,
+  "errors": 1,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SKILL.fr.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"politique-confidentialite-malik-taiar\", got \"privacy-policy-malik-taiar\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"privacy-policy-malik-taiar\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (211 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./assets/CNIL_droits_personnes.pdf (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./assets/CNIL_durees_conservation.pdf (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./assets/CNIL_finalites.pdf (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./assets/CNIL_transparence.pdf (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./assets/CNIL_principes_rgpd.pdf (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./assets/RGPD_texte_officiel.pdf (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/BASES_LEGALES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/DROITS_PERSONNES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/COOKIES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/DUREES_CONSERVATION.md (exists)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 515 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4147
+      },
+      {
+        "file": "references/BASES_LEGALES.md",
+        "tokens": 1976
+      },
+      {
+        "file": "references/COOKIES.md",
+        "tokens": 2340
+      },
+      {
+        "file": "references/DROITS_PERSONNES.md",
+        "tokens": 2294
+      },
+      {
+        "file": "references/DUREES_CONSERVATION.md",
+        "tokens": 2291
+      }
+    ],
+    "total": 13048
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      },
+      {
+        "file": "SKILL.fr.md",
+        "tokens": 5076
+      }
+    ],
+    "total": 12351
+  }
+}

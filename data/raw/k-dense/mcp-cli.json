@@ -1,0 +1,57 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-lab/skills/mcp-cli",
+  "passed": false,
+  "errors": 4,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"mcp-cli\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (146 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/f/mcptools.git (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://example.com/mcp (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.example.com/mcp (request failed: Head \"https://api.example.com/mcp\": dial tcp: lookup api.example.com: no such host)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:3001/sse (request failed: Head \"http://localhost:3001/sse\": dial tcp 127.0.0.1:3001: connect: connection refused)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:3001 (request failed: Head \"http://localhost:3001\": dial tcp 127.0.0.1:3001: connect: connection refused)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2392
+      }
+    ],
+    "total": 2392
+  }
+}

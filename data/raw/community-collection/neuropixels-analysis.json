@@ -1,0 +1,172 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/neuropixels-analysis",
+  "passed": false,
+  "errors": 10,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"neuropixels-analysis\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (442 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 16 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/standard_workflow.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/api_reference.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/plotting_guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/PREPROCESSING.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/SPIKE_SORTING.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/MOTION_CORRECTION.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/QUALITY_METRICS.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/AUTOMATED_CURATION.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/AI_CURATION.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "reference/ANALYSIS.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://spikeinterface.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://spikeinterface.readthedocs.io/en/stable/how_to/analyze_neuropixels.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/MouseLand/Kilosort (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/int-brain-lab/ibl-neuropixel (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/AllenInstitute/ecephys_spike_sorting (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Julie-Fabre/bombcell (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/SpikeAgent/SpikeAgent (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2961
+      },
+      {
+        "file": "references/AI_CURATION.md",
+        "tokens": 2116
+      },
+      {
+        "file": "references/ANALYSIS.md",
+        "tokens": 2664
+      },
+      {
+        "file": "references/AUTOMATED_CURATION.md",
+        "tokens": 2547
+      },
+      {
+        "file": "references/MOTION_CORRECTION.md",
+        "tokens": 2147
+      },
+      {
+        "file": "references/PREPROCESSING.md",
+        "tokens": 1719
+      },
+      {
+        "file": "references/QUALITY_METRICS.md",
+        "tokens": 2491
+      },
+      {
+        "file": "references/SPIKE_SORTING.md",
+        "tokens": 2141
+      },
+      {
+        "file": "references/api_reference.md",
+        "tokens": 2110
+      },
+      {
+        "file": "references/plotting_guide.md",
+        "tokens": 3148
+      },
+      {
+        "file": "references/standard_workflow.md",
+        "tokens": 2215
+      }
+    ],
+    "total": 26259
+  }
+}

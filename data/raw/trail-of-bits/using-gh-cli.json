@@ -1,0 +1,101 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/gh-cli/skills/using-gh-cli",
+  "passed": false,
+  "errors": 1,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"using-gh-cli\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (167 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"Bash Read Glob Grep\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/pull-requests.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/issues.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/repos-and-files.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/api.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/releases.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/actions.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.github.com/...` (HTTP 404)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 966
+      },
+      {
+        "file": "references/actions.md",
+        "tokens": 239
+      },
+      {
+        "file": "references/api.md",
+        "tokens": 405
+      },
+      {
+        "file": "references/issues.md",
+        "tokens": 77
+      },
+      {
+        "file": "references/pull-requests.md",
+        "tokens": 103
+      },
+      {
+        "file": "references/releases.md",
+        "tokens": 157
+      },
+      {
+        "file": "references/repos-and-files.md",
+        "tokens": 430
+      }
+    ],
+    "total": 2377
+  }
+}

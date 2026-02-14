@@ -1,0 +1,71 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/pathml",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pathml\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (322 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"GPL-2.0 license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 25735 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1570
+      },
+      {
+        "file": "references/data_management.md",
+        "tokens": 4890
+      },
+      {
+        "file": "references/graphs.md",
+        "tokens": 3930
+      },
+      {
+        "file": "references/image_loading.md",
+        "tokens": 3011
+      },
+      {
+        "file": "references/machine_learning.md",
+        "tokens": 4897
+      },
+      {
+        "file": "references/multiparametric.md",
+        "tokens": 4737
+      },
+      {
+        "file": "references/preprocessing.md",
+        "tokens": 4270
+      }
+    ],
+    "total": 27305
+  }
+}

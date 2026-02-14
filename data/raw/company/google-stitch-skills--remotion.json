@@ -1,0 +1,112 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/google-stitch-skills/skills/remotion",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"remotion\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (115 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"stitch*:* remotion*:* Bash Read Write web_fetch\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/remotion-dev/remotion/tree/main/packages/skills (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://stitch.withgoogle.com/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/ai/skills (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/ai/mcp (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/transitions (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2951
+      }
+    ],
+    "total": 2951
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "README.md",
+        "tokens": 769
+      },
+      {
+        "file": "examples/WalkthroughComposition.tsx",
+        "tokens": 465
+      },
+      {
+        "file": "examples/screens.json",
+        "tokens": 404
+      },
+      {
+        "file": "resources/composition-checklist.md",
+        "tokens": 884
+      },
+      {
+        "file": "resources/screen-slide-template.tsx",
+        "tokens": 651
+      }
+    ],
+    "total": 3173
+  }
+}

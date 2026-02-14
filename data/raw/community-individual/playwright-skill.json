@@ -1,0 +1,93 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/playwright-skill/skills/playwright-skill",
+  "passed": false,
+  "errors": 2,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: API_REFERENCE.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: lib/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: package.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: run.js \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"playwright-skill\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (378 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 12 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "API_REFERENCE.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:3001 (request failed: Head \"http://localhost:3001\": dial tcp 127.0.0.1:3001: connect: connection refused)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:3000 (request failed: Head \"http://localhost:3000\": dial tcp 127.0.0.1:3000: connect: connection refused)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3210
+      }
+    ],
+    "total": 3210
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "API_REFERENCE.md",
+        "tokens": 3988
+      },
+      {
+        "file": "lib/helpers.js",
+        "tokens": 3087
+      },
+      {
+        "file": "package.json",
+        "tokens": 188
+      },
+      {
+        "file": "run.js",
+        "tokens": 1412
+      }
+    ],
+    "total": 8675
+  }
+}

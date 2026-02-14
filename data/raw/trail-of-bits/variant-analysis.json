@@ -1,0 +1,100 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/variant-analysis/skills/variant-analysis",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: METHODOLOGY.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"variant-analysis\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (253 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "METHODOLOGY.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1183
+      }
+    ],
+    "total": 1183
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "METHODOLOGY.md",
+        "tokens": 2284
+      },
+      {
+        "file": "resources/codeql/cpp.ql",
+        "tokens": 965
+      },
+      {
+        "file": "resources/codeql/go.ql",
+        "tokens": 541
+      },
+      {
+        "file": "resources/codeql/java.ql",
+        "tokens": 604
+      },
+      {
+        "file": "resources/codeql/javascript.ql",
+        "tokens": 462
+      },
+      {
+        "file": "resources/codeql/python.ql",
+        "tokens": 672
+      },
+      {
+        "file": "resources/semgrep/cpp.yaml",
+        "tokens": 770
+      },
+      {
+        "file": "resources/semgrep/go.yaml",
+        "tokens": 466
+      },
+      {
+        "file": "resources/semgrep/java.yaml",
+        "tokens": 508
+      },
+      {
+        "file": "resources/semgrep/javascript.yaml",
+        "tokens": 431
+      },
+      {
+        "file": "resources/semgrep/python.yaml",
+        "tokens": 486
+      },
+      {
+        "file": "resources/variant-report-template.md",
+        "tokens": 374
+      }
+    ],
+    "total": 8563
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring",
+  "passed": false,
+  "errors": 2,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 5 files) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: workflows/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"yara-rule-authoring\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (369 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 14 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/crx-module.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/dex-module.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/style-guide.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/strings.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/performance.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/testing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "workflows/rule-development.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "examples/MAL_Win_Remcos_Jan25.yar (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "examples/MAL_Mac_ProtonRAT_Jan25.yar (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "examples/MAL_NPM_SupplyChain_Jan25.yar (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "examples/SUSP_JS_Obfuscation_Jan25.yar (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "examples/SUSP_CRX_SuspiciousPermissions.yar (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../../README.md#scripts (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/signature-base (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/elastic/protections-artifacts (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/reversinglabs/reversinglabs-yara-rules (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/imp0rtp3/js-yara-rules (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/InQuest/awesome-yara (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/YARA-Style-Guide (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/YARA-Performance-Guidelines (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://yara.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/yarGen (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/mandiant/flare-floss (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://yara-ci.cloud.virustotal.com/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://yaradbg.dev (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://objective-see.org/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/0xmachos/macos-security-tools (HTTP 404)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6797 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 637 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6797
+      },
+      {
+        "file": "references/crx-module.md",
+        "tokens": 1636
+      },
+      {
+        "file": "references/dex-module.md",
+        "tokens": 2411
+      },
+      {
+        "file": "references/performance.md",
+        "tokens": 2441
+      },
+      {
+        "file": "references/strings.md",
+        "tokens": 3498
+      },
+      {
+        "file": "references/style-guide.md",
+        "tokens": 2195
+      },
+      {
+        "file": "references/testing.md",
+        "tokens": 2969
+      }
+    ],
+    "total": 21947
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "examples/MAL_Mac_ProtonRAT_Jan25.yar",
+        "tokens": 895
+      },
+      {
+        "file": "examples/MAL_NPM_SupplyChain_Jan25.yar",
+        "tokens": 1517
+      },
+      {
+        "file": "examples/MAL_Win_Remcos_Jan25.yar",
+        "tokens": 889
+      },
+      {
+        "file": "examples/SUSP_CRX_SuspiciousPermissions.yar",
+        "tokens": 1116
+      },
+      {
+        "file": "examples/SUSP_JS_Obfuscation_Jan25.yar",
+        "tokens": 1800
+      },
+      {
+        "file": "workflows/rule-development.md",
+        "tokens": 3228
+      }
+    ],
+    "total": 9445
+  }
+}

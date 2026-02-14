@@ -1,0 +1,143 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-model-trainer",
+  "passed": false,
+  "errors": 2,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"hugging-face-model-trainer\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (629 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://hf.co/pro (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://hf.co/enterprise (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/datasets/mcp-tools/skills/raw/main/dataset_inspector.py (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/trl (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/trl/en/jobs_training (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/huggingface/trl-jobs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/jobs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/huggingface/trl/tree/main/examples/scripts (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.astral.sh/uv/guides/scripts/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/uv-scripts (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/jobs/username/abc123xyz (HTTP 401)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/USERNAME/my-training-scripts/resolve/main/train.py (HTTP 401)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6888 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 714 lines (spec recommends < 500)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 6888
+      },
+      {
+        "file": "references/gguf_conversion.md",
+        "tokens": 2631
+      },
+      {
+        "file": "references/hardware_guide.md",
+        "tokens": 2256
+      },
+      {
+        "file": "references/hub_saving.md",
+        "tokens": 2113
+      },
+      {
+        "file": "references/reliability_principles.md",
+        "tokens": 2735
+      },
+      {
+        "file": "references/trackio_guide.md",
+        "tokens": 1403
+      },
+      {
+        "file": "references/training_methods.md",
+        "tokens": 1204
+      },
+      {
+        "file": "references/training_patterns.md",
+        "tokens": 1633
+      },
+      {
+        "file": "references/troubleshooting.md",
+        "tokens": 2321
+      },
+      {
+        "file": "references/unsloth.md",
+        "tokens": 2298
+      }
+    ],
+    "total": 25482
+  }
+}

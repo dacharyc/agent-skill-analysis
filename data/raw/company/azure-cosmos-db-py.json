@@ -1,0 +1,106 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-cosmos-db-py",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"azure-cosmos-db-py\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (453 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 6 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/client-setup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/service-layer.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/testing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/partitioning.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/error-handling.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/cosmos_client_template.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/service_template.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "assets/conftest_template.py (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1689
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 1675
+      },
+      {
+        "file": "references/client-setup.md",
+        "tokens": 1387
+      },
+      {
+        "file": "references/error-handling.md",
+        "tokens": 2292
+      },
+      {
+        "file": "references/partitioning.md",
+        "tokens": 1724
+      },
+      {
+        "file": "references/service-layer.md",
+        "tokens": 1963
+      },
+      {
+        "file": "references/testing.md",
+        "tokens": 3229
+      }
+    ],
+    "total": 13959
+  }
+}

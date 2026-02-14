@@ -1,0 +1,69 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/building-secure-contracts/skills/guidelines-advisor",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"guidelines-advisor\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (316 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/ASSESSMENT_AREAS.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/EXAMPLE_REPORT.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "resources/DELIVERABLES.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1622
+      }
+    ],
+    "total": 1622
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "resources/ASSESSMENT_AREAS.md",
+        "tokens": 1656
+      },
+      {
+        "file": "resources/DELIVERABLES.md",
+        "tokens": 461
+      },
+      {
+        "file": "resources/EXAMPLE_REPORT.md",
+        "tokens": 1963
+      }
+    ],
+    "total": 4080
+  }
+}

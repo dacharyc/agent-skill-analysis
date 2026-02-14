@@ -1,0 +1,23 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/clawsec-skills/skills/claw-release",
+  "passed": false,
+  "errors": 1,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: skill.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "parsing frontmatter YAML: yaml: unmarshal errors:\n  line 5: cannot unmarshal !!map into string"
+    }
+  ]
+}

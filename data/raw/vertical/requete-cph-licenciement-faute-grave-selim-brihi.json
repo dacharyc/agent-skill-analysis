@@ -1,0 +1,78 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/requete-cph-licenciement-faute-grave-selim-brihi",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"requete-cph-licenciement-faute-grave-selim-brihi\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (379 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/conseils-variations.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/calculs-indemnites.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/structure-requete.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1114
+      },
+      {
+        "file": "references/calculs-indemnites.md",
+        "tokens": 894
+      },
+      {
+        "file": "references/conseils-variations.md",
+        "tokens": 1159
+      },
+      {
+        "file": "references/structure-requete.md",
+        "tokens": 5625
+      }
+    ],
+    "total": 8792
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      }
+    ],
+    "total": 7275
+  }
+}

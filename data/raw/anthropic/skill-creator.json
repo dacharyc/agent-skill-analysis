@@ -1,0 +1,89 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/skill-creator",
+  "passed": false,
+  "errors": 6,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"skill-creator\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (226 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"Complete terms in LICENSE.txt\""
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "FORMS.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REFERENCE.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "EXAMPLES.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "DOCX-JS.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REDLINING.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "OOXML.md (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 3671
+      },
+      {
+        "file": "references/output-patterns.md",
+        "tokens": 354
+      },
+      {
+        "file": "references/workflows.md",
+        "tokens": 181
+      }
+    ],
+    "total": 4206
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 2262
+      }
+    ],
+    "total": 2262
+  }
+}

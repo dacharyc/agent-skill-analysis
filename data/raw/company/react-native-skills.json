@@ -1,0 +1,246 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/vercel-skills/skills/react-native-skills",
+  "passed": false,
+  "errors": 2,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "AGENTS.md is for repo-level agent configuration, not skill content \u2014 move it outside the skill directory (e.g. to the repository root) where agents discover it automatically"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: metadata.json \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: rules/ (contains 38 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"react-native-skills\", got \"vercel-react-native-skills\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"vercel-react-native-skills\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (295 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 37957 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 37,957 tokens of non-standard content but only 950 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 950
+      }
+    ],
+    "total": 950
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "AGENTS.md",
+        "tokens": 18287
+      },
+      {
+        "file": "README.md",
+        "tokens": 1238
+      },
+      {
+        "file": "metadata.json",
+        "tokens": 207
+      },
+      {
+        "file": "rules/_sections.md",
+        "tokens": 484
+      },
+      {
+        "file": "rules/_template.md",
+        "tokens": 141
+      },
+      {
+        "file": "rules/animation-derived-value.md",
+        "tokens": 317
+      },
+      {
+        "file": "rules/animation-gesture-detector-press.md",
+        "tokens": 646
+      },
+      {
+        "file": "rules/animation-gpu-properties.md",
+        "tokens": 493
+      },
+      {
+        "file": "rules/design-system-compound-components.md",
+        "tokens": 388
+      },
+      {
+        "file": "rules/fonts-config-plugin.md",
+        "tokens": 369
+      },
+      {
+        "file": "rules/imports-design-system-folder.md",
+        "tokens": 336
+      },
+      {
+        "file": "rules/js-hoist-intl.md",
+        "tokens": 394
+      },
+      {
+        "file": "rules/list-performance-callbacks.md",
+        "tokens": 264
+      },
+      {
+        "file": "rules/list-performance-function-references.md",
+        "tokens": 1001
+      },
+      {
+        "file": "rules/list-performance-images.md",
+        "tokens": 343
+      },
+      {
+        "file": "rules/list-performance-inline-objects.md",
+        "tokens": 566
+      },
+      {
+        "file": "rules/list-performance-item-expensive.md",
+        "tokens": 589
+      },
+      {
+        "file": "rules/list-performance-item-memo.md",
+        "tokens": 557
+      },
+      {
+        "file": "rules/list-performance-item-types.md",
+        "tokens": 696
+      },
+      {
+        "file": "rules/list-performance-virtualize.md",
+        "tokens": 418
+      },
+      {
+        "file": "rules/monorepo-native-deps-in-app.md",
+        "tokens": 258
+      },
+      {
+        "file": "rules/monorepo-single-dependency-versions.md",
+        "tokens": 327
+      },
+      {
+        "file": "rules/navigation-native-navigators.md",
+        "tokens": 1121
+      },
+      {
+        "file": "rules/react-compiler-destructure-functions.md",
+        "tokens": 300
+      },
+      {
+        "file": "rules/react-compiler-reanimated-shared-values.md",
+        "tokens": 304
+      },
+      {
+        "file": "rules/react-state-dispatcher.md",
+        "tokens": 572
+      },
+      {
+        "file": "rules/react-state-fallback.md",
+        "tokens": 397
+      },
+      {
+        "file": "rules/react-state-minimize.md",
+        "tokens": 457
+      },
+      {
+        "file": "rules/rendering-no-falsy-and.md",
+        "tokens": 488
+      },
+      {
+        "file": "rules/rendering-text-in-text-component.md",
+        "tokens": 177
+      },
+      {
+        "file": "rules/scroll-position-no-state.md",
+        "tokens": 478
+      },
+      {
+        "file": "rules/state-ground-truth.md",
+        "tokens": 555
+      },
+      {
+        "file": "rules/ui-expo-image.md",
+        "tokens": 436
+      },
+      {
+        "file": "rules/ui-image-gallery.md",
+        "tokens": 669
+      },
+      {
+        "file": "rules/ui-measure-views.md",
+        "tokens": 569
+      },
+      {
+        "file": "rules/ui-menus.md",
+        "tokens": 1052
+      },
+      {
+        "file": "rules/ui-native-modals.md",
+        "tokens": 453
+      },
+      {
+        "file": "rules/ui-pressable.md",
+        "tokens": 382
+      },
+      {
+        "file": "rules/ui-safe-area-scroll.md",
+        "tokens": 374
+      },
+      {
+        "file": "rules/ui-scrollview-content-inset.md",
+        "tokens": 281
+      },
+      {
+        "file": "rules/ui-styling.md",
+        "tokens": 573
+      }
+    ],
+    "total": 37957
+  }
+}

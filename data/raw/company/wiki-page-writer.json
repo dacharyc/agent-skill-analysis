@@ -1,0 +1,81 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/plugins/deep-wiki/skills/wiki-page-writer",
+  "passed": false,
+  "errors": 9,
+  "warnings": 0,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"wiki-page-writer\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (261 chars)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/file#Lline (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/src/path/file.ts#L42 (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "REPO_URL/blob/BRANCH/src/path/file.ts#L42-L58 (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../NN-section/page-name.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../NN-section/page-name.md#heading-anchor (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../02-architecture/authentication.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../03-data-layer/models.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../onboarding/contributor-guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "../02-architecture/overview.md#error-handling (file not found)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1330
+      },
+      {
+        "file": "references/acceptance-criteria.md",
+        "tokens": 540
+      }
+    ],
+    "total": 1870
+  }
+}

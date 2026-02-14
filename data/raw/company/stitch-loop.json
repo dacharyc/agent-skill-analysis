@@ -1,0 +1,82 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/google-stitch-skills/skills/stitch-loop",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 2 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"stitch-loop\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (103 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"stitch*:* chrome*:* Read Write Bash\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1719
+      }
+    ],
+    "total": 1719
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "README.md",
+        "tokens": 353
+      },
+      {
+        "file": "examples/SITE.md",
+        "tokens": 793
+      },
+      {
+        "file": "examples/next-prompt.md",
+        "tokens": 307
+      },
+      {
+        "file": "resources/baton-schema.md",
+        "tokens": 392
+      },
+      {
+        "file": "resources/site-template.md",
+        "tokens": 751
+      }
+    ],
+    "total": 2596
+  }
+}

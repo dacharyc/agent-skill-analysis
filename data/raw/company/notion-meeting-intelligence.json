@@ -1,0 +1,136 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/notion-meeting-intelligence",
+  "passed": false,
+  "errors": 1,
+  "warnings": 5,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: evaluations/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: reference/ (contains 7 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"notion-meeting-intelligence\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (159 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.notion.com/mcp` (HTTP 401)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 748
+      }
+    ],
+    "total": 748
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 202
+      },
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 124
+      },
+      {
+        "file": "evaluations/README.md",
+        "tokens": 830
+      },
+      {
+        "file": "evaluations/decision-meeting-prep.json",
+        "tokens": 740
+      },
+      {
+        "file": "evaluations/status-meeting-prep.json",
+        "tokens": 715
+      },
+      {
+        "file": "examples/customer-meeting.md",
+        "tokens": 769
+      },
+      {
+        "file": "examples/executive-review.md",
+        "tokens": 547
+      },
+      {
+        "file": "examples/project-decision.md",
+        "tokens": 2925
+      },
+      {
+        "file": "examples/sprint-planning.md",
+        "tokens": 517
+      },
+      {
+        "file": "reference/brainstorming-template.md",
+        "tokens": 386
+      },
+      {
+        "file": "reference/decision-meeting-template.md",
+        "tokens": 477
+      },
+      {
+        "file": "reference/one-on-one-template.md",
+        "tokens": 269
+      },
+      {
+        "file": "reference/retrospective-template.md",
+        "tokens": 269
+      },
+      {
+        "file": "reference/sprint-planning-template.md",
+        "tokens": 349
+      },
+      {
+        "file": "reference/status-update-template.md",
+        "tokens": 374
+      },
+      {
+        "file": "reference/template-selection-guide.md",
+        "tokens": 453
+      }
+    ],
+    "total": 9946
+  }
+}

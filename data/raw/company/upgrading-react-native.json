@@ -1,0 +1,84 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/callstack-skills/skills/upgrading-react-native",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: agents/ (contains 1 file) \u2014 agents using the standard skill structure won't discover these files; should this be assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"upgrading-react-native\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (150 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (2 entries)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 503
+      },
+      {
+        "file": "references/expo-sdk-upgrade.md",
+        "tokens": 602
+      },
+      {
+        "file": "references/monorepo-singlerepo-targeting.md",
+        "tokens": 261
+      },
+      {
+        "file": "references/react.md",
+        "tokens": 385
+      },
+      {
+        "file": "references/upgrade-helper-core.md",
+        "tokens": 1533
+      },
+      {
+        "file": "references/upgrade-verification.md",
+        "tokens": 400
+      },
+      {
+        "file": "references/upgrading-dependencies.md",
+        "tokens": 552
+      },
+      {
+        "file": "references/upgrading-react-native.md",
+        "tokens": 695
+      }
+    ],
+    "total": 4931
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "agents/openai.yaml",
+        "tokens": 49
+      }
+    ],
+    "total": 49
+  }
+}

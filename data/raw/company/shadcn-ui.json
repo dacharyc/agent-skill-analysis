@@ -1,0 +1,94 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/google-stitch-skills/skills/shadcn-ui",
+  "passed": true,
+  "errors": 0,
+  "warnings": 3,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "README.md is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: examples/ (contains 3 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unknown directory: resources/ (contains 4 files) \u2014 agents using the standard skill structure won't discover these files; should this be references/ or assets/?"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"shadcn-ui\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (164 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "allowed-tools: \"shadcn*:* mcp_shadcn* Read Write Bash web_fetch\""
+    },
+    {
+      "level": "info",
+      "category": "Frontmatter",
+      "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2136
+      }
+    ],
+    "total": 2136
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "README.md",
+        "tokens": 1610
+      },
+      {
+        "file": "examples/auth-layout.tsx",
+        "tokens": 1169
+      },
+      {
+        "file": "examples/data-table.tsx",
+        "tokens": 2013
+      },
+      {
+        "file": "examples/form-pattern.tsx",
+        "tokens": 1087
+      },
+      {
+        "file": "resources/component-catalog.md",
+        "tokens": 3134
+      },
+      {
+        "file": "resources/customization-guide.md",
+        "tokens": 3397
+      },
+      {
+        "file": "resources/migration-guide.md",
+        "tokens": 2835
+      },
+      {
+        "file": "resources/setup-guide.md",
+        "tokens": 2792
+      }
+    ],
+    "total": 18037
+  }
+}

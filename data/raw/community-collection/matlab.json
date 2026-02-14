@@ -1,0 +1,154 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/matlab",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"matlab\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (501 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 12 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"For MATLAB (https://www.mathworks.com/pricing-licensing.html) and for Octave (GNU General Public License version 3)\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "compatibility: (107 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/matrices-arrays.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/mathematics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/graphics-visualization.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/data-import-export.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/programming.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/python-integration.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/octave-compatibility.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/executing-scripts.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://octave.org/download (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.mathworks.com/help/matlab/ (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.octave.org/latest/ (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.mathworks.com/learn/tutorials/matlab-onramp.html (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.mathworks.com/matlabcentral/fileexchange/ (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 26102 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2703
+      },
+      {
+        "file": "references/data-import-export.md",
+        "tokens": 3217
+      },
+      {
+        "file": "references/executing-scripts.md",
+        "tokens": 2533
+      },
+      {
+        "file": "references/graphics-visualization.md",
+        "tokens": 3841
+      },
+      {
+        "file": "references/mathematics.md",
+        "tokens": 4777
+      },
+      {
+        "file": "references/matrices-arrays.md",
+        "tokens": 3018
+      },
+      {
+        "file": "references/octave-compatibility.md",
+        "tokens": 2640
+      },
+      {
+        "file": "references/programming.md",
+        "tokens": 3298
+      },
+      {
+        "file": "references/python-integration.md",
+        "tokens": 2778
+      }
+    ],
+    "total": 28805
+  }
+}

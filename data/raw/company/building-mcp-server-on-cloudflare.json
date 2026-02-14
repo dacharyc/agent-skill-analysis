@@ -1,0 +1,79 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/cloudflare-skills/skills/building-mcp-server-on-cloudflare",
+  "passed": false,
+  "errors": 3,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"building-mcp-server-on-cloudflare\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (429 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description contains 7 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/oauth-setup.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/examples.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "references/tool-patterns.md (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/troubleshooting.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:5173, (invalid URL: parse \"http://localhost:5173,\": invalid port \":5173,\" after host)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:8788/mcp (request failed: Head \"http://localhost:8788/mcp\": dial tcp 127.0.0.1:8788: connect: connection refused)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1489
+      },
+      {
+        "file": "references/examples.md",
+        "tokens": 560
+      },
+      {
+        "file": "references/oauth-setup.md",
+        "tokens": 2440
+      },
+      {
+        "file": "references/troubleshooting.md",
+        "tokens": 1567
+      }
+    ],
+    "total": 6056
+  }
+}

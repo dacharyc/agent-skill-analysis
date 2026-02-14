@@ -1,0 +1,120 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/neurokit2",
+  "passed": true,
+  "errors": 0,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"neurokit2\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (494 chars)"
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "description has 17 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "license: \"MIT license\""
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/neuropsychology/NeuroKit/zipball/dev (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neuropsychology.github.io/NeuroKit/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/neuropsychology/NeuroKit (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://doi.org/10.3758/s13428-020-01516-y (HTTP 200)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 42087 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2892
+      },
+      {
+        "file": "references/bio_module.md",
+        "tokens": 3314
+      },
+      {
+        "file": "references/complexity.md",
+        "tokens": 4293
+      },
+      {
+        "file": "references/ecg_cardiac.md",
+        "tokens": 2927
+      },
+      {
+        "file": "references/eda.md",
+        "tokens": 3855
+      },
+      {
+        "file": "references/eeg.md",
+        "tokens": 3449
+      },
+      {
+        "file": "references/emg.md",
+        "tokens": 3005
+      },
+      {
+        "file": "references/eog.md",
+        "tokens": 3123
+      },
+      {
+        "file": "references/epochs_events.md",
+        "tokens": 3673
+      },
+      {
+        "file": "references/hrv.md",
+        "tokens": 4109
+      },
+      {
+        "file": "references/ppg.md",
+        "tokens": 2769
+      },
+      {
+        "file": "references/rsp.md",
+        "tokens": 3539
+      },
+      {
+        "file": "references/signal_processing.md",
+        "tokens": 4031
+      }
+    ],
+    "total": 44979
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/antfu-skills/skills/pinia",
+  "passed": true,
+  "errors": 0,
+  "warnings": 1,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: GENERATION.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"pinia\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (176 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/core-stores.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-plugins.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-composables.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/features-composing-stores.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-testing.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/best-practices-outside-component.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-ssr.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-nuxt.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/advanced-hmr.md (exists)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 535
+      },
+      {
+        "file": "references/advanced-hmr.md",
+        "tokens": 342
+      },
+      {
+        "file": "references/advanced-nuxt.md",
+        "tokens": 685
+      },
+      {
+        "file": "references/advanced-ssr.md",
+        "tokens": 622
+      },
+      {
+        "file": "references/best-practices-outside-component.md",
+        "tokens": 564
+      },
+      {
+        "file": "references/best-practices-testing.md",
+        "tokens": 989
+      },
+      {
+        "file": "references/core-stores.md",
+        "tokens": 1885
+      },
+      {
+        "file": "references/features-composables.md",
+        "tokens": 677
+      },
+      {
+        "file": "references/features-composing-stores.md",
+        "tokens": 669
+      },
+      {
+        "file": "references/features-plugins.md",
+        "tokens": 935
+      }
+    ],
+    "total": 7903
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "GENERATION.md",
+        "tokens": 55
+      }
+    ],
+    "total": 55
+  }
+}

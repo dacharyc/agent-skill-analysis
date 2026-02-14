@@ -1,0 +1,116 @@
+{
+  "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/legal-skills/skills/politique-cookies-malik-taiar",
+  "passed": false,
+  "errors": 1,
+  "warnings": 2,
+  "results": [
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "SKILL.md found"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+    },
+    {
+      "level": "warning",
+      "category": "Structure",
+      "message": "unexpected file at root: SKILL.fr.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+    },
+    {
+      "level": "error",
+      "category": "Frontmatter",
+      "message": "name does not match directory name (expected \"politique-cookies-malik-taiar\", got \"cookie-policy-malik-taiar\")"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "name: \"cookie-policy-malik-taiar\" (valid)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "description: (236 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Frontmatter",
+      "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/COOKIES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/BASES_LEGALES_COOKIES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/DROITS_PERSONNES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "references/DUREES_CONSERVATION.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.cnil.fr/fr/evolution-des-regles-dutilisation-des-cookies-quels-changements-pour-les-internautes (HTTP 200)"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 2833
+      },
+      {
+        "file": "references/BASES_LEGALES_COOKIES.md",
+        "tokens": 2385
+      },
+      {
+        "file": "references/COOKIES.md",
+        "tokens": 2356
+      },
+      {
+        "file": "references/DROITS_PERSONNES.md",
+        "tokens": 2293
+      },
+      {
+        "file": "references/DUREES_CONSERVATION.md",
+        "tokens": 2376
+      }
+    ],
+    "total": 12243
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "LICENSE.txt",
+        "tokens": 7275
+      },
+      {
+        "file": "SKILL.fr.md",
+        "tokens": 3464
+      }
+    ],
+    "total": 10739
+  }
+}
