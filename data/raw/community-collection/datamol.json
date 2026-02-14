@@ -35,6 +35,16 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5189 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 699 lines (spec recommends < 500)"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "=[O:2] (file not found)"
@@ -53,16 +63,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://github.com/datamol-io/datamol (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 5189 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 699 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -97,5 +97,121 @@
       }
     ],
     "total": 13937
+  },
+  "content_analysis": {
+    "word_count": 2227,
+    "code_block_count": 40,
+    "code_block_ratio": 0.5918,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 99,
+    "imperative_count": 6,
+    "imperative_ratio": 0.0606,
+    "information_density": 0.3262,
+    "strong_markers": 6,
+    "weak_markers": 2,
+    "instruction_specificity": 0.75,
+    "section_count": 25,
+    "list_item_count": 44
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }

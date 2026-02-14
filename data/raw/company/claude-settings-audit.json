@@ -28,5 +28,67 @@
       }
     ],
     "total": 2640
+  },
+  "content_analysis": {
+    "word_count": 1195,
+    "code_block_count": 9,
+    "code_block_ratio": 0.2084,
+    "code_languages": [
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "json",
+      "json",
+      "markdown"
+    ],
+    "sentence_count": 59,
+    "imperative_count": 10,
+    "imperative_ratio": 0.1695,
+    "information_density": 0.1889,
+    "strong_markers": 9,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9,
+    "section_count": 25,
+    "list_item_count": 16
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker",
+      "kubernetes",
+      "terraform"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "json",
+      "json",
+      "markdown"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "python",
+      "ruby"
+    ],
+    "scope_breadth": 6,
+    "risk_score": 0.8667,
+    "risk_level": "high"
   }
 }

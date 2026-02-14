@@ -343,7 +343,7 @@ def validate_skill(skill_dir: Path) -> dict | None:
     """Run skill-validator on a skill directory and return JSON result."""
     try:
         result = subprocess.run(
-            [str(VALIDATOR), "-o", "json", str(skill_dir)],
+            [str(VALIDATOR), "check", "-o", "json", str(skill_dir)],
             capture_output=True, text=True, timeout=30,
         )
         if result.stdout.strip():

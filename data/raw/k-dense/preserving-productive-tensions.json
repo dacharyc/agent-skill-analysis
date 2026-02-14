@@ -27,12 +27,12 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"version\""
+      "message": "unrecognized field: \"when_to_use\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"when_to_use\""
+      "message": "unrecognized field: \"version\""
     }
   ],
   "token_counts": {
@@ -43,5 +43,47 @@
       }
     ],
     "total": 987
+  },
+  "content_analysis": {
+    "word_count": 689,
+    "code_block_count": 4,
+    "code_block_ratio": 0.1872,
+    "code_languages": [
+      "python",
+      "python",
+      "markdown",
+      "markdown"
+    ],
+    "sentence_count": 37,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.0936,
+    "strong_markers": 2,
+    "weak_markers": 2,
+    "instruction_specificity": 0.5,
+    "section_count": 16,
+    "list_item_count": 44
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "markdown",
+      "markdown"
+    ],
+    "language_categories": [
+      "markup",
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

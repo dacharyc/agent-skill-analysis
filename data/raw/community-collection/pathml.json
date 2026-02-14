@@ -67,5 +67,45 @@
       }
     ],
     "total": 27305
+  },
+  "content_analysis": {
+    "word_count": 998,
+    "code_block_count": 2,
+    "code_block_ratio": 0.0651,
+    "code_languages": [
+      "bash",
+      "python"
+    ],
+    "sentence_count": 76,
+    "imperative_count": 11,
+    "imperative_ratio": 0.1447,
+    "information_density": 0.1049,
+    "strong_markers": 1,
+    "weak_markers": 3,
+    "instruction_specificity": 0.25,
+    "section_count": 17,
+    "list_item_count": 42
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }

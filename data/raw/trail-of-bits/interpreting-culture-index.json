@@ -158,5 +158,49 @@
       }
     ],
     "total": 25794
+  },
+  "content_analysis": {
+    "word_count": 1680,
+    "code_block_count": 5,
+    "code_block_ratio": 0.0542,
+    "code_languages": [
+      "python",
+      "json",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 113,
+    "imperative_count": 6,
+    "imperative_ratio": 0.0531,
+    "information_density": 0.0536,
+    "strong_markers": 10,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9091,
+    "section_count": 0,
+    "list_item_count": 52
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "json",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "risk_score": 0.3417,
+    "risk_level": "medium"
   }
 }

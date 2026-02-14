@@ -52,17 +52,17 @@
     {
       "level": "warning",
       "category": "Frontmatter",
+      "message": "unrecognized field: \"clawdis\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
       "message": "unrecognized field: \"version\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"homepage\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
-      "message": "unrecognized field: \"clawdis\""
     }
   ],
   "token_counts": {
@@ -138,5 +138,54 @@
       }
     ],
     "total": 22633
+  },
+  "content_analysis": {
+    "word_count": 1266,
+    "code_block_count": 8,
+    "code_block_ratio": 0.4408,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 51,
+    "imperative_count": 5,
+    "imperative_ratio": 0.098,
+    "information_density": 0.2694,
+    "strong_markers": 4,
+    "weak_markers": 5,
+    "instruction_specificity": 0.4444,
+    "section_count": 14,
+    "list_item_count": 51
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

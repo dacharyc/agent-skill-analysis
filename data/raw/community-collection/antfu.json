@@ -78,5 +78,47 @@
       }
     ],
     "total": 4542
+  },
+  "content_analysis": {
+    "word_count": 517,
+    "code_block_count": 4,
+    "code_block_ratio": 0.1238,
+    "code_languages": [
+      "ts",
+      "json",
+      "js",
+      "json"
+    ],
+    "sentence_count": 29,
+    "imperative_count": 5,
+    "imperative_ratio": 0.1724,
+    "information_density": 0.1481,
+    "strong_markers": 1,
+    "weak_markers": 1,
+    "instruction_specificity": 0.5,
+    "section_count": 13,
+    "list_item_count": 14
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "ts",
+      "json",
+      "js",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "javascript"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

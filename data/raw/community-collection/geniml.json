@@ -73,5 +73,53 @@
       }
     ],
     "total": 8807
+  },
+  "content_analysis": {
+    "word_count": 1356,
+    "code_block_count": 7,
+    "code_block_ratio": 0.1836,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 89,
+    "imperative_count": 17,
+    "imperative_ratio": 0.191,
+    "information_density": 0.1873,
+    "strong_markers": 5,
+    "weak_markers": 2,
+    "instruction_specificity": 0.7143,
+    "section_count": 22,
+    "list_item_count": 76
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

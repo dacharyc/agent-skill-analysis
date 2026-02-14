@@ -35,21 +35,6 @@
       "message": "metadata: (3 entries)"
     },
     {
-      "level": "pass",
-      "category": "Links",
-      "message": "./references/html2pptx.md (exists)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "scripts/html2pptx.js (exists)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "./references/ooxml.md (exists)"
-    },
-    {
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 6176 tokens (spec recommends < 5000)"
@@ -63,6 +48,21 @@
       "level": "error",
       "category": "Overall",
       "message": "this content doesn't appear to be structured as a skill \u2014 there are 324,493 tokens of non-standard content but only 15,605 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/html2pptx.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "scripts/html2pptx.js (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "./references/ooxml.md (exists)"
     }
   ],
   "token_counts": {
@@ -278,5 +278,69 @@
       }
     ],
     "total": 324493
+  },
+  "content_analysis": {
+    "word_count": 3491,
+    "code_block_count": 16,
+    "code_block_ratio": 0.1263,
+    "code_languages": [
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 123,
+    "imperative_count": 14,
+    "imperative_ratio": 0.1138,
+    "information_density": 0.1201,
+    "strong_markers": 31,
+    "weak_markers": 8,
+    "instruction_specificity": 0.7949,
+    "section_count": 21,
+    "list_item_count": 228
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.4167,
+    "risk_level": "medium"
   }
 }

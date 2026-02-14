@@ -45,9 +45,9 @@
       "message": "https://vercel.com/claim-deployment?code=... (HTTP 200)"
     },
     {
-      "level": "info",
+      "level": "pass",
       "category": "Links",
-      "message": "https://claude.ai/settings/capabilities (HTTP 403 \u2014 may block automated requests)"
+      "message": "https://claude.ai/settings/capabilities (HTTP 200)"
     }
   ],
   "token_counts": {
@@ -58,5 +58,47 @@
       }
     ],
     "total": 727
+  },
+  "content_analysis": {
+    "word_count": 395,
+    "code_block_count": 6,
+    "code_block_ratio": 0.2608,
+    "code_languages": [
+      "bash",
+      "bash",
+      "json"
+    ],
+    "sentence_count": 29,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0345,
+    "information_density": 0.1476,
+    "strong_markers": 3,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 8,
+    "list_item_count": 17
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }

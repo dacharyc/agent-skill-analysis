@@ -41,5 +41,85 @@
       }
     ],
     "total": 7739
+  },
+  "content_analysis": {
+    "word_count": 915,
+    "code_block_count": 20,
+    "code_block_ratio": 0.4667,
+    "code_languages": [
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash",
+      "bash",
+      "bash",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash"
+    ],
+    "sentence_count": 55,
+    "imperative_count": 4,
+    "imperative_ratio": 0.0727,
+    "information_density": 0.2697,
+    "strong_markers": 3,
+    "weak_markers": 3,
+    "instruction_specificity": 0.5,
+    "section_count": 22,
+    "list_item_count": 16
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "kubernetes"
+    ],
+    "code_languages": [
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash",
+      "bash",
+      "bash",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "java",
+      "shell"
+    ],
+    "primary_category": "java",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.7167,
+    "risk_level": "high"
   }
 }

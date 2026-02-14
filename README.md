@@ -39,10 +39,8 @@ You also need the [skill-validator](https://github.com/dacharyc/skill-validator)
 ### 3. Run the data pipeline
 
 ```bash
-python analysis/collect.py          # Validate skills → data/raw/
+python analysis/collect.py          # Validate + analyze skills → data/raw/
 python analysis/aggregate.py        # Aggregate → validation-summary.json
-python analysis/content_analyzer.py # Content metrics → content-analysis.json
-python analysis/contamination.py    # Contamination risk → contamination-risk.json
 python analysis/combine.py          # Merge all → combined.json
 python analysis/stats.py            # Generate figures → paper/figures/
 cp data/processed/combined.json site/data.json  # Update interactive report
@@ -154,8 +152,6 @@ git submodule update --remote data/skills/trailofbits-skills
 # Re-run the pipeline — new commit SHAs are captured automatically
 python analysis/collect.py
 python analysis/aggregate.py
-python analysis/content_analyzer.py
-python analysis/contamination.py
 python analysis/combine.py
 python analysis/stats.py
 cp data/processed/combined.json site/data.json
@@ -170,17 +166,17 @@ The snapshot metadata in `data/processed/snapshot-metadata.json` will reflect th
 ## Data Pipeline
 
 ```
-collect.py → data/raw/          (validator JSON per skill)
-aggregate.py → validation-summary.json
-content_analyzer.py → content-analysis.json
-contamination.py → contamination-risk.json
-llm_judge.py → content-analysis.json (augmented with LLM scores)
+collect.py → data/raw/          (skill-validator check -o json per skill)
+aggregate.py → validation-summary.json (includes content + risk analysis)
+llm_judge.py → llm-scores.json (optional, Claude API scoring)
 combine.py → combined.json     (unified dataset)
 stats.py → paper/figures/      (charts for the paper)
 ```
 
+Content analysis and contamination risk metrics are computed by the `skill-validator` CLI (Go) and included in the raw JSON output. The Python scripts `content_analyzer.py` and `contamination.py` have been removed — their logic is now in the CLI's `internal/content/` and `internal/risk/` packages.
+
 ## Tools
 
-- [skill-validator](https://github.com/dacharyc/skill-validator) — Go CLI for structural validation
+- [skill-validator](https://github.com/dacharyc/skill-validator) — Go CLI for structural validation, content analysis, and contamination risk
 - Python 3.9+ with `anthropic`, `tiktoken`, `matplotlib`
 - Pandoc for PDF generation

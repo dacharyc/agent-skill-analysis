@@ -25,6 +25,11 @@
       "message": "metadata: (2 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 593 lines (spec recommends < 500)"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "https://developer.hashicorp.com/terraform/plugin/framework (HTTP 429)"
@@ -53,11 +58,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://github.com/hashicorp/terraform-plugin-framework (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 593 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -68,5 +68,83 @@
       }
     ],
     "total": 3565
+  },
+  "content_analysis": {
+    "word_count": 1463,
+    "code_block_count": 22,
+    "code_block_ratio": 0.7218,
+    "code_languages": [
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "bash",
+      "go",
+      "go",
+      "markdown",
+      "hcl"
+    ],
+    "sentence_count": 44,
+    "imperative_count": 6,
+    "imperative_ratio": 0.1364,
+    "information_density": 0.4291,
+    "strong_markers": 6,
+    "weak_markers": 7,
+    "instruction_specificity": 0.4615,
+    "section_count": 35,
+    "list_item_count": 21
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "terraform"
+    ],
+    "code_languages": [
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "bash",
+      "go",
+      "go",
+      "markdown",
+      "hcl"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "shell",
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "risk_score": 0.85,
+    "risk_level": "high"
   }
 }

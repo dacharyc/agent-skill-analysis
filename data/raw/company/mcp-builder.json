@@ -25,6 +25,11 @@
       "message": "description: (307 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 25105 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "./reference/microsoft_mcp_patterns.md (exists)"
@@ -48,11 +53,6 @@
       "level": "pass",
       "category": "Links",
       "message": "./reference/evaluation.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "non-standard files total 25105 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
     }
   ],
   "token_counts": {
@@ -92,5 +92,43 @@
       }
     ],
     "total": 25105
+  },
+  "content_analysis": {
+    "word_count": 1528,
+    "code_block_count": 1,
+    "code_block_ratio": 0.0295,
+    "code_languages": [
+      "xml"
+    ],
+    "sentence_count": 97,
+    "imperative_count": 12,
+    "imperative_ratio": 0.1237,
+    "information_density": 0.0766,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 29,
+    "list_item_count": 91
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker"
+    ],
+    "code_languages": [
+      "xml"
+    ],
+    "language_categories": [
+      "config"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet",
+      "python"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.375,
+    "risk_level": "medium"
   }
 }

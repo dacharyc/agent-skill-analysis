@@ -76,5 +76,68 @@
       }
     ],
     "total": 6715
+  },
+  "content_analysis": {
+    "word_count": 622,
+    "code_block_count": 12,
+    "code_block_ratio": 0.4325,
+    "code_languages": [
+      "xml",
+      "xml",
+      "bash",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java"
+    ],
+    "sentence_count": 39,
+    "imperative_count": 7,
+    "imperative_ratio": 0.1795,
+    "information_density": 0.306,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 19,
+    "list_item_count": 10
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "xml",
+      "xml",
+      "bash",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java"
+    ],
+    "language_categories": [
+      "config",
+      "java",
+      "shell"
+    ],
+    "primary_category": "java",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 5,
+    "risk_score": 0.4917,
+    "risk_level": "medium"
   }
 }

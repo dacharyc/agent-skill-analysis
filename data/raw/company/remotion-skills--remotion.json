@@ -35,6 +35,16 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 28328 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 28,328 tokens of non-standard content but only 960 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "./rules/subtitles.md (exists)"
@@ -198,16 +208,6 @@
       "level": "pass",
       "category": "Links",
       "message": "rules/voiceover.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "non-standard files total 28328 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
-    },
-    {
-      "level": "error",
-      "category": "Overall",
-      "message": "this content doesn't appear to be structured as a skill \u2014 there are 28,328 tokens of non-standard content but only 960 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
     }
   ],
   "token_counts": {
@@ -379,5 +379,35 @@
       }
     ],
     "total": 28328
+  },
+  "content_analysis": {
+    "word_count": 460,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 13,
+    "imperative_count": 3,
+    "imperative_ratio": 0.2308,
+    "information_density": 0.1154,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 5,
+    "list_item_count": 30
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "java",
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

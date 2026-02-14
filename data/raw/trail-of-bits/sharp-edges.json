@@ -35,6 +35,11 @@
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 30184 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "references/config-patterns.md#unvalidated-constructor-parameters (file not found)"
@@ -118,11 +123,6 @@
       "level": "pass",
       "category": "Links",
       "message": "references/language-specific.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 30184 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
     }
   ],
   "token_counts": {
@@ -197,5 +197,61 @@
       }
     ],
     "total": 32603
+  },
+  "content_analysis": {
+    "word_count": 1476,
+    "code_block_count": 8,
+    "code_block_ratio": 0.1734,
+    "code_languages": [
+      "php",
+      "python",
+      "php",
+      "go",
+      "yaml",
+      "php",
+      "python",
+      "python"
+    ],
+    "sentence_count": 93,
+    "imperative_count": 5,
+    "imperative_ratio": 0.0538,
+    "information_density": 0.1136,
+    "strong_markers": 9,
+    "weak_markers": 2,
+    "instruction_specificity": 0.8182,
+    "section_count": 19,
+    "list_item_count": 77
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "php",
+      "python",
+      "php",
+      "go",
+      "yaml",
+      "php",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "systems"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config",
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "mobile"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.7167,
+    "risk_level": "high"
   }
 }

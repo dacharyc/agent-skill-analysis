@@ -40,6 +40,11 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 26102 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "references/matrices-arrays.md (exists)"
@@ -103,11 +108,6 @@
       "level": "info",
       "category": "Links",
       "message": "https://www.mathworks.com/matlabcentral/fileexchange/ (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 26102 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
     }
   ],
   "token_counts": {
@@ -150,5 +150,70 @@
       }
     ],
     "total": 28805
+  },
+  "content_analysis": {
+    "word_count": 1371,
+    "code_block_count": 17,
+    "code_block_ratio": 0.5616,
+    "code_languages": [
+      "bash",
+      "bash",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab"
+    ],
+    "sentence_count": 55,
+    "imperative_count": 5,
+    "imperative_ratio": 0.0909,
+    "information_density": 0.3263,
+    "strong_markers": 2,
+    "weak_markers": 1,
+    "instruction_specificity": 0.6667,
+    "section_count": 19,
+    "list_item_count": 20
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab",
+      "matlab"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

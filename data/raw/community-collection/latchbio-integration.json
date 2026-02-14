@@ -74,5 +74,53 @@
       }
     ],
     "total": 10929
+  },
+  "content_analysis": {
+    "word_count": 1349,
+    "code_block_count": 5,
+    "code_block_ratio": 0.1935,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 78,
+    "imperative_count": 13,
+    "imperative_ratio": 0.1667,
+    "information_density": 0.1801,
+    "strong_markers": 4,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8,
+    "section_count": 29,
+    "list_item_count": 129
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker"
+    ],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.5083,
+    "risk_level": "high"
   }
 }

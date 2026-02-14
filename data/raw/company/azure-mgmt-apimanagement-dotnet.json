@@ -89,5 +89,61 @@
       }
     ],
     "total": 6575
+  },
+  "content_analysis": {
+    "word_count": 913,
+    "code_block_count": 11,
+    "code_block_ratio": 0.4655,
+    "code_languages": [
+      "bash",
+      "bash",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "sentence_count": 37,
+    "imperative_count": 10,
+    "imperative_ratio": 0.2703,
+    "information_density": 0.3679,
+    "strong_markers": 4,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8,
+    "section_count": 17,
+    "list_item_count": 8
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "language_categories": [
+      "dotnet",
+      "shell"
+    ],
+    "primary_category": "dotnet",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

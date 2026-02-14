@@ -30,6 +30,16 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5171 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 631 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://www.clinpgx.org/pharmacogenomic-decision-support (HTTP 200)"
@@ -63,16 +73,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://clinicalgenome.org/ (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 5171 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 631 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -87,5 +87,109 @@
       }
     ],
     "total": 10219
+  },
+  "content_analysis": {
+    "word_count": 2348,
+    "code_block_count": 34,
+    "code_block_ratio": 0.3041,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 118,
+    "imperative_count": 5,
+    "imperative_ratio": 0.0424,
+    "information_density": 0.1732,
+    "strong_markers": 4,
+    "weak_markers": 4,
+    "instruction_specificity": 0.5,
+    "section_count": 40,
+    "list_item_count": 144
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }

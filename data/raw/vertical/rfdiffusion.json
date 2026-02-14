@@ -32,11 +32,6 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"biomodals_script\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"category\""
     },
     {
@@ -53,6 +48,11 @@
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"proteinbase_url\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
     },
     {
       "level": "error",
@@ -100,5 +100,58 @@
       }
     ],
     "total": 923
+  },
+  "content_analysis": {
+    "word_count": 1230,
+    "code_block_count": 14,
+    "code_block_ratio": 0.3187,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 56,
+    "imperative_count": 7,
+    "imperative_ratio": 0.125,
+    "information_density": 0.2218,
+    "strong_markers": 0,
+    "weak_markers": 2,
+    "instruction_specificity": 0,
+    "section_count": 29,
+    "list_item_count": 11
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

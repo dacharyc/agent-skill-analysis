@@ -30,6 +30,16 @@
       "message": "description: (264 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5913 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 648 lines (spec recommends < 500)"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "... (file not found)"
@@ -43,16 +53,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://source-url.com (request failed: Head \"https://source-url.com\": dial tcp: lookup source-url.com: no such host)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 5913 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 648 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -88,5 +88,101 @@
       }
     ],
     "total": 4746
+  },
+  "content_analysis": {
+    "word_count": 2913,
+    "code_block_count": 29,
+    "code_block_ratio": 0.2781,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "python"
+    ],
+    "sentence_count": 135,
+    "imperative_count": 23,
+    "imperative_ratio": 0.1704,
+    "information_density": 0.2242,
+    "strong_markers": 20,
+    "weak_markers": 4,
+    "instruction_specificity": 0.8333,
+    "section_count": 30,
+    "list_item_count": 121
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "risk_score": 0.6417,
+    "risk_level": "high"
   }
 }

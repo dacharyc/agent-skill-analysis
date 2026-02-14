@@ -58,5 +58,43 @@
       }
     ],
     "total": 1687
+  },
+  "content_analysis": {
+    "word_count": 861,
+    "code_block_count": 2,
+    "code_block_ratio": 0.144,
+    "code_languages": [
+      "env"
+    ],
+    "sentence_count": 44,
+    "imperative_count": 5,
+    "imperative_ratio": 0.1136,
+    "information_density": 0.1288,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 13,
+    "list_item_count": 32
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "mongodb",
+      "mysql",
+      "postgresql",
+      "stripe"
+    ],
+    "code_languages": [
+      "env"
+    ],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

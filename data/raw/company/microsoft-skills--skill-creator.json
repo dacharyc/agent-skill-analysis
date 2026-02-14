@@ -20,6 +20,11 @@
       "message": "description: (170 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 610 lines (spec recommends < 500)"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "references/tools.md (file not found)"
@@ -33,11 +38,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://github.com/Azure/azure-sdk-for- (HTTP 404)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 610 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -64,5 +64,84 @@
       }
     ],
     "total": 11836
+  },
+  "content_analysis": {
+    "word_count": 2324,
+    "code_block_count": 20,
+    "code_block_ratio": 0.2629,
+    "code_languages": [
+      "markdown",
+      "python",
+      "csharp",
+      "java",
+      "typescript",
+      "markdown",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "markdown",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "markdown"
+    ],
+    "sentence_count": 135,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0889,
+    "information_density": 0.1759,
+    "strong_markers": 24,
+    "weak_markers": 2,
+    "instruction_specificity": 0.9231,
+    "section_count": 48,
+    "list_item_count": 102
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "markdown",
+      "python",
+      "csharp",
+      "java",
+      "typescript",
+      "markdown",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "markdown",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "markdown"
+    ],
+    "language_categories": [
+      "config",
+      "dotnet",
+      "java",
+      "javascript",
+      "markup",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "dotnet",
+      "java",
+      "javascript",
+      "markup",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 7,
+    "risk_score": 0.7,
+    "risk_level": "high"
   }
 }

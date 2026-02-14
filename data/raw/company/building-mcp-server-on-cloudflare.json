@@ -75,5 +75,67 @@
       }
     ],
     "total": 6056
+  },
+  "content_analysis": {
+    "word_count": 767,
+    "code_block_count": 12,
+    "code_block_ratio": 0.4641,
+    "code_languages": [
+      "bash",
+      "bash",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "toml",
+      "toml"
+    ],
+    "sentence_count": 54,
+    "imperative_count": 9,
+    "imperative_ratio": 0.1667,
+    "information_density": 0.3154,
+    "strong_markers": 2,
+    "weak_markers": 1,
+    "instruction_specificity": 0.6667,
+    "section_count": 22,
+    "list_item_count": 26
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "toml",
+      "toml"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.3417,
+    "risk_level": "medium"
   }
 }

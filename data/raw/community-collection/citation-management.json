@@ -40,6 +40,16 @@
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 8035 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1107 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://meshb.nlm.nih.gov/search (HTTP 200)"
@@ -98,16 +108,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://www.overleaf.com/learn/latex/Bibliography_management (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 8035 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 1107 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -138,5 +138,87 @@
       }
     ],
     "total": 32403
+  },
+  "content_analysis": {
+    "word_count": 4175,
+    "code_block_count": 27,
+    "code_block_ratio": 0.3368,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bibtex",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 198,
+    "imperative_count": 24,
+    "imperative_ratio": 0.1212,
+    "information_density": 0.229,
+    "strong_markers": 25,
+    "weak_markers": 5,
+    "instruction_specificity": 0.8333,
+    "section_count": 51,
+    "list_item_count": 289
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bibtex",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

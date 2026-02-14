@@ -45,6 +45,16 @@
       "message": "metadata: (2 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 8460 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "error",
+      "category": "Tokens",
+      "message": "total reference files: 152789 tokens \u2014 this will consume 25-40% of a typical context window; reduce content or split into a skill with fewer references"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "references/createGlobalState.md (exists)"
@@ -1808,16 +1818,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://github.com/vueuse/sound#examples (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 8460 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "error",
-      "category": "Tokens",
-      "message": "total reference files: 152789 tokens \u2014 this will consume 25-40% of a typical context window; reduce content or split into a skill with fewer references"
     }
   ],
   "token_counts": {
@@ -2897,5 +2897,38 @@
       }
     ],
     "total": 294
+  },
+  "content_analysis": {
+    "word_count": 3659,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 73,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0137,
+    "information_density": 0.0068,
+    "strong_markers": 3,
+    "weak_markers": 2,
+    "instruction_specificity": 0.6,
+    "section_count": 24,
+    "list_item_count": 8
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "firebase"
+    ],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet",
+      "java",
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.375,
+    "risk_level": "medium"
   }
 }

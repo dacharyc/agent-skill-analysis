@@ -27,17 +27,17 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"biomodals_script\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"category\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"tags\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
     },
     {
       "level": "error",
@@ -58,5 +58,44 @@
       }
     ],
     "total": 1191
+  },
+  "content_analysis": {
+    "word_count": 612,
+    "code_block_count": 6,
+    "code_block_ratio": 0.3203,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 33,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0606,
+    "information_density": 0.1904,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 14,
+    "list_item_count": 3
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

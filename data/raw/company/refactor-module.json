@@ -25,6 +25,11 @@
       "message": "metadata: (2 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 532 lines (spec recommends < 500)"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "./examples/ (file not found)"
@@ -48,11 +53,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://developer.hashicorp.com/terraform/cloud-docs/registry/design (HTTP 429)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 532 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -63,5 +63,74 @@
       }
     ],
     "total": 3408
+  },
+  "content_analysis": {
+    "word_count": 1736,
+    "code_block_count": 15,
+    "code_block_ratio": 0.6411,
+    "code_languages": [
+      "markdown",
+      "hcl",
+      "markdown",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "markdown",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "hcl"
+    ],
+    "sentence_count": 49,
+    "imperative_count": 7,
+    "imperative_ratio": 0.1429,
+    "information_density": 0.392,
+    "strong_markers": 9,
+    "weak_markers": 3,
+    "instruction_specificity": 0.75,
+    "section_count": 38,
+    "list_item_count": 43
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "terraform"
+    ],
+    "code_languages": [
+      "markdown",
+      "hcl",
+      "markdown",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "markdown",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "hcl"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.7167,
+    "risk_level": "high"
   }
 }

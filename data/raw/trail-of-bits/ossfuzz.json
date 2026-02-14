@@ -173,5 +173,77 @@
       }
     ],
     "total": 3949
+  },
+  "content_analysis": {
+    "word_count": 1870,
+    "code_block_count": 16,
+    "code_block_ratio": 0.1936,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "dockerfile",
+      "bash",
+      "c",
+      "bash",
+      "yaml",
+      "python",
+      "bash",
+      "yaml",
+      "bash"
+    ],
+    "sentence_count": 92,
+    "imperative_count": 9,
+    "imperative_ratio": 0.0978,
+    "information_density": 0.1457,
+    "strong_markers": 3,
+    "weak_markers": 4,
+    "instruction_specificity": 0.4286,
+    "section_count": 37,
+    "list_item_count": 52
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "dockerfile",
+      "bash",
+      "c",
+      "bash",
+      "yaml",
+      "python",
+      "bash",
+      "yaml",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell",
+      "systems"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python",
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "risk_score": 0.85,
+    "risk_level": "high"
   }
 }

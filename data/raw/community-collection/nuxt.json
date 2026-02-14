@@ -30,6 +30,11 @@
       "message": "metadata: (3 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 25986 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "references/core-directory-structure.md (exists)"
@@ -118,11 +123,6 @@
       "level": "pass",
       "category": "Links",
       "message": "references/advanced-module-authoring.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 25986 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
     }
   ],
   "token_counts": {
@@ -214,5 +214,34 @@
       }
     ],
     "total": 53
+  },
+  "content_analysis": {
+    "word_count": 379,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 16,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0625,
+    "information_density": 0.0313,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 5,
+    "list_item_count": 0
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

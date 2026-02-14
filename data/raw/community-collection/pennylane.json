@@ -30,6 +30,11 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 25242 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://docs.pennylane.ai (HTTP 200)"
@@ -53,11 +58,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://github.com/PennyLaneAI/pennylane (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 25242 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
     }
   ],
   "token_counts": {
@@ -96,5 +96,51 @@
       }
     ],
     "total": 27145
+  },
+  "content_analysis": {
+    "word_count": 988,
+    "code_block_count": 6,
+    "code_block_ratio": 0.2449,
+    "code_languages": [
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 58,
+    "imperative_count": 12,
+    "imperative_ratio": 0.2069,
+    "information_density": 0.2259,
+    "strong_markers": 2,
+    "weak_markers": 1,
+    "instruction_specificity": 0.6667,
+    "section_count": 18,
+    "list_item_count": 53
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

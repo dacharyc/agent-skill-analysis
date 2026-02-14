@@ -40,11 +40,6 @@
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
     },
     {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://ctan.org/ (HTTP 200)"
-    },
-    {
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 11635 tokens (spec recommends < 5000)"
@@ -58,6 +53,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "total reference files: 25517 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ctan.org/ (HTTP 200)"
     }
   ],
   "token_counts": {
@@ -92,5 +92,98 @@
       }
     ],
     "total": 37152
+  },
+  "content_analysis": {
+    "word_count": 6745,
+    "code_block_count": 30,
+    "code_block_ratio": 0.107,
+    "code_languages": [
+      "bash",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "latex",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "latex"
+    ],
+    "sentence_count": 362,
+    "imperative_count": 19,
+    "imperative_ratio": 0.0525,
+    "information_density": 0.0798,
+    "strong_markers": 47,
+    "weak_markers": 8,
+    "instruction_specificity": 0.8545,
+    "section_count": 105,
+    "list_item_count": 604
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "latex",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "latex"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "java"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

@@ -33,5 +33,66 @@
       }
     ],
     "total": 1920
+  },
+  "content_analysis": {
+    "word_count": 1011,
+    "code_block_count": 12,
+    "code_block_ratio": 0.4758,
+    "code_languages": [
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash"
+    ],
+    "sentence_count": 45,
+    "imperative_count": 10,
+    "imperative_ratio": 0.2222,
+    "information_density": 0.349,
+    "strong_markers": 8,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8889,
+    "section_count": 19,
+    "list_item_count": 40
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "terraform"
+    ],
+    "code_languages": [
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.4333,
+    "risk_level": "medium"
   }
 }

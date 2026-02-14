@@ -35,14 +35,14 @@
       "message": "metadata: (3 entries)"
     },
     {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/lawvable/superdoc-vscode-extension/tree/feat/programmatic-command-api (HTTP 200)"
-    },
-    {
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 5318 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/lawvable/superdoc-vscode-extension/tree/feat/programmatic-command-api (HTTP 200)"
     }
   ],
   "token_counts": {
@@ -62,5 +62,87 @@
       }
     ],
     "total": 7275
+  },
+  "content_analysis": {
+    "word_count": 2461,
+    "code_block_count": 26,
+    "code_block_ratio": 0.2771,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "json",
+      "json"
+    ],
+    "sentence_count": 137,
+    "imperative_count": 29,
+    "imperative_ratio": 0.2117,
+    "information_density": 0.2444,
+    "strong_markers": 27,
+    "weak_markers": 4,
+    "instruction_specificity": 0.871,
+    "section_count": 31,
+    "list_item_count": 53
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "json",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

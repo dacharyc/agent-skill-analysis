@@ -30,6 +30,16 @@
       "message": "description: (340 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6618 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 763 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://developers.facebook.com/tools/debug/ (HTTP 200)"
@@ -48,16 +58,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://www.opengraph.xyz/ (HTTP 429)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 6618 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 763 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -81,5 +81,85 @@
       }
     ],
     "total": 1502
+  },
+  "content_analysis": {
+    "word_count": 3507,
+    "code_block_count": 26,
+    "code_block_ratio": 0.1614,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "html",
+      "html",
+      "bash",
+      "html",
+      "typescript",
+      "astro",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 192,
+    "imperative_count": 21,
+    "imperative_ratio": 0.1094,
+    "information_density": 0.1354,
+    "strong_markers": 10,
+    "weak_markers": 12,
+    "instruction_specificity": 0.4545,
+    "section_count": 49,
+    "list_item_count": 235
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "html",
+      "html",
+      "bash",
+      "html",
+      "typescript",
+      "astro",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "javascript",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "javascript",
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "risk_score": 0.3417,
+    "risk_level": "medium"
   }
 }

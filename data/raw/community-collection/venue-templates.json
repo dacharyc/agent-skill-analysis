@@ -65,6 +65,21 @@
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5331 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 682 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 43408 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://www.nature.com/nature/for-authors (HTTP 200)"
@@ -113,21 +128,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://science.osti.gov/grants (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 5331 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 682 lines (spec recommends < 500)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 43408 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
     }
   ],
   "token_counts": {
@@ -182,5 +182,71 @@
       }
     ],
     "total": 48739
+  },
+  "content_analysis": {
+    "word_count": 3105,
+    "code_block_count": 16,
+    "code_block_ratio": 0.1646,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown"
+    ],
+    "sentence_count": 161,
+    "imperative_count": 22,
+    "imperative_ratio": 0.1366,
+    "information_density": 0.1506,
+    "strong_markers": 13,
+    "weak_markers": 2,
+    "instruction_specificity": 0.8667,
+    "section_count": 53,
+    "list_item_count": 233
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown"
+    ],
+    "language_categories": [
+      "markup",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "java"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }

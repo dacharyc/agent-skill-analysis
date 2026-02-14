@@ -25,6 +25,16 @@
       "message": "metadata: (2 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 9943 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1663 lines (spec recommends < 500)"
+    },
+    {
       "level": "error",
       "category": "Links",
       "message": "https://developer.hashicorp.com/terraform/language/tests (HTTP 429)"
@@ -38,16 +48,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://developer.hashicorp.com/terraform/language/tests/best-practices (HTTP 429)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 9943 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 1663 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -58,5 +58,140 @@
       }
     ],
     "total": 9943
+  },
+  "content_analysis": {
+    "word_count": 4951,
+    "code_block_count": 51,
+    "code_block_ratio": 0.6314,
+    "code_languages": [
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "yaml",
+      "yaml"
+    ],
+    "sentence_count": 175,
+    "imperative_count": 34,
+    "imperative_ratio": 0.1943,
+    "information_density": 0.4128,
+    "strong_markers": 11,
+    "weak_markers": 5,
+    "instruction_specificity": 0.6875,
+    "section_count": 46,
+    "list_item_count": 94
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "terraform"
+    ],
+    "code_languages": [
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "bash",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "hcl",
+      "yaml",
+      "yaml"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.5083,
+    "risk_level": "high"
   }
 }

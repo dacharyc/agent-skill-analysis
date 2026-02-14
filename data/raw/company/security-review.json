@@ -50,6 +50,11 @@
       "message": "allowed-tools: \"Read, Grep, Glob, Bash, Task\""
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 43736 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://cheatsheetseries.owasp.org/ (HTTP 200)"
@@ -58,11 +63,6 @@
       "level": "warning",
       "category": "Markdown",
       "message": "SKILL.md has an unclosed code fence starting at line 265 \u2014 this may cause agents to misinterpret everything after it as code"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 43736 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
     }
   ],
   "token_counts": {
@@ -162,5 +162,57 @@
       }
     ],
     "total": 7642
+  },
+  "content_analysis": {
+    "word_count": 1534,
+    "code_block_count": 8,
+    "code_block_ratio": 0.1897,
+    "code_languages": [
+      "python",
+      "python",
+      "markdown",
+      "python"
+    ],
+    "sentence_count": 70,
+    "imperative_count": 7,
+    "imperative_ratio": 0.1,
+    "information_density": 0.1449,
+    "strong_markers": 16,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9412,
+    "section_count": 30,
+    "list_item_count": 43
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "docker",
+      "graphql",
+      "kubernetes",
+      "terraform"
+    ],
+    "code_languages": [
+      "python",
+      "python",
+      "markdown",
+      "python"
+    ],
+    "language_categories": [
+      "markup",
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "java",
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.5833,
+    "risk_level": "high"
   }
 }

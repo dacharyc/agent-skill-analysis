@@ -9,7 +9,8 @@ Uses Claude API to score each skill on:
   - actionability (1-5): How actionable are the instructions for an LLM agent?
   - completeness (1-5): How complete is the skill in covering its domain?
 
-Outputs → merges into data/processed/content-analysis.json
+Reads skill list from data/processed/validation-summary.json.
+Outputs → data/processed/llm-scores.json
 Caches results in analysis/.llm_cache/ to avoid re-scoring on re-runs.
 """
 
@@ -24,7 +25,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = REPO_ROOT / "data" / "skills"
-CONTENT_ANALYSIS = REPO_ROOT / "data" / "processed" / "content-analysis.json"
+VALIDATION_SUMMARY = REPO_ROOT / "data" / "processed" / "validation-summary.json"
+OUTPUT = REPO_ROOT / "data" / "processed" / "llm-scores.json"
 CACHE_DIR = Path(__file__).resolve().parent / ".llm_cache"
 
 JUDGE_PROMPT = """You are evaluating the quality of an "Agent Skill" — a markdown document that instructs an AI coding agent how to perform a specific task. Score this skill on 5 dimensions, each from 1 (worst) to 5 (best).
@@ -136,21 +138,24 @@ def main():
 
     client = anthropic.Anthropic(api_key=api_key)
 
-    # Load content analysis
-    with open(CONTENT_ANALYSIS) as f:
-        content_data = json.load(f)
+    # Load validation summary for skill list
+    with open(VALIDATION_SUMMARY) as f:
+        summary = json.load(f)
 
+    scores = []
     scored = 0
     cached = 0
     failed = 0
+    skipped = 0
 
-    for skill in content_data["skills"]:
+    for skill in summary["skills"]:
         name = skill["name"]
         source = skill["source"]
 
         skill_dir = skill.get("skill_dir", "")
         skill_md = Path(skill_dir) / "SKILL.md" if skill_dir else SKILLS_DIR / source / name / "SKILL.md"
         if not skill_md.exists():
+            skipped += 1
             continue
 
         content = skill_md.read_text(encoding="utf-8", errors="replace")
@@ -159,7 +164,7 @@ def main():
         # Check cache
         result = get_cached_result(cache_key)
         if result:
-            skill["llm_scores"] = result
+            scores.append({"name": name, "source": source, "llm_scores": result})
             cached += 1
             continue
 
@@ -168,7 +173,7 @@ def main():
         result = score_skill(content, client)
         if result:
             save_cache(cache_key, result)
-            skill["llm_scores"] = result
+            scores.append({"name": name, "source": source, "llm_scores": result})
             scored += 1
         else:
             failed += 1
@@ -176,12 +181,13 @@ def main():
         # Rate limit: ~1 request per second
         time.sleep(0.5)
 
-    # Save updated content analysis
-    with open(CONTENT_ANALYSIS, "w") as f:
-        json.dump(content_data, f, indent=2)
+    # Save LLM scores
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT, "w") as f:
+        json.dump({"skills": scores}, f, indent=2)
 
-    print(f"\nLLM Judge scoring complete → {CONTENT_ANALYSIS}")
-    print(f"  Scored: {scored}, Cached: {cached}, Failed: {failed}")
+    print(f"\nLLM Judge scoring complete → {OUTPUT}")
+    print(f"  Scored: {scored}, Cached: {cached}, Failed: {failed}, Skipped: {skipped}")
 
 
 if __name__ == "__main__":

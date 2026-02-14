@@ -27,12 +27,12 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"disable-model-invocation\""
+      "message": "unrecognized field: \"argument-hint\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"argument-hint\""
+      "message": "unrecognized field: \"disable-model-invocation\""
     },
     {
       "level": "pass",
@@ -52,5 +52,54 @@
       }
     ],
     "total": 6717
+  },
+  "content_analysis": {
+    "word_count": 896,
+    "code_block_count": 8,
+    "code_block_ratio": 0.1083,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 64,
+    "imperative_count": 12,
+    "imperative_ratio": 0.1875,
+    "information_density": 0.1479,
+    "strong_markers": 5,
+    "weak_markers": 2,
+    "instruction_specificity": 0.7143,
+    "section_count": 18,
+    "list_item_count": 36
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "firebase"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

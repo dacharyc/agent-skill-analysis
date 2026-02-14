@@ -40,6 +40,16 @@
       "message": "metadata: (3 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 8631 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 662 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "references/enisa-methodology.md (exists)"
@@ -58,16 +68,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://ico.org.uk/for-organisations/report-a-breach/ (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 8631 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 662 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -103,5 +103,32 @@
       }
     ],
     "total": 8620
+  },
+  "content_analysis": {
+    "word_count": 5646,
+    "code_block_count": 5,
+    "code_block_ratio": 0.1139,
+    "code_languages": [],
+    "sentence_count": 349,
+    "imperative_count": 14,
+    "imperative_ratio": 0.0401,
+    "information_density": 0.077,
+    "strong_markers": 38,
+    "weak_markers": 23,
+    "instruction_specificity": 0.623,
+    "section_count": 54,
+    "list_item_count": 153
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

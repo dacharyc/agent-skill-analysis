@@ -24,5 +24,59 @@
       "category": "Frontmatter",
       "message": "parsing frontmatter YAML: yaml: unmarshal errors:\n  line 5: cannot unmarshal !!map into string"
     }
-  ]
+  ],
+  "content_analysis": {
+    "word_count": 578,
+    "code_block_count": 10,
+    "code_block_ratio": 0.1972,
+    "code_languages": [
+      "bash",
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 40,
+    "imperative_count": 6,
+    "imperative_ratio": 0.15,
+    "information_density": 0.1736,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 16,
+    "list_item_count": 20
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "markup",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.4333,
+    "risk_level": "medium"
+  }
 }

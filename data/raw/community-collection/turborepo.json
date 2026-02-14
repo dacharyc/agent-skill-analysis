@@ -90,6 +90,16 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6329 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 902 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "./references/configuration/RULE.md (exists)"
@@ -213,16 +223,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://turborepo.dev/docs (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 6329 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 902 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -250,5 +250,103 @@
       }
     ],
     "total": 877
+  },
+  "content_analysis": {
+    "word_count": 3247,
+    "code_block_count": 42,
+    "code_block_ratio": 0.4706,
+    "code_languages": [
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "yaml",
+      "json",
+      "yaml",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "typescript",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json"
+    ],
+    "sentence_count": 149,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0805,
+    "information_density": 0.2756,
+    "strong_markers": 20,
+    "weak_markers": 3,
+    "instruction_specificity": 0.8696,
+    "section_count": 49,
+    "list_item_count": 40
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "yaml",
+      "json",
+      "yaml",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "typescript",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "javascript",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.3417,
+    "risk_level": "medium"
   }
 }

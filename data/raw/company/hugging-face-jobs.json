@@ -35,6 +35,16 @@
       "message": "license: \"Complete terms in LICENSE.txt\""
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 7924 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 1032 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://hf.co/pro (HTTP 200)"
@@ -93,16 +103,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://huggingface.co/jobs/username/job-id (HTTP 401)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 7924 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 1032 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -138,5 +138,139 @@
       }
     ],
     "total": 1865
+  },
+  "content_analysis": {
+    "word_count": 3916,
+    "code_block_count": 50,
+    "code_block_ratio": 0.2715,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 239,
+    "imperative_count": 30,
+    "imperative_ratio": 0.1255,
+    "information_density": 0.1985,
+    "strong_markers": 38,
+    "weak_markers": 5,
+    "instruction_specificity": 0.8837,
+    "section_count": 58,
+    "list_item_count": 168
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker"
+    ],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.5083,
+    "risk_level": "high"
   }
 }

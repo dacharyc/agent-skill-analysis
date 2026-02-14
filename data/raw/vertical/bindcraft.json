@@ -76,5 +76,47 @@
       }
     ],
     "total": 2690
+  },
+  "content_analysis": {
+    "word_count": 746,
+    "code_block_count": 7,
+    "code_block_ratio": 0.3418,
+    "code_languages": [
+      "bash",
+      "bash",
+      "json",
+      "bash"
+    ],
+    "sentence_count": 33,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0606,
+    "information_density": 0.2012,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 15,
+    "list_item_count": 4
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "json",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

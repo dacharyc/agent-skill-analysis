@@ -63,5 +63,68 @@
       }
     ],
     "total": 1287
+  },
+  "content_analysis": {
+    "word_count": 710,
+    "code_block_count": 9,
+    "code_block_ratio": 0.0972,
+    "code_languages": [
+      "python",
+      "ruby",
+      "javascript",
+      "python",
+      "javascript",
+      "html",
+      "bash",
+      "bash",
+      "javascript"
+    ],
+    "sentence_count": 64,
+    "imperative_count": 9,
+    "imperative_ratio": 0.1406,
+    "information_density": 0.1189,
+    "strong_markers": 4,
+    "weak_markers": 3,
+    "instruction_specificity": 0.5714,
+    "section_count": 17,
+    "list_item_count": 32
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "stripe"
+    ],
+    "code_languages": [
+      "python",
+      "ruby",
+      "javascript",
+      "python",
+      "javascript",
+      "html",
+      "bash",
+      "bash",
+      "javascript"
+    ],
+    "language_categories": [
+      "javascript",
+      "markup",
+      "python",
+      "ruby",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "markup",
+      "python",
+      "ruby",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 6,
+    "risk_score": 1,
+    "risk_level": "high"
   }
 }

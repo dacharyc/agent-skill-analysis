@@ -25,6 +25,11 @@
       "message": "unrecognized field: \"type\""
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 527 lines (spec recommends < 500)"
+    },
+    {
       "level": "info",
       "category": "Links",
       "message": "https://www.npmjs.com/package/elliptic (HTTP 403 \u2014 may block automated requests)"
@@ -48,11 +53,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://github.com/C2SP/wycheproof.git (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 527 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -63,5 +63,63 @@
       }
     ],
     "total": 4605
+  },
+  "content_analysis": {
+    "word_count": 2462,
+    "code_block_count": 12,
+    "code_block_ratio": 0.2859,
+    "code_languages": [
+      "text",
+      "json",
+      "bash",
+      "bash",
+      "python",
+      "javascript",
+      "python",
+      "javascript",
+      "text",
+      "python"
+    ],
+    "sentence_count": 121,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0992,
+    "information_density": 0.1926,
+    "strong_markers": 7,
+    "weak_markers": 4,
+    "instruction_specificity": 0.6364,
+    "section_count": 38,
+    "list_item_count": 57
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "text",
+      "json",
+      "bash",
+      "bash",
+      "python",
+      "javascript",
+      "python",
+      "javascript",
+      "text",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "risk_score": 0.55,
+    "risk_level": "high"
   }
 }

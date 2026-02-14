@@ -35,6 +35,16 @@
       "message": "description has 14 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6797 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 637 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "references/crx-module.md (exists)"
@@ -168,16 +178,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://github.com/0xmachos/macos-security-tools (HTTP 404)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 6797 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 637 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -241,5 +241,56 @@
       }
     ],
     "total": 9445
+  },
+  "content_analysis": {
+    "word_count": 3690,
+    "code_block_count": 18,
+    "code_block_ratio": 0.2461,
+    "code_languages": [
+      "yara",
+      "yara",
+      "bash",
+      "yara",
+      "yara",
+      "bash",
+      "yara",
+      "bash",
+      "yara"
+    ],
+    "sentence_count": 206,
+    "imperative_count": 14,
+    "imperative_ratio": 0.068,
+    "information_density": 0.157,
+    "strong_markers": 14,
+    "weak_markers": 5,
+    "instruction_specificity": 0.7368,
+    "section_count": 43,
+    "list_item_count": 76
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "yara",
+      "yara",
+      "bash",
+      "yara",
+      "yara",
+      "bash",
+      "yara",
+      "bash",
+      "yara"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

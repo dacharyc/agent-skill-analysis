@@ -20,6 +20,11 @@
       "message": "description: (228 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 585 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "./references/design-tokens.md (exists)"
@@ -33,11 +38,6 @@
       "level": "pass",
       "category": "Links",
       "message": "./references/patterns.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 585 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -64,5 +64,72 @@
       }
     ],
     "total": 25696
+  },
+  "content_analysis": {
+    "word_count": 1693,
+    "code_block_count": 14,
+    "code_block_ratio": 0.7442,
+    "code_languages": [
+      "bash",
+      "html",
+      "json",
+      "js",
+      "js",
+      "css",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx"
+    ],
+    "sentence_count": 32,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0313,
+    "information_density": 0.3877,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 21,
+    "list_item_count": 3
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "html",
+      "json",
+      "js",
+      "js",
+      "css",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "java",
+      "javascript"
+    ],
+    "scope_breadth": 5,
+    "risk_score": 0.625,
+    "risk_level": "high"
   }
 }

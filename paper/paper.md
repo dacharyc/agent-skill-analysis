@@ -3,7 +3,7 @@ title: "Quality and Safety in the Agent Skills Ecosystem: A Structural, Content,
 author: "Dachary Carey"
 date: "February 2026"
 abstract: |
-  Agent Skills — modular instruction sets that extend AI coding agents — are emerging as a key primitive in the developer toolchain. As adoption grows, quality standards have not kept pace. We present the first systematic analysis of the Agent Skills ecosystem, evaluating 673 skills from 41 source repositories across eight categories: platform publisher (Anthropic), company-published (Microsoft, OpenAI, Stripe, Cloudflare, and 18 others), community collections, individual community skills, security-focused (Trail of Bits, Prompt Security), development methodology (K-Dense/Superpowers), and vertical/domain-specific (legal, biotech, DevOps, embedded). We assess three dimensions: structural compliance with the agentskills.io specification, content quality metrics, and cross-contamination risk — where skill content causes incorrect code generation in unrelated contexts. Our analysis finds that 34.2% of skills fail structural validation, with company-published skills (57.6% pass rate) performing worse than community collections (86%). We identify 54 skills with high cross-contamination risk and demonstrate through a case study how multi-interface tool examples can degrade code generation. The ecosystem extends well beyond our sample: we catalog over 80 additional repositories containing an estimated 800+ skills, suggesting these quality concerns are industry-wide. We propose quality criteria for skill authors and recommendations for specification maintainers.
+  Agent Skills — modular instruction sets that extend AI coding agents — are emerging as a key primitive in the developer toolchain. As adoption grows, quality standards have not kept pace. We present the first systematic analysis of the Agent Skills ecosystem, evaluating 673 skills from 41 source repositories across eight categories: platform publisher (Anthropic), company-published (Microsoft, OpenAI, Stripe, Cloudflare, and 18 others), community collections, individual community skills, security-focused (Trail of Bits, Prompt Security), development methodology (K-Dense/Superpowers), and vertical/domain-specific (legal, biotech, DevOps, embedded). We assess three dimensions: structural compliance with the agentskills.io specification, content quality metrics, and cross-contamination risk — where skill content causes incorrect code generation in unrelated contexts. Our analysis finds that 34.2% of skills fail structural validation, with company-published skills (57.6% pass rate) performing worse than community collections (87%). We identify 54 skills with high cross-contamination risk and demonstrate through a case study how multi-interface tool examples can degrade code generation. The ecosystem extends well beyond our sample: we catalog over 80 additional repositories containing an estimated 800+ skills, suggesting these quality concerns are industry-wide. We propose quality criteria for skill authors and recommendations for specification maintainers.
 bibliography: references.bib
 ---
 
@@ -97,16 +97,16 @@ Pass rates varied dramatically by source category:
 
 | Category | Skills | Pass Rate | Errors | Warnings |
 |----------|--------|-----------|--------|----------|
-| Anthropic | 16 | 87.5% | 2 | 51 |
-| Community collections | 167 | 85.6% | 44 | 415 |
-| Trail of Bits | 52 | 76.9% | 25 | 132 |
-| Vertical | 86 | 65.9% | 65 | 144 |
-| Company | 288 | 57.6% | 189 | 421 |
-| K-Dense | 48 | 35.4% | 59 | 10 |
+| Anthropic | 16 | 87.5% | 7 | 39 |
+| Community collections | 167 | 87.4% | 45 | 209 |
+| Trail of Bits | 52 | 76.9% | 21 | 77 |
+| Vertical | 86 | 65.1% | 46 | 154 |
+| Company | 288 | 57.6% | 189 | 542 |
+| K-Dense | 48 | 35.4% | 65 | 117 |
 | Community individual | 9 | 33.3% | 26 | 68 |
-| Security | 7 | 14.3% | 7 | 9 |
+| Security | 7 | 14.3% | 6 | 23 |
 
-A striking finding is that **company-published skills have a lower pass rate (57.6%) than community collections (85.6%)**. This inverts the common assumption that official company skills would be higher quality. The primary drivers:
+A striking finding is that **company-published skills have a lower pass rate (57.6%) than community collections (87.4%)**. This inverts the common assumption that official company skills would be higher quality. The primary drivers:
 
 - **Microsoft** (143 skills): Many skills use non-standard directory structures, placing skills under `.github/skills/` rather than the spec-standard layout. While functional within their GitHub Copilot integration, they generate structural validation errors.
 - **Several companies** published skills before the spec was finalized and have not updated them to current requirements.
@@ -126,10 +126,10 @@ Token counts varied by several orders of magnitude:
 
 - Minimum: 0 tokens (empty skill placeholders)
 - Maximum: 3,098,484 tokens (a scientific computing skill with large reference datasets)
-- Median: 5,297 tokens
-- Mean: 16,600 tokens
+- Median: 5,227 tokens
+- Mean: 16,231 tokens
 
-Company-published skills tend to be more concise (average 6,745 tokens) than community collections (21,349 tokens). The most focused skills — from Anthropic (8,189 avg) and K-Dense (3,462 avg) — demonstrate that effective skills can be compact.
+Company-published skills tend to be more concise (average 6,749 tokens) than community collections (21,349 tokens). The most focused skills — from Anthropic (8,189 avg) and K-Dense (3,592 avg) — demonstrate that effective skills can be compact.
 
 ## Content Quality
 
@@ -137,8 +137,8 @@ Company-published skills tend to be more concise (average 6,745 tokens) than com
 
 Content quality metrics revealed significant variation:
 
-- **Information density**: Mean 0.201 (range 0.0–0.72). Most skills are prose-heavy with relatively few code examples or imperative instructions.
-- **Instruction specificity**: Mean 0.613 (range 0.0–1.0). The expanded dataset shows a lower average specificity than our initial sample, driven by company skills that use more advisory language.
+- **Information density**: Mean 0.200 (range 0.0–0.56). Most skills are prose-heavy with relatively few code examples or imperative instructions.
+- **Instruction specificity**: Mean 0.621 (range 0.0–1.0). The expanded dataset shows a lower average specificity than our initial sample, driven by company skills that use more advisory language.
 
 Anthropic skills cluster in the moderate-density, high-specificity quadrant — they are well-structured with clear directives but are not code-heavy. Company skills show the broadest distribution, ranging from highly specific API reference skills to vague best-practices guides.
 
@@ -154,7 +154,7 @@ Our cross-contamination analysis identified:
 
 ![Risk scores by source](figures/risk_by_source.png)
 
-The security category had the highest average risk score (0.446), followed by Trail of Bits (0.239) and company-published skills (0.205). Security tools inherently operate across multiple languages and environments, making this expected. Company skills — particularly those for cloud platforms (Azure, AWS, Terraform) — scored higher because they often cover multiple language SDKs within a single skill.
+The security category had the highest average risk score (0.446), followed by Trail of Bits (0.239) and company-published skills (0.210). Security tools inherently operate across multiple languages and environments, making this expected. Company skills — particularly those for cloud platforms (Azure, AWS, Terraform) — scored higher because they often cover multiple language SDKs within a single skill.
 
 ### High-Risk Skills
 
@@ -182,15 +182,15 @@ A key question motivating this expanded analysis was whether company-published s
 
 | Dimension | Company (288) | Community Collections (167) | Anthropic (16) |
 |-----------|--------------|---------------------------|----------------|
-| Pass rate | 57.6% | 85.6% | 87.5% |
-| Avg tokens | 6,745 | 21,349 | 8,189 |
-| Avg info density | 0.227 | 0.143 | 0.173 |
-| Avg specificity | 0.561 | 0.670 | 0.691 |
-| Avg risk score | 0.205 | 0.170 | 0.136 |
+| Pass rate | 57.6% | 87.4% | 87.5% |
+| Avg tokens | 6,749 | 21,349 | 8,189 |
+| Avg info density | 0.255 | 0.176 | 0.125 |
+| Avg specificity | 0.585 | 0.598 | 0.725 |
+| Avg risk score | 0.210 | 0.170 | 0.136 |
 
 Companies produce more **informationally dense** skills (higher code-to-prose ratio) but score lower on **structural compliance** and **instruction specificity**. This suggests companies prioritize API reference content over the instructional framing that helps agents use the information effectively.
 
-Community collections, particularly scientific computing skills and development workflow skills, tend to be more verbose but more carefully structured with stronger directive language.
+Anthropic's own skills, while small in number, set a benchmark for instruction specificity (0.725) — their skills use strong directive language that leaves less room for agent misinterpretation. Community collections fall between company and Anthropic skills on most dimensions.
 
 ## Metric Correlations
 
@@ -213,7 +213,7 @@ Based on our findings, we recommend the following practices:
 
 4. **Use strong directive language**: Skills with higher instruction specificity (using "must", "always", "never") provide clearer guidance to agents. Company skills in particular tend toward advisory language ("consider", "might") where directive language would be more effective.
 
-5. **Minimize token usage**: Keep skills focused. The median effective skill uses ~5,300 tokens. Skills exceeding 50,000 tokens likely include material that should be external references.
+5. **Minimize token usage**: Keep skills focused. The median effective skill uses ~5,200 tokens. Skills exceeding 50,000 tokens likely include material that should be external references.
 
 6. **Separate language-specific examples**: If a skill must cover multiple languages, use clearly delineated sections with explicit context-switching markers. Consider publishing separate skills per language SDK.
 
@@ -251,7 +251,7 @@ Based on our findings, we recommend the following practices:
 
 # Conclusion
 
-The Agent Skills ecosystem is young and growing rapidly. Our analysis of 673 skills from 41 repositories reveals meaningful variation in structural compliance (65.8% pass rate), content quality, and cross-contamination risk (54 high-risk skills). Perhaps the most striking finding is that company-published skills — from Microsoft, OpenAI, Stripe, and others — have a *lower* structural compliance rate (57.6%) than community collections (86%), inverting the assumption that official sources produce higher-quality skills.
+The Agent Skills ecosystem is young and growing rapidly. Our analysis of 673 skills from 41 repositories reveals meaningful variation in structural compliance (65.8% pass rate), content quality, and cross-contamination risk (54 high-risk skills). Perhaps the most striking finding is that company-published skills — from Microsoft, OpenAI, Stripe, and others — have a *lower* structural compliance rate (57.6%) than community collections (87%), inverting the assumption that official sources produce higher-quality skills.
 
 The cross-contamination risk is not merely theoretical: multi-interface tool skills can actively degrade agent performance through cross-language pollution. With 8.0% of skills at high risk and the ecosystem growing rapidly (we estimate 1,400+ skills exist across 120+ repositories), this is an industry-scale concern.
 

@@ -50,6 +50,21 @@
       "message": "metadata: (2 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 5490 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "error",
+      "category": "Tokens",
+      "message": "non-standard files total 195119 tokens \u2014 if an agent loads these, they will consume most of the context window and severely degrade performance; move essential content into references/ or remove unnecessary files"
+    },
+    {
+      "level": "error",
+      "category": "Overall",
+      "message": "this content doesn't appear to be structured as a skill \u2014 there are 195,119 tokens of non-standard content but only 5,490 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "reference/ref-value-access.md (exists)"
@@ -948,21 +963,6 @@
       "level": "pass",
       "category": "Links",
       "message": "reference/dynamic-component-registration-vite.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 5490 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "error",
-      "category": "Tokens",
-      "message": "non-standard files total 195119 tokens \u2014 if an agent loads these, they will consume most of the context window and severely degrade performance; move essential content into references/ or remove unnecessary files"
-    },
-    {
-      "level": "error",
-      "category": "Overall",
-      "message": "this content doesn't appear to be structured as a skill \u2014 there are 195,119 tokens of non-standard content but only 5,490 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
     }
   ],
   "token_counts": {
@@ -1706,5 +1706,34 @@
       }
     ],
     "total": 195119
+  },
+  "content_analysis": {
+    "word_count": 2066,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 35,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0286,
+    "information_density": 0.0143,
+    "strong_markers": 7,
+    "weak_markers": 14,
+    "instruction_specificity": 0.3333,
+    "section_count": 28,
+    "list_item_count": 180
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "risk_score": 0,
+    "risk_level": "low"
   }
 }

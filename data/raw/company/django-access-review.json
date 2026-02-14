@@ -64,5 +64,57 @@
       }
     ],
     "total": 3763
+  },
+  "content_analysis": {
+    "word_count": 1416,
+    "code_block_count": 14,
+    "code_block_ratio": 0.589,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "markdown",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 61,
+    "imperative_count": 7,
+    "imperative_ratio": 0.1148,
+    "information_density": 0.3519,
+    "strong_markers": 10,
+    "weak_markers": 5,
+    "instruction_specificity": 0.6667,
+    "section_count": 28,
+    "list_item_count": 72
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "markdown",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "markup",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "python"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.3417,
+    "risk_level": "medium"
   }
 }

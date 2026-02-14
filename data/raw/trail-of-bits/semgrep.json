@@ -75,5 +75,60 @@
       }
     ],
     "total": 7925
+  },
+  "content_analysis": {
+    "word_count": 2221,
+    "code_block_count": 13,
+    "code_block_ratio": 0.3381,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 92,
+    "imperative_count": 9,
+    "imperative_ratio": 0.0978,
+    "information_density": 0.218,
+    "strong_markers": 18,
+    "weak_markers": 8,
+    "instruction_specificity": 0.6923,
+    "section_count": 26,
+    "list_item_count": 104
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "docker",
+      "kubernetes",
+      "terraform"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.5833,
+    "risk_level": "high"
   }
 }

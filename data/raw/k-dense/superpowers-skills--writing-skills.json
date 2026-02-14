@@ -76,5 +76,71 @@
       }
     ],
     "total": 2900
+  },
+  "content_analysis": {
+    "word_count": 2849,
+    "code_block_count": 20,
+    "code_block_ratio": 0.2173,
+    "code_languages": [
+      "markdown",
+      "yaml",
+      "bash",
+      "markdown",
+      "markdown",
+      "bash",
+      "dot",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "yaml",
+      "dot"
+    ],
+    "sentence_count": 208,
+    "imperative_count": 33,
+    "imperative_ratio": 0.1587,
+    "information_density": 0.188,
+    "strong_markers": 24,
+    "weak_markers": 8,
+    "instruction_specificity": 0.75,
+    "section_count": 57,
+    "list_item_count": 126
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "markdown",
+      "yaml",
+      "bash",
+      "markdown",
+      "markdown",
+      "bash",
+      "dot",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "yaml",
+      "dot"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.4167,
+    "risk_level": "medium"
   }
 }

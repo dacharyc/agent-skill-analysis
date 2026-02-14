@@ -30,6 +30,26 @@
       "message": "description: (446 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 6096 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 866 lines (spec recommends < 500)"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "total reference files: 29293 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "non-standard files total 76857 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "references/metrics_design.md (exists)"
@@ -138,26 +158,6 @@
       "level": "error",
       "category": "Links",
       "message": "https://api.example.com/readiness (request failed: Head \"https://api.example.com/readiness\": dial tcp: lookup api.example.com: no such host)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 6096 tokens (spec recommends < 5000)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 866 lines (spec recommends < 500)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "total reference files: 29293 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "non-standard files total 76857 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
     }
   ],
   "token_counts": {
@@ -209,5 +209,81 @@
       }
     ],
     "total": 76857
+  },
+  "content_analysis": {
+    "word_count": 3071,
+    "code_block_count": 20,
+    "code_block_ratio": 0.2237,
+    "code_languages": [
+      "promql",
+      "bash",
+      "json",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash",
+      "promql",
+      "bash",
+      "json",
+      "logql"
+    ],
+    "sentence_count": 190,
+    "imperative_count": 20,
+    "imperative_ratio": 0.1053,
+    "information_density": 0.1645,
+    "strong_markers": 14,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 65,
+    "list_item_count": 226
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "elasticsearch",
+      "kubernetes",
+      "mysql",
+      "postgresql"
+    ],
+    "code_languages": [
+      "promql",
+      "bash",
+      "json",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash",
+      "promql",
+      "bash",
+      "json",
+      "logql"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.7167,
+    "risk_level": "high"
   }
 }

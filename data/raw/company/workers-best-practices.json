@@ -46,5 +46,43 @@
       }
     ],
     "total": 7306
+  },
+  "content_analysis": {
+    "word_count": 975,
+    "code_block_count": 1,
+    "code_block_ratio": 0.0267,
+    "code_languages": [
+      "bash"
+    ],
+    "sentence_count": 49,
+    "imperative_count": 8,
+    "imperative_ratio": 0.1633,
+    "information_density": 0.095,
+    "strong_markers": 10,
+    "weak_markers": 3,
+    "instruction_specificity": 0.7692,
+    "section_count": 14,
+    "list_item_count": 17
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "mysql",
+      "postgresql"
+    ],
+    "code_languages": [
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

@@ -543,5 +543,65 @@
       }
     ],
     "total": 636
+  },
+  "content_analysis": {
+    "word_count": 952,
+    "code_block_count": 2,
+    "code_block_ratio": 0.0462,
+    "code_languages": [
+      "bash",
+      "md",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "md",
+      "ts",
+      "mermaid",
+      "plantuml",
+      "yaml"
+    ],
+    "sentence_count": 16,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0625,
+    "information_density": 0.0544,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 16,
+    "list_item_count": 12
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "md",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "md",
+      "ts",
+      "mermaid",
+      "plantuml",
+      "yaml"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "risk_score": 0.55,
+    "risk_level": "high"
   }
 }

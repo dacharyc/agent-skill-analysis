@@ -32,12 +32,12 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"version\""
+      "message": "unrecognized field: \"when_to_use\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"when_to_use\""
+      "message": "unrecognized field: \"version\""
     }
   ],
   "token_counts": {
@@ -57,5 +57,67 @@
       }
     ],
     "total": 1279
+  },
+  "content_analysis": {
+    "word_count": 1929,
+    "code_block_count": 14,
+    "code_block_ratio": 0.1934,
+    "code_languages": [
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "yaml",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown"
+    ],
+    "sentence_count": 123,
+    "imperative_count": 9,
+    "imperative_ratio": 0.0732,
+    "information_density": 0.1333,
+    "strong_markers": 15,
+    "weak_markers": 2,
+    "instruction_specificity": 0.8824,
+    "section_count": 29,
+    "list_item_count": 75
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "yaml",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown"
+    ],
+    "language_categories": [
+      "config",
+      "markup"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

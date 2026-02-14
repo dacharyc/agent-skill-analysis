@@ -20,6 +20,11 @@
       "message": "description: (256 chars)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 648 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://help.obsidian.md/bases/syntax (HTTP 200)"
@@ -38,11 +43,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://help.obsidian.md/formulas (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 648 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -53,5 +53,79 @@
       }
     ],
     "total": 4621
+  },
+  "content_analysis": {
+    "word_count": 2436,
+    "code_block_count": 19,
+    "code_block_ratio": 0.3235,
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "markdown",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml"
+    ],
+    "sentence_count": 86,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0233,
+    "information_density": 0.1734,
+    "strong_markers": 4,
+    "weak_markers": 2,
+    "instruction_specificity": 0.6667,
+    "section_count": 44,
+    "list_item_count": 96
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "markdown",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml"
+    ],
+    "language_categories": [
+      "config",
+      "markup"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }

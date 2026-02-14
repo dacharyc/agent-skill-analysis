@@ -85,5 +85,54 @@
       }
     ],
     "total": 2262
+  },
+  "content_analysis": {
+    "word_count": 2564,
+    "code_block_count": 8,
+    "code_block_ratio": 0.0733,
+    "code_languages": [
+      "markdown",
+      "markdown",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 172,
+    "imperative_count": 19,
+    "imperative_ratio": 0.1105,
+    "information_density": 0.0919,
+    "strong_markers": 21,
+    "weak_markers": 12,
+    "instruction_specificity": 0.6364,
+    "section_count": 30,
+    "list_item_count": 72
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "markdown",
+      "markdown",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "markup",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "ruby"
+    ],
+    "scope_breadth": 4,
+    "risk_score": 0.5833,
+    "risk_level": "high"
   }
 }

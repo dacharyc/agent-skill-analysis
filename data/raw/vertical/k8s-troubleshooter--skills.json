@@ -54,5 +54,60 @@
       }
     ],
     "total": 16900
+  },
+  "content_analysis": {
+    "word_count": 1345,
+    "code_block_count": 10,
+    "code_block_ratio": 0.1145,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 77,
+    "imperative_count": 11,
+    "imperative_ratio": 0.1429,
+    "information_density": 0.1287,
+    "strong_markers": 4,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8,
+    "section_count": 26,
+    "list_item_count": 144
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "kubernetes"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

@@ -66,5 +66,49 @@
       }
     ],
     "total": 3522
+  },
+  "content_analysis": {
+    "word_count": 1000,
+    "code_block_count": 6,
+    "code_block_ratio": 0.064,
+    "code_languages": [
+      "yaml",
+      "markdown",
+      "markdown",
+      "python"
+    ],
+    "sentence_count": 74,
+    "imperative_count": 22,
+    "imperative_ratio": 0.2973,
+    "information_density": 0.1806,
+    "strong_markers": 5,
+    "weak_markers": 2,
+    "instruction_specificity": 0.7143,
+    "section_count": 17,
+    "list_item_count": 45
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "yaml",
+      "markdown",
+      "markdown",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "python"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "risk_score": 0.3417,
+    "risk_level": "medium"
   }
 }

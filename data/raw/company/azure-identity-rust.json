@@ -57,5 +57,53 @@
       }
     ],
     "total": 1447
+  },
+  "content_analysis": {
+    "word_count": 365,
+    "code_block_count": 5,
+    "code_block_ratio": 0.1945,
+    "code_languages": [
+      "sh",
+      "bash",
+      "rust",
+      "rust",
+      "rust"
+    ],
+    "sentence_count": 27,
+    "imperative_count": 4,
+    "imperative_ratio": 0.1481,
+    "information_density": 0.1713,
+    "strong_markers": 0,
+    "weak_markers": 1,
+    "instruction_specificity": 0,
+    "section_count": 9,
+    "list_item_count": 5
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "kubernetes"
+    ],
+    "code_languages": [
+      "sh",
+      "bash",
+      "rust",
+      "rust",
+      "rust"
+    ],
+    "language_categories": [
+      "shell",
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.5083,
+    "risk_level": "high"
   }
 }

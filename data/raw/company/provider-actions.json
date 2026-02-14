@@ -58,5 +58,71 @@
       }
     ],
     "total": 2924
+  },
+  "content_analysis": {
+    "word_count": 1551,
+    "code_block_count": 17,
+    "code_block_ratio": 0.3043,
+    "code_languages": [
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "hcl",
+      "go",
+      "go",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "release"
+    ],
+    "sentence_count": 80,
+    "imperative_count": 13,
+    "imperative_ratio": 0.1625,
+    "information_density": 0.2334,
+    "strong_markers": 12,
+    "weak_markers": 9,
+    "instruction_specificity": 0.5714,
+    "section_count": 31,
+    "list_item_count": 117
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "terraform"
+    ],
+    "code_languages": [
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "go",
+      "hcl",
+      "go",
+      "go",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "release"
+    ],
+    "language_categories": [
+      "config",
+      "shell",
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "risk_score": 0.6417,
+    "risk_level": "high"
   }
 }

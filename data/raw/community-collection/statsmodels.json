@@ -30,6 +30,11 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 607 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://www.statsmodels.org/stable/ (HTTP 200)"
@@ -48,11 +53,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://www.statsmodels.org/stable/api.html (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 607 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -83,5 +83,57 @@
       }
     ],
     "total": 27978
+  },
+  "content_analysis": {
+    "word_count": 2501,
+    "code_block_count": 9,
+    "code_block_ratio": 0.2391,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash"
+    ],
+    "sentence_count": 159,
+    "imperative_count": 22,
+    "imperative_ratio": 0.1384,
+    "information_density": 0.1887,
+    "strong_markers": 7,
+    "weak_markers": 3,
+    "instruction_specificity": 0.7,
+    "section_count": 38,
+    "list_item_count": 202
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

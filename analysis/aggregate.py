@@ -41,7 +41,7 @@ def extract_skill_record(filepath: Path, category: str) -> dict:
     total_tokens = token_counts.get("total", 0) + other_token_counts.get("total", 0)
     skill_md_tokens = token_counts.get("total", 0)
 
-    return {
+    record = {
         "name": skill_name,
         "source": category,
         "skill_dir": skill_dir,
@@ -60,6 +60,18 @@ def extract_skill_record(filepath: Path, category: str) -> dict:
             f["file"] for f in other_token_counts.get("files", [])
         ],
     }
+
+    # Content analysis (from skill-validator check -o json)
+    ca = data.get("content_analysis")
+    if ca:
+        record["content_analysis"] = ca
+
+    # Risk analysis (from skill-validator check -o json)
+    ra = data.get("risk_analysis")
+    if ra:
+        record["risk_analysis"] = ra
+
+    return record
 
 
 def main():

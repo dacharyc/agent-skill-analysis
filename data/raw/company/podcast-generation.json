@@ -55,5 +55,48 @@
       }
     ],
     "total": 6148
+  },
+  "content_analysis": {
+    "word_count": 426,
+    "code_block_count": 3,
+    "code_block_ratio": 0.392,
+    "code_languages": [
+      "env",
+      "python",
+      "javascript"
+    ],
+    "sentence_count": 24,
+    "imperative_count": 6,
+    "imperative_ratio": 0.25,
+    "information_density": 0.321,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 9,
+    "list_item_count": 15
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "env",
+      "python",
+      "javascript"
+    ],
+    "language_categories": [
+      "javascript",
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "javascript"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

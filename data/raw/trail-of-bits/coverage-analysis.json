@@ -25,6 +25,11 @@
       "message": "unrecognized field: \"type\""
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 601 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://arxiv.org/abs/1808.09700 (HTTP 200)"
@@ -48,11 +53,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://clang.llvm.org/docs/SanitizerCoverage.html (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 601 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -63,5 +63,99 @@
       }
     ],
     "total": 4954
+  },
+  "content_analysis": {
+    "word_count": 2549,
+    "code_block_count": 32,
+    "code_block_ratio": 0.3076,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "cpp",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "cpp",
+      "bash",
+      "cpp",
+      "cmake",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 114,
+    "imperative_count": 16,
+    "imperative_ratio": 0.1404,
+    "information_density": 0.224,
+    "strong_markers": 8,
+    "weak_markers": 4,
+    "instruction_specificity": 0.6667,
+    "section_count": 33,
+    "list_item_count": 35
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "cpp",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "cpp",
+      "bash",
+      "cpp",
+      "cmake",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell",
+      "systems"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

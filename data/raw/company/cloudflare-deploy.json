@@ -351,5 +351,41 @@
       }
     ],
     "total": 2307
+  },
+  "content_analysis": {
+    "word_count": 972,
+    "code_block_count": 9,
+    "code_block_ratio": 0.3374,
+    "code_languages": [
+      "bash"
+    ],
+    "sentence_count": 37,
+    "imperative_count": 4,
+    "imperative_ratio": 0.1081,
+    "information_density": 0.2228,
+    "strong_markers": 1,
+    "weak_markers": 1,
+    "instruction_specificity": 0.5,
+    "section_count": 23,
+    "list_item_count": 4
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "mysql",
+      "terraform"
+    ],
+    "code_languages": [
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

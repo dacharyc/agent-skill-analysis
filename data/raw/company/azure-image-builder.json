@@ -38,5 +38,49 @@
       }
     ],
     "total": 990
+  },
+  "content_analysis": {
+    "word_count": 451,
+    "code_block_count": 5,
+    "code_block_ratio": 0.6186,
+    "code_languages": [
+      "hcl",
+      "hcl",
+      "bash",
+      "hcl",
+      "bash"
+    ],
+    "sentence_count": 19,
+    "imperative_count": 3,
+    "imperative_ratio": 0.1579,
+    "information_density": 0.3883,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 8,
+    "list_item_count": 11
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "hcl",
+      "hcl",
+      "bash",
+      "hcl",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "risk_score": 0.1333,
+    "risk_level": "low"
   }
 }

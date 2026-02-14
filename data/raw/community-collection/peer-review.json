@@ -61,5 +61,42 @@
       }
     ],
     "total": 10518
+  },
+  "content_analysis": {
+    "word_count": 3298,
+    "code_block_count": 5,
+    "code_block_ratio": 0.0506,
+    "code_languages": [
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 229,
+    "imperative_count": 7,
+    "imperative_ratio": 0.0306,
+    "information_density": 0.0406,
+    "strong_markers": 23,
+    "weak_markers": 9,
+    "instruction_specificity": 0.7188,
+    "section_count": 40,
+    "list_item_count": 300
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "risk_score": 0.3,
+    "risk_level": "medium"
   }
 }

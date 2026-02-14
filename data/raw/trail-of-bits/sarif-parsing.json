@@ -91,5 +91,72 @@
       }
     ],
     "total": 4065
+  },
+  "content_analysis": {
+    "word_count": 1633,
+    "code_block_count": 15,
+    "code_block_ratio": 0.5762,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "yaml",
+      "python"
+    ],
+    "sentence_count": 58,
+    "imperative_count": 6,
+    "imperative_ratio": 0.1034,
+    "information_density": 0.3398,
+    "strong_markers": 3,
+    "weak_markers": 9,
+    "instruction_specificity": 0.25,
+    "section_count": 22,
+    "list_item_count": 40
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "yaml",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 5,
+    "risk_score": 0.4917,
+    "risk_level": "medium"
   }
 }

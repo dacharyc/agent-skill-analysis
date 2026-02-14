@@ -30,6 +30,11 @@
       "message": "metadata: (1 entries)"
     },
     {
+      "level": "warning",
+      "category": "Tokens",
+      "message": "SKILL.md body is 552 lines (spec recommends < 500)"
+    },
+    {
       "level": "pass",
       "category": "Links",
       "message": "https://pydeseq2.readthedocs.io (HTTP 200)"
@@ -38,11 +43,6 @@
       "level": "pass",
       "category": "Links",
       "message": "https://github.com/owkin/PyDESeq2 (HTTP 200)"
-    },
-    {
-      "level": "warning",
-      "category": "Tokens",
-      "message": "SKILL.md body is 552 lines (spec recommends < 500)"
     }
   ],
   "token_counts": {
@@ -61,5 +61,89 @@
       }
     ],
     "total": 9155
+  },
+  "content_analysis": {
+    "word_count": 1961,
+    "code_block_count": 24,
+    "code_block_ratio": 0.4003,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash"
+    ],
+    "sentence_count": 109,
+    "imperative_count": 9,
+    "imperative_ratio": 0.0826,
+    "information_density": 0.2414,
+    "strong_markers": 5,
+    "weak_markers": 6,
+    "instruction_specificity": 0.4545,
+    "section_count": 32,
+    "list_item_count": 67
+  },
+  "risk_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "risk_score": 0.2083,
+    "risk_level": "medium"
   }
 }
