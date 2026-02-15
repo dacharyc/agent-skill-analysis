@@ -31,8 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.kegg.jp/kegg/mapper/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -76,7 +76,7 @@
     "section_count": 30,
     "list_item_count": 30
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -102,7 +102,95 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1413,
+    "code_block_count": 2,
+    "code_block_ratio": 0.0078,
+    "code_languages": [
+      "python",
+      "r"
+    ],
+    "sentence_count": 105,
+    "imperative_count": 11,
+    "imperative_ratio": 0.1048,
+    "information_density": 0.0563,
+    "strong_markers": 1,
+    "weak_markers": 3,
+    "instruction_specificity": 0.25,
+    "section_count": 43,
+    "list_item_count": 136
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "r"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "kegg_reference.md",
+      "content_analysis": {
+        "word_count": 1413,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0078,
+        "code_languages": [
+          "python",
+          "r"
+        ],
+        "sentence_count": 105,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1048,
+        "information_density": 0.0563,
+        "strong_markers": 1,
+        "weak_markers": 3,
+        "instruction_specificity": 0.25,
+        "section_count": 43,
+        "list_item_count": 136
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "r"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.kegg.jp/kegg/mapper/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

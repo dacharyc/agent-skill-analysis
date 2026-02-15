@@ -61,13 +61,18 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "docx-js.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "ooxml.md (exists)"
+      "category": "Structure",
+      "message": "internal link: docx-js.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: ooxml.md (exists)"
     }
   ],
   "token_counts": {
@@ -283,59 +288,5 @@
       }
     ],
     "total": 336041
-  },
-  "content_analysis": {
-    "word_count": 1646,
-    "code_block_count": 10,
-    "code_block_ratio": 0.0699,
-    "code_languages": [
-      "bash",
-      "bash",
-      "python",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "sentence_count": 93,
-    "imperative_count": 11,
-    "imperative_ratio": 0.1183,
-    "information_density": 0.0941,
-    "strong_markers": 17,
-    "weak_markers": 4,
-    "instruction_specificity": 0.8095,
-    "section_count": 21,
-    "list_item_count": 69
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [],
-    "code_languages": [
-      "bash",
-      "bash",
-      "python",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "language_categories": [
-      "python",
-      "shell"
-    ],
-    "primary_category": "shell",
-    "mismatched_categories": [
-      "python"
-    ],
-    "language_mismatch": true,
-    "tech_references": [],
-    "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
   }
 }

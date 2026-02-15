@@ -31,38 +31,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/service-management.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/apis-operations.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/service-management.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/products-subscriptions.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/apis-operations.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/products-subscriptions.md (exists)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "references/policies.md (file not found)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/en-us/azure/api-management/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/en-us/azure/api-management/api-management-policies (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.apimanagement (HTTP 200)"
+      "category": "Structure",
+      "message": "broken internal link: references/policies.md (file not found)"
     }
   ],
   "token_counts": {
@@ -116,7 +106,7 @@
     "section_count": 17,
     "list_item_count": 8
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -143,7 +133,400 @@
       "dotnet"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1894,
+    "code_block_count": 49,
+    "code_block_ratio": 0.6621,
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "sentence_count": 84,
+    "imperative_count": 21,
+    "imperative_ratio": 0.25,
+    "information_density": 0.456,
+    "strong_markers": 3,
+    "weak_markers": 1,
+    "instruction_specificity": 0.75,
+    "section_count": 66,
+    "list_item_count": 8
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "language_categories": [
+      "dotnet"
+    ],
+    "primary_category": "dotnet",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 790,
+        "code_block_count": 17,
+        "code_block_ratio": 0.4595,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 46,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1304,
+        "information_density": 0.295,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 34,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "apis-operations.md",
+      "content_analysis": {
+        "word_count": 400,
+        "code_block_count": 8,
+        "code_block_ratio": 0.8625,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 10,
+        "imperative_count": 4,
+        "imperative_ratio": 0.4,
+        "information_density": 0.6313,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 8,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "products-subscriptions.md",
+      "content_analysis": {
+        "word_count": 374,
+        "code_block_count": 15,
+        "code_block_ratio": 0.7353,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 9,
+        "imperative_ratio": 0.5294,
+        "information_density": 0.6324,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 15,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "service-management.md",
+      "content_analysis": {
+        "word_count": 330,
+        "code_block_count": 9,
+        "code_block_ratio": 0.8212,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 11,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1818,
+        "information_density": 0.5015,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/azure/api-management/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/azure/api-management/api-management-policies (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/dotnet/api/azure.resourcemanager.apimanagement (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "compatibility: (109 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -71,14 +76,14 @@
     "sentence_count": 64,
     "imperative_count": 16,
     "imperative_ratio": 0.25,
-    "information_density": 0.125,
+    "information_density": 0.25,
     "strong_markers": 6,
     "weak_markers": 2,
     "instruction_specificity": 0.75,
     "section_count": 13,
     "list_item_count": 54
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -87,7 +92,219 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 753,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 96,
+    "imperative_count": 23,
+    "imperative_ratio": 0.2396,
+    "information_density": 0.2396,
+    "strong_markers": 11,
+    "weak_markers": 3,
+    "instruction_specificity": 0.7857,
+    "section_count": 25,
+    "list_item_count": 65
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "authentication.md",
+      "content_analysis": {
+        "word_count": 98,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 12,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1667,
+        "information_density": 0.1667,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 3,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "custom-content-types.md",
+      "content_analysis": {
+        "word_count": 99,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 12,
+        "imperative_count": 5,
+        "imperative_ratio": 0.4167,
+        "information_density": 0.4167,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 4,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "discovery-and-params.md",
+      "content_analysis": {
+        "word_count": 95,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 14,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 10
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "responses-and-fields.md",
+      "content_analysis": {
+        "word_count": 159,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 20,
+        "imperative_count": 8,
+        "imperative_ratio": 0.4,
+        "information_density": 0.4,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 5,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "routes-and-endpoints.md",
+      "content_analysis": {
+        "word_count": 180,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 24,
+        "imperative_count": 7,
+        "imperative_ratio": 0.2917,
+        "information_density": 0.2917,
+        "strong_markers": 6,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 17
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "schema.md",
+      "content_analysis": {
+        "word_count": 122,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 14,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0714,
+        "information_density": 0.0714,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 4,
+        "list_item_count": 9
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

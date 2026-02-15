@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -72,14 +77,14 @@
     "sentence_count": 76,
     "imperative_count": 5,
     "imperative_ratio": 0.0658,
-    "information_density": 0.0329,
+    "information_density": 0.0658,
     "strong_markers": 15,
     "weak_markers": 13,
     "instruction_specificity": 0.5357,
     "section_count": 37,
     "list_item_count": 76
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -92,7 +97,173 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3844,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 183,
+    "imperative_count": 8,
+    "imperative_ratio": 0.0437,
+    "information_density": 0.0437,
+    "strong_markers": 20,
+    "weak_markers": 30,
+    "instruction_specificity": 0.4,
+    "section_count": 91,
+    "list_item_count": 230
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "canons_of_construction.md",
+      "content_analysis": {
+        "word_count": 1211,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 80,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 3,
+        "weak_markers": 10,
+        "instruction_specificity": 0.2308,
+        "section_count": 24,
+        "list_item_count": 18
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "index.md",
+      "content_analysis": {
+        "word_count": 125,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 4,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "practical_lessons.md",
+      "content_analysis": {
+        "word_count": 1364,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 51,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 13,
+        "weak_markers": 10,
+        "instruction_specificity": 0.5652,
+        "section_count": 34,
+        "list_item_count": 88
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "statutory_structure.md",
+      "content_analysis": {
+        "word_count": 1144,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 48,
+        "imperative_count": 8,
+        "imperative_ratio": 0.1667,
+        "information_density": 0.1667,
+        "strong_markers": 4,
+        "weak_markers": 10,
+        "instruction_specificity": 0.2857,
+        "section_count": 27,
+        "list_item_count": 120
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

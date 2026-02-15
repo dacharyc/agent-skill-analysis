@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-ai-openai-dotnet",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -30,29 +30,9 @@
       "message": "unrecognized field: \"package\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.nuget.org/packages/Azure.AI.OpenAI (HTTP 404)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/dotnet/api/azure.ai.openai (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/ai-services/openai/how-to/dotnet-migration (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/ai-services/openai/quickstart (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -104,7 +84,7 @@
     "section_count": 28,
     "list_item_count": 8
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -141,7 +121,227 @@
       "dotnet"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1297,
+    "code_block_count": 30,
+    "code_block_ratio": 0.7332,
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "sentence_count": 43,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.3666,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 41,
+    "list_item_count": 0
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "language_categories": [
+      "dotnet"
+    ],
+    "primary_category": "dotnet",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 1297,
+        "code_block_count": 30,
+        "code_block_ratio": 0.7332,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 43,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3666,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 41,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.nuget.org/packages/Azure.AI.OpenAI (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/dotnet/api/azure.ai.openai (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/ai-services/openai/how-to/dotnet-migration (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/ai-services/openai/quickstart (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

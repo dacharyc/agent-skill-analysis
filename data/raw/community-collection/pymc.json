@@ -38,6 +38,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 565 lines (spec recommends < 500)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -57,9 +62,17 @@
       {
         "file": "references/workflows.md",
         "tokens": 3870
+      },
+      {
+        "file": "assets/hierarchical_model_template.py",
+        "tokens": 2984
+      },
+      {
+        "file": "assets/linear_regression_template.py",
+        "tokens": 1989
       }
     ],
-    "total": 13570
+    "total": 18543
   },
   "content_analysis": {
     "word_count": 1951,
@@ -101,7 +114,7 @@
     "section_count": 51,
     "list_item_count": 112
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -139,7 +152,331 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 4086,
+    "code_block_count": 45,
+    "code_block_ratio": 0.419,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 236,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0508,
+    "information_density": 0.2349,
+    "strong_markers": 5,
+    "weak_markers": 7,
+    "instruction_specificity": 0.4167,
+    "section_count": 76,
+    "list_item_count": 167
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "distributions.md",
+      "content_analysis": {
+        "word_count": 1290,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0295,
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "sentence_count": 106,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0472,
+        "information_density": 0.0383,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 18,
+        "list_item_count": 111
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "sampling_inference.md",
+      "content_analysis": {
+        "word_count": 1251,
+        "code_block_count": 25,
+        "code_block_ratio": 0.3149,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 94,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0532,
+        "information_density": 0.1841,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 32,
+        "list_item_count": 53
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "workflows.md",
+      "content_analysis": {
+        "word_count": 1545,
+        "code_block_count": 18,
+        "code_block_ratio": 0.8285,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0556,
+        "information_density": 0.442,
+        "strong_markers": 2,
+        "weak_markers": 5,
+        "instruction_specificity": 0.2857,
+        "section_count": 26,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

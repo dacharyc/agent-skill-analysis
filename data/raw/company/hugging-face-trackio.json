@@ -21,13 +21,18 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/logging_metrics.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/retrieving_metrics.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/logging_metrics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/retrieving_metrics.md (exists)"
     }
   ],
   "token_counts": {
@@ -65,7 +70,7 @@
     "section_count": 6,
     "list_item_count": 7
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -82,7 +87,234 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1444,
+    "code_block_count": 27,
+    "code_block_ratio": 0.4875,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "html",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json"
+    ],
+    "sentence_count": 66,
+    "imperative_count": 4,
+    "imperative_ratio": 0.0606,
+    "information_density": 0.2741,
+    "strong_markers": 5,
+    "weak_markers": 3,
+    "instruction_specificity": 0.625,
+    "section_count": 37,
+    "list_item_count": 27
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "html",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "markup",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "logging_metrics.md",
+      "content_analysis": {
+        "word_count": 537,
+        "code_block_count": 13,
+        "code_block_ratio": 0.3911,
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "html"
+        ],
+        "sentence_count": 34,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0882,
+        "information_density": 0.2396,
+        "strong_markers": 2,
+        "weak_markers": 3,
+        "instruction_specificity": 0.4,
+        "section_count": 15,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "html"
+        ],
+        "language_categories": [
+          "markup",
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "markup",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "retrieving_metrics.md",
+      "content_analysis": {
+        "word_count": 907,
+        "code_block_count": 14,
+        "code_block_ratio": 0.5447,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json"
+        ],
+        "sentence_count": 32,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0313,
+        "information_density": 0.288,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 22,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

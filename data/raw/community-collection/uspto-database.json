@@ -36,33 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://search.patentsview.org/docs/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://developer.uspto.gov/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://data.uspto.gov/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://account.uspto.gov/api-manager/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://pypi.org/project/uspto-opendata-python/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.ip-tools.org/uspto-opendata-python/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -127,7 +102,7 @@
     "section_count": 50,
     "list_item_count": 138
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "elasticsearch"
     ],
@@ -165,7 +140,340 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3962,
+    "code_block_count": 38,
+    "code_block_ratio": 0.263,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "json",
+      "python",
+      "json",
+      "xml",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 312,
+    "imperative_count": 15,
+    "imperative_ratio": 0.0481,
+    "information_density": 0.1555,
+    "strong_markers": 3,
+    "weak_markers": 6,
+    "instruction_specificity": 0.3333,
+    "section_count": 130,
+    "list_item_count": 252
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "elasticsearch"
+    ],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "json",
+      "python",
+      "json",
+      "xml",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.6417,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "additional_apis.md",
+      "content_analysis": {
+        "word_count": 1209,
+        "code_block_count": 8,
+        "code_block_ratio": 0.2539,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 119,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0504,
+        "information_density": 0.1522,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 56,
+        "list_item_count": 74
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "patentsearch_api.md",
+      "content_analysis": {
+        "word_count": 945,
+        "code_block_count": 8,
+        "code_block_ratio": 0.1894,
+        "code_languages": [
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "python"
+        ],
+        "sentence_count": 69,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0435,
+        "information_density": 0.1164,
+        "strong_markers": 2,
+        "weak_markers": 5,
+        "instruction_specificity": 0.2857,
+        "section_count": 24,
+        "list_item_count": 69
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "elasticsearch"
+        ],
+        "code_languages": [
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "python",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.6417,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "peds_api.md",
+      "content_analysis": {
+        "word_count": 838,
+        "code_block_count": 6,
+        "code_block_ratio": 0.216,
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 57,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0526,
+        "information_density": 0.1343,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 21,
+        "list_item_count": 57
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "trademark_api.md",
+      "content_analysis": {
+        "word_count": 970,
+        "code_block_count": 16,
+        "code_block_ratio": 0.3866,
+        "code_languages": [
+          "bash",
+          "json",
+          "python",
+          "json",
+          "xml",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 67,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0448,
+        "information_density": 0.2157,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 29,
+        "list_item_count": 52
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "json",
+          "python",
+          "json",
+          "xml",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://search.patentsview.org/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developer.uspto.gov/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://data.uspto.gov/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://account.uspto.gov/api-manager/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pypi.org/project/uspto-opendata-python/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.ip-tools.org/uspto-opendata-python/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

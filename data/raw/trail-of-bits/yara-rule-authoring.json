@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/yara-authoring/skills/yara-rule-authoring",
   "passed": false,
-  "errors": 2,
+  "errors": 1,
   "warnings": 5,
   "results": [
     {
@@ -46,138 +46,73 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/crx-module.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/dex-module.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/crx-module.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/style-guide.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/dex-module.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/strings.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/style-guide.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/performance.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/strings.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/testing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/performance.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "workflows/rule-development.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/testing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "examples/MAL_Win_Remcos_Jan25.yar (exists)"
+      "category": "Structure",
+      "message": "internal link: workflows/rule-development.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "examples/MAL_Mac_ProtonRAT_Jan25.yar (exists)"
+      "category": "Structure",
+      "message": "internal link: examples/MAL_Win_Remcos_Jan25.yar (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "examples/MAL_NPM_SupplyChain_Jan25.yar (exists)"
+      "category": "Structure",
+      "message": "internal link: examples/MAL_Mac_ProtonRAT_Jan25.yar (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "examples/SUSP_JS_Obfuscation_Jan25.yar (exists)"
+      "category": "Structure",
+      "message": "internal link: examples/MAL_NPM_SupplyChain_Jan25.yar (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "examples/SUSP_CRX_SuspiciousPermissions.yar (exists)"
+      "category": "Structure",
+      "message": "internal link: examples/SUSP_JS_Obfuscation_Jan25.yar (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: examples/SUSP_CRX_SuspiciousPermissions.yar (exists)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "../../README.md#scripts (file not found)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Neo23x0/signature-base (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/elastic/protections-artifacts (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/reversinglabs/reversinglabs-yara-rules (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/imp0rtp3/js-yara-rules (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/InQuest/awesome-yara (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Neo23x0/YARA-Style-Guide (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Neo23x0/YARA-Performance-Guidelines (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://yara.readthedocs.io/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Neo23x0/yarGen (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/mandiant/flare-floss (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://yara-ci.cloud.virustotal.com/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://yaradbg.dev (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://objective-see.org/ (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://github.com/0xmachos/macos-security-tools (HTTP 404)"
+      "category": "Structure",
+      "message": "broken internal link: ../../README.md#scripts (file not found)"
     }
   ],
   "token_counts": {
@@ -267,7 +202,7 @@
     "section_count": 43,
     "list_item_count": 76
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "yara",
@@ -290,7 +225,665 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 7870,
+    "code_block_count": 89,
+    "code_block_ratio": 0.3745,
+    "code_languages": [
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "bash",
+      "bash",
+      "bash",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "bash",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yaml",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yara",
+      "yara",
+      "yara",
+      "bash"
+    ],
+    "sentence_count": 365,
+    "imperative_count": 20,
+    "imperative_ratio": 0.0548,
+    "information_density": 0.2146,
+    "strong_markers": 35,
+    "weak_markers": 12,
+    "instruction_specificity": 0.7447,
+    "section_count": 149,
+    "list_item_count": 134
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "bash",
+      "bash",
+      "bash",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "bash",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yara",
+      "yaml",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yara",
+      "yara",
+      "yara",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.5833,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "crx-module.md",
+      "content_analysis": {
+        "word_count": 924,
+        "code_block_count": 6,
+        "code_block_ratio": 0.3301,
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0811,
+        "information_density": 0.2056,
+        "strong_markers": 4,
+        "weak_markers": 3,
+        "instruction_specificity": 0.5714,
+        "section_count": 16,
+        "list_item_count": 12
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "dex-module.md",
+      "content_analysis": {
+        "word_count": 1199,
+        "code_block_count": 10,
+        "code_block_ratio": 0.3411,
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara"
+        ],
+        "sentence_count": 56,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0536,
+        "information_density": 0.1973,
+        "strong_markers": 4,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6667,
+        "section_count": 22,
+        "list_item_count": 15
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "performance.md",
+      "content_analysis": {
+        "word_count": 1271,
+        "code_block_count": 20,
+        "code_block_ratio": 0.4823,
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "bash",
+          "bash",
+          "bash",
+          "yara",
+          "yara"
+        ],
+        "sentence_count": 56,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1071,
+        "information_density": 0.2947,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 28,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "bash",
+          "bash",
+          "bash",
+          "yara",
+          "yara"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "strings.md",
+      "content_analysis": {
+        "word_count": 1630,
+        "code_block_count": 28,
+        "code_block_ratio": 0.5387,
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "bash",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara"
+        ],
+        "sentence_count": 75,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0267,
+        "information_density": 0.2827,
+        "strong_markers": 14,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9333,
+        "section_count": 29,
+        "list_item_count": 19
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "bash",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yara"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "style-guide.md",
+      "content_analysis": {
+        "word_count": 1199,
+        "code_block_count": 7,
+        "code_block_ratio": 0.2127,
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yaml",
+          "yaml"
+        ],
+        "sentence_count": 42,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0476,
+        "information_density": 0.1301,
+        "strong_markers": 5,
+        "weak_markers": 4,
+        "instruction_specificity": 0.5556,
+        "section_count": 23,
+        "list_item_count": 37
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yara",
+          "yara",
+          "yara",
+          "yara",
+          "yaml",
+          "yaml"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "testing.md",
+      "content_analysis": {
+        "word_count": 1647,
+        "code_block_count": 18,
+        "code_block_ratio": 0.2957,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "yara",
+          "yara",
+          "yara",
+          "bash"
+        ],
+        "sentence_count": 99,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0404,
+        "information_density": 0.168,
+        "strong_markers": 5,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 31,
+        "list_item_count": 38
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "yara",
+          "yara",
+          "yara",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.075,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/signature-base (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/elastic/protections-artifacts (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/reversinglabs/reversinglabs-yara-rules (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/imp0rtp3/js-yara-rules (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/InQuest/awesome-yara (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/YARA-Style-Guide (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/YARA-Performance-Guidelines (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://yara.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Neo23x0/yarGen (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/mandiant/flare-floss (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://yara-ci.cloud.virustotal.com/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://yaradbg.dev (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://objective-see.org/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/0xmachos/macos-security-tools (HTTP 404)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

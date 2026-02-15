@@ -18,6 +18,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "description: (258 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -54,7 +59,7 @@
     "section_count": 25,
     "list_item_count": 16
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker",
       "kubernetes",
@@ -88,7 +93,10 @@
       "ruby"
     ],
     "scope_breadth": 6,
-    "risk_score": 0.8667,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.8667,
+    "contamination_level": "high"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

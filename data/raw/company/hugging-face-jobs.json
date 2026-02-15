@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/huggingface-skills/skills/hugging-face-jobs",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 4,
   "results": [
     {
@@ -46,63 +46,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://hf.co/pro (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://hf.co/enterprise (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/docs/hub/en/spaces-config-reference (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/docs/huggingface_hub/guides/webhooks (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/docs/huggingface_hub/guides/jobs (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/docs/huggingface_hub/guides/cli#hf-jobs (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/docs/huggingface_hub/package_reference/hf_api (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.astral.sh/uv/guides/scripts/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/uv-scripts (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/docs/huggingface_hub/quick-start#authentication (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://huggingface.co/settings/tokens (HTTP 401)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://huggingface.co/jobs/username/job-id (HTTP 401)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -203,7 +148,7 @@
     "section_count": 58,
     "list_item_count": 168
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker"
     ],
@@ -270,7 +215,524 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.5083,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.5083,
+    "contamination_level": "high"
+  },
+  "references_content_analysis": {
+    "word_count": 5142,
+    "code_block_count": 85,
+    "code_block_ratio": 0.3022,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 444,
+    "imperative_count": 105,
+    "imperative_ratio": 0.2365,
+    "information_density": 0.2694,
+    "strong_markers": 46,
+    "weak_markers": 3,
+    "instruction_specificity": 0.9388,
+    "section_count": 122,
+    "list_item_count": 368
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "hardware_guide.md",
+      "content_analysis": {
+        "word_count": 1174,
+        "code_block_count": 10,
+        "code_block_ratio": 0.1934,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "bash"
+        ],
+        "sentence_count": 73,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0548,
+        "information_density": 0.1241,
+        "strong_markers": 4,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 24,
+        "list_item_count": 105
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "bash"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "hub_saving.md",
+      "content_analysis": {
+        "word_count": 931,
+        "code_block_count": 20,
+        "code_block_ratio": 0.391,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python"
+        ],
+        "sentence_count": 86,
+        "imperative_count": 18,
+        "imperative_ratio": 0.2093,
+        "information_density": 0.3001,
+        "strong_markers": 12,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9231,
+        "section_count": 29,
+        "list_item_count": 34
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "token_usage.md",
+      "content_analysis": {
+        "word_count": 1672,
+        "code_block_count": 30,
+        "code_block_ratio": 0.4079,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 121,
+        "imperative_count": 29,
+        "imperative_ratio": 0.2397,
+        "information_density": 0.3238,
+        "strong_markers": 27,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9643,
+        "section_count": 37,
+        "list_item_count": 91
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "troubleshooting.md",
+      "content_analysis": {
+        "word_count": 1365,
+        "code_block_count": 25,
+        "code_block_ratio": 0.2059,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 164,
+        "imperative_count": 54,
+        "imperative_ratio": 0.3293,
+        "information_density": 0.2676,
+        "strong_markers": 3,
+        "weak_markers": 1,
+        "instruction_specificity": 0.75,
+        "section_count": 32,
+        "list_item_count": 138
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://hf.co/pro (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://hf.co/enterprise (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/hub/en/spaces-config-reference (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/webhooks (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/jobs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/guides/cli#hf-jobs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/package_reference/hf_api (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.astral.sh/uv/guides/scripts/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/uv-scripts (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/docs/huggingface_hub/quick-start#authentication (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/settings/tokens (HTTP 401)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://huggingface.co/jobs/username/job-id (HTTP 401)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

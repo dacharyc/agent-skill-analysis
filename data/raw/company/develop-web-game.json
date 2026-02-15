@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/develop-web-game",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -30,9 +30,9 @@
       "message": "description: (298 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:5173 (request failed: Head \"http://localhost:5173\": dial tcp 127.0.0.1:5173: connect: connection refused)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -81,7 +81,7 @@
     "section_count": 14,
     "list_item_count": 36
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -102,7 +102,16 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:5173 (request failed: Head \"http://localhost:5173\": dial tcp 127.0.0.1:5173: connect: connection refused)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

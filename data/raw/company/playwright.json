@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/playwright",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 3,
   "results": [
     {
@@ -36,18 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://playwright.dev (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://example.com (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://example.com/form (HTTP 404)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -110,7 +100,7 @@
     "section_count": 12,
     "list_item_count": 18
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -135,7 +125,209 @@
       "ruby"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.075,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.075,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 492,
+    "code_block_count": 19,
+    "code_block_ratio": 0.5264,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json"
+    ],
+    "sentence_count": 35,
+    "imperative_count": 6,
+    "imperative_ratio": 0.1714,
+    "information_density": 0.3489,
+    "strong_markers": 0,
+    "weak_markers": 1,
+    "instruction_specificity": 0,
+    "section_count": 15,
+    "list_item_count": 3
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "cli.md",
+      "content_analysis": {
+        "word_count": 237,
+        "code_block_count": 11,
+        "code_block_ratio": 0.6751,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 14,
+        "imperative_count": 3,
+        "imperative_ratio": 0.2143,
+        "information_density": 0.4447,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 8,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "workflows.md",
+      "content_analysis": {
+        "word_count": 255,
+        "code_block_count": 8,
+        "code_block_ratio": 0.3882,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.2655,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 7,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://playwright.dev (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://example.com (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://example.com/form (HTTP 404)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

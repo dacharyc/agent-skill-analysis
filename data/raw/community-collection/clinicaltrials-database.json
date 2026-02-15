@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -78,7 +83,7 @@
     "section_count": 26,
     "list_item_count": 57
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -112,7 +117,139 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1267,
+    "code_block_count": 13,
+    "code_block_ratio": 0.2384,
+    "code_languages": [
+      "bash",
+      "json",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "python",
+      "json",
+      "json"
+    ],
+    "sentence_count": 75,
+    "imperative_count": 7,
+    "imperative_ratio": 0.0933,
+    "information_density": 0.1658,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 26,
+    "list_item_count": 50
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "json",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "python",
+      "json",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 1267,
+        "code_block_count": 13,
+        "code_block_ratio": 0.2384,
+        "code_languages": [
+          "bash",
+          "json",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "json",
+          "python",
+          "json",
+          "json"
+        ],
+        "sentence_count": 75,
+        "imperative_count": 7,
+        "imperative_ratio": 0.0933,
+        "information_density": 0.1658,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 26,
+        "list_item_count": 50
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "json",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "json",
+          "python",
+          "json",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

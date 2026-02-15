@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/playwright-skill/skills/playwright-skill",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 5,
   "results": [
     {
@@ -46,18 +46,13 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "API_REFERENCE.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:3001 (request failed: Head \"http://localhost:3001\": dial tcp 127.0.0.1:3001: connect: connection refused)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:3000 (request failed: Head \"http://localhost:3000\": dial tcp 127.0.0.1:3000: connect: connection refused)"
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: API_REFERENCE.md (exists)"
     }
   ],
   "token_counts": {
@@ -124,7 +119,7 @@
     "section_count": 20,
     "list_item_count": 47
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -157,7 +152,21 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:3001 (request failed: Head \"http://localhost:3001\": dial tcp 127.0.0.1:3001: connect: connection refused)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:3000 (request failed: Head \"http://localhost:3000\": dial tcp 127.0.0.1:3000: connect: connection refused)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

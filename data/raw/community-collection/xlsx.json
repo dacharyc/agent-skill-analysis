@@ -33,6 +33,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "license: \"Proprietary. LICENSE.txt has complete terms\""
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -56,61 +61,5 @@
       }
     ],
     "total": 1730
-  },
-  "content_analysis": {
-    "word_count": 1743,
-    "code_block_count": 10,
-    "code_block_ratio": 0.1796,
-    "code_languages": [
-      "bash",
-      "python",
-      "python",
-      "python",
-      "bash",
-      "python",
-      "python",
-      "bash",
-      "bash",
-      "json"
-    ],
-    "sentence_count": 73,
-    "imperative_count": 4,
-    "imperative_ratio": 0.0548,
-    "information_density": 0.1172,
-    "strong_markers": 15,
-    "weak_markers": 2,
-    "instruction_specificity": 0.8824,
-    "section_count": 36,
-    "list_item_count": 89
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [],
-    "code_languages": [
-      "bash",
-      "python",
-      "python",
-      "python",
-      "bash",
-      "python",
-      "python",
-      "bash",
-      "bash",
-      "json"
-    ],
-    "language_categories": [
-      "config",
-      "python",
-      "shell"
-    ],
-    "primary_category": "python",
-    "mismatched_categories": [
-      "config",
-      "shell"
-    ],
-    "language_mismatch": true,
-    "tech_references": [],
-    "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
   }
 }

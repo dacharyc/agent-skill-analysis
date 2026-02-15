@@ -26,8 +26,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/cli (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -65,7 +65,7 @@
     "section_count": 6,
     "list_item_count": 2
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -87,7 +87,16 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/cli (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/gh-cli/skills/using-gh-cli",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -31,38 +31,38 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/pull-requests.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/issues.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/pull-requests.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/repos-and-files.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/issues.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/api.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/repos-and-files.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/releases.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/api.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/actions.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/releases.md (exists)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://api.github.com/...` (HTTP 404)"
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/actions.md (exists)"
     }
   ],
   "token_counts": {
@@ -116,7 +116,7 @@
     "section_count": 7,
     "list_item_count": 26
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "graphql"
     ],
@@ -132,7 +132,309 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 756,
+    "code_block_count": 13,
+    "code_block_ratio": 0.5661,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 31,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0323,
+    "information_density": 0.2992,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 14,
+    "list_item_count": 0
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "graphql"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "actions.md",
+      "content_analysis": {
+        "word_count": 124,
+        "code_block_count": 3,
+        "code_block_ratio": 0.7177,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 5,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3589,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "api.md",
+      "content_analysis": {
+        "word_count": 192,
+        "code_block_count": 4,
+        "code_block_ratio": 0.8073,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 5,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4036,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 4,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "graphql"
+        ],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "issues.md",
+      "content_analysis": {
+        "word_count": 46,
+        "code_block_count": 1,
+        "code_block_ratio": 0.587,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 3,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2935,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "pull-requests.md",
+      "content_analysis": {
+        "word_count": 55,
+        "code_block_count": 1,
+        "code_block_ratio": 0.4364,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 4,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2182,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "releases.md",
+      "content_analysis": {
+        "word_count": 90,
+        "code_block_count": 2,
+        "code_block_ratio": 0.6778,
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 4,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3389,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "repos-and-files.md",
+      "content_analysis": {
+        "word_count": 249,
+        "code_block_count": 2,
+        "code_block_ratio": 0.2892,
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 10,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1,
+        "information_density": 0.1946,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 3,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.github.com/...` (HTTP 404)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

@@ -21,8 +21,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://develop.sentry.dev/engineering-practices/code-review/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -53,7 +53,7 @@
     "section_count": 13,
     "list_item_count": 24
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -74,7 +74,16 @@
       "python"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://develop.sentry.dev/engineering-practices/code-review/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

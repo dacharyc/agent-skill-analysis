@@ -26,23 +26,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://developers.cloudflare.com/durable-objects/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://developers.cloudflare.com/durable-objects/api/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://developers.cloudflare.com/durable-objects/best-practices/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://developers.cloudflare.com/durable-objects/examples/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -88,7 +73,7 @@
     "section_count": 15,
     "list_item_count": 24
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "jsonc",
@@ -106,7 +91,357 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 2480,
+    "code_block_count": 44,
+    "code_block_ratio": 0.7718,
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "json",
+      "jsonc",
+      "toml",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "typescript",
+      "bash"
+    ],
+    "sentence_count": 90,
+    "imperative_count": 15,
+    "imperative_ratio": 0.1667,
+    "information_density": 0.4692,
+    "strong_markers": 6,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8571,
+    "section_count": 49,
+    "list_item_count": 0
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "json",
+      "jsonc",
+      "toml",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "typescript",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "rules.md",
+      "content_analysis": {
+        "word_count": 951,
+        "code_block_count": 15,
+        "code_block_ratio": 0.6614,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 46,
+        "imperative_count": 8,
+        "imperative_ratio": 0.1739,
+        "information_density": 0.4177,
+        "strong_markers": 4,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8,
+        "section_count": 18,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "testing.md",
+      "content_analysis": {
+        "word_count": 685,
+        "code_block_count": 14,
+        "code_block_ratio": 0.8248,
+        "code_languages": [
+          "bash",
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "json"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 5,
+        "imperative_ratio": 0.2381,
+        "information_density": 0.5315,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 13,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "workers.md",
+      "content_analysis": {
+        "word_count": 844,
+        "code_block_count": 15,
+        "code_block_ratio": 0.8531,
+        "code_languages": [
+          "jsonc",
+          "toml",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "typescript",
+          "bash"
+        ],
+        "sentence_count": 23,
+        "imperative_count": 2,
+        "imperative_ratio": 0.087,
+        "information_density": 0.47,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 18,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsonc",
+          "toml",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "typescript",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/durable-objects/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/durable-objects/api/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/durable-objects/best-practices/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/durable-objects/examples/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

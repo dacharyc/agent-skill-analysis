@@ -339,23 +339,77 @@ def get_submodule_metadata(submodule_path: Path) -> dict:
     return meta
 
 
-def validate_skill(skill_dir: Path) -> dict | None:
-    """Run skill-validator on a skill directory and return JSON result."""
+def _run_validator(skill_dir: Path, extra_args: list[str] | None = None) -> dict | None:
+    """Run skill-validator with optional extra arguments and return JSON result."""
+    cmd = [str(VALIDATOR), "check", "-o", "json"]
+    if extra_args:
+        cmd.extend(extra_args)
+    cmd.append(str(skill_dir))
     try:
-        result = subprocess.run(
-            [str(VALIDATOR), "check", "-o", "json", str(skill_dir)],
-            capture_output=True, text=True, timeout=30,
-        )
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
         if result.stdout.strip():
             return json.loads(result.stdout)
         else:
-            print(f"  WARNING: No output from validator for {skill_dir}", file=sys.stderr)
+            print(f"  WARNING: No output from validator for {skill_dir} (args: {extra_args})", file=sys.stderr)
             if result.stderr:
                 print(f"  stderr: {result.stderr.strip()}", file=sys.stderr)
             return None
     except (subprocess.TimeoutExpired, json.JSONDecodeError, FileNotFoundError) as e:
         print(f"  ERROR validating {skill_dir}: {e}", file=sys.stderr)
         return None
+
+
+def validate_skill(skill_dir: Path) -> dict | None:
+    """Run skill-validator in two passes and merge results.
+
+    Pass 1 (--only structure): deterministic structural validation that drives
+    pass/fail, errors, warnings, token_counts, and results. Includes internal
+    link integrity checks (references to files within the skill directory).
+
+    Pass 2 (--skip structure): external link checks, content analysis, and
+    contamination detection. External link results are stored separately in
+    'link_results' since they are environment-dependent and non-reproducible.
+    """
+    # Pass 1: structural validation (deterministic, drives pass/fail)
+    structure = _run_validator(skill_dir, ["--only", "structure"])
+    if structure is None:
+        return None
+
+    # Pass 2: links + content + contamination (metadata), with per-file reference reports
+    metadata = _run_validator(skill_dir, ["--skip", "structure", "--per-file"])
+
+    # Start with the structure pass as the base — it drives pass/fail
+    merged = dict(structure)
+
+    if metadata:
+        # Pull in content and contamination analysis from pass 2
+        if "content_analysis" in metadata:
+            merged["content_analysis"] = metadata["content_analysis"]
+        if "contamination_analysis" in metadata:
+            merged["contamination_analysis"] = metadata["contamination_analysis"]
+
+        # Reference file analysis (aggregate and per-file)
+        if "references_content_analysis" in metadata:
+            merged["references_content_analysis"] = metadata["references_content_analysis"]
+        if "references_contamination_analysis" in metadata:
+            merged["references_contamination_analysis"] = metadata["references_contamination_analysis"]
+        if "reference_reports" in metadata:
+            merged["reference_reports"] = metadata["reference_reports"]
+
+        # External link results (environment-dependent) — report separately
+        # The CLI now handles internal links as part of --only structure,
+        # so pass 2 only contains external URL checks.
+        link_results = [r for r in metadata.get("results", []) if r.get("category") == "Links"]
+        non_link_results = [r for r in metadata.get("results", []) if r.get("category") != "Links"]
+
+        merged["link_results"] = link_results
+        merged["link_errors"] = sum(1 for r in link_results if r.get("level") == "error")
+        merged["link_warnings"] = sum(1 for r in link_results if r.get("level") == "warning")
+
+        # Append non-link results from pass 2 (content/contamination checks)
+        merged.setdefault("results", []).extend(non_link_results)
+
+    return merged
 
 
 # Tracks saved skills per category: {category: {skill_name: submodule}}
@@ -378,30 +432,28 @@ def save_result(result: dict, category: str, skill_name: str, submodule: str):
 
     if skill_name in _saved_skills[category]:
         existing_submodule = _saved_skills[category][skill_name]
-        if existing_submodule != submodule:
-            # Collision: rename the previously saved file
+        if existing_submodule is not None and existing_submodule != submodule:
+            # First collision: rename the previously saved bare file to prefixed
             old_path = out_dir / f"{skill_name}.json"
             renamed_path = out_dir / f"{existing_submodule}--{skill_name}.json"
-            if old_path.exists() and not renamed_path.exists():
+            if old_path.exists():
+                renamed_path.unlink(missing_ok=True)
                 old_path.rename(renamed_path)
-                print(f"  COLLISION: '{skill_name}' in {category}/ — "
-                      f"renamed {existing_submodule} copy, prefixing both",
-                      file=sys.stderr)
+            print(f"  COLLISION: '{skill_name}' in {category}/ — "
+                  f"renamed {existing_submodule} copy, prefixing both",
+                  file=sys.stderr)
             _saved_skills[category][skill_name] = None  # Mark as multi-source
 
-            # Save new one with prefix
+        # Save with prefix (whether first or subsequent collision)
+        if existing_submodule != submodule:
             out_path = out_dir / f"{submodule}--{skill_name}.json"
             with open(out_path, "w") as f:
                 json.dump(result, f, indent=2)
             return
 
-    if skill_name in _saved_skills[category] and _saved_skills[category][skill_name] is None:
-        # Already known collision — always prefix
-        out_path = out_dir / f"{submodule}--{skill_name}.json"
-    else:
-        # First time seeing this name in this category
-        out_path = out_dir / f"{skill_name}.json"
-        _saved_skills[category][skill_name] = submodule
+    # First time seeing this name in this category
+    out_path = out_dir / f"{skill_name}.json"
+    _saved_skills[category][skill_name] = submodule
 
     with open(out_path, "w") as f:
         json.dump(result, f, indent=2)

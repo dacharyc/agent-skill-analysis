@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -71,7 +76,7 @@
     "section_count": 24,
     "list_item_count": 124
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -80,7 +85,105 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 4622,
+    "code_block_count": 46,
+    "code_block_ratio": 0.7332,
+    "code_languages": [],
+    "sentence_count": 89,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.3666,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 53,
+    "list_item_count": 88
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "exemples-griefs.md",
+      "content_analysis": {
+        "word_count": 2643,
+        "code_block_count": 18,
+        "code_block_ratio": 0.8347,
+        "code_languages": [],
+        "sentence_count": 35,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4173,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 26,
+        "list_item_count": 39
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "mentions-obligatoires.md",
+      "content_analysis": {
+        "word_count": 1979,
+        "code_block_count": 28,
+        "code_block_ratio": 0.5978,
+        "code_languages": [],
+        "sentence_count": 54,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2989,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 27,
+        "list_item_count": 49
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

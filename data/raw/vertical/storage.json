@@ -21,18 +21,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/nvs_storage.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/flash_management.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/nvs_storage.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/flash_management.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -69,7 +74,7 @@
     "section_count": 6,
     "list_item_count": 10
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "c"
@@ -82,7 +87,135 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 486,
+    "code_block_count": 6,
+    "code_block_ratio": 0.3663,
+    "code_languages": [
+      "dts",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c"
+    ],
+    "sentence_count": 24,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0833,
+    "information_density": 0.2248,
+    "strong_markers": 7,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 10,
+    "list_item_count": 9
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "dts",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "flash_management.md",
+      "content_analysis": {
+        "word_count": 231,
+        "code_block_count": 3,
+        "code_block_ratio": 0.3723,
+        "code_languages": [
+          "dts",
+          "c",
+          "c"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.2417,
+        "strong_markers": 4,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 4,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "dts",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "nvs_storage.md",
+      "content_analysis": {
+        "word_count": 255,
+        "code_block_count": 3,
+        "code_block_ratio": 0.3608,
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0667,
+        "information_density": 0.2137,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

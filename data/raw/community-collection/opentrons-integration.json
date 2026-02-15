@@ -33,6 +33,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 566 lines (spec recommends < 500)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -88,7 +93,7 @@
     "section_count": 16,
     "list_item_count": 31
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -124,7 +129,89 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1780,
+    "code_block_count": 3,
+    "code_block_ratio": 0.0118,
+    "code_languages": [
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 81,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0247,
+    "information_density": 0.0182,
+    "strong_markers": 3,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 36,
+    "list_item_count": 60
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 1780,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0118,
+        "code_languages": [
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 81,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0247,
+        "information_density": 0.0182,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 36,
+        "list_item_count": 60
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

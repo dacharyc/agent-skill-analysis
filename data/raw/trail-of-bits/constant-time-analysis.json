@@ -31,58 +31,48 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/compiled.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/swift.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/compiled.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/vm-compiled.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/swift.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/kotlin.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/vm-compiled.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/php.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/kotlin.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/javascript.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/php.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/python.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/javascript.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ruby.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/python.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/veorq/cryptocoding (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://kyberslash.cr.yp.to/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.bearssl.org/constanttime.html (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: references/ruby.md (exists)"
     }
   ],
   "token_counts": {
@@ -159,7 +149,7 @@
     "section_count": 15,
     "list_item_count": 21
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "text",
@@ -186,7 +176,724 @@
       "mobile"
     ],
     "scope_breadth": 5,
-    "risk_score": 0.3583,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3583,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 6557,
+    "code_block_count": 86,
+    "code_block_ratio": 0.4145,
+    "code_languages": [
+      "bash",
+      "c",
+      "c",
+      "c",
+      "yaml",
+      "bash",
+      "javascript",
+      "javascript",
+      "javascript",
+      "text",
+      "bash",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "bash",
+      "bash",
+      "bash",
+      "kotlin",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "php",
+      "php",
+      "php",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "ruby",
+      "ruby",
+      "ruby",
+      "ruby",
+      "ruby",
+      "text",
+      "bash",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "text",
+      "bash",
+      "java",
+      "java",
+      "java",
+      "java",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 350,
+    "imperative_count": 16,
+    "imperative_ratio": 0.0457,
+    "information_density": 0.2301,
+    "strong_markers": 18,
+    "weak_markers": 37,
+    "instruction_specificity": 0.3273,
+    "section_count": 151,
+    "list_item_count": 95
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "c",
+      "c",
+      "c",
+      "yaml",
+      "bash",
+      "javascript",
+      "javascript",
+      "javascript",
+      "text",
+      "bash",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "kotlin",
+      "bash",
+      "bash",
+      "bash",
+      "kotlin",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "php",
+      "php",
+      "php",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "ruby",
+      "ruby",
+      "ruby",
+      "ruby",
+      "ruby",
+      "text",
+      "bash",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "swift",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "text",
+      "bash",
+      "java",
+      "java",
+      "java",
+      "java",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "dotnet",
+      "java",
+      "javascript",
+      "mobile",
+      "python",
+      "ruby",
+      "shell",
+      "systems"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "dotnet",
+      "java",
+      "javascript",
+      "mobile",
+      "python",
+      "ruby",
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript",
+      "mobile",
+      "ruby"
+    ],
+    "scope_breadth": 9,
+    "contamination_score": 0.7,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "compiled.md",
+      "content_analysis": {
+        "word_count": 596,
+        "code_block_count": 5,
+        "code_block_ratio": 0.3557,
+        "code_languages": [
+          "bash",
+          "c",
+          "c",
+          "c",
+          "yaml"
+        ],
+        "sentence_count": 32,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0625,
+        "information_density": 0.2091,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 12,
+        "list_item_count": 15
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "c",
+          "c",
+          "c",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "shell",
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "javascript.md",
+      "content_analysis": {
+        "word_count": 587,
+        "code_block_count": 4,
+        "code_block_ratio": 0.2351,
+        "code_languages": [
+          "bash",
+          "javascript",
+          "javascript",
+          "javascript"
+        ],
+        "sentence_count": 38,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1175,
+        "strong_markers": 0,
+        "weak_markers": 5,
+        "instruction_specificity": 0,
+        "section_count": 15,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "javascript",
+          "javascript",
+          "javascript"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "kotlin.md",
+      "content_analysis": {
+        "word_count": 841,
+        "code_block_count": 17,
+        "code_block_ratio": 0.5089,
+        "code_languages": [
+          "text",
+          "bash",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "bash",
+          "bash",
+          "bash",
+          "kotlin",
+          "bash"
+        ],
+        "sentence_count": 44,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0227,
+        "information_density": 0.2658,
+        "strong_markers": 4,
+        "weak_markers": 5,
+        "instruction_specificity": 0.4444,
+        "section_count": 22,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "text",
+          "bash",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "kotlin",
+          "bash",
+          "bash",
+          "bash",
+          "kotlin",
+          "bash"
+        ],
+        "language_categories": [
+          "java",
+          "mobile",
+          "shell"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [
+          "mobile",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "php.md",
+      "content_analysis": {
+        "word_count": 671,
+        "code_block_count": 10,
+        "code_block_ratio": 0.456,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "php",
+          "php",
+          "php",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 28,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0357,
+        "information_density": 0.2459,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 15,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "php",
+          "php",
+          "php",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "python.md",
+      "content_analysis": {
+        "word_count": 693,
+        "code_block_count": 7,
+        "code_block_ratio": 0.3001,
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 40,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1,
+        "information_density": 0.2001,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 17,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "ruby.md",
+      "content_analysis": {
+        "word_count": 699,
+        "code_block_count": 7,
+        "code_block_ratio": 0.3648,
+        "code_languages": [
+          "bash",
+          "ruby",
+          "ruby",
+          "ruby",
+          "ruby",
+          "ruby"
+        ],
+        "sentence_count": 40,
+        "imperative_count": 2,
+        "imperative_ratio": 0.05,
+        "information_density": 0.2074,
+        "strong_markers": 0,
+        "weak_markers": 7,
+        "instruction_specificity": 0,
+        "section_count": 19,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "ruby",
+          "ruby",
+          "ruby",
+          "ruby",
+          "ruby"
+        ],
+        "language_categories": [
+          "ruby",
+          "shell"
+        ],
+        "primary_category": "ruby",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "ruby"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "swift.md",
+      "content_analysis": {
+        "word_count": 1076,
+        "code_block_count": 16,
+        "code_block_ratio": 0.5864,
+        "code_languages": [
+          "text",
+          "bash",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 49,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0204,
+        "information_density": 0.3034,
+        "strong_markers": 2,
+        "weak_markers": 4,
+        "instruction_specificity": 0.3333,
+        "section_count": 25,
+        "list_item_count": 12
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "text",
+          "bash",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "swift",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "mobile",
+          "shell"
+        ],
+        "primary_category": "mobile",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "mobile"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "vm-compiled.md",
+      "content_analysis": {
+        "word_count": 1394,
+        "code_block_count": 20,
+        "code_block_ratio": 0.3874,
+        "code_languages": [
+          "text",
+          "bash",
+          "java",
+          "java",
+          "java",
+          "java",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 79,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0633,
+        "information_density": 0.2253,
+        "strong_markers": 10,
+        "weak_markers": 13,
+        "instruction_specificity": 0.4348,
+        "section_count": 26,
+        "list_item_count": 32
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "text",
+          "bash",
+          "java",
+          "java",
+          "java",
+          "java",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "dotnet",
+          "java",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "dotnet",
+          "java"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/veorq/cryptocoding (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://kyberslash.cr.yp.to/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.bearssl.org/constanttime.html (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

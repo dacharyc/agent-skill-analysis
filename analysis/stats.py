@@ -6,8 +6,8 @@ Produces figures in paper/figures/:
   - pass_fail_by_source.png: Pass/fail rates by source
   - token_distribution.png: Distribution of token counts
   - content_quality.png: Information density and instruction specificity distributions
-  - risk_distribution.png: Cross-contamination risk by level
-  - risk_by_source.png: Risk score distribution by source
+  - contamination_distribution.png: Cross-contamination level distribution
+  - contamination_by_source.png: Contamination score distribution by source
   - metrics_correlation.png: Correlation between key metrics
 """
 
@@ -127,8 +127,8 @@ def fig_content_quality(data):
     print("  → content_quality.png")
 
 
-def fig_risk_distribution(data):
-    """Donut chart: risk level distribution."""
+def fig_contamination_distribution(data):
+    """Donut chart: contamination level distribution."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     # Left: Pass/fail donut
@@ -144,11 +144,11 @@ def fig_risk_distribution(data):
     ax.add_artist(centre_circle)
     ax.set_title("Validation Results")
 
-    # Right: Risk level donut
+    # Right: Contamination level donut
     ax = axes[1]
-    risk = data["summary"]["risk_distribution"]
-    sizes = [risk["high"], risk["medium"], risk["low"]]
-    labels = [f"High ({risk['high']})", f"Medium ({risk['medium']})", f"Low ({risk['low']})"]
+    contamination = data["summary"]["contamination_distribution"]
+    sizes = [contamination["high"], contamination["medium"], contamination["low"]]
+    labels = [f"High ({contamination['high']})", f"Medium ({contamination['medium']})", f"Low ({contamination['low']})"]
     colors = [COLORS["high"], COLORS["medium"], COLORS["low"]]
     wedges, texts, autotexts = ax.pie(
         sizes, labels=labels, colors=colors, autopct="%1.0f%%",
@@ -156,38 +156,38 @@ def fig_risk_distribution(data):
     )
     centre_circle = plt.Circle((0, 0), 0.50, fc="white")
     ax.add_artist(centre_circle)
-    ax.set_title("Cross-Contamination Risk")
+    ax.set_title("Cross-Contamination")
 
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "risk_distribution.png")
+    fig.savefig(FIGURES_DIR / "contamination_distribution.png")
     plt.close(fig)
-    print("  → risk_distribution.png")
+    print("  → contamination_distribution.png")
 
 
-def fig_risk_by_source(data):
-    """Box plot: risk scores by source."""
+def fig_contamination_by_source(data):
+    """Box plot: contamination scores by source."""
     fig, ax = plt.subplots()
 
     sources = sorted(set(s["source"] for s in data["skills"]))
-    risk_data = []
+    contamination_data = []
     for source in sources:
-        scores = [s["risk_score"] for s in data["skills"] if s["source"] == source]
-        risk_data.append(scores)
+        scores = [s["contamination_score"] for s in data["skills"] if s["source"] == source]
+        contamination_data.append(scores)
 
-    bp = ax.boxplot(risk_data, tick_labels=sources, patch_artist=True)
+    bp = ax.boxplot(contamination_data, tick_labels=sources, patch_artist=True)
     for patch, source in zip(bp["boxes"], sources):
         patch.set_facecolor(COLORS.get(source, "#999"))
         patch.set_alpha(0.7)
 
     ax.set_xlabel("Source")
-    ax.set_ylabel("Risk Score")
-    ax.set_title("Cross-Contamination Risk by Source")
+    ax.set_ylabel("Contamination Score")
+    ax.set_title("Cross-Contamination by Source")
     ax.set_xticklabels(sources, rotation=15, ha="right")
 
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "risk_by_source.png")
+    fig.savefig(FIGURES_DIR / "contamination_by_source.png")
     plt.close(fig)
-    print("  → risk_by_source.png")
+    print("  → contamination_by_source.png")
 
 
 def fig_metrics_correlation(data):
@@ -201,7 +201,7 @@ def fig_metrics_correlation(data):
         ("information_density", "Info Density"),
         ("instruction_specificity", "Specificity"),
         ("code_block_ratio", "Code Ratio"),
-        ("risk_score", "Risk Score"),
+        ("contamination_score", "Contamination"),
     ]
 
     # Build data matrix
@@ -235,6 +235,65 @@ def fig_metrics_correlation(data):
     print("  → metrics_correlation.png")
 
 
+def fig_ref_language_distribution(data):
+    """Horizontal bar chart: most common programming languages in reference files (top 15)."""
+    from collections import Counter
+    lang_counts = Counter()
+    for s in data["skills"]:
+        for lang in s.get("ref_code_languages", []):
+            lang_counts[lang] += 1
+
+    if not lang_counts:
+        print("  → ref_language_distribution.png (skipped, no data)")
+        return
+
+    top = lang_counts.most_common(15)
+    labels = [l for l, _ in reversed(top)]
+    counts = [c for _, c in reversed(top)]
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.barh(labels, counts, color="#3498db")
+    ax.set_xlabel("Number of Skills")
+    ax.set_title("Most Common Languages in Reference Files (Top 15)")
+    ax.xaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "ref_language_distribution.png")
+    plt.close(fig)
+    print("  → ref_language_distribution.png")
+
+
+def fig_ref_token_ratio(data):
+    """Histogram: reference token ratio (ref tokens / SKILL.md tokens)."""
+    ratios = [s["ref_token_ratio"] for s in data["skills"] if s.get("ref_token_ratio", 0) > 0]
+
+    if not ratios:
+        print("  → ref_token_ratio.png (skipped, no data)")
+        return
+
+    fig, ax = plt.subplots()
+
+    # Cap at 20x for histogram clarity, note outliers
+    cap = 20
+    capped = [min(r, cap) for r in ratios]
+    outliers = sum(1 for r in ratios if r > cap)
+
+    ax.hist(capped, bins=40, color="#e67e22", edgecolor="white", linewidth=0.5)
+    ax.axvline(x=1, color="#e74c3c", linestyle="--", linewidth=1.5, label="1:1 (refs = SKILL.md)")
+    ax.set_xlabel("Reference / SKILL.md Token Ratio")
+    ax.set_ylabel("Number of Skills")
+    title = "Reference File Size vs. SKILL.md"
+    if outliers:
+        title += f" ({outliers} skills >{cap}x not shown)"
+    ax.set_title(title)
+    ax.legend()
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "ref_token_ratio.png")
+    plt.close(fig)
+    print("  → ref_token_ratio.png")
+
+
 def print_summary_stats(data):
     """Print summary statistics for the paper."""
     print("\n=== Summary Statistics ===")
@@ -251,20 +310,222 @@ def print_summary_stats(data):
     print(f"  Mean: {sum(tokens)/len(tokens):.0f}")
     print(f"  Median: {sorted(tokens)[len(tokens)//2]}")
 
-    risk = data["summary"]["risk_distribution"]
-    print(f"\nRisk distribution:")
-    print(f"  High: {risk['high']} ({risk['high']/data['total_skills']*100:.1f}%)")
-    print(f"  Medium: {risk['medium']} ({risk['medium']/data['total_skills']*100:.1f}%)")
-    print(f"  Low: {risk['low']} ({risk['low']/data['total_skills']*100:.1f}%)")
+    contamination = data["summary"]["contamination_distribution"]
+    print(f"\nContamination distribution:")
+    print(f"  High: {contamination['high']} ({contamination['high']/data['total_skills']*100:.1f}%)")
+    print(f"  Medium: {contamination['medium']} ({contamination['medium']/data['total_skills']*100:.1f}%)")
+    print(f"  Low: {contamination['low']} ({contamination['low']/data['total_skills']*100:.1f}%)")
 
     print(f"\nContent metrics:")
     print(f"  Avg info density: {data['summary']['avg_information_density']:.3f}")
     print(f"  Avg specificity: {data['summary']['avg_instruction_specificity']:.3f}")
 
+    lh = data["summary"].get("link_health", {})
+    if lh:
+        print(f"\nLink health:")
+        print(f"  Broken links: {lh.get('total_broken', 0)}")
+        print(f"  Skills with broken links: {lh.get('skills_with_broken_links', 0)}")
+
+    # Reference file stats
+    rs = data["summary"].get("reference_stats", {})
+    if rs:
+        with_refs = [s for s in data["skills"] if s.get("ref_file_count", 0) > 0]
+        ref_tokens = [s["ref_total_tokens"] for s in with_refs] if with_refs else []
+        ref_file_tokens = [s["ref_max_file_tokens"] for s in with_refs] if with_refs else []
+
+        print(f"\nReference files:")
+        print(f"  Skills with references: {rs['skills_with_refs']} ({rs['skills_with_refs']/data['total_skills']*100:.0f}%)")
+        print(f"  Total reference files: {rs['total_ref_files']}")
+        print(f"  Avg ref info density: {rs['avg_ref_info_density']:.3f} (vs SKILL.md: {data['summary']['avg_information_density']:.3f})")
+        print(f"  Refs with contamination risk: {rs['refs_with_contamination']}")
+
+        if ref_tokens:
+            sorted_tokens = sorted(ref_tokens)
+            print(f"\nReference token stats:")
+            print(f"  Median: {sorted_tokens[len(sorted_tokens)//2]:,}")
+            print(f"  Mean: {sum(ref_tokens)/len(ref_tokens):,.0f}")
+            print(f"  Max: {max(ref_tokens):,}")
+            print(f"  Oversized refs (>50k tokens): {rs['oversized_refs']}")
+            print(f"  Refs larger than SKILL.md: {rs['refs_larger_than_skill']}")
+
     print(f"\nBy source:")
     for source, stats in sorted(data["by_source"].items()):
         pct = stats["passed"] / stats["total"] * 100 if stats["total"] > 0 else 0
-        print(f"  {source}: {stats['total']} skills, {pct:.0f}% pass, avg {stats['avg_tokens']} tokens, avg risk {stats['avg_risk_score']:.3f}")
+        broken = stats.get("broken_link_count", 0)
+        link_info = f", {broken} broken links" if broken > 0 else ""
+        print(f"  {source}: {stats['total']} skills, {pct:.0f}% pass, avg {stats['avg_tokens']} tokens, avg contamination {stats['avg_contamination_score']:.3f}{link_info}")
+
+
+def fig_token_budget_composition(data):
+    """Stacked bar chart: token budget composition by source (SKILL.md, refs, assets, nonstandard)."""
+    from collections import defaultdict
+
+    budget = defaultdict(lambda: {"skill_md": 0, "ref": 0, "asset": 0, "nonstandard": 0})
+    for s in data["skills"]:
+        src = s["source"]
+        budget[src]["skill_md"] += s.get("skill_md_tokens", 0)
+        budget[src]["ref"] += s.get("ref_tokens", 0)
+        budget[src]["asset"] += s.get("asset_tokens", 0)
+        budget[src]["nonstandard"] += s.get("nonstandard_tokens", 0)
+
+    # Sort by total tokens descending
+    sources = sorted(budget.keys(), key=lambda s: sum(budget[s].values()), reverse=True)
+
+    # Compute percentages
+    skill_md_pct, ref_pct, asset_pct, ns_pct = [], [], [], []
+    for src in sources:
+        total = sum(budget[src].values())
+        if total == 0:
+            total = 1
+        skill_md_pct.append(100 * budget[src]["skill_md"] / total)
+        ref_pct.append(100 * budget[src]["ref"] / total)
+        asset_pct.append(100 * budget[src]["asset"] / total)
+        ns_pct.append(100 * budget[src]["nonstandard"] / total)
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    x = range(len(sources))
+
+    ax.bar(x, skill_md_pct, label="SKILL.md", color="#2ecc71")
+    ax.bar(x, ref_pct, bottom=skill_md_pct, label="References", color="#3498db")
+    ax.bar(x, asset_pct, bottom=[a + b for a, b in zip(skill_md_pct, ref_pct)],
+           label="Assets", color="#9b59b6")
+    ax.bar(x, ns_pct, bottom=[a + b + c for a, b, c in zip(skill_md_pct, ref_pct, asset_pct)],
+           label="Nonstandard", color="#e74c3c", alpha=0.8)
+
+    ax.set_xlabel("Source")
+    ax.set_ylabel("Percentage of Total Tokens")
+    ax.set_title("Token Budget Composition by Source")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(sources, rotation=15, ha="right")
+    ax.legend(loc="upper right", fontsize=9)
+    ax.set_ylim(0, 105)
+    ax.yaxis.set_major_formatter(ticker.PercentFormatter())
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "token_budget_composition.png")
+    plt.close(fig)
+    print("  → token_budget_composition.png")
+
+
+def fig_hidden_contamination(data):
+    """Bar chart comparing SKILL.md vs reference contamination for skills with hidden contamination."""
+    # Hidden contamination: low SKILL.md contamination but medium/high ref contamination
+    hidden = [s for s in data["skills"]
+              if s.get("ref_file_count", 0) > 0
+              and s.get("contamination_level") == "low"
+              and s.get("ref_contamination_level") in ("medium", "high")]
+
+    if not hidden:
+        print("  → hidden_contamination.png (skipped, no data)")
+        return
+
+    # Sort by ref contamination descending, take top 20
+    hidden.sort(key=lambda s: s.get("ref_contamination_score", 0), reverse=True)
+    top = hidden[:20]
+
+    labels = [s["name"][:25] for s in top]
+    skill_scores = [s["contamination_score"] for s in top]
+    ref_scores = [s["ref_contamination_score"] for s in top]
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+
+    y = range(len(labels))
+    height = 0.35
+    ax.barh([i + height / 2 for i in y], ref_scores, height,
+            label="Reference files", color=COLORS["medium"], alpha=0.9)
+    ax.barh([i - height / 2 for i in y], skill_scores, height,
+            label="SKILL.md", color=COLORS["low"], alpha=0.9)
+
+    ax.axvline(x=0.2, color="#999", linestyle=":", linewidth=1, alpha=0.7)
+    ax.axvline(x=0.5, color="#999", linestyle=":", linewidth=1, alpha=0.7)
+    ax.text(0.1, len(labels) - 0.5, "Low", ha="center", fontsize=8, color="#999")
+    ax.text(0.35, len(labels) - 0.5, "Medium", ha="center", fontsize=8, color="#999")
+    ax.text(0.65, len(labels) - 0.5, "High", ha="center", fontsize=8, color="#999")
+
+    ax.set_yticks(list(y))
+    ax.set_yticklabels(labels)
+    ax.set_xlabel("Contamination Score")
+    ax.set_title("Hidden Contamination: Clean SKILL.md, Contaminated References (Top 20)")
+    ax.legend(loc="lower right")
+    ax.invert_yaxis()
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "hidden_contamination.png")
+    plt.close(fig)
+    print("  → hidden_contamination.png")
+
+
+def fig_nonstandard_breakdown(data):
+    """Pie chart: what types of files make up the nonstandard token waste."""
+    import glob
+    import os
+    from collections import Counter
+
+    category_tokens = Counter()
+    for jf in sorted(glob.glob(str(REPO_ROOT / "data" / "raw" / "*" / "*.json"))):
+        with open(jf) as f:
+            raw = json.load(f)
+        for finfo in raw.get("other_token_counts", {}).get("files", []):
+            fname = finfo["file"]
+            tokens = finfo.get("tokens", 0)
+            upper = fname.upper()
+            if "LICENSE" in upper or "LICENCE" in upper:
+                category_tokens["LICENSE files"] += tokens
+            elif ".xsd" in fname or "ooxml" in fname:
+                category_tokens["OOXML schemas (XSD)"] += tokens
+            elif "benchmark" in fname.lower() or "results" in fname.lower():
+                category_tokens["Benchmarks & results"] += tokens
+            elif fname.endswith((".js.map", "package-lock.json", ".pptx")):
+                category_tokens["Build artifacts"] += tokens
+            elif "README" in upper:
+                category_tokens["README files"] += tokens
+            elif fname.startswith("templates/") or "template" in fname.lower():
+                category_tokens["Templates"] += tokens
+            elif fname.endswith((".yaml", ".yml")) and "agents/" in fname:
+                category_tokens["Agent configs (YAML)"] += tokens
+            elif "dashboard" in fname.lower() or "vscode-extension" in fname.lower():
+                category_tokens["UI/extension code"] += tokens
+            elif fname.endswith(".skill"):
+                category_tokens["Legacy .skill files"] += tokens
+            else:
+                category_tokens["Other"] += tokens
+
+    if not category_tokens:
+        print("  → nonstandard_breakdown.png (skipped, no data)")
+        return
+
+    # Sort by size, combine small categories into "Other"
+    sorted_cats = category_tokens.most_common()
+    total = sum(category_tokens.values())
+    threshold = total * 0.03  # 3% minimum
+    main_cats = [(k, v) for k, v in sorted_cats if v >= threshold]
+    other_sum = sum(v for _, v in sorted_cats if v < threshold)
+    # Merge with existing Other if present
+    main_cats_dict = dict(main_cats)
+    if "Other" in main_cats_dict:
+        main_cats_dict["Other"] += other_sum
+    else:
+        main_cats_dict["Other"] = other_sum
+    main_cats = sorted(main_cats_dict.items(), key=lambda x: -x[1])
+
+    labels = [f"{k}\n({v:,.0f} tokens)" for k, v in main_cats]
+    sizes = [v for _, v in main_cats]
+    colors = ["#e74c3c", "#3498db", "#f39c12", "#9b59b6", "#1abc9c",
+              "#e67e22", "#2ecc71", "#34495e", "#95a5a6", "#d35400"][:len(labels)]
+
+    fig, ax = plt.subplots(figsize=(9, 6))
+    wedges, texts, autotexts = ax.pie(
+        sizes, labels=labels, colors=colors, autopct="%1.1f%%",
+        startangle=90, pctdistance=0.8, textprops={"fontsize": 9},
+    )
+    for at in autotexts:
+        at.set_fontsize(8)
+    ax.set_title(f"Nonstandard Token Waste Breakdown\n({total:,.0f} tokens across {len(data['skills'])} skills)")
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "nonstandard_breakdown.png")
+    plt.close(fig)
+    print("  → nonstandard_breakdown.png")
 
 
 def main():
@@ -275,9 +536,14 @@ def main():
     fig_pass_fail_by_source(data)
     fig_token_distribution(data)
     fig_content_quality(data)
-    fig_risk_distribution(data)
-    fig_risk_by_source(data)
+    fig_contamination_distribution(data)
+    fig_contamination_by_source(data)
     fig_metrics_correlation(data)
+    fig_ref_language_distribution(data)
+    fig_ref_token_ratio(data)
+    fig_token_budget_composition(data)
+    fig_hidden_contamination(data)
+    fig_nonstandard_breakdown(data)
 
     print_summary_stats(data)
     print(f"\nFigures saved to {FIGURES_DIR}")

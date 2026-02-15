@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/cloudflare-skills/skills/building-mcp-server-on-cloudflare",
   "passed": false,
-  "errors": 3,
+  "errors": 1,
   "warnings": 1,
   "results": [
     {
@@ -26,33 +26,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/oauth-setup.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/examples.md (exists)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "references/tool-patterns.md (file not found)"
+      "category": "Structure",
+      "message": "internal link: references/oauth-setup.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/troubleshooting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/examples.md (exists)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "http://localhost:5173, (invalid URL: parse \"http://localhost:5173,\": invalid port \":5173,\" after host)"
+      "category": "Structure",
+      "message": "broken internal link: references/tool-patterns.md (file not found)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:8788/mcp (request failed: Head \"http://localhost:8788/mcp\": dial tcp 127.0.0.1:8788: connect: connection refused)"
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/troubleshooting.md (exists)"
     }
   ],
   "token_counts": {
@@ -104,7 +99,7 @@
     "section_count": 22,
     "list_item_count": 26
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -135,7 +130,324 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 2151,
+    "code_block_count": 38,
+    "code_block_ratio": 0.5109,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "typescript",
+      "typescript",
+      "html",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "typescript",
+      "toml",
+      "bash",
+      "toml",
+      "typescript",
+      "typescript",
+      "toml",
+      "bash",
+      "typescript",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 149,
+    "imperative_count": 23,
+    "imperative_ratio": 0.1544,
+    "information_density": 0.3326,
+    "strong_markers": 17,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9444,
+    "section_count": 49,
+    "list_item_count": 48
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "typescript",
+      "typescript",
+      "html",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "typescript",
+      "toml",
+      "bash",
+      "toml",
+      "typescript",
+      "typescript",
+      "toml",
+      "bash",
+      "typescript",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "javascript",
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "examples.md",
+      "content_analysis": {
+        "word_count": 225,
+        "code_block_count": 7,
+        "code_block_ratio": 0.2844,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "bash"
+        ],
+        "sentence_count": 22,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0909,
+        "information_density": 0.1877,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "oauth-setup.md",
+      "content_analysis": {
+        "word_count": 1121,
+        "code_block_count": 9,
+        "code_block_ratio": 0.5201,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "html",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash"
+        ],
+        "sentence_count": 64,
+        "imperative_count": 10,
+        "imperative_ratio": 0.1563,
+        "information_density": 0.3382,
+        "strong_markers": 6,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8571,
+        "section_count": 19,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "html",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "troubleshooting.md",
+      "content_analysis": {
+        "word_count": 805,
+        "code_block_count": 22,
+        "code_block_ratio": 0.5615,
+        "code_languages": [
+          "bash",
+          "bash",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "bash",
+          "typescript",
+          "toml",
+          "bash",
+          "toml",
+          "typescript",
+          "typescript",
+          "toml",
+          "bash",
+          "typescript",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 63,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1746,
+        "information_density": 0.368,
+        "strong_markers": 11,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 24,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "bash",
+          "typescript",
+          "toml",
+          "bash",
+          "toml",
+          "typescript",
+          "typescript",
+          "toml",
+          "bash",
+          "typescript",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:5173, (invalid URL: parse \"http://localhost:5173,\": invalid port \":5173,\" after host)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:8788/mcp (request failed: Head \"http://localhost:8788/mcp\": dial tcp 127.0.0.1:8788: connect: connection refused)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

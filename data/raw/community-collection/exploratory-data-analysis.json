@@ -38,6 +38,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "total reference files: 26380 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -69,9 +74,13 @@
       {
         "file": "references/spectroscopy_analytical_formats.md",
         "tokens": 4320
+      },
+      {
+        "file": "assets/report_template.md",
+        "tokens": 872
       }
     ],
-    "total": 29768
+    "total": 30640
   },
   "content_analysis": {
     "word_count": 1990,
@@ -97,7 +106,7 @@
     "section_count": 42,
     "list_item_count": 127
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -124,7 +133,232 @@
       "javascript"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 14345,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 285,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0,
+    "strong_markers": 4,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8,
+    "section_count": 273,
+    "list_item_count": 1857
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "bioinformatics_genomics_formats.md",
+      "content_analysis": {
+        "word_count": 2752,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 52,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 50,
+        "list_item_count": 341
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "chemistry_molecular_formats.md",
+      "content_analysis": {
+        "word_count": 2789,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 51,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 49,
+        "list_item_count": 348
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet",
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "general_scientific_formats.md",
+      "content_analysis": {
+        "word_count": 2043,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 39,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 37,
+        "list_item_count": 281
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet",
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "microscopy_imaging_formats.md",
+      "content_analysis": {
+        "word_count": 2398,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 47,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 45,
+        "list_item_count": 322
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "proteomics_metabolomics_formats.md",
+      "content_analysis": {
+        "word_count": 1989,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 43,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 41,
+        "list_item_count": 252
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "spectroscopy_analytical_formats.md",
+      "content_analysis": {
+        "word_count": 2374,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 53,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 51,
+        "list_item_count": 313
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

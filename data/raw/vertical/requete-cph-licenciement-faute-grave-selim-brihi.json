@@ -31,18 +31,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/conseils-variations.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/calculs-indemnites.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/conseils-variations.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/structure-requete.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/calculs-indemnites.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/structure-requete.md (exists)"
     }
   ],
   "token_counts": {
@@ -90,7 +95,7 @@
     "section_count": 15,
     "list_item_count": 46
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -99,7 +104,129 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 4458,
+    "code_block_count": 28,
+    "code_block_ratio": 0.5079,
+    "code_languages": [],
+    "sentence_count": 184,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.2539,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 50,
+    "list_item_count": 171
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "calculs-indemnites.md",
+      "content_analysis": {
+        "word_count": 499,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 27,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 35
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "conseils-variations.md",
+      "content_analysis": {
+        "word_count": 677,
+        "code_block_count": 1,
+        "code_block_ratio": 0.1167,
+        "code_languages": [],
+        "sentence_count": 54,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0583,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 21,
+        "list_item_count": 31
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "structure-requete.md",
+      "content_analysis": {
+        "word_count": 3282,
+        "code_block_count": 27,
+        "code_block_ratio": 0.6658,
+        "code_languages": [],
+        "sentence_count": 103,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3329,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 20,
+        "list_item_count": 105
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

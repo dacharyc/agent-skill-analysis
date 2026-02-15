@@ -31,43 +31,48 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/client-setup.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/service-layer.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/client-setup.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/testing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/service-layer.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/partitioning.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/testing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/error-handling.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/partitioning.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/cosmos_client_template.py (exists)"
+      "category": "Structure",
+      "message": "internal link: references/error-handling.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/service_template.py (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/cosmos_client_template.py (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/conftest_template.py (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/service_template.py (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: assets/conftest_template.py (exists)"
     }
   ],
   "token_counts": {
@@ -99,9 +104,21 @@
       {
         "file": "references/testing.md",
         "tokens": 3229
+      },
+      {
+        "file": "assets/conftest_template.py",
+        "tokens": 1992
+      },
+      {
+        "file": "assets/cosmos_client_template.py",
+        "tokens": 1314
+      },
+      {
+        "file": "assets/service_template.py",
+        "tokens": 1942
       }
     ],
-    "total": 13959
+    "total": 19207
   },
   "content_analysis": {
     "word_count": 811,
@@ -127,7 +144,7 @@
     "section_count": 20,
     "list_item_count": 24
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -152,7 +169,501 @@
       "python"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 5045,
+    "code_block_count": 61,
+    "code_block_ratio": 0.6838,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 187,
+    "imperative_count": 20,
+    "imperative_ratio": 0.107,
+    "information_density": 0.3954,
+    "strong_markers": 11,
+    "weak_markers": 14,
+    "instruction_specificity": 0.44,
+    "section_count": 99,
+    "list_item_count": 47
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "python"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 678,
+        "code_block_count": 15,
+        "code_block_ratio": 0.6858,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 24,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3429,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 22,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "python"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "client-setup.md",
+      "content_analysis": {
+        "word_count": 600,
+        "code_block_count": 5,
+        "code_block_ratio": 0.6033,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 29,
+        "imperative_count": 2,
+        "imperative_ratio": 0.069,
+        "information_density": 0.3361,
+        "strong_markers": 2,
+        "weak_markers": 4,
+        "instruction_specificity": 0.3333,
+        "section_count": 10,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "python"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "error-handling.md",
+      "content_analysis": {
+        "word_count": 1079,
+        "code_block_count": 8,
+        "code_block_ratio": 0.6552,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 30,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1,
+        "information_density": 0.3776,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 15,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "python"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "partitioning.md",
+      "content_analysis": {
+        "word_count": 853,
+        "code_block_count": 9,
+        "code_block_ratio": 0.5111,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "json",
+          "json",
+          "python"
+        ],
+        "sentence_count": 44,
+        "imperative_count": 7,
+        "imperative_ratio": 0.1591,
+        "information_density": 0.3351,
+        "strong_markers": 5,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 18,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "json",
+          "json",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "service-layer.md",
+      "content_analysis": {
+        "word_count": 738,
+        "code_block_count": 12,
+        "code_block_ratio": 0.771,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 28,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.4569,
+        "strong_markers": 1,
+        "weak_markers": 8,
+        "instruction_specificity": 0.1111,
+        "section_count": 17,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "testing.md",
+      "content_analysis": {
+        "word_count": 1097,
+        "code_block_count": 12,
+        "code_block_ratio": 0.8304,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 32,
+        "imperative_count": 4,
+        "imperative_ratio": 0.125,
+        "information_density": 0.4777,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 17,
+        "list_item_count": 9
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

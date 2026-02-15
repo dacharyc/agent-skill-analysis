@@ -23,6 +23,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "compatibility: (109 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -66,7 +71,7 @@
     "section_count": 15,
     "list_item_count": 56
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "json",
@@ -82,7 +87,223 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1179,
+    "code_block_count": 17,
+    "code_block_ratio": 0.3622,
+    "code_languages": [
+      "html",
+      "json",
+      "php",
+      "php",
+      "php",
+      "php",
+      "php",
+      "javascript",
+      "html",
+      "php",
+      "php",
+      "javascript",
+      "php",
+      "json",
+      "html",
+      "php",
+      "javascript"
+    ],
+    "sentence_count": 83,
+    "imperative_count": 8,
+    "imperative_ratio": 0.0964,
+    "information_density": 0.2293,
+    "strong_markers": 6,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 25,
+    "list_item_count": 30
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "html",
+      "json",
+      "php",
+      "php",
+      "php",
+      "php",
+      "php",
+      "javascript",
+      "html",
+      "php",
+      "php",
+      "javascript",
+      "php",
+      "json",
+      "html",
+      "php",
+      "javascript"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [
+      "config",
+      "javascript"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "debugging.md",
+      "content_analysis": {
+        "word_count": 186,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 17,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1176,
+        "information_density": 0.1176,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "directives-quickref.md",
+      "content_analysis": {
+        "word_count": 147,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0272,
+        "code_languages": [
+          "html"
+        ],
+        "sentence_count": 19,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1053,
+        "information_density": 0.0662,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 2,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "html"
+        ],
+        "language_categories": [
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "server-side-rendering.md",
+      "content_analysis": {
+        "word_count": 846,
+        "code_block_count": 16,
+        "code_block_ratio": 0.5,
+        "code_languages": [
+          "json",
+          "php",
+          "php",
+          "php",
+          "php",
+          "php",
+          "javascript",
+          "html",
+          "php",
+          "php",
+          "javascript",
+          "php",
+          "json",
+          "html",
+          "php",
+          "javascript"
+        ],
+        "sentence_count": 47,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0851,
+        "information_density": 0.2926,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 22,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json",
+          "php",
+          "php",
+          "php",
+          "php",
+          "php",
+          "javascript",
+          "html",
+          "php",
+          "php",
+          "javascript",
+          "php",
+          "json",
+          "html",
+          "php",
+          "javascript"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

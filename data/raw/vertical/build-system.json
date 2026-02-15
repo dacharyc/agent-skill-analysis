@@ -21,33 +21,38 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/west.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/kconfig.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/west.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/cmake.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/kconfig.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "scripts/find_modules.sh (exists)"
+      "category": "Structure",
+      "message": "internal link: references/cmake.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: scripts/find_modules.sh (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "scripts/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: scripts/ (exists)"
     }
   ],
   "token_counts": {
@@ -86,7 +91,7 @@
     "section_count": 7,
     "list_item_count": 15
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -95,7 +100,147 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 480,
+    "code_block_count": 2,
+    "code_block_ratio": 0.0563,
+    "code_languages": [
+      "cmake",
+      "yaml"
+    ],
+    "sentence_count": 42,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0476,
+    "information_density": 0.0519,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 15,
+    "list_item_count": 36
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "cmake",
+      "yaml"
+    ],
+    "language_categories": [
+      "config"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "cmake.md",
+      "content_analysis": {
+        "word_count": 133,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0752,
+        "code_languages": [
+          "cmake"
+        ],
+        "sentence_count": 12,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0376,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 7,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "cmake"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "kconfig.md",
+      "content_analysis": {
+        "word_count": 156,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 17,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1176,
+        "information_density": 0.1176,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 4,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "west.md",
+      "content_analysis": {
+        "word_count": 191,
+        "code_block_count": 1,
+        "code_block_ratio": 0.089,
+        "code_languages": [
+          "yaml"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0445,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 4,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

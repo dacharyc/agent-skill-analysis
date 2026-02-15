@@ -41,8 +41,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://webaim.org/resources/contrastchecker/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -70,9 +70,25 @@
       {
         "file": "references/poster_layout_design.md",
         "tokens": 5674
+      },
+      {
+        "file": "assets/baposter_template.tex",
+        "tokens": 1807
+      },
+      {
+        "file": "assets/beamerposter_template.tex",
+        "tokens": 1832
+      },
+      {
+        "file": "assets/poster_quality_checklist.md",
+        "tokens": 2692
+      },
+      {
+        "file": "assets/tikzposter_template.tex",
+        "tokens": 2006
       }
     ],
-    "total": 40088
+    "total": 48425
   },
   "content_analysis": {
     "word_count": 8627,
@@ -135,7 +151,7 @@
     "section_count": 42,
     "list_item_count": 503
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -194,7 +210,525 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 11882,
+    "code_block_count": 121,
+    "code_block_ratio": 0.2694,
+    "code_languages": [
+      "latex",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "latex",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex"
+    ],
+    "sentence_count": 661,
+    "imperative_count": 23,
+    "imperative_ratio": 0.0348,
+    "information_density": 0.1521,
+    "strong_markers": 22,
+    "weak_markers": 13,
+    "instruction_specificity": 0.6286,
+    "section_count": 201,
+    "list_item_count": 903
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "docker"
+    ],
+    "code_languages": [
+      "latex",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "latex",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.375,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "README.md",
+      "content_analysis": {
+        "word_count": 1538,
+        "code_block_count": 9,
+        "code_block_ratio": 0.1346,
+        "code_languages": [
+          "latex",
+          "bash",
+          "bash",
+          "latex",
+          "latex",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 96,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0521,
+        "information_density": 0.0933,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 41,
+        "list_item_count": 151
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "latex",
+          "bash",
+          "bash",
+          "latex",
+          "latex",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "latex_poster_packages.md",
+      "content_analysis": {
+        "word_count": 1801,
+        "code_block_count": 24,
+        "code_block_ratio": 0.462,
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "bash",
+          "latex",
+          "bash",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 70,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.231,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 47,
+        "list_item_count": 51
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "bash",
+          "latex",
+          "bash",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "poster_content_guide.md",
+      "content_analysis": {
+        "word_count": 2774,
+        "code_block_count": 29,
+        "code_block_ratio": 0.2415,
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 179,
+        "imperative_count": 9,
+        "imperative_ratio": 0.0503,
+        "information_density": 0.1459,
+        "strong_markers": 5,
+        "weak_markers": 7,
+        "instruction_specificity": 0.4167,
+        "section_count": 34,
+        "list_item_count": 231
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "poster_design_principles.md",
+      "content_analysis": {
+        "word_count": 3068,
+        "code_block_count": 23,
+        "code_block_ratio": 0.1375,
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 160,
+        "imperative_count": 8,
+        "imperative_ratio": 0.05,
+        "information_density": 0.0938,
+        "strong_markers": 10,
+        "weak_markers": 2,
+        "instruction_specificity": 0.8333,
+        "section_count": 41,
+        "list_item_count": 283
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "python"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "poster_layout_design.md",
+      "content_analysis": {
+        "word_count": 2701,
+        "code_block_count": 36,
+        "code_block_ratio": 0.3961,
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 156,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0064,
+        "information_density": 0.2013,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 38,
+        "list_item_count": 187
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws",
+          "docker"
+        ],
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://webaim.org/resources/contrastchecker/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

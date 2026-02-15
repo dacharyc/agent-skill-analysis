@@ -46,28 +46,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.postgresql.org/docs/current/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://supabase.com/docs (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://wiki.postgresql.org/wiki/Performance_Optimization (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://supabase.com/docs/guides/database/overview (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://supabase.com/docs/guides/auth/row-level-security (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -247,7 +227,7 @@
     "section_count": 4,
     "list_item_count": 17
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "postgresql"
     ],
@@ -258,7 +238,1696 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 7051,
+    "code_block_count": 102,
+    "code_block_ratio": 0.5778,
+    "code_languages": [
+      "markdown",
+      "sql",
+      "sql",
+      "markdown",
+      "typescript",
+      "typescript",
+      "markdown",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "ini",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql"
+    ],
+    "sentence_count": 311,
+    "imperative_count": 35,
+    "imperative_ratio": 0.1125,
+    "information_density": 0.3452,
+    "strong_markers": 35,
+    "weak_markers": 7,
+    "instruction_specificity": 0.8333,
+    "section_count": 54,
+    "list_item_count": 36
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "mysql",
+      "postgresql"
+    ],
+    "code_languages": [
+      "markdown",
+      "sql",
+      "sql",
+      "markdown",
+      "typescript",
+      "typescript",
+      "markdown",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "ini",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql",
+      "sql"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup",
+      "query"
+    ],
+    "primary_category": "query",
+    "mismatched_categories": [
+      "config",
+      "javascript",
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.85,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "_contributing.md",
+      "content_analysis": {
+        "word_count": 599,
+        "code_block_count": 7,
+        "code_block_ratio": 0.1686,
+        "code_languages": [
+          "markdown",
+          "sql",
+          "sql",
+          "markdown",
+          "typescript",
+          "typescript",
+          "markdown"
+        ],
+        "sentence_count": 44,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1364,
+        "information_density": 0.1525,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 14,
+        "list_item_count": 27
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "markdown",
+          "sql",
+          "sql",
+          "markdown",
+          "typescript",
+          "typescript",
+          "markdown"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup",
+          "query"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "javascript",
+          "query"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.6417,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "_sections.md",
+      "content_analysis": {
+        "word_count": 203,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 16,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 4,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 8,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "_template.md",
+      "content_analysis": {
+        "word_count": 133,
+        "code_block_count": 2,
+        "code_block_ratio": 0.5113,
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2556,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "advanced-full-text-search.md",
+      "content_analysis": {
+        "word_count": 182,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6374,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.3812,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "mysql",
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "advanced-jsonb-indexing.md",
+      "content_analysis": {
+        "word_count": 194,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6443,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.3847,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "conn-idle-timeout.md",
+      "content_analysis": {
+        "word_count": 145,
+        "code_block_count": 3,
+        "code_block_ratio": 0.5517,
+        "code_languages": [
+          "sql",
+          "sql",
+          "ini"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 2,
+        "imperative_ratio": 0.25,
+        "information_density": 0.4009,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "ini"
+        ],
+        "language_categories": [
+          "config",
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.4333,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "conn-limits.md",
+      "content_analysis": {
+        "word_count": 187,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6684,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 2,
+        "imperative_ratio": 0.25,
+        "information_density": 0.4592,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "conn-pooling.md",
+      "content_analysis": {
+        "word_count": 178,
+        "code_block_count": 2,
+        "code_block_ratio": 0.5169,
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.314,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "conn-prepared-statements.md",
+      "content_analysis": {
+        "word_count": 202,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6287,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 2,
+        "imperative_ratio": 0.25,
+        "information_density": 0.4394,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "data-batch-inserts.md",
+      "content_analysis": {
+        "word_count": 185,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6595,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3297,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "data-n-plus-one.md",
+      "content_analysis": {
+        "word_count": 221,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6923,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3462,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "data-pagination.md",
+      "content_analysis": {
+        "word_count": 213,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6995,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.4123,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "data-upsert.md",
+      "content_analysis": {
+        "word_count": 183,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6721,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 2,
+        "imperative_ratio": 0.2222,
+        "information_density": 0.4472,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "lock-advisory.md",
+      "content_analysis": {
+        "word_count": 168,
+        "code_block_count": 3,
+        "code_block_ratio": 0.631,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.3869,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "lock-deadlock-prevention.md",
+      "content_analysis": {
+        "word_count": 273,
+        "code_block_count": 4,
+        "code_block_ratio": 0.7143,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3571,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "lock-short-transactions.md",
+      "content_analysis": {
+        "word_count": 187,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6257,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 3,
+        "imperative_ratio": 0.375,
+        "information_density": 0.5003,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "lock-skip-locked.md",
+      "content_analysis": {
+        "word_count": 206,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6456,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.3942,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "monitor-explain-analyze.md",
+      "content_analysis": {
+        "word_count": 213,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6808,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.4118,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "monitor-pg-stat-statements.md",
+      "content_analysis": {
+        "word_count": 165,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6242,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3121,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "monitor-vacuum-analyze.md",
+      "content_analysis": {
+        "word_count": 193,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6373,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3187,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "query-composite-indexes.md",
+      "content_analysis": {
+        "word_count": 188,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6117,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.3773,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "query-covering-indexes.md",
+      "content_analysis": {
+        "word_count": 170,
+        "code_block_count": 3,
+        "code_block_ratio": 0.5294,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 2,
+        "imperative_ratio": 0.2857,
+        "information_density": 0.4076,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "query-index-types.md",
+      "content_analysis": {
+        "word_count": 207,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6522,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3261,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "query-missing-indexes.md",
+      "content_analysis": {
+        "word_count": 159,
+        "code_block_count": 3,
+        "code_block_ratio": 0.5157,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.3293,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "query-partial-indexes.md",
+      "content_analysis": {
+        "word_count": 181,
+        "code_block_count": 3,
+        "code_block_ratio": 0.558,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.3504,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "schema-constraints.md",
+      "content_analysis": {
+        "word_count": 239,
+        "code_block_count": 4,
+        "code_block_ratio": 0.7029,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 2,
+        "imperative_ratio": 0.2222,
+        "information_density": 0.4626,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "schema-data-types.md",
+      "content_analysis": {
+        "word_count": 186,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6935,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3468,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "schema-foreign-key-indexes.md",
+      "content_analysis": {
+        "word_count": 232,
+        "code_block_count": 3,
+        "code_block_ratio": 0.7284,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3642,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "schema-lowercase-identifiers.md",
+      "content_analysis": {
+        "word_count": 230,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6522,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.3886,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "schema-partitioning.md",
+      "content_analysis": {
+        "word_count": 204,
+        "code_block_count": 2,
+        "code_block_ratio": 0.5931,
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2966,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "schema-primary-keys.md",
+      "content_analysis": {
+        "word_count": 232,
+        "code_block_count": 2,
+        "code_block_ratio": 0.5647,
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2823,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql"
+        ],
+        "code_languages": [
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "security-privileges.md",
+      "content_analysis": {
+        "word_count": 216,
+        "code_block_count": 3,
+        "code_block_ratio": 0.7176,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.4213,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "security-rls-basics.md",
+      "content_analysis": {
+        "word_count": 185,
+        "code_block_count": 3,
+        "code_block_ratio": 0.6162,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3081,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "security-rls-performance.md",
+      "content_analysis": {
+        "word_count": 192,
+        "code_block_count": 4,
+        "code_block_ratio": 0.5781,
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 2,
+        "imperative_ratio": 0.2222,
+        "information_density": 0.4002,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "sql",
+          "sql",
+          "sql",
+          "sql"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.postgresql.org/docs/current/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://supabase.com/docs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://wiki.postgresql.org/wiki/Performance_Optimization (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://supabase.com/docs/guides/database/overview (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://supabase.com/docs/guides/auth/row-level-security (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

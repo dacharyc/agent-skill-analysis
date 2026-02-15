@@ -26,38 +26,43 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/zephyr_macros.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/concurrency.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/zephyr_macros.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/devicetree_basics.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/concurrency.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/error_handling.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/devicetree_basics.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/foundation_examples/template_driver.c (exists)"
+      "category": "Structure",
+      "message": "internal link: references/error_handling.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/foundation_examples/template_driver.c (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: assets/ (exists)"
     }
   ],
   "token_counts": {
@@ -100,7 +105,7 @@
     "section_count": 7,
     "list_item_count": 16
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -109,7 +114,183 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 740,
+    "code_block_count": 4,
+    "code_block_ratio": 0.0622,
+    "code_languages": [
+      "c",
+      "c",
+      "c",
+      "c"
+    ],
+    "sentence_count": 70,
+    "imperative_count": 5,
+    "imperative_ratio": 0.0714,
+    "information_density": 0.0668,
+    "strong_markers": 6,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8571,
+    "section_count": 23,
+    "list_item_count": 50
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "c",
+      "c",
+      "c",
+      "c"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "concurrency.md",
+      "content_analysis": {
+        "word_count": 192,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 22,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1364,
+        "information_density": 0.1364,
+        "strong_markers": 3,
+        "weak_markers": 1,
+        "instruction_specificity": 0.75,
+        "section_count": 6,
+        "list_item_count": 17
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "devicetree_basics.md",
+      "content_analysis": {
+        "word_count": 172,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 16,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0625,
+        "information_density": 0.0625,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "error_handling.md",
+      "content_analysis": {
+        "word_count": 172,
+        "code_block_count": 4,
+        "code_block_ratio": 0.2674,
+        "code_languages": [
+          "c",
+          "c",
+          "c",
+          "c"
+        ],
+        "sentence_count": 10,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1,
+        "information_density": 0.1837,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 7,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "c",
+          "c",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "zephyr_macros.md",
+      "content_analysis": {
+        "word_count": 204,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 22,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 19
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

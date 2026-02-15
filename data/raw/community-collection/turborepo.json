@@ -101,128 +101,128 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/configuration/RULE.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/configuration/tasks.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/configuration/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/configuration/global-options.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/configuration/tasks.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/configuration/gotchas.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/configuration/global-options.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/caching/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/configuration/gotchas.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/caching/remote-cache.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/caching/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/caching/gotchas.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/caching/remote-cache.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/environment/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/caching/gotchas.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/environment/modes.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/environment/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/environment/gotchas.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/environment/modes.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/filtering/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/environment/gotchas.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/filtering/patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/filtering/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/ci/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/filtering/patterns.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/ci/github-actions.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/ci/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/ci/vercel.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/ci/github-actions.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/ci/patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/ci/vercel.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/cli/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/ci/patterns.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/cli/commands.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/cli/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/best-practices/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/cli/commands.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/best-practices/structure.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/best-practices/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/best-practices/packages.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/best-practices/structure.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/best-practices/dependencies.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/best-practices/packages.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/watch/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/best-practices/dependencies.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/boundaries/RULE.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/watch/RULE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://turborepo.dev/docs (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: ./references/boundaries/RULE.md (exists)"
     }
   ],
   "token_counts": {
@@ -297,7 +297,7 @@
     "section_count": 49,
     "list_item_count": 40
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "json",
@@ -346,7 +346,16 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://turborepo.dev/docs (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

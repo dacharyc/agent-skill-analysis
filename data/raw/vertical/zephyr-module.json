@@ -21,23 +21,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/module_definition.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/west_integration.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/module_definition.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/west_integration.md (exists)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "references/module_definition.md#the-glue-pattern (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: references/module_definition.md#the-glue-pattern (file not found)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -74,7 +79,7 @@
     "section_count": 6,
     "list_item_count": 9
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "yaml"
@@ -87,7 +92,133 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 243,
+    "code_block_count": 5,
+    "code_block_ratio": 0.3374,
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 14,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0714,
+    "information_density": 0.2044,
+    "strong_markers": 1,
+    "weak_markers": 1,
+    "instruction_specificity": 0.5,
+    "section_count": 6,
+    "list_item_count": 1
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "module_definition.md",
+      "content_analysis": {
+        "word_count": 146,
+        "code_block_count": 2,
+        "code_block_ratio": 0.4247,
+        "code_languages": [
+          "yaml"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.2838,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "west_integration.md",
+      "content_analysis": {
+        "word_count": 97,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2062,
+        "code_languages": [
+          "yaml",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 7,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1031,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 3,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

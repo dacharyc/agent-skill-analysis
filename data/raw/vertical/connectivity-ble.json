@@ -21,23 +21,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ble_fundamentals.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/send_when_idle.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/ble_fundamentals.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/power_optimization.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/send_when_idle.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/power_optimization.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -79,7 +84,7 @@
     "section_count": 7,
     "list_item_count": 13
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "kconfig",
@@ -93,7 +98,181 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 814,
+    "code_block_count": 9,
+    "code_block_ratio": 0.2973,
+    "code_languages": [
+      "c",
+      "c",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c",
+      "kconfig",
+      "c"
+    ],
+    "sentence_count": 42,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.1486,
+    "strong_markers": 4,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 19,
+    "list_item_count": 20
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "c",
+      "c",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c",
+      "kconfig",
+      "c"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "ble_fundamentals.md",
+      "content_analysis": {
+        "word_count": 291,
+        "code_block_count": 5,
+        "code_block_ratio": 0.4364,
+        "code_languages": [
+          "c",
+          "c",
+          "c",
+          "c",
+          "kconfig"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2182,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 7,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "c",
+          "c",
+          "c",
+          "c",
+          "kconfig"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "power_optimization.md",
+      "content_analysis": {
+        "word_count": 239,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1883,
+        "code_languages": [
+          "c",
+          "c",
+          "kconfig"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0941,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "c",
+          "c",
+          "kconfig"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "send_when_idle.md",
+      "content_analysis": {
+        "word_count": 284,
+        "code_block_count": 1,
+        "code_block_ratio": 0.2465,
+        "code_languages": [
+          "c"
+        ],
+        "sentence_count": 14,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1232,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

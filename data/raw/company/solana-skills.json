@@ -81,53 +81,58 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "frontend-framework-kit.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "kit-web3-interop.md (exists)"
+      "category": "Structure",
+      "message": "internal link: frontend-framework-kit.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "programs-anchor.md (exists)"
+      "category": "Structure",
+      "message": "internal link: kit-web3-interop.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "programs-pinocchio.md (exists)"
+      "category": "Structure",
+      "message": "internal link: programs-anchor.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "testing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: programs-pinocchio.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "idl-codegen.md (exists)"
+      "category": "Structure",
+      "message": "internal link: testing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "payments.md (exists)"
+      "category": "Structure",
+      "message": "internal link: idl-codegen.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "confidential-transfers.md (exists)"
+      "category": "Structure",
+      "message": "internal link: payments.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "security.md (exists)"
+      "category": "Structure",
+      "message": "internal link: confidential-transfers.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources.md (exists)"
+      "category": "Structure",
+      "message": "internal link: security.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: resources.md (exists)"
     }
   ],
   "token_counts": {
@@ -192,14 +197,14 @@
     "sentence_count": 32,
     "imperative_count": 5,
     "imperative_ratio": 0.1563,
-    "information_density": 0.0781,
+    "information_density": 0.1563,
     "strong_markers": 3,
     "weak_markers": 5,
     "instruction_specificity": 0.375,
     "section_count": 9,
     "list_item_count": 49
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -210,7 +215,10 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

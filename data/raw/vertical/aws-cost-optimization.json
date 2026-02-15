@@ -36,18 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://aws.amazon.com/aws-cost-management/aws-budgets/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.finops.org (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -67,9 +57,13 @@
       {
         "file": "references/service_alternatives.md",
         "tokens": 4099
+      },
+      {
+        "file": "assets/templates/monthly_cost_report.md",
+        "tokens": 2546
       }
     ],
-    "total": 14932
+    "total": 17478
   },
   "content_analysis": {
     "word_count": 2183,
@@ -107,7 +101,7 @@
     "section_count": 31,
     "list_item_count": 154
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws",
       "docker"
@@ -145,7 +139,261 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 6214,
+    "code_block_count": 40,
+    "code_block_ratio": 0.257,
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "json",
+      "python",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "python",
+      "markdown",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml"
+    ],
+    "sentence_count": 286,
+    "imperative_count": 5,
+    "imperative_ratio": 0.0175,
+    "information_density": 0.1372,
+    "strong_markers": 24,
+    "weak_markers": 20,
+    "instruction_specificity": 0.5455,
+    "section_count": 87,
+    "list_item_count": 596
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "kubernetes",
+      "mysql",
+      "postgresql",
+      "redis"
+    ],
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "json",
+      "python",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "python",
+      "markdown",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml"
+    ],
+    "language_categories": [
+      "config",
+      "markup",
+      "python"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "markup",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "ruby"
+    ],
+    "scope_breadth": 5,
+    "contamination_score": 0.7917,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "best_practices.md",
+      "content_analysis": {
+        "word_count": 1715,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 82,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0244,
+        "information_density": 0.0244,
+        "strong_markers": 4,
+        "weak_markers": 11,
+        "instruction_specificity": 0.2667,
+        "section_count": 25,
+        "list_item_count": 197
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws",
+          "mysql",
+          "postgresql",
+          "redis"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "finops_governance.md",
+      "content_analysis": {
+        "word_count": 2335,
+        "code_block_count": 19,
+        "code_block_ratio": 0.403,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "json",
+          "python",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "python",
+          "markdown",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml"
+        ],
+        "sentence_count": 120,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0083,
+        "information_density": 0.2057,
+        "strong_markers": 10,
+        "weak_markers": 5,
+        "instruction_specificity": 0.6667,
+        "section_count": 39,
+        "list_item_count": 252
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws",
+          "kubernetes"
+        ],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "json",
+          "python",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "python",
+          "markdown",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "markup",
+          "python"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "markup",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "ruby"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.7167,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "service_alternatives.md",
+      "content_analysis": {
+        "word_count": 2164,
+        "code_block_count": 21,
+        "code_block_ratio": 0.3031,
+        "code_languages": [],
+        "sentence_count": 84,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0238,
+        "information_density": 0.1635,
+        "strong_markers": 10,
+        "weak_markers": 4,
+        "instruction_specificity": 0.7143,
+        "section_count": 23,
+        "list_item_count": 147
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws",
+          "kubernetes",
+          "mysql",
+          "postgresql"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://aws.amazon.com/aws-cost-management/aws-budgets/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.finops.org (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

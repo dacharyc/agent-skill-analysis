@@ -36,48 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/keys (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/activity (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/account (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/perplexity (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/docs (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.litellm.ai/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.litellm.ai/docs/providers/openrouter (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/BerriAI/litellm (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.perplexity.ai/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -136,7 +96,7 @@
     "section_count": 46,
     "list_item_count": 120
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "kafka",
       "postgresql"
@@ -173,7 +133,271 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 4347,
+    "code_block_count": 24,
+    "code_block_ratio": 0.0918,
+    "code_languages": [
+      "bash",
+      "bash",
+      "powershell",
+      "powershell",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 398,
+    "imperative_count": 63,
+    "imperative_ratio": 0.1583,
+    "information_density": 0.125,
+    "strong_markers": 7,
+    "weak_markers": 7,
+    "instruction_specificity": 0.5,
+    "section_count": 88,
+    "list_item_count": 348
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "kafka",
+      "postgresql"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "powershell",
+      "powershell",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "model_comparison.md",
+      "content_analysis": {
+        "word_count": 1498,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0567,
+        "code_languages": [],
+        "sentence_count": 106,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0566,
+        "information_density": 0.0567,
+        "strong_markers": 1,
+        "weak_markers": 4,
+        "instruction_specificity": 0.2,
+        "section_count": 24,
+        "list_item_count": 179
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "openrouter_setup.md",
+      "content_analysis": {
+        "word_count": 1502,
+        "code_block_count": 22,
+        "code_block_ratio": 0.1951,
+        "code_languages": [
+          "bash",
+          "bash",
+          "powershell",
+          "powershell",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 173,
+        "imperative_count": 41,
+        "imperative_ratio": 0.237,
+        "information_density": 0.216,
+        "strong_markers": 5,
+        "weak_markers": 3,
+        "instruction_specificity": 0.625,
+        "section_count": 35,
+        "list_item_count": 95
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "powershell",
+          "powershell",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "search_strategies.md",
+      "content_analysis": {
+        "word_count": 1347,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0156,
+        "code_languages": [],
+        "sentence_count": 119,
+        "imperative_count": 16,
+        "imperative_ratio": 0.1345,
+        "information_density": 0.075,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 29,
+        "list_item_count": 74
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "kafka",
+          "postgresql"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/keys (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/activity (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/account (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/perplexity (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/docs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.litellm.ai/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.litellm.ai/docs/providers/openrouter (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/BerriAI/litellm (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.perplexity.ai/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

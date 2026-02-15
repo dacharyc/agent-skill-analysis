@@ -27,11 +27,6 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"proteinbase_slug\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"proteinbase_url\""
     },
     {
@@ -50,19 +45,19 @@
       "message": "unrecognized field: \"tags\""
     },
     {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"proteinbase_slug\""
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
       "level": "error",
-      "category": "Links",
-      "message": "../../docs/installation.md (file not found)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/hgbrian/biomodals (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/HannesStark/boltzgen.git (HTTP 200)"
+      "category": "Structure",
+      "message": "broken internal link: ../../docs/installation.md (file not found)"
     }
   ],
   "token_counts": {
@@ -102,7 +97,7 @@
     "section_count": 19,
     "list_item_count": 19
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -127,7 +122,158 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 763,
+    "code_block_count": 16,
+    "code_block_ratio": 0.5937,
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 27,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.2969,
+    "strong_markers": 2,
+    "weak_markers": 2,
+    "instruction_specificity": 0.5,
+    "section_count": 20,
+    "list_item_count": 55
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "yaml-spec.md",
+      "content_analysis": {
+        "word_count": 763,
+        "code_block_count": 16,
+        "code_block_ratio": 0.5937,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 27,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2969,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 20,
+        "list_item_count": 55
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/hgbrian/biomodals (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/HannesStark/boltzgen.git (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

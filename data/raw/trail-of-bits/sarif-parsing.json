@@ -36,38 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/microsoft/sarif-tutorials (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/microsoft/sarif-sdk (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/microsoft/sarif-tools (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Kjeld-P/pysarif (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://sarifweb.azurewebsites.net/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -122,7 +92,7 @@
     "section_count": 22,
     "list_item_count": 40
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -156,7 +126,46 @@
       "javascript"
     ],
     "scope_breadth": 5,
-    "risk_score": 0.4917,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4917,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/sarif-tutorials (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/sarif-sdk (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/sarif-tools (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Kjeld-P/pysarif (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://sarifweb.azurewebsites.net/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

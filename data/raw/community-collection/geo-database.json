@@ -41,48 +41,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/account/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/geo/geo2r/?acc=GSExxxxx (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/geo/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/geo/info/submission.html (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://geoparse.readthedocs.io/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/geo/geo2r/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://biopython.org/DIST/docs/tutorial/Tutorial.html (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -133,7 +93,7 @@
     "section_count": 30,
     "list_item_count": 89
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -169,7 +129,205 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 2360,
+    "code_block_count": 31,
+    "code_block_ratio": 0.5301,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "xml",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 126,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0952,
+    "information_density": 0.3127,
+    "strong_markers": 13,
+    "weak_markers": 5,
+    "instruction_specificity": 0.7222,
+    "section_count": 39,
+    "list_item_count": 99
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "xml",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "geo_reference.md",
+      "content_analysis": {
+        "word_count": 2360,
+        "code_block_count": 31,
+        "code_block_ratio": 0.5301,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "xml",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 126,
+        "imperative_count": 12,
+        "imperative_ratio": 0.0952,
+        "information_density": 0.3127,
+        "strong_markers": 13,
+        "weak_markers": 5,
+        "instruction_specificity": 0.7222,
+        "section_count": 39,
+        "list_item_count": 99
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "xml",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/account/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/geo/geo2r/?acc=GSExxxxx (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/geo/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/geo/info/submission.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://geoparse.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/geo/geo2r/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://biopython.org/DIST/docs/tutorial/Tutorial.html (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

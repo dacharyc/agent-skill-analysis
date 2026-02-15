@@ -28,6 +28,11 @@
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"version\""
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -84,7 +89,7 @@
     "section_count": 16,
     "list_item_count": 15
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -108,7 +113,461 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 4008,
+    "code_block_count": 57,
+    "code_block_ratio": 0.3006,
+    "code_languages": [
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "js",
+      "js",
+      "js",
+      "json",
+      "json",
+      "json",
+      "json",
+      "yaml",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "yaml",
+      "json",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml"
+    ],
+    "sentence_count": 291,
+    "imperative_count": 32,
+    "imperative_ratio": 0.11,
+    "information_density": 0.2053,
+    "strong_markers": 25,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9615,
+    "section_count": 110,
+    "list_item_count": 177
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "js",
+      "js",
+      "js",
+      "json",
+      "json",
+      "json",
+      "json",
+      "yaml",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "yaml",
+      "json",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "javascript",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.6417,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "app-store-metadata.md",
+      "content_analysis": {
+        "word_count": 1626,
+        "code_block_count": 19,
+        "code_block_ratio": 0.3629,
+        "code_languages": [
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "js",
+          "js",
+          "js",
+          "json",
+          "json",
+          "json",
+          "json",
+          "yaml"
+        ],
+        "sentence_count": 96,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1146,
+        "information_density": 0.2387,
+        "strong_markers": 7,
+        "weak_markers": 1,
+        "instruction_specificity": 0.875,
+        "section_count": 34,
+        "list_item_count": 74
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "js",
+          "js",
+          "js",
+          "json",
+          "json",
+          "json",
+          "json",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "javascript",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "ios-app-store.md",
+      "content_analysis": {
+        "word_count": 1000,
+        "code_block_count": 15,
+        "code_block_ratio": 0.22,
+        "code_languages": [
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "yaml"
+        ],
+        "sentence_count": 83,
+        "imperative_count": 8,
+        "imperative_ratio": 0.0964,
+        "information_density": 0.1582,
+        "strong_markers": 9,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 34,
+        "list_item_count": 54
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.4333,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "play-store.md",
+      "content_analysis": {
+        "word_count": 759,
+        "code_block_count": 12,
+        "code_block_ratio": 0.2385,
+        "code_languages": [
+          "json",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 62,
+        "imperative_count": 8,
+        "imperative_ratio": 0.129,
+        "information_density": 0.1838,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 24,
+        "list_item_count": 30
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "bash",
+          "json",
+          "json",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "testflight.md",
+      "content_analysis": {
+        "word_count": 244,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0328,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 29,
+        "imperative_count": 2,
+        "imperative_ratio": 0.069,
+        "information_density": 0.0509,
+        "strong_markers": 6,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "workflows.md",
+      "content_analysis": {
+        "word_count": 379,
+        "code_block_count": 8,
+        "code_block_ratio": 0.5435,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.3432,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 12,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "compatibility: (109 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -87,14 +92,14 @@
     "sentence_count": 83,
     "imperative_count": 11,
     "imperative_ratio": 0.1325,
-    "information_density": 0.0663,
+    "information_density": 0.1325,
     "strong_markers": 3,
     "weak_markers": 6,
     "instruction_specificity": 0.3333,
     "section_count": 17,
     "list_item_count": 65
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -103,7 +108,343 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1331,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 150,
+    "imperative_count": 29,
+    "imperative_ratio": 0.1933,
+    "information_density": 0.1933,
+    "strong_markers": 10,
+    "weak_markers": 8,
+    "instruction_specificity": 0.5556,
+    "section_count": 28,
+    "list_item_count": 110
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "ruby"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "attributes-and-serialization.md",
+      "content_analysis": {
+        "word_count": 93,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 11,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1818,
+        "information_density": 0.1818,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "block-json.md",
+      "content_analysis": {
+        "word_count": 284,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 28,
+        "imperative_count": 6,
+        "imperative_ratio": 0.2143,
+        "information_density": 0.2143,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 4,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "creating-new-blocks.md",
+      "content_analysis": {
+        "word_count": 181,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 22,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1818,
+        "information_density": 0.1818,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "debugging.md",
+      "content_analysis": {
+        "word_count": 208,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 23,
+        "imperative_count": 5,
+        "imperative_ratio": 0.2174,
+        "information_density": 0.2174,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 15
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "deprecations.md",
+      "content_analysis": {
+        "word_count": 84,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 11,
+        "imperative_count": 3,
+        "imperative_ratio": 0.2727,
+        "information_density": 0.2727,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 2,
+        "list_item_count": 9
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "ruby"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "dynamic-rendering.md",
+      "content_analysis": {
+        "word_count": 98,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 12,
+        "imperative_count": 4,
+        "imperative_ratio": 0.3333,
+        "information_density": 0.3333,
+        "strong_markers": 3,
+        "weak_markers": 1,
+        "instruction_specificity": 0.75,
+        "section_count": 3,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "inner-blocks.md",
+      "content_analysis": {
+        "word_count": 133,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 13,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1538,
+        "information_density": 0.1538,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 12
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "registration.md",
+      "content_analysis": {
+        "word_count": 115,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 13,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.0769,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 3,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "supports-and-wrappers.md",
+      "content_analysis": {
+        "word_count": 48,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.125,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "tooling-and-testing.md",
+      "content_analysis": {
+        "word_count": 87,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 9,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.1111,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 12
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

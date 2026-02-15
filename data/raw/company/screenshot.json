@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "description: (220 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -100,7 +105,7 @@
     "section_count": 11,
     "list_item_count": 35
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -146,7 +151,10 @@
       "mobile"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

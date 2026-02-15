@@ -31,8 +31,13 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/main.go (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: assets/main.go (exists)"
     }
   ],
   "token_counts": {
@@ -52,14 +57,14 @@
     "sentence_count": 14,
     "imperative_count": 5,
     "imperative_ratio": 0.3571,
-    "information_density": 0.1786,
+    "information_density": 0.3571,
     "strong_markers": 1,
     "weak_markers": 0,
     "instruction_specificity": 1,
     "section_count": 0,
     "list_item_count": 9
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "terraform"
     ],
@@ -70,7 +75,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

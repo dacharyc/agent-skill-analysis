@@ -21,23 +21,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/modbus_rtu.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/modbus_tcp.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/modbus_rtu.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/canopen_basics.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/modbus_tcp.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/canopen_basics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -79,7 +84,7 @@
     "section_count": 7,
     "list_item_count": 13
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "kconfig",
@@ -93,7 +98,169 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 700,
+    "code_block_count": 6,
+    "code_block_ratio": 0.23,
+    "code_languages": [
+      "kconfig",
+      "c",
+      "kconfig",
+      "c",
+      "kconfig",
+      "c"
+    ],
+    "sentence_count": 43,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0465,
+    "information_density": 0.1383,
+    "strong_markers": 3,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 16,
+    "list_item_count": 21
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "kconfig",
+      "c",
+      "kconfig",
+      "c",
+      "kconfig",
+      "c"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "canopen_basics.md",
+      "content_analysis": {
+        "word_count": 235,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0809,
+        "code_languages": [
+          "kconfig",
+          "c"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0404,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 7,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "modbus_rtu.md",
+      "content_analysis": {
+        "word_count": 249,
+        "code_block_count": 2,
+        "code_block_ratio": 0.3454,
+        "code_languages": [
+          "kconfig",
+          "c"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1333,
+        "information_density": 0.2394,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "modbus_tcp.md",
+      "content_analysis": {
+        "word_count": 216,
+        "code_block_count": 2,
+        "code_block_ratio": 0.2593,
+        "code_languages": [
+          "kconfig",
+          "c"
+        ],
+        "sentence_count": 11,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1296,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 4,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

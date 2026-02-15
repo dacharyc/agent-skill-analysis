@@ -96,6 +96,7 @@ h3 {
 .stat-card.pass { border-left-color: #2ecc71; }
 .stat-card.fail { border-left-color: #e74c3c; }
 .stat-card.warn { border-left-color: #f39c12; }
+.stat-card.waste { border-left-color: #9b59b6; }
 
 .stat-value {
     font-size: 2.5rem;
@@ -305,6 +306,89 @@ h3 {
 .risk-card .risk-meta {
     font-size: 0.85rem;
     color: #7f8c8d;
+}
+
+/* Hidden contamination cards */
+#hidden-contamination-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.hidden-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #f39c12;
+}
+
+.hidden-card h4 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.hidden-card .hidden-meta {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.hidden-card .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.hidden-card .score-bar .bar {
+    height: 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.hidden-card .score-bar .bar-skill { background: #2ecc71; }
+.hidden-card .score-bar .bar-ref { background: #f39c12; }
+.hidden-card .score-bar .bar-ref.high { background: #e74c3c; }
+
+/* Detail panel hidden contamination alert */
+.detail-alert {
+    background: #fef9e7;
+    border: 1px solid #f9e79f;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    font-size: 0.85rem;
+    color: #7d6608;
+}
+
+.detail-alert.alert-high {
+    background: #fdedec;
+    border-color: #f5b7b1;
+    color: #922b21;
+}
+
+/* GitHub links */
+.gh-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.gh-link:hover {
+    text-decoration: underline;
+}
+
+.skill-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.skill-link:hover {
+    color: #3498db;
+    text-decoration: underline;
 }
 
 footer {

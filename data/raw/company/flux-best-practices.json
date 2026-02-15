@@ -56,58 +56,63 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/core-principles.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/flux2-models.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/core-principles.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/flux1-models.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/flux2-models.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/t2i-prompting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/flux1-models.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/i2i-prompting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/t2i-prompting.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/json-structured-prompting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/i2i-prompting.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/hex-color-prompting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/json-structured-prompting.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/typography-text.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/hex-color-prompting.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/multi-reference-editing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/typography-text.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/negative-prompt-alternatives.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/multi-reference-editing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "rules/model-selection-guide.md (exists)"
+      "category": "Structure",
+      "message": "internal link: rules/negative-prompt-alternatives.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: rules/model-selection-guide.md (exists)"
     }
   ],
   "token_counts": {
@@ -195,7 +200,7 @@
     "section_count": 8,
     "list_item_count": 24
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -204,7 +209,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -53,6 +53,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "total reference files: 34744 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -84,9 +89,21 @@
       {
         "file": "references/writing_principles.md",
         "tokens": 6251
+      },
+      {
+        "file": "assets/REPORT_FORMATTING_GUIDE.md",
+        "tokens": 4162
+      },
+      {
+        "file": "assets/scientific_report.sty",
+        "tokens": 4492
+      },
+      {
+        "file": "assets/scientific_report_template.tex",
+        "tokens": 3719
       }
     ],
-    "total": 41920
+    "total": 54293
   },
   "content_analysis": {
     "word_count": 4459,
@@ -111,7 +128,7 @@
     "section_count": 24,
     "list_item_count": 315
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -132,7 +149,317 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 20755,
+    "code_block_count": 138,
+    "code_block_ratio": 0.1868,
+    "code_languages": [
+      "latex",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex"
+    ],
+    "sentence_count": 1317,
+    "imperative_count": 49,
+    "imperative_ratio": 0.0372,
+    "information_density": 0.112,
+    "strong_markers": 78,
+    "weak_markers": 49,
+    "instruction_specificity": 0.6142,
+    "section_count": 381,
+    "list_item_count": 1484
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "latex",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet",
+      "java",
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.15,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "citation_styles.md",
+      "content_analysis": {
+        "word_count": 3355,
+        "code_block_count": 48,
+        "code_block_ratio": 0.2244,
+        "code_languages": [],
+        "sentence_count": 210,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0286,
+        "information_density": 0.1265,
+        "strong_markers": 11,
+        "weak_markers": 5,
+        "instruction_specificity": 0.6875,
+        "section_count": 66,
+        "list_item_count": 199
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet",
+          "java",
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.075,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "figures_tables.md",
+      "content_analysis": {
+        "word_count": 3971,
+        "code_block_count": 12,
+        "code_block_ratio": 0.1106,
+        "code_languages": [],
+        "sentence_count": 249,
+        "imperative_count": 10,
+        "imperative_ratio": 0.0402,
+        "information_density": 0.0754,
+        "strong_markers": 19,
+        "weak_markers": 6,
+        "instruction_specificity": 0.76,
+        "section_count": 65,
+        "list_item_count": 371
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "imrad_structure.md",
+      "content_analysis": {
+        "word_count": 3665,
+        "code_block_count": 10,
+        "code_block_ratio": 0.1342,
+        "code_languages": [],
+        "sentence_count": 180,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0056,
+        "information_density": 0.0699,
+        "strong_markers": 14,
+        "weak_markers": 12,
+        "instruction_specificity": 0.5385,
+        "section_count": 82,
+        "list_item_count": 299
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "professional_report_formatting.md",
+      "content_analysis": {
+        "word_count": 2571,
+        "code_block_count": 19,
+        "code_block_ratio": 0.3559,
+        "code_languages": [
+          "latex",
+          "bash",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 107,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1028,
+        "information_density": 0.2293,
+        "strong_markers": 9,
+        "weak_markers": 4,
+        "instruction_specificity": 0.6923,
+        "section_count": 54,
+        "list_item_count": 100
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "latex",
+          "bash",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "reporting_guidelines.md",
+      "content_analysis": {
+        "word_count": 3251,
+        "code_block_count": 5,
+        "code_block_ratio": 0.0581,
+        "code_languages": [],
+        "sentence_count": 334,
+        "imperative_count": 3,
+        "imperative_ratio": 0.009,
+        "information_density": 0.0336,
+        "strong_markers": 21,
+        "weak_markers": 3,
+        "instruction_specificity": 0.875,
+        "section_count": 54,
+        "list_item_count": 347
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "writing_principles.md",
+      "content_analysis": {
+        "word_count": 3942,
+        "code_block_count": 44,
+        "code_block_ratio": 0.276,
+        "code_languages": [],
+        "sentence_count": 237,
+        "imperative_count": 18,
+        "imperative_ratio": 0.0759,
+        "information_density": 0.176,
+        "strong_markers": 4,
+        "weak_markers": 19,
+        "instruction_specificity": 0.1739,
+        "section_count": 60,
+        "list_item_count": 168
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

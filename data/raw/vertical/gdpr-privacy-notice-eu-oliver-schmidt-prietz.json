@@ -43,6 +43,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 5120 tokens (spec recommends < 5000)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -106,7 +111,7 @@
     "section_count": 27,
     "list_item_count": 148
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -115,7 +120,239 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 14271,
+    "code_block_count": 29,
+    "code_block_ratio": 0.1084,
+    "code_languages": [],
+    "sentence_count": 952,
+    "imperative_count": 13,
+    "imperative_ratio": 0.0137,
+    "information_density": 0.061,
+    "strong_markers": 119,
+    "weak_markers": 30,
+    "instruction_specificity": 0.7987,
+    "section_count": 161,
+    "list_item_count": 515
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "redis",
+      "stripe"
+    ],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "DE.md",
+      "content_analysis": {
+        "word_count": 1253,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0822,
+        "code_languages": [],
+        "sentence_count": 90,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0222,
+        "information_density": 0.0522,
+        "strong_markers": 17,
+        "weak_markers": 2,
+        "instruction_specificity": 0.8947,
+        "section_count": 22,
+        "list_item_count": 44
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "EU_COMMON.md",
+      "content_analysis": {
+        "word_count": 2593,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0355,
+        "code_languages": [],
+        "sentence_count": 163,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0177,
+        "strong_markers": 21,
+        "weak_markers": 5,
+        "instruction_specificity": 0.8077,
+        "section_count": 37,
+        "list_item_count": 113
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws",
+          "redis",
+          "stripe"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "FR.md",
+      "content_analysis": {
+        "word_count": 1103,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1233,
+        "code_languages": [],
+        "sentence_count": 79,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0617,
+        "strong_markers": 12,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 21,
+        "list_item_count": 44
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "NOTICE_TYPES.md",
+      "content_analysis": {
+        "word_count": 4682,
+        "code_block_count": 22,
+        "code_block_ratio": 0.2597,
+        "code_languages": [],
+        "sentence_count": 291,
+        "imperative_count": 9,
+        "imperative_ratio": 0.0309,
+        "information_density": 0.1453,
+        "strong_markers": 59,
+        "weak_markers": 18,
+        "instruction_specificity": 0.7662,
+        "section_count": 43,
+        "list_item_count": 121
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "stripe"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "OTHER_EU.md",
+      "content_analysis": {
+        "word_count": 811,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 63,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 4,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6667,
+        "section_count": 8,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "templates.md",
+      "content_analysis": {
+        "word_count": 3829,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 266,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0075,
+        "information_density": 0.0075,
+        "strong_markers": 6,
+        "weak_markers": 3,
+        "instruction_specificity": 0.6667,
+        "section_count": 30,
+        "list_item_count": 186
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

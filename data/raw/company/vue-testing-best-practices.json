@@ -32,87 +32,72 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"version\""
+      "message": "unrecognized field: \"author\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"author\""
+      "message": "unrecognized field: \"version\""
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-vitest-recommended-for-vue.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-component-blackbox-approach.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-vitest-recommended-for-vue.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-async-await-flushpromises.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-component-blackbox-approach.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-composables-helper-wrapper.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-async-await-flushpromises.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-pinia-store-setup.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-composables-helper-wrapper.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-suspense-async-components.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-pinia-store-setup.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-no-snapshot-only.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-suspense-async-components.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-e2e-playwright-recommended.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-no-snapshot-only.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/testing-browser-vs-node-runners.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-e2e-playwright-recommended.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/async-component-testing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/testing-browser-vs-node-runners.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/teleport-testing-complexity.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/async-component-testing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://vuejs.org/guide/scaling-up/testing (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://test-utils.vuejs.org/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://vitest.dev/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://playwright.dev/ (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: reference/teleport-testing-complexity.md (exists)"
     }
   ],
   "token_counts": {
@@ -188,7 +173,7 @@
     "section_count": 2,
     "list_item_count": 15
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -197,7 +182,31 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vuejs.org/guide/scaling-up/testing (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://test-utils.vuejs.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://vitest.dev/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://playwright.dev/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

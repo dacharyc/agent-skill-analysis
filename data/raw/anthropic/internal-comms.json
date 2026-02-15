@@ -38,6 +38,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "license: \"Complete terms in LICENSE.txt\""
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -82,14 +87,14 @@
     "sentence_count": 11,
     "imperative_count": 2,
     "imperative_ratio": 0.1818,
-    "information_density": 0.0909,
+    "information_density": 0.1818,
     "strong_markers": 0,
     "weak_markers": 0,
     "instruction_specificity": 0,
     "section_count": 3,
     "list_item_count": 14
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -98,7 +103,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

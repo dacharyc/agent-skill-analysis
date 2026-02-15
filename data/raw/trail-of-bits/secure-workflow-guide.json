@@ -26,18 +26,18 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/WORKFLOW_STEPS.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/EXAMPLE_REPORT.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/WORKFLOW_STEPS.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://meetings.hubspot.com/trailofbits/office-hours (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: resources/EXAMPLE_REPORT.md (exists)"
     }
   ],
   "token_counts": {
@@ -70,14 +70,14 @@
     "sentence_count": 45,
     "imperative_count": 3,
     "imperative_ratio": 0.0667,
-    "information_density": 0.0333,
+    "information_density": 0.0667,
     "strong_markers": 6,
     "weak_markers": 1,
     "instruction_specificity": 0.8571,
     "section_count": 13,
     "list_item_count": 57
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -86,7 +86,16 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://meetings.hubspot.com/trailofbits/office-hours (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -41,13 +41,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/YuhangChen1/Paper2All.git (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/YuhangChen1/Paper2All (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -106,7 +101,7 @@
     "section_count": 47,
     "list_item_count": 148
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -131,7 +126,346 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 5209,
+    "code_block_count": 37,
+    "code_block_ratio": 0.1876,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 363,
+    "imperative_count": 38,
+    "imperative_ratio": 0.1047,
+    "information_density": 0.1461,
+    "strong_markers": 18,
+    "weak_markers": 27,
+    "instruction_specificity": 0.4,
+    "section_count": 162,
+    "list_item_count": 493
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "installation.md",
+      "content_analysis": {
+        "word_count": 482,
+        "code_block_count": 10,
+        "code_block_ratio": 0.1992,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 35,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.171,
+        "strong_markers": 7,
+        "weak_markers": 1,
+        "instruction_specificity": 0.875,
+        "section_count": 18,
+        "list_item_count": 27
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "paper2poster.md",
+      "content_analysis": {
+        "word_count": 1372,
+        "code_block_count": 5,
+        "code_block_ratio": 0.0904,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "json"
+        ],
+        "sentence_count": 94,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0426,
+        "information_density": 0.0665,
+        "strong_markers": 3,
+        "weak_markers": 6,
+        "instruction_specificity": 0.3333,
+        "section_count": 47,
+        "list_item_count": 181
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "paper2video.md",
+      "content_analysis": {
+        "word_count": 1274,
+        "code_block_count": 4,
+        "code_block_ratio": 0.1303,
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 91,
+        "imperative_count": 12,
+        "imperative_ratio": 0.1319,
+        "information_density": 0.1311,
+        "strong_markers": 4,
+        "weak_markers": 6,
+        "instruction_specificity": 0.4,
+        "section_count": 44,
+        "list_item_count": 140
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "paper2web.md",
+      "content_analysis": {
+        "word_count": 705,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1021,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 54,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.1066,
+        "strong_markers": 0,
+        "weak_markers": 7,
+        "instruction_specificity": 0,
+        "section_count": 27,
+        "list_item_count": 83
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "usage_examples.md",
+      "content_analysis": {
+        "word_count": 1376,
+        "code_block_count": 15,
+        "code_block_ratio": 0.3772,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 89,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1236,
+        "information_density": 0.2504,
+        "strong_markers": 4,
+        "weak_markers": 7,
+        "instruction_specificity": 0.3636,
+        "section_count": 26,
+        "list_item_count": 62
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/YuhangChen1/Paper2All.git (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/YuhangChen1/Paper2All (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

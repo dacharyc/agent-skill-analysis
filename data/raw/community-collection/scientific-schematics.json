@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/scientific-schematics",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -51,38 +51,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/keys (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://schemdraw.readthedocs.io/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://networkx.org/documentation/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://matplotlib.org/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.nature.com/nature/for-authors/final-submission (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://www.science.org/content/page/instructions-preparing-initial-manuscript (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "http://www.consort-statement.org/consort-statement/flow-diagram (HTTP 404)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -135,7 +105,7 @@
     "section_count": 47,
     "list_item_count": 167
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -165,7 +135,331 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 4032,
+    "code_block_count": 37,
+    "code_block_ratio": 0.2359,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "bash",
+      "latex",
+      "python",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 237,
+    "imperative_count": 17,
+    "imperative_ratio": 0.0717,
+    "information_density": 0.1538,
+    "strong_markers": 16,
+    "weak_markers": 2,
+    "instruction_specificity": 0.8889,
+    "section_count": 99,
+    "list_item_count": 312
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "stripe"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "bash",
+      "latex",
+      "python",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.6417,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "QUICK_REFERENCE.md",
+      "content_analysis": {
+        "word_count": 641,
+        "code_block_count": 12,
+        "code_block_ratio": 0.3541,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 33,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0303,
+        "information_density": 0.1922,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 24,
+        "list_item_count": 34
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "README.md",
+      "content_analysis": {
+        "word_count": 1077,
+        "code_block_count": 13,
+        "code_block_ratio": 0.4104,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 65,
+        "imperative_count": 10,
+        "imperative_ratio": 0.1538,
+        "information_density": 0.2821,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 33,
+        "list_item_count": 49
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "best_practices.md",
+      "content_analysis": {
+        "word_count": 2314,
+        "code_block_count": 12,
+        "code_block_ratio": 0.1219,
+        "code_languages": [
+          "latex",
+          "bash",
+          "latex",
+          "python",
+          "python",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 139,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0432,
+        "information_density": 0.0825,
+        "strong_markers": 14,
+        "weak_markers": 2,
+        "instruction_specificity": 0.875,
+        "section_count": 42,
+        "list_item_count": 229
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "stripe"
+        ],
+        "code_languages": [
+          "latex",
+          "bash",
+          "latex",
+          "python",
+          "python",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.4333,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/keys (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://schemdraw.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://networkx.org/documentation/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://matplotlib.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nature.com/nature/for-authors/final-submission (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.science.org/content/page/instructions-preparing-initial-manuscript (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://www.consort-statement.org/consort-statement/flow-diagram (HTTP 404)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

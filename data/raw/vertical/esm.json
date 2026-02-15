@@ -27,11 +27,6 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"biomodals_script\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"category\""
     },
     {
@@ -50,9 +45,19 @@
       "message": "unrecognized field: \"proteinbase_url\""
     },
     {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
       "level": "error",
-      "category": "Links",
-      "message": "../../docs/installation.md (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: ../../docs/installation.md (file not found)"
     }
   ],
   "token_counts": {
@@ -83,7 +88,7 @@
     "section_count": 15,
     "list_item_count": 3
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -101,7 +106,10 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

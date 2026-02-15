@@ -31,18 +31,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/script-setup-macros.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-new-apis.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/script-setup-macros.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/advanced-patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-new-apis.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/advanced-patterns.md (exists)"
     }
   ],
   "token_counts": {
@@ -93,7 +98,7 @@
     "section_count": 6,
     "list_item_count": 5
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "vue",
@@ -109,7 +114,325 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1957,
+    "code_block_count": 44,
+    "code_block_ratio": 0.676,
+    "code_languages": [
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "ts",
+      "vue",
+      "vue",
+      "vue",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "ts",
+      "vue",
+      "vue"
+    ],
+    "sentence_count": 95,
+    "imperative_count": 9,
+    "imperative_ratio": 0.0947,
+    "information_density": 0.3854,
+    "strong_markers": 4,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8,
+    "section_count": 44,
+    "list_item_count": 16
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "vue",
+      "ts",
+      "vue",
+      "vue",
+      "vue",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "ts",
+      "vue",
+      "vue"
+    ],
+    "language_categories": [
+      "javascript"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "advanced-patterns.md",
+      "content_analysis": {
+        "word_count": 682,
+        "code_block_count": 19,
+        "code_block_ratio": 0.6056,
+        "code_languages": [
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "ts",
+          "vue",
+          "vue",
+          "vue",
+          "ts",
+          "vue",
+          "ts"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0833,
+        "information_density": 0.3445,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 19,
+        "list_item_count": 10
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "vue",
+          "ts",
+          "vue",
+          "vue",
+          "vue",
+          "ts",
+          "vue",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-new-apis.md",
+      "content_analysis": {
+        "word_count": 731,
+        "code_block_count": 11,
+        "code_block_ratio": 0.7729,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 27,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1481,
+        "information_density": 0.4605,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 15,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "script-setup-macros.md",
+      "content_analysis": {
+        "word_count": 544,
+        "code_block_count": 14,
+        "code_block_ratio": 0.6342,
+        "code_languages": [
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "vue",
+          "ts",
+          "vue",
+          "vue"
+        ],
+        "sentence_count": 32,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0625,
+        "information_density": 0.3483,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 10,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "vue",
+          "ts",
+          "vue",
+          "vue"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

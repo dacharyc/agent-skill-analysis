@@ -31,48 +31,53 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-stores.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/features-plugins.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-stores.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/features-composables.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/features-plugins.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/features-composing-stores.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/features-composables.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/best-practices-testing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/features-composing-stores.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/best-practices-outside-component.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/best-practices-testing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/advanced-ssr.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/best-practices-outside-component.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/advanced-nuxt.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/advanced-ssr.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/advanced-hmr.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/advanced-nuxt.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/advanced-hmr.md (exists)"
     }
   ],
   "token_counts": {
@@ -137,14 +142,14 @@
     "sentence_count": 20,
     "imperative_count": 1,
     "imperative_ratio": 0.05,
-    "information_density": 0.025,
+    "information_density": 0.05,
     "strong_markers": 0,
     "weak_markers": 1,
     "instruction_specificity": 0,
     "section_count": 7,
     "list_item_count": 6
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -155,7 +160,700 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 3730,
+    "code_block_count": 82,
+    "code_block_ratio": 0.6075,
+    "code_languages": [
+      "ts",
+      "ts",
+      "bash",
+      "json",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts"
+    ],
+    "sentence_count": 207,
+    "imperative_count": 27,
+    "imperative_ratio": 0.1304,
+    "information_density": 0.369,
+    "strong_markers": 11,
+    "weak_markers": 2,
+    "instruction_specificity": 0.8462,
+    "section_count": 86,
+    "list_item_count": 33
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "ts",
+      "ts",
+      "bash",
+      "json",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "advanced-hmr.md",
+      "content_analysis": {
+        "word_count": 174,
+        "code_block_count": 2,
+        "code_block_ratio": 0.3448,
+        "code_languages": [
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.2109,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "advanced-nuxt.md",
+      "content_analysis": {
+        "word_count": 324,
+        "code_block_count": 8,
+        "code_block_ratio": 0.4228,
+        "code_languages": [
+          "bash",
+          "json",
+          "ts",
+          "ts",
+          "vue",
+          "vue",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0952,
+        "information_density": 0.259,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 8,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "json",
+          "ts",
+          "ts",
+          "vue",
+          "vue",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "advanced-ssr.md",
+      "content_analysis": {
+        "word_count": 311,
+        "code_block_count": 6,
+        "code_block_ratio": 0.4598,
+        "code_languages": [
+          "vue",
+          "ts",
+          "ts",
+          "vue",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 6,
+        "imperative_ratio": 0.2308,
+        "information_density": 0.3453,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "vue",
+          "ts",
+          "ts",
+          "vue",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "best-practices-outside-component.md",
+      "content_analysis": {
+        "word_count": 301,
+        "code_block_count": 6,
+        "code_block_ratio": 0.5847,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "vue"
+        ],
+        "sentence_count": 18,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0556,
+        "information_density": 0.3201,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 6,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "vue"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "best-practices-testing.md",
+      "content_analysis": {
+        "word_count": 475,
+        "code_block_count": 13,
+        "code_block_ratio": 0.6968,
+        "code_languages": [
+          "ts",
+          "ts",
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 25,
+        "imperative_count": 5,
+        "imperative_ratio": 0.2,
+        "information_density": 0.4484,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 13,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-stores.md",
+      "content_analysis": {
+        "word_count": 963,
+        "code_block_count": 24,
+        "code_block_ratio": 0.6636,
+        "code_languages": [
+          "ts",
+          "ts",
+          "vue",
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0833,
+        "information_density": 0.3734,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 23,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "vue",
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "features-composables.md",
+      "content_analysis": {
+        "word_count": 338,
+        "code_block_count": 4,
+        "code_block_ratio": 0.5858,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1176,
+        "information_density": 0.3517,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "features-composing-stores.md",
+      "content_analysis": {
+        "word_count": 366,
+        "code_block_count": 6,
+        "code_block_ratio": 0.694,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1333,
+        "information_density": 0.4137,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "features-plugins.md",
+      "content_analysis": {
+        "word_count": 478,
+        "code_block_count": 13,
+        "code_block_ratio": 0.6862,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 24,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1667,
+        "information_density": 0.4264,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 12,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

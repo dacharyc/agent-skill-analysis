@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-eventgrid-dotnet",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -30,29 +30,9 @@
       "message": "unrecognized field: \"package\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.nuget.org/packages/Azure.Messaging.EventGrid (HTTP 404)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/event-grid/custom-event-quickstart (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/event-grid/pull-delivery-overview (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -103,7 +83,7 @@
     "section_count": 30,
     "list_item_count": 8
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -139,7 +119,215 @@
       "dotnet"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1275,
+    "code_block_count": 27,
+    "code_block_ratio": 0.5694,
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "sentence_count": 58,
+    "imperative_count": 6,
+    "imperative_ratio": 0.1034,
+    "information_density": 0.3364,
+    "strong_markers": 3,
+    "weak_markers": 3,
+    "instruction_specificity": 0.5,
+    "section_count": 46,
+    "list_item_count": 8
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "language_categories": [
+      "dotnet"
+    ],
+    "primary_category": "dotnet",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 1275,
+        "code_block_count": 27,
+        "code_block_ratio": 0.5694,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 58,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1034,
+        "information_density": 0.3364,
+        "strong_markers": 3,
+        "weak_markers": 3,
+        "instruction_specificity": 0.5,
+        "section_count": 46,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.nuget.org/packages/Azure.Messaging.EventGrid (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/event-grid/custom-event-quickstart (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/event-grid/pull-delivery-overview (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

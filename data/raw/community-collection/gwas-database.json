@@ -36,43 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/rest/docs/api (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/summary-statistics/docs/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/EBISPOT/GWAS_Catalog-workshop (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/docs (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "http://ftp.ebi.ac.uk/pub/databases/gwas/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.pgscatalog.org/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -121,7 +86,7 @@
     "section_count": 32,
     "list_item_count": 192
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -155,7 +120,196 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 2033,
+    "code_block_count": 42,
+    "code_block_ratio": 0.5288,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 106,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.2644,
+    "strong_markers": 2,
+    "weak_markers": 3,
+    "instruction_specificity": 0.4,
+    "section_count": 42,
+    "list_item_count": 85
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 2033,
+        "code_block_count": 42,
+        "code_block_ratio": 0.5288,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "json",
+          "json",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 106,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2644,
+        "strong_markers": 2,
+        "weak_markers": 3,
+        "instruction_specificity": 0.4,
+        "section_count": 42,
+        "list_item_count": 85
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "json",
+          "json",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ebi.ac.uk/gwas/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ebi.ac.uk/gwas/rest/docs/api (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ebi.ac.uk/gwas/summary-statistics/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/EBISPOT/GWAS_Catalog-workshop (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ebi.ac.uk/gwas/docs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "http://ftp.ebi.ac.uk/pub/databases/gwas/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.pgscatalog.org/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

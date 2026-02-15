@@ -26,18 +26,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/FUNCTION_MICRO_ANALYSIS_EXAMPLE.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/OUTPUT_REQUIREMENTS.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/FUNCTION_MICRO_ANALYSIS_EXAMPLE.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/COMPLETENESS_CHECKLIST.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/OUTPUT_REQUIREMENTS.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: resources/COMPLETENESS_CHECKLIST.md (exists)"
     }
   ],
   "token_counts": {
@@ -74,14 +79,14 @@
     "sentence_count": 119,
     "imperative_count": 12,
     "imperative_ratio": 0.1008,
-    "information_density": 0.0504,
+    "information_density": 0.1008,
     "strong_markers": 12,
     "weak_markers": 3,
     "instruction_specificity": 0.8,
     "section_count": 19,
     "list_item_count": 126
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -92,7 +97,10 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

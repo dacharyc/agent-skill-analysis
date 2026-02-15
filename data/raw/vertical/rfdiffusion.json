@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/protein-design-skills/skills/rfdiffusion",
   "passed": false,
-  "errors": 2,
+  "errors": 1,
   "warnings": 6,
   "results": [
     {
@@ -55,24 +55,14 @@
       "message": "unrecognized field: \"biomodals_script\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "../../docs/installation.md (file not found)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/hgbrian/biomodals (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/RosettaCommons/RFdiffusion.git (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "http://files.ipd.uw.edu/pub/RFdiffusion/models/Complex_base_ckpt.pt (HTTP 404)"
+      "category": "Structure",
+      "message": "broken internal link: ../../docs/installation.md (file not found)"
     }
   ],
   "token_counts": {
@@ -128,7 +118,7 @@
     "section_count": 29,
     "list_item_count": 11
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -151,7 +141,177 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 916,
+    "code_block_count": 11,
+    "code_block_ratio": 0.1507,
+    "code_languages": [
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 59,
+    "imperative_count": 4,
+    "imperative_ratio": 0.0678,
+    "information_density": 0.1092,
+    "strong_markers": 2,
+    "weak_markers": 2,
+    "instruction_specificity": 0.5,
+    "section_count": 38,
+    "list_item_count": 32
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "hotspot-selection.md",
+      "content_analysis": {
+        "word_count": 407,
+        "code_block_count": 4,
+        "code_block_ratio": 0.1302,
+        "code_languages": [
+          "python",
+          "bash",
+          "python",
+          "bash"
+        ],
+        "sentence_count": 33,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1212,
+        "information_density": 0.1257,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 21,
+        "list_item_count": 32
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "bash",
+          "python",
+          "bash"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "parameters.md",
+      "content_analysis": {
+        "word_count": 509,
+        "code_block_count": 7,
+        "code_block_ratio": 0.167,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0835,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 17,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/hgbrian/biomodals (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/RosettaCommons/RFdiffusion.git (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://files.ipd.uw.edu/pub/RFdiffusion/models/Complex_base_ckpt.pt (HTTP 404)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

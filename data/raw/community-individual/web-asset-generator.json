@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/web-asset-generator/skills/web-asset-generator",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 4,
   "results": [
     {
@@ -41,23 +41,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://developers.facebook.com/tools/debug/ (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://cards-dev.twitter.com/validator (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.linkedin.com/post-inspector/ (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.opengraph.xyz/ (HTTP 429)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -120,7 +105,7 @@
     "section_count": 49,
     "list_item_count": 235
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -159,7 +144,106 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 774,
+    "code_block_count": 2,
+    "code_block_ratio": 0.1176,
+    "code_languages": [
+      "html",
+      "html"
+    ],
+    "sentence_count": 37,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0541,
+    "information_density": 0.0858,
+    "strong_markers": 4,
+    "weak_markers": 4,
+    "instruction_specificity": 0.5,
+    "section_count": 28,
+    "list_item_count": 76
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "html",
+      "html"
+    ],
+    "language_categories": [
+      "markup"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "specifications.md",
+      "content_analysis": {
+        "word_count": 774,
+        "code_block_count": 2,
+        "code_block_ratio": 0.1176,
+        "code_languages": [
+          "html",
+          "html"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0541,
+        "information_density": 0.0858,
+        "strong_markers": 4,
+        "weak_markers": 4,
+        "instruction_specificity": 0.5,
+        "section_count": 28,
+        "list_item_count": 76
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "html",
+          "html"
+        ],
+        "language_categories": [
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developers.facebook.com/tools/debug/ (request failed: Head \"https://developers.facebook.com/tools/debug/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers))"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://cards-dev.twitter.com/validator (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.linkedin.com/post-inspector/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.opengraph.xyz/ (HTTP 429)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

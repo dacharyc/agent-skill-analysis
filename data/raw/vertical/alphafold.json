@@ -40,14 +40,14 @@
       "message": "unrecognized field: \"biomodals_script\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "../../docs/installation.md (file not found)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/deepmind/alphafold.git (HTTP 200)"
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: ../../docs/installation.md (file not found)"
     }
   ],
   "token_counts": {
@@ -84,7 +84,7 @@
     "section_count": 15,
     "list_item_count": 4
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -104,7 +104,101 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 479,
+    "code_block_count": 6,
+    "code_block_ratio": 0.2192,
+    "code_languages": [
+      "python",
+      "bash",
+      "python"
+    ],
+    "sentence_count": 41,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0488,
+    "information_density": 0.134,
+    "strong_markers": 1,
+    "weak_markers": 2,
+    "instruction_specificity": 0.3333,
+    "section_count": 22,
+    "list_item_count": 31
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "bash",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "multimer.md",
+      "content_analysis": {
+        "word_count": 479,
+        "code_block_count": 6,
+        "code_block_ratio": 0.2192,
+        "code_languages": [
+          "python",
+          "bash",
+          "python"
+        ],
+        "sentence_count": 41,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0488,
+        "information_density": 0.134,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 22,
+        "list_item_count": 31
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "bash",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/deepmind/alphafold.git (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

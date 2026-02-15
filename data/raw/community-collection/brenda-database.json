@@ -41,28 +41,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.brenda-enzymes.org/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.brenda-enzymes.org/soap.php (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://www.qmul.ac.uk/sbcs/iubmb/enzyme/ (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://python-zeep.readthedocs.io/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.iubmb.org/enzyme/ (HTTP 202)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -127,7 +107,7 @@
     "section_count": 33,
     "list_item_count": 90
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -177,7 +157,171 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 1891,
+    "code_block_count": 19,
+    "code_block_ratio": 0.166,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 87,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0115,
+    "information_density": 0.0888,
+    "strong_markers": 0,
+    "weak_markers": 2,
+    "instruction_specificity": 0,
+    "section_count": 46,
+    "list_item_count": 173
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 1891,
+        "code_block_count": 19,
+        "code_block_ratio": 0.166,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 87,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0115,
+        "information_density": 0.0888,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 46,
+        "list_item_count": 173
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.brenda-enzymes.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.brenda-enzymes.org/soap.php (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.qmul.ac.uk/sbcs/iubmb/enzyme/ (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://python-zeep.readthedocs.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.iubmb.org/enzyme/ (HTTP 202)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

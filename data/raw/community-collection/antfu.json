@@ -26,28 +26,33 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/antfu-eslint-config.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/setting-up.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/antfu-eslint-config.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/app-development.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/setting-up.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/library-development.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/app-development.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/monorepo.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/library-development.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/monorepo.md (exists)"
     }
   ],
   "token_counts": {
@@ -99,7 +104,7 @@
     "section_count": 13,
     "list_item_count": 14
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "ts",
@@ -118,7 +123,373 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1640,
+    "code_block_count": 36,
+    "code_block_ratio": 0.4823,
+    "code_languages": [
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "ts",
+      "js",
+      "js",
+      "js",
+      "json",
+      "bash",
+      "jsonc",
+      "vue",
+      "ts",
+      "ts",
+      "json",
+      "yaml",
+      "json",
+      "json",
+      "json",
+      "ts",
+      "json",
+      "ts",
+      "ts",
+      "yaml",
+      "yaml",
+      "yaml",
+      "json"
+    ],
+    "sentence_count": 95,
+    "imperative_count": 13,
+    "imperative_ratio": 0.1368,
+    "information_density": 0.3096,
+    "strong_markers": 5,
+    "weak_markers": 2,
+    "instruction_specificity": 0.7143,
+    "section_count": 39,
+    "list_item_count": 4
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "js",
+      "ts",
+      "js",
+      "js",
+      "js",
+      "json",
+      "bash",
+      "jsonc",
+      "vue",
+      "ts",
+      "ts",
+      "json",
+      "yaml",
+      "json",
+      "json",
+      "json",
+      "ts",
+      "json",
+      "ts",
+      "ts",
+      "yaml",
+      "yaml",
+      "yaml",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "antfu-eslint-config.md",
+      "content_analysis": {
+        "word_count": 686,
+        "code_block_count": 19,
+        "code_block_ratio": 0.6531,
+        "code_languages": [
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "ts",
+          "js",
+          "js",
+          "js",
+          "json",
+          "bash",
+          "jsonc"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0833,
+        "information_density": 0.3682,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 20,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "js",
+          "ts",
+          "js",
+          "js",
+          "js",
+          "json",
+          "bash",
+          "jsonc"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "app-development.md",
+      "content_analysis": {
+        "word_count": 142,
+        "code_block_count": 1,
+        "code_block_ratio": 0.2535,
+        "code_languages": [
+          "vue"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.1893,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 3,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "vue"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "library-development.md",
+      "content_analysis": {
+        "word_count": 250,
+        "code_block_count": 3,
+        "code_block_ratio": 0.24,
+        "code_languages": [
+          "ts",
+          "ts",
+          "json"
+        ],
+        "sentence_count": 16,
+        "imperative_count": 2,
+        "imperative_ratio": 0.125,
+        "information_density": 0.1825,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 4,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "monorepo.md",
+      "content_analysis": {
+        "word_count": 321,
+        "code_block_count": 8,
+        "code_block_ratio": 0.5358,
+        "code_languages": [
+          "yaml",
+          "json",
+          "json",
+          "json",
+          "ts",
+          "json",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1176,
+        "information_density": 0.3267,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml",
+          "json",
+          "json",
+          "json",
+          "ts",
+          "json",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "config",
+          "javascript"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "setting-up.md",
+      "content_analysis": {
+        "word_count": 241,
+        "code_block_count": 5,
+        "code_block_ratio": 0.3112,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "json"
+        ],
+        "sentence_count": 18,
+        "imperative_count": 5,
+        "imperative_ratio": 0.2778,
+        "information_density": 0.2945,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "json"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

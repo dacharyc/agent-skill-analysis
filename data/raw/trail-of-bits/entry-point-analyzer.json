@@ -33,6 +33,11 @@
       "level": "info",
       "category": "Frontmatter",
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -91,7 +96,7 @@
     "section_count": 30,
     "list_item_count": 59
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -109,7 +114,439 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 4138,
+    "code_block_count": 42,
+    "code_block_ratio": 0.3403,
+    "code_languages": [
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "solidity",
+      "solidity",
+      "solidity",
+      "solidity",
+      "solidity",
+      "solidity",
+      "func",
+      "tact",
+      "func",
+      "tact",
+      "func",
+      "func",
+      "func",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper"
+    ],
+    "sentence_count": 216,
+    "imperative_count": 10,
+    "imperative_ratio": 0.0463,
+    "information_density": 0.1933,
+    "strong_markers": 12,
+    "weak_markers": 11,
+    "instruction_specificity": 0.5217,
+    "section_count": 100,
+    "list_item_count": 155
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "move",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "rust",
+      "solidity",
+      "solidity",
+      "solidity",
+      "solidity",
+      "solidity",
+      "solidity",
+      "func",
+      "tact",
+      "func",
+      "tact",
+      "func",
+      "func",
+      "func",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper",
+      "vyper"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "cosmwasm.md",
+      "content_analysis": {
+        "word_count": 700,
+        "code_block_count": 7,
+        "code_block_ratio": 0.4671,
+        "code_languages": [
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2336,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 15,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "move-aptos.md",
+      "content_analysis": {
+        "word_count": 459,
+        "code_block_count": 5,
+        "code_block_ratio": 0.3072,
+        "code_languages": [
+          "move",
+          "move",
+          "move",
+          "move",
+          "move"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0645,
+        "information_density": 0.1859,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 14,
+        "list_item_count": 15
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "move",
+          "move",
+          "move",
+          "move",
+          "move"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "move-sui.md",
+      "content_analysis": {
+        "word_count": 531,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2844,
+        "code_languages": [
+          "move",
+          "move",
+          "move"
+        ],
+        "sentence_count": 29,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0345,
+        "information_density": 0.1594,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 9,
+        "list_item_count": 18
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "move",
+          "move",
+          "move"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "solana.md",
+      "content_analysis": {
+        "word_count": 611,
+        "code_block_count": 7,
+        "code_block_ratio": 0.2864,
+        "code_languages": [
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust"
+        ],
+        "sentence_count": 32,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1432,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 15,
+        "list_item_count": 26
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust",
+          "rust"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "solidity.md",
+      "content_analysis": {
+        "word_count": 658,
+        "code_block_count": 6,
+        "code_block_ratio": 0.3176,
+        "code_languages": [
+          "solidity",
+          "solidity",
+          "solidity",
+          "solidity",
+          "solidity",
+          "solidity"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.1973,
+        "strong_markers": 2,
+        "weak_markers": 4,
+        "instruction_specificity": 0.3333,
+        "section_count": 15,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "solidity",
+          "solidity",
+          "solidity",
+          "solidity",
+          "solidity",
+          "solidity"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "ton.md",
+      "content_analysis": {
+        "word_count": 686,
+        "code_block_count": 7,
+        "code_block_ratio": 0.379,
+        "code_languages": [
+          "func",
+          "tact",
+          "func",
+          "tact",
+          "func",
+          "func",
+          "func"
+        ],
+        "sentence_count": 39,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.228,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 17,
+        "list_item_count": 29
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "func",
+          "tact",
+          "func",
+          "tact",
+          "func",
+          "func",
+          "func"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "vyper.md",
+      "content_analysis": {
+        "word_count": 493,
+        "code_block_count": 7,
+        "code_block_ratio": 0.2941,
+        "code_languages": [
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper"
+        ],
+        "sentence_count": 28,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0714,
+        "information_density": 0.1828,
+        "strong_markers": 5,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 15,
+        "list_item_count": 20
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper",
+          "vyper"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

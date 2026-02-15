@@ -51,13 +51,18 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/docx-js.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/ooxml.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/docx-js.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: ./references/ooxml.md (exists)"
     }
   ],
   "token_counts": {
@@ -299,7 +304,7 @@
     "section_count": 19,
     "list_item_count": 56
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -323,7 +328,271 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 4390,
+    "code_block_count": 36,
+    "code_block_ratio": 0.661,
+    "code_languages": [
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "xml",
+      "xml",
+      "xml",
+      "xml"
+    ],
+    "sentence_count": 87,
+    "imperative_count": 8,
+    "imperative_ratio": 0.092,
+    "information_density": 0.3765,
+    "strong_markers": 68,
+    "weak_markers": 2,
+    "instruction_specificity": 0.9714,
+    "section_count": 36,
+    "list_item_count": 61
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "javascript",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "xml",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "xml",
+      "xml",
+      "xml",
+      "xml"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "python",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "javascript",
+      "python",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "docx-js.md",
+      "content_analysis": {
+        "word_count": 2194,
+        "code_block_count": 10,
+        "code_block_ratio": 0.6828,
+        "code_languages": [
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1154,
+        "information_density": 0.3991,
+        "strong_markers": 49,
+        "weak_markers": 1,
+        "instruction_specificity": 0.98,
+        "section_count": 12,
+        "list_item_count": 37
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript",
+          "javascript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "ooxml.md",
+      "content_analysis": {
+        "word_count": 2196,
+        "code_block_count": 26,
+        "code_block_ratio": 0.6393,
+        "code_languages": [
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "xml",
+          "xml",
+          "xml",
+          "xml"
+        ],
+        "sentence_count": 62,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0806,
+        "information_density": 0.36,
+        "strong_markers": 19,
+        "weak_markers": 1,
+        "instruction_specificity": 0.95,
+        "section_count": 24,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "xml",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "xml",
+          "xml",
+          "xml",
+          "xml"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "python",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

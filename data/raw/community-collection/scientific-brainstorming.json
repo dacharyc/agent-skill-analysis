@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (1 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -51,14 +56,14 @@
     "sentence_count": 75,
     "imperative_count": 5,
     "imperative_ratio": 0.0667,
-    "information_density": 0.0333,
+    "information_density": 0.0667,
     "strong_markers": 5,
     "weak_markers": 10,
     "instruction_specificity": 0.3333,
     "section_count": 17,
     "list_item_count": 90
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -67,7 +72,69 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1741,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 160,
+    "imperative_count": 4,
+    "imperative_ratio": 0.025,
+    "information_density": 0.025,
+    "strong_markers": 3,
+    "weak_markers": 9,
+    "instruction_specificity": 0.25,
+    "section_count": 42,
+    "list_item_count": 157
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "brainstorming_methods.md",
+      "content_analysis": {
+        "word_count": 1741,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 160,
+        "imperative_count": 4,
+        "imperative_ratio": 0.025,
+        "information_density": 0.025,
+        "strong_markers": 3,
+        "weak_markers": 9,
+        "instruction_specificity": 0.25,
+        "section_count": 42,
+        "list_item_count": 157
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

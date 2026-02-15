@@ -1,8 +1,8 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/superpowers-skills/skills/collaboration/writing-plans",
   "passed": false,
-  "errors": 2,
-  "warnings": 3,
+  "errors": 3,
+  "warnings": 2,
   "results": [
     {
       "level": "pass",
@@ -35,7 +35,7 @@
       "message": "unrecognized field: \"when_to_use\""
     },
     {
-      "level": "warning",
+      "level": "error",
       "category": "Markdown",
       "message": "SKILL.md has an unclosed code fence starting at line 84 \u2014 this may cause agents to misinterpret everything after it as code"
     }
@@ -70,7 +70,7 @@
     "section_count": 7,
     "list_item_count": 18
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "markdown",
@@ -92,7 +92,10 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

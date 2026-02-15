@@ -21,33 +21,38 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/mcuboot_integration.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/image_signing.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/mcuboot_integration.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/dfu_protocols.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/image_signing.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/rollback_protection.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/dfu_protocols.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/crypto_basics.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/rollback_protection.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/crypto_basics.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -97,7 +102,7 @@
     "section_count": 9,
     "list_item_count": 19
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "kconfig",
@@ -111,7 +116,288 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1208,
+    "code_block_count": 17,
+    "code_block_ratio": 0.2252,
+    "code_languages": [
+      "kconfig",
+      "c",
+      "c",
+      "kconfig",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "kconfig",
+      "bash",
+      "kconfig",
+      "dts",
+      "kconfig",
+      "bash",
+      "bash",
+      "c",
+      "kconfig"
+    ],
+    "sentence_count": 68,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0147,
+    "information_density": 0.1199,
+    "strong_markers": 11,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9167,
+    "section_count": 31,
+    "list_item_count": 19
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "kconfig",
+      "c",
+      "c",
+      "kconfig",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "kconfig",
+      "bash",
+      "kconfig",
+      "dts",
+      "kconfig",
+      "bash",
+      "bash",
+      "c",
+      "kconfig"
+    ],
+    "language_categories": [
+      "shell",
+      "systems"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "crypto_basics.md",
+      "content_analysis": {
+        "word_count": 215,
+        "code_block_count": 3,
+        "code_block_ratio": 0.214,
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "sentence_count": 12,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0833,
+        "information_density": 0.1486,
+        "strong_markers": 4,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 4,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "dfu_protocols.md",
+      "content_analysis": {
+        "word_count": 245,
+        "code_block_count": 4,
+        "code_block_ratio": 0.1959,
+        "code_languages": [
+          "kconfig",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 18,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.098,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 8,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "image_signing.md",
+      "content_analysis": {
+        "word_count": 211,
+        "code_block_count": 4,
+        "code_block_ratio": 0.1659,
+        "code_languages": [
+          "bash",
+          "kconfig",
+          "bash",
+          "kconfig"
+        ],
+        "sentence_count": 12,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0829,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "kconfig",
+          "bash",
+          "kconfig"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "mcuboot_integration.md",
+      "content_analysis": {
+        "word_count": 252,
+        "code_block_count": 4,
+        "code_block_ratio": 0.3889,
+        "code_languages": [
+          "dts",
+          "kconfig",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 11,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1944,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "dts",
+          "kconfig",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "rollback_protection.md",
+      "content_analysis": {
+        "word_count": 285,
+        "code_block_count": 2,
+        "code_block_ratio": 0.1579,
+        "code_languages": [
+          "c",
+          "kconfig"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0789,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 7,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "c",
+          "kconfig"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

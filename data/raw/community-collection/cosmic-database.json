@@ -31,23 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://cancer.sanger.ac.uk/cosmic/register (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://cancer.sanger.ac.uk/cosmic (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://cancer.sanger.ac.uk/cosmic/help (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://cancer.sanger.ac.uk/cosmic/release_notes (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -95,7 +80,7 @@
     "section_count": 33,
     "list_item_count": 75
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -128,7 +113,94 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 782,
+    "code_block_count": 1,
+    "code_block_ratio": 0.0563,
+    "code_languages": [],
+    "sentence_count": 53,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.0281,
+    "strong_markers": 2,
+    "weak_markers": 1,
+    "instruction_specificity": 0.6667,
+    "section_count": 25,
+    "list_item_count": 90
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "cosmic_data_reference.md",
+      "content_analysis": {
+        "word_count": 782,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0563,
+        "code_languages": [],
+        "sentence_count": 53,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0281,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 25,
+        "list_item_count": 90
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cancer.sanger.ac.uk/cosmic/register (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cancer.sanger.ac.uk/cosmic (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cancer.sanger.ac.uk/cosmic/help (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cancer.sanger.ac.uk/cosmic/release_notes (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

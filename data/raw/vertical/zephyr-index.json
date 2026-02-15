@@ -21,23 +21,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/decision_tree.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/quick_reference.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/decision_tree.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/skill_catalog.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/quick_reference.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/skill_catalog.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -69,14 +74,14 @@
     "sentence_count": 24,
     "imperative_count": 1,
     "imperative_ratio": 0.0417,
-    "information_density": 0.0208,
+    "information_density": 0.0417,
     "strong_markers": 1,
     "weak_markers": 0,
     "instruction_specificity": 1,
     "section_count": 10,
     "list_item_count": 11
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -85,7 +90,137 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 746,
+    "code_block_count": 1,
+    "code_block_ratio": 0.1877,
+    "code_languages": [
+      "mermaid"
+    ],
+    "sentence_count": 37,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0541,
+    "information_density": 0.1209,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 10,
+    "list_item_count": 19
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "mermaid"
+    ],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "decision_tree.md",
+      "content_analysis": {
+        "word_count": 162,
+        "code_block_count": 1,
+        "code_block_ratio": 0.8642,
+        "code_languages": [
+          "mermaid"
+        ],
+        "sentence_count": 2,
+        "imperative_count": 1,
+        "imperative_ratio": 0.5,
+        "information_density": 0.6821,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 0,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "mermaid"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "quick_reference.md",
+      "content_analysis": {
+        "word_count": 229,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 7,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 18
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "skill_catalog.md",
+      "content_analysis": {
+        "word_count": 355,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 28,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0357,
+        "information_density": 0.0357,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

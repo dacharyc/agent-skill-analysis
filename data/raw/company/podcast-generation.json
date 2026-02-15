@@ -21,18 +21,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/architecture.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/code-examples.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/architecture.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "scripts/pcm_to_wav.py (exists)"
+      "category": "Structure",
+      "message": "internal link: references/code-examples.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: scripts/pcm_to_wav.py (exists)"
     }
   ],
   "token_counts": {
@@ -75,7 +80,7 @@
     "section_count": 9,
     "list_item_count": 15
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "env",
@@ -96,7 +101,286 @@
       "python"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 2211,
+    "code_block_count": 30,
+    "code_block_ratio": 0.7169,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "javascript",
+      "typescript",
+      "javascript",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "jsx",
+      "javascript"
+    ],
+    "sentence_count": 52,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.3584,
+    "strong_markers": 4,
+    "weak_markers": 12,
+    "instruction_specificity": 0.25,
+    "section_count": 44,
+    "list_item_count": 14
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "javascript",
+      "typescript",
+      "javascript",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "jsx",
+      "javascript"
+    ],
+    "language_categories": [
+      "javascript",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "javascript",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 1386,
+        "code_block_count": 22,
+        "code_block_ratio": 0.5844,
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "javascript",
+          "typescript",
+          "javascript",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 42,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2922,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 36,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "javascript",
+          "typescript",
+          "javascript",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "javascript",
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "javascript",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "architecture.md",
+      "content_analysis": {
+        "word_count": 328,
+        "code_block_count": 4,
+        "code_block_ratio": 0.9299,
+        "code_languages": [
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 5,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4649,
+        "strong_markers": 1,
+        "weak_markers": 10,
+        "instruction_specificity": 0.0909,
+        "section_count": 4,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "code-examples.md",
+      "content_analysis": {
+        "word_count": 497,
+        "code_block_count": 4,
+        "code_block_ratio": 0.9457,
+        "code_languages": [
+          "python",
+          "python",
+          "jsx",
+          "javascript"
+        ],
+        "sentence_count": 5,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4728,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 4,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "jsx",
+          "javascript"
+        ],
+        "language_categories": [
+          "javascript",
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

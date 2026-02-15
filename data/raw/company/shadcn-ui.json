@@ -43,6 +43,11 @@
       "level": "info",
       "category": "Frontmatter",
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -118,7 +123,7 @@
     "section_count": 29,
     "list_item_count": 81
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -150,7 +155,10 @@
       "javascript"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.55,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -46,33 +46,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/remotion-dev/remotion/tree/main/packages/skills (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://stitch.withgoogle.com/docs/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.remotion.dev/docs/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.remotion.dev/docs/ai/skills (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.remotion.dev/docs/ai/mcp (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.remotion.dev/docs/transitions (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -133,7 +108,7 @@
     "section_count": 30,
     "list_item_count": 152
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -161,7 +136,41 @@
       "javascript"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/remotion-dev/remotion/tree/main/packages/skills (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://stitch.withgoogle.com/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/ai/skills (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/ai/mcp (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.remotion.dev/docs/transitions (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

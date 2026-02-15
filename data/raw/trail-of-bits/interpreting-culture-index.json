@@ -43,6 +43,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "non-standard files total 25794 tokens \u2014 if an agent loads these, they could consume a significant portion of the context window; consider moving essential content into references/ or removing unnecessary files"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -179,7 +184,7 @@
     "section_count": 0,
     "list_item_count": 52
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -200,7 +205,289 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 10141,
+    "code_block_count": 5,
+    "code_block_ratio": 0.0252,
+    "code_languages": [],
+    "sentence_count": 718,
+    "imperative_count": 4,
+    "imperative_ratio": 0.0056,
+    "information_density": 0.0154,
+    "strong_markers": 74,
+    "weak_markers": 42,
+    "instruction_specificity": 0.6379,
+    "section_count": 6,
+    "list_item_count": 648
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "anti-patterns.md",
+      "content_analysis": {
+        "word_count": 1276,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 140,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0071,
+        "information_density": 0.0071,
+        "strong_markers": 7,
+        "weak_markers": 5,
+        "instruction_specificity": 0.5833,
+        "section_count": 0,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "conversation-starters.md",
+      "content_analysis": {
+        "word_count": 1472,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 93,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0108,
+        "information_density": 0.0108,
+        "strong_markers": 11,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9167,
+        "section_count": 0,
+        "list_item_count": 217
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "interview-trait-signals.md",
+      "content_analysis": {
+        "word_count": 1169,
+        "code_block_count": 1,
+        "code_block_ratio": 0.1104,
+        "code_languages": [],
+        "sentence_count": 58,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0552,
+        "strong_markers": 2,
+        "weak_markers": 11,
+        "instruction_specificity": 0.1538,
+        "section_count": 6,
+        "list_item_count": 124
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "motivators.md",
+      "content_analysis": {
+        "word_count": 964,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 56,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 11,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 0,
+        "list_item_count": 52
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "patterns-archetypes.md",
+      "content_analysis": {
+        "word_count": 1027,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 91,
+        "imperative_count": 2,
+        "imperative_ratio": 0.022,
+        "information_density": 0.022,
+        "strong_markers": 5,
+        "weak_markers": 6,
+        "instruction_specificity": 0.4545,
+        "section_count": 0,
+        "list_item_count": 29
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "primary-traits.md",
+      "content_analysis": {
+        "word_count": 1972,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 93,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 26,
+        "weak_markers": 8,
+        "instruction_specificity": 0.7647,
+        "section_count": 0,
+        "list_item_count": 148
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "secondary-traits.md",
+      "content_analysis": {
+        "word_count": 1247,
+        "code_block_count": 1,
+        "code_block_ratio": 0.008,
+        "code_languages": [],
+        "sentence_count": 124,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.004,
+        "strong_markers": 8,
+        "weak_markers": 3,
+        "instruction_specificity": 0.7273,
+        "section_count": 0,
+        "list_item_count": 36
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "team-composition.md",
+      "content_analysis": {
+        "word_count": 1014,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1154,
+        "code_languages": [],
+        "sentence_count": 63,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0577,
+        "strong_markers": 4,
+        "weak_markers": 8,
+        "instruction_specificity": 0.3333,
+        "section_count": 0,
+        "list_item_count": 19
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -58,6 +58,11 @@
       "level": "error",
       "category": "Overall",
       "message": "this content doesn't appear to be structured as a skill \u2014 there are 65,136 tokens of non-standard content but only 386 tokens in the standard skill structure (SKILL.md + references). This ratio suggests a build pipeline issue or content that belongs in a different format, not a skill. Per the spec, a skill should contain a focused SKILL.md with optional references, scripts, and assets."
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -201,7 +206,7 @@
     "section_count": 3,
     "list_item_count": 6
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -218,7 +223,10 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

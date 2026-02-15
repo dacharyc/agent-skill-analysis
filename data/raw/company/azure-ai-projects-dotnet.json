@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-ai-projects-dotnet",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -30,24 +30,9 @@
       "message": "unrecognized field: \"package\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.nuget.org/packages/Azure.AI.Projects (HTTP 404)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/dotnet/api/azure.ai.projects (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Projects (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Projects/samples (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -91,7 +76,7 @@
     "section_count": 19,
     "list_item_count": 8
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -120,7 +105,254 @@
       "dotnet"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1616,
+    "code_block_count": 38,
+    "code_block_ratio": 0.5037,
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "sentence_count": 75,
+    "imperative_count": 6,
+    "imperative_ratio": 0.08,
+    "information_density": 0.2919,
+    "strong_markers": 6,
+    "weak_markers": 2,
+    "instruction_specificity": 0.75,
+    "section_count": 61,
+    "list_item_count": 10
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "language_categories": [
+      "dotnet"
+    ],
+    "primary_category": "dotnet",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 1616,
+        "code_block_count": 38,
+        "code_block_ratio": 0.5037,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 75,
+        "imperative_count": 6,
+        "imperative_ratio": 0.08,
+        "information_density": 0.2919,
+        "strong_markers": 6,
+        "weak_markers": 2,
+        "instruction_specificity": 0.75,
+        "section_count": 61,
+        "list_item_count": 10
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.nuget.org/packages/Azure.AI.Projects (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/dotnet/api/azure.ai.projects (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Projects (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Projects/samples (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

@@ -328,6 +328,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "description: (189 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -369,7 +374,7 @@
     "section_count": 23,
     "list_item_count": 4
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "mysql",
       "terraform"
@@ -385,7 +390,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -53,6 +53,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 652 lines (spec recommends < 500)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -125,7 +130,7 @@
     "section_count": 56,
     "list_item_count": 135
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "markdown",
@@ -160,7 +165,10 @@
       "javascript"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

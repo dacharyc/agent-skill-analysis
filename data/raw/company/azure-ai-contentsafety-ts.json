@@ -13,6 +13,11 @@
       "level": "error",
       "category": "Frontmatter",
       "message": "parsing frontmatter YAML: yaml: line 3: found character that cannot start any token"
+    },
+    {
+      "level": "error",
+      "category": "Skill",
+      "message": "parsing frontmatter YAML: yaml: line 3: found character that cannot start any token"
     }
   ],
   "content_analysis": {
@@ -45,7 +50,7 @@
     "section_count": 21,
     "list_item_count": 7
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -76,7 +81,165 @@
       "dotnet"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 948,
+    "code_block_count": 21,
+    "code_block_ratio": 0.653,
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript"
+    ],
+    "sentence_count": 42,
+    "imperative_count": 5,
+    "imperative_ratio": 0.119,
+    "information_density": 0.386,
+    "strong_markers": 7,
+    "weak_markers": 1,
+    "instruction_specificity": 0.875,
+    "section_count": 32,
+    "list_item_count": 4
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript"
+    ],
+    "language_categories": [
+      "javascript"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 948,
+        "code_block_count": 21,
+        "code_block_ratio": 0.653,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 42,
+        "imperative_count": 5,
+        "imperative_ratio": 0.119,
+        "information_density": 0.386,
+        "strong_markers": 7,
+        "weak_markers": 1,
+        "instruction_specificity": 0.875,
+        "section_count": 32,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

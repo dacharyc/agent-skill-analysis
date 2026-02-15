@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/microsoft-skills/.github/skills/azure-resource-manager-mysql-dotnet",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -30,24 +30,9 @@
       "message": "unrecognized field: \"package\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.nuget.org/packages/Azure.ResourceManager.MySql (HTTP 404)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/dotnet/api/azure.resourcemanager.mysql (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/mysql/flexible-server/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql/Azure.ResourceManager.MySql (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -94,7 +79,7 @@
     "section_count": 23,
     "list_item_count": 10
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "mysql",
       "postgresql"
@@ -129,7 +114,226 @@
       "dotnet"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 1125,
+    "code_block_count": 30,
+    "code_block_ratio": 0.6231,
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "sentence_count": 46,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.3116,
+    "strong_markers": 5,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 43,
+    "list_item_count": 11
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "mysql"
+    ],
+    "code_languages": [
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp",
+      "csharp"
+    ],
+    "language_categories": [
+      "dotnet"
+    ],
+    "primary_category": "dotnet",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 1125,
+        "code_block_count": 30,
+        "code_block_ratio": 0.6231,
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "sentence_count": 46,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3116,
+        "strong_markers": 5,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 43,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "mysql"
+        ],
+        "code_languages": [
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp",
+          "csharp"
+        ],
+        "language_categories": [
+          "dotnet"
+        ],
+        "primary_category": "dotnet",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.nuget.org/packages/Azure.ResourceManager.MySql (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/dotnet/api/azure.resourcemanager.mysql (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/mysql/flexible-server/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql/Azure.ResourceManager.MySql (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

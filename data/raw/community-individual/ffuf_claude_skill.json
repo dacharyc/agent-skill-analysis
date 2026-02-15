@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/ffuf_claude_skill/ffuf-skill",
   "passed": false,
-  "errors": 17,
+  "errors": 1,
   "warnings": 2,
   "results": [
     {
@@ -34,6 +34,132 @@
       "category": "Frontmatter",
       "message": "description: (153 chars)"
     },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 4924
+      }
+    ],
+    "total": 4924
+  },
+  "other_token_counts": {
+    "files": [
+      {
+        "file": "ffuf_helper.py",
+        "tokens": 1828
+      },
+      {
+        "file": "resources/REQUEST_TEMPLATES.md",
+        "tokens": 1571
+      },
+      {
+        "file": "resources/WORDLISTS.md",
+        "tokens": 1318
+      }
+    ],
+    "total": 4717
+  },
+  "content_analysis": {
+    "word_count": 2346,
+    "code_block_count": 32,
+    "code_block_ratio": 0.3662,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "http",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 90,
+    "imperative_count": 7,
+    "imperative_ratio": 0.0778,
+    "information_density": 0.222,
+    "strong_markers": 14,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9333,
+    "section_count": 56,
+    "list_item_count": 100
+  },
+  "contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "http",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
     {
       "level": "pass",
       "category": "Links",
@@ -150,123 +276,6 @@
       "message": "http://127.0.0.1:8080` (invalid URL: parse \"http://127.0.0.1:8080`\": invalid port \":8080`\" after host)"
     }
   ],
-  "token_counts": {
-    "files": [
-      {
-        "file": "SKILL.md body",
-        "tokens": 4924
-      }
-    ],
-    "total": 4924
-  },
-  "other_token_counts": {
-    "files": [
-      {
-        "file": "ffuf_helper.py",
-        "tokens": 1828
-      },
-      {
-        "file": "resources/REQUEST_TEMPLATES.md",
-        "tokens": 1571
-      },
-      {
-        "file": "resources/WORDLISTS.md",
-        "tokens": 1318
-      }
-    ],
-    "total": 4717
-  },
-  "content_analysis": {
-    "word_count": 2346,
-    "code_block_count": 32,
-    "code_block_ratio": 0.3662,
-    "code_languages": [
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "http",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "sentence_count": 90,
-    "imperative_count": 7,
-    "imperative_ratio": 0.0778,
-    "information_density": 0.222,
-    "strong_markers": 14,
-    "weak_markers": 1,
-    "instruction_specificity": 0.9333,
-    "section_count": 56,
-    "list_item_count": 100
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [],
-    "code_languages": [
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "http",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "language_categories": [
-      "shell"
-    ],
-    "primary_category": "shell",
-    "mismatched_categories": [],
-    "language_mismatch": false,
-    "tech_references": [],
-    "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+  "link_errors": 16,
+  "link_warnings": 0
 }

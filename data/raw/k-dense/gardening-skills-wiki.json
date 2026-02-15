@@ -52,6 +52,11 @@
     {
       "level": "warning",
       "category": "Frontmatter",
+      "message": "unrecognized field: \"languages\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
       "message": "unrecognized field: \"when_to_use\""
     },
     {
@@ -60,9 +65,9 @@
       "message": "unrecognized field: \"version\""
     },
     {
-      "level": "warning",
-      "category": "Frontmatter",
-      "message": "unrecognized field: \"languages\""
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -129,7 +134,7 @@
     "section_count": 34,
     "list_item_count": 68
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -158,7 +163,10 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

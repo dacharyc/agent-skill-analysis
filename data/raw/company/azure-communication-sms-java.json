@@ -23,6 +23,11 @@
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"package\""
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -68,7 +73,7 @@
     "section_count": 13,
     "list_item_count": 9
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "xml",
@@ -97,7 +102,237 @@
       "javascript"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 1721,
+    "code_block_count": 28,
+    "code_block_ratio": 0.7042,
+    "code_languages": [
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash"
+    ],
+    "sentence_count": 60,
+    "imperative_count": 6,
+    "imperative_ratio": 0.1,
+    "information_density": 0.4021,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 46,
+    "list_item_count": 22
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "java",
+      "shell"
+    ],
+    "primary_category": "java",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 484,
+        "code_block_count": 12,
+        "code_block_ratio": 0.4979,
+        "code_languages": [
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "sentence_count": 24,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0417,
+        "information_density": 0.2698,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 21,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "language_categories": [
+          "java"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "examples.md",
+      "content_analysis": {
+        "word_count": 1237,
+        "code_block_count": 16,
+        "code_block_ratio": 0.785,
+        "code_languages": [
+          "xml",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "bash"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1389,
+        "information_density": 0.4619,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 25,
+        "list_item_count": 15
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "xml",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "java",
+          "shell"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

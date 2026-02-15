@@ -43,6 +43,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "SKILL.md body is 673 lines (spec recommends < 500)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -66,9 +71,21 @@
       {
         "file": "references/quality-manual-guide.md",
         "tokens": 5715
+      },
+      {
+        "file": "assets/templates/procedures/CAPA-procedure-template.md",
+        "tokens": 3379
+      },
+      {
+        "file": "assets/templates/procedures/document-control-procedure-template.md",
+        "tokens": 3989
+      },
+      {
+        "file": "assets/templates/quality-manual-template.md",
+        "tokens": 4583
       }
     ],
-    "total": 28118
+    "total": 40069
   },
   "content_analysis": {
     "word_count": 3242,
@@ -87,7 +104,7 @@
     "section_count": 30,
     "list_item_count": 432
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash"
@@ -100,7 +117,159 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 15363,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 556,
+    "imperative_count": 17,
+    "imperative_ratio": 0.0306,
+    "information_density": 0.0306,
+    "strong_markers": 149,
+    "weak_markers": 8,
+    "instruction_specificity": 0.949,
+    "section_count": 285,
+    "list_item_count": 978
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "gap-analysis-checklist.md",
+      "content_analysis": {
+        "word_count": 5079,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 89,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 32,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 40,
+        "list_item_count": 37
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "iso-13485-requirements.md",
+      "content_analysis": {
+        "word_count": 3485,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 112,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 43,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9773,
+        "section_count": 96,
+        "list_item_count": 362
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "mandatory-documents.md",
+      "content_analysis": {
+        "word_count": 2995,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 115,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 54,
+        "weak_markers": 3,
+        "instruction_specificity": 0.9474,
+        "section_count": 62,
+        "list_item_count": 325
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "quality-manual-guide.md",
+      "content_analysis": {
+        "word_count": 3804,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 240,
+        "imperative_count": 17,
+        "imperative_ratio": 0.0708,
+        "information_density": 0.0708,
+        "strong_markers": 20,
+        "weak_markers": 4,
+        "instruction_specificity": 0.8333,
+        "section_count": 87,
+        "list_item_count": 254
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

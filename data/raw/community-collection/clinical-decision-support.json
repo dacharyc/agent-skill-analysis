@@ -53,6 +53,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "total reference files: 37898 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -88,9 +93,37 @@
       {
         "file": "references/treatment_recommendations.md",
         "tokens": 4747
+      },
+      {
+        "file": "assets/biomarker_report_template.tex",
+        "tokens": 3971
+      },
+      {
+        "file": "assets/clinical_pathway_template.tex",
+        "tokens": 2680
+      },
+      {
+        "file": "assets/cohort_analysis_template.tex",
+        "tokens": 4092
+      },
+      {
+        "file": "assets/color_schemes.tex",
+        "tokens": 1677
+      },
+      {
+        "file": "assets/example_gbm_cohort.md",
+        "tokens": 2545
+      },
+      {
+        "file": "assets/recommendation_strength_guide.md",
+        "tokens": 2813
+      },
+      {
+        "file": "assets/treatment_recommendation_template.tex",
+        "tokens": 5457
       }
     ],
-    "total": 43822
+    "total": 67057
   },
   "content_analysis": {
     "word_count": 3318,
@@ -110,7 +143,7 @@
     "section_count": 30,
     "list_item_count": 253
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -126,7 +159,299 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 18977,
+    "code_block_count": 64,
+    "code_block_ratio": 0.3067,
+    "code_languages": [
+      "bash",
+      "latex",
+      "latex",
+      "python"
+    ],
+    "sentence_count": 737,
+    "imperative_count": 6,
+    "imperative_ratio": 0.0081,
+    "information_density": 0.1574,
+    "strong_markers": 32,
+    "weak_markers": 56,
+    "instruction_specificity": 0.3636,
+    "section_count": 230,
+    "list_item_count": 1505
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "redis"
+    ],
+    "code_languages": [
+      "bash",
+      "latex",
+      "latex",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.5083,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "README.md",
+      "content_analysis": {
+        "word_count": 545,
+        "code_block_count": 5,
+        "code_block_ratio": 0.2569,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 43,
+        "imperative_count": 4,
+        "imperative_ratio": 0.093,
+        "information_density": 0.175,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 14,
+        "list_item_count": 31
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "biomarker_classification.md",
+      "content_analysis": {
+        "word_count": 3696,
+        "code_block_count": 8,
+        "code_block_ratio": 0.2405,
+        "code_languages": [],
+        "sentence_count": 134,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1203,
+        "strong_markers": 9,
+        "weak_markers": 18,
+        "instruction_specificity": 0.3333,
+        "section_count": 40,
+        "list_item_count": 310
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "redis"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "clinical_decision_algorithms.md",
+      "content_analysis": {
+        "word_count": 2884,
+        "code_block_count": 11,
+        "code_block_ratio": 0.6859,
+        "code_languages": [
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 61,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3429,
+        "strong_markers": 4,
+        "weak_markers": 12,
+        "instruction_specificity": 0.25,
+        "section_count": 22,
+        "list_item_count": 143
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "redis"
+        ],
+        "code_languages": [
+          "latex",
+          "latex"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "evidence_synthesis.md",
+      "content_analysis": {
+        "word_count": 4009,
+        "code_block_count": 10,
+        "code_block_ratio": 0.2524,
+        "code_languages": [],
+        "sentence_count": 178,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0056,
+        "information_density": 0.129,
+        "strong_markers": 4,
+        "weak_markers": 12,
+        "instruction_specificity": 0.25,
+        "section_count": 49,
+        "list_item_count": 353
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "outcome_analysis.md",
+      "content_analysis": {
+        "word_count": 3253,
+        "code_block_count": 11,
+        "code_block_ratio": 0.1645,
+        "code_languages": [
+          "python"
+        ],
+        "sentence_count": 133,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0075,
+        "information_density": 0.086,
+        "strong_markers": 7,
+        "weak_markers": 4,
+        "instruction_specificity": 0.6364,
+        "section_count": 36,
+        "list_item_count": 281
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "patient_cohort_analysis.md",
+      "content_analysis": {
+        "word_count": 2153,
+        "code_block_count": 4,
+        "code_block_ratio": 0.1031,
+        "code_languages": [],
+        "sentence_count": 99,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0516,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 37,
+        "list_item_count": 201
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "treatment_recommendations.md",
+      "content_analysis": {
+        "word_count": 2437,
+        "code_block_count": 15,
+        "code_block_ratio": 0.4288,
+        "code_languages": [],
+        "sentence_count": 89,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2144,
+        "strong_markers": 5,
+        "weak_markers": 7,
+        "instruction_specificity": 0.4167,
+        "section_count": 32,
+        "list_item_count": 186
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

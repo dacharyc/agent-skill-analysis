@@ -58,6 +58,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "total reference files: 36992 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -97,9 +102,21 @@
       {
         "file": "references/specific_aims_guide.md",
         "tokens": 4510
+      },
+      {
+        "file": "assets/budget_justification_template.md",
+        "tokens": 5023
+      },
+      {
+        "file": "assets/nih_specific_aims_template.md",
+        "tokens": 2283
+      },
+      {
+        "file": "assets/nsf_project_summary_template.md",
+        "tokens": 1092
       }
     ],
-    "total": 44699
+    "total": 53097
   },
   "content_analysis": {
     "word_count": 5047,
@@ -118,7 +135,7 @@
     "section_count": 57,
     "list_item_count": 556
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -133,7 +150,299 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 23499,
+    "code_block_count": 12,
+    "code_block_ratio": 0.0181,
+    "code_languages": [
+      "bash",
+      "latex"
+    ],
+    "sentence_count": 1517,
+    "imperative_count": 25,
+    "imperative_ratio": 0.0165,
+    "information_density": 0.0173,
+    "strong_markers": 208,
+    "weak_markers": 45,
+    "instruction_specificity": 0.8221,
+    "section_count": 352,
+    "list_item_count": 2033
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "latex"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "README.md",
+      "content_analysis": {
+        "word_count": 1322,
+        "code_block_count": 7,
+        "code_block_ratio": 0.1573,
+        "code_languages": [],
+        "sentence_count": 92,
+        "imperative_count": 7,
+        "imperative_ratio": 0.0761,
+        "information_density": 0.1167,
+        "strong_markers": 8,
+        "weak_markers": 2,
+        "instruction_specificity": 0.8,
+        "section_count": 43,
+        "list_item_count": 122
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "broader_impacts.md",
+      "content_analysis": {
+        "word_count": 3051,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 176,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0057,
+        "information_density": 0.0057,
+        "strong_markers": 6,
+        "weak_markers": 3,
+        "instruction_specificity": 0.6667,
+        "section_count": 27,
+        "list_item_count": 143
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "darpa_guidelines.md",
+      "content_analysis": {
+        "word_count": 2884,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 187,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0053,
+        "information_density": 0.0053,
+        "strong_markers": 22,
+        "weak_markers": 3,
+        "instruction_specificity": 0.88,
+        "section_count": 44,
+        "list_item_count": 350
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "doe_guidelines.md",
+      "content_analysis": {
+        "word_count": 2549,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 161,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 38,
+        "weak_markers": 2,
+        "instruction_specificity": 0.95,
+        "section_count": 44,
+        "list_item_count": 317
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "nih_guidelines.md",
+      "content_analysis": {
+        "word_count": 4205,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0321,
+        "code_languages": [],
+        "sentence_count": 236,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0212,
+        "information_density": 0.0266,
+        "strong_markers": 29,
+        "weak_markers": 13,
+        "instruction_specificity": 0.6905,
+        "section_count": 55,
+        "list_item_count": 422
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "nsf_guidelines.md",
+      "content_analysis": {
+        "word_count": 2932,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 206,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0146,
+        "information_density": 0.0146,
+        "strong_markers": 40,
+        "weak_markers": 4,
+        "instruction_specificity": 0.9091,
+        "section_count": 42,
+        "list_item_count": 275
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "nstc_guidelines.md",
+      "content_analysis": {
+        "word_count": 3516,
+        "code_block_count": 4,
+        "code_block_ratio": 0.0233,
+        "code_languages": [
+          "bash",
+          "latex"
+        ],
+        "sentence_count": 260,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0192,
+        "information_density": 0.0213,
+        "strong_markers": 49,
+        "weak_markers": 10,
+        "instruction_specificity": 0.8305,
+        "section_count": 60,
+        "list_item_count": 252
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "latex"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "specific_aims_guide.md",
+      "content_analysis": {
+        "word_count": 3040,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 199,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0151,
+        "information_density": 0.0151,
+        "strong_markers": 16,
+        "weak_markers": 8,
+        "instruction_specificity": 0.6667,
+        "section_count": 37,
+        "list_item_count": 152
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

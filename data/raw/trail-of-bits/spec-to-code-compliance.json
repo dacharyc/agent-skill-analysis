@@ -25,39 +25,44 @@
       "message": "description: (238 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "resources/IR_EXAMPLES.md#example-1-spec-ir-record (file not found)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "resources/IR_EXAMPLES.md#example-2-code-ir-record (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: resources/IR_EXAMPLES.md#example-1-spec-ir-record (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "resources/IR_EXAMPLES.md#example-3-alignment-record-positive-case (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: resources/IR_EXAMPLES.md#example-2-code-ir-record (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "resources/IR_EXAMPLES.md#example-4-divergence-finding-critical-issue (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: resources/IR_EXAMPLES.md#example-3-alignment-record-positive-case (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: resources/IR_EXAMPLES.md#example-4-divergence-finding-critical-issue (file not found)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/OUTPUT_REQUIREMENTS.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/OUTPUT_REQUIREMENTS.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/COMPLETENESS_CHECKLIST.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/COMPLETENESS_CHECKLIST.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/IR_EXAMPLES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/IR_EXAMPLES.md (exists)"
     }
   ],
   "token_counts": {
@@ -94,14 +99,14 @@
     "sentence_count": 99,
     "imperative_count": 5,
     "imperative_ratio": 0.0505,
-    "information_density": 0.0253,
+    "information_density": 0.0505,
     "strong_markers": 18,
     "weak_markers": 1,
     "instruction_specificity": 0.9474,
     "section_count": 11,
     "list_item_count": 185
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -110,7 +115,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

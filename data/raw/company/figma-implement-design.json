@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/figma-implement-design",
-  "passed": false,
-  "errors": 3,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -31,33 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://developers.figma.com/docs/figma-mcp-server/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://mcp.figma.com/mcp` (HTTP 404)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://figma.com/design/kL9xQn2VwM8pYrTb4ZcHjF/DesignSystem?node-id=42-15\" (HTTP 404)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://figma.com/design/pR8mNv5KqXzGwY2JtCfL4D/Dashboard?node-id=10-5\" (HTTP 404)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -97,7 +72,7 @@
     "section_count": 33,
     "list_item_count": 77
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -108,7 +83,41 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.figma.com/docs/figma-mcp-server/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.figma.com/mcp` (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://figma.com/design/kL9xQn2VwM8pYrTb4ZcHjF/DesignSystem?node-id=42-15\" (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://figma.com/design/pR8mNv5KqXzGwY2JtCfL4D/Dashboard?node-id=10-5\" (HTTP 404)"
+    }
+  ],
+  "link_errors": 3,
+  "link_warnings": 0
 }

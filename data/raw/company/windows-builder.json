@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/packer/builders/skills/windows-builder",
-  "passed": false,
-  "errors": 3,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -20,19 +20,9 @@
       "message": "description: (153 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/packer/guides/windows (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/packer/docs/communicators/winrm (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/packer/docs/provisioners/powershell (HTTP 429)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -67,7 +57,7 @@
     "section_count": 10,
     "list_item_count": 9
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws",
       "redis"
@@ -94,7 +84,26 @@
       "dotnet"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.5083,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.5083,
+    "contamination_level": "high"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/guides/windows (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/docs/communicators/winrm (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/packer/docs/provisioners/powershell (HTTP 429)"
+    }
+  ],
+  "link_errors": 3,
+  "link_warnings": 0
 }

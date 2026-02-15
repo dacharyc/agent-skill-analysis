@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/expo-skills/plugins/expo-app-design/skills/expo-api-routes",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 1,
   "results": [
     {
@@ -30,14 +30,9 @@
       "message": "unrecognized field: \"version\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:8081/api/hello (request failed: Head \"http://localhost:8081/api/hello\": dial tcp 127.0.0.1:8081: connect: connection refused)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:8081/api/users (request failed: Head \"http://localhost:8081/api/users\": dial tcp 127.0.0.1:8081: connect: connection refused)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -84,7 +79,7 @@
     "section_count": 28,
     "list_item_count": 32
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "firebase",
       "mysql",
@@ -124,7 +119,21 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:8081/api/hello (request failed: Head \"http://localhost:8081/api/hello\": dial tcp 127.0.0.1:8081: connect: connection refused)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:8081/api/users (request failed: Head \"http://localhost:8081/api/users\": dial tcp 127.0.0.1:8081: connect: connection refused)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

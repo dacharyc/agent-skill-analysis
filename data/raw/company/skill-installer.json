@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.system/skill-installer",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -35,24 +35,9 @@
       "message": "metadata: (1 entries)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://github.com/openai/skills/tree/main/skills/.curated, (HTTP 404)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://github.com/openai/skills/tree/main/skills/.experimental (HTTP 404)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/openai/skills/tree/main/skills/.system (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -85,14 +70,14 @@
     "sentence_count": 38,
     "imperative_count": 5,
     "imperative_ratio": 0.1316,
-    "information_density": 0.0658,
+    "information_density": 0.1316,
     "strong_markers": 0,
     "weak_markers": 1,
     "instruction_specificity": 0,
     "section_count": 4,
     "list_item_count": 23
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -101,7 +86,31 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/openai/skills/tree/main/skills/.curated, (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/openai/skills/tree/main/skills/.experimental (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/openai/skills/tree/main/skills/.system (HTTP 200)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

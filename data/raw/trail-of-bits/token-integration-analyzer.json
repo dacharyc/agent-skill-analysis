@@ -1,8 +1,8 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/building-secure-contracts/skills/token-integration-analyzer",
   "passed": false,
-  "errors": 1,
-  "warnings": 2,
+  "errors": 2,
+  "warnings": 1,
   "results": [
     {
       "level": "pass",
@@ -25,24 +25,24 @@
       "message": "description: (409 chars)"
     },
     {
+      "level": "error",
+      "category": "Markdown",
+      "message": "SKILL.md has an unclosed code fence starting at line 314 \u2014 this may cause agents to misinterpret everything after it as code"
+    },
+    {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/ASSESSMENT_CATEGORIES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/ASSESSMENT_CATEGORIES.md (exists)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "resources/ASSESSMENT_CATEGORIES.md#7-weird-erc20-patterns (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: resources/ASSESSMENT_CATEGORIES.md#7-weird-erc20-patterns (file not found)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/REPORT_TEMPLATES.md (exists)"
-    },
-    {
-      "level": "warning",
-      "category": "Markdown",
-      "message": "SKILL.md has an unclosed code fence starting at line 314 \u2014 this may cause agents to misinterpret everything after it as code"
+      "category": "Structure",
+      "message": "internal link: resources/REPORT_TEMPLATES.md (exists)"
     }
   ],
   "token_counts": {
@@ -86,7 +86,7 @@
     "section_count": 33,
     "list_item_count": 83
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "solidity",
@@ -99,7 +99,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -41,43 +41,48 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "discovery.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "agent-prompt.md (exists)"
+      "category": "Structure",
+      "message": "internal link: discovery.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "testing.md (exists)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "plugins/testing-handbook-skills/ (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "plugins/testing-handbook-skills/skills/libfuzzer/ (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "plugins/testing-handbook-skills/skills/aflpp/ (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "plugins/testing-handbook-skills/skills/semgrep/ (file not found)"
+      "category": "Structure",
+      "message": "internal link: agent-prompt.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "templates/ (exists)"
+      "category": "Structure",
+      "message": "internal link: testing.md (exists)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: plugins/testing-handbook-skills/ (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: plugins/testing-handbook-skills/skills/libfuzzer/ (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: plugins/testing-handbook-skills/skills/aflpp/ (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: plugins/testing-handbook-skills/skills/semgrep/ (file not found)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: templates/ (exists)"
     }
   ],
   "token_counts": {
@@ -139,7 +144,7 @@
     "section_count": 26,
     "list_item_count": 82
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "markdown"
@@ -152,7 +157,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -41,18 +41,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://pachterlab.github.io/gget/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/pachterlab/gget/issues (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://doi.org/10.1093/bioinformatics/btac836 (HTTP 403 \u2014 may block automated requests)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -147,7 +137,7 @@
     "section_count": 49,
     "list_item_count": 168
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -219,7 +209,238 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 6679,
+    "code_block_count": 15,
+    "code_block_ratio": 0.365,
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 180,
+    "imperative_count": 3,
+    "imperative_ratio": 0.0167,
+    "information_density": 0.1908,
+    "strong_markers": 39,
+    "weak_markers": 10,
+    "instruction_specificity": 0.7959,
+    "section_count": 73,
+    "list_item_count": 222
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "graphql"
+    ],
+    "code_languages": [
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.5083,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "database_info.md",
+      "content_analysis": {
+        "word_count": 1338,
+        "code_block_count": 4,
+        "code_block_ratio": 0.0247,
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 54,
+        "imperative_count": 2,
+        "imperative_ratio": 0.037,
+        "information_density": 0.0309,
+        "strong_markers": 4,
+        "weak_markers": 5,
+        "instruction_specificity": 0.4444,
+        "section_count": 35,
+        "list_item_count": 191
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "graphql"
+        ],
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.5083,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "module_reference.md",
+      "content_analysis": {
+        "word_count": 2726,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 96,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0104,
+        "information_density": 0.0104,
+        "strong_markers": 34,
+        "weak_markers": 2,
+        "instruction_specificity": 0.9444,
+        "section_count": 26,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "workflows.md",
+      "content_analysis": {
+        "word_count": 2615,
+        "code_block_count": 11,
+        "code_block_ratio": 0.9197,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 30,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4598,
+        "strong_markers": 1,
+        "weak_markers": 3,
+        "instruction_specificity": 0.25,
+        "section_count": 12,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pachterlab.github.io/gget/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/pachterlab/gget/issues (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://doi.org/10.1093/bioinformatics/btac836 (HTTP 403 \u2014 may block automated requests)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

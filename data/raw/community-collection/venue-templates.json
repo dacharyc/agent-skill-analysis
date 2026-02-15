@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/venue-templates",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 8,
   "results": [
     {
@@ -81,53 +81,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.nature.com/nature/for-authors (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://www.science.org/content/page/instructions-authors (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://plos.org/resources/for-authors/ (HTTP 404)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://www.cell.com/author-guidelines (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://neurips.cc/Conferences/2024/CallForPapers (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://icml.cc/Conferences/2024/StyleAuthorInstructions (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://cvpr.thecvf.com/Conferences/2024/AuthorGuidelines (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.nsf.gov/publications/pub_summ.jsp?ods_key=pappg (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://grants.nih.gov/grants/how-to-apply-application-guide.html (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://science.osti.gov/grants (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -179,9 +134,49 @@
       {
         "file": "references/venue_writing_styles.md",
         "tokens": 2796
+      },
+      {
+        "file": "assets/examples/cell_summary_example.md",
+        "tokens": 1987
+      },
+      {
+        "file": "assets/examples/medical_structured_abstract.md",
+        "tokens": 2906
+      },
+      {
+        "file": "assets/examples/nature_abstract_examples.md",
+        "tokens": 1846
+      },
+      {
+        "file": "assets/examples/neurips_introduction_example.md",
+        "tokens": 1907
+      },
+      {
+        "file": "assets/grants/nih_specific_aims.tex",
+        "tokens": 2374
+      },
+      {
+        "file": "assets/grants/nsf_proposal_template.tex",
+        "tokens": 3170
+      },
+      {
+        "file": "assets/journals/nature_article.tex",
+        "tokens": 1433
+      },
+      {
+        "file": "assets/journals/neurips_article.tex",
+        "tokens": 2377
+      },
+      {
+        "file": "assets/journals/plos_one.tex",
+        "tokens": 3064
+      },
+      {
+        "file": "assets/posters/beamerposter_academic.tex",
+        "tokens": 2748
       }
     ],
-    "total": 48739
+    "total": 72551
   },
   "content_analysis": {
     "word_count": 3105,
@@ -214,7 +209,7 @@
     "section_count": 53,
     "list_item_count": 233
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -246,7 +241,455 @@
       "java"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 24310,
+    "code_block_count": 68,
+    "code_block_ratio": 0.167,
+    "code_languages": [
+      "latex",
+      "latex",
+      "latex"
+    ],
+    "sentence_count": 1596,
+    "imperative_count": 27,
+    "imperative_ratio": 0.0169,
+    "information_density": 0.092,
+    "strong_markers": 132,
+    "weak_markers": 45,
+    "instruction_specificity": 0.7458,
+    "section_count": 546,
+    "list_item_count": 1746
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "redis"
+    ],
+    "code_languages": [
+      "latex",
+      "latex",
+      "latex"
+    ],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "java",
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "cell_press_style.md",
+      "content_analysis": {
+        "word_count": 2032,
+        "code_block_count": 11,
+        "code_block_ratio": 0.3297,
+        "code_languages": [],
+        "sentence_count": 126,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0397,
+        "information_density": 0.1847,
+        "strong_markers": 6,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8571,
+        "section_count": 57,
+        "list_item_count": 100
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "conferences_formatting.md",
+      "content_analysis": {
+        "word_count": 2139,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 145,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0138,
+        "information_density": 0.0138,
+        "strong_markers": 22,
+        "weak_markers": 9,
+        "instruction_specificity": 0.7097,
+        "section_count": 35,
+        "list_item_count": 249
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "java"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "cs_conference_style.md",
+      "content_analysis": {
+        "word_count": 2012,
+        "code_block_count": 12,
+        "code_block_ratio": 0.4344,
+        "code_languages": [],
+        "sentence_count": 81,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2172,
+        "strong_markers": 4,
+        "weak_markers": 4,
+        "instruction_specificity": 0.5,
+        "section_count": 56,
+        "list_item_count": 82
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "grants_requirements.md",
+      "content_analysis": {
+        "word_count": 3027,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 237,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0127,
+        "information_density": 0.0127,
+        "strong_markers": 22,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 53,
+        "list_item_count": 330
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "redis"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "journals_formatting.md",
+      "content_analysis": {
+        "word_count": 2234,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 162,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0123,
+        "information_density": 0.0123,
+        "strong_markers": 10,
+        "weak_markers": 2,
+        "instruction_specificity": 0.8333,
+        "section_count": 34,
+        "list_item_count": 219
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "java"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "medical_journal_styles.md",
+      "content_analysis": {
+        "word_count": 2184,
+        "code_block_count": 11,
+        "code_block_ratio": 0.3246,
+        "code_languages": [],
+        "sentence_count": 126,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0079,
+        "information_density": 0.1663,
+        "strong_markers": 10,
+        "weak_markers": 10,
+        "instruction_specificity": 0.5,
+        "section_count": 56,
+        "list_item_count": 121
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "ml_conference_style.md",
+      "content_analysis": {
+        "word_count": 2356,
+        "code_block_count": 15,
+        "code_block_ratio": 0.4032,
+        "code_languages": [],
+        "sentence_count": 139,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0288,
+        "information_density": 0.216,
+        "strong_markers": 14,
+        "weak_markers": 2,
+        "instruction_specificity": 0.875,
+        "section_count": 58,
+        "list_item_count": 137
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "nature_science_style.md",
+      "content_analysis": {
+        "word_count": 1972,
+        "code_block_count": 8,
+        "code_block_ratio": 0.2439,
+        "code_languages": [],
+        "sentence_count": 120,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0167,
+        "information_density": 0.1303,
+        "strong_markers": 9,
+        "weak_markers": 6,
+        "instruction_specificity": 0.6,
+        "section_count": 46,
+        "list_item_count": 105
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "posters_guidelines.md",
+      "content_analysis": {
+        "word_count": 2340,
+        "code_block_count": 7,
+        "code_block_ratio": 0.0735,
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 176,
+        "imperative_count": 3,
+        "imperative_ratio": 0.017,
+        "information_density": 0.0453,
+        "strong_markers": 13,
+        "weak_markers": 5,
+        "instruction_specificity": 0.7222,
+        "section_count": 62,
+        "list_item_count": 219
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "reviewer_expectations.md",
+      "content_analysis": {
+        "word_count": 2292,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0279,
+        "code_languages": [],
+        "sentence_count": 165,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.014,
+        "strong_markers": 17,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9444,
+        "section_count": 49,
+        "list_item_count": 108
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "venue_writing_styles.md",
+      "content_analysis": {
+        "word_count": 1722,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0813,
+        "code_languages": [],
+        "sentence_count": 119,
+        "imperative_count": 5,
+        "imperative_ratio": 0.042,
+        "information_density": 0.0617,
+        "strong_markers": 5,
+        "weak_markers": 5,
+        "instruction_specificity": 0.5,
+        "section_count": 40,
+        "list_item_count": 76
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nature.com/nature/for-authors (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.science.org/content/page/instructions-authors (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://plos.org/resources/for-authors/ (HTTP 404)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.cell.com/author-guidelines (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://neurips.cc/Conferences/2024/CallForPapers (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://icml.cc/Conferences/2024/StyleAuthorInstructions (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cvpr.thecvf.com/Conferences/2024/AuthorGuidelines (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.nsf.gov/publications/pub_summ.jsp?ods_key=pappg (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://grants.nih.gov/grants/how-to-apply-application-guide.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://science.osti.gov/grants (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

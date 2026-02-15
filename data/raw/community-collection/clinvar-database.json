@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/clinvar-database",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -31,28 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/clinvar/ (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://submit.ncbi.nlm.nih.gov/subs/clinvar/ (HTTP 404)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/clinvar/docs/ (HTTP 404)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://clinicalgenome.org/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -103,7 +83,7 @@
     "section_count": 32,
     "list_item_count": 103
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "mongodb",
       "mysql",
@@ -133,7 +113,268 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3260,
+    "code_block_count": 31,
+    "code_block_ratio": 0.161,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "xml",
+      "xml",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 195,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0615,
+    "information_density": 0.1113,
+    "strong_markers": 11,
+    "weak_markers": 13,
+    "instruction_specificity": 0.4583,
+    "section_count": 91,
+    "list_item_count": 213
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "xml",
+      "xml",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 748,
+        "code_block_count": 16,
+        "code_block_ratio": 0.25,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "xml"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0625,
+        "information_density": 0.1563,
+        "strong_markers": 6,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 20,
+        "list_item_count": 53
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "xml"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "clinical_significance.md",
+      "content_analysis": {
+        "word_count": 1269,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0158,
+        "code_languages": [],
+        "sentence_count": 80,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0625,
+        "information_density": 0.0391,
+        "strong_markers": 4,
+        "weak_markers": 7,
+        "instruction_specificity": 0.3636,
+        "section_count": 32,
+        "list_item_count": 65
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "data_formats.md",
+      "content_analysis": {
+        "word_count": 1243,
+        "code_block_count": 12,
+        "code_block_ratio": 0.2558,
+        "code_languages": [
+          "xml",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 67,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0597,
+        "information_density": 0.1578,
+        "strong_markers": 1,
+        "weak_markers": 6,
+        "instruction_specificity": 0.1429,
+        "section_count": 39,
+        "list_item_count": 95
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "xml",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/clinvar/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://submit.ncbi.nlm.nih.gov/subs/clinvar/ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/clinvar/docs/ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://clinicalgenome.org/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

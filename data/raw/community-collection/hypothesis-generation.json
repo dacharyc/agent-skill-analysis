@@ -38,6 +38,11 @@
       "level": "info",
       "category": "Frontmatter",
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -57,9 +62,21 @@
       {
         "file": "references/literature_search_strategies.md",
         "tokens": 4480
+      },
+      {
+        "file": "assets/FORMATTING_GUIDE.md",
+        "tokens": 5133
+      },
+      {
+        "file": "assets/hypothesis_generation.sty",
+        "tokens": 2558
+      },
+      {
+        "file": "assets/hypothesis_report_template.tex",
+        "tokens": 4905
       }
     ],
-    "total": 11801
+    "total": 24397
   },
   "content_analysis": {
     "word_count": 1924,
@@ -80,7 +97,7 @@
     "section_count": 18,
     "list_item_count": 120
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -95,7 +112,141 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 5595,
+    "code_block_count": 4,
+    "code_block_ratio": 0.0007,
+    "code_languages": [],
+    "sentence_count": 376,
+    "imperative_count": 16,
+    "imperative_ratio": 0.0426,
+    "information_density": 0.0216,
+    "strong_markers": 5,
+    "weak_markers": 16,
+    "instruction_specificity": 0.2381,
+    "section_count": 106,
+    "list_item_count": 569
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "experimental_design_patterns.md",
+      "content_analysis": {
+        "word_count": 1809,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 104,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0385,
+        "information_density": 0.0385,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 32,
+        "list_item_count": 177
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "hypothesis_quality_criteria.md",
+      "content_analysis": {
+        "word_count": 1086,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 81,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0247,
+        "information_density": 0.0247,
+        "strong_markers": 2,
+        "weak_markers": 8,
+        "instruction_specificity": 0.2,
+        "section_count": 18,
+        "list_item_count": 91
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "literature_search_strategies.md",
+      "content_analysis": {
+        "word_count": 2700,
+        "code_block_count": 4,
+        "code_block_ratio": 0.0015,
+        "code_languages": [],
+        "sentence_count": 191,
+        "imperative_count": 10,
+        "imperative_ratio": 0.0524,
+        "information_density": 0.0269,
+        "strong_markers": 2,
+        "weak_markers": 6,
+        "instruction_specificity": 0.25,
+        "section_count": 56,
+        "list_item_count": 301
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/sentry-skills/plugins/sentry-skills/skills/brand-guidelines",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 1,
   "results": [
     {
@@ -25,14 +25,9 @@
       "message": "description has 8 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://develop.sentry.dev/frontend/sentry-voice/ (HTTP 404)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://develop.sentry.dev/frontend/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -52,14 +47,14 @@
     "sentence_count": 76,
     "imperative_count": 12,
     "imperative_ratio": 0.1579,
-    "information_density": 0.0789,
+    "information_density": 0.1579,
     "strong_markers": 3,
     "weak_markers": 3,
     "instruction_specificity": 0.5,
     "section_count": 21,
     "list_item_count": 44
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -68,7 +63,21 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://develop.sentry.dev/frontend/sentry-voice/ (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://develop.sentry.dev/frontend/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

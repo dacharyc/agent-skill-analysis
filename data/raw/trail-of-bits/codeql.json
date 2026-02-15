@@ -36,18 +36,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "workflows/build-database.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "workflows/create-data-extensions.md (exists)"
+      "category": "Structure",
+      "message": "internal link: workflows/build-database.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "workflows/run-analysis.md (exists)"
+      "category": "Structure",
+      "message": "internal link: workflows/create-data-extensions.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: workflows/run-analysis.md (exists)"
     }
   ],
   "token_counts": {
@@ -114,7 +119,7 @@
     "section_count": 7,
     "list_item_count": 29
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -132,7 +137,360 @@
       "python"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.15,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.15,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 2874,
+    "code_block_count": 31,
+    "code_block_ratio": 0.3688,
+    "code_languages": [
+      "ql",
+      "ql",
+      "ql",
+      "ql",
+      "ql",
+      "ql",
+      "yaml",
+      "ql",
+      "yaml",
+      "ql",
+      "yaml",
+      "ql",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 136,
+    "imperative_count": 9,
+    "imperative_ratio": 0.0662,
+    "information_density": 0.2175,
+    "strong_markers": 8,
+    "weak_markers": 6,
+    "instruction_specificity": 0.5714,
+    "section_count": 43,
+    "list_item_count": 72
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "grpc"
+    ],
+    "code_languages": [
+      "ql",
+      "ql",
+      "ql",
+      "ql",
+      "ql",
+      "ql",
+      "yaml",
+      "ql",
+      "yaml",
+      "ql",
+      "yaml",
+      "ql",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "java",
+      "javascript",
+      "mobile",
+      "python",
+      "ruby"
+    ],
+    "scope_breadth": 8,
+    "contamination_score": 0.7333,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "diagnostic-query-templates.md",
+      "content_analysis": {
+        "word_count": 1115,
+        "code_block_count": 12,
+        "code_block_ratio": 0.6574,
+        "code_languages": [
+          "ql",
+          "ql",
+          "ql",
+          "ql",
+          "ql",
+          "ql",
+          "yaml",
+          "ql",
+          "yaml",
+          "ql",
+          "yaml",
+          "ql"
+        ],
+        "sentence_count": 33,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0909,
+        "information_density": 0.3742,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 12,
+        "list_item_count": 49
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ql",
+          "ql",
+          "ql",
+          "ql",
+          "ql",
+          "ql",
+          "yaml",
+          "ql",
+          "yaml",
+          "ql",
+          "yaml",
+          "ql"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "language-details.md",
+      "content_analysis": {
+        "word_count": 711,
+        "code_block_count": 9,
+        "code_block_ratio": 0.1828,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0811,
+        "information_density": 0.132,
+        "strong_markers": 7,
+        "weak_markers": 4,
+        "instruction_specificity": 0.6364,
+        "section_count": 15,
+        "list_item_count": 20
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "grpc"
+        ],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet",
+          "java",
+          "javascript",
+          "mobile",
+          "python",
+          "ruby"
+        ],
+        "scope_breadth": 7,
+        "contamination_score": 0.6,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "performance-tuning.md",
+      "content_analysis": {
+        "word_count": 489,
+        "code_block_count": 6,
+        "code_block_ratio": 0.1881,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 27,
+        "imperative_count": 1,
+        "imperative_ratio": 0.037,
+        "information_density": 0.1126,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "ruleset-catalog.md",
+      "content_analysis": {
+        "word_count": 192,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1823,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.1296,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 4,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "mobile"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "threat-models.md",
+      "content_analysis": {
+        "word_count": 367,
+        "code_block_count": 1,
+        "code_block_ratio": 0.1907,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0385,
+        "information_density": 0.1146,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 3,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

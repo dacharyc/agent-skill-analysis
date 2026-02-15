@@ -31,13 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://torchdrug.ai/docs/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/DeepGraphLearning/torchdrug (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -102,7 +97,7 @@
     "section_count": 29,
     "list_item_count": 149
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -124,7 +119,430 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 10464,
+    "code_block_count": 24,
+    "code_block_ratio": 0.0916,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 850,
+    "imperative_count": 74,
+    "imperative_ratio": 0.0871,
+    "information_density": 0.0893,
+    "strong_markers": 14,
+    "weak_markers": 16,
+    "instruction_specificity": 0.4667,
+    "section_count": 248,
+    "list_item_count": 1176
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "core_concepts.md",
+      "content_analysis": {
+        "word_count": 1636,
+        "code_block_count": 15,
+        "code_block_ratio": 0.3704,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 123,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0488,
+        "information_density": 0.2096,
+        "strong_markers": 4,
+        "weak_markers": 4,
+        "instruction_specificity": 0.5,
+        "section_count": 41,
+        "list_item_count": 126
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "datasets.md",
+      "content_analysis": {
+        "word_count": 1555,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0482,
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "sentence_count": 87,
+        "imperative_count": 12,
+        "imperative_ratio": 0.1379,
+        "information_density": 0.0931,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 27,
+        "list_item_count": 124
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "knowledge_graphs.md",
+      "content_analysis": {
+        "word_count": 1149,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0374,
+        "code_languages": [
+          "python"
+        ],
+        "sentence_count": 98,
+        "imperative_count": 7,
+        "imperative_ratio": 0.0714,
+        "information_density": 0.0544,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 29,
+        "list_item_count": 139
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "models_architectures.md",
+      "content_analysis": {
+        "word_count": 1767,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 155,
+        "imperative_count": 18,
+        "imperative_ratio": 0.1161,
+        "information_density": 0.1161,
+        "strong_markers": 3,
+        "weak_markers": 1,
+        "instruction_specificity": 0.75,
+        "section_count": 32,
+        "list_item_count": 265
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "molecular_generation.md",
+      "content_analysis": {
+        "word_count": 1254,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0447,
+        "code_languages": [
+          "python"
+        ],
+        "sentence_count": 119,
+        "imperative_count": 11,
+        "imperative_ratio": 0.0924,
+        "information_density": 0.0685,
+        "strong_markers": 2,
+        "weak_markers": 4,
+        "instruction_specificity": 0.3333,
+        "section_count": 28,
+        "list_item_count": 164
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "molecular_property_prediction.md",
+      "content_analysis": {
+        "word_count": 688,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0843,
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1042,
+        "information_density": 0.0942,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 18,
+        "list_item_count": 61
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "protein_modeling.md",
+      "content_analysis": {
+        "word_count": 956,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0429,
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "sentence_count": 86,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1279,
+        "information_density": 0.0854,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 31,
+        "list_item_count": 111
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "retrosynthesis.md",
+      "content_analysis": {
+        "word_count": 1459,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0541,
+        "code_languages": [
+          "python"
+        ],
+        "sentence_count": 134,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0299,
+        "information_density": 0.042,
+        "strong_markers": 2,
+        "weak_markers": 4,
+        "instruction_specificity": 0.3333,
+        "section_count": 42,
+        "list_item_count": 186
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://torchdrug.ai/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/DeepGraphLearning/torchdrug (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

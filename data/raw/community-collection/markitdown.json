@@ -46,33 +46,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/microsoft/markitdown.git (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/microsoft/markitdown (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://pypi.org/project/markitdown/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/keys (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/models (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -88,9 +63,13 @@
       {
         "file": "references/file_formats.md",
         "tokens": 2281
+      },
+      {
+        "file": "assets/example_usage.md",
+        "tokens": 2505
       }
     ],
-    "total": 7507
+    "total": 10012
   },
   "content_analysis": {
     "word_count": 1645,
@@ -132,7 +111,7 @@
     "section_count": 34,
     "list_item_count": 45
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker"
     ],
@@ -173,7 +152,379 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 2128,
+    "code_block_count": 57,
+    "code_block_ratio": 0.3557,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "markdown",
+      "python",
+      "bash",
+      "markdown",
+      "python",
+      "bash",
+      "markdown",
+      "python",
+      "bash",
+      "bash",
+      "markdown",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "markdown",
+      "python",
+      "python",
+      "markdown",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 184,
+    "imperative_count": 12,
+    "imperative_ratio": 0.0652,
+    "information_density": 0.2105,
+    "strong_markers": 4,
+    "weak_markers": 8,
+    "instruction_specificity": 0.3333,
+    "section_count": 65,
+    "list_item_count": 151
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "markdown",
+      "python",
+      "bash",
+      "markdown",
+      "python",
+      "bash",
+      "markdown",
+      "python",
+      "bash",
+      "bash",
+      "markdown",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "markdown",
+      "python",
+      "python",
+      "markdown",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "markup",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 981,
+        "code_block_count": 22,
+        "code_block_ratio": 0.473,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python"
+        ],
+        "sentence_count": 65,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0923,
+        "information_density": 0.2826,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 33,
+        "list_item_count": 22
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "file_formats.md",
+      "content_analysis": {
+        "word_count": 1147,
+        "code_block_count": 35,
+        "code_block_ratio": 0.2554,
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "bash",
+          "markdown",
+          "python",
+          "bash",
+          "markdown",
+          "python",
+          "bash",
+          "markdown",
+          "python",
+          "bash",
+          "bash",
+          "markdown",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "markdown",
+          "python",
+          "python",
+          "markdown",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 119,
+        "imperative_count": 6,
+        "imperative_ratio": 0.0504,
+        "information_density": 0.1529,
+        "strong_markers": 2,
+        "weak_markers": 6,
+        "instruction_specificity": 0.25,
+        "section_count": 32,
+        "list_item_count": 129
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "bash",
+          "markdown",
+          "python",
+          "bash",
+          "markdown",
+          "python",
+          "bash",
+          "markdown",
+          "python",
+          "bash",
+          "bash",
+          "markdown",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "markdown",
+          "python",
+          "python",
+          "markdown",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "markup",
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "markup",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/markitdown.git (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/markitdown (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pypi.org/project/markitdown/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/keys (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/models (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

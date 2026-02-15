@@ -21,28 +21,33 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/sensors.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/pinctrl_gpio.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/sensors.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/soc_config.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/pinctrl_gpio.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "../kernel-services/references/settings_workqueue.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/soc_config.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: ../kernel-services/references/settings_workqueue.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -83,7 +88,7 @@
     "section_count": 7,
     "list_item_count": 13
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "c"
@@ -96,7 +101,179 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 722,
+    "code_block_count": 9,
+    "code_block_ratio": 0.2729,
+    "code_languages": [
+      "dts",
+      "dts",
+      "dts",
+      "c",
+      "c",
+      "c",
+      "c",
+      "kconfig",
+      "dts"
+    ],
+    "sentence_count": 41,
+    "imperative_count": 2,
+    "imperative_ratio": 0.0488,
+    "information_density": 0.1608,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 22,
+    "list_item_count": 14
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "dts",
+      "dts",
+      "dts",
+      "c",
+      "c",
+      "c",
+      "c",
+      "kconfig",
+      "dts"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "pinctrl_gpio.md",
+      "content_analysis": {
+        "word_count": 259,
+        "code_block_count": 5,
+        "code_block_ratio": 0.4208,
+        "code_languages": [
+          "dts",
+          "dts",
+          "dts",
+          "c",
+          "c"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.2489,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 8,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "dts",
+          "dts",
+          "dts",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "sensors.md",
+      "content_analysis": {
+        "word_count": 251,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2908,
+        "code_languages": [
+          "c",
+          "c",
+          "kconfig"
+        ],
+        "sentence_count": 14,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0714,
+        "information_density": 0.1811,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "c",
+          "c",
+          "kconfig"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "soc_config.md",
+      "content_analysis": {
+        "word_count": 212,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0708,
+        "code_languages": [
+          "dts"
+        ],
+        "sentence_count": 14,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0354,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 8,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "dts"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -51,23 +51,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "methodology.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "adversarial.md (exists)"
+      "category": "Structure",
+      "message": "internal link: methodology.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reporting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: adversarial.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reporting.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: patterns.md (exists)"
     }
   ],
   "token_counts": {
@@ -115,7 +120,7 @@
     "section_count": 17,
     "list_item_count": 59
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -124,7 +129,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

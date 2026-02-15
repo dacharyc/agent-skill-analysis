@@ -40,14 +40,14 @@
       "message": "unrecognized field: \"biomodals_script\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "../../docs/installation.md (file not found)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/dauparas/ProteinMPNN.git (HTTP 200)"
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: ../../docs/installation.md (file not found)"
     }
   ],
   "token_counts": {
@@ -93,7 +93,7 @@
     "section_count": 27,
     "list_item_count": 3
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -124,7 +124,119 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 447,
+    "code_block_count": 9,
+    "code_block_ratio": 0.1566,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 39,
+    "imperative_count": 3,
+    "imperative_ratio": 0.0769,
+    "information_density": 0.1168,
+    "strong_markers": 0,
+    "weak_markers": 2,
+    "instruction_specificity": 0,
+    "section_count": 20,
+    "list_item_count": 25
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "temperature-guide.md",
+      "content_analysis": {
+        "word_count": 447,
+        "code_block_count": 9,
+        "code_block_ratio": 0.1566,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 39,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.1168,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 20,
+        "list_item_count": 25
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/dauparas/ProteinMPNN.git (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

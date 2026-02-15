@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/wordpress-skills/skills/wp-playground",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -25,14 +25,9 @@
       "message": "compatibility: (113 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:9400 (request failed: Head \"http://localhost:9400\": dial tcp 127.0.0.1:9400: connect: connection refused)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://wordpress.github.io/wordpress-playground/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -75,7 +70,7 @@
     "section_count": 14,
     "list_item_count": 43
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker"
     ],
@@ -96,7 +91,159 @@
       "ruby"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.45,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.45,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 490,
+    "code_block_count": 1,
+    "code_block_ratio": 0.0388,
+    "code_languages": [
+      "json"
+    ],
+    "sentence_count": 42,
+    "imperative_count": 9,
+    "imperative_ratio": 0.2143,
+    "information_density": 0.1265,
+    "strong_markers": 1,
+    "weak_markers": 3,
+    "instruction_specificity": 0.25,
+    "section_count": 12,
+    "list_item_count": 45
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "json"
+    ],
+    "language_categories": [
+      "config"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.075,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "blueprints.md",
+      "content_analysis": {
+        "word_count": 176,
+        "code_block_count": 1,
+        "code_block_ratio": 0.108,
+        "code_languages": [
+          "json"
+        ],
+        "sentence_count": 11,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1818,
+        "information_density": 0.1449,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 4,
+        "list_item_count": 15
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "cli-commands.md",
+      "content_analysis": {
+        "word_count": 189,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 20,
+        "imperative_count": 4,
+        "imperative_ratio": 0.2,
+        "information_density": 0.2,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 7,
+        "list_item_count": 17
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "debugging.md",
+      "content_analysis": {
+        "word_count": 125,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 11,
+        "imperative_count": 3,
+        "imperative_ratio": 0.2727,
+        "information_density": 0.2727,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 1,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:9400 (request failed: Head \"http://localhost:9400\": dial tcp 127.0.0.1:9400: connect: connection refused)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://wordpress.github.io/wordpress-playground/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

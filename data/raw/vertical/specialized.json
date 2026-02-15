@@ -21,28 +21,33 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/lvgl_gui.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/audio_i2s.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/lvgl_gui.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/watchdog_reliability.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/audio_i2s.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/fault_injection.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/watchdog_reliability.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/fault_injection.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -88,7 +93,7 @@
     "section_count": 8,
     "list_item_count": 16
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "kconfig",
@@ -102,7 +107,223 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 973,
+    "code_block_count": 10,
+    "code_block_ratio": 0.2323,
+    "code_languages": [
+      "kconfig",
+      "c",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c"
+    ],
+    "sentence_count": 57,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.1161,
+    "strong_markers": 8,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 25,
+    "list_item_count": 29
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "kconfig",
+      "c",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c",
+      "kconfig",
+      "c",
+      "c"
+    ],
+    "language_categories": [
+      "systems"
+    ],
+    "primary_category": "systems",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "audio_i2s.md",
+      "content_analysis": {
+        "word_count": 236,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2924,
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1462,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "fault_injection.md",
+      "content_analysis": {
+        "word_count": 208,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0721,
+        "code_languages": [
+          "c"
+        ],
+        "sentence_count": 12,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0361,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "lvgl_gui.md",
+      "content_analysis": {
+        "word_count": 278,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2734,
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1367,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 7,
+        "list_item_count": 10
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "watchdog_reliability.md",
+      "content_analysis": {
+        "word_count": 251,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2629,
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1315,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "c",
+          "c"
+        ],
+        "language_categories": [
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

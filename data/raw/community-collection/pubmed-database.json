@@ -31,13 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://pubmed.ncbi.nlm.nih.gov/help/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -79,7 +74,7 @@
     "section_count": 34,
     "list_item_count": 172
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -93,7 +88,144 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 3980,
+    "code_block_count": 85,
+    "code_block_ratio": 0.2915,
+    "code_languages": [],
+    "sentence_count": 260,
+    "imperative_count": 13,
+    "imperative_ratio": 0.05,
+    "information_density": 0.1707,
+    "strong_markers": 10,
+    "weak_markers": 8,
+    "instruction_specificity": 0.5556,
+    "section_count": 142,
+    "list_item_count": 196
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 1031,
+        "code_block_count": 15,
+        "code_block_ratio": 0.0281,
+        "code_languages": [],
+        "sentence_count": 91,
+        "imperative_count": 4,
+        "imperative_ratio": 0.044,
+        "information_density": 0.036,
+        "strong_markers": 9,
+        "weak_markers": 5,
+        "instruction_specificity": 0.6429,
+        "section_count": 23,
+        "list_item_count": 77
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "common_queries.md",
+      "content_analysis": {
+        "word_count": 1337,
+        "code_block_count": 49,
+        "code_block_ratio": 0.7068,
+        "code_languages": [],
+        "sentence_count": 68,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0294,
+        "information_density": 0.3681,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 66,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "search_syntax.md",
+      "content_analysis": {
+        "word_count": 1612,
+        "code_block_count": 21,
+        "code_block_ratio": 0.1154,
+        "code_languages": [],
+        "sentence_count": 101,
+        "imperative_count": 7,
+        "imperative_ratio": 0.0693,
+        "information_density": 0.0923,
+        "strong_markers": 1,
+        "weak_markers": 3,
+        "instruction_specificity": 0.25,
+        "section_count": 53,
+        "list_item_count": 115
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pubmed.ncbi.nlm.nih.gov/help/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/books/NBK25501/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -1,8 +1,8 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/static-analysis/skills/semgrep",
-  "passed": true,
-  "errors": 0,
-  "warnings": 2,
+  "passed": false,
+  "errors": 2,
+  "warnings": 0,
   "results": [
     {
       "level": "pass",
@@ -30,27 +30,12 @@
       "message": "allowed-tools is a YAML list; the spec defines this as a space-delimited string \u2014 both are accepted, but a string is more portable across agent implementations"
     },
     {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://semgrep.dev/docs/getting-started/ (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://www.npmjs.com/package/@microsoft/sarif-multitool (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/trailofbits/semgrep-rules (HTTP 200)"
-    },
-    {
-      "level": "warning",
+      "level": "error",
       "category": "Markdown",
       "message": "references/scanner-task-prompt.md has an unclosed code fence starting at line 102 \u2014 this may cause agents to misinterpret everything after it as code"
     },
     {
-      "level": "warning",
+      "level": "error",
       "category": "Markdown",
       "message": "references/triage-task-prompt.md has an unclosed code fence starting at line 122 \u2014 this may cause agents to misinterpret everything after it as code"
     }
@@ -99,7 +84,7 @@
     "section_count": 26,
     "list_item_count": 104
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker",
       "kubernetes",
@@ -128,7 +113,229 @@
       "python"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.5833,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.5833,
+    "contamination_level": "high"
+  },
+  "references_content_analysis": {
+    "word_count": 1910,
+    "code_block_count": 13,
+    "code_block_ratio": 0.3058,
+    "code_languages": [
+      "json",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json"
+    ],
+    "sentence_count": 57,
+    "imperative_count": 4,
+    "imperative_ratio": 0.0702,
+    "information_density": 0.188,
+    "strong_markers": 12,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9231,
+    "section_count": 43,
+    "list_item_count": 56
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "docker",
+      "kubernetes",
+      "terraform"
+    ],
+    "code_languages": [
+      "json",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json"
+    ],
+    "language_categories": [
+      "config",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "java",
+      "javascript",
+      "mobile",
+      "python",
+      "ruby"
+    ],
+    "scope_breadth": 7,
+    "contamination_score": 0.7333,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "rulesets.md",
+      "content_analysis": {
+        "word_count": 1040,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0356,
+        "code_languages": [
+          "json",
+          "bash",
+          "json"
+        ],
+        "sentence_count": 33,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0606,
+        "information_density": 0.0481,
+        "strong_markers": 5,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8333,
+        "section_count": 11,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws",
+          "docker",
+          "kubernetes",
+          "terraform"
+        ],
+        "code_languages": [
+          "json",
+          "bash",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "java",
+          "javascript",
+          "mobile",
+          "python",
+          "ruby"
+        ],
+        "scope_breadth": 7,
+        "contamination_score": 0.7333,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "scanner-task-prompt.md",
+      "content_analysis": {
+        "word_count": 450,
+        "code_block_count": 5,
+        "code_block_ratio": 0.5933,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0667,
+        "information_density": 0.33,
+        "strong_markers": 7,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 16,
+        "list_item_count": 27
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker"
+        ],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "python"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "triage-task-prompt.md",
+      "content_analysis": {
+        "word_count": 420,
+        "code_block_count": 5,
+        "code_block_ratio": 0.6667,
+        "code_languages": [
+          "json",
+          "json"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.3889,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 16,
+        "list_item_count": 27
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker"
+        ],
+        "code_languages": [
+          "json",
+          "json"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "python"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/getting-started/ (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://www.npmjs.com/package/@microsoft/sarif-multitool (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/trailofbits/semgrep-rules (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

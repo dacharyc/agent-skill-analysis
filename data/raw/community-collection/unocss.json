@@ -31,118 +31,123 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-config.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-rules.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-config.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-shortcuts.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-rules.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-theme.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-shortcuts.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-variants.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-theme.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-extracting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-variants.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-safelist.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-extracting.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/core-layers.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-safelist.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-wind3.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/core-layers.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-wind4.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-wind3.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-mini.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-wind4.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-icons.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-mini.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-attributify.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-icons.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-typography.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-attributify.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-web-fonts.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-typography.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-tagify.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-web-fonts.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/preset-rem-to-px.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-tagify.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/transformer-variant-group.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/preset-rem-to-px.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/transformer-directives.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/transformer-variant-group.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/transformer-compile-class.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/transformer-directives.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/transformer-attributify-jsx.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/transformer-compile-class.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/integrations-vite.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/transformer-attributify-jsx.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/integrations-nuxt.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/integrations-vite.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/integrations-nuxt.md (exists)"
     }
   ],
   "token_counts": {
@@ -263,14 +268,14 @@
     "sentence_count": 20,
     "imperative_count": 1,
     "imperative_ratio": 0.05,
-    "information_density": 0.025,
+    "information_density": 0.05,
     "strong_markers": 0,
     "weak_markers": 0,
     "instruction_specificity": 0,
     "section_count": 6,
     "list_item_count": 0
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -279,7 +284,1765 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 7861,
+    "code_block_count": 215,
+    "code_block_ratio": 0.4577,
+    "code_languages": [
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "html",
+      "ts",
+      "html",
+      "css",
+      "html",
+      "css",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "bash",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "css",
+      "html",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "css",
+      "html",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "html",
+      "html",
+      "css",
+      "ts",
+      "ts",
+      "css",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "jsx",
+      "ts",
+      "jsx",
+      "ts",
+      "jsx",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "ts",
+      "json",
+      "json",
+      "ts",
+      "ts",
+      "css",
+      "css",
+      "ts",
+      "css",
+      "css",
+      "css",
+      "css",
+      "css",
+      "ts",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html"
+    ],
+    "sentence_count": 567,
+    "imperative_count": 51,
+    "imperative_ratio": 0.0899,
+    "information_density": 0.2738,
+    "strong_markers": 17,
+    "weak_markers": 3,
+    "instruction_specificity": 0.85,
+    "section_count": 244,
+    "list_item_count": 159
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "html",
+      "ts",
+      "html",
+      "css",
+      "html",
+      "css",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "vue",
+      "vue",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "bash",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "css",
+      "html",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "css",
+      "html",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "html",
+      "ts",
+      "html",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "html",
+      "ts",
+      "html",
+      "html",
+      "css",
+      "ts",
+      "ts",
+      "css",
+      "css",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "jsx",
+      "ts",
+      "jsx",
+      "ts",
+      "jsx",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "html",
+      "css",
+      "ts",
+      "json",
+      "json",
+      "ts",
+      "ts",
+      "css",
+      "css",
+      "ts",
+      "css",
+      "css",
+      "css",
+      "css",
+      "css",
+      "ts",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html",
+      "html"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "markup",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.85,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "core-config.md",
+      "content_analysis": {
+        "word_count": 370,
+        "code_block_count": 12,
+        "code_block_ratio": 0.4,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 17,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-extracting.md",
+      "content_analysis": {
+        "word_count": 268,
+        "code_block_count": 10,
+        "code_block_ratio": 0.4142,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2071,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 11,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-layers.md",
+      "content_analysis": {
+        "word_count": 228,
+        "code_block_count": 7,
+        "code_block_ratio": 0.5132,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1333,
+        "information_density": 0.3232,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 7,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-rules.md",
+      "content_analysis": {
+        "word_count": 517,
+        "code_block_count": 9,
+        "code_block_ratio": 0.3733,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "css"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1622,
+        "information_density": 0.2677,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 10,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "css"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.4333,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "core-safelist.md",
+      "content_analysis": {
+        "word_count": 264,
+        "code_block_count": 6,
+        "code_block_ratio": 0.5303,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 16,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2652,
+        "strong_markers": 5,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8333,
+        "section_count": 7,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-shortcuts.md",
+      "content_analysis": {
+        "word_count": 245,
+        "code_block_count": 6,
+        "code_block_ratio": 0.4163,
+        "code_languages": [
+          "ts",
+          "html",
+          "ts",
+          "css",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1765,
+        "information_density": 0.2964,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "ts",
+          "css",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-theme.md",
+      "content_analysis": {
+        "word_count": 436,
+        "code_block_count": 9,
+        "code_block_ratio": 0.3853,
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 29,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1034,
+        "information_density": 0.2444,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 13,
+        "list_item_count": 9
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core-variants.md",
+      "content_analysis": {
+        "word_count": 438,
+        "code_block_count": 10,
+        "code_block_ratio": 0.2215,
+        "code_languages": [
+          "ts",
+          "ts",
+          "html",
+          "ts",
+          "html",
+          "ts",
+          "html",
+          "css",
+          "html",
+          "css"
+        ],
+        "sentence_count": 41,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1107,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 22,
+        "list_item_count": 33
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "html",
+          "ts",
+          "html",
+          "ts",
+          "html",
+          "css",
+          "html",
+          "css"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "integrations-nuxt.md",
+      "content_analysis": {
+        "word_count": 421,
+        "code_block_count": 11,
+        "code_block_ratio": 0.4893,
+        "code_languages": [
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "vue"
+        ],
+        "sentence_count": 24,
+        "imperative_count": 3,
+        "imperative_ratio": 0.125,
+        "information_density": 0.3072,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "vue",
+          "vue"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "integrations-vite.md",
+      "content_analysis": {
+        "word_count": 539,
+        "code_block_count": 19,
+        "code_block_ratio": 0.5028,
+        "code_languages": [
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 46,
+        "imperative_count": 4,
+        "imperative_ratio": 0.087,
+        "information_density": 0.2949,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 20,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-attributify.md",
+      "content_analysis": {
+        "word_count": 312,
+        "code_block_count": 11,
+        "code_block_ratio": 0.5737,
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 22,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0455,
+        "information_density": 0.3096,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 11,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-icons.md",
+      "content_analysis": {
+        "word_count": 425,
+        "code_block_count": 11,
+        "code_block_ratio": 0.6329,
+        "code_languages": [
+          "bash",
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "css",
+          "html"
+        ],
+        "sentence_count": 23,
+        "imperative_count": 2,
+        "imperative_ratio": 0.087,
+        "information_density": 0.3599,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 12,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "css",
+          "html"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "preset-mini.md",
+      "content_analysis": {
+        "word_count": 386,
+        "code_block_count": 10,
+        "code_block_ratio": 0.4637,
+        "code_languages": [
+          "ts",
+          "ts",
+          "html",
+          "css",
+          "css",
+          "html",
+          "css",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.2703,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 17
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "html",
+          "css",
+          "css",
+          "html",
+          "css",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-rem-to-px.md",
+      "content_analysis": {
+        "word_count": 217,
+        "code_block_count": 7,
+        "code_block_ratio": 0.3641,
+        "code_languages": [
+          "ts",
+          "html",
+          "css",
+          "css",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 18,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.2376,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 9
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "css",
+          "css",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-tagify.md",
+      "content_analysis": {
+        "word_count": 267,
+        "code_block_count": 9,
+        "code_block_ratio": 0.4307,
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 5,
+        "imperative_ratio": 0.2381,
+        "information_density": 0.3344,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 8,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-typography.md",
+      "content_analysis": {
+        "word_count": 187,
+        "code_block_count": 8,
+        "code_block_ratio": 0.6043,
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "ts"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3021,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 7,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-web-fonts.md",
+      "content_analysis": {
+        "word_count": 185,
+        "code_block_count": 4,
+        "code_block_ratio": 0.4973,
+        "code_languages": [
+          "ts",
+          "ts",
+          "html",
+          "ts"
+        ],
+        "sentence_count": 11,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2486,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "html",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-wind3.md",
+      "content_analysis": {
+        "word_count": 448,
+        "code_block_count": 13,
+        "code_block_ratio": 0.4063,
+        "code_languages": [
+          "ts",
+          "html",
+          "ts",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "html",
+          "html",
+          "css"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1081,
+        "information_density": 0.2572,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 14,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "ts",
+          "html",
+          "ts",
+          "ts",
+          "ts",
+          "html",
+          "html",
+          "ts",
+          "html",
+          "html",
+          "css"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "preset-wind4.md",
+      "content_analysis": {
+        "word_count": 617,
+        "code_block_count": 11,
+        "code_block_ratio": 0.4117,
+        "code_languages": [
+          "ts",
+          "ts",
+          "css",
+          "css",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 41,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1463,
+        "information_density": 0.279,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 17,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "ts",
+          "css",
+          "css",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "transformer-attributify-jsx.md",
+      "content_analysis": {
+        "word_count": 310,
+        "code_block_count": 9,
+        "code_block_ratio": 0.571,
+        "code_languages": [
+          "jsx",
+          "ts",
+          "jsx",
+          "ts",
+          "jsx",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 22,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0455,
+        "information_density": 0.3082,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 10,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "ts",
+          "jsx",
+          "ts",
+          "jsx",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "transformer-compile-class.md",
+      "content_analysis": {
+        "word_count": 278,
+        "code_block_count": 7,
+        "code_block_ratio": 0.5504,
+        "code_languages": [
+          "ts",
+          "html",
+          "css",
+          "ts",
+          "json",
+          "json",
+          "ts"
+        ],
+        "sentence_count": 16,
+        "imperative_count": 2,
+        "imperative_ratio": 0.125,
+        "information_density": 0.3377,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 7,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "css",
+          "ts",
+          "json",
+          "json",
+          "ts"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "transformer-directives.md",
+      "content_analysis": {
+        "word_count": 291,
+        "code_block_count": 9,
+        "code_block_ratio": 0.6289,
+        "code_languages": [
+          "ts",
+          "css",
+          "css",
+          "ts",
+          "css",
+          "css",
+          "css",
+          "css",
+          "css"
+        ],
+        "sentence_count": 20,
+        "imperative_count": 4,
+        "imperative_ratio": 0.2,
+        "information_density": 0.4144,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 8,
+        "list_item_count": 1
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "css",
+          "css",
+          "ts",
+          "css",
+          "css",
+          "css",
+          "css",
+          "css"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "transformer-variant-group.md",
+      "content_analysis": {
+        "word_count": 212,
+        "code_block_count": 7,
+        "code_block_ratio": 0.3302,
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html"
+        ],
+        "sentence_count": 20,
+        "imperative_count": 1,
+        "imperative_ratio": 0.05,
+        "information_density": 0.1901,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "ts",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html",
+          "html"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

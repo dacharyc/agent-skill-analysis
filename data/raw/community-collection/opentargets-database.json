@@ -31,8 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://platform-docs.opentargets.org/release-notes (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -81,7 +81,7 @@
     "section_count": 21,
     "list_item_count": 123
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "graphql"
     ],
@@ -106,7 +106,199 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3179,
+    "code_block_count": 11,
+    "code_block_ratio": 0.1186,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 250,
+    "imperative_count": 8,
+    "imperative_ratio": 0.032,
+    "information_density": 0.0753,
+    "strong_markers": 4,
+    "weak_markers": 13,
+    "instruction_specificity": 0.2353,
+    "section_count": 82,
+    "list_item_count": 298
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "graphql"
+    ],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 767,
+        "code_block_count": 8,
+        "code_block_ratio": 0.2673,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 55,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0909,
+        "information_density": 0.1791,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 20,
+        "list_item_count": 42
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "graphql"
+        ],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "evidence_types.md",
+      "content_analysis": {
+        "word_count": 1125,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0631,
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "sentence_count": 88,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0227,
+        "information_density": 0.0429,
+        "strong_markers": 1,
+        "weak_markers": 9,
+        "instruction_specificity": 0.1,
+        "section_count": 26,
+        "list_item_count": 114
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "target_annotations.md",
+      "content_analysis": {
+        "word_count": 1287,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0785,
+        "code_languages": [
+          "python"
+        ],
+        "sentence_count": 107,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0093,
+        "information_density": 0.0439,
+        "strong_markers": 2,
+        "weak_markers": 3,
+        "instruction_specificity": 0.4,
+        "section_count": 36,
+        "list_item_count": 142
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://platform-docs.opentargets.org/release-notes (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

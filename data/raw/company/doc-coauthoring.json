@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/sentry-skills/plugins/sentry-skills/skills/doc-coauthoring",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -20,14 +20,9 @@
       "message": "description: (428 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://github.com/anthropics/courses/tree/master/claude-code/skills/doc-coauthoring (HTTP 404)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://claude.ai (HTTP 403 \u2014 may block automated requests)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -47,14 +42,14 @@
     "sentence_count": 196,
     "imperative_count": 16,
     "imperative_ratio": 0.0816,
-    "information_density": 0.0408,
+    "information_density": 0.0816,
     "strong_markers": 8,
     "weak_markers": 9,
     "instruction_specificity": 0.4706,
     "section_count": 27,
     "list_item_count": 83
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -63,7 +58,21 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/anthropics/courses/tree/master/claude-code/skills/doc-coauthoring (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://claude.ai (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

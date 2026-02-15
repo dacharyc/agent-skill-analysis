@@ -61,8 +61,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://openrouter.ai/keys (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -94,9 +94,29 @@
       {
         "file": "references/visual_review_workflow.md",
         "tokens": 4884
+      },
+      {
+        "file": "assets/beamer_template_conference.tex",
+        "tokens": 2854
+      },
+      {
+        "file": "assets/beamer_template_defense.tex",
+        "tokens": 7817
+      },
+      {
+        "file": "assets/beamer_template_seminar.tex",
+        "tokens": 6862
+      },
+      {
+        "file": "assets/powerpoint_design_guide.md",
+        "tokens": 5099
+      },
+      {
+        "file": "assets/timing_guidelines.md",
+        "tokens": 4122
       }
     ],
-    "total": 41361
+    "total": 68115
   },
   "content_analysis": {
     "word_count": 6488,
@@ -132,7 +152,7 @@
     "section_count": 53,
     "list_item_count": 495
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "markdown",
@@ -165,7 +185,544 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 17165,
+    "code_block_count": 118,
+    "code_block_ratio": 0.2271,
+    "code_languages": [
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "python",
+      "r",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "python",
+      "python"
+    ],
+    "sentence_count": 913,
+    "imperative_count": 11,
+    "imperative_ratio": 0.012,
+    "information_density": 0.1196,
+    "strong_markers": 119,
+    "weak_markers": 35,
+    "instruction_specificity": 0.7727,
+    "section_count": 268,
+    "list_item_count": 1771
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "bash",
+      "bash",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "python",
+      "r",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "latex",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.5833,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "beamer_guide.md",
+      "content_analysis": {
+        "word_count": 1973,
+        "code_block_count": 56,
+        "code_block_ratio": 0.6204,
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "bash",
+          "bash",
+          "bash",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "sentence_count": 106,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3102,
+        "strong_markers": 11,
+        "weak_markers": 2,
+        "instruction_specificity": 0.8462,
+        "section_count": 63,
+        "list_item_count": 62
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "bash",
+          "bash",
+          "bash",
+          "latex",
+          "latex",
+          "latex",
+          "latex"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "data_visualization_slides.md",
+      "content_analysis": {
+        "word_count": 2728,
+        "code_block_count": 21,
+        "code_block_ratio": 0.2878,
+        "code_languages": [
+          "python",
+          "r"
+        ],
+        "sentence_count": 150,
+        "imperative_count": 7,
+        "imperative_ratio": 0.0467,
+        "information_density": 0.1672,
+        "strong_markers": 11,
+        "weak_markers": 3,
+        "instruction_specificity": 0.7857,
+        "section_count": 39,
+        "list_item_count": 311
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "r"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "presentation_structure.md",
+      "content_analysis": {
+        "word_count": 3314,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0033,
+        "code_languages": [],
+        "sentence_count": 203,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0049,
+        "information_density": 0.0041,
+        "strong_markers": 10,
+        "weak_markers": 15,
+        "instruction_specificity": 0.4,
+        "section_count": 41,
+        "list_item_count": 363
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "slide_design_principles.md",
+      "content_analysis": {
+        "word_count": 3308,
+        "code_block_count": 10,
+        "code_block_ratio": 0.0868,
+        "code_languages": [],
+        "sentence_count": 202,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0434,
+        "strong_markers": 10,
+        "weak_markers": 2,
+        "instruction_specificity": 0.8333,
+        "section_count": 46,
+        "list_item_count": 389
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "talk_types_guide.md",
+      "content_analysis": {
+        "word_count": 3001,
+        "code_block_count": 9,
+        "code_block_ratio": 0.2826,
+        "code_languages": [],
+        "sentence_count": 111,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1413,
+        "strong_markers": 56,
+        "weak_markers": 11,
+        "instruction_specificity": 0.8358,
+        "section_count": 33,
+        "list_item_count": 394
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "visual_review_workflow.md",
+      "content_analysis": {
+        "word_count": 2841,
+        "code_block_count": 21,
+        "code_block_ratio": 0.2619,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "python",
+          "python"
+        ],
+        "sentence_count": 141,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0213,
+        "information_density": 0.1416,
+        "strong_markers": 21,
+        "weak_markers": 2,
+        "instruction_specificity": 0.913,
+        "section_count": 46,
+        "list_item_count": 252
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "latex",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://openrouter.ai/keys (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

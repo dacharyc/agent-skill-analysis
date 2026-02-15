@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/trailofbits-skills/plugins/second-opinion/skills/second-opinion",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -31,23 +31,18 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/codex-invocation.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/gemini-invocation.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/codex-invocation.md (exists)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://github.com/gemini-cli-extensions/code-review` (HTTP 404)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://github.com/gemini-cli-extensions/security` (HTTP 404)"
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/gemini-invocation.md (exists)"
     }
   ],
   "token_counts": {
@@ -86,7 +81,7 @@
     "section_count": 18,
     "list_item_count": 41
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -101,7 +96,154 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 937,
+    "code_block_count": 9,
+    "code_block_ratio": 0.2199,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 57,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.1099,
+    "strong_markers": 3,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 16,
+    "list_item_count": 9
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "codex-invocation.md",
+      "content_analysis": {
+        "word_count": 434,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1175,
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0588,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 8,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "gemini-invocation.md",
+      "content_analysis": {
+        "word_count": 503,
+        "code_block_count": 6,
+        "code_block_ratio": 0.3082,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 26,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1541,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 8,
+        "list_item_count": 2
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/gemini-cli-extensions/code-review` (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://github.com/gemini-cli-extensions/security` (HTTP 404)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

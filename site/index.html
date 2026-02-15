@@ -10,14 +10,15 @@
 <body>
     <header>
         <h1>Agent Skill Analysis</h1>
-        <p class="subtitle">Structural validation, content quality, and cross-contamination risk across 254 Agent Skills</p>
+        <p class="subtitle">Structural validation, content quality, and cross-contamination analysis across 673 Agent Skills</p>
     </header>
 
     <nav>
         <a href="#overview">Overview</a>
         <a href="#validation">Validation</a>
         <a href="#content">Content Quality</a>
-        <a href="#contamination">Contamination Risk</a>
+        <a href="#contamination">Contamination</a>
+        <a href="#hidden-contamination-list">Hidden</a>
         <a href="#table">All Skills</a>
     </nav>
 
@@ -40,7 +41,11 @@
                 </div>
                 <div class="stat-card warn">
                     <div class="stat-value" id="stat-high-risk">—</div>
-                    <div class="stat-label">High Risk</div>
+                    <div class="stat-label">High Contamination</div>
+                </div>
+                <div class="stat-card waste">
+                    <div class="stat-value" id="stat-waste">—</div>
+                    <div class="stat-label">Context Window Waste</div>
                 </div>
             </div>
             <div class="chart-row">
@@ -62,6 +67,11 @@
             <div class="chart-container wide">
                 <canvas id="chart-tokens"></canvas>
             </div>
+            <h3>Token Budget Composition</h3>
+            <p>How token budgets break down across SKILL.md, references, assets, and nonstandard files. Nonstandard files (LICENSE, build artifacts, schemas) waste context window space.</p>
+            <div class="chart-container wide">
+                <canvas id="chart-token-budget"></canvas>
+            </div>
         </section>
 
         <!-- Content Quality -->
@@ -79,14 +89,19 @@
 
         <!-- Contamination Risk -->
         <section id="contamination">
-            <h2>Cross-Contamination Risk</h2>
-            <p>Skills that reference multi-interface tools or mix code examples across languages pose a risk of cross-contaminating agent behavior.</p>
+            <h2>Cross-Contamination</h2>
+            <p>Skills that reference multi-interface tools or mix code examples across languages may cross-contaminate agent behavior.</p>
             <div class="chart-container wide">
                 <canvas id="chart-risk-detail"></canvas>
             </div>
             <div id="high-risk-list">
-                <h3>High-Risk Skills</h3>
+                <h3>High-Contamination Skills</h3>
                 <div id="high-risk-cards"></div>
+            </div>
+            <div id="hidden-contamination-list">
+                <h3>Hidden Contamination</h3>
+                <p>Skills where <code>SKILL.md</code> scores as low-risk but reference files carry medium or high contamination.</p>
+                <div id="hidden-contamination-cards"></div>
             </div>
         </section>
 
@@ -135,7 +150,7 @@
                             <th data-sort="total_tokens">Tokens</th>
                             <th data-sort="information_density">Density</th>
                             <th data-sort="instruction_specificity">Specificity</th>
-                            <th data-sort="risk_score">Risk</th>
+                            <th data-sort="contamination_score">Contamination</th>
                         </tr>
                     </thead>
                     <tbody id="skills-tbody">

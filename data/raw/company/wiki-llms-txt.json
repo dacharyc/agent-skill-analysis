@@ -20,29 +20,29 @@
       "message": "description: (243 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "url (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "URL (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "./wiki/onboarding/contributor-guide.md (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "./onboarding/contributor-guide.md (file not found)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://llmstxt.org/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: url (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: URL (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: ./wiki/onboarding/contributor-guide.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: ./onboarding/contributor-guide.md (file not found)"
     }
   ],
   "token_counts": {
@@ -73,7 +73,7 @@
     "section_count": 13,
     "list_item_count": 35
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker"
     ],
@@ -90,7 +90,16 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://llmstxt.org/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

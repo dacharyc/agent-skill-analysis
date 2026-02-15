@@ -26,8 +26,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://developers.cloudflare.com/workflows/build/rules-of-workflows/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -64,7 +64,7 @@
     "section_count": 14,
     "list_item_count": 17
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "mysql",
       "postgresql"
@@ -82,7 +82,255 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3102,
+    "code_block_count": 33,
+    "code_block_ratio": 0.2785,
+    "code_languages": [
+      "bash",
+      "bash",
+      "jsonc",
+      "jsonc",
+      "ts",
+      "ts",
+      "jsonc",
+      "jsonc",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "jsonc",
+      "ts",
+      "jsonc",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts"
+    ],
+    "sentence_count": 220,
+    "imperative_count": 39,
+    "imperative_ratio": 0.1773,
+    "information_density": 0.2279,
+    "strong_markers": 30,
+    "weak_markers": 10,
+    "instruction_specificity": 0.75,
+    "section_count": 44,
+    "list_item_count": 48
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "bash",
+      "jsonc",
+      "jsonc",
+      "ts",
+      "ts",
+      "jsonc",
+      "jsonc",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "jsonc",
+      "ts",
+      "jsonc",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "bash",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts",
+      "ts"
+    ],
+    "language_categories": [
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "review.md",
+      "content_analysis": {
+        "word_count": 1102,
+        "code_block_count": 3,
+        "code_block_ratio": 0.0363,
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 81,
+        "imperative_count": 14,
+        "imperative_ratio": 0.1728,
+        "information_density": 0.1046,
+        "strong_markers": 18,
+        "weak_markers": 5,
+        "instruction_specificity": 0.7826,
+        "section_count": 19,
+        "list_item_count": 45
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "rules.md",
+      "content_analysis": {
+        "word_count": 2000,
+        "code_block_count": 30,
+        "code_block_ratio": 0.412,
+        "code_languages": [
+          "jsonc",
+          "jsonc",
+          "ts",
+          "ts",
+          "jsonc",
+          "jsonc",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "jsonc",
+          "ts",
+          "jsonc",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "sentence_count": 139,
+        "imperative_count": 25,
+        "imperative_ratio": 0.1799,
+        "information_density": 0.2959,
+        "strong_markers": 12,
+        "weak_markers": 5,
+        "instruction_specificity": 0.7059,
+        "section_count": 25,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsonc",
+          "jsonc",
+          "ts",
+          "ts",
+          "jsonc",
+          "jsonc",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "jsonc",
+          "ts",
+          "jsonc",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "bash",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts",
+          "ts"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/workflows/build/rules-of-workflows/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

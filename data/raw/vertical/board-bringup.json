@@ -21,23 +21,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/hwmv2_structure.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/board_files.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/hwmv2_structure.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: references/board_files.md (exists)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "references/hwmv2_structure.md#revision-management (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: references/hwmv2_structure.md#revision-management (file not found)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/ (exists)"
     }
   ],
   "token_counts": {
@@ -65,14 +70,14 @@
     "sentence_count": 18,
     "imperative_count": 2,
     "imperative_ratio": 0.1111,
-    "information_density": 0.0556,
+    "information_density": 0.1111,
     "strong_markers": 0,
     "weak_markers": 0,
     "instruction_specificity": 0,
     "section_count": 6,
     "list_item_count": 12
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -81,7 +86,125 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 210,
+    "code_block_count": 5,
+    "code_block_ratio": 0.4286,
+    "code_languages": [
+      "kconfig",
+      "kconfig",
+      "cmake",
+      "yaml"
+    ],
+    "sentence_count": 14,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0714,
+    "information_density": 0.25,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 7,
+    "list_item_count": 4
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "kconfig",
+      "kconfig",
+      "cmake",
+      "yaml"
+    ],
+    "language_categories": [
+      "config"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "board_files.md",
+      "content_analysis": {
+        "word_count": 95,
+        "code_block_count": 3,
+        "code_block_ratio": 0.2632,
+        "code_languages": [
+          "kconfig",
+          "kconfig",
+          "cmake"
+        ],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.1941,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 4,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kconfig",
+          "kconfig",
+          "cmake"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "hwmv2_structure.md",
+      "content_analysis": {
+        "word_count": 115,
+        "code_block_count": 2,
+        "code_block_ratio": 0.5652,
+        "code_languages": [
+          "yaml"
+        ],
+        "sentence_count": 6,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2826,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

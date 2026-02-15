@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/code-generation/skills/terraform-test",
-  "passed": false,
-  "errors": 3,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -35,19 +35,9 @@
       "message": "SKILL.md body is 1663 lines (spec recommends < 500)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/language/tests (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/cli/commands/test (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/language/tests/best-practices (HTTP 429)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -123,7 +113,7 @@
     "section_count": 46,
     "list_item_count": 94
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws",
       "terraform"
@@ -191,7 +181,26 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.5083,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.5083,
+    "contamination_level": "high"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/language/tests (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/cli/commands/test (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/language/tests/best-practices (HTTP 429)"
+    }
+  ],
+  "link_errors": 3,
+  "link_warnings": 0
 }

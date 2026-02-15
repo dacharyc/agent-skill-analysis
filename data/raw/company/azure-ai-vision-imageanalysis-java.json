@@ -26,8 +26,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/ai-services/computer-vision/concept-describe-images-40 (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -79,7 +79,7 @@
     "section_count": 22,
     "list_item_count": 10
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "xml",
@@ -112,7 +112,271 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 2348,
+    "code_block_count": 35,
+    "code_block_ratio": 0.6895,
+    "code_languages": [
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash"
+    ],
+    "sentence_count": 73,
+    "imperative_count": 8,
+    "imperative_ratio": 0.1096,
+    "information_density": 0.3996,
+    "strong_markers": 0,
+    "weak_markers": 1,
+    "instruction_specificity": 0,
+    "section_count": 53,
+    "list_item_count": 32
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "java",
+      "shell"
+    ],
+    "primary_category": "java",
+    "mismatched_categories": [
+      "config",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 581,
+        "code_block_count": 14,
+        "code_block_ratio": 0.4372,
+        "code_languages": [
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "sentence_count": 28,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2186,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 24,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "language_categories": [
+          "java"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "examples.md",
+      "content_analysis": {
+        "word_count": 1767,
+        "code_block_count": 21,
+        "code_block_ratio": 0.7725,
+        "code_languages": [
+          "xml",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "bash"
+        ],
+        "sentence_count": 45,
+        "imperative_count": 8,
+        "imperative_ratio": 0.1778,
+        "information_density": 0.4751,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 29,
+        "list_item_count": 25
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "xml",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "java",
+          "shell"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/ai-services/computer-vision/concept-describe-images-40 (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

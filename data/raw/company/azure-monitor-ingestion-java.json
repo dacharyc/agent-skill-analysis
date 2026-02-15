@@ -30,39 +30,14 @@
       "message": "unrecognized field: \"package\""
     },
     {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
       "level": "error",
-      "category": "Links",
-      "message": "../query/SKILL.md (file not found)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://central.sonatype.com/artifact/com.azure/azure-monitor-ingestion (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-ingestion (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-ingestion-api-overview (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-endpoint-overview (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-ingestion/TROUBLESHOOTING.md (HTTP 200)"
+      "category": "Structure",
+      "message": "broken internal link: ../query/SKILL.md (file not found)"
     }
   ],
   "token_counts": {
@@ -110,7 +85,7 @@
     "section_count": 17,
     "list_item_count": 11
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "xml",
@@ -141,7 +116,236 @@
       "javascript"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 1051,
+    "code_block_count": 21,
+    "code_block_ratio": 0.6794,
+    "code_languages": [
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java"
+    ],
+    "sentence_count": 40,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.3397,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 34,
+    "list_item_count": 13
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "xml",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java",
+      "java"
+    ],
+    "language_categories": [
+      "config",
+      "java"
+    ],
+    "primary_category": "java",
+    "mismatched_categories": [
+      "config"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 387,
+        "code_block_count": 10,
+        "code_block_ratio": 0.4651,
+        "code_languages": [
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2326,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 18,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "language_categories": [
+          "java"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "examples.md",
+      "content_analysis": {
+        "word_count": 664,
+        "code_block_count": 11,
+        "code_block_ratio": 0.8042,
+        "code_languages": [
+          "xml",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "sentence_count": 19,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4021,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 16,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "xml",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java",
+          "java"
+        ],
+        "language_categories": [
+          "config",
+          "java"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://central.sonatype.com/artifact/com.azure/azure-monitor-ingestion (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-ingestion (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-ingestion-api-overview (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-endpoint-overview (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-ingestion/TROUBLESHOOTING.md (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

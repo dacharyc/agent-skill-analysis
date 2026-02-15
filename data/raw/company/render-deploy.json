@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/render-deploy",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -31,78 +31,58 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/codebase-analysis.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/blueprint-spec.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/codebase-analysis.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/runtimes.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/blueprint-spec.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/service-types.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/runtimes.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/service-types.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/configuration-guide.md (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/ (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/direct-creation.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/configuration-guide.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/deployment-details.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/direct-creation.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/post-deploy-checks.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/deployment-details.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/troubleshooting-basics.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/post-deploy-checks.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://raw.githubusercontent.com/render-oss/cli/main/bin/install.sh (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://dashboard.render.com/u/*/settings#api-keys (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://mcp.render.com/mcp (HTTP 404)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://dashboard.render.com/blueprint/new?repo= (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://dashboard.render.com/blueprint/new?repo=https://github.com/username/repo-name (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: references/troubleshooting-basics.md (exists)"
     }
   ],
   "token_counts": {
@@ -150,9 +130,33 @@
       {
         "file": "references/troubleshooting-basics.md",
         "tokens": 302
+      },
+      {
+        "file": "assets/docker.yaml",
+        "tokens": 379
+      },
+      {
+        "file": "assets/go-api.yaml",
+        "tokens": 228
+      },
+      {
+        "file": "assets/nextjs-postgres.yaml",
+        "tokens": 227
+      },
+      {
+        "file": "assets/node-express.yaml",
+        "tokens": 165
+      },
+      {
+        "file": "assets/python-django.yaml",
+        "tokens": 642
+      },
+      {
+        "file": "assets/static-site.yaml",
+        "tokens": 347
       }
     ],
-    "total": 20175
+    "total": 22163
   },
   "other_token_counts": {
     "files": [
@@ -196,7 +200,7 @@
     "section_count": 30,
     "list_item_count": 70
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker",
       "redis"
@@ -227,7 +231,992 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 8176,
+    "code_block_count": 142,
+    "code_block_ratio": 0.2945,
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "bash",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "python",
+      "yaml",
+      "python",
+      "yaml",
+      "go",
+      "ruby",
+      "rust",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "python",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "python",
+      "go",
+      "yaml",
+      "yaml",
+      "javascript",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "go",
+      "bash",
+      "yaml",
+      "json",
+      "bash",
+      "bash",
+      "yaml",
+      "toml",
+      "bash",
+      "bash",
+      "yaml",
+      "go",
+      "bash",
+      "bash",
+      "yaml",
+      "ruby",
+      "bash",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "dockerfile",
+      "yaml",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "javascript",
+      "javascript",
+      "yaml",
+      "python",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "yaml"
+    ],
+    "sentence_count": 548,
+    "imperative_count": 85,
+    "imperative_ratio": 0.1551,
+    "information_density": 0.2248,
+    "strong_markers": 52,
+    "weak_markers": 13,
+    "instruction_specificity": 0.8,
+    "section_count": 152,
+    "list_item_count": 555
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "docker",
+      "graphql",
+      "kafka",
+      "mongodb",
+      "postgresql",
+      "rabbitmq",
+      "redis",
+      "stripe"
+    ],
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "bash",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "python",
+      "yaml",
+      "python",
+      "yaml",
+      "go",
+      "ruby",
+      "rust",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "python",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "python",
+      "go",
+      "yaml",
+      "yaml",
+      "javascript",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "python",
+      "go",
+      "bash",
+      "yaml",
+      "json",
+      "bash",
+      "bash",
+      "yaml",
+      "toml",
+      "bash",
+      "bash",
+      "yaml",
+      "go",
+      "bash",
+      "bash",
+      "yaml",
+      "ruby",
+      "bash",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "dockerfile",
+      "yaml",
+      "yaml",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "javascript",
+      "javascript",
+      "yaml",
+      "python",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "javascript",
+      "yaml"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "python",
+      "ruby",
+      "shell",
+      "systems"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "javascript",
+      "python",
+      "ruby",
+      "shell",
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript",
+      "python",
+      "ruby"
+    ],
+    "scope_breadth": 6,
+    "contamination_score": 1,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "blueprint-spec.md",
+      "content_analysis": {
+        "word_count": 1991,
+        "code_block_count": 27,
+        "code_block_ratio": 0.342,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "bash"
+        ],
+        "sentence_count": 122,
+        "imperative_count": 12,
+        "imperative_ratio": 0.0984,
+        "information_density": 0.2202,
+        "strong_markers": 17,
+        "weak_markers": 6,
+        "instruction_specificity": 0.7391,
+        "section_count": 34,
+        "list_item_count": 191
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker",
+          "postgresql",
+          "redis",
+          "stripe"
+        ],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.5083,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "codebase-analysis.md",
+      "content_analysis": {
+        "word_count": 329,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.125,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 34
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker",
+          "mongodb",
+          "postgresql",
+          "redis"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "configuration-guide.md",
+      "content_analysis": {
+        "word_count": 1493,
+        "code_block_count": 40,
+        "code_block_ratio": 0.3778,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "python",
+          "yaml",
+          "python",
+          "yaml",
+          "go",
+          "ruby",
+          "rust",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "python",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "python",
+          "go",
+          "yaml",
+          "yaml",
+          "javascript",
+          "yaml",
+          "yaml"
+        ],
+        "sentence_count": 118,
+        "imperative_count": 13,
+        "imperative_ratio": 0.1102,
+        "information_density": 0.244,
+        "strong_markers": 10,
+        "weak_markers": 3,
+        "instruction_specificity": 0.7692,
+        "section_count": 32,
+        "list_item_count": 99
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "postgresql",
+          "redis",
+          "stripe"
+        ],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "python",
+          "yaml",
+          "python",
+          "yaml",
+          "go",
+          "ruby",
+          "rust",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "python",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "python",
+          "go",
+          "yaml",
+          "yaml",
+          "javascript",
+          "yaml",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "python",
+          "ruby",
+          "systems"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "javascript",
+          "python",
+          "ruby",
+          "systems"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "python",
+          "ruby"
+        ],
+        "scope_breadth": 5,
+        "contamination_score": 0.925,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "deployment-details.md",
+      "content_analysis": {
+        "word_count": 599,
+        "code_block_count": 13,
+        "code_block_ratio": 0.3255,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "go",
+          "bash",
+          "yaml"
+        ],
+        "sentence_count": 49,
+        "imperative_count": 5,
+        "imperative_ratio": 0.102,
+        "information_density": 0.2138,
+        "strong_markers": 5,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8333,
+        "section_count": 14,
+        "list_item_count": 29
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker",
+          "postgresql",
+          "redis",
+          "stripe"
+        ],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "python",
+          "go",
+          "bash",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "python",
+          "shell",
+          "systems"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "javascript",
+          "python",
+          "shell",
+          "systems"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 5,
+        "contamination_score": 0.925,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "direct-creation.md",
+      "content_analysis": {
+        "word_count": 318,
+        "code_block_count": 9,
+        "code_block_ratio": 0.5692,
+        "code_languages": [],
+        "sentence_count": 19,
+        "imperative_count": 9,
+        "imperative_ratio": 0.4737,
+        "information_density": 0.5214,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker",
+          "postgresql",
+          "redis"
+        ],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "error-patterns.md",
+      "content_analysis": {
+        "word_count": 146,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 3,
+        "imperative_count": 1,
+        "imperative_ratio": 0.3333,
+        "information_density": 0.3333,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 0,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "post-deploy-checks.md",
+      "content_analysis": {
+        "word_count": 154,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0649,
+        "code_languages": [],
+        "sentence_count": 16,
+        "imperative_count": 4,
+        "imperative_ratio": 0.25,
+        "information_density": 0.1575,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "runtimes.md",
+      "content_analysis": {
+        "word_count": 1328,
+        "code_block_count": 34,
+        "code_block_ratio": 0.3321,
+        "code_languages": [
+          "json",
+          "bash",
+          "bash",
+          "yaml",
+          "toml",
+          "bash",
+          "bash",
+          "yaml",
+          "go",
+          "bash",
+          "bash",
+          "yaml",
+          "ruby",
+          "bash",
+          "bash",
+          "yaml",
+          "bash",
+          "bash",
+          "yaml",
+          "bash",
+          "bash",
+          "yaml",
+          "yaml",
+          "dockerfile",
+          "yaml",
+          "yaml",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "yaml"
+        ],
+        "sentence_count": 89,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0562,
+        "information_density": 0.1941,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 13,
+        "list_item_count": 70
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker"
+        ],
+        "code_languages": [
+          "json",
+          "bash",
+          "bash",
+          "yaml",
+          "toml",
+          "bash",
+          "bash",
+          "yaml",
+          "go",
+          "bash",
+          "bash",
+          "yaml",
+          "ruby",
+          "bash",
+          "bash",
+          "yaml",
+          "bash",
+          "bash",
+          "yaml",
+          "bash",
+          "bash",
+          "yaml",
+          "yaml",
+          "dockerfile",
+          "yaml",
+          "yaml",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "ruby",
+          "shell",
+          "systems"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "ruby",
+          "systems"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "python",
+          "ruby"
+        ],
+        "scope_breadth": 6,
+        "contamination_score": 1,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "service-types.md",
+      "content_analysis": {
+        "word_count": 1615,
+        "code_block_count": 17,
+        "code_block_ratio": 0.208,
+        "code_languages": [
+          "yaml",
+          "javascript",
+          "javascript",
+          "yaml",
+          "python",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "yaml"
+        ],
+        "sentence_count": 103,
+        "imperative_count": 25,
+        "imperative_ratio": 0.2427,
+        "information_density": 0.2254,
+        "strong_markers": 13,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 39,
+        "list_item_count": 112
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "graphql",
+          "kafka",
+          "rabbitmq",
+          "redis"
+        ],
+        "code_languages": [
+          "yaml",
+          "javascript",
+          "javascript",
+          "yaml",
+          "python",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "javascript",
+          "yaml"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "python"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "javascript",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "python",
+          "ruby"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.7167,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "troubleshooting-basics.md",
+      "content_analysis": {
+        "word_count": 203,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 21,
+        "imperative_count": 10,
+        "imperative_ratio": 0.4762,
+        "information_density": 0.4762,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 4,
+        "list_item_count": 12
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://raw.githubusercontent.com/render-oss/cli/main/bin/install.sh (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dashboard.render.com/u/*/settings#api-keys (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.render.com/mcp (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dashboard.render.com/blueprint/new?repo= (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://dashboard.render.com/blueprint/new?repo=https://github.com/username/repo-name (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

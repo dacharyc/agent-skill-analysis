@@ -45,24 +45,14 @@
       "message": "SKILL.md body is 699 lines (spec recommends < 500)"
     },
     {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
       "level": "error",
-      "category": "Links",
-      "message": "=[O:2] (file not found)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.datamol.io/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.rdkit.org/docs/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/datamol-io/datamol (HTTP 200)"
+      "category": "Structure",
+      "message": "broken internal link: =[O:2] (file not found)"
     }
   ],
   "token_counts": {
@@ -154,7 +144,7 @@
     "section_count": 25,
     "list_item_count": 44
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -211,7 +201,403 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3877,
+    "code_block_count": 34,
+    "code_block_ratio": 0.2087,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 213,
+    "imperative_count": 43,
+    "imperative_ratio": 0.2019,
+    "information_density": 0.2053,
+    "strong_markers": 9,
+    "weak_markers": 3,
+    "instruction_specificity": 0.75,
+    "section_count": 124,
+    "list_item_count": 255
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws"
+    ],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "conformers_module.md",
+      "content_analysis": {
+        "word_count": 574,
+        "code_block_count": 4,
+        "code_block_ratio": 0.2073,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 25,
+        "imperative_count": 1,
+        "imperative_ratio": 0.04,
+        "information_density": 0.1237,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 14,
+        "list_item_count": 47
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "core_api.md",
+      "content_analysis": {
+        "word_count": 512,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 45,
+        "imperative_count": 19,
+        "imperative_ratio": 0.4222,
+        "information_density": 0.4222,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 36,
+        "list_item_count": 27
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "descriptors_viz.md",
+      "content_analysis": {
+        "word_count": 849,
+        "code_block_count": 8,
+        "code_block_ratio": 0.1496,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 45,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1111,
+        "information_density": 0.1303,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 22,
+        "list_item_count": 72
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "fragments_scaffolds.md",
+      "content_analysis": {
+        "word_count": 669,
+        "code_block_count": 9,
+        "code_block_ratio": 0.4155,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0323,
+        "information_density": 0.2239,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 17,
+        "list_item_count": 25
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "io_module.md",
+      "content_analysis": {
+        "word_count": 495,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0222,
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 14,
+        "imperative_ratio": 0.4516,
+        "information_density": 0.2369,
+        "strong_markers": 0,
+        "weak_markers": 3,
+        "instruction_specificity": 0,
+        "section_count": 19,
+        "list_item_count": 41
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0.3,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "reactions_data.md",
+      "content_analysis": {
+        "word_count": 778,
+        "code_block_count": 11,
+        "code_block_ratio": 0.3522,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0833,
+        "information_density": 0.2178,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 16,
+        "list_item_count": 43
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.datamol.io/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.rdkit.org/docs/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/datamol-io/datamol (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

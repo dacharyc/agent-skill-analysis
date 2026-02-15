@@ -56,68 +56,73 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/api-reference.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/webview-patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/api-reference.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/tree-view-patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/webview-patterns.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/custom-editor-patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/tree-view-patterns.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/conversion-guide.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/custom-editor-patterns.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/build-config.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/conversion-guide.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/contribution-points.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/build-config.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/ai-integration.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/contribution-points.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/basic-command/ (exists)"
+      "category": "Structure",
+      "message": "internal link: references/ai-integration.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/webview-react/ (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/basic-command/ (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/tree-view/ (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/webview-react/ (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/custom-editor/ (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/tree-view/ (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/file-bridge/ (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/custom-editor/ (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: assets/file-bridge/ (exists)"
     }
   ],
   "token_counts": {
@@ -157,9 +162,53 @@
       {
         "file": "references/webview-patterns.md",
         "tokens": 3283
+      },
+      {
+        "file": "assets/basic-command/src/extension.ts",
+        "tokens": 84
+      },
+      {
+        "file": "assets/custom-editor/src/editorProvider.ts",
+        "tokens": 1630
+      },
+      {
+        "file": "assets/custom-editor/src/extension.ts",
+        "tokens": 66
+      },
+      {
+        "file": "assets/file-bridge/src/extension.ts",
+        "tokens": 1112
+      },
+      {
+        "file": "assets/file-bridge/src/fileBridge.ts",
+        "tokens": 949
+      },
+      {
+        "file": "assets/tree-view/src/extension.ts",
+        "tokens": 257
+      },
+      {
+        "file": "assets/tree-view/src/treeProvider.ts",
+        "tokens": 895
+      },
+      {
+        "file": "assets/webview-react/src/extension.ts",
+        "tokens": 969
+      },
+      {
+        "file": "assets/webview-react/src/webview/App.tsx",
+        "tokens": 481
+      },
+      {
+        "file": "assets/webview-react/src/webview/index.tsx",
+        "tokens": 61
+      },
+      {
+        "file": "assets/webview-react/src/webview/vite.config.ts",
+        "tokens": 133
       }
     ],
-    "total": 24608
+    "total": 31245
   },
   "other_token_counts": {
     "files": [
@@ -197,7 +246,7 @@
     "section_count": 21,
     "list_item_count": 14
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "typescript",
@@ -227,7 +276,852 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.3417,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 9878,
+    "code_block_count": 128,
+    "code_block_ratio": 0.6873,
+    "code_languages": [
+      "json",
+      "json",
+      "json",
+      "typescript",
+      "bash",
+      "bash",
+      "python",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "javascript",
+      "javascript",
+      "typescript",
+      "html",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "javascript",
+      "javascript",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "html",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "tsx",
+      "tsx",
+      "typescript",
+      "html",
+      "json",
+      "css"
+    ],
+    "sentence_count": 343,
+    "imperative_count": 40,
+    "imperative_ratio": 0.1166,
+    "information_density": 0.402,
+    "strong_markers": 12,
+    "weak_markers": 10,
+    "instruction_specificity": 0.5455,
+    "section_count": 180,
+    "list_item_count": 138
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "firebase"
+    ],
+    "code_languages": [
+      "json",
+      "json",
+      "json",
+      "typescript",
+      "bash",
+      "bash",
+      "python",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "javascript",
+      "javascript",
+      "typescript",
+      "html",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "javascript",
+      "javascript",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "bash",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "json",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "html",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "tsx",
+      "tsx",
+      "typescript",
+      "html",
+      "json",
+      "css"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "markup",
+      "python",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "markup",
+      "python",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 5,
+    "contamination_score": 0.925,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "ai-integration.md",
+      "content_analysis": {
+        "word_count": 1404,
+        "code_block_count": 15,
+        "code_block_ratio": 0.7963,
+        "code_languages": [
+          "json",
+          "json",
+          "json",
+          "typescript",
+          "bash",
+          "bash",
+          "python",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 1,
+        "imperative_ratio": 0.027,
+        "information_density": 0.4117,
+        "strong_markers": 5,
+        "weak_markers": 3,
+        "instruction_specificity": 0.625,
+        "section_count": 21,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json",
+          "json",
+          "json",
+          "typescript",
+          "bash",
+          "bash",
+          "python",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "python",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 4,
+        "contamination_score": 0.55,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "api-reference.md",
+      "content_analysis": {
+        "word_count": 1100,
+        "code_block_count": 27,
+        "code_block_ratio": 0.7991,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 40,
+        "imperative_count": 3,
+        "imperative_ratio": 0.075,
+        "information_density": 0.437,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 35,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "build-config.md",
+      "content_analysis": {
+        "word_count": 927,
+        "code_block_count": 14,
+        "code_block_ratio": 0.6958,
+        "code_languages": [
+          "javascript",
+          "javascript",
+          "typescript",
+          "html",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "javascript",
+          "javascript"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 12,
+        "imperative_ratio": 0.25,
+        "information_density": 0.4729,
+        "strong_markers": 3,
+        "weak_markers": 3,
+        "instruction_specificity": 0.5,
+        "section_count": 24,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "javascript",
+          "javascript",
+          "typescript",
+          "html",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "javascript",
+          "javascript"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "javascript",
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "contribution-points.md",
+      "content_analysis": {
+        "word_count": 1293,
+        "code_block_count": 13,
+        "code_block_ratio": 0.3975,
+        "code_languages": [
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json"
+        ],
+        "sentence_count": 63,
+        "imperative_count": 9,
+        "imperative_ratio": 0.1429,
+        "information_density": 0.2702,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 13,
+        "list_item_count": 31
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json",
+          "json"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "conversion-guide.md",
+      "content_analysis": {
+        "word_count": 1359,
+        "code_block_count": 15,
+        "code_block_ratio": 0.4761,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "bash",
+          "typescript",
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 53,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0943,
+        "information_density": 0.2852,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 27,
+        "list_item_count": 43
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "firebase"
+        ],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "bash",
+          "typescript",
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.6417,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "custom-editor-patterns.md",
+      "content_analysis": {
+        "word_count": 1270,
+        "code_block_count": 11,
+        "code_block_ratio": 0.7646,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 37,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0541,
+        "information_density": 0.4093,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 20,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "config",
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "tree-view-patterns.md",
+      "content_analysis": {
+        "word_count": 1203,
+        "code_block_count": 15,
+        "code_block_ratio": 0.8512,
+        "code_languages": [
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 29,
+        "imperative_count": 6,
+        "imperative_ratio": 0.2069,
+        "information_density": 0.5291,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 19,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "json",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "config",
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "webview-patterns.md",
+      "content_analysis": {
+        "word_count": 1322,
+        "code_block_count": 18,
+        "code_block_ratio": 0.7496,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "html",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "tsx",
+          "tsx",
+          "typescript",
+          "html",
+          "json",
+          "css"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0556,
+        "information_density": 0.4026,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 21,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "html",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "tsx",
+          "tsx",
+          "typescript",
+          "html",
+          "json",
+          "css"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

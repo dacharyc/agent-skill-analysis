@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/openai-skills/skills/.curated/linear",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -35,9 +35,9 @@
       "message": "metadata: (1 entries)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://mcp.linear.app/mcp` (HTTP 401)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -79,7 +79,7 @@
     "section_count": 12,
     "list_item_count": 28
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "redis"
     ],
@@ -94,7 +94,16 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://mcp.linear.app/mcp` (HTTP 401)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

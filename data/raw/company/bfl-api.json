@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/black-forest-labs-skills/skills/bfl-api",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 2,
   "results": [
     {
@@ -36,58 +36,53 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/api-key-setup.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/endpoints.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/api-key-setup.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/polling-patterns.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/endpoints.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/rate-limiting.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/polling-patterns.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/error-handling.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/rate-limiting.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/webhook-integration.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/error-handling.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/code-examples/curl-examples.sh (exists)"
+      "category": "Structure",
+      "message": "internal link: references/webhook-integration.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/code-examples/python-client.py (exists)"
+      "category": "Structure",
+      "message": "internal link: references/code-examples/curl-examples.sh (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/code-examples/typescript-client.ts (exists)"
+      "category": "Structure",
+      "message": "internal link: references/code-examples/python-client.py (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://bfl.ai/pricing (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://dashboard.bfl.ai/get-started (HTTP 429)"
+      "category": "Structure",
+      "message": "internal link: references/code-examples/typescript-client.ts (exists)"
     }
   ],
   "token_counts": {
@@ -160,7 +155,7 @@
     "section_count": 26,
     "list_item_count": 28
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -189,7 +184,493 @@
       "javascript"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.2083,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 4292,
+    "code_block_count": 62,
+    "code_block_ratio": 0.5629,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "python",
+      "json",
+      "python",
+      "json",
+      "python",
+      "json",
+      "python",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "json",
+      "json",
+      "python",
+      "python",
+      "javascript",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 188,
+    "imperative_count": 11,
+    "imperative_ratio": 0.0585,
+    "information_density": 0.3107,
+    "strong_markers": 18,
+    "weak_markers": 2,
+    "instruction_specificity": 0.9,
+    "section_count": 82,
+    "list_item_count": 39
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "redis"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "json",
+      "json",
+      "python",
+      "json",
+      "python",
+      "json",
+      "python",
+      "json",
+      "python",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "json",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "json",
+      "json",
+      "python",
+      "python",
+      "javascript",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "javascript",
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "config",
+      "javascript",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "dotnet",
+      "javascript",
+      "python"
+    ],
+    "scope_breadth": 5,
+    "contamination_score": 0.925,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "api-key-setup.md",
+      "content_analysis": {
+        "word_count": 219,
+        "code_block_count": 4,
+        "code_block_ratio": 0.2009,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 23,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1304,
+        "information_density": 0.1657,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 3,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "endpoints.md",
+      "content_analysis": {
+        "word_count": 989,
+        "code_block_count": 19,
+        "code_block_ratio": 0.2447,
+        "code_languages": [
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json"
+        ],
+        "sentence_count": 55,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1223,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 30,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "dotnet"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "error-handling.md",
+      "content_analysis": {
+        "word_count": 892,
+        "code_block_count": 14,
+        "code_block_ratio": 0.6895,
+        "code_languages": [
+          "json",
+          "json",
+          "python",
+          "json",
+          "python",
+          "json",
+          "python",
+          "json",
+          "python",
+          "json",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 23,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3447,
+        "strong_markers": 6,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 12,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json",
+          "json",
+          "python",
+          "json",
+          "python",
+          "json",
+          "python",
+          "json",
+          "python",
+          "json",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "polling-patterns.md",
+      "content_analysis": {
+        "word_count": 698,
+        "code_block_count": 7,
+        "code_block_ratio": 0.7249,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 24,
+        "imperative_count": 3,
+        "imperative_ratio": 0.125,
+        "information_density": 0.425,
+        "strong_markers": 4,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 10,
+        "list_item_count": 10
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "rate-limiting.md",
+      "content_analysis": {
+        "word_count": 651,
+        "code_block_count": 8,
+        "code_block_ratio": 0.6482,
+        "code_languages": [
+          "json",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 29,
+        "imperative_count": 3,
+        "imperative_ratio": 0.1034,
+        "information_density": 0.3758,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 11,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "webhook-integration.md",
+      "content_analysis": {
+        "word_count": 843,
+        "code_block_count": 10,
+        "code_block_ratio": 0.6963,
+        "code_languages": [
+          "bash",
+          "json",
+          "json",
+          "python",
+          "python",
+          "javascript",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 34,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0588,
+        "information_density": 0.3776,
+        "strong_markers": 3,
+        "weak_markers": 1,
+        "instruction_specificity": 0.75,
+        "section_count": 16,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "redis"
+        ],
+        "code_languages": [
+          "bash",
+          "json",
+          "json",
+          "python",
+          "python",
+          "javascript",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "dotnet",
+          "javascript",
+          "python"
+        ],
+        "scope_breadth": 5,
+        "contamination_score": 0.925,
+        "contamination_level": "high"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://bfl.ai/pricing (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://dashboard.bfl.ai/get-started (HTTP 429)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

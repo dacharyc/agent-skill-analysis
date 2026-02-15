@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/stripe-skills/skills/stripe-best-practices",
   "passed": false,
-  "errors": 2,
+  "errors": 1,
   "warnings": 1,
   "results": [
     {
@@ -24,6 +24,53 @@
       "category": "Frontmatter",
       "message": "unrecognized field: \"alwaysApply\""
     },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1104
+      }
+    ],
+    "total": 1104
+  },
+  "content_analysis": {
+    "word_count": 630,
+    "code_block_count": 0,
+    "code_block_ratio": 0,
+    "code_languages": [],
+    "sentence_count": 29,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0,
+    "strong_markers": 11,
+    "weak_markers": 3,
+    "instruction_specificity": 0.7857,
+    "section_count": 0,
+    "list_item_count": 0
+  },
+  "contamination_analysis": {
+    "multi_interface_tools": [
+      "stripe"
+    ],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [
     {
       "level": "pass",
       "category": "Links",
@@ -140,44 +187,6 @@
       "message": "https://docs.stripe.com/connect/account-capabilities.md (HTTP 200)"
     }
   ],
-  "token_counts": {
-    "files": [
-      {
-        "file": "SKILL.md body",
-        "tokens": 1104
-      }
-    ],
-    "total": 1104
-  },
-  "content_analysis": {
-    "word_count": 630,
-    "code_block_count": 0,
-    "code_block_ratio": 0,
-    "code_languages": [],
-    "sentence_count": 29,
-    "imperative_count": 0,
-    "imperative_ratio": 0,
-    "information_density": 0,
-    "strong_markers": 11,
-    "weak_markers": 3,
-    "instruction_specificity": 0.7857,
-    "section_count": 0,
-    "list_item_count": 0
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [
-      "stripe"
-    ],
-    "code_languages": [],
-    "language_categories": [],
-    "primary_category": "",
-    "mismatched_categories": [],
-    "language_mismatch": false,
-    "tech_references": [
-      "javascript"
-    ],
-    "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+  "link_errors": 1,
+  "link_warnings": 0
 }

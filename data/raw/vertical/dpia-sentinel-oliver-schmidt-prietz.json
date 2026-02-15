@@ -43,6 +43,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -95,14 +100,14 @@
     "sentence_count": 77,
     "imperative_count": 2,
     "imperative_ratio": 0.026,
-    "information_density": 0.013,
+    "information_density": 0.026,
     "strong_markers": 13,
     "weak_markers": 6,
     "instruction_specificity": 0.6842,
     "section_count": 5,
     "list_item_count": 20
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -111,7 +116,189 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 6037,
+    "code_block_count": 1,
+    "code_block_ratio": 0.0248,
+    "code_languages": [],
+    "sentence_count": 403,
+    "imperative_count": 6,
+    "imperative_ratio": 0.0149,
+    "information_density": 0.0199,
+    "strong_markers": 40,
+    "weak_markers": 9,
+    "instruction_specificity": 0.8163,
+    "section_count": 63,
+    "list_item_count": 172
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "edpb-criteria.md",
+      "content_analysis": {
+        "word_count": 1977,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0759,
+        "code_languages": [],
+        "sentence_count": 133,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0379,
+        "strong_markers": 17,
+        "weak_markers": 6,
+        "instruction_specificity": 0.7391,
+        "section_count": 19,
+        "list_item_count": 26
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "risk-catalog.md",
+      "content_analysis": {
+        "word_count": 1126,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 39,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0256,
+        "information_density": 0.0256,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 19,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "scoring.md",
+      "content_analysis": {
+        "word_count": 1075,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 78,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0385,
+        "information_density": 0.0385,
+        "strong_markers": 5,
+        "weak_markers": 3,
+        "instruction_specificity": 0.625,
+        "section_count": 9,
+        "list_item_count": 38
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "sources.md",
+      "content_analysis": {
+        "word_count": 812,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 59,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0169,
+        "information_density": 0.0169,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 11,
+        "list_item_count": 29
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "templates.md",
+      "content_analysis": {
+        "word_count": 1047,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 94,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0106,
+        "information_density": 0.0106,
+        "strong_markers": 12,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 5,
+        "list_item_count": 79
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

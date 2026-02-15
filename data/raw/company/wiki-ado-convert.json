@@ -20,19 +20,24 @@
       "message": "description: (228 chars)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "../../src/file.cs (file not found)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "../path (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: ../../src/file.cs (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "URL (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: ../path (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: URL (file not found)"
     }
   ],
   "token_counts": {
@@ -70,7 +75,7 @@
     "section_count": 22,
     "list_item_count": 49
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "mermaid",
@@ -97,7 +102,10 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

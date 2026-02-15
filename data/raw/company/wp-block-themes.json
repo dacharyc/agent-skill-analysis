@@ -23,6 +23,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "compatibility: (109 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -66,14 +71,14 @@
     "sentence_count": 52,
     "imperative_count": 4,
     "imperative_ratio": 0.0769,
-    "information_density": 0.0385,
+    "information_density": 0.0769,
     "strong_markers": 2,
     "weak_markers": 3,
     "instruction_specificity": 0.4,
     "section_count": 13,
     "list_item_count": 40
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -82,7 +87,237 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 691,
+    "code_block_count": 1,
+    "code_block_ratio": 0.0507,
+    "code_languages": [
+      "json"
+    ],
+    "sentence_count": 74,
+    "imperative_count": 13,
+    "imperative_ratio": 0.1757,
+    "information_density": 0.1132,
+    "strong_markers": 4,
+    "weak_markers": 4,
+    "instruction_specificity": 0.5,
+    "section_count": 12,
+    "list_item_count": 60
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "json"
+    ],
+    "language_categories": [
+      "config"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "ruby"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "creating-new-block-theme.md",
+      "content_analysis": {
+        "word_count": 150,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 13,
+        "imperative_count": 4,
+        "imperative_ratio": 0.3077,
+        "information_density": 0.3077,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 3,
+        "list_item_count": 19
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "debugging.md",
+      "content_analysis": {
+        "word_count": 110,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 14,
+        "imperative_count": 4,
+        "imperative_ratio": 0.2857,
+        "information_density": 0.2857,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 3,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "patterns.md",
+      "content_analysis": {
+        "word_count": 82,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 10,
+        "imperative_count": 2,
+        "imperative_ratio": 0.2,
+        "information_density": 0.2,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "ruby"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "style-variations.md",
+      "content_analysis": {
+        "word_count": 60,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.125,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 0,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "templates-and-parts.md",
+      "content_analysis": {
+        "word_count": 47,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 8,
+        "imperative_count": 1,
+        "imperative_ratio": 0.125,
+        "information_density": 0.125,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 1,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "theme-json.md",
+      "content_analysis": {
+        "word_count": 242,
+        "code_block_count": 1,
+        "code_block_ratio": 0.1446,
+        "code_languages": [
+          "json"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0476,
+        "information_density": 0.0961,
+        "strong_markers": 0,
+        "weak_markers": 3,
+        "instruction_specificity": 0,
+        "section_count": 3,
+        "list_item_count": 20
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "json"
+        ],
+        "language_categories": [
+          "config"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "ruby"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

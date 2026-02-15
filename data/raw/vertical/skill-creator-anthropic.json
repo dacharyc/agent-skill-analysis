@@ -30,34 +30,39 @@
       "message": "metadata: (3 entries)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "FORMS.md (file not found)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "REFERENCE.md (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: FORMS.md (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "EXAMPLES.md (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: REFERENCE.md (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "DOCX-JS.md (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: EXAMPLES.md (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "REDLINING.md (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: DOCX-JS.md (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "OOXML.md (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: REDLINING.md (file not found)"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: OOXML.md (file not found)"
     }
   ],
   "token_counts": {
@@ -107,7 +112,7 @@
     "section_count": 30,
     "list_item_count": 72
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -132,7 +137,131 @@
       "ruby"
     ],
     "scope_breadth": 4,
-    "risk_score": 0.5833,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.5833,
+    "contamination_level": "high"
+  },
+  "references_content_analysis": {
+    "word_count": 364,
+    "code_block_count": 7,
+    "code_block_ratio": 0.5577,
+    "code_languages": [
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown"
+    ],
+    "sentence_count": 20,
+    "imperative_count": 3,
+    "imperative_ratio": 0.15,
+    "information_density": 0.3538,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 13,
+    "list_item_count": 13
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown",
+      "markdown"
+    ],
+    "language_categories": [
+      "markup"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "output-patterns.md",
+      "content_analysis": {
+        "word_count": 251,
+        "code_block_count": 5,
+        "code_block_ratio": 0.5538,
+        "code_languages": [
+          "markdown",
+          "markdown",
+          "markdown"
+        ],
+        "sentence_count": 14,
+        "imperative_count": 3,
+        "imperative_ratio": 0.2143,
+        "information_density": 0.384,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 11,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "markdown",
+          "markdown",
+          "markdown"
+        ],
+        "language_categories": [
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "workflows.md",
+      "content_analysis": {
+        "word_count": 113,
+        "code_block_count": 2,
+        "code_block_ratio": 0.5664,
+        "code_languages": [
+          "markdown",
+          "markdown"
+        ],
+        "sentence_count": 6,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2832,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 8
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "markdown",
+          "markdown"
+        ],
+        "language_categories": [
+          "markup"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

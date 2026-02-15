@@ -31,8 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.ncbi.nlm.nih.gov/account/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -71,7 +71,7 @@
     "section_count": 20,
     "list_item_count": 54
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -86,7 +86,286 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 2302,
+    "code_block_count": 43,
+    "code_block_ratio": 0.3666,
+    "code_languages": [
+      "bash",
+      "json",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "json",
+      "bash",
+      "xml",
+      "json",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "sentence_count": 179,
+    "imperative_count": 24,
+    "imperative_ratio": 0.1341,
+    "information_density": 0.2504,
+    "strong_markers": 10,
+    "weak_markers": 1,
+    "instruction_specificity": 0.9091,
+    "section_count": 56,
+    "list_item_count": 134
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "json",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "json",
+      "bash",
+      "xml",
+      "json",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "python",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.3417,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 1095,
+        "code_block_count": 18,
+        "code_block_ratio": 0.1982,
+        "code_languages": [
+          "bash",
+          "json",
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "json",
+          "bash",
+          "xml",
+          "json",
+          "python"
+        ],
+        "sentence_count": 96,
+        "imperative_count": 9,
+        "imperative_ratio": 0.0938,
+        "information_density": 0.146,
+        "strong_markers": 9,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 26,
+        "list_item_count": 73
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "json",
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "json",
+          "bash",
+          "xml",
+          "json",
+          "python"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "common_workflows.md",
+      "content_analysis": {
+        "word_count": 1207,
+        "code_block_count": 25,
+        "code_block_ratio": 0.5195,
+        "code_languages": [
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "sentence_count": 83,
+        "imperative_count": 15,
+        "imperative_ratio": 0.1807,
+        "information_density": 0.3501,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 30,
+        "list_item_count": 61
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash",
+          "bash",
+          "python",
+          "python",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ncbi.nlm.nih.gov/account/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

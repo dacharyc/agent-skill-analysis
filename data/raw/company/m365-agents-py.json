@@ -30,34 +30,19 @@
       "message": "unrecognized field: \"package\""
     },
     {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
       "level": "error",
-      "category": "Links",
-      "message": "storage=STORAGE, adapter=ADAPTER, authorization=AUTHORIZATION, **agents_sdk_config (file not found)"
+      "category": "Structure",
+      "message": "broken internal link: storage=STORAGE, adapter=ADAPTER, authorization=AUTHORIZATION, **agents_sdk_config (file not found)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/acceptance-criteria.md (exists)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/microsoft/Agents-for-python (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://pypi.org/search/?q=microsoft-agents (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: references/acceptance-criteria.md (exists)"
     }
   ],
   "token_counts": {
@@ -96,7 +81,7 @@
     "section_count": 12,
     "list_item_count": 10
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -118,7 +103,212 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 792,
+    "code_block_count": 27,
+    "code_block_ratio": 0.6212,
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python"
+    ],
+    "sentence_count": 42,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.3106,
+    "strong_markers": 2,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 40,
+    "list_item_count": 0
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "python",
+      "bash",
+      "python",
+      "python"
+    ],
+    "language_categories": [
+      "python",
+      "shell"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 792,
+        "code_block_count": 27,
+        "code_block_ratio": 0.6212,
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python"
+        ],
+        "sentence_count": 42,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3106,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 40,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "python",
+          "bash",
+          "python",
+          "python"
+        ],
+        "language_categories": [
+          "python",
+          "shell"
+        ],
+        "primary_category": "python",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/microsoft/Agents-for-python (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://pypi.org/search/?q=microsoft-agents (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

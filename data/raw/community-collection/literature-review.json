@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/literature-review",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 3,
   "results": [
     {
@@ -56,6 +56,217 @@
     },
     {
       "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 5582
+      },
+      {
+        "file": "references/citation_styles.md",
+        "tokens": 1769
+      },
+      {
+        "file": "references/database_strategies.md",
+        "tokens": 3824
+      },
+      {
+        "file": "assets/review_template.md",
+        "tokens": 3403
+      }
+    ],
+    "total": 14578
+  },
+  "content_analysis": {
+    "word_count": 3195,
+    "code_block_count": 17,
+    "code_block_ratio": 0.1371,
+    "code_languages": [
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 195,
+    "imperative_count": 25,
+    "imperative_ratio": 0.1282,
+    "information_density": 0.1326,
+    "strong_markers": 19,
+    "weak_markers": 8,
+    "instruction_specificity": 0.7037,
+    "section_count": 49,
+    "list_item_count": 263
+  },
+  "contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "bash",
+      "markdown",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "markup",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "markup",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 3041,
+    "code_block_count": 5,
+    "code_block_ratio": 0.0658,
+    "code_languages": [
+      "markdown",
+      "python"
+    ],
+    "sentence_count": 311,
+    "imperative_count": 15,
+    "imperative_ratio": 0.0482,
+    "information_density": 0.057,
+    "strong_markers": 8,
+    "weak_markers": 3,
+    "instruction_specificity": 0.7273,
+    "section_count": 95,
+    "list_item_count": 220
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "markdown",
+      "python"
+    ],
+    "language_categories": [
+      "markup",
+      "python"
+    ],
+    "primary_category": "markup",
+    "mismatched_categories": [
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "java"
+    ],
+    "scope_breadth": 3,
+    "contamination_score": 0.2083,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "citation_styles.md",
+      "content_analysis": {
+        "word_count": 897,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 179,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0112,
+        "information_density": 0.0112,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 30,
+        "list_item_count": 28
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "java"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "database_strategies.md",
+      "content_analysis": {
+        "word_count": 2144,
+        "code_block_count": 5,
+        "code_block_ratio": 0.0933,
+        "code_languages": [
+          "markdown",
+          "python"
+        ],
+        "sentence_count": 132,
+        "imperative_count": 13,
+        "imperative_ratio": 0.0985,
+        "information_density": 0.0959,
+        "strong_markers": 7,
+        "weak_markers": 3,
+        "instruction_specificity": 0.7,
+        "section_count": 65,
+        "list_item_count": 192
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "markdown",
+          "python"
+        ],
+        "language_categories": [
+          "markup",
+          "python"
+        ],
+        "primary_category": "markup",
+        "mismatched_categories": [
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
       "category": "Links",
       "message": "https://meshb.nlm.nih.gov/search (HTTP 200)"
     },
@@ -105,89 +316,6 @@
       "message": "https://www.nlm.nih.gov/bsd/uniform_requirements.html (HTTP 200)"
     }
   ],
-  "token_counts": {
-    "files": [
-      {
-        "file": "SKILL.md body",
-        "tokens": 5582
-      },
-      {
-        "file": "references/citation_styles.md",
-        "tokens": 1769
-      },
-      {
-        "file": "references/database_strategies.md",
-        "tokens": 3824
-      }
-    ],
-    "total": 11175
-  },
-  "content_analysis": {
-    "word_count": 3195,
-    "code_block_count": 17,
-    "code_block_ratio": 0.1371,
-    "code_languages": [
-      "bash",
-      "markdown",
-      "bash",
-      "bash",
-      "bash",
-      "markdown",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "python",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "sentence_count": 195,
-    "imperative_count": 25,
-    "imperative_ratio": 0.1282,
-    "information_density": 0.1326,
-    "strong_markers": 19,
-    "weak_markers": 8,
-    "instruction_specificity": 0.7037,
-    "section_count": 49,
-    "list_item_count": 263
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [],
-    "code_languages": [
-      "bash",
-      "markdown",
-      "bash",
-      "bash",
-      "bash",
-      "markdown",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "python",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "language_categories": [
-      "markup",
-      "python",
-      "shell"
-    ],
-    "primary_category": "shell",
-    "mismatched_categories": [
-      "markup",
-      "python"
-    ],
-    "language_mismatch": true,
-    "tech_references": [
-      "javascript"
-    ],
-    "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
-  }
+  "link_errors": 1,
+  "link_warnings": 0
 }

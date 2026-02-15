@@ -20,9 +20,9 @@
       "message": "description: (428 chars)"
     },
     {
-      "level": "info",
-      "category": "Links",
-      "message": "https://claude.ai (HTTP 403 \u2014 may block automated requests)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -42,14 +42,14 @@
     "sentence_count": 194,
     "imperative_count": 16,
     "imperative_ratio": 0.0825,
-    "information_density": 0.0412,
+    "information_density": 0.0825,
     "strong_markers": 8,
     "weak_markers": 9,
     "instruction_specificity": 0.4706,
     "section_count": 26,
     "list_item_count": 83
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -58,7 +58,16 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://claude.ai (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

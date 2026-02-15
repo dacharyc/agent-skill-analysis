@@ -23,6 +23,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "compatibility: (70 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -54,14 +59,14 @@
     "sentence_count": 48,
     "imperative_count": 7,
     "imperative_ratio": 0.1458,
-    "information_density": 0.0729,
+    "information_density": 0.1458,
     "strong_markers": 8,
     "weak_markers": 3,
     "instruction_specificity": 0.7273,
     "section_count": 12,
     "list_item_count": 38
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -70,7 +75,187 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 950,
+    "code_block_count": 11,
+    "code_block_ratio": 0.4421,
+    "code_languages": [
+      "neon",
+      "bash",
+      "bash",
+      "neon",
+      "neon",
+      "php",
+      "php",
+      "php",
+      "php",
+      "php",
+      "php"
+    ],
+    "sentence_count": 59,
+    "imperative_count": 7,
+    "imperative_ratio": 0.1186,
+    "information_density": 0.2804,
+    "strong_markers": 3,
+    "weak_markers": 6,
+    "instruction_specificity": 0.3333,
+    "section_count": 11,
+    "list_item_count": 66
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "neon",
+      "bash",
+      "bash",
+      "neon",
+      "neon",
+      "php",
+      "php",
+      "php",
+      "php",
+      "php",
+      "php"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "configuration.md",
+      "content_analysis": {
+        "word_count": 175,
+        "code_block_count": 2,
+        "code_block_ratio": 0.32,
+        "code_languages": [
+          "neon",
+          "bash"
+        ],
+        "sentence_count": 15,
+        "imperative_count": 3,
+        "imperative_ratio": 0.2,
+        "information_density": 0.26,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "neon",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "third-party-classes.md",
+      "content_analysis": {
+        "word_count": 371,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1995,
+        "code_languages": [
+          "bash",
+          "neon",
+          "neon"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 4,
+        "imperative_ratio": 0.129,
+        "information_density": 0.1642,
+        "strong_markers": 3,
+        "weak_markers": 5,
+        "instruction_specificity": 0.375,
+        "section_count": 4,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "neon",
+          "neon"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "wordpress-annotations.md",
+      "content_analysis": {
+        "word_count": 404,
+        "code_block_count": 6,
+        "code_block_ratio": 0.7178,
+        "code_languages": [
+          "php",
+          "php",
+          "php",
+          "php",
+          "php",
+          "php"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3589,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 30
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "php",
+          "php",
+          "php",
+          "php",
+          "php",
+          "php"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

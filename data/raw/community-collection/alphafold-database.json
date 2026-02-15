@@ -36,48 +36,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://docs.python.org/3/library/subprocess.html#security-considerations (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://alphafold.ebi.ac.uk/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://alphafold.ebi.ac.uk/api-docs (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://cloud.google.com/blog/products/ai-machine-learning/alphafold-protein-structure-database (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.ebi.ac.uk/pdbe/pdbe-kb/3dbeacons/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://doi.org/10.1038/s41586-021-03819-2 (HTTP 200)"
-    },
-    {
-      "level": "info",
-      "category": "Links",
-      "message": "https://doi.org/10.1093/nar/gkad1011 (HTTP 403 \u2014 may block automated requests)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://biopython.org/docs/dev/api/Bio.PDB.alphafold_db.html (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/google-deepmind/alphafold (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -124,7 +84,7 @@
     "section_count": 28,
     "list_item_count": 67
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "python",
@@ -154,7 +114,177 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1371,
+    "code_block_count": 19,
+    "code_block_ratio": 0.2188,
+    "code_languages": [
+      "bash",
+      "json",
+      "python",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "sql"
+    ],
+    "sentence_count": 106,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0094,
+    "information_density": 0.1141,
+    "strong_markers": 4,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 36,
+    "list_item_count": 81
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash",
+      "json",
+      "python",
+      "json",
+      "json",
+      "json",
+      "json",
+      "bash",
+      "bash",
+      "sql"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "query",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "python",
+      "query",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "api_reference.md",
+      "content_analysis": {
+        "word_count": 1371,
+        "code_block_count": 19,
+        "code_block_ratio": 0.2188,
+        "code_languages": [
+          "bash",
+          "json",
+          "python",
+          "json",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "bash",
+          "sql"
+        ],
+        "sentence_count": 106,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0094,
+        "information_density": 0.1141,
+        "strong_markers": 4,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 36,
+        "list_item_count": 81
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "json",
+          "python",
+          "json",
+          "json",
+          "json",
+          "json",
+          "bash",
+          "bash",
+          "sql"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "query",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "python",
+          "query",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 4,
+        "contamination_score": 0.55,
+        "contamination_level": "high"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.python.org/3/library/subprocess.html#security-considerations (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://alphafold.ebi.ac.uk/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://alphafold.ebi.ac.uk/api-docs (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://cloud.google.com/blog/products/ai-machine-learning/alphafold-protein-structure-database (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.ebi.ac.uk/pdbe/pdbe-kb/3dbeacons/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://doi.org/10.1038/s41586-021-03819-2 (HTTP 200)"
+    },
+    {
+      "level": "info",
+      "category": "Links",
+      "message": "https://doi.org/10.1093/nar/gkad1011 (HTTP 403 \u2014 may block automated requests)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://biopython.org/docs/dev/api/Bio.PDB.alphafold_db.html (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/google-deepmind/alphafold (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

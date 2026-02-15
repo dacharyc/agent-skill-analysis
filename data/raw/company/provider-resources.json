@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/provider-development/skills/provider-resources",
-  "passed": false,
-  "errors": 5,
+  "passed": true,
+  "errors": 0,
   "warnings": 1,
   "results": [
     {
@@ -30,34 +30,9 @@
       "message": "SKILL.md body is 593 lines (spec recommends < 500)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/plugin/framework (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/plugin/framework/resources (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/plugin/framework/data-sources (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/plugin/sdkv2 (HTTP 429)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://developer.hashicorp.com/terraform/plugin/testing/acceptance-tests (HTTP 429)"
-    },
-    {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/hashicorp/terraform-plugin-framework (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -104,7 +79,7 @@
     "section_count": 35,
     "list_item_count": 21
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "terraform"
     ],
@@ -144,7 +119,41 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 4,
-    "risk_score": 0.85,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.85,
+    "contamination_level": "high"
+  },
+  "link_results": [
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/plugin/framework (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/plugin/framework/resources (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/plugin/framework/data-sources (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/plugin/sdkv2 (HTTP 429)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://developer.hashicorp.com/terraform/plugin/testing/acceptance-tests (HTTP 429)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/hashicorp/terraform-plugin-framework (HTTP 200)"
+    }
+  ],
+  "link_errors": 5,
+  "link_warnings": 0
 }

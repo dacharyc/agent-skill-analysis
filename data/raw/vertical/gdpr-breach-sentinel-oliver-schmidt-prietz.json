@@ -51,23 +51,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/enisa-methodology.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/edpb-cases.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/enisa-methodology.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/templates.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/edpb-cases.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://ico.org.uk/for-organisations/report-a-breach/ (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: references/templates.md (exists)"
     }
   ],
   "token_counts": {
@@ -119,7 +119,7 @@
     "section_count": 54,
     "list_item_count": 153
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -128,7 +128,135 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 5354,
+    "code_block_count": 10,
+    "code_block_ratio": 0.4206,
+    "code_languages": [],
+    "sentence_count": 159,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.2103,
+    "strong_markers": 28,
+    "weak_markers": 26,
+    "instruction_specificity": 0.5185,
+    "section_count": 62,
+    "list_item_count": 67
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "edpb-cases.md",
+      "content_analysis": {
+        "word_count": 1320,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 76,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0,
+        "strong_markers": 2,
+        "weak_markers": 8,
+        "instruction_specificity": 0.2,
+        "section_count": 28,
+        "list_item_count": 10
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "enisa-methodology.md",
+      "content_analysis": {
+        "word_count": 1810,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0685,
+        "code_languages": [],
+        "sentence_count": 71,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0343,
+        "strong_markers": 8,
+        "weak_markers": 12,
+        "instruction_specificity": 0.4,
+        "section_count": 25,
+        "list_item_count": 43
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "templates.md",
+      "content_analysis": {
+        "word_count": 2224,
+        "code_block_count": 9,
+        "code_block_ratio": 0.9568,
+        "code_languages": [],
+        "sentence_count": 12,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.4784,
+        "strong_markers": 18,
+        "weak_markers": 6,
+        "instruction_specificity": 0.75,
+        "section_count": 9,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://ico.org.uk/for-organisations/report-a-breach/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

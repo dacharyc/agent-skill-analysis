@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "description: (532 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -80,7 +85,7 @@
     "section_count": 11,
     "list_item_count": 27
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -103,7 +108,81 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 266,
+    "code_block_count": 1,
+    "code_block_ratio": 0.703,
+    "code_languages": [
+      "cypher"
+    ],
+    "sentence_count": 9,
+    "imperative_count": 3,
+    "imperative_ratio": 0.3333,
+    "information_density": 0.5182,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 2,
+    "list_item_count": 5
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "cypher"
+    ],
+    "language_categories": [
+      "query"
+    ],
+    "primary_category": "query",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "neo4j-import.md",
+      "content_analysis": {
+        "word_count": 266,
+        "code_block_count": 1,
+        "code_block_ratio": 0.703,
+        "code_languages": [
+          "cypher"
+        ],
+        "sentence_count": 9,
+        "imperative_count": 3,
+        "imperative_ratio": 0.3333,
+        "information_density": 0.5182,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 2,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "cypher"
+        ],
+        "language_categories": [
+          "query"
+        ],
+        "primary_category": "query",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

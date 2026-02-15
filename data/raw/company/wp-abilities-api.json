@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "compatibility: (109 chars)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -55,14 +60,14 @@
     "sentence_count": 41,
     "imperative_count": 5,
     "imperative_ratio": 0.122,
-    "information_density": 0.061,
+    "information_density": 0.122,
     "strong_markers": 3,
     "weak_markers": 3,
     "instruction_specificity": 0.5,
     "section_count": 12,
     "list_item_count": 42
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -71,7 +76,107 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 369,
+    "code_block_count": 1,
+    "code_block_ratio": 0.187,
+    "code_languages": [
+      "php"
+    ],
+    "sentence_count": 25,
+    "imperative_count": 3,
+    "imperative_ratio": 0.12,
+    "information_density": 0.1535,
+    "strong_markers": 5,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8333,
+    "section_count": 5,
+    "list_item_count": 17
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "php"
+    ],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 0,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "php-registration.md",
+      "content_analysis": {
+        "word_count": 323,
+        "code_block_count": 1,
+        "code_block_ratio": 0.2136,
+        "code_languages": [
+          "php"
+        ],
+        "sentence_count": 19,
+        "imperative_count": 2,
+        "imperative_ratio": 0.1053,
+        "information_density": 0.1594,
+        "strong_markers": 5,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8333,
+        "section_count": 5,
+        "list_item_count": 12
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "php"
+        ],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "rest-api.md",
+      "content_analysis": {
+        "word_count": 46,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 6,
+        "imperative_count": 1,
+        "imperative_ratio": 0.1667,
+        "information_density": 0.1667,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 0,
+        "list_item_count": 5
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

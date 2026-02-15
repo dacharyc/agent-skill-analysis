@@ -66,18 +66,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "html2pptx.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "scripts/html2pptx.js (exists)"
+      "category": "Structure",
+      "message": "internal link: html2pptx.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "ooxml.md (exists)"
+      "category": "Structure",
+      "message": "internal link: scripts/html2pptx.js (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: ooxml.md (exists)"
     }
   ],
   "token_counts": {
@@ -293,71 +298,5 @@
       }
     ],
     "total": 333940
-  },
-  "content_analysis": {
-    "word_count": 3731,
-    "code_block_count": 17,
-    "code_block_ratio": 0.1201,
-    "code_languages": [
-      "bash",
-      "bash",
-      "markdown",
-      "bash",
-      "bash",
-      "json",
-      "json",
-      "json",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "sentence_count": 136,
-    "imperative_count": 15,
-    "imperative_ratio": 0.1103,
-    "information_density": 0.1152,
-    "strong_markers": 35,
-    "weak_markers": 9,
-    "instruction_specificity": 0.7955,
-    "section_count": 23,
-    "list_item_count": 241
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [],
-    "code_languages": [
-      "bash",
-      "bash",
-      "markdown",
-      "bash",
-      "bash",
-      "json",
-      "json",
-      "json",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash",
-      "bash"
-    ],
-    "language_categories": [
-      "config",
-      "markup",
-      "shell"
-    ],
-    "primary_category": "shell",
-    "mismatched_categories": [
-      "config",
-      "markup"
-    ],
-    "language_mismatch": true,
-    "tech_references": [
-      "javascript"
-    ],
-    "scope_breadth": 4,
-    "risk_score": 0.4167,
-    "risk_level": "medium"
   }
 }

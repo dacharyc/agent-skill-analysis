@@ -37,6 +37,7 @@ function render() {
     renderStats();
     renderCharts();
     renderHighRisk();
+    renderHiddenContamination();
     populateFilters();
     renderTable();
     bindEvents();
@@ -47,7 +48,16 @@ function renderStats() {
     document.getElementById("stat-total").textContent = DATA.total_skills;
     document.getElementById("stat-passed").textContent = DATA.summary.passed;
     document.getElementById("stat-failed").textContent = DATA.summary.failed;
-    document.getElementById("stat-high-risk").textContent = DATA.summary.risk_distribution.high;
+    document.getElementById("stat-high-risk").textContent = DATA.summary.contamination_distribution.high;
+
+    // Compute context window waste percentage
+    let totalTokens = 0, nonstandardTokens = 0;
+    DATA.skills.forEach(s => {
+        totalTokens += s.total_tokens || 0;
+        nonstandardTokens += s.nonstandard_tokens || 0;
+    });
+    const wastePct = totalTokens > 0 ? Math.round(100 * nonstandardTokens / totalTokens) : 0;
+    document.getElementById("stat-waste").textContent = wastePct + "%";
 }
 
 // Charts
@@ -70,20 +80,20 @@ function renderCharts() {
         },
     });
 
-    // Risk donut
-    const risk = DATA.summary.risk_distribution;
+    // Contamination donut
+    const contamination = DATA.summary.contamination_distribution;
     new Chart(document.getElementById("chart-risk"), {
         type: "doughnut",
         data: {
             labels: ["High", "Medium", "Low"],
             datasets: [{
-                data: [risk.high, risk.medium, risk.low],
+                data: [contamination.high, contamination.medium, contamination.low],
                 backgroundColor: [COLORS.high, COLORS.medium, COLORS.low],
             }],
         },
         options: {
             plugins: {
-                title: { display: true, text: "Cross-Contamination Risk" },
+                title: { display: true, text: "Cross-Contamination" },
                 legend: { position: "bottom" },
             },
         },
@@ -205,14 +215,14 @@ function renderCharts() {
         },
     });
 
-    // Risk by source box-like chart (use scatter with jitter)
-    const riskDatasets = sources.map(source => {
+    // Contamination by source scatter chart (with jitter)
+    const contaminationDatasets = sources.map(source => {
         const skills = DATA.skills.filter(s => s.source === source);
         return {
             label: source,
             data: skills.map((s, i) => ({
                 x: sources.indexOf(source) + (Math.random() - 0.5) * 0.3,
-                y: s.risk_score,
+                y: s.contamination_score,
             })),
             backgroundColor: COLORS.sources[source] || "#999",
             pointRadius: 3,
@@ -221,9 +231,9 @@ function renderCharts() {
 
     new Chart(document.getElementById("chart-risk-detail"), {
         type: "scatter",
-        data: { datasets: riskDatasets },
+        data: { datasets: contaminationDatasets },
         options: {
-            plugins: { title: { display: true, text: "Risk Score by Source" } },
+            plugins: { title: { display: true, text: "Contamination Score by Source" } },
             scales: {
                 x: {
                     type: "linear",
@@ -234,7 +244,46 @@ function renderCharts() {
                     min: -0.5,
                     max: sources.length - 0.5,
                 },
-                y: { beginAtZero: true, max: 1, title: { display: true, text: "Risk Score" } },
+                y: { beginAtZero: true, max: 1, title: { display: true, text: "Contamination Score" } },
+            },
+        },
+    });
+
+    // Token Budget Composition (stacked bar by source)
+    const budgetBySource = {};
+    sources.forEach(s => { budgetBySource[s] = { skill_md: 0, ref: 0, asset: 0, nonstandard: 0 }; });
+    DATA.skills.forEach(s => {
+        const b = budgetBySource[s.source];
+        if (!b) return;
+        b.skill_md += s.skill_md_tokens || 0;
+        b.ref += s.ref_tokens || 0;
+        b.asset += s.asset_tokens || 0;
+        b.nonstandard += s.nonstandard_tokens || 0;
+    });
+
+    const budgetSources = sources;
+    const toPct = (src, key) => {
+        const b = budgetBySource[src];
+        const total = b.skill_md + b.ref + b.asset + b.nonstandard;
+        return total > 0 ? (100 * b[key] / total) : 0;
+    };
+
+    new Chart(document.getElementById("chart-token-budget"), {
+        type: "bar",
+        data: {
+            labels: budgetSources,
+            datasets: [
+                { label: "SKILL.md", data: budgetSources.map(s => toPct(s, "skill_md")), backgroundColor: "#2ecc71" },
+                { label: "References", data: budgetSources.map(s => toPct(s, "ref")), backgroundColor: "#3498db" },
+                { label: "Assets", data: budgetSources.map(s => toPct(s, "asset")), backgroundColor: "#9b59b6" },
+                { label: "Nonstandard", data: budgetSources.map(s => toPct(s, "nonstandard")), backgroundColor: "rgba(231, 76, 60, 0.8)" },
+            ],
+        },
+        options: {
+            plugins: { title: { display: true, text: "Token Budget Composition by Source (%)" } },
+            scales: {
+                x: { stacked: true },
+                y: { stacked: true, beginAtZero: true, max: 100, title: { display: true, text: "% of Total Tokens" } },
             },
         },
     });
@@ -244,21 +293,63 @@ function renderCharts() {
 function renderHighRisk() {
     const container = document.getElementById("high-risk-cards");
     const highRisk = DATA.skills
-        .filter(s => s.risk_level === "high")
-        .sort((a, b) => b.risk_score - a.risk_score);
+        .filter(s => s.contamination_level === "high")
+        .sort((a, b) => b.contamination_score - a.contamination_score);
 
-    container.innerHTML = highRisk.map(s => `
-        <div class="risk-card">
-            <h4>${s.name}</h4>
-            <div class="risk-meta">
-                <div>Source: ${s.source}</div>
-                <div>Risk Score: ${s.risk_score.toFixed(2)}</div>
-                <div>Multi-interface tools: ${s.multi_interface_tools.length > 0 ? s.multi_interface_tools.join(", ") : "N/A"}</div>
-                <div>Mismatched categories: ${s.mismatched_categories.length > 0 ? s.mismatched_categories.join(", ") : "none"}</div>
-                <div>Scope breadth: ${s.scope_breadth} categories</div>
+    container.innerHTML = highRisk.map(s => {
+        const link = s.github_url ? '<a href="' + s.github_url + '" target="_blank" class="gh-link">View on GitHub</a>' : "";
+        return '<div class="risk-card">'
+            + '<h4>' + s.name + '</h4>'
+            + '<div class="risk-meta">'
+            + '<div>Source: ' + s.source + '</div>'
+            + '<div>Contamination Score: ' + s.contamination_score.toFixed(2) + '</div>'
+            + '<div>Multi-interface tools: ' + (s.multi_interface_tools.length > 0 ? s.multi_interface_tools.join(", ") : "N/A") + '</div>'
+            + '<div>Mismatched categories: ' + (s.mismatched_categories.length > 0 ? s.mismatched_categories.join(", ") : "none") + '</div>'
+            + '<div>Scope breadth: ' + s.scope_breadth + ' categories</div>'
+            + link
+            + '</div></div>';
+    }).join("");
+}
+
+// Hidden contamination cards
+function renderHiddenContamination() {
+    const container = document.getElementById("hidden-contamination-cards");
+    const hidden = DATA.skills
+        .filter(s => s.ref_file_count > 0
+            && s.contamination_level === "low"
+            && (s.ref_contamination_level === "medium" || s.ref_contamination_level === "high"))
+        .sort((a, b) => b.ref_contamination_score - a.ref_contamination_score);
+
+    if (hidden.length === 0) {
+        container.innerHTML = "<p>No hidden contamination detected.</p>";
+        return;
+    }
+
+    container.innerHTML = hidden.map(s => {
+        const barWidth = Math.max(Math.round(s.ref_contamination_score * 120), 8);
+        const skillBarWidth = Math.max(Math.round(s.contamination_score * 120), 8);
+        const isHigh = s.ref_contamination_level === "high";
+        const link = s.github_url ? '<a href="' + s.github_url + '" target="_blank" class="gh-link">View on GitHub</a>' : "";
+        return `
+            <div class="hidden-card">
+                <h4>${s.name}</h4>
+                <div class="hidden-meta">
+                    <div>Source: ${s.source}</div>
+                    <div class="score-bar">
+                        SKILL.md: ${s.contamination_score.toFixed(2)}
+                        <span class="bar bar-skill" style="width:${skillBarWidth}px"></span>
+                    </div>
+                    <div class="score-bar">
+                        Refs: ${s.ref_contamination_score.toFixed(2)}
+                        <span class="bar bar-ref${isHigh ? " high" : ""}" style="width:${barWidth}px"></span>
+                        <span class="badge badge-${s.ref_contamination_level}">${s.ref_contamination_level}</span>
+                    </div>
+                    <div>Ref files: ${s.ref_file_count} (${s.ref_total_tokens.toLocaleString()} tokens)</div>
+                    ${link}
+                </div>
             </div>
-        </div>
-    `).join("");
+        `;
+    }).join("");
 }
 
 // Filters
@@ -283,7 +374,7 @@ function getFilteredSkills() {
         if (source && s.source !== source) return false;
         if (status === "passed" && !s.passed) return false;
         if (status === "failed" && s.passed) return false;
-        if (risk && s.risk_level !== risk) return false;
+        if (risk && s.contamination_level !== risk) return false;
         if (search && !s.name.toLowerCase().includes(search)) return false;
         return true;
     });
@@ -314,7 +405,7 @@ function renderTable() {
     const tbody = document.getElementById("skills-tbody");
     tbody.innerHTML = skills.map(s => `
         <tr data-name="${s.name}" data-source="${s.source}">
-            <td><strong>${s.name}</strong></td>
+            <td>${s.github_url ? '<a href="' + s.github_url + '" target="_blank" class="skill-link">' + s.name + '</a>' : '<strong>' + s.name + '</strong>'}</td>
             <td>${s.source}</td>
             <td><span class="badge badge-${s.passed ? "pass" : "fail"}">${s.passed ? "Pass" : "Fail"}</span></td>
             <td>${s.errors}</td>
@@ -322,7 +413,7 @@ function renderTable() {
             <td>${s.total_tokens.toLocaleString()}</td>
             <td>${s.information_density.toFixed(3)}</td>
             <td>${s.instruction_specificity.toFixed(3)}</td>
-            <td><span class="badge badge-${s.risk_level}">${s.risk_level} (${s.risk_score.toFixed(2)})</span></td>
+            <td><span class="badge badge-${s.contamination_level}">${s.contamination_level} (${s.contamination_score.toFixed(2)})</span></td>
         </tr>
     `).join("");
 }
@@ -335,7 +426,7 @@ function showDetail(name, source) {
     const content = document.getElementById("detail-content");
 
     const rows = [
-        ["Name", skill.name],
+        ["Name", skill.github_url ? '<a href="' + skill.github_url + '" target="_blank">' + skill.name + '</a>' : skill.name],
         ["Source", skill.source],
         ["Status", skill.passed ? "Passed" : "Failed"],
         ["Errors", skill.errors],
@@ -351,8 +442,8 @@ function showDetail(name, source) {
         ["List Items", skill.list_item_count],
         ["Info Density", skill.information_density.toFixed(4)],
         ["Specificity", skill.instruction_specificity.toFixed(4)],
-        ["Risk Score", skill.risk_score.toFixed(4)],
-        ["Risk Level", skill.risk_level],
+        ["Contamination Score", skill.contamination_score.toFixed(4)],
+        ["Contamination Level", skill.contamination_level],
         ["Multi-Interface Tools", (skill.multi_interface_tools || []).join(", ") || "none"],
         ["Language Mismatch", skill.language_mismatch ? "Yes" : "No"],
         ["Scope Breadth", skill.scope_breadth],
@@ -370,8 +461,21 @@ function showDetail(name, source) {
         );
     }
 
+    // Check for hidden contamination
+    let alertHtml = "";
+    if (skill.ref_file_count > 0 && skill.contamination_level === "low"
+        && (skill.ref_contamination_level === "medium" || skill.ref_contamination_level === "high")) {
+        const isHigh = skill.ref_contamination_level === "high";
+        const cls = isHigh ? "detail-alert alert-high" : "detail-alert";
+        alertHtml = '<div class="' + cls + '">'
+            + 'Hidden contamination: SKILL.md is low-risk (' + skill.contamination_score.toFixed(2)
+            + ') but reference files are <strong>' + skill.ref_contamination_level
+            + '</strong>-risk (' + skill.ref_contamination_score.toFixed(2) + ').</div>';
+    }
+
     content.innerHTML = `
         <h3>${skill.name}</h3>
+        ${alertHtml}
         ${rows.map(([label, value]) => `
             <div class="detail-row">
                 <span class="label">${label}</span>
@@ -425,7 +529,7 @@ function downloadCSV() {
         "name", "source", "passed", "errors", "warnings",
         "total_tokens", "skill_md_tokens", "word_count",
         "code_block_count", "code_block_ratio", "information_density",
-        "instruction_specificity", "risk_score", "risk_level",
+        "instruction_specificity", "contamination_score", "contamination_level",
     ];
     const rows = skills.map(s => headers.map(h => {
         const v = s[h];

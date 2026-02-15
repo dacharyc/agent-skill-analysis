@@ -41,33 +41,38 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/pinia-no-active-pinia-error.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/pinia-setup-store-return-all-state.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/pinia-no-active-pinia-error.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/pinia-store-destructuring-breaks-reactivity.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/pinia-setup-store-return-all-state.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/store-method-binding-parentheses.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/pinia-store-destructuring-breaks-reactivity.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/state-url-for-ephemeral-filters.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/store-method-binding-parentheses.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/state-use-pinia-for-large-apps.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/state-url-for-ephemeral-filters.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: reference/state-use-pinia-for-large-apps.md (exists)"
     }
   ],
   "token_counts": {
@@ -123,7 +128,7 @@
     "section_count": 3,
     "list_item_count": 6
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -134,7 +139,10 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

@@ -3,7 +3,7 @@ title: "Quality and Safety in the Agent Skills Ecosystem: A Structural, Content,
 author: "Dachary Carey"
 date: "February 2026"
 abstract: |
-  Agent Skills — modular instruction sets that extend AI coding agents — are emerging as a key primitive in the developer toolchain. As adoption grows, quality standards have not kept pace. We present the first systematic analysis of the Agent Skills ecosystem, evaluating 673 skills from 41 source repositories across eight categories: platform publisher (Anthropic), company-published (Microsoft, OpenAI, Stripe, Cloudflare, and 18 others), community collections, individual community skills, security-focused (Trail of Bits, Prompt Security), development methodology (K-Dense/Superpowers), and vertical/domain-specific (legal, biotech, DevOps, embedded). We assess three dimensions: structural compliance with the agentskills.io specification, content quality metrics, and cross-contamination risk — where skill content causes incorrect code generation in unrelated contexts. Our analysis finds that 34.2% of skills fail structural validation, with company-published skills (57.6% pass rate) performing worse than community collections (87%). We identify 54 skills with high cross-contamination risk and demonstrate through a case study how multi-interface tool examples can degrade code generation. The ecosystem extends well beyond our sample: we catalog over 80 additional repositories containing an estimated 800+ skills, suggesting these quality concerns are industry-wide. We propose quality criteria for skill authors and recommendations for specification maintainers.
+  Agent Skills — modular instruction sets that extend AI coding agents — are emerging as a key primitive in the developer toolchain. As adoption grows, quality standards have not kept pace. We present the first systematic analysis of the Agent Skills ecosystem, evaluating 673 skills from 41 source repositories across eight categories: platform publisher (Anthropic), company-published (Microsoft, OpenAI, Stripe, Cloudflare, and 18 others), community collections, individual community skills, security-focused (Trail of Bits, Prompt Security), development methodology (K-Dense/Superpowers), and vertical/domain-specific (legal, biotech, DevOps, embedded). We assess four dimensions: structural compliance with the agentskills.io specification, content quality metrics, cross-contamination risk — where skill content causes incorrect code generation in unrelated contexts — and context window efficiency. Our analysis finds that 22.0% of skills fail structural validation (including internal link integrity), with company-published skills (79.2% pass rate) performing worse than community collections (94.0%). We identify 54 skills with high cross-contamination risk, 71 skills with "hidden contamination" visible only in reference files, and demonstrate through a case study how multi-interface tool examples can degrade code generation. A token budget analysis reveals that 52% of all tokens across the ecosystem are nonstandard files (LICENSE texts, build artifacts, XML schemas) that waste context window space. The ecosystem extends well beyond our sample: we catalog over 80 additional repositories containing an estimated 800+ skills, suggesting these quality concerns are industry-wide. We propose quality criteria for skill authors and recommendations for specification maintainers.
 bibliography: references.bib
 ---
 
@@ -23,9 +23,10 @@ However, this growth has outpaced quality assurance. No prior work has systemati
 
 This paper presents a systematic analysis across all three dimensions, using automated validation, content metrics, and cross-contamination detection. Our key contributions are:
 
-- The first comprehensive structural audit of the Agent Skills ecosystem using the `skill-validator` tool [@skill-validator], covering 673 skills from 41 repositories
+- The first comprehensive structural audit of the Agent Skills ecosystem using the `skill-validator` tool [@skill-validator], covering 673 skills from 41 repositories, with a two-pass validation approach that separates deterministic structural checks from environment-dependent link validation
 - Content quality metrics (information density, instruction specificity) applied at ecosystem scale
-- Identification and taxonomy of cross-contamination risk in multi-interface skills
+- Identification and taxonomy of cross-contamination risk in multi-interface skills, including the discovery of "hidden contamination" in reference files (71 skills with clean instruction files but contaminated references)
+- A token budget composition analysis revealing that 52% of all tokens across the ecosystem are nonstandard files wasting context window space
 - An ecosystem survey cataloging 1,400+ skills across 120+ repositories, contextualizing our findings as industry-wide
 - Concrete recommendations for skill authors and specification maintainers
 
@@ -61,7 +62,7 @@ Each skill was evaluated against the specification's requirements:
 - **Content**: Markdown body completeness and formatting
 - **Token budget**: Total context window usage
 
-The validator produces a pass/fail result per skill along with categorized errors and warnings.
+The validator produces a pass/fail result per skill along with categorized errors and warnings. We run the validator in two passes: first with structural checks only (`--only structure`), then with all other checks (`--skip structure`) for content analysis, contamination detection, and link validation. Link results are split into two categories: **internal links** (references to files within the skill directory, e.g. `references/api_guide.md`) are treated as structural failures since they indicate missing files, while **external links** (HTTP/HTTPS URLs) are reported separately as link health metadata. External URL validation is environment-dependent — URLs may be temporarily unreachable due to DNS failures, rate limiting, or transient outages — so excluding them from the pass/fail determination ensures reproducible structural compliance results across runs.
 
 ## Content Analysis
 
@@ -89,7 +90,7 @@ These factors combine into a risk score from 0 to 1, classified as low (< 0.2), 
 
 ## Structural Compliance
 
-Of 673 skills evaluated, **443 (65.8%) passed** structural validation and **230 (34.2%) failed**.
+Of 673 skills evaluated, **525 (78.0%) passed** structural validation and **148 (22.0%) failed**. Structural validation includes internal link integrity (references to files within the skill directory) but excludes external URL checks, which are environment-dependent and reported separately (see Methodology).
 
 ![Pass/fail rates by source](figures/pass_fail_by_source.png)
 
@@ -97,21 +98,21 @@ Pass rates varied dramatically by source category:
 
 | Category | Skills | Pass Rate | Errors | Warnings |
 |----------|--------|-----------|--------|----------|
+| Community collections | 167 | 94.0% | 25 | 209 |
 | Anthropic | 16 | 87.5% | 7 | 39 |
-| Community collections | 167 | 87.4% | 45 | 209 |
-| Trail of Bits | 52 | 76.9% | 21 | 77 |
-| Vertical | 86 | 65.1% | 46 | 154 |
-| Company | 288 | 57.6% | 189 | 542 |
-| K-Dense | 48 | 35.4% | 65 | 117 |
-| Community individual | 9 | 33.3% | 26 | 68 |
+| Trail of Bits | 52 | 86.5% | 15 | 73 |
+| Company | 288 | 79.2% | 96 | 539 |
+| Vertical | 86 | 66.3% | 46 | 154 |
+| Community individual | 9 | 55.6% | 7 | 68 |
+| K-Dense | 48 | 37.5% | 62 | 116 |
 | Security | 7 | 14.3% | 6 | 23 |
 
-A striking finding is that **company-published skills have a lower pass rate (57.6%) than community collections (87.4%)**. This inverts the common assumption that official company skills would be higher quality. The primary drivers:
+Community collections lead at 94.0%, followed by Anthropic (87.5%) and Trail of Bits (86.5%). **Company-published skills have a lower pass rate (79.2%) than community collections (94.0%)**, inverting the common assumption that official company skills would be higher quality. The primary drivers:
 
 - **Microsoft** (143 skills): Many skills use non-standard directory structures, placing skills under `.github/skills/` rather than the spec-standard layout. While functional within their GitHub Copilot integration, they generate structural validation errors.
 - **Several companies** published skills before the spec was finalized and have not updated them to current requirements.
 
-The K-Dense (Superpowers) skills had a low pass rate (35.4%), primarily because they use an alternative directory structure optimized for their development workflow rather than the agentskills.io specification.
+The K-Dense (Superpowers) skills had a low pass rate (37.5%), primarily because they use an alternative directory structure optimized for their development workflow rather than the agentskills.io specification.
 
 Common errors across all sources included:
 - Missing or malformed YAML frontmatter
@@ -131,28 +132,64 @@ Token counts varied by several orders of magnitude:
 
 Company-published skills tend to be more concise (average 6,749 tokens) than community collections (21,349 tokens). The most focused skills — from Anthropic (8,189 avg) and K-Dense (3,592 avg) — demonstrate that effective skills can be compact.
 
+### Token Budget Composition
+
+Breaking total token counts into their constituent parts — SKILL.md body, reference files, asset files, and nonstandard files — reveals a striking pattern: **52% of all tokens across the ecosystem are nonstandard files** that fall outside the specification's defined structure.
+
+![Token budget composition by source](figures/token_budget_composition.png)
+
+The agentskills.io specification defines three categories of skill content: the primary `SKILL.md` instruction file, supplementary `references/` files, and binary `assets/` files. Any file outside these categories (placed at the skill root or in non-standard directories) is loaded into the agent's context window but provides no instructional value. We term these **nonstandard tokens**.
+
+| Category | SKILL.md | References | Assets | Nonstandard |
+|----------|----------|------------|--------|-------------|
+| Community collections | 15.2% | 54.1% | 6.8% | 23.9% |
+| Community individual | 0.9% | 2.6% | 0.1% | 96.4% |
+| Company | 23.5% | 46.9% | 0.6% | 29.1% |
+| Vertical | 10.8% | 26.0% | 3.2% | 60.0% |
+| Trail of Bits | 32.6% | 31.1% | 0.0% | 36.3% |
+| K-Dense | 37.0% | 0.0% | 0.0% | 63.0% |
+| Anthropic | 24.4% | 0.4% | 0.0% | 75.1% |
+| Security | 11.4% | 0.0% | 0.0% | 88.6% |
+| **Overall** | **13.1%** | **32.1%** | **2.9%** | **52.0%** |
+
+Of 673 skills, 185 (27.5%) contain nonstandard files. The impact is substantial: the mean token count is inflated 108% by nonstandard files (mean effective tokens = 8,349 vs. mean total = 17,383). Even at the median, nonstandard files add 38% overhead.
+
+![Breakdown of nonstandard token waste](figures/nonstandard_breakdown.png)
+
+Analyzing the 5.8 million nonstandard tokens reveals several distinct categories of waste:
+
+- **OOXML schemas** (1.3M tokens, 22.4%): Four document-processing skills (docx, pptx, and their Anthropic variants) ship raw ISO-IEC 29500-4 XML Schema Definition files. A single schema file (`sml.xsd`, the SpreadsheetML schema) consumes 298,868 tokens — larger than most entire skills.
+- **Benchmarks and results** (1.3M tokens, 22.4%): One skill (loki-mode) includes SWE-bench evaluation results and prediction logs, consuming over 500k tokens of JSON benchmark data.
+- **Build artifacts** (434k tokens, 7.4%): Source maps (`.js.map`), lockfiles (`package-lock.json`), and compiled presentations (`.pptx`) that are development artifacts, not instructional content.
+- **LICENSE files** (274k tokens, 4.7%): 89 skills include LICENSE.txt files at the skill root. While legally appropriate, each consumes ~2,700 tokens of context window space that provides no value to the agent.
+- **UI/extension code** (415k tokens, 7.1%): VS Code extension source code and dashboard HTML/JavaScript shipped alongside skills.
+
+The practical consequence is significant. An agent loading one of these skills receives a context window filled with XML schemas, benchmark JSON, or license text instead of the user's code. For the 82 skills where SKILL.md represents less than 10% of total tokens, the instruction file is effectively drowned out by supplementary material.
+
+Notably, even Anthropic's own skills — the reference implementation from the spec authors — have the highest percentage of nonstandard tokens (75.1%) of any source category, driven primarily by LICENSE.txt files and template directories. This suggests the problem is structural rather than a matter of author diligence: the specification does not currently warn against or penalize nonstandard files, so authors have no signal that these files consume context window budget.
+
 ## Content Quality
 
 ![Information density vs. instruction specificity](figures/content_quality.png)
 
 Content quality metrics revealed significant variation:
 
-- **Information density**: Mean 0.200 (range 0.0–0.56). Most skills are prose-heavy with relatively few code examples or imperative instructions.
-- **Instruction specificity**: Mean 0.621 (range 0.0–1.0). The expanded dataset shows a lower average specificity than our initial sample, driven by company skills that use more advisory language.
+- **Information density**: Mean 0.206 (range 0.0–0.56). Most skills are prose-heavy with relatively few code examples or imperative instructions.
+- **Instruction specificity**: Mean 0.616 (range 0.0–1.0). The expanded dataset shows a lower average specificity than our initial sample, driven by company skills that use more advisory language.
 
 Anthropic skills cluster in the moderate-density, high-specificity quadrant — they are well-structured with clear directives but are not code-heavy. Company skills show the broadest distribution, ranging from highly specific API reference skills to vague best-practices guides.
 
 ## Cross-Contamination Risk
 
-![Validation and risk overview](figures/risk_distribution.png)
+![Validation and contamination overview](figures/contamination_distribution.png)
 
 Our cross-contamination analysis identified:
 
 - **54 high-risk skills** (8.0%) — significant potential for cross-language pollution
-- **213 medium-risk skills** (31.7%) — some multi-language or multi-technology mixing
-- **406 low-risk skills** (60.3%) — focused on a single technology or language
+- **210 medium-risk skills** (31.2%) — some multi-language or multi-technology mixing
+- **409 low-risk skills** (60.8%) — focused on a single technology or language
 
-![Risk scores by source](figures/risk_by_source.png)
+![Contamination scores by source](figures/contamination_by_source.png)
 
 The security category had the highest average risk score (0.446), followed by Trail of Bits (0.239) and company-published skills (0.210). Security tools inherently operate across multiple languages and environments, making this expected. Company skills — particularly those for cloud platforms (Azure, AWS, Terraform) — scored higher because they often cover multiple language SDKs within a single skill.
 
@@ -182,13 +219,13 @@ A key question motivating this expanded analysis was whether company-published s
 
 | Dimension | Company (288) | Community Collections (167) | Anthropic (16) |
 |-----------|--------------|---------------------------|----------------|
-| Pass rate | 57.6% | 87.4% | 87.5% |
+| Pass rate | 79.2% | 94.0% | 87.5% |
 | Avg tokens | 6,749 | 21,349 | 8,189 |
-| Avg info density | 0.255 | 0.176 | 0.125 |
+| Avg info density | 0.266 | 0.178 | 0.148 |
 | Avg specificity | 0.585 | 0.598 | 0.725 |
-| Avg risk score | 0.210 | 0.170 | 0.136 |
+| Avg contamination score | 0.210 | 0.170 | 0.136 |
 
-Companies produce more **informationally dense** skills (higher code-to-prose ratio) but score lower on **structural compliance** and **instruction specificity**. This suggests companies prioritize API reference content over the instructional framing that helps agents use the information effectively.
+Companies produce more **informationally dense** skills (higher code-to-prose ratio) but score lower on **structural compliance** (79.2% vs 94.0% for community collections) and **instruction specificity**. This suggests companies prioritize API reference content over the instructional framing that helps agents use the information effectively.
 
 Anthropic's own skills, while small in number, set a benchmark for instruction specificity (0.725) — their skills use strong directive language that leaves less room for agent misinterpretation. Community collections fall between company and Anthropic skills on most dimensions.
 
@@ -201,11 +238,70 @@ Notable correlations:
 - Information density and code block ratio are strongly correlated (by construction)
 - Risk score correlates with warnings, as structurally complex skills tend to have broader technology scopes
 
+## Reference File Analysis
+
+Beyond the primary `SKILL.md` file, the agentskills.io specification allows skills to include reference files — supplementary documents placed in a `references/` directory. These files provide additional context (API documentation, code examples, configuration templates) that agents load alongside the skill instructions. Our analysis reveals that reference files represent a significant and underexamined dimension of skill quality.
+
+### Prevalence and Scale
+
+Of 673 skills analyzed, **185 (27%) include reference files**, totaling 2,684 files across the dataset. Reference file usage varies by source: company-published skills and community collections are the heaviest users, while methodology-focused skills (K-Dense) and security skills rarely include references.
+
+### Token Budget Impact
+
+Reference files have a dramatic impact on context window consumption. Among skills with references:
+
+- **61% have more reference tokens than SKILL.md tokens** — the references outweigh the primary instruction file
+- The median reference token count is 636, but the distribution has a heavy tail: p99 reaches 41k tokens
+- **22 reference files exceed 50,000 tokens**, prime candidates for context window degradation
+- Extreme outliers exist: loki-mode (3M reference tokens, 43x the SKILL.md) and docx (336k, 121x the SKILL.md)
+
+![Reference file size relative to SKILL.md](figures/ref_token_ratio.png)
+
+These findings have practical implications. Agent platforms typically operate within context windows of 100k–200k tokens. A single oversized reference file can consume a significant fraction of this budget, potentially crowding out the user's code context and degrading agent performance. Skill authors should be mindful that reference files are not "free" — they compete directly with the user's code for context window space.
+
+### Content Quality
+
+Reference files tend to have **higher information density** than their corresponding SKILL.md files. This is expected: references are typically code-heavy (API examples, configuration templates, type definitions) rather than prose-heavy instruction documents. The higher density reflects their role as reference material rather than instructional content.
+
+### Contamination Risk and Hidden Contamination
+
+Reference files introduce a distinct contamination vector. Because references often contain code examples for specific language SDKs, they can pollute the agent's context when the user is working in a different language. Our analysis found that reference contamination patterns differ from SKILL.md contamination:
+
+- Reference files are more likely to contain **multiple programming languages** within a single skill, especially for platform SDK skills that provide examples across Python, TypeScript, Java, and .NET
+- Skills with contaminated reference files sometimes have clean SKILL.md files — the contamination is hidden in the supplementary material
+
+Among the 412 skills with reference files, contamination scores diverge between the SKILL.md and references in the majority of cases:
+
+- **31.6%** have higher contamination in references than in SKILL.md
+- **38.1%** have higher contamination in SKILL.md than in references
+- **30.3%** have equal scores
+
+The most concerning pattern is what we term **hidden contamination**: skills where the SKILL.md file scores as low-risk but the reference files carry medium or high contamination. We identified **71 skills** (17.2% of skills with references) exhibiting hidden contamination — 20 with high-risk references and 51 with medium-risk references.
+
+![Hidden contamination: clean SKILL.md with contaminated references](figures/hidden_contamination.png)
+
+Community collections account for the majority of hidden contamination cases (39 of 71), which is expected given their heavy reliance on reference files (88% adoption rate, averaging 6.9 files per skill). Company-published skills contribute 17 cases, and vertical/domain-specific skills contribute 8.
+
+Illustrative examples of hidden contamination:
+
+- **neon-postgres** (company): SKILL.md contamination 0.08 (low), reference contamination 1.0 (high). The SKILL.md provides clean PostgreSQL-focused instructions, but reference files include examples spanning JavaScript, Python, CSS, TSX, and Bash.
+- **react-native-best-practices** (company): SKILL.md contamination 0.07 (low), reference contamination 0.93 (high). Reference files contain code in 14 different languages including Kotlin, Swift, Objective-C, Groovy, and C++.
+- **alphafold-database** (community collection): SKILL.md contamination 0.13 (low), reference contamination 0.55 (high). Reference files mix Python, Bash, and configuration languages for the protein structure prediction pipeline.
+- **clinical-decision-support** (community collection): SKILL.md contamination 0.00 (low), reference contamination 0.51 (high). A perfectly clean instruction file is paired with references containing mixed-language code examples.
+
+Hidden contamination has important implications for quality assessment. **Any contamination analysis that examines only the SKILL.md file will miss 71 cases** — a 30% undercount relative to the 264 total skills with medium or high contamination across either their SKILL.md or references. Skill validation tools and quality gates should evaluate reference files alongside the primary instruction file.
+
+### Language Distribution
+
+![Most common languages in reference files](figures/ref_language_distribution.png)
+
+The language distribution across reference files reveals how authors use references in practice. The most common languages reflect the ecosystem's emphasis on web development and cloud platform integration. Shell scripts, configuration languages (YAML, HCL, TOML), and type definition files appear frequently, confirming that references serve as practical implementation guides rather than conceptual documentation.
+
 # Recommendations for Skill Authors
 
 Based on our findings, we recommend the following practices:
 
-1. **Validate before publishing**: Run `skill-validator` on your skill and fix all errors. Currently, 34.2% of published skills fail basic validation — including 42% of company-published skills.
+1. **Validate before publishing**: Run `skill-validator` on your skill and fix all errors. Currently, 22.0% of published skills fail structural validation — including 21% of company-published skills.
 
 2. **Scope skills tightly**: Skills covering multi-interface tools should target a specific language SDK. A "MongoDB for Node.js" skill is safer than a generic "MongoDB" skill. We identified 54 high-risk skills where broad scope creates contamination potential.
 
@@ -217,6 +313,10 @@ Based on our findings, we recommend the following practices:
 
 6. **Separate language-specific examples**: If a skill must cover multiple languages, use clearly delineated sections with explicit context-switching markers. Consider publishing separate skills per language SDK.
 
+7. **Audit nonstandard files**: Check that your skill directory contains only `SKILL.md`, `references/`, and `assets/`. Nonstandard files (LICENSE.txt, README.md, build artifacts, schemas) consume context window budget without providing instructional value. We found 52% of all tokens ecosystem-wide are nonstandard. Move license text to a reference or remove it; relocate build artifacts and schemas outside the skill directory.
+
+8. **Validate reference files for contamination**: A clean SKILL.md does not guarantee a clean skill. We identified 71 skills with hidden contamination in reference files. Run contamination analysis on the full skill directory, not just the instruction file.
+
 # Recommendations for Spec Maintainers
 
 1. **Add a `languages` frontmatter field**: Skills should explicitly declare which programming languages they target. This enables agents to filter skills by context and would help mitigate cross-contamination.
@@ -227,9 +327,13 @@ Based on our findings, we recommend the following practices:
 
 4. **Provide multi-language skill guidelines**: Publish guidance for skills that necessarily cover multiple languages (CI/CD, infrastructure, cross-platform tools). With 54 high-risk skills in our sample alone, this is an urgent need.
 
-5. **Add contamination risk assessment**: Include cross-contamination detection in the specification's recommended validation pipeline.
+5. **Add contamination risk assessment**: Include cross-contamination detection in the specification's recommended validation pipeline. Critically, this assessment should cover reference files as well as SKILL.md — our analysis found 71 cases of hidden contamination visible only in references.
 
-6. **Engage company publishers**: Company-published skills have the lowest structural compliance rate (57.6%). Given their high visibility and adoption, bringing these into compliance would significantly improve ecosystem quality.
+6. **Engage company publishers**: Company-published skills have a lower structural compliance rate (79.2%) than community collections (94.0%). Given their high visibility and adoption, bringing these into compliance would significantly improve ecosystem quality.
+
+7. **Warn on or penalize nonstandard files**: The specification should explicitly warn against files outside the defined structure (`SKILL.md`, `references/`, `assets/`). Currently, 52% of all tokens in the ecosystem come from nonstandard files. A validation warning or error for unexpected root-level files would significantly reduce context window waste. At minimum, agent platforms should consider filtering out nonstandard files when loading skills.
+
+8. **Set token budget guidelines**: Provide recommended maximum token counts for SKILL.md, individual reference files, and total skill size. Our analysis shows that the median effective skill is ~4,000 tokens, yet 17 skills exceed 50% of a 128k context window. Guidelines would help authors understand the practical limits of context window consumption.
 
 # Limitations and Future Work
 
@@ -251,7 +355,9 @@ Based on our findings, we recommend the following practices:
 
 # Conclusion
 
-The Agent Skills ecosystem is young and growing rapidly. Our analysis of 673 skills from 41 repositories reveals meaningful variation in structural compliance (65.8% pass rate), content quality, and cross-contamination risk (54 high-risk skills). Perhaps the most striking finding is that company-published skills — from Microsoft, OpenAI, Stripe, and others — have a *lower* structural compliance rate (57.6%) than community collections (87%), inverting the assumption that official sources produce higher-quality skills.
+The Agent Skills ecosystem is young and growing rapidly. Our analysis of 673 skills from 41 repositories reveals meaningful variation in structural compliance (78.0% pass rate), content quality, cross-contamination risk (54 high-risk skills), and context window efficiency (52% token waste). Company-published skills — from Microsoft, OpenAI, Stripe, and others — have a *lower* structural compliance rate (79.2%) than community collections (94.0%), inverting the assumption that official sources produce higher-quality skills.
+
+Two findings stand out as particularly actionable. First, the context window waste problem: over half of all tokens loaded from skills are nonstandard files — LICENSE texts, build artifacts, XML schemas, benchmark data — that provide no instructional value to the agent. This is both the largest quality issue by magnitude and the easiest to fix. Second, hidden contamination in reference files: 71 skills appear clean when only the SKILL.md is analyzed but carry medium or high contamination risk in their reference files, meaning contamination assessments that ignore references undercount risk by 30%.
 
 The cross-contamination risk is not merely theoretical: multi-interface tool skills can actively degrade agent performance through cross-language pollution. With 8.0% of skills at high risk and the ecosystem growing rapidly (we estimate 1,400+ skills exist across 120+ repositories), this is an industry-scale concern.
 
@@ -267,7 +373,7 @@ Beyond the 673 skills we analyzed in depth, we conducted a broad survey of the A
 
 As of February 2026, we identified **120+ repositories** containing Agent Skills, with an estimated **1,400+ individual skills** across the ecosystem. The agentskills.io specification is supported by **27+ agent platforms**.
 
-Our analyzed sample of 673 skills represents approximately 48% of the estimated total. The quality patterns we observe — particularly the 34.2% structural failure rate and 8.0% high contamination risk — likely extend to the broader ecosystem.
+Our analyzed sample of 673 skills represents approximately 48% of the estimated total. The quality patterns we observe — particularly the 22.0% structural failure rate and 8.0% high contamination risk — likely extend to the broader ecosystem.
 
 ## Adoption by Category
 
@@ -304,9 +410,9 @@ Several supporting tools have emerged:
 
 If the quality patterns we observe in our 673-skill sample hold across the full 1,400+ skill ecosystem:
 
-- **~479 skills** may fail structural validation
+- **~308 skills** may fail structural validation
 - **~112 skills** may carry high cross-contamination risk
-- **~444 skills** may carry medium contamination risk
+- **~442 skills** may carry medium contamination risk
 
 These estimates underscore the urgency of quality standards and validation tooling. The ecosystem has reached a scale where manual review is impractical — automated quality gates are necessary.
 

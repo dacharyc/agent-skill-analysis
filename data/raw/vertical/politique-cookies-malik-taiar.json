@@ -41,38 +41,28 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/COOKIES.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/BASES_LEGALES_COOKIES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/COOKIES.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/DROITS_PERSONNES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/BASES_LEGALES_COOKIES.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/DUREES_CONSERVATION.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/DROITS_PERSONNES.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.cnil.fr/fr/evolution-des-regles-dutilisation-des-cookies-quels-changements-pour-les-internautes (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: references/DUREES_CONSERVATION.md (exists)"
     }
   ],
   "token_counts": {
@@ -128,7 +118,7 @@
     "section_count": 20,
     "list_item_count": 74
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -137,7 +127,179 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 5452,
+    "code_block_count": 28,
+    "code_block_ratio": 0.2949,
+    "code_languages": [],
+    "sentence_count": 231,
+    "imperative_count": 0,
+    "imperative_ratio": 0,
+    "information_density": 0.1475,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 96,
+    "list_item_count": 133
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "BASES_LEGALES_COOKIES.md",
+      "content_analysis": {
+        "word_count": 1388,
+        "code_block_count": 5,
+        "code_block_ratio": 0.2183,
+        "code_languages": [],
+        "sentence_count": 57,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1091,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 33,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "COOKIES.md",
+      "content_analysis": {
+        "word_count": 1240,
+        "code_block_count": 8,
+        "code_block_ratio": 0.4226,
+        "code_languages": [],
+        "sentence_count": 56,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2113,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 18,
+        "list_item_count": 51
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "DROITS_PERSONNES.md",
+      "content_analysis": {
+        "word_count": 1459,
+        "code_block_count": 12,
+        "code_block_ratio": 0.3845,
+        "code_languages": [],
+        "sentence_count": 60,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1923,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 18,
+        "list_item_count": 47
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "DUREES_CONSERVATION.md",
+      "content_analysis": {
+        "word_count": 1365,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1612,
+        "code_languages": [],
+        "sentence_count": 58,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0806,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 27,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.cnil.fr/fr/evolution-des-regles-dutilisation-des-cookies-quels-changements-pour-les-internautes (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

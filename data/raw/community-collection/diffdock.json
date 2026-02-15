@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/claude-scientific-skills/scientific-skills/diffdock",
-  "passed": false,
-  "errors": 1,
+  "passed": true,
+  "errors": 0,
   "warnings": 0,
   "results": [
     {
@@ -31,33 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/gcorso/DiffDock.git (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "http://localhost:7860 (request failed: Head \"http://localhost:7860\": dial tcp 127.0.0.1:7860: connect: connection refused)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://huggingface.co/spaces/reginabarzilaygroup/DiffDock-Web (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/gcorso/DiffDock (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://arxiv.org/abs/2402.18396 (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://arxiv.org/abs/2210.01776 (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -77,9 +52,13 @@
       {
         "file": "references/workflows_examples.md",
         "tokens": 2786
+      },
+      {
+        "file": "assets/custom_inference_config.yaml",
+        "tokens": 732
       }
     ],
-    "total": 9370
+    "total": 10102
   },
   "content_analysis": {
     "word_count": 2047,
@@ -112,7 +91,7 @@
     "section_count": 29,
     "list_item_count": 130
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "docker"
     ],
@@ -144,7 +123,274 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.4333,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.4333,
+    "contamination_level": "medium"
+  },
+  "references_content_analysis": {
+    "word_count": 2587,
+    "code_block_count": 24,
+    "code_block_ratio": 0.2397,
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "csv",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "sentence_count": 156,
+    "imperative_count": 10,
+    "imperative_ratio": 0.0641,
+    "information_density": 0.1519,
+    "strong_markers": 3,
+    "weak_markers": 16,
+    "instruction_specificity": 0.1579,
+    "section_count": 77,
+    "list_item_count": 211
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "docker"
+    ],
+    "code_languages": [
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "csv",
+      "bash",
+      "python",
+      "bash",
+      "python",
+      "python",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "yaml",
+      "bash",
+      "bash",
+      "python",
+      "bash",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [
+      "config",
+      "python"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 3,
+    "contamination_score": 0.6417,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "confidence_and_limitations.md",
+      "content_analysis": {
+        "word_count": 884,
+        "code_block_count": 0,
+        "code_block_ratio": 0,
+        "code_languages": [],
+        "sentence_count": 48,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0208,
+        "information_density": 0.0208,
+        "strong_markers": 0,
+        "weak_markers": 13,
+        "instruction_specificity": 0,
+        "section_count": 20,
+        "list_item_count": 104
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "parameters_reference.md",
+      "content_analysis": {
+        "word_count": 590,
+        "code_block_count": 1,
+        "code_block_ratio": 0.0119,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0059,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 22,
+        "list_item_count": 86
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "workflows_examples.md",
+      "content_analysis": {
+        "word_count": 1113,
+        "code_block_count": 23,
+        "code_block_ratio": 0.5508,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "csv",
+          "bash",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "yaml",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 60,
+        "imperative_count": 9,
+        "imperative_ratio": 0.15,
+        "information_density": 0.3504,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 35,
+        "list_item_count": 21
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "docker"
+        ],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "csv",
+          "bash",
+          "python",
+          "bash",
+          "python",
+          "python",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "yaml",
+          "bash",
+          "bash",
+          "python",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "python"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 3,
+        "contamination_score": 0.6417,
+        "contamination_level": "high"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/gcorso/DiffDock.git (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "http://localhost:7860 (request failed: Head \"http://localhost:7860\": dial tcp 127.0.0.1:7860: connect: connection refused)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://huggingface.co/spaces/reginabarzilaygroup/DiffDock-Web (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/gcorso/DiffDock (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arxiv.org/abs/2402.18396 (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://arxiv.org/abs/2210.01776 (HTTP 200)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

@@ -21,18 +21,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/ (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/template.tsx (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/ (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "assets/types.template.ts (exists)"
+      "category": "Structure",
+      "message": "internal link: assets/template.tsx (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: assets/types.template.ts (exists)"
     }
   ],
   "token_counts": {
@@ -44,9 +49,17 @@
       {
         "file": "references/acceptance-criteria.md",
         "tokens": 2334
+      },
+      {
+        "file": "assets/template.tsx",
+        "tokens": 806
+      },
+      {
+        "file": "assets/types.template.ts",
+        "tokens": 223
       }
     ],
-    "total": 2744
+    "total": 3773
   },
   "content_analysis": {
     "word_count": 217,
@@ -66,7 +79,7 @@
     "section_count": 5,
     "list_item_count": 11
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "tsx",
@@ -82,7 +95,187 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1035,
+    "code_block_count": 25,
+    "code_block_ratio": 0.6821,
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "css",
+      "typescript",
+      "typescript"
+    ],
+    "sentence_count": 42,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0238,
+    "information_density": 0.353,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 40,
+    "list_item_count": 0
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "css",
+      "typescript",
+      "typescript"
+    ],
+    "language_categories": [
+      "javascript",
+      "markup"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "markup"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "acceptance-criteria.md",
+      "content_analysis": {
+        "word_count": 1035,
+        "code_block_count": 25,
+        "code_block_ratio": 0.6821,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "css",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 42,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0238,
+        "information_density": 0.353,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 40,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "css",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript",
+          "markup"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "markup"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

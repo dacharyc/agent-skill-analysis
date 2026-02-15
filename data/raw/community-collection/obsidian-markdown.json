@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/obsidian-skills/skills/obsidian-markdown",
   "passed": false,
-  "errors": 5,
+  "errors": 3,
   "warnings": 2,
   "results": [
     {
@@ -30,84 +30,24 @@
       "message": "SKILL.md body is 617 lines (spec recommends < 500)"
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "Note%20Name.md (file not found)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "Note%20Name.md#Heading (file not found)"
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "obsidian://open?vault=VaultName&file=Note.md (file not found)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://commonmark.org/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.github.com/gfm/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://www.latex-project.org/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://example.com (HTTP 200)"
+      "category": "Structure",
+      "message": "broken internal link: Note%20Name.md (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "https://example.com/image.png (HTTP 404)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/syntax (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/advanced-syntax (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/obsidian-flavored-markdown (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/links (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/embeds (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/callouts (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://help.obsidian.md/properties (HTTP 200)"
+      "category": "Structure",
+      "message": "broken internal link: Note%20Name.md#Heading (file not found)"
     },
     {
       "level": "error",
-      "category": "Links",
-      "message": "https://example.com/docs (HTTP 404)"
+      "category": "Structure",
+      "message": "broken internal link: obsidian://open?vault=VaultName&file=Note.md (file not found)"
     }
   ],
   "token_counts": {
@@ -190,7 +130,7 @@
     "section_count": 66,
     "list_item_count": 62
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "markdown",
@@ -264,7 +204,76 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 4,
-    "risk_score": 0.55,
-    "risk_level": "high"
-  }
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://commonmark.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.github.com/gfm/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://www.latex-project.org/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://example.com (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://example.com/image.png (HTTP 404)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/advanced-syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/obsidian-flavored-markdown (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/links (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/embeds (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/callouts (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://help.obsidian.md/properties (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://example.com/docs (HTTP 404)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

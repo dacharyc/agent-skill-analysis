@@ -27,11 +27,6 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"category\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"tags\""
     },
     {
@@ -40,14 +35,19 @@
       "message": "unrecognized field: \"biomodals_script\""
     },
     {
-      "level": "error",
-      "category": "Links",
-      "message": "../../docs/installation.md (file not found)"
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"category\""
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/dauparas/LigandMPNN.git (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
+      "level": "error",
+      "category": "Structure",
+      "message": "broken internal link: ../../docs/installation.md (file not found)"
     }
   ],
   "token_counts": {
@@ -78,7 +78,7 @@
     "section_count": 16,
     "list_item_count": 7
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -95,7 +95,16 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/dauparas/LigandMPNN.git (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

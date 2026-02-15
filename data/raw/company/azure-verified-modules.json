@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/hashicorp-skills/terraform/code-generation/skills/azure-verified-modules",
-  "passed": false,
-  "errors": 2,
+  "passed": true,
+  "errors": 0,
   "warnings": 1,
   "results": [
     {
@@ -26,23 +26,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://azure.github.io/Azure-Verified-Modules/ (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://azure.github.io/Azure-Verified-Modules/specs/terraform/ (HTTP 404)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://www.terraform.io/docs/extend/best-practices/naming.html (HTTP 429)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/terraform-docs/terraform-docs (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -81,7 +66,7 @@
     "section_count": 56,
     "list_item_count": 159
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "terraform"
     ],
@@ -108,7 +93,31 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://azure.github.io/Azure-Verified-Modules/ (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://azure.github.io/Azure-Verified-Modules/specs/terraform/ (HTTP 404)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://www.terraform.io/docs/extend/best-practices/naming.html (HTTP 429)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/terraform-docs/terraform-docs (HTTP 200)"
+    }
+  ],
+  "link_errors": 2,
+  "link_warnings": 0
 }

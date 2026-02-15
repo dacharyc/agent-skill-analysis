@@ -26,43 +26,43 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/workflows.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/callable.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/workflows.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/state-scheduling.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/callable.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/streaming-chat.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/state-scheduling.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/mcp.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/streaming-chat.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/email.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/mcp.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "references/codemode.md (exists)"
+      "category": "Structure",
+      "message": "internal link: references/email.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://developers.cloudflare.com/agents/ (HTTP 200)"
+      "category": "Structure",
+      "message": "internal link: references/codemode.md (exists)"
     }
   ],
   "token_counts": {
@@ -123,7 +123,7 @@
     "section_count": 9,
     "list_item_count": 15
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -145,7 +145,498 @@
       "javascript"
     ],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 3162,
+    "code_block_count": 49,
+    "code_block_ratio": 0.7018,
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "bash",
+      "typescript",
+      "javascript",
+      "javascript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "tsx",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "tsx",
+      "tsx",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript"
+    ],
+    "sentence_count": 117,
+    "imperative_count": 10,
+    "imperative_ratio": 0.0855,
+    "information_density": 0.3936,
+    "strong_markers": 6,
+    "weak_markers": 1,
+    "instruction_specificity": 0.8571,
+    "section_count": 58,
+    "list_item_count": 21
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "bash",
+      "typescript",
+      "javascript",
+      "javascript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "bash",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "tsx",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "typescript",
+      "tsx",
+      "tsx",
+      "typescript",
+      "typescript",
+      "jsonc",
+      "typescript",
+      "typescript",
+      "typescript"
+    ],
+    "language_categories": [
+      "javascript",
+      "shell"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 2,
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "callable.md",
+      "content_analysis": {
+        "word_count": 260,
+        "code_block_count": 5,
+        "code_block_ratio": 0.6577,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 10,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3288,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 5,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "codemode.md",
+      "content_analysis": {
+        "word_count": 697,
+        "code_block_count": 6,
+        "code_block_ratio": 0.6815,
+        "code_languages": [
+          "jsonc",
+          "typescript",
+          "bash",
+          "typescript",
+          "javascript",
+          "javascript"
+        ],
+        "sentence_count": 20,
+        "imperative_count": 3,
+        "imperative_ratio": 0.15,
+        "information_density": 0.4157,
+        "strong_markers": 5,
+        "weak_markers": 1,
+        "instruction_specificity": 0.8333,
+        "section_count": 10,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsonc",
+          "typescript",
+          "bash",
+          "typescript",
+          "javascript",
+          "javascript"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "email.md",
+      "content_analysis": {
+        "word_count": 390,
+        "code_block_count": 9,
+        "code_block_ratio": 0.7513,
+        "code_languages": [
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3756,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 10,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "mcp.md",
+      "content_analysis": {
+        "word_count": 422,
+        "code_block_count": 8,
+        "code_block_ratio": 0.8057,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "jsonc",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 13,
+        "imperative_count": 5,
+        "imperative_ratio": 0.3846,
+        "information_density": 0.5952,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 6,
+        "list_item_count": 0
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "bash",
+          "jsonc",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "state-scheduling.md",
+      "content_analysis": {
+        "word_count": 493,
+        "code_block_count": 9,
+        "code_block_ratio": 0.6389,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "tsx",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 24,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0833,
+        "information_density": 0.3611,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 13,
+        "list_item_count": 4
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "tsx",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "streaming-chat.md",
+      "content_analysis": {
+        "word_count": 465,
+        "code_block_count": 7,
+        "code_block_ratio": 0.6559,
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "tsx",
+          "tsx",
+          "typescript"
+        ],
+        "sentence_count": 21,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.328,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 8,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "typescript",
+          "typescript",
+          "typescript",
+          "tsx",
+          "tsx",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "workflows.md",
+      "content_analysis": {
+        "word_count": 435,
+        "code_block_count": 5,
+        "code_block_ratio": 0.7356,
+        "code_languages": [
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "sentence_count": 12,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.3678,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 6,
+        "list_item_count": 3
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "typescript",
+          "jsonc",
+          "typescript",
+          "typescript",
+          "typescript"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://developers.cloudflare.com/agents/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

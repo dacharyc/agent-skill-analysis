@@ -1,7 +1,7 @@
 {
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/stripe-skills/skills/upgrade-stripe",
   "passed": false,
-  "errors": 2,
+  "errors": 1,
   "warnings": 1,
   "results": [
     {
@@ -26,33 +26,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://docs.stripe.com/changelog.md (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.stripe.com/sdks/set-version.md (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.stripe.com/sdks/stripejs-versioning.md (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.stripe.com/sdks/mobile-sdk-versioning.md (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://docs.stripe.com/upgrades.md (HTTP 200)"
-    },
-    {
-      "level": "error",
-      "category": "Links",
-      "message": "https://api.stripe.com/v1/customers (HTTP 401)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -89,7 +64,7 @@
     "section_count": 17,
     "list_item_count": 32
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "stripe"
     ],
@@ -124,7 +99,41 @@
       "javascript"
     ],
     "scope_breadth": 6,
-    "risk_score": 1,
-    "risk_level": "high"
-  }
+    "contamination_score": 1,
+    "contamination_level": "high"
+  },
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.stripe.com/changelog.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.stripe.com/sdks/set-version.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.stripe.com/sdks/stripejs-versioning.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.stripe.com/sdks/mobile-sdk-versioning.md (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://docs.stripe.com/upgrades.md (HTTP 200)"
+    },
+    {
+      "level": "error",
+      "category": "Links",
+      "message": "https://api.stripe.com/v1/customers (HTTP 401)"
+    }
+  ],
+  "link_errors": 1,
+  "link_warnings": 0
 }

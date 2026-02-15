@@ -32,17 +32,22 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"version\""
+      "message": "unrecognized field: \"author\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"author\""
+      "message": "unrecognized field: \"version\""
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/render-function-jsx-vue-vs-react.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: reference/render-function-jsx-vue-vs-react.md (exists)"
     }
   ],
   "token_counts": {
@@ -78,7 +83,7 @@
     "section_count": 1,
     "list_item_count": 1
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -89,7 +94,10 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

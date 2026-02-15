@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -75,7 +80,7 @@
     "section_count": 9,
     "list_item_count": 4
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -90,7 +95,111 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1086,
+    "code_block_count": 9,
+    "code_block_ratio": 0.1565,
+    "code_languages": [
+      "bash"
+    ],
+    "sentence_count": 100,
+    "imperative_count": 11,
+    "imperative_ratio": 0.11,
+    "information_density": 0.1333,
+    "strong_markers": 4,
+    "weak_markers": 4,
+    "instruction_specificity": 0.5,
+    "section_count": 40,
+    "list_item_count": 46
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "bash"
+    ],
+    "language_categories": [
+      "shell"
+    ],
+    "primary_category": "shell",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "AZURE_SETUP.md",
+      "content_analysis": {
+        "word_count": 456,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0132,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 44,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0909,
+        "information_density": 0.052,
+        "strong_markers": 4,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6667,
+        "section_count": 14,
+        "list_item_count": 22
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "WORKFLOWS.md",
+      "content_analysis": {
+        "word_count": 630,
+        "code_block_count": 7,
+        "code_block_ratio": 0.2603,
+        "code_languages": [],
+        "sentence_count": 56,
+        "imperative_count": 7,
+        "imperative_ratio": 0.125,
+        "information_density": 0.1927,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 26,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

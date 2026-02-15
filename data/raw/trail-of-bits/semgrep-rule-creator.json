@@ -31,28 +31,8 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "https://semgrep.dev/docs/writing-rules/rule-syntax (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://semgrep.dev/docs/writing-rules/pattern-syntax (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://appsec.guide/docs/static-analysis/semgrep/advanced/ (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://semgrep.dev/docs/writing-rules/data-flow/constant-propagation (HTTP 200)"
-    },
-    {
-      "level": "pass",
-      "category": "Links",
-      "message": "https://github.com/semgrep/semgrep-docs/tree/main/docs/writing-rules/ (HTTP 200)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -93,7 +73,7 @@
     "section_count": 10,
     "list_item_count": 48
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "yaml",
@@ -113,7 +93,254 @@
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "risk_score": 0.1333,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.1333,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 1760,
+    "code_block_count": 26,
+    "code_block_ratio": 0.679,
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "bash"
+    ],
+    "sentence_count": 27,
+    "imperative_count": 4,
+    "imperative_ratio": 0.1481,
+    "information_density": 0.4136,
+    "strong_markers": 25,
+    "weak_markers": 4,
+    "instruction_specificity": 0.8621,
+    "section_count": 40,
+    "list_item_count": 93
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "python",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "yaml",
+      "bash"
+    ],
+    "language_categories": [
+      "config",
+      "python",
+      "shell"
+    ],
+    "primary_category": "config",
+    "mismatched_categories": [
+      "python",
+      "shell"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 4,
+    "contamination_score": 0.4167,
+    "contamination_level": "medium"
+  },
+  "reference_reports": [
+    {
+      "file": "quick-reference.md",
+      "content_analysis": {
+        "word_count": 673,
+        "code_block_count": 11,
+        "code_block_ratio": 0.3284,
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "python",
+          "bash"
+        ],
+        "sentence_count": 20,
+        "imperative_count": 3,
+        "imperative_ratio": 0.15,
+        "information_density": 0.2392,
+        "strong_markers": 10,
+        "weak_markers": 1,
+        "instruction_specificity": 0.9091,
+        "section_count": 19,
+        "list_item_count": 39
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "python",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "python",
+          "shell"
+        ],
+        "primary_category": "config",
+        "mismatched_categories": [
+          "python",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "workflow.md",
+      "content_analysis": {
+        "word_count": 1087,
+        "code_block_count": 15,
+        "code_block_ratio": 0.0957,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "bash"
+        ],
+        "sentence_count": 89,
+        "imperative_count": 11,
+        "imperative_ratio": 0.1236,
+        "information_density": 0.1096,
+        "strong_markers": 15,
+        "weak_markers": 3,
+        "instruction_specificity": 0.8333,
+        "section_count": 21,
+        "list_item_count": 54
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "yaml",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config"
+        ],
+        "language_mismatch": true,
+        "tech_references": [],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/rule-syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/pattern-syntax (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://appsec.guide/docs/static-analysis/semgrep/advanced/ (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://semgrep.dev/docs/writing-rules/data-flow/constant-propagation (HTTP 200)"
+    },
+    {
+      "level": "pass",
+      "category": "Links",
+      "message": "https://github.com/semgrep/semgrep-docs/tree/main/docs/writing-rules/ (HTTP 200)"
+    }
+  ],
+  "link_errors": 0,
+  "link_warnings": 0
 }

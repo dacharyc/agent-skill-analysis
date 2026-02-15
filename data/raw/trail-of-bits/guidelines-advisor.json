@@ -26,18 +26,23 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/ASSESSMENT_AREAS.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/EXAMPLE_REPORT.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/ASSESSMENT_AREAS.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "resources/DELIVERABLES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: resources/EXAMPLE_REPORT.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: resources/DELIVERABLES.md (exists)"
     }
   ],
   "token_counts": {
@@ -74,14 +79,14 @@
     "sentence_count": 62,
     "imperative_count": 3,
     "imperative_ratio": 0.0484,
-    "information_density": 0.0242,
+    "information_density": 0.0484,
     "strong_markers": 7,
     "weak_markers": 0,
     "instruction_specificity": 1,
     "section_count": 19,
     "list_item_count": 135
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -90,7 +95,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

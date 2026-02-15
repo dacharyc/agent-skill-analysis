@@ -28,6 +28,11 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "metadata: (3 entries)"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -56,14 +61,14 @@
     "sentence_count": 150,
     "imperative_count": 2,
     "imperative_ratio": 0.0133,
-    "information_density": 0.0067,
+    "information_density": 0.0133,
     "strong_markers": 17,
     "weak_markers": 2,
     "instruction_specificity": 0.8947,
     "section_count": 21,
     "list_item_count": 209
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [
       "aws"
     ],
@@ -76,7 +81,10 @@
       "javascript"
     ],
     "scope_breadth": 1,
-    "risk_score": 0.3,
-    "risk_level": "medium"
-  }
+    "contamination_score": 0.3,
+    "contamination_level": "medium"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

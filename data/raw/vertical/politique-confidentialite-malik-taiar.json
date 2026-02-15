@@ -46,53 +46,58 @@
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./assets/CNIL_droits_personnes.pdf (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./assets/CNIL_durees_conservation.pdf (exists)"
+      "category": "Structure",
+      "message": "internal link: ./assets/CNIL_droits_personnes.pdf (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./assets/CNIL_finalites.pdf (exists)"
+      "category": "Structure",
+      "message": "internal link: ./assets/CNIL_durees_conservation.pdf (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./assets/CNIL_transparence.pdf (exists)"
+      "category": "Structure",
+      "message": "internal link: ./assets/CNIL_finalites.pdf (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./assets/CNIL_principes_rgpd.pdf (exists)"
+      "category": "Structure",
+      "message": "internal link: ./assets/CNIL_transparence.pdf (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./assets/RGPD_texte_officiel.pdf (exists)"
+      "category": "Structure",
+      "message": "internal link: ./assets/CNIL_principes_rgpd.pdf (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/BASES_LEGALES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./assets/RGPD_texte_officiel.pdf (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/DROITS_PERSONNES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/BASES_LEGALES.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/COOKIES.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/DROITS_PERSONNES.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "./references/DUREES_CONSERVATION.md (exists)"
+      "category": "Structure",
+      "message": "internal link: ./references/COOKIES.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: ./references/DUREES_CONSERVATION.md (exists)"
     }
   ],
   "token_counts": {
@@ -148,7 +153,7 @@
     "section_count": 32,
     "list_item_count": 157
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -157,7 +162,163 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 5289,
+    "code_block_count": 34,
+    "code_block_ratio": 0.3231,
+    "code_languages": [],
+    "sentence_count": 234,
+    "imperative_count": 1,
+    "imperative_ratio": 0.0043,
+    "information_density": 0.1637,
+    "strong_markers": 0,
+    "weak_markers": 0,
+    "instruction_specificity": 0,
+    "section_count": 79,
+    "list_item_count": 170
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [],
+    "language_categories": [],
+    "primary_category": "",
+    "mismatched_categories": [],
+    "language_mismatch": false,
+    "tech_references": [
+      "javascript"
+    ],
+    "scope_breadth": 1,
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "reference_reports": [
+    {
+      "file": "BASES_LEGALES.md",
+      "content_analysis": {
+        "word_count": 1238,
+        "code_block_count": 11,
+        "code_block_ratio": 0.3263,
+        "code_languages": [],
+        "sentence_count": 63,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0159,
+        "information_density": 0.1711,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 15,
+        "list_item_count": 61
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "COOKIES.md",
+      "content_analysis": {
+        "word_count": 1257,
+        "code_block_count": 8,
+        "code_block_ratio": 0.4169,
+        "code_languages": [],
+        "sentence_count": 55,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2084,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 19,
+        "list_item_count": 51
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "DROITS_PERSONNES.md",
+      "content_analysis": {
+        "word_count": 1460,
+        "code_block_count": 12,
+        "code_block_ratio": 0.3842,
+        "code_languages": [],
+        "sentence_count": 60,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.1921,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 18,
+        "list_item_count": 47
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "DUREES_CONSERVATION.md",
+      "content_analysis": {
+        "word_count": 1334,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1649,
+        "code_languages": [],
+        "sentence_count": 56,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.0825,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 27,
+        "list_item_count": 11
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [],
+        "language_categories": [],
+        "primary_category": "",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [],
+        "scope_breadth": 0,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

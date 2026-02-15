@@ -53,6 +53,11 @@
       "level": "warning",
       "category": "Tokens",
       "message": "total reference files: 37545 tokens \u2014 agents may load multiple references in one session, consider whether all this content is essential"
+    },
+    {
+      "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     }
   ],
   "token_counts": {
@@ -208,7 +213,7 @@
     "section_count": 16,
     "list_item_count": 30
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [
       "bash",
@@ -226,7 +231,2212 @@
       "mobile"
     ],
     "scope_breadth": 3,
-    "risk_score": 0.075,
-    "risk_level": "low"
-  }
+    "contamination_score": 0.075,
+    "contamination_level": "low"
+  },
+  "references_content_analysis": {
+    "word_count": 19921,
+    "code_block_count": 278,
+    "code_block_ratio": 0.3546,
+    "code_languages": [
+      "bash",
+      "groovy",
+      "groovy",
+      "bash",
+      "groovy",
+      "xml",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "javascript",
+      "bash",
+      "tsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "bash",
+      "javascript",
+      "tsx",
+      "bash",
+      "bash",
+      "tsx",
+      "javascript",
+      "tsx",
+      "bash",
+      "tsx",
+      "tsx",
+      "bash",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "groovy",
+      "groovy",
+      "groovy",
+      "bash",
+      "bash",
+      "groovy",
+      "bash",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "groovy",
+      "groovy",
+      "groovy",
+      "proguard",
+      "proguard",
+      "bash",
+      "proguard",
+      "proguard",
+      "proguard",
+      "proguard",
+      "proguard",
+      "bash",
+      "bash",
+      "bash",
+      "javascript",
+      "javascript",
+      "javascript",
+      "bash",
+      "bash",
+      "javascript",
+      "tsx",
+      "tsx",
+      "tsx",
+      "json",
+      "json",
+      "tsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "javascript",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "javascript",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "javascript",
+      "bash",
+      "javascript",
+      "bash",
+      "javascript",
+      "javascript",
+      "javascript",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "tsx",
+      "bash",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "tsx",
+      "tsx",
+      "swift",
+      "kotlin",
+      "bash",
+      "cpp",
+      "kotlin",
+      "swift",
+      "cpp",
+      "kotlin",
+      "cpp",
+      "cpp",
+      "cpp",
+      "swift",
+      "swift",
+      "kotlin",
+      "kotlin",
+      "cpp",
+      "cpp",
+      "kotlin",
+      "swift",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "kotlin",
+      "swift",
+      "swift",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "swift",
+      "swift",
+      "bash",
+      "bash",
+      "bash",
+      "diff",
+      "objc",
+      "objc",
+      "swift",
+      "objc",
+      "swift",
+      "kotlin",
+      "cpp",
+      "objc",
+      "typescript",
+      "kotlin",
+      "swift",
+      "jsx",
+      "jsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx"
+    ],
+    "sentence_count": 1284,
+    "imperative_count": 142,
+    "imperative_ratio": 0.1106,
+    "information_density": 0.2326,
+    "strong_markers": 62,
+    "weak_markers": 31,
+    "instruction_specificity": 0.6667,
+    "section_count": 495,
+    "list_item_count": 643
+  },
+  "references_contamination_analysis": {
+    "multi_interface_tools": [
+      "aws",
+      "firebase"
+    ],
+    "code_languages": [
+      "bash",
+      "groovy",
+      "groovy",
+      "bash",
+      "groovy",
+      "xml",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "javascript",
+      "bash",
+      "tsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "bash",
+      "javascript",
+      "tsx",
+      "bash",
+      "bash",
+      "tsx",
+      "javascript",
+      "tsx",
+      "bash",
+      "tsx",
+      "tsx",
+      "bash",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "groovy",
+      "groovy",
+      "groovy",
+      "bash",
+      "bash",
+      "groovy",
+      "bash",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "groovy",
+      "groovy",
+      "groovy",
+      "proguard",
+      "proguard",
+      "bash",
+      "proguard",
+      "proguard",
+      "proguard",
+      "proguard",
+      "proguard",
+      "bash",
+      "bash",
+      "bash",
+      "javascript",
+      "javascript",
+      "javascript",
+      "bash",
+      "bash",
+      "javascript",
+      "tsx",
+      "tsx",
+      "tsx",
+      "json",
+      "json",
+      "tsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "javascript",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "javascript",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "bash",
+      "json",
+      "bash",
+      "bash",
+      "javascript",
+      "bash",
+      "javascript",
+      "bash",
+      "javascript",
+      "javascript",
+      "javascript",
+      "bash",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "jsx",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "tsx",
+      "bash",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "tsx",
+      "tsx",
+      "swift",
+      "kotlin",
+      "bash",
+      "cpp",
+      "kotlin",
+      "swift",
+      "cpp",
+      "kotlin",
+      "cpp",
+      "cpp",
+      "cpp",
+      "swift",
+      "swift",
+      "kotlin",
+      "kotlin",
+      "cpp",
+      "cpp",
+      "kotlin",
+      "swift",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "bash",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "bash",
+      "tsx",
+      "kotlin",
+      "swift",
+      "swift",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "swift",
+      "kotlin",
+      "swift",
+      "swift",
+      "bash",
+      "bash",
+      "bash",
+      "diff",
+      "objc",
+      "objc",
+      "swift",
+      "objc",
+      "swift",
+      "kotlin",
+      "cpp",
+      "objc",
+      "typescript",
+      "kotlin",
+      "swift",
+      "jsx",
+      "jsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx",
+      "tsx"
+    ],
+    "language_categories": [
+      "config",
+      "java",
+      "javascript",
+      "mobile",
+      "shell",
+      "systems"
+    ],
+    "primary_category": "javascript",
+    "mismatched_categories": [
+      "config",
+      "java",
+      "mobile",
+      "shell",
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [
+      "java",
+      "javascript",
+      "mobile"
+    ],
+    "scope_breadth": 6,
+    "contamination_score": 1,
+    "contamination_level": "high"
+  },
+  "reference_reports": [
+    {
+      "file": "bundle-analyze-app.md",
+      "content_analysis": {
+        "word_count": 737,
+        "code_block_count": 8,
+        "code_block_ratio": 0.2171,
+        "code_languages": [
+          "bash",
+          "groovy",
+          "groovy",
+          "bash",
+          "groovy",
+          "xml",
+          "bash"
+        ],
+        "sentence_count": 55,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0909,
+        "information_density": 0.154,
+        "strong_markers": 0,
+        "weak_markers": 1,
+        "instruction_specificity": 0,
+        "section_count": 19,
+        "list_item_count": 28
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "groovy",
+          "groovy",
+          "bash",
+          "groovy",
+          "xml",
+          "bash"
+        ],
+        "language_categories": [
+          "config",
+          "java",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "config",
+          "java"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "bundle-analyze-js.md",
+      "content_analysis": {
+        "word_count": 831,
+        "code_block_count": 15,
+        "code_block_ratio": 0.3646,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "javascript",
+          "bash",
+          "tsx",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 53,
+        "imperative_count": 5,
+        "imperative_ratio": 0.0943,
+        "information_density": 0.2295,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 23,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "javascript",
+          "bash",
+          "tsx",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.4333,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "bundle-barrel-exports.md",
+      "content_analysis": {
+        "word_count": 665,
+        "code_block_count": 19,
+        "code_block_ratio": 0.5038,
+        "code_languages": [
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "bash",
+          "javascript",
+          "tsx",
+          "bash",
+          "bash",
+          "tsx",
+          "javascript",
+          "tsx",
+          "bash",
+          "tsx",
+          "tsx",
+          "bash"
+        ],
+        "sentence_count": 47,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0426,
+        "information_density": 0.2732,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 24,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "bash",
+          "javascript",
+          "tsx",
+          "bash",
+          "bash",
+          "tsx",
+          "javascript",
+          "tsx",
+          "bash",
+          "tsx",
+          "tsx",
+          "bash"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "bundle-code-splitting.md",
+      "content_analysis": {
+        "word_count": 601,
+        "code_block_count": 11,
+        "code_block_ratio": 0.3894,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "bash",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx"
+        ],
+        "sentence_count": 39,
+        "imperative_count": 7,
+        "imperative_ratio": 0.1795,
+        "information_density": 0.2844,
+        "strong_markers": 0,
+        "weak_markers": 2,
+        "instruction_specificity": 0,
+        "section_count": 18,
+        "list_item_count": 24
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "bash",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "bundle-hermes-mmap.md",
+      "content_analysis": {
+        "word_count": 523,
+        "code_block_count": 6,
+        "code_block_ratio": 0.1683,
+        "code_languages": [
+          "groovy",
+          "groovy",
+          "groovy",
+          "bash",
+          "bash",
+          "groovy"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0625,
+        "information_density": 0.1154,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 18,
+        "list_item_count": 19
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "groovy",
+          "groovy",
+          "groovy",
+          "bash",
+          "bash",
+          "groovy"
+        ],
+        "language_categories": [
+          "java",
+          "shell"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "bundle-library-size.md",
+      "content_analysis": {
+        "word_count": 604,
+        "code_block_count": 8,
+        "code_block_ratio": 0.2268,
+        "code_languages": [
+          "bash",
+          "bash",
+          "tsx",
+          "bash",
+          "tsx"
+        ],
+        "sentence_count": 44,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1364,
+        "information_density": 0.1816,
+        "strong_markers": 2,
+        "weak_markers": 2,
+        "instruction_specificity": 0.5,
+        "section_count": 21,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "aws"
+        ],
+        "code_languages": [
+          "bash",
+          "bash",
+          "tsx",
+          "bash",
+          "tsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.4333,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "bundle-native-assets.md",
+      "content_analysis": {
+        "word_count": 580,
+        "code_block_count": 15,
+        "code_block_ratio": 0.3069,
+        "code_languages": [
+          "bash",
+          "tsx",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 56,
+        "imperative_count": 9,
+        "imperative_ratio": 0.1607,
+        "information_density": 0.2338,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 23,
+        "list_item_count": 17
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "tsx",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "bundle-r8-android.md",
+      "content_analysis": {
+        "word_count": 588,
+        "code_block_count": 13,
+        "code_block_ratio": 0.2568,
+        "code_languages": [
+          "groovy",
+          "groovy",
+          "groovy",
+          "proguard",
+          "proguard",
+          "bash",
+          "proguard",
+          "proguard",
+          "proguard",
+          "proguard",
+          "proguard",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 53,
+        "imperative_count": 10,
+        "imperative_ratio": 0.1887,
+        "information_density": 0.2227,
+        "strong_markers": 3,
+        "weak_markers": 3,
+        "instruction_specificity": 0.5,
+        "section_count": 23,
+        "list_item_count": 23
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [
+          "firebase"
+        ],
+        "code_languages": [
+          "groovy",
+          "groovy",
+          "groovy",
+          "proguard",
+          "proguard",
+          "bash",
+          "proguard",
+          "proguard",
+          "proguard",
+          "proguard",
+          "proguard",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "java",
+          "shell"
+        ],
+        "primary_category": "java",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.5083,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "bundle-tree-shaking.md",
+      "content_analysis": {
+        "word_count": 720,
+        "code_block_count": 13,
+        "code_block_ratio": 0.3014,
+        "code_languages": [
+          "bash",
+          "javascript",
+          "javascript",
+          "javascript",
+          "bash",
+          "bash",
+          "javascript",
+          "tsx",
+          "tsx",
+          "tsx",
+          "json",
+          "json",
+          "tsx"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1042,
+        "information_density": 0.2028,
+        "strong_markers": 7,
+        "weak_markers": 1,
+        "instruction_specificity": 0.875,
+        "section_count": 17,
+        "list_item_count": 18
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "javascript",
+          "javascript",
+          "javascript",
+          "bash",
+          "bash",
+          "javascript",
+          "tsx",
+          "tsx",
+          "tsx",
+          "json",
+          "json",
+          "tsx"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "js-animations-reanimated.md",
+      "content_analysis": {
+        "word_count": 926,
+        "code_block_count": 10,
+        "code_block_ratio": 0.3726,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "javascript",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 9,
+        "imperative_ratio": 0.1875,
+        "information_density": 0.28,
+        "strong_markers": 5,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 18,
+        "list_item_count": 22
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "javascript",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "java",
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "js-atomic-state.md",
+      "content_analysis": {
+        "word_count": 838,
+        "code_block_count": 10,
+        "code_block_ratio": 0.5979,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 38,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1316,
+        "information_density": 0.3647,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 18,
+        "list_item_count": 14
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "js-concurrent-react.md",
+      "content_analysis": {
+        "word_count": 790,
+        "code_block_count": 8,
+        "code_block_ratio": 0.5013,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 34,
+        "imperative_count": 4,
+        "imperative_ratio": 0.1176,
+        "information_density": 0.3095,
+        "strong_markers": 5,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 16,
+        "list_item_count": 19
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "js-lists-flatlist-flashlist.md",
+      "content_analysis": {
+        "word_count": 678,
+        "code_block_count": 10,
+        "code_block_ratio": 0.4086,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "bash",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 39,
+        "imperative_count": 1,
+        "imperative_ratio": 0.0256,
+        "information_density": 0.2171,
+        "strong_markers": 3,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 16,
+        "list_item_count": 21
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "bash",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "js-measure-fps.md",
+      "content_analysis": {
+        "word_count": 713,
+        "code_block_count": 7,
+        "code_block_ratio": 0.216,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "javascript",
+          "bash"
+        ],
+        "sentence_count": 47,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0638,
+        "information_density": 0.1399,
+        "strong_markers": 7,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 14,
+        "list_item_count": 43
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "bash",
+          "javascript",
+          "bash"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "js-memory-leaks.md",
+      "content_analysis": {
+        "word_count": 739,
+        "code_block_count": 6,
+        "code_block_ratio": 0.3654,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 53,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0566,
+        "information_density": 0.211,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 14,
+        "list_item_count": 32
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "js-profile-react.md",
+      "content_analysis": {
+        "word_count": 693,
+        "code_block_count": 5,
+        "code_block_ratio": 0.2626,
+        "code_languages": [
+          "bash",
+          "bash",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 43,
+        "imperative_count": 6,
+        "imperative_ratio": 0.1395,
+        "information_density": 0.2011,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 16,
+        "list_item_count": 34
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [
+          "javascript"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "js-react-compiler.md",
+      "content_analysis": {
+        "word_count": 1155,
+        "code_block_count": 21,
+        "code_block_ratio": 0.4199,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "javascript",
+          "bash",
+          "javascript",
+          "bash",
+          "javascript",
+          "javascript",
+          "javascript",
+          "bash",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 73,
+        "imperative_count": 7,
+        "imperative_ratio": 0.0959,
+        "information_density": 0.2579,
+        "strong_markers": 3,
+        "weak_markers": 2,
+        "instruction_specificity": 0.6,
+        "section_count": 25,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "bash",
+          "bash",
+          "bash",
+          "json",
+          "bash",
+          "bash",
+          "javascript",
+          "bash",
+          "javascript",
+          "bash",
+          "javascript",
+          "javascript",
+          "javascript",
+          "bash",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "config",
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "config",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.3417,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "js-uncontrolled-components.md",
+      "content_analysis": {
+        "word_count": 645,
+        "code_block_count": 8,
+        "code_block_ratio": 0.4202,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "sentence_count": 39,
+        "imperative_count": 3,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.2485,
+        "strong_markers": 1,
+        "weak_markers": 3,
+        "instruction_specificity": 0.25,
+        "section_count": 14,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx",
+          "jsx"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "native-android-16kb-alignment.md",
+      "content_analysis": {
+        "word_count": 436,
+        "code_block_count": 3,
+        "code_block_ratio": 0.1216,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1389,
+        "information_density": 0.1302,
+        "strong_markers": 1,
+        "weak_markers": 1,
+        "instruction_specificity": 0.5,
+        "section_count": 9,
+        "list_item_count": 13
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "native-measure-tti.md",
+      "content_analysis": {
+        "word_count": 801,
+        "code_block_count": 14,
+        "code_block_ratio": 0.3608,
+        "code_languages": [
+          "bash",
+          "tsx",
+          "bash",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin",
+          "tsx",
+          "tsx",
+          "swift",
+          "kotlin"
+        ],
+        "sentence_count": 52,
+        "imperative_count": 4,
+        "imperative_ratio": 0.0769,
+        "information_density": 0.2189,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 17,
+        "list_item_count": 21
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "tsx",
+          "bash",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin",
+          "tsx",
+          "tsx",
+          "swift",
+          "kotlin"
+        ],
+        "language_categories": [
+          "java",
+          "javascript",
+          "mobile",
+          "shell"
+        ],
+        "primary_category": "mobile",
+        "mismatched_categories": [
+          "java",
+          "javascript",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "mobile"
+        ],
+        "scope_breadth": 4,
+        "contamination_score": 0.55,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "native-memory-leaks.md",
+      "content_analysis": {
+        "word_count": 777,
+        "code_block_count": 6,
+        "code_block_ratio": 0.3127,
+        "code_languages": [
+          "bash",
+          "cpp",
+          "kotlin",
+          "swift",
+          "cpp",
+          "kotlin"
+        ],
+        "sentence_count": 69,
+        "imperative_count": 7,
+        "imperative_ratio": 0.1014,
+        "information_density": 0.2071,
+        "strong_markers": 1,
+        "weak_markers": 2,
+        "instruction_specificity": 0.3333,
+        "section_count": 23,
+        "list_item_count": 56
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "cpp",
+          "kotlin",
+          "swift",
+          "cpp",
+          "kotlin"
+        ],
+        "language_categories": [
+          "java",
+          "mobile",
+          "shell",
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [
+          "java",
+          "mobile",
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "mobile"
+        ],
+        "scope_breadth": 5,
+        "contamination_score": 0.625,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "native-memory-patterns.md",
+      "content_analysis": {
+        "word_count": 856,
+        "code_block_count": 11,
+        "code_block_ratio": 0.597,
+        "code_languages": [
+          "cpp",
+          "cpp",
+          "cpp",
+          "swift",
+          "swift",
+          "kotlin",
+          "kotlin",
+          "cpp",
+          "cpp",
+          "kotlin",
+          "swift"
+        ],
+        "sentence_count": 30,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2985,
+        "strong_markers": 2,
+        "weak_markers": 1,
+        "instruction_specificity": 0.6667,
+        "section_count": 19,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "cpp",
+          "cpp",
+          "cpp",
+          "swift",
+          "swift",
+          "kotlin",
+          "kotlin",
+          "cpp",
+          "cpp",
+          "kotlin",
+          "swift"
+        ],
+        "language_categories": [
+          "mobile",
+          "systems"
+        ],
+        "primary_category": "systems",
+        "mismatched_categories": [
+          "mobile"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "mobile"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "native-platform-setup.md",
+      "content_analysis": {
+        "word_count": 446,
+        "code_block_count": 4,
+        "code_block_ratio": 0.4933,
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "sentence_count": 17,
+        "imperative_count": 0,
+        "imperative_ratio": 0,
+        "information_density": 0.2466,
+        "strong_markers": 0,
+        "weak_markers": 0,
+        "instruction_specificity": 0,
+        "section_count": 9,
+        "list_item_count": 7
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash",
+          "bash",
+          "bash",
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "native-profiling.md",
+      "content_analysis": {
+        "word_count": 737,
+        "code_block_count": 2,
+        "code_block_ratio": 0.0841,
+        "code_languages": [
+          "bash"
+        ],
+        "sentence_count": 65,
+        "imperative_count": 8,
+        "imperative_ratio": 0.1231,
+        "information_density": 0.1036,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 21,
+        "list_item_count": 63
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "bash"
+        ],
+        "language_categories": [
+          "shell"
+        ],
+        "primary_category": "shell",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "native-sdks-over-polyfills.md",
+      "content_analysis": {
+        "word_count": 636,
+        "code_block_count": 10,
+        "code_block_ratio": 0.3176,
+        "code_languages": [
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "bash",
+          "tsx",
+          "bash",
+          "tsx",
+          "bash",
+          "tsx"
+        ],
+        "sentence_count": 31,
+        "imperative_count": 5,
+        "imperative_ratio": 0.1613,
+        "information_density": 0.2395,
+        "strong_markers": 0,
+        "weak_markers": 3,
+        "instruction_specificity": 0,
+        "section_count": 11,
+        "list_item_count": 16
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "bash",
+          "tsx",
+          "bash",
+          "tsx",
+          "bash",
+          "tsx"
+        ],
+        "language_categories": [
+          "javascript",
+          "shell"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [
+          "shell"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 2,
+        "contamination_score": 0.1333,
+        "contamination_level": "low"
+      }
+    },
+    {
+      "file": "native-threading-model.md",
+      "content_analysis": {
+        "word_count": 822,
+        "code_block_count": 10,
+        "code_block_ratio": 0.3139,
+        "code_languages": [
+          "kotlin",
+          "swift",
+          "swift",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin"
+        ],
+        "sentence_count": 43,
+        "imperative_count": 2,
+        "imperative_ratio": 0.0465,
+        "information_density": 0.1802,
+        "strong_markers": 2,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 19,
+        "list_item_count": 6
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "kotlin",
+          "swift",
+          "swift",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin",
+          "swift",
+          "kotlin"
+        ],
+        "language_categories": [
+          "java",
+          "mobile"
+        ],
+        "primary_category": "mobile",
+        "mismatched_categories": [
+          "java"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "mobile"
+        ],
+        "scope_breadth": 3,
+        "contamination_score": 0.2083,
+        "contamination_level": "medium"
+      }
+    },
+    {
+      "file": "native-turbo-modules.md",
+      "content_analysis": {
+        "word_count": 735,
+        "code_block_count": 17,
+        "code_block_ratio": 0.468,
+        "code_languages": [
+          "swift",
+          "swift",
+          "bash",
+          "bash",
+          "bash",
+          "diff",
+          "objc",
+          "objc",
+          "swift",
+          "objc",
+          "swift",
+          "kotlin",
+          "cpp",
+          "objc",
+          "typescript",
+          "kotlin",
+          "swift"
+        ],
+        "sentence_count": 36,
+        "imperative_count": 10,
+        "imperative_ratio": 0.2778,
+        "information_density": 0.3729,
+        "strong_markers": 1,
+        "weak_markers": 0,
+        "instruction_specificity": 1,
+        "section_count": 14,
+        "list_item_count": 18
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "swift",
+          "swift",
+          "bash",
+          "bash",
+          "bash",
+          "diff",
+          "objc",
+          "objc",
+          "swift",
+          "objc",
+          "swift",
+          "kotlin",
+          "cpp",
+          "objc",
+          "typescript",
+          "kotlin",
+          "swift"
+        ],
+        "language_categories": [
+          "java",
+          "javascript",
+          "mobile",
+          "shell",
+          "systems"
+        ],
+        "primary_category": "mobile",
+        "mismatched_categories": [
+          "java",
+          "javascript",
+          "shell",
+          "systems"
+        ],
+        "language_mismatch": true,
+        "tech_references": [
+          "javascript",
+          "mobile"
+        ],
+        "scope_breadth": 5,
+        "contamination_score": 0.625,
+        "contamination_level": "high"
+      }
+    },
+    {
+      "file": "native-view-flattening.md",
+      "content_analysis": {
+        "word_count": 649,
+        "code_block_count": 8,
+        "code_block_ratio": 0.3035,
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx"
+        ],
+        "sentence_count": 48,
+        "imperative_count": 8,
+        "imperative_ratio": 0.1667,
+        "information_density": 0.2351,
+        "strong_markers": 5,
+        "weak_markers": 3,
+        "instruction_specificity": 0.625,
+        "section_count": 16,
+        "list_item_count": 31
+      },
+      "contamination_analysis": {
+        "multi_interface_tools": [],
+        "code_languages": [
+          "jsx",
+          "jsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx",
+          "tsx"
+        ],
+        "language_categories": [
+          "javascript"
+        ],
+        "primary_category": "javascript",
+        "mismatched_categories": [],
+        "language_mismatch": false,
+        "tech_references": [
+          "javascript"
+        ],
+        "scope_breadth": 1,
+        "contamination_score": 0,
+        "contamination_level": "low"
+      }
+    }
+  ],
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }

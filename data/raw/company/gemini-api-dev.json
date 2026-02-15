@@ -26,6 +26,68 @@
     },
     {
       "level": "pass",
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
+    }
+  ],
+  "token_counts": {
+    "files": [
+      {
+        "file": "SKILL.md body",
+        "tokens": 1369
+      }
+    ],
+    "total": 1369
+  },
+  "content_analysis": {
+    "word_count": 614,
+    "code_block_count": 6,
+    "code_block_ratio": 0.1987,
+    "code_languages": [
+      "python",
+      "typescript",
+      "go",
+      "java"
+    ],
+    "sentence_count": 39,
+    "imperative_count": 3,
+    "imperative_ratio": 0.0769,
+    "information_density": 0.1378,
+    "strong_markers": 1,
+    "weak_markers": 0,
+    "instruction_specificity": 1,
+    "section_count": 11,
+    "list_item_count": 32
+  },
+  "contamination_analysis": {
+    "multi_interface_tools": [],
+    "code_languages": [
+      "python",
+      "typescript",
+      "go",
+      "java"
+    ],
+    "language_categories": [
+      "java",
+      "javascript",
+      "python",
+      "systems"
+    ],
+    "primary_category": "python",
+    "mismatched_categories": [
+      "java",
+      "javascript",
+      "systems"
+    ],
+    "language_mismatch": true,
+    "tech_references": [],
+    "scope_breadth": 4,
+    "contamination_score": 0.55,
+    "contamination_level": "high"
+  },
+  "link_results": [
+    {
+      "level": "pass",
       "category": "Links",
       "message": "https://ai.google.dev/gemini-api/docs/models.md.txt (HTTP 200)"
     },
@@ -80,59 +142,6 @@
       "message": "https://central.sonatype.com/artifact/com.google.genai/google-genai/versions (HTTP 200)"
     }
   ],
-  "token_counts": {
-    "files": [
-      {
-        "file": "SKILL.md body",
-        "tokens": 1369
-      }
-    ],
-    "total": 1369
-  },
-  "content_analysis": {
-    "word_count": 614,
-    "code_block_count": 6,
-    "code_block_ratio": 0.1987,
-    "code_languages": [
-      "python",
-      "typescript",
-      "go",
-      "java"
-    ],
-    "sentence_count": 39,
-    "imperative_count": 3,
-    "imperative_ratio": 0.0769,
-    "information_density": 0.1378,
-    "strong_markers": 1,
-    "weak_markers": 0,
-    "instruction_specificity": 1,
-    "section_count": 11,
-    "list_item_count": 32
-  },
-  "risk_analysis": {
-    "multi_interface_tools": [],
-    "code_languages": [
-      "python",
-      "typescript",
-      "go",
-      "java"
-    ],
-    "language_categories": [
-      "java",
-      "javascript",
-      "python",
-      "systems"
-    ],
-    "primary_category": "python",
-    "mismatched_categories": [
-      "java",
-      "javascript",
-      "systems"
-    ],
-    "language_mismatch": true,
-    "tech_references": [],
-    "scope_breadth": 4,
-    "risk_score": 0.55,
-    "risk_level": "high"
-  }
+  "link_errors": 0,
+  "link_warnings": 0
 }

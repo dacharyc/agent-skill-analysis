@@ -32,62 +32,67 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"author\""
+      "message": "unrecognized field: \"version\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"version\""
+      "message": "unrecognized field: \"author\""
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-options-api-use-definecomponent.md (exists)"
+      "category": "Markdown",
+      "message": "no unclosed code fences found"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-strict-mode-options-api.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-options-api-use-definecomponent.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-options-api-arrow-functions-validators.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-strict-mode-options-api.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-options-api-type-event-handlers.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-options-api-arrow-functions-validators.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-options-api-proptype-complex-types.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-options-api-type-event-handlers.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-options-api-provide-inject-limitations.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-options-api-proptype-complex-types.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/ts-options-api-computed-return-types.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-options-api-provide-inject-limitations.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/no-arrow-functions-in-methods.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/ts-options-api-computed-return-types.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/no-arrow-functions-in-lifecycle-hooks.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/no-arrow-functions-in-methods.md (exists)"
     },
     {
       "level": "pass",
-      "category": "Links",
-      "message": "reference/stateful-methods-lifecycle.md (exists)"
+      "category": "Structure",
+      "message": "internal link: reference/no-arrow-functions-in-lifecycle-hooks.md (exists)"
+    },
+    {
+      "level": "pass",
+      "category": "Structure",
+      "message": "internal link: reference/stateful-methods-lifecycle.md (exists)"
     }
   ],
   "token_counts": {
@@ -159,7 +164,7 @@
     "section_count": 2,
     "list_item_count": 10
   },
-  "risk_analysis": {
+  "contamination_analysis": {
     "multi_interface_tools": [],
     "code_languages": [],
     "language_categories": [],
@@ -168,7 +173,10 @@
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 0,
-    "risk_score": 0,
-    "risk_level": "low"
-  }
+    "contamination_score": 0,
+    "contamination_level": "low"
+  },
+  "link_results": [],
+  "link_errors": 0,
+  "link_warnings": 0
 }
