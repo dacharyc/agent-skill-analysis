@@ -296,57 +296,71 @@ def fig_ref_token_ratio(data):
 
 def print_summary_stats(data):
     """Print summary statistics for the paper."""
+    summary = data["summary"]
+    total = data["total_skills"]
+
     print("\n=== Summary Statistics ===")
-    print(f"Total skills: {data['total_skills']}")
-    print(f"Passed: {data['summary']['passed']} ({data['summary']['passed']/data['total_skills']*100:.1f}%)")
-    print(f"Failed: {data['summary']['failed']} ({data['summary']['failed']/data['total_skills']*100:.1f}%)")
-    print(f"Total errors: {data['summary']['total_errors']}")
-    print(f"Total warnings: {data['summary']['total_warnings']}")
+    print(f"Total skills: {total}")
+    print(f"Passed: {summary['passed']} ({summary['passed']/total*100:.1f}%)")
+    print(f"Failed: {summary['failed']} ({summary['failed']/total*100:.1f}%)")
+    print(f"Total errors: {summary['total_errors']}")
+    print(f"Total warnings: {summary['total_warnings']}")
 
-    tokens = [s["total_tokens"] for s in data["skills"]]
+    ts = summary.get("token_stats", {})
     print(f"\nToken counts:")
-    print(f"  Min: {min(tokens)}")
-    print(f"  Max: {max(tokens)}")
-    print(f"  Mean: {sum(tokens)/len(tokens):.0f}")
-    print(f"  Median: {sorted(tokens)[len(tokens)//2]}")
+    print(f"  Min: {ts.get('min', 0):,}")
+    print(f"  Max: {ts.get('max', 0):,}")
+    print(f"  Mean: {ts.get('mean', 0):,}")
+    print(f"  Median: {ts.get('median', 0):,}")
 
-    contamination = data["summary"]["contamination_distribution"]
+    ns = summary.get("nonstandard_stats", {})
+    if ns:
+        print(f"\nNonstandard token impact:")
+        print(f"  Skills with nonstandard files: {ns['skills_with_nonstandard']}")
+        print(f"  Mean effective tokens: {ns['mean_effective_tokens']:,}")
+        print(f"  Median effective tokens: {ns['median_effective_tokens']:,}")
+        print(f"  Inflation (mean): {ns['inflation_mean_pct']}%")
+        print(f"  Inflation (median): {ns['inflation_median_pct']}%")
+        print(f"  Skills where SKILL.md < 10% of total: {ns['skills_below_10pct_skill_md']}")
+
+    contamination = summary["contamination_distribution"]
     print(f"\nContamination distribution:")
-    print(f"  High: {contamination['high']} ({contamination['high']/data['total_skills']*100:.1f}%)")
-    print(f"  Medium: {contamination['medium']} ({contamination['medium']/data['total_skills']*100:.1f}%)")
-    print(f"  Low: {contamination['low']} ({contamination['low']/data['total_skills']*100:.1f}%)")
+    print(f"  High: {contamination['high']} ({contamination['high']/total*100:.1f}%)")
+    print(f"  Medium: {contamination['medium']} ({contamination['medium']/total*100:.1f}%)")
+    print(f"  Low: {contamination['low']} ({contamination['low']/total*100:.1f}%)")
+
+    hc = summary.get("hidden_contamination", {})
+    if hc:
+        print(f"\nHidden contamination (clean SKILL.md, contaminated refs):")
+        print(f"  Total: {hc['total']} ({hc['high_ref']} high + {hc['medium_ref']} medium)")
+        if hc.get("by_source"):
+            for src, count in sorted(hc["by_source"].items(), key=lambda x: -x[1]):
+                print(f"    {src}: {count}")
 
     print(f"\nContent metrics:")
-    print(f"  Avg info density: {data['summary']['avg_information_density']:.3f}")
-    print(f"  Avg specificity: {data['summary']['avg_instruction_specificity']:.3f}")
+    print(f"  Avg info density: {summary['avg_information_density']:.3f}")
+    print(f"  Avg specificity: {summary['avg_instruction_specificity']:.3f}")
 
-    lh = data["summary"].get("link_health", {})
+    lh = summary.get("link_health", {})
     if lh:
         print(f"\nLink health:")
         print(f"  Broken links: {lh.get('total_broken', 0)}")
         print(f"  Skills with broken links: {lh.get('skills_with_broken_links', 0)}")
 
     # Reference file stats
-    rs = data["summary"].get("reference_stats", {})
+    rs = summary.get("reference_stats", {})
     if rs:
-        with_refs = [s for s in data["skills"] if s.get("ref_file_count", 0) > 0]
-        ref_tokens = [s["ref_total_tokens"] for s in with_refs] if with_refs else []
-        ref_file_tokens = [s["ref_max_file_tokens"] for s in with_refs] if with_refs else []
-
         print(f"\nReference files:")
-        print(f"  Skills with references: {rs['skills_with_refs']} ({rs['skills_with_refs']/data['total_skills']*100:.0f}%)")
+        print(f"  Skills with references: {rs['skills_with_refs']} ({rs['skills_with_refs']/total*100:.0f}%)")
         print(f"  Total reference files: {rs['total_ref_files']}")
-        print(f"  Avg ref info density: {rs['avg_ref_info_density']:.3f} (vs SKILL.md: {data['summary']['avg_information_density']:.3f})")
+        print(f"  Avg ref info density: {rs['avg_ref_info_density']:.3f} (vs SKILL.md: {summary['avg_information_density']:.3f})")
         print(f"  Refs with contamination risk: {rs['refs_with_contamination']}")
-
-        if ref_tokens:
-            sorted_tokens = sorted(ref_tokens)
-            print(f"\nReference token stats:")
-            print(f"  Median: {sorted_tokens[len(sorted_tokens)//2]:,}")
-            print(f"  Mean: {sum(ref_tokens)/len(ref_tokens):,.0f}")
-            print(f"  Max: {max(ref_tokens):,}")
-            print(f"  Oversized refs (>50k tokens): {rs['oversized_refs']}")
-            print(f"  Refs larger than SKILL.md: {rs['refs_larger_than_skill']}")
+        print(f"\nReference token stats:")
+        print(f"  Median: {rs.get('median_ref_tokens', 0):,}")
+        print(f"  P99: {rs.get('p99_ref_tokens', 0):,}")
+        print(f"  Oversized refs (>50k tokens): {rs['oversized_refs']}")
+        print(f"  Skills with refs >50k: {rs.get('skills_with_refs_over_50k', 0)}")
+        print(f"  Refs larger than SKILL.md: {rs['refs_larger_than_skill']} ({rs.get('pct_refs_larger_than_skill', 0)}%)")
 
     print(f"\nBy source:")
     for source, stats in sorted(data["by_source"].items()):
@@ -354,6 +368,11 @@ def print_summary_stats(data):
         broken = stats.get("broken_link_count", 0)
         link_info = f", {broken} broken links" if broken > 0 else ""
         print(f"  {source}: {stats['total']} skills, {pct:.0f}% pass, avg {stats['avg_tokens']} tokens, avg contamination {stats['avg_contamination_score']:.3f}{link_info}")
+        print(f"    Errors: {stats.get('total_errors', 0)}, Warnings: {stats.get('total_warnings', 0)}")
+        print(f"    Avg info density: {stats.get('avg_information_density', 0):.3f}, Avg specificity: {stats.get('avg_instruction_specificity', 0):.3f}")
+        tbc = stats.get("token_budget_composition", {})
+        if tbc:
+            print(f"    Token budget: SKILL.md {tbc['skill_md_pct']}%, refs {tbc['ref_pct']}%, assets {tbc['asset_pct']}%, nonstandard {tbc['nonstandard_pct']}%")
 
 
 def fig_token_budget_composition(data):

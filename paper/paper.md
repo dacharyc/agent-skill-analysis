@@ -98,11 +98,11 @@ Pass rates varied dramatically by source category:
 
 | Category | Skills | Pass Rate | Errors | Warnings |
 |----------|--------|-----------|--------|----------|
-| Community collections | 167 | 94.0% | 25 | 209 |
+| Community collections | 167 | 94.0% | 30 | 209 |
 | Anthropic | 16 | 87.5% | 7 | 39 |
 | Trail of Bits | 52 | 86.5% | 15 | 73 |
 | Company | 288 | 79.2% | 96 | 539 |
-| Vertical | 86 | 66.3% | 46 | 154 |
+| Vertical | 86 | 66.3% | 41 | 154 |
 | Community individual | 9 | 55.6% | 7 | 68 |
 | K-Dense | 48 | 37.5% | 62 | 116 |
 | Security | 7 | 14.3% | 6 | 23 |
@@ -127,10 +127,10 @@ Token counts varied by several orders of magnitude:
 
 - Minimum: 0 tokens (empty skill placeholders)
 - Maximum: 3,098,484 tokens (a scientific computing skill with large reference datasets)
-- Median: 5,227 tokens
-- Mean: 16,231 tokens
+- Median: 5,236 tokens
+- Mean: 16,711 tokens
 
-Company-published skills tend to be more concise (average 6,749 tokens) than community collections (21,349 tokens). The most focused skills — from Anthropic (8,189 avg) and K-Dense (3,592 avg) — demonstrate that effective skills can be compact.
+Company-published skills tend to be more concise (average 6,790 tokens) than community collections (22,900 tokens). The most focused skills — from Anthropic (8,189 avg) and K-Dense (3,592 avg) — demonstrate that effective skills can be compact.
 
 ### Token Budget Composition
 
@@ -152,7 +152,7 @@ The agentskills.io specification defines three categories of skill content: the 
 | Security | 11.4% | 0.0% | 0.0% | 88.6% |
 | **Overall** | **13.1%** | **32.1%** | **2.9%** | **52.0%** |
 
-Of 673 skills, 185 (27.5%) contain nonstandard files. The impact is substantial: the mean token count is inflated 108% by nonstandard files (mean effective tokens = 8,349 vs. mean total = 17,383). Even at the median, nonstandard files add 38% overhead.
+Of 673 skills, 185 (27.5%) contain nonstandard files. The impact is substantial: the mean token count is inflated 108% by nonstandard files (mean effective tokens = 8,027 vs. mean total = 16,711). Even at the median, nonstandard files add 41% overhead.
 
 ![Breakdown of nonstandard token waste](figures/nonstandard_breakdown.png)
 
@@ -220,10 +220,10 @@ A key question motivating this expanded analysis was whether company-published s
 | Dimension | Company (288) | Community Collections (167) | Anthropic (16) |
 |-----------|--------------|---------------------------|----------------|
 | Pass rate | 79.2% | 94.0% | 87.5% |
-| Avg tokens | 6,749 | 21,349 | 8,189 |
-| Avg info density | 0.266 | 0.178 | 0.148 |
-| Avg specificity | 0.585 | 0.598 | 0.725 |
-| Avg contamination score | 0.210 | 0.170 | 0.136 |
+| Avg tokens | 6,790 | 22,900 | 8,189 |
+| Avg info density | 0.266 | 0.174 | 0.148 |
+| Avg specificity | 0.585 | 0.579 | 0.725 |
+| Avg contamination score | 0.210 | 0.162 | 0.136 |
 
 Companies produce more **informationally dense** skills (higher code-to-prose ratio) but score lower on **structural compliance** (79.2% vs 94.0% for community collections) and **instruction specificity**. This suggests companies prioritize API reference content over the instructional framing that helps agents use the information effectively.
 
@@ -244,16 +244,16 @@ Beyond the primary `SKILL.md` file, the agentskills.io specification allows skil
 
 ### Prevalence and Scale
 
-Of 673 skills analyzed, **185 (27%) include reference files**, totaling 2,684 files across the dataset. Reference file usage varies by source: company-published skills and community collections are the heaviest users, while methodology-focused skills (K-Dense) and security skills rarely include references.
+Of 673 skills analyzed, **412 (61%) include reference files**, totaling 1,877 files across the dataset. Reference file usage varies by source: company-published skills and community collections are the heaviest users, while methodology-focused skills (K-Dense) and security skills rarely include references.
 
 ### Token Budget Impact
 
 Reference files have a dramatic impact on context window consumption. Among skills with references:
 
-- **61% have more reference tokens than SKILL.md tokens** — the references outweigh the primary instruction file
-- The median reference token count is 636, but the distribution has a heavy tail: p99 reaches 41k tokens
-- **22 reference files exceed 50,000 tokens**, prime candidates for context window degradation
-- Extreme outliers exist: loki-mode (3M reference tokens, 43x the SKILL.md) and docx (336k, 121x the SKILL.md)
+- **81% have more reference tokens than SKILL.md tokens** — the references outweigh the primary instruction file
+- The median reference token count is 4,729, but the distribution has a heavy tail: p99 reaches 44k tokens
+- **4 skills have reference totals exceeding 50,000 tokens**, prime candidates for context window degradation
+- Extreme outliers exist: vueuse-functions (153k reference tokens, 18x the SKILL.md) and security-best-practices (91k reference tokens, 57x the SKILL.md)
 
 ![Reference file size relative to SKILL.md](figures/ref_token_ratio.png)
 
@@ -391,7 +391,7 @@ Our analyzed sample of 673 skills represents approximately 48% of the estimated 
 
 - *Legal* (lawvable): 38 skills for contract review, compliance, and legal document drafting
 - *Biotech* (Adaptyv Bio): 21 skills for protein design, AlphaFold, and computational biology
-- *Embedded/IoT* (Zephyr): 22 skills for RTOS development, BLE, and board bringup
+- *Embedded/IoT* (Zephyr): 21 skills for RTOS development, BLE, and board bringup
 - *DevOps*: 6 skills for Terraform, Kubernetes, CI/CD, and monitoring
 - *Business strategy* (wondelai): 25 skills covering Blue Ocean Strategy, Design Sprint, and similar frameworks
 
