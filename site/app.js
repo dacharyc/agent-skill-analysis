@@ -36,8 +36,10 @@ async function loadData() {
 function render() {
     renderStats();
     renderCharts();
+    renderLLMCharts();
     renderHighRisk();
     renderHiddenContamination();
+    renderNetNegative();
     populateFilters();
     renderTable();
     bindEvents();
@@ -58,6 +60,19 @@ function renderStats() {
     });
     const wastePct = totalTokens > 0 ? Math.round(100 * nonstandardTokens / totalTokens) : 0;
     document.getElementById("stat-waste").textContent = wastePct + "%";
+
+    // LLM overall mean
+    const llmScored = DATA.skills.filter(s => s.llm_overall != null);
+    if (llmScored.length > 0) {
+        const mean = llmScored.reduce((sum, s) => sum + s.llm_overall, 0) / llmScored.length;
+        document.getElementById("stat-llm-overall").textContent = mean.toFixed(2);
+    }
+
+    // Net negative count
+    const nn = DATA.summary.net_negative_risk;
+    if (nn) {
+        document.getElementById("stat-net-negative").textContent = nn.strict_count;
+    }
 }
 
 // Charts
@@ -289,6 +304,136 @@ function renderCharts() {
     });
 }
 
+// LLM Quality charts
+function renderLLMCharts() {
+    const sources = Object.keys(DATA.by_source).sort();
+    const dims = [
+        { key: "avg_llm_clarity", label: "Clarity", color: "#3498db" },
+        { key: "avg_llm_actionability", label: "Actionability", color: "#2ecc71" },
+        { key: "avg_llm_token_efficiency", label: "Token Efficiency", color: "#e67e22" },
+        { key: "avg_llm_scope_discipline", label: "Scope Discipline", color: "#9b59b6" },
+        { key: "avg_llm_directive_precision", label: "Directive Precision", color: "#1abc9c" },
+        { key: "avg_llm_novelty", label: "Novelty", color: "#e74c3c" },
+    ];
+
+    // Check if LLM data is available
+    if (DATA.by_source[sources[0]].avg_llm_overall == null) return;
+
+    // Grouped bar: LLM scores by source
+    new Chart(document.getElementById("chart-llm-by-source"), {
+        type: "bar",
+        data: {
+            labels: sources,
+            datasets: dims.map(d => ({
+                label: d.label,
+                data: sources.map(s => DATA.by_source[s][d.key]),
+                backgroundColor: d.color,
+            })),
+        },
+        options: {
+            plugins: { title: { display: true, text: "LLM Judge Scores by Source (1-5)" } },
+            scales: {
+                y: { beginAtZero: false, min: 1, max: 5.3, title: { display: true, text: "Mean Score" } },
+            },
+        },
+    });
+
+    // Stacked bar: Novelty distribution by source
+    const scoreValues = [1, 2, 3, 4, 5];
+    const scoreColors = ["#e74c3c", "#e67e22", "#f1c40f", "#2ecc71", "#27ae60"];
+    const noveltyDatasets = scoreValues.map((score, i) => ({
+        label: "Score " + score,
+        data: sources.map(src => {
+            const srcSkills = DATA.skills.filter(s => s.source === src && s.llm_novelty != null);
+            const count = srcSkills.filter(s => s.llm_novelty === score).length;
+            return srcSkills.length > 0 ? (100 * count / srcSkills.length) : 0;
+        }),
+        backgroundColor: scoreColors[i],
+    }));
+
+    new Chart(document.getElementById("chart-novelty-dist"), {
+        type: "bar",
+        data: { labels: sources, datasets: noveltyDatasets },
+        options: {
+            plugins: { title: { display: true, text: "Novelty Score Distribution by Source" } },
+            scales: {
+                x: { stacked: true, ticks: { maxRotation: 45 } },
+                y: { stacked: true, beginAtZero: true, max: 100, title: { display: true, text: "% of Skills" } },
+            },
+        },
+    });
+
+    // Horizontal bar: Dimension spread (max - min across sources)
+    const spreadData = dims.map(d => {
+        const vals = sources.map(s => DATA.by_source[s][d.key]).filter(v => v != null);
+        return { label: d.label, spread: Math.max(...vals) - Math.min(...vals), color: d.color };
+    }).sort((a, b) => b.spread - a.spread);
+
+    new Chart(document.getElementById("chart-llm-spread"), {
+        type: "bar",
+        data: {
+            labels: spreadData.map(d => d.label),
+            datasets: [{
+                label: "Spread (max - min across sources)",
+                data: spreadData.map(d => d.spread),
+                backgroundColor: spreadData.map(d => d.color),
+            }],
+        },
+        options: {
+            indexAxis: "y",
+            plugins: { title: { display: true, text: "Dimension Spread Across Sources" }, legend: { display: false } },
+            scales: {
+                x: { beginAtZero: true, title: { display: true, text: "Spread (points)" } },
+            },
+        },
+    });
+}
+
+// Net negative risk
+function renderNetNegative() {
+    const nn = DATA.summary.net_negative_risk;
+    if (!nn || !nn.strict_count) return;
+
+    // Summary callout
+    const summaryEl = document.getElementById("net-negative-summary");
+    const sourceRows = Object.entries(nn.source_rates || {})
+        .filter(([, r]) => r.strict_count > 0)
+        .sort((a, b) => b[1].strict_pct - a[1].strict_pct)
+        .map(([src, r]) => `<tr><td>${src}</td><td>${r.strict_count}/${r.total}</td><td>${r.strict_pct}%</td></tr>`)
+        .join("");
+
+    summaryEl.innerHTML = `
+        <div class="callout-stats">
+            <div><strong>${nn.strict_count}</strong> skills (${nn.strict_pct}%) in net negative quadrant</div>
+            <div>Novelty-contamination correlation: <strong>r = ${nn.novelty_contamination_corr}</strong> (independent)</div>
+            <div>Mean novelty among contaminated skills: company <strong>${nn.mean_novelty_contaminated_company}</strong> vs non-company <strong>${nn.mean_novelty_contaminated_non_company}</strong></div>
+        </div>
+        <table class="callout-table">
+            <thead><tr><th>Source</th><th>Count</th><th>Rate</th></tr></thead>
+            <tbody>${sourceRows}</tbody>
+        </table>
+    `;
+
+    // Top offender cards
+    const container = document.getElementById("net-negative-cards");
+    const offenders = nn.top_offenders || [];
+    container.innerHTML = '<h4>Top Offenders</h4>' + offenders.map(o => {
+        const skill = DATA.skills.find(s => s.name === o.name && s.source === o.source);
+        const link = skill && skill.github_url
+            ? `<a href="${skill.github_url}" target="_blank" class="gh-link">View on GitHub</a>` : "";
+        return `<div class="risk-card net-neg-card">
+            <h4>${o.name}</h4>
+            <div class="risk-meta">
+                <div>Source: ${o.source}</div>
+                <div>Contamination: ${o.contamination_score.toFixed(2)}</div>
+                <div>Novelty: ${o.llm_novelty} / 5</div>
+                <div>LLM Overall: ${o.llm_overall.toFixed(2)}</div>
+                ${link}
+            </div>
+        </div>`;
+    }).join("");
+}
+
 // High risk cards
 function renderHighRisk() {
     const container = document.getElementById("high-risk-cards");
@@ -414,6 +559,8 @@ function renderTable() {
             <td>${s.information_density.toFixed(3)}</td>
             <td>${s.instruction_specificity.toFixed(3)}</td>
             <td><span class="badge badge-${s.contamination_level}">${s.contamination_level} (${s.contamination_score.toFixed(2)})</span></td>
+            <td>${s.llm_overall != null ? s.llm_overall.toFixed(2) : "—"}${s.llm_novelty != null && s.llm_novelty <= 2 && s.contamination_score >= 0.2 ? ' <span class="badge badge-net-neg">net neg</span>' : ""}</td>
+            <td>${s.llm_novelty != null ? s.llm_novelty : "—"}</td>
         </tr>
     `).join("");
 }
@@ -433,7 +580,8 @@ function showDetail(name, source) {
         ["Warnings", skill.warnings],
         ["Total Tokens", skill.total_tokens.toLocaleString()],
         ["SKILL.md Tokens", skill.skill_md_tokens.toLocaleString()],
-        ["Other Tokens", skill.other_tokens.toLocaleString()],
+        ["Ref Tokens", (skill.ref_tokens || 0).toLocaleString()],
+        ["Nonstandard Tokens", (skill.nonstandard_tokens || 0).toLocaleString()],
         ["Word Count", skill.word_count],
         ["Code Blocks", skill.code_block_count],
         ["Code Block Ratio", skill.code_block_ratio.toFixed(3)],
@@ -453,16 +601,34 @@ function showDetail(name, source) {
         rows.push(
             ["LLM Overall", skill.llm_overall],
             ["LLM Clarity", skill.llm_clarity],
-            ["LLM Coherence", skill.llm_coherence],
-            ["LLM Relevance", skill.llm_relevance],
             ["LLM Actionability", skill.llm_actionability],
-            ["LLM Completeness", skill.llm_completeness],
+            ["LLM Token Efficiency", skill.llm_token_efficiency],
+            ["LLM Scope Discipline", skill.llm_scope_discipline],
+            ["LLM Directive Precision", skill.llm_directive_precision],
+            ["LLM Novelty", skill.llm_novelty],
             ["LLM Assessment", skill.llm_assessment],
         );
     }
 
-    // Check for hidden contamination
+    if (skill.ref_llm_overall != null) {
+        rows.push(
+            ["Ref LLM Overall", skill.ref_llm_overall],
+            ["Ref LLM Clarity", skill.ref_llm_clarity],
+            ["Ref LLM Token Efficiency", skill.ref_llm_token_efficiency],
+            ["Ref LLM Novelty", skill.ref_llm_novelty],
+        );
+    }
+
+    // Check for net negative risk
     let alertHtml = "";
+    if (skill.llm_novelty != null && skill.llm_novelty <= 2 && skill.contamination_score >= 0.2) {
+        alertHtml += '<div class="detail-alert alert-high">'
+            + 'Net negative risk: Low novelty (' + skill.llm_novelty
+            + '/5) combined with medium-to-high contamination ('
+            + skill.contamination_score.toFixed(2) + '). This skill may worsen agent performance versus baseline.</div>';
+    }
+
+    // Check for hidden contamination
     if (skill.ref_file_count > 0 && skill.contamination_level === "low"
         && (skill.ref_contamination_level === "medium" || skill.ref_contamination_level === "high")) {
         const isHigh = skill.ref_contamination_level === "high";
@@ -530,6 +696,8 @@ function downloadCSV() {
         "total_tokens", "skill_md_tokens", "word_count",
         "code_block_count", "code_block_ratio", "information_density",
         "instruction_specificity", "contamination_score", "contamination_level",
+        "llm_overall", "llm_clarity", "llm_actionability", "llm_token_efficiency",
+        "llm_scope_discipline", "llm_directive_precision", "llm_novelty",
     ];
     const rows = skills.map(s => headers.map(h => {
         const v = s[h];

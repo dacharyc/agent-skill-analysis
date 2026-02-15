@@ -50,7 +50,7 @@ Optionally, if you have an `ANTHROPIC_API_KEY` set, run LLM-as-judge scoring bef
 
 ```bash
 export ANTHROPIC_API_KEY=your-key-here
-python analysis/llm_judge.py        # Score skills via Claude API (~$5-15)
+python analysis/llm_judge.py        # Score skills via Claude API (~$25)
 ```
 
 ### 4. View results

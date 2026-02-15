@@ -9,6 +9,11 @@ Produces figures in paper/figures/:
   - contamination_distribution.png: Cross-contamination level distribution
   - contamination_by_source.png: Contamination score distribution by source
   - metrics_correlation.png: Correlation between key metrics
+  - llm_scores_by_source.png: LLM judge scores by source category
+  - llm_novelty_distribution.png: Novelty score distribution by source
+  - llm_dimension_correlations.png: Correlations between LLM judge dimensions
+  - llm_vs_heuristic.png: LLM judge scores vs heuristic metrics
+  - llm_ref_vs_skill.png: Reference file quality vs SKILL.md quality
 """
 
 from __future__ import annotations
@@ -547,6 +552,475 @@ def fig_nonstandard_breakdown(data):
     print("  → nonstandard_breakdown.png")
 
 
+LLM_DIMS = [
+    ("llm_clarity", "Clarity"),
+    ("llm_actionability", "Actionability"),
+    ("llm_token_efficiency", "Token Efficiency"),
+    ("llm_scope_discipline", "Scope Discipline"),
+    ("llm_directive_precision", "Directive Precision"),
+    ("llm_novelty", "Novelty"),
+]
+
+REF_LLM_DIMS = [
+    ("ref_llm_clarity", "Clarity"),
+    ("ref_llm_instructional_value", "Instructional Value"),
+    ("ref_llm_token_efficiency", "Token Efficiency"),
+    ("ref_llm_novelty", "Novelty"),
+    ("ref_llm_skill_relevance", "Skill Relevance"),
+]
+
+
+def _llm_scored_skills(data):
+    """Return skills that have a non-null llm_overall score."""
+    return [s for s in data["skills"] if s.get("llm_overall") is not None]
+
+
+def fig_llm_scores_by_source(data):
+    """Grouped bar chart: mean LLM judge scores by source category."""
+    import numpy as np
+
+    skills = _llm_scored_skills(data)
+    if not skills:
+        print("  → llm_scores_by_source.png (skipped, no LLM data)")
+        return
+
+    sources = sorted(set(s["source"] for s in skills))
+    dims = LLM_DIMS
+
+    fig, ax = plt.subplots(figsize=(12, 6))
+    x = np.arange(len(sources))
+    width = 0.12
+    offsets = np.arange(len(dims)) - (len(dims) - 1) / 2
+
+    dim_colors = ["#3498db", "#2ecc71", "#e67e22", "#9b59b6", "#1abc9c", "#e74c3c"]
+
+    for i, (key, label) in enumerate(dims):
+        means = []
+        for src in sources:
+            vals = [s[key] for s in skills if s["source"] == src and s.get(key) is not None]
+            means.append(sum(vals) / len(vals) if vals else 0)
+        ax.bar(x + offsets[i] * width, means, width, label=label,
+               color=dim_colors[i], alpha=0.85)
+
+    ax.set_xlabel("Source")
+    ax.set_ylabel("Mean Score (1-5)")
+    ax.set_title("LLM Judge Scores by Source")
+    ax.set_xticks(x)
+    ax.set_xticklabels(sources, rotation=15, ha="right")
+    ax.legend(loc="lower left", fontsize=8, ncol=3)
+    ax.set_ylim(1, 5.3)
+    ax.axhline(y=3, color="#ccc", linestyle=":", linewidth=0.8)
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "llm_scores_by_source.png")
+    plt.close(fig)
+    print("  → llm_scores_by_source.png")
+
+
+def fig_llm_novelty_distribution(data):
+    """Stacked bar chart: novelty score distribution by source."""
+    skills = _llm_scored_skills(data)
+    novelty_skills = [s for s in skills if s.get("llm_novelty") is not None]
+    if not novelty_skills:
+        print("  → llm_novelty_distribution.png (skipped, no data)")
+        return
+
+    sources = sorted(set(s["source"] for s in novelty_skills))
+    score_values = [1, 2, 3, 4, 5]
+    score_colors = ["#e74c3c", "#e67e22", "#f1c40f", "#2ecc71", "#27ae60"]
+
+    # Compute percentage distributions per source
+    pcts = {score: [] for score in score_values}
+    for src in sources:
+        src_skills = [s for s in novelty_skills if s["source"] == src]
+        total = len(src_skills)
+        for score in score_values:
+            count = sum(1 for s in src_skills if s["llm_novelty"] == score)
+            pcts[score].append(100 * count / total if total else 0)
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    x = range(len(sources))
+    bottom = [0] * len(sources)
+
+    for score, color in zip(score_values, score_colors):
+        ax.bar(x, pcts[score], bottom=bottom, label=f"Score {score}",
+               color=color, alpha=0.85)
+        bottom = [b + p for b, p in zip(bottom, pcts[score])]
+
+    ax.set_xlabel("Source")
+    ax.set_ylabel("Percentage of Skills")
+    ax.set_title("Novelty Score Distribution by Source")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(sources, rotation=15, ha="right")
+    ax.legend(loc="upper right", fontsize=9)
+    ax.set_ylim(0, 105)
+    ax.yaxis.set_major_formatter(ticker.PercentFormatter())
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "llm_novelty_distribution.png")
+    plt.close(fig)
+    print("  → llm_novelty_distribution.png")
+
+
+def fig_llm_dimension_correlations(data):
+    """Heatmap: correlations between LLM judge dimensions."""
+    import numpy as np
+
+    skills = _llm_scored_skills(data)
+    if not skills:
+        print("  → llm_dimension_correlations.png (skipped, no LLM data)")
+        return
+
+    dims = LLM_DIMS
+    # Only use skills that have all dimensions
+    complete = [s for s in skills
+                if all(s.get(k) is not None for k, _ in dims)]
+    if len(complete) < 10:
+        print("  → llm_dimension_correlations.png (skipped, too few complete scores)")
+        return
+
+    values = []
+    for key, _ in dims:
+        values.append([s[key] for s in complete])
+
+    corr = np.corrcoef(values)
+    n = len(dims)
+
+    fig, ax = plt.subplots(figsize=(7, 6))
+    im = ax.imshow(corr, cmap="RdYlGn", vmin=-1, vmax=1)
+    ax.set_xticks(range(n))
+    ax.set_yticks(range(n))
+    ax.set_xticklabels([m[1] for m in dims], rotation=45, ha="right")
+    ax.set_yticklabels([m[1] for m in dims])
+
+    for i in range(n):
+        for j in range(n):
+            ax.text(j, i, f"{corr[i, j]:.2f}", ha="center", va="center",
+                    fontsize=10, color="black" if abs(corr[i, j]) < 0.7 else "white")
+
+    ax.set_title("LLM Judge Dimension Correlations")
+    fig.colorbar(im, ax=ax, shrink=0.8)
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "llm_dimension_correlations.png")
+    plt.close(fig)
+    print("  → llm_dimension_correlations.png")
+
+
+def fig_llm_vs_heuristic(data):
+    """Heatmap: correlations between LLM dimensions and heuristic metrics."""
+    import numpy as np
+
+    skills = _llm_scored_skills(data)
+    if not skills:
+        print("  → llm_vs_heuristic.png (skipped, no LLM data)")
+        return
+
+    llm_dims = LLM_DIMS
+    heuristics = [
+        ("information_density", "Info Density"),
+        ("instruction_specificity", "Specificity"),
+        ("contamination_score", "Contamination"),
+        ("skill_md_tokens", "SKILL.md Tokens"),
+        ("word_count", "Word Count"),
+        ("code_block_ratio", "Code Ratio"),
+        ("imperative_ratio", "Imperative Ratio"),
+    ]
+
+    # Use skills with all LLM dims present
+    complete = [s for s in skills
+                if all(s.get(k) is not None for k, _ in llm_dims)]
+    if len(complete) < 10:
+        print("  → llm_vs_heuristic.png (skipped, too few complete scores)")
+        return
+
+    llm_values = [[s[k] for s in complete] for k, _ in llm_dims]
+    heur_values = [[s.get(k, 0) for s in complete] for k, _ in heuristics]
+
+    # Compute cross-correlation matrix (llm rows x heuristic cols)
+    all_values = np.array(llm_values + heur_values)
+    full_corr = np.corrcoef(all_values)
+    n_llm = len(llm_dims)
+    n_heur = len(heuristics)
+    cross_corr = full_corr[:n_llm, n_llm:]
+
+    fig, ax = plt.subplots(figsize=(9, 6))
+    im = ax.imshow(cross_corr, cmap="RdYlGn", vmin=-1, vmax=1, aspect="auto")
+    ax.set_xticks(range(n_heur))
+    ax.set_yticks(range(n_llm))
+    ax.set_xticklabels([m[1] for m in heuristics], rotation=45, ha="right")
+    ax.set_yticklabels([m[1] for m in llm_dims])
+
+    for i in range(n_llm):
+        for j in range(n_heur):
+            ax.text(j, i, f"{cross_corr[i, j]:.2f}", ha="center", va="center",
+                    fontsize=9, color="black" if abs(cross_corr[i, j]) < 0.7 else "white")
+
+    ax.set_title("LLM Judge vs. Heuristic Metric Correlations")
+    fig.colorbar(im, ax=ax, shrink=0.8)
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "llm_vs_heuristic.png")
+    plt.close(fig)
+    print("  → llm_vs_heuristic.png")
+
+
+def fig_llm_ref_vs_skill(data):
+    """Grouped bar chart: mean ref LLM scores vs SKILL.md LLM scores."""
+    # Skills with both SKILL.md and ref LLM scores
+    both = [s for s in data["skills"]
+            if s.get("llm_overall") is not None
+            and s.get("ref_llm_overall") is not None]
+    if not both:
+        print("  → llm_ref_vs_skill.png (skipped, no data)")
+        return
+
+    # Shared dimensions between skill and ref scoring
+    shared = [
+        ("clarity", "Clarity"),
+        ("token_efficiency", "Token Efficiency"),
+        ("novelty", "Novelty"),
+    ]
+
+    skill_means = []
+    ref_means = []
+    labels = []
+    for dim, label in shared:
+        sk = [s[f"llm_{dim}"] for s in both if s.get(f"llm_{dim}") is not None]
+        rf = [s[f"ref_llm_{dim}"] for s in both if s.get(f"ref_llm_{dim}") is not None]
+        if sk and rf:
+            skill_means.append(sum(sk) / len(sk))
+            ref_means.append(sum(rf) / len(rf))
+            labels.append(label)
+
+    # Add overall
+    sk_overall = [s["llm_overall"] for s in both]
+    rf_overall = [s["ref_llm_overall"] for s in both]
+    skill_means.append(sum(sk_overall) / len(sk_overall))
+    ref_means.append(sum(rf_overall) / len(rf_overall))
+    labels.append("Overall")
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    x = range(len(labels))
+    width = 0.3
+    ax.bar([i - width / 2 for i in x], skill_means, width,
+           label="SKILL.md", color="#3498db", alpha=0.85)
+    ax.bar([i + width / 2 for i in x], ref_means, width,
+           label="Reference Files", color="#e67e22", alpha=0.85)
+
+    ax.set_xlabel("Dimension")
+    ax.set_ylabel("Mean Score (1-5)")
+    ax.set_title(f"SKILL.md vs. Reference File Quality (n={len(both)})")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(labels)
+    ax.legend()
+    ax.set_ylim(1, 5.3)
+
+    fig.tight_layout()
+    fig.savefig(FIGURES_DIR / "llm_ref_vs_skill.png")
+    plt.close(fig)
+    print("  → llm_ref_vs_skill.png")
+
+
+def print_llm_stats(data):
+    """Print LLM judge summary statistics."""
+    skills = _llm_scored_skills(data)
+    if not skills:
+        return
+
+    print(f"\n=== LLM Judge Statistics ===")
+    print(f"Skills scored: {len(skills)}/{data['total_skills']}")
+
+    # Null dimension counts
+    all_skills = data["skills"]
+    nulls = {}
+    for key, label in LLM_DIMS:
+        n = sum(1 for s in all_skills if s.get(key) is None)
+        if n > 0:
+            nulls[label] = n
+    if nulls:
+        print(f"Missing dimensions: {nulls}")
+
+    # Global means
+    print(f"\nGlobal means:")
+    for key, label in LLM_DIMS:
+        vals = [s[key] for s in skills if s.get(key) is not None]
+        if vals:
+            print(f"  {label}: {sum(vals)/len(vals):.3f} (n={len(vals)})")
+    overalls = [s["llm_overall"] for s in skills]
+    print(f"  Overall: {sum(overalls)/len(overalls):.3f}")
+
+    # By source
+    sources = sorted(set(s["source"] for s in skills))
+    print(f"\nOverall score by source (ranked):")
+    source_means = []
+    for src in sources:
+        vals = [s["llm_overall"] for s in skills if s["source"] == src]
+        source_means.append((src, sum(vals) / len(vals), len(vals)))
+    source_means.sort(key=lambda x: -x[1])
+    for src, mean, n in source_means:
+        print(f"  {src}: {mean:.3f} (n={n})")
+
+    # Novelty by source
+    print(f"\nNovelty by source (ranked):")
+    novelty_means = []
+    for src in sources:
+        vals = [s["llm_novelty"] for s in skills
+                if s["source"] == src and s.get("llm_novelty") is not None]
+        if vals:
+            novelty_means.append((src, sum(vals) / len(vals), len(vals)))
+    novelty_means.sort(key=lambda x: -x[1])
+    for src, mean, n in novelty_means:
+        high_pct = 100 * sum(1 for s in skills
+                             if s["source"] == src
+                             and s.get("llm_novelty") is not None
+                             and s["llm_novelty"] >= 4) / n
+        print(f"  {src}: {mean:.3f} ({high_pct:.0f}% scoring >= 4, n={n})")
+
+    # Top and bottom skills
+    ranked = sorted(skills, key=lambda s: s["llm_overall"], reverse=True)
+    print(f"\nTop 10 skills by overall LLM score:")
+    for s in ranked[:10]:
+        print(f"  {s['llm_overall']:.2f}  {s['source']}/{s['name']}")
+    print(f"\nBottom 10 skills by overall LLM score:")
+    for s in ranked[-10:]:
+        print(f"  {s['llm_overall']:.2f}  {s['source']}/{s['name']}")
+
+    # Structural validation vs LLM quality
+    passed = [s["llm_overall"] for s in skills if s.get("passed")]
+    failed = [s["llm_overall"] for s in skills if not s.get("passed")]
+    if passed and failed:
+        print(f"\nLLM overall by validation status:")
+        print(f"  Passed: {sum(passed)/len(passed):.3f} (n={len(passed)})")
+        print(f"  Failed: {sum(failed)/len(failed):.3f} (n={len(failed)})")
+
+    # Reference file quality comparison
+    both = [s for s in skills if s.get("ref_llm_overall") is not None]
+    if both:
+        sk = sum(s["llm_overall"] for s in both) / len(both)
+        rf = sum(s["ref_llm_overall"] for s in both) / len(both)
+        print(f"\nSKILL.md vs Reference file quality (n={len(both)}):")
+        print(f"  SKILL.md overall: {sk:.3f}")
+        print(f"  Reference overall: {rf:.3f}")
+        print(f"  Delta: {rf - sk:+.3f}")
+
+        for dim, label in [("clarity", "Clarity"), ("token_efficiency", "Token Efficiency"), ("novelty", "Novelty")]:
+            sk_vals = [s[f"llm_{dim}"] for s in both if s.get(f"llm_{dim}") is not None]
+            rf_vals = [s[f"ref_llm_{dim}"] for s in both if s.get(f"ref_llm_{dim}") is not None]
+            if sk_vals and rf_vals:
+                sk_m = sum(sk_vals) / len(sk_vals)
+                rf_m = sum(rf_vals) / len(rf_vals)
+                print(f"  {label}: SKILL.md {sk_m:.3f}, Refs {rf_m:.3f} (delta {rf_m - sk_m:+.3f})")
+
+
+def print_craft_vs_content_stats(data):
+    """Print per-dimension source profiles for craft vs. content analysis."""
+    by_source = data.get("by_source", {})
+    dims = [
+        ("avg_llm_clarity", "Clarity"),
+        ("avg_llm_actionability", "Actionability"),
+        ("avg_llm_token_efficiency", "Token Efficiency"),
+        ("avg_llm_scope_discipline", "Scope Discipline"),
+        ("avg_llm_directive_precision", "Directive Precision"),
+        ("avg_llm_novelty", "Novelty"),
+    ]
+
+    # Check if LLM data is present
+    if not any(by_source[s].get("avg_llm_overall") is not None for s in by_source):
+        return
+
+    sources = sorted(by_source.keys())
+
+    print(f"\n=== Craft vs. Content: Per-Dimension Source Profiles ===")
+
+    # Per-dimension rankings
+    print(f"\nPer-dimension means and rankings:")
+    for key, label in dims:
+        source_vals = []
+        for src in sources:
+            val = by_source[src].get(key)
+            if val is not None:
+                source_vals.append((src, val))
+        source_vals.sort(key=lambda x: -x[1])
+        high = source_vals[0][1] if source_vals else 0
+        low = source_vals[-1][1] if source_vals else 0
+        spread = high - low
+
+        print(f"\n  {label} (spread: {spread:.2f}):")
+        for rank, (src, val) in enumerate(source_vals, 1):
+            print(f"    #{rank} {src}: {val:.3f}")
+
+    # Dimension spread summary (most to least discriminating)
+    print(f"\nDimension spread summary (most → least discriminating):")
+    spreads = []
+    for key, label in dims:
+        vals = [by_source[s][key] for s in sources if by_source[s].get(key) is not None]
+        if vals:
+            spreads.append((label, max(vals) - min(vals)))
+    spreads.sort(key=lambda x: -x[1])
+    for label, spread in spreads:
+        print(f"  {label}: {spread:.3f}")
+
+    # Per-source strength/weakness
+    print(f"\nPer-source relative strength and weakness:")
+    for src in sources:
+        rankings = []
+        for key, label in dims:
+            # Compute rank for this source on this dimension
+            vals = [(s, by_source[s].get(key, 0)) for s in sources
+                    if by_source[s].get(key) is not None]
+            vals.sort(key=lambda x: -x[1])
+            for rank, (s, _) in enumerate(vals, 1):
+                if s == src:
+                    rankings.append((label, rank))
+                    break
+        if rankings:
+            best = min(rankings, key=lambda x: x[1])
+            worst = max(rankings, key=lambda x: x[1])
+            print(f"  {src}: strength = {best[0]} (#{best[1]}), "
+                  f"weakness = {worst[0]} (#{worst[1]})")
+
+
+def print_net_negative_stats(data):
+    """Print net negative risk statistics (low novelty + high contamination)."""
+    nn = data["summary"].get("net_negative_risk", {})
+    if not nn:
+        return
+
+    print(f"\n=== Net Negative Risk (Low Novelty + High Contamination) ===")
+    print(f"Strict (novelty <= 2, contamination >= 0.2): "
+          f"{nn['strict_count']} skills ({nn['strict_pct']}%)")
+    print(f"Broad  (novelty <= 3, contamination >= 0.2): "
+          f"{nn['broad_count']} skills ({nn['broad_pct']}%)")
+
+    print(f"\nNovelty-contamination correlation: r = {nn['novelty_contamination_corr']}")
+
+    mc = nn.get("mean_novelty_contaminated_company")
+    mnc = nn.get("mean_novelty_contaminated_non_company")
+    if mc is not None and mnc is not None:
+        print(f"Mean novelty among contaminated skills:")
+        print(f"  Company: {mc}")
+        print(f"  Non-company: {mnc}")
+
+    print(f"\nBy source (strict):")
+    for source, rates in sorted(nn.get("source_rates", {}).items(),
+                                key=lambda x: -x[1]["strict_pct"]):
+        if rates["strict_count"] > 0 or rates["broad_count"] > 0:
+            print(f"  {source}: {rates['strict_count']}/{rates['total']} strict "
+                  f"({rates['strict_pct']}%), "
+                  f"{rates['broad_count']}/{rates['total']} broad "
+                  f"({rates['broad_pct']}%)")
+
+    offenders = nn.get("top_offenders", [])
+    if offenders:
+        print(f"\nTop offenders (strict, by contamination score):")
+        for o in offenders:
+            print(f"  {o['contamination_score']:.2f} contam, "
+                  f"novelty {o['llm_novelty']}, "
+                  f"overall {o['llm_overall']:.2f}  "
+                  f"{o['source']}/{o['name']}")
+
+
 def main():
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
     data = load_data()
@@ -564,7 +1038,16 @@ def main():
     fig_hidden_contamination(data)
     fig_nonstandard_breakdown(data)
 
+    fig_llm_scores_by_source(data)
+    fig_llm_novelty_distribution(data)
+    fig_llm_dimension_correlations(data)
+    fig_llm_vs_heuristic(data)
+    fig_llm_ref_vs_skill(data)
+
     print_summary_stats(data)
+    print_llm_stats(data)
+    print_craft_vs_content_stats(data)
+    print_net_negative_stats(data)
     print(f"\nFigures saved to {FIGURES_DIR}")
 
 

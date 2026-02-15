@@ -195,6 +195,50 @@ def call_judge(prompt: str, content: str, client, max_tokens: int = 500) -> dict
         return None
 
 
+def validate_and_retry(
+    result: dict | None,
+    required_dims: list[str],
+    prompt: str,
+    content: str,
+    client,
+    label: str = "",
+) -> dict | None:
+    """Check that all required dimensions are present; retry once if any are missing."""
+    if result is None:
+        return None
+
+    missing = [d for d in required_dims if d not in result]
+    if not missing:
+        return result
+
+    # Retry once, explicitly asking for the missing keys
+    tag = f" ({label})" if label else ""
+    print(f"    Retrying{tag}: missing {missing}...")
+    missing_list = ", ".join(missing)
+    retry_prompt = (
+        f"{prompt}\n\n"
+        f"IMPORTANT: Your response MUST include ALL dimensions. "
+        f"You MUST include these keys in your JSON: {missing_list}"
+    )
+    retry = call_judge(retry_prompt, content, client)
+    if retry is None:
+        return result  # keep the partial result over nothing
+
+    retry_missing = [d for d in required_dims if d not in retry]
+    if not retry_missing:
+        return retry  # retry is complete — use it
+
+    # Merge: fill gaps from whichever attempt has the value
+    for dim in required_dims:
+        if dim not in result and dim in retry:
+            result[dim] = retry[dim]
+
+    still_missing = [d for d in required_dims if d not in result]
+    if still_missing:
+        print(f"    Still missing after retry{tag}: {still_missing}", file=sys.stderr)
+    return result
+
+
 def extract_frontmatter(content: str) -> tuple[str, str]:
     """Extract name and description from SKILL.md YAML frontmatter."""
     fm_match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
@@ -254,6 +298,7 @@ def score_reference_files(skill_dir: Path, skill_content: str, client) -> list[d
 
         print(f"    Scoring ref {ref_path.name}...")
         result = call_judge(prompt, ref_content, client)
+        result = validate_and_retry(result, REF_DIMS, prompt, ref_content, client, ref_path.name)
         if result:
             result.pop("overall", None)
             result["overall"] = compute_overall(result, REF_DIMS)
@@ -379,6 +424,7 @@ def main():
 def score_skill_md(content: str, client) -> dict | None:
     """Score a SKILL.md using the skill judge prompt."""
     result = call_judge(SKILL_JUDGE_PROMPT, content, client)
+    result = validate_and_retry(result, SKILL_DIMS, SKILL_JUDGE_PROMPT, content, client, "SKILL.md")
     if result:
         result.pop("overall", None)  # discard if LLM included it anyway
         result["overall"] = compute_overall(result, SKILL_DIMS)

@@ -131,6 +131,100 @@ def _compute_nonstandard_stats(skills: list[dict]) -> dict:
     }
 
 
+def _compute_net_negative_risk(skills: list[dict]) -> dict:
+    """Skills with low novelty AND medium/high contamination — potential net negatives.
+
+    These skills add mixed-language interference risk without providing
+    information the LLM doesn't already have. The theoretical net effect
+    on agent performance is negative.
+    """
+    scored = [s for s in skills if s.get("llm_novelty") is not None]
+    if not scored:
+        return {}
+
+    # Strict threshold: novelty <= 2 and contamination >= 0.2
+    strict = [
+        s for s in scored
+        if s["llm_novelty"] <= 2 and s["contamination_score"] >= 0.2
+    ]
+    # Broader threshold: novelty <= 3 and contamination >= 0.2
+    broad = [
+        s for s in scored
+        if s["llm_novelty"] <= 3 and s["contamination_score"] >= 0.2
+    ]
+
+    by_source_strict = Counter(s["source"] for s in strict)
+    by_source_broad = Counter(s["source"] for s in broad)
+
+    # Per-source rates (strict only)
+    source_rates = {}
+    for source in sorted(set(s["source"] for s in scored)):
+        source_scored = [s for s in scored if s["source"] == source]
+        source_strict = [s for s in strict if s["source"] == source]
+        source_broad = [s for s in broad if s["source"] == source]
+        source_rates[source] = {
+            "total": len(source_scored),
+            "strict_count": len(source_strict),
+            "strict_pct": round(100 * len(source_strict) / len(source_scored), 1),
+            "broad_count": len(source_broad),
+            "broad_pct": round(100 * len(source_broad) / len(source_scored), 1),
+        }
+
+    # Novelty-contamination correlation
+    novelty_vals = [s["llm_novelty"] for s in scored]
+    contam_vals = [s["contamination_score"] for s in scored]
+    n = len(scored)
+    if n > 1:
+        mean_n = sum(novelty_vals) / n
+        mean_c = sum(contam_vals) / n
+        cov = sum((nv - mean_n) * (cv - mean_c) for nv, cv in zip(novelty_vals, contam_vals)) / (n - 1)
+        std_n = (sum((v - mean_n) ** 2 for v in novelty_vals) / (n - 1)) ** 0.5
+        std_c = (sum((v - mean_c) ** 2 for v in contam_vals) / (n - 1)) ** 0.5
+        corr_all = round(cov / (std_n * std_c), 3) if std_n > 0 and std_c > 0 else 0
+    else:
+        corr_all = 0
+
+    # Mean novelty among contaminated skills, by source type
+    contaminated = [s for s in scored if s["contamination_score"] >= 0.2]
+    company_contam = [s for s in contaminated if s["source"] == "company"]
+    non_company_contam = [s for s in contaminated if s["source"] != "company"]
+    mean_novelty_company_contam = (
+        round(sum(s["llm_novelty"] for s in company_contam) / len(company_contam), 3)
+        if company_contam else None
+    )
+    mean_novelty_non_company_contam = (
+        round(sum(s["llm_novelty"] for s in non_company_contam) / len(non_company_contam), 3)
+        if non_company_contam else None
+    )
+
+    # Top offenders: strict net-negative skills sorted by contamination
+    top_offenders = sorted(strict, key=lambda s: -s["contamination_score"])[:15]
+    offender_list = [
+        {
+            "name": s["name"],
+            "source": s["source"],
+            "contamination_score": s["contamination_score"],
+            "llm_novelty": s["llm_novelty"],
+            "llm_overall": s["llm_overall"],
+        }
+        for s in top_offenders
+    ]
+
+    return {
+        "strict_count": len(strict),
+        "strict_pct": round(100 * len(strict) / len(scored), 1),
+        "broad_count": len(broad),
+        "broad_pct": round(100 * len(broad) / len(scored), 1),
+        "by_source_strict": dict(by_source_strict),
+        "by_source_broad": dict(by_source_broad),
+        "source_rates": source_rates,
+        "novelty_contamination_corr": corr_all,
+        "mean_novelty_contaminated_company": mean_novelty_company_contam,
+        "mean_novelty_contaminated_non_company": mean_novelty_non_company_contam,
+        "top_offenders": offender_list,
+    }
+
+
 def _compute_hidden_contamination(skills: list[dict]) -> dict:
     """Skills with low SKILL.md contamination but medium/high ref contamination."""
     hidden = [
@@ -163,7 +257,7 @@ def main():
         llm_data = load_json(llm_scores_path)
         for skill in llm_data.get("skills", []):
             key = (skill["name"], skill["source"])
-            llm_index[key] = skill.get("llm_scores", {})
+            llm_index[key] = skill.get("llm_scores") or {}
             if skill.get("ref_llm_aggregate"):
                 ref_llm_index[key] = {
                     "aggregate": skill["ref_llm_aggregate"],
@@ -287,6 +381,7 @@ def main():
             "token_stats": _compute_token_stats(combined_skills),
             "nonstandard_stats": _compute_nonstandard_stats(combined_skills),
             "hidden_contamination": _compute_hidden_contamination(combined_skills),
+            "net_negative_risk": _compute_net_negative_risk(combined_skills),
         },
         "by_source": {},
         "skills": combined_skills,
@@ -298,6 +393,21 @@ def main():
         source_skills = [s for s in combined_skills if s["source"] == source]
         n = len(source_skills)
         total_tokens_sum = sum(s["total_tokens"] for s in source_skills)
+
+        # Per-source LLM dimension means
+        llm_dim_keys = [
+            ("llm_clarity", "avg_llm_clarity"),
+            ("llm_actionability", "avg_llm_actionability"),
+            ("llm_token_efficiency", "avg_llm_token_efficiency"),
+            ("llm_scope_discipline", "avg_llm_scope_discipline"),
+            ("llm_directive_precision", "avg_llm_directive_precision"),
+            ("llm_novelty", "avg_llm_novelty"),
+            ("llm_overall", "avg_llm_overall"),
+        ]
+        llm_means = {}
+        for src_key, out_key in llm_dim_keys:
+            vals = [s[src_key] for s in source_skills if s.get(src_key) is not None]
+            llm_means[out_key] = round(sum(vals) / len(vals), 3) if vals else None
 
         combined["by_source"][source] = {
             "total": n,
@@ -311,6 +421,7 @@ def main():
             "total_warnings": sum(s["warnings"] for s in source_skills),
             "avg_information_density": round(sum(s["information_density"] for s in source_skills) / n, 3),
             "avg_instruction_specificity": round(sum(s["instruction_specificity"] for s in source_skills) / n, 3),
+            **llm_means,
             "token_budget_composition": {
                 "skill_md_pct": round(100 * sum(s["skill_md_tokens"] for s in source_skills) / total_tokens_sum, 1) if total_tokens_sum else 0,
                 "ref_pct": round(100 * sum(s["ref_tokens"] for s in source_skills) / total_tokens_sum, 1) if total_tokens_sum else 0,

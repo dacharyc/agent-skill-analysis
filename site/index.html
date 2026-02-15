@@ -19,6 +19,7 @@
         <a href="#content">Content Quality</a>
         <a href="#contamination">Contamination</a>
         <a href="#hidden-contamination-list">Hidden</a>
+        <a href="#llm-quality">LLM Quality</a>
         <a href="#table">All Skills</a>
     </nav>
 
@@ -46,6 +47,14 @@
                 <div class="stat-card waste">
                     <div class="stat-value" id="stat-waste">—</div>
                     <div class="stat-label">Context Window Waste</div>
+                </div>
+                <div class="stat-card llm">
+                    <div class="stat-value" id="stat-llm-overall">—</div>
+                    <div class="stat-label">Mean LLM Quality</div>
+                </div>
+                <div class="stat-card net-neg">
+                    <div class="stat-value" id="stat-net-negative">—</div>
+                    <div class="stat-label">Net Negative Risk</div>
                 </div>
             </div>
             <div class="chart-row">
@@ -105,6 +114,27 @@
             </div>
         </section>
 
+        <!-- LLM Quality -->
+        <section id="llm-quality">
+            <h2>LLM-as-Judge Quality</h2>
+            <p>All 673 skills scored by Claude Sonnet across 6 dimensions (1-5 scale): clarity, actionability, token efficiency, scope discipline, directive precision, and novelty.</p>
+            <div class="chart-container wide">
+                <canvas id="chart-llm-by-source"></canvas>
+            </div>
+            <div class="chart-row">
+                <div class="chart-container">
+                    <canvas id="chart-novelty-dist"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chart-llm-spread"></canvas>
+                </div>
+            </div>
+            <h3>Net Negative Risk</h3>
+            <p>Skills with low novelty (score &le; 2) <em>and</em> medium-to-high contamination (score &ge; 0.2) — they add interference risk without providing information the LLM doesn't already have.</p>
+            <div id="net-negative-summary" class="callout-box"></div>
+            <div id="net-negative-cards"></div>
+        </section>
+
         <!-- Filterable Table -->
         <section id="table">
             <h2>All Skills</h2>
@@ -151,6 +181,8 @@
                             <th data-sort="information_density">Density</th>
                             <th data-sort="instruction_specificity">Specificity</th>
                             <th data-sort="contamination_score">Contamination</th>
+                            <th data-sort="llm_overall">LLM Score</th>
+                            <th data-sort="llm_novelty">Novelty</th>
                         </tr>
                     </thead>
                     <tbody id="skills-tbody">
@@ -165,7 +197,7 @@
     </main>
 
     <footer>
-        <p>Data: <a href="https://github.com/dacharyc/skill-validator">skill-validator</a> | Analysis: February 2026</p>
+        <p>Author: <a href="https://dacharycarey.com">Dachary Carey</a> | Data: <a href="https://github.com/dacharyc/skill-validator">skill-validator</a> | Analysis: February 2026</p>
     </footer>
 
     <script src="app.js"></script>

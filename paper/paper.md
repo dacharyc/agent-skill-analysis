@@ -76,6 +76,16 @@ $$\text{density} = 0.5 \times \frac{\text{code block words}}{\text{total words}}
 
 $$\text{specificity} = \frac{\text{strong markers}}{\text{strong markers} + \text{weak markers}}$$
 
+## LLM-as-Judge Quality Scoring
+
+To complement the heuristic content metrics, we employed an LLM-as-judge approach to evaluate skill quality across dimensions that resist automated measurement. The scoring uses a two-pass design:
+
+**Pass 1 — SKILL.md scoring** evaluates each skill's primary instruction file on six dimensions (each scored 1–5): *clarity* (unambiguous instructions), *actionability* (step-by-step executability), *token efficiency* (conciseness), *scope discipline* (focus on stated purpose), *directive precision* (use of strong imperatives vs. vague suggestions), and *novelty* (information beyond LLM training data).
+
+**Pass 2 — Reference file scoring** evaluates each reference file on five dimensions (each scored 1–5): *clarity*, *instructional value* (concrete examples and patterns), *token efficiency*, *novelty*, and *skill relevance* (alignment with the parent skill's purpose). The judge receives the parent skill's name and description as context.
+
+Both passes use Claude Sonnet (claude-sonnet-4-5-20250929) with content truncated to 8,000 characters per document and results cached for reproducibility. Coverage is complete: all 673 skills were scored, along with 1,877 reference files across 411 skills. Three skills containing embedded AI-directed prompts caused persistent prompt interference with the judge model (see Limitations); these were scored manually.
+
 ## Cross-Contamination Detection
 
 Cross-contamination occurs when a skill designed for one context leaks information that influences agent behavior in another context. Research has established that code LLMs exhibit "Programming Language Confusion" — systematically generating code in unintended languages despite explicit instructions, with strong defaults toward Python and shifts between syntactically similar language pairs [@moumoula2025plc]. LLMs also exhibit a "copy bias" where they replicate patterns from in-context examples rather than reasoning independently about the task [@ali2024copybias], and in-context code examples have been shown to bias the style and characteristics of generated code [@li2023lail]. These findings suggest that mixed-language code examples in skill files could induce cross-language interference.
@@ -188,6 +198,46 @@ Content quality metrics revealed significant variation:
 
 Anthropic skills cluster in the moderate-density, high-specificity quadrant — they are well-structured with clear directives but are not code-heavy. Company skills show the broadest distribution, ranging from highly specific API reference skills to vague best-practices guides.
 
+### LLM-as-Judge Quality Assessment
+
+![LLM judge scores by source category](figures/llm_scores_by_source.png)
+
+LLM-as-judge scoring reveals a more nuanced picture of quality than heuristic metrics alone. Across all 673 skills, the global dimension means are: clarity 4.41, actionability 4.36, token efficiency 3.76, scope discipline 4.64, directive precision 3.84, and novelty 3.52. Skills are generally clear and well-scoped but often verbose and redundant with training data — token efficiency and novelty are consistently the weakest dimensions.
+
+Source rankings by overall LLM score diverge from structural compliance rankings: K-Dense leads (4.27), followed by company (4.25), Trail of Bits (4.21), vertical (4.00), community individual (3.91), Anthropic (3.91), community collections (3.83), and security (3.00). Anthropic's ranking at #6 is notable — while their skills set the benchmark for instruction specificity (0.725), several experimental and template-like skills pull down the LLM average. The security category scores lowest, driven by skills with incomplete or scaffold-like content.
+
+Structural validation is largely orthogonal to LLM-judged quality: skills that passed validation average 4.10 overall versus 4.06 for those that failed. A structurally valid skill is not necessarily a *good* skill, and vice versa — the two assessment methods measure fundamentally different quality dimensions.
+
+### Craft vs. Content: Per-Dimension Source Profiles
+
+Disaggregating overall scores into individual dimensions reveals a craft-versus-content tradeoff across source categories. Token efficiency shows the largest spread across sources (1.87 points between company at 4.15 and security at 2.29), while novelty shows the smallest (0.77 points), indicating that sources differentiate more on writing quality than on informational uniqueness.
+
+Company-published skills exemplify the craft side: they rank #1 on scope discipline (4.81), clarity (4.55), actionability (4.54), and token efficiency (4.15) — but drop to #7 of 8 sources on novelty (3.53). These skills are well-structured API documentation for tools that LLMs already know well. K-Dense skills are the mirror image: they lead on directive precision (4.29) and novelty (3.96) — the two dimensions where company skills are weakest — but rank mid-pack on scope discipline. Their scientific computing methodology content is genuinely novel and uses strong imperative language.
+
+Anthropic's relative strength is novelty (3.75, rank 3) despite ranking #7 on clarity (3.94), suggesting their skills prioritize unique content over polish. Community collections show the inverse: their relative strength is actionability (rank 4) but they are weakest on novelty (3.19, last among all sources), reflecting their tendency to provide step-by-step instructions for well-known libraries where the LLM already has strong coverage. Security skills are the floor on five of six dimensions but jump to rank 4 on novelty (3.57) — domain-specific security content is legitimately uncommon in training data, even when the skills themselves are poorly written.
+
+This tradeoff has practical implications for the ecosystem. Craft quality can be improved with better templates, linting, and editorial guidelines — it is a solvable problem. Novel domain knowledge, by contrast, is the irreducible value proposition of skills: information the LLM cannot derive from its training data. The sources that contribute the most unique information (K-Dense, Trail of Bits) are not the same sources that write the most polished skills (company publishers), suggesting that quality improvement efforts should target these two dimensions differently.
+
+### Novelty Analysis
+
+![Novelty score distribution by source](figures/llm_novelty_distribution.png)
+
+Novelty — the degree to which a skill provides information beyond LLM training data — is the most discriminating dimension in our assessment. It measures whether skills offer genuine value that an agent cannot derive from its existing knowledge, making it arguably the most important quality signal for skill authors.
+
+K-Dense and Trail of Bits lead on novelty, with 81% of their skills scoring 4 or above. These sources focus on specialized domains (scientific computing methodologies, security vulnerability analysis) where proprietary workflows and non-obvious domain knowledge are central. Community collections trail at 47% scoring 4+, reflecting their tendency to wrap well-known libraries and frameworks where the LLM already has strong coverage.
+
+Novelty correlates only weakly with the five craft dimensions (r = 0.06–0.33), confirming that it measures something fundamentally different from writing quality. A skill can be clearly written, well-scoped, and concise (high craft scores) while still conveying information the LLM already knows (low novelty) — a pattern common in community collection skills for popular frameworks.
+
+### Net Negative Risk: Low Novelty Meets High Contamination
+
+Combining LLM-judged novelty with contamination risk scores reveals a concerning pattern: **35 skills (5.2%) across the ecosystem have both low novelty (score ≤ 2) and medium-to-high contamination risk (score ≥ 0.2)**. These skills add mixed-language content that risks interfering with agent code generation while providing little information the LLM does not already possess — a combination where the theoretical net effect on agent performance is negative.
+
+Company-published skills are disproportionately represented: 21 of 288 (7.3%) fall into this "net negative" quadrant. Expanding the threshold to novelty ≤ 3 captures 30 company skills (10.4%). The top offenders are Azure SDK skills — `azure-identity-java`, `azure-security-keyvault-secrets-java`, and similar — with contamination scores above 0.50 but novelty scores of only 2. These are well-documented APIs whose documentation is heavily represented in LLM training data, packaged with multi-language examples that create the structural conditions for language confusion.
+
+Critically, novelty and contamination are statistically independent (r = 0.01 for company skills, r = 0.07 across all skills). There is no natural self-correction where contaminated skills compensate by being more novel. The two risks stack additively: a skill that mixes Python, Java, and TypeScript examples for the same API *and* provides only information the LLM already knows offers the worst of both worlds. Among skills with medium or high contamination, company skills have the lowest mean novelty (3.55) compared to the non-company average (3.73) — they are not making up for contamination risk with informational value.
+
+The theoretical basis for concern is well-established: irrelevant context degrades LLM task performance [@shi2023distracted], mixed-language content causes systematic programming language confusion [@moumoula2025plc], and in-context examples bias generated code toward the patterns they contain [@ali2024copybias]. A skill that introduces these interference risks without contributing novel information is, by this reasoning, strictly worse than no skill at all — the agent pays the contamination cost without receiving informational benefit. Preliminary anecdotal testing is consistent with this hypothesis, but controlled behavioral experiments are needed to measure the actual effect size (see Future Work).
+
 ## Cross-Contamination Risk
 
 ![Validation and contamination overview](figures/contamination_distribution.png)
@@ -292,6 +342,16 @@ Notable correlations:
 - Information density and code block ratio are strongly correlated (by construction)
 - Risk score correlates with warnings, as structurally complex skills tend to have broader technology scopes
 
+### LLM Dimension Correlations
+
+![Correlations between LLM judge dimensions](figures/llm_dimension_correlations.png)
+
+The six LLM judge dimensions form two distinct clusters. The five *craft quality* dimensions — clarity, actionability, token efficiency, scope discipline, and directive precision — intercorrelate at r = 0.40–0.73, forming a coherent quality factor. Novelty stands apart, correlating with craft dimensions at only r = 0.06–0.33. This two-factor structure confirms that novelty captures a genuinely independent quality signal: a skill's writing craft and its information novelty are largely orthogonal.
+
+![LLM judge vs. heuristic metric correlations](figures/llm_vs_heuristic.png)
+
+Cross-correlating LLM dimensions with heuristic metrics reveals that information density is the best heuristic predictor of LLM-judged quality (r ≈ 0.50 with actionability), validating our heuristic as a useful proxy. Token efficiency anti-correlates with word count (r ≈ −0.45) — longer skills are penalized by the judge, consistent with the view that verbosity degrades agent performance. Notably, contamination score and novelty are essentially uncorrelated (r ≈ 0.07), confirming that these metrics are complementary rather than redundant: contamination measures *structural* risk from mixed-language content, while novelty measures *informational* value beyond training data.
+
 ## Reference File Analysis
 
 Beyond the primary `SKILL.md` file, the agentskills.io specification allows skills to include reference files — supplementary documents placed in a `references/` directory. These files provide additional context (API documentation, code examples, configuration templates) that agents load alongside the skill instructions. Our analysis reveals that reference files represent a significant and underexamined dimension of skill quality.
@@ -316,6 +376,10 @@ These findings have practical implications. Agent platforms typically operate wi
 ### Content Quality
 
 Reference files tend to have **higher information density** than their corresponding SKILL.md files. This is expected: references are typically code-heavy (API examples, configuration templates, type definitions) rather than prose-heavy instruction documents. The higher density reflects their role as reference material rather than instructional content.
+
+![SKILL.md vs. reference file quality comparison](figures/llm_ref_vs_skill.png)
+
+LLM-as-judge scoring confirms and quantifies this pattern. Across 411 skills with both SKILL.md and reference scores, reference files outscore their parent SKILL.md on every shared dimension: +0.39 overall, +0.52 on token efficiency, +0.41 on clarity, and +0.23 on novelty. References are more concise and information-dense — focused code examples and API documentation versus prose instructions — which the LLM judge rewards. The novelty gap is smaller, suggesting that while references contain more *efficiently presented* information, the *uniqueness* of that information relative to training data is only modestly higher than SKILL.md content.
 
 ### Contamination Risk and Hidden Contamination
 
@@ -371,11 +435,21 @@ Based on our findings, we recommend the following practices:
 
 8. **Validate reference files for contamination**: A clean SKILL.md does not guarantee a clean skill. We identified 66 skills with hidden contamination in reference files. Run contamination analysis on the full skill directory, not just the instruction file.
 
+9. **Prioritize novel content over restating common knowledge**: Novelty is the weakest dimension across the ecosystem (mean 3.52) and the key differentiator between top and bottom skills. Before writing a skill, ask: "Does the LLM already know this?" Skills wrapping well-known libraries should focus on non-obvious gotchas, internal conventions, and project-specific patterns rather than restating standard documentation. Community collection skills score lowest on novelty (3.19) precisely because they often repackage information already in the model's training data.
+
+10. **Use structured formats over prose**: Top-scoring skills use tables as their primary information vehicle (90% include tables vs. 40% of bottom skills) and maintain roughly a 4:1 ratio of structured content (tables, lists, code) to prose. Quick reference tables near the top of the file, anti-pattern tables, and decision matrices make skills parseable by agents without requiring sequential reading. Every bottom-10 skill in our analysis is prose-heavy.
+
+11. **Delegate depth to reference files**: Reference files consistently outscore SKILL.md on LLM quality (+0.39 overall, +0.52 on token efficiency). Keep SKILL.md at 100–300 lines as a concise action guide and delegate detailed examples, API docs, and extended patterns to `references/`. Top-scoring skills use this progressive disclosure pattern; bottom-scoring skills either dump everything into SKILL.md or contain nothing but pointers to references.
+
+12. **Follow the empirical template structure**: Our analysis of top-scoring skills reveals a convergent architecture: scope gate (When to Use / When NOT to Use) → quick reference table → core workflow → domain-specific sections → anti-patterns → troubleshooting → references. We provide a concrete proposed template derived from these patterns (see companion repository). Of the top 20 skills, 80% include a quick reference section near the top and 60% include an explicit anti-patterns section; both are absent from every bottom-10 skill.
+
+13. **Evaluate whether low-novelty, multi-language skills help or hurt**: Skills that score low on novelty and medium-to-high on contamination risk may actively degrade agent performance — the agent gains no new information but is exposed to mixed-language interference. We identify 35 such skills across the ecosystem, 21 of them company-published Azure SDK skills. Before publishing a multi-language skill, authors should consider whether the content adds value beyond what the LLM already knows. If the answer is no, the skill may do more harm than good.
+
 # Recommendations for Spec Maintainers
 
 1. **Add a `languages` frontmatter field**: Skills should explicitly declare which programming languages they target. This enables agents to filter skills by context and would help mitigate cross-contamination.
 
-2. **Define quality tiers**: Introduce a quality score based on structural compliance, content metrics, and contamination risk. Published skill registries could use these tiers for ranking.
+2. **Define quality tiers with separate craft and novelty axes**: Introduce a quality score based on structural compliance, content metrics, contamination risk, and LLM-judged dimensions. Our analysis reveals a two-factor structure: five craft dimensions (clarity, actionability, token efficiency, scope discipline, directive precision) intercorrelate at r = 0.40–0.73, while novelty is largely independent (r = 0.06–0.33). Quality tiers should reflect both axes — a skill can be well-crafted but unoriginal, or novel but poorly written, and the improvement path is different for each.
 
 3. **Require code block language annotations**: Make unlabeled code blocks a validation error, not just a warning. Research shows that explicit language keywords provide the most effective mitigation for Programming Language Confusion in code LLMs [@moumoula2025plc], making language annotations a low-cost safeguard against cross-contamination.
 
@@ -383,11 +457,13 @@ Based on our findings, we recommend the following practices:
 
 5. **Add contamination risk assessment**: Include cross-contamination detection in the specification's recommended validation pipeline. Critically, this assessment should cover reference files as well as SKILL.md — our analysis found 66 cases of hidden contamination visible only in references.
 
-6. **Engage company publishers**: Company-published skills have a lower structural compliance rate (79.2%) than community collections (94.0%). Given their high visibility and adoption, bringing these into compliance would significantly improve ecosystem quality.
+6. **Engage company publishers on novelty, community authors on craft**: Company-published skills lead on craft quality (scope discipline 4.81, clarity 4.55, token efficiency 4.15) but rank #7 of 8 sources on novelty (3.53) — they are polished documentation for tools the LLM already knows. Community collections show the inverse: weakest on novelty (3.19) but reasonably actionable. The improvement path differs by source: company publishers should focus on non-obvious integration patterns and gotchas rather than restating their public API docs, while community authors would benefit most from structural templates and editorial guidelines to improve craft.
 
 7. **Warn on or penalize nonstandard files**: The specification should explicitly warn against files outside the defined structure (`SKILL.md`, `references/`, `assets/`). Currently, 52% of all tokens in the ecosystem come from nonstandard files. A validation warning or error for unexpected root-level files would significantly reduce context window waste. At minimum, agent platforms should consider filtering out nonstandard files when loading skills.
 
 8. **Set token budget guidelines**: Provide recommended maximum token counts for SKILL.md, individual reference files, and total skill size. Our analysis shows that the median effective skill is ~4,000 tokens, yet 17 skills exceed 50% of a 128k context window. Guidelines would help authors understand the practical limits of context window consumption.
+
+9. **Publish a substantive SKILL.md template**: The current official template provides three lines of scaffolding. Our analysis of top-scoring skills reveals seven structural patterns that consistently distinguish high-quality skills: scope gates (When to Use / When NOT to Use), quick reference tables, progressive disclosure via references, copy-paste-ready code blocks, strategic use of strong directives, anti-pattern documentation, and actionable content over meta-content. A template encoding these patterns — with inline guidance explaining *why* each section matters — would give authors structural quality for free so they can focus effort on novel content. We provide a proposed template derived from these empirical findings as a companion to this paper.
 
 # Limitations and Future Work
 
@@ -397,13 +473,14 @@ Based on our findings, we recommend the following practices:
 - Cross-contamination risk scoring measures structural indicators (multi-language content, multi-interface tools, scope breadth) using keyword matching rather than semantic analysis. While research on Programming Language Confusion [@moumoula2025plc], copy bias [@ali2024copybias], and irrelevant context effects [@shi2023distracted] provides a strong theoretical basis for the risk, we have not conducted controlled experiments to measure the actual behavioral impact of specific skills on agent code generation. Our risk scores should be interpreted as indicators of structural potential for interference, not as measured effect sizes
 - The scoring weights mismatches by language type (application-to-application vs. application-to-auxiliary), but the specific weights (1.0, 0.25, 0.1) are informed by the research direction rather than empirically calibrated. The PLC research [@moumoula2025plc] establishes that syntactically similar languages cause more confusion, but does not quantify the exact risk ratio between, for example, Python/JavaScript confusion and Python/bash confusion. Future work could calibrate these weights through behavioral experiments
 - We analyze the skill text only, not the actual agent behavior when using skills — behavioral validation is the most important direction for future work
+- Skills that contain embedded AI-directed prompts or evaluation rubrics pose a distinct quality risk beyond token waste or contamination: they can act as unintentional prompt injections when loaded into an agent's context window. We observed this directly during LLM-as-judge scoring, where three skills consistently caused the judge model to abandon its evaluation task. A meta-skill containing realistic pressure scenarios (e.g., "Choose A, B, or C. Be honest." and "Make agent believe it's real work, not a quiz") caused the judge to role-play the embedded scenarios rather than evaluate the document. A diagram generation skill with an embedded quality rubric (scoring criteria like "Scientific Accuracy (0-2 points)" and example output showing "SCORE: 8.0") caused the judge to adopt that rubric format instead of its own. Reference files with code-heavy content — particularly C# examples containing curly-brace initializers, inline JSON schemas, and string interpolation — consistently corrupted the judge's JSON output formatting, producing syntactically invalid responses. While an agent performing a user-directed task has a richer context that provides more insulation than a single-purpose judge, the risk is not zero — particularly for skills containing embedded evaluation criteria, example dialogues, or dense code with JSON-like syntax. These three failure modes — prompt hijacking via embedded scenarios, format hijacking via embedded rubrics, and output corruption via code-heavy content — represent categories of skill content that structural validation cannot detect but that skill authors should be aware of
 - The dataset represents a point-in-time snapshot; the ecosystem evolves rapidly
 - Some skill name collisions occur across sources within the same category
 
 **Future work:**
 
 - **Behavioral testing**: Measure actual agent code generation quality with and without high-risk skills across domains, to validate whether our structural risk scores predict real performance degradation. Controlled experiments comparing code correctness with and without mixed-language skill content would establish the causal link that our structural analysis and the existing literature [@moumoula2025plc; @shi2023distracted; @ali2024copybias] predict but that has not been directly tested in the skill file context. Of particular interest is comparing the effect of application-to-application language mixing (e.g., Python + JavaScript for the same API) against application-to-auxiliary mixing (e.g., Python + bash + YAML) to calibrate the similarity weights in our risk scoring
-- **LLM-as-judge quality scoring**: Use Claude to evaluate skill quality on dimensions including clarity, actionability, token efficiency, scope discipline, directive precision, and novelty (infrastructure built, awaiting execution)
+- **Net negative skill validation**: Our analysis identifies 35 skills (7.3% of company skills) with both low novelty and medium-to-high contamination — a profile where the theoretical net effect on agent performance is negative. Controlled A/B experiments comparing agent output quality with and without these specific skills would test whether low-novelty, high-contamination skills actively degrade performance relative to baseline (no skill loaded). This is a stronger claim than the general behavioral testing above: it predicts that *removing* certain skills would *improve* agent output, not merely leave it unchanged
 - **Longitudinal analysis**: Track skill quality trends as the ecosystem matures and companies update their skills
 - **Skill composition analysis**: Study how multiple active skills interact and potentially conflict
 - **Expanded coverage**: Our ecosystem survey (Appendix A) identifies 800+ additional skills; analyzing the full set would strengthen statistical power
@@ -413,6 +490,8 @@ Based on our findings, we recommend the following practices:
 The Agent Skills ecosystem is young and growing rapidly. Our analysis of 673 skills from 41 repositories reveals meaningful variation in structural compliance (78.0% pass rate), content quality, cross-contamination risk (10 high-risk skills), and context window efficiency (52% token waste). Company-published skills — from Microsoft, OpenAI, Stripe, and others — have a *lower* structural compliance rate (79.2%) than community collections (94.0%), inverting the assumption that official sources produce higher-quality skills.
 
 Two findings stand out as particularly actionable. First, the context window waste problem: over half of all tokens loaded from skills are nonstandard files — LICENSE texts, build artifacts, XML schemas, benchmark data — that provide no instructional value to the agent. This is both the largest quality issue by magnitude and the easiest to fix. Second, hidden contamination in reference files: 66 skills appear clean when only the SKILL.md is analyzed but carry medium or high contamination risk in their reference files, meaning contamination assessments that ignore references undercount risk by 30%.
+
+LLM-as-judge scoring across all 673 skills reveals that novelty — the degree to which a skill provides information beyond training data — is the key quality differentiator, correlating only weakly (r = 0.06–0.33) with craft dimensions like clarity and conciseness. Structural validation is largely orthogonal to LLM-judged quality (passed 4.10 vs. failed 4.06), and reference files consistently outscore their parent SKILL.md files (+0.39 overall), suggesting that focused code examples are more effective context window content than prose instructions.
 
 The cross-contamination risk is grounded in established LLM behaviors: Programming Language Confusion causes code LLMs to systematically generate code in unintended languages [@moumoula2025plc], in-context examples bias generated code toward the patterns they contain [@li2023lail; @ali2024copybias], and irrelevant context actively degrades LLM reasoning [@shi2023distracted]. Our MongoDB case study illustrates how these effects manifest in practice, and our structural analysis identifies 1.5% of skills at high risk and 21.8% at medium risk for triggering them. With the ecosystem growing rapidly (we estimate 1,400+ skills exist across 120+ repositories), systematic behavioral validation of these risk scores is an important next step.
 

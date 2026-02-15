@@ -97,6 +97,8 @@ h3 {
 .stat-card.fail { border-left-color: #e74c3c; }
 .stat-card.warn { border-left-color: #f39c12; }
 .stat-card.waste { border-left-color: #9b59b6; }
+.stat-card.llm { border-left-color: #1abc9c; }
+.stat-card.net-neg { border-left-color: #c0392b; }
 
 .stat-value {
     font-size: 2.5rem;
@@ -232,6 +234,7 @@ h3 {
 .badge-high { background: #fadbd8; color: #c0392b; }
 .badge-medium { background: #fdebd0; color: #d68910; }
 .badge-low { background: #d4efdf; color: #1e8449; }
+.badge-net-neg { background: #f5b7b1; color: #922b21; font-size: 0.7rem; }
 
 /* Detail Panel */
 .detail-panel {
@@ -365,6 +368,56 @@ h3 {
     background: #fdedec;
     border-color: #f5b7b1;
     color: #922b21;
+}
+
+/* Net negative / callout */
+.callout-box {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #c0392b;
+    margin-bottom: 1.5rem;
+}
+
+.callout-stats {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+}
+
+.callout-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.callout-table th {
+    text-align: left;
+    padding: 0.4rem 0.75rem;
+    background: #f8f9fa;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.callout-table td {
+    padding: 0.35rem 0.75rem;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+#net-negative-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+#net-negative-cards h4:first-child {
+    grid-column: 1 / -1;
+    color: #34495e;
+    margin-bottom: 0;
+}
+
+.net-neg-card {
+    border-left-color: #c0392b;
 }
 
 /* GitHub links */
