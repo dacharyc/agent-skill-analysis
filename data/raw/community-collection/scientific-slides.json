@@ -182,10 +182,13 @@
     "mismatched_categories": [
       "markup"
     ],
+    "mismatch_weights": {
+      "markup": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0133,
     "contamination_level": "low"
   },
   "references_content_analysis": {
@@ -360,14 +363,17 @@
     "mismatched_categories": [
       "python"
     ],
+    "mismatch_weights": {
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
       "javascript"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.5833,
-    "contamination_level": "high"
+    "contamination_score": 0.4833,
+    "contamination_level": "medium"
   },
   "reference_reports": [
     {
@@ -501,6 +507,7 @@
         ],
         "primary_category": "shell",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "dotnet"
@@ -541,6 +548,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -573,6 +581,7 @@
         "language_categories": [],
         "primary_category": "",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -605,6 +614,7 @@
         "language_categories": [],
         "primary_category": "",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 0,
@@ -637,6 +647,7 @@
         "language_categories": [],
         "primary_category": "",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 0,
@@ -708,10 +719,13 @@
         "mismatched_categories": [
           "python"
         ],
+        "mismatch_weights": {
+          "python": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     }

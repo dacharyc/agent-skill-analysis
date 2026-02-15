@@ -114,24 +114,27 @@
     "mismatched_categories": [
       "shell"
     ],
+    "mismatch_weights": {
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript"
     ],
     "scope_breadth": 2,
-    "contamination_score": 0.4333,
+    "contamination_score": 0.3333,
     "contamination_level": "medium"
   },
   "link_results": [
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:8081/api/hello (request failed: Head \"http://localhost:8081/api/hello\": dial tcp 127.0.0.1:8081: connect: connection refused)"
+      "message": "http://localhost:8081/api/hello (request failed: Head \"http://localhost:8081/api/hello\": dial tcp [::1]:8081: connect: connection refused)"
     },
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:8081/api/users (request failed: Head \"http://localhost:8081/api/users\": dial tcp 127.0.0.1:8081: connect: connection refused)"
+      "message": "http://localhost:8081/api/users (request failed: Head \"http://localhost:8081/api/users\": dial tcp [::1]:8081: connect: connection refused)"
     }
   ],
   "link_errors": 2,

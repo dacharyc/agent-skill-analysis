@@ -115,12 +115,16 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.4167,
+    "contamination_score": 0.2167,
     "contamination_level": "medium"
   },
   "references_content_analysis": {
@@ -225,14 +229,17 @@
     "mismatched_categories": [
       "config"
     ],
+    "mismatch_weights": {
+      "config": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
       "javascript"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.2833,
-    "contamination_level": "medium"
+    "contamination_score": 0.1833,
+    "contamination_level": "low"
   },
   "reference_reports": [
     {
@@ -312,6 +319,7 @@
         ],
         "primary_category": "java",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "dotnet"
@@ -375,14 +383,17 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet",
           "javascript"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.2833,
-        "contamination_level": "medium"
+        "contamination_score": 0.1833,
+        "contamination_level": "low"
       }
     }
   ],

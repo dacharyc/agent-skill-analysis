@@ -143,10 +143,13 @@
     "mismatched_categories": [
       "shell"
     ],
+    "mismatch_weights": {
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0333,
     "contamination_level": "low"
   },
   "references_content_analysis": {
@@ -365,12 +368,16 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.4167,
+    "contamination_score": 0.2167,
     "contamination_level": "medium"
   },
   "reference_reports": [
@@ -426,11 +433,15 @@
           "config",
           "shell"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     },
     {
@@ -487,10 +498,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -552,13 +566,16 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     },
     {
@@ -623,10 +640,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -692,10 +712,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -747,10 +770,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -816,10 +842,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     }
@@ -836,9 +865,9 @@
       "message": "https://fred.stlouisfed.org/ (HTTP 200)"
     },
     {
-      "level": "error",
+      "level": "pass",
       "category": "Links",
-      "message": "https://fred.stlouisfed.org/docs/api/fred/ (request failed: Head \"https://fred.stlouisfed.org/docs/api/fred/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers))"
+      "message": "https://fred.stlouisfed.org/docs/api/fred/ (HTTP 200)"
     },
     {
       "level": "pass",
@@ -856,6 +885,6 @@
       "message": "https://fred.stlouisfed.org/legal/ (HTTP 200)"
     }
   ],
-  "link_errors": 1,
+  "link_errors": 0,
   "link_warnings": 0
 }

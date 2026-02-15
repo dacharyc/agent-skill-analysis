@@ -137,6 +137,7 @@
     ],
     "primary_category": "python",
     "mismatched_categories": [],
+    "mismatch_weights": {},
     "language_mismatch": false,
     "tech_references": [
       "javascript"
@@ -423,13 +424,18 @@
       "javascript",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "javascript": 1,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript",
       "ruby"
     ],
     "scope_breadth": 5,
-    "contamination_score": 0.925,
+    "contamination_score": 0.725,
     "contamination_level": "high"
   },
   "reference_reports": [
@@ -617,13 +623,17 @@
           "javascript",
           "shell"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25,
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1217,
+        "contamination_level": "low"
       }
     },
     {
@@ -682,13 +692,16 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "ruby"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.5083,
-        "contamination_level": "high"
+        "contamination_score": 0.4083,
+        "contamination_level": "medium"
       }
     },
     {
@@ -789,10 +802,13 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     }

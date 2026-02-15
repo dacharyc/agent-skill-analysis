@@ -149,22 +149,25 @@
     "mismatched_categories": [
       "shell"
     ],
+    "mismatch_weights": {
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0333,
     "contamination_level": "low"
   },
   "link_results": [
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:3001 (request failed: Head \"http://localhost:3001\": dial tcp 127.0.0.1:3001: connect: connection refused)"
+      "message": "http://localhost:3001 (request failed: Head \"http://localhost:3001\": dial tcp [::1]:3001: connect: connection refused)"
     },
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:3000 (request failed: Head \"http://localhost:3000\": dial tcp 127.0.0.1:3000: connect: connection refused)"
+      "message": "http://localhost:3000 (request failed: Head \"http://localhost:3000\": dial tcp [::1]:3000: connect: connection refused)"
     }
   ],
   "link_errors": 2,

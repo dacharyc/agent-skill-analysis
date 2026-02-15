@@ -128,14 +128,19 @@
       "markup",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "markup": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "java",
       "javascript"
     ],
     "scope_breadth": 5,
-    "contamination_score": 0.625,
-    "contamination_level": "high"
+    "contamination_score": 0.325,
+    "contamination_level": "medium"
   },
   "references_content_analysis": {
     "word_count": 8149,
@@ -319,14 +324,17 @@
     "mismatched_categories": [
       "markup"
     ],
+    "mismatch_weights": {
+      "markup": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "java",
       "javascript"
     ],
     "scope_breadth": 3,
-    "contamination_score": 0.2083,
-    "contamination_level": "medium"
+    "contamination_score": 0.1083,
+    "contamination_level": "low"
   },
   "reference_reports": [
     {
@@ -423,14 +431,17 @@
         "mismatched_categories": [
           "markup"
         ],
+        "mismatch_weights": {
+          "markup": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "java",
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     },
     {
@@ -496,6 +507,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "java",
@@ -546,13 +558,16 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "java"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     },
     {
@@ -626,6 +641,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "java",

@@ -95,6 +95,9 @@
     "mismatched_categories": [
       "javascript"
     ],
+    "mismatch_weights": {
+      "javascript": 1
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript",
@@ -192,13 +195,17 @@
       "javascript",
       "shell"
     ],
+    "mismatch_weights": {
+      "javascript": 1,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript",
       "python"
     ],
     "scope_breadth": 3,
-    "contamination_score": 0.3417,
+    "contamination_score": 0.2417,
     "contamination_level": "medium"
   },
   "reference_reports": [
@@ -278,13 +285,17 @@
           "javascript",
           "shell"
         ],
+        "mismatch_weights": {
+          "javascript": 1,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
           "python"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
+        "contamination_score": 0.2417,
         "contamination_level": "medium"
       }
     },
@@ -321,6 +332,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript",
@@ -369,6 +381,9 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",

@@ -174,10 +174,13 @@
     "mismatched_categories": [
       "javascript"
     ],
+    "mismatch_weights": {
+      "javascript": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.4333,
+    "contamination_score": 0.3333,
     "contamination_level": "medium"
   },
   "link_results": [
@@ -189,7 +192,7 @@
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:8787/__scheduled (request failed: Head \"http://localhost:8787/__scheduled\": dial tcp 127.0.0.1:8787: connect: connection refused)"
+      "message": "http://localhost:8787/__scheduled (request failed: Head \"http://localhost:8787/__scheduled\": dial tcp [::1]:8787: connect: connection refused)"
     }
   ],
   "link_errors": 1,

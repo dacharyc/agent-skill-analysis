@@ -109,6 +109,7 @@
     ],
     "primary_category": "python",
     "mismatched_categories": [],
+    "mismatch_weights": {},
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
@@ -498,13 +499,17 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript",
       "python"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.7167,
+    "contamination_score": 0.5167,
     "contamination_level": "high"
   },
   "reference_reports": [
@@ -591,6 +596,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -671,6 +677,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -751,6 +758,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "python"
@@ -851,10 +859,13 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.4333,
+        "contamination_score": 0.3333,
         "contamination_level": "medium"
       }
     },
@@ -931,6 +942,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -1073,11 +1085,15 @@
           "config",
           "python"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "python": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.6417,
-        "contamination_level": "high"
+        "contamination_score": 0.4217,
+        "contamination_level": "medium"
       }
     }
   ],

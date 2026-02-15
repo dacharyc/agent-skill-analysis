@@ -99,17 +99,21 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "contamination_score": 0.3417,
-    "contamination_level": "medium"
+    "contamination_score": 0.1417,
+    "contamination_level": "low"
   },
   "link_results": [
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:5173 (request failed: Head \"http://localhost:5173\": dial tcp 127.0.0.1:5173: connect: connection refused)"
+      "message": "http://localhost:5173 (request failed: Head \"http://localhost:5173\": dial tcp [::1]:5173: connect: connection refused)"
     }
   ],
   "link_errors": 1,

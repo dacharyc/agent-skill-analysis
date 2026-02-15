@@ -169,6 +169,9 @@
     "mismatched_categories": [
       "systems"
     ],
+    "mismatch_weights": {
+      "systems": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
@@ -176,7 +179,7 @@
       "mobile"
     ],
     "scope_breadth": 5,
-    "contamination_score": 0.3583,
+    "contamination_score": 0.2583,
     "contamination_level": "medium"
   },
   "references_content_analysis": {
@@ -387,6 +390,16 @@
       "ruby",
       "systems"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "dotnet": 0.25,
+      "java": 0.25,
+      "javascript": 0.25,
+      "mobile": 0.25,
+      "python": 0.25,
+      "ruby": 0.25,
+      "systems": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
@@ -395,7 +408,7 @@
       "ruby"
     ],
     "scope_breadth": 9,
-    "contamination_score": 0.7,
+    "contamination_score": 0.5467,
     "contamination_level": "high"
   },
   "reference_reports": [
@@ -441,11 +454,15 @@
           "config",
           "shell"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     },
     {
@@ -486,12 +503,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -561,12 +581,16 @@
           "mobile",
           "shell"
         ],
+        "mismatch_weights": {
+          "mobile": 1,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.4167,
+        "contamination_score": 0.3167,
         "contamination_level": "medium"
       }
     },
@@ -617,6 +641,7 @@
         ],
         "primary_category": "shell",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "dotnet"
@@ -666,10 +691,13 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -715,12 +743,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "ruby"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -786,12 +817,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "mobile"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -867,13 +901,17 @@
           "dotnet",
           "java"
         ],
+        "mismatch_weights": {
+          "dotnet": 0.25,
+          "java": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     }
   ],

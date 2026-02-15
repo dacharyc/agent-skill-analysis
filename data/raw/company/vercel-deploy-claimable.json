@@ -83,13 +83,16 @@
     "mismatched_categories": [
       "config"
     ],
+    "mismatch_weights": {
+      "config": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript"
     ],
     "scope_breadth": 3,
-    "contamination_score": 0.2083,
-    "contamination_level": "medium"
+    "contamination_score": 0.0883,
+    "contamination_level": "low"
   },
   "link_results": [
     {
@@ -103,9 +106,9 @@
       "message": "https://vercel.com/claim-deployment?code=... (HTTP 200)"
     },
     {
-      "level": "info",
+      "level": "pass",
       "category": "Links",
-      "message": "https://claude.ai/settings/capabilities (HTTP 403 \u2014 may block automated requests)"
+      "message": "https://claude.ai/settings/capabilities (HTTP 200)"
     }
   ],
   "link_errors": 1,

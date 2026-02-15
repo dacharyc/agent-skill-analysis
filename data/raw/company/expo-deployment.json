@@ -110,10 +110,13 @@
     "mismatched_categories": [
       "config"
     ],
+    "mismatch_weights": {
+      "config": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0133,
     "contamination_level": "low"
   },
   "references_content_analysis": {
@@ -262,11 +265,15 @@
       "javascript",
       "shell"
     ],
+    "mismatch_weights": {
+      "javascript": 0.25,
+      "shell": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "contamination_score": 0.6417,
-    "contamination_level": "high"
+    "contamination_score": 0.4217,
+    "contamination_level": "medium"
   },
   "reference_reports": [
     {
@@ -339,11 +346,15 @@
           "javascript",
           "shell"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25,
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1217,
+        "contamination_level": "low"
       }
     },
     {
@@ -408,10 +419,13 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.4333,
+        "contamination_score": 0.3133,
         "contamination_level": "medium"
       }
     },
@@ -469,10 +483,13 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0133,
         "contamination_level": "low"
       }
     },
@@ -509,6 +526,7 @@
         ],
         "primary_category": "shell",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -559,6 +577,7 @@
         ],
         "primary_category": "config",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,

@@ -141,11 +141,15 @@
       "javascript",
       "markup"
     ],
+    "mismatch_weights": {
+      "javascript": 0.25,
+      "markup": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "contamination_score": 0.3417,
-    "contamination_level": "medium"
+    "contamination_score": 0.1217,
+    "contamination_level": "low"
   },
   "references_content_analysis": {
     "word_count": 774,
@@ -176,6 +180,7 @@
     ],
     "primary_category": "markup",
     "mismatched_categories": [],
+    "mismatch_weights": {},
     "language_mismatch": false,
     "tech_references": [],
     "scope_breadth": 1,
@@ -214,6 +219,7 @@
         ],
         "primary_category": "markup",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -224,9 +230,9 @@
   ],
   "link_results": [
     {
-      "level": "error",
+      "level": "pass",
       "category": "Links",
-      "message": "https://developers.facebook.com/tools/debug/ (request failed: Head \"https://developers.facebook.com/tools/debug/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers))"
+      "message": "https://developers.facebook.com/tools/debug/ (HTTP 200)"
     },
     {
       "level": "info",
@@ -244,6 +250,6 @@
       "message": "https://www.opengraph.xyz/ (HTTP 429)"
     }
   ],
-  "link_errors": 2,
+  "link_errors": 1,
   "link_warnings": 0
 }

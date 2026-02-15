@@ -110,10 +110,13 @@
     "mismatched_categories": [
       "python"
     ],
+    "mismatch_weights": {
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.4333,
+    "contamination_score": 0.3333,
     "contamination_level": "medium"
   },
   "references_content_analysis": {
@@ -186,13 +189,17 @@
       "config",
       "python"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.4167,
-    "contamination_level": "medium"
+    "contamination_score": 0.1967,
+    "contamination_level": "low"
   },
   "reference_reports": [
     {
@@ -249,13 +256,17 @@
           "config",
           "python"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "python": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.4167,
-        "contamination_level": "medium"
+        "contamination_score": 0.1967,
+        "contamination_level": "low"
       }
     },
     {
@@ -281,6 +292,7 @@
         "language_categories": [],
         "primary_category": "",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 0,
@@ -338,13 +350,17 @@
           "config",
           "python"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "python": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.4167,
-        "contamination_level": "medium"
+        "contamination_score": 0.1967,
+        "contamination_level": "low"
       }
     }
   ],

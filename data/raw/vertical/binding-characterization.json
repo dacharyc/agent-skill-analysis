@@ -70,6 +70,7 @@
     "language_categories": [],
     "primary_category": "",
     "mismatched_categories": [],
+    "mismatch_weights": {},
     "language_mismatch": false,
     "tech_references": [
       "javascript"
@@ -110,9 +111,9 @@
       "message": "https://nicoyalife.com/blog/3-ways-to-limit-mass-transfer-effects/ (HTTP 200)"
     },
     {
-      "level": "info",
+      "level": "error",
       "category": "Links",
-      "message": "https://pubs.acs.org/doi/10.1021/acsomega.1c05659 (HTTP 403 \u2014 may block automated requests)"
+      "message": "https://pubs.acs.org/doi/10.1021/acsomega.1c05659 (request failed: Head \"https://pubs.acs.org/doi/10.1021/acsomega.1c05659\": dial tcp: lookup pubs.acs.org: no such host)"
     },
     {
       "level": "pass",
@@ -135,6 +136,6 @@
       "message": "https://www.sprpages.nl/data-fitting/kinetic-models/mass-transfer (HTTP 200)"
     }
   ],
-  "link_errors": 0,
+  "link_errors": 1,
   "link_warnings": 0
 }

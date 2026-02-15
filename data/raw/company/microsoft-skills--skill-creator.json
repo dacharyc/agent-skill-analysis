@@ -135,14 +135,22 @@
       "markup",
       "python"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "dotnet": 0.25,
+      "java": 0.25,
+      "javascript": 0.25,
+      "markup": 0.1,
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
       "javascript"
     ],
     "scope_breadth": 7,
-    "contamination_score": 0.7,
-    "contamination_level": "high"
+    "contamination_score": 0.46,
+    "contamination_level": "medium"
   },
   "references_content_analysis": {
     "word_count": 3783,
@@ -316,6 +324,13 @@
       "javascript",
       "python"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "dotnet": 0.25,
+      "java": 0.25,
+      "javascript": 0.25,
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
@@ -323,8 +338,8 @@
       "python"
     ],
     "scope_breadth": 6,
-    "contamination_score": 0.7,
-    "contamination_level": "high"
+    "contamination_score": 0.4467,
+    "contamination_level": "medium"
   },
   "reference_reports": [
     {
@@ -415,6 +430,12 @@
           "javascript",
           "python"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "dotnet": 0.25,
+          "javascript": 0.25,
+          "python": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet",
@@ -422,8 +443,8 @@
           "python"
         ],
         "scope_breadth": 5,
-        "contamination_score": 0.625,
-        "contamination_level": "high"
+        "contamination_score": 0.3383,
+        "contamination_level": "medium"
       }
     },
     {
@@ -514,6 +535,11 @@
           "java",
           "javascript"
         ],
+        "mismatch_weights": {
+          "dotnet": 1,
+          "java": 1,
+          "javascript": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet",
@@ -572,10 +598,13 @@
         "mismatched_categories": [
           "python"
         ],
+        "mismatch_weights": {
+          "python": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -618,6 +647,7 @@
         ],
         "primary_category": "markup",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,

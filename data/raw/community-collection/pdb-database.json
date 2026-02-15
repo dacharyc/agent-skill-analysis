@@ -104,10 +104,13 @@
     "mismatched_categories": [
       "shell"
     ],
+    "mismatch_weights": {
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.4333,
+    "contamination_score": 0.3333,
     "contamination_level": "medium"
   },
   "references_content_analysis": {
@@ -180,11 +183,15 @@
       "query",
       "shell"
     ],
+    "mismatch_weights": {
+      "query": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "contamination_score": 0.6417,
-    "contamination_level": "high"
+    "contamination_score": 0.4417,
+    "contamination_level": "medium"
   },
   "reference_reports": [
     {
@@ -259,11 +266,15 @@
           "query",
           "shell"
         ],
+        "mismatch_weights": {
+          "query": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.6417,
-        "contamination_level": "high"
+        "contamination_score": 0.4417,
+        "contamination_level": "medium"
       }
     }
   ],
@@ -274,9 +285,9 @@
       "message": "https://www.rcsb.org (HTTP 200)"
     },
     {
-      "level": "pass",
+      "level": "error",
       "category": "Links",
-      "message": "https://pdb101.rcsb.org (HTTP 200)"
+      "message": "https://pdb101.rcsb.org (request failed: Head \"https://pdb101.rcsb.org\": dial tcp: lookup pdb101.rcsb.org: no such host)"
     },
     {
       "level": "pass",
@@ -299,6 +310,6 @@
       "message": "https://github.com/rcsb/py-rcsb-api (HTTP 200)"
     }
   ],
-  "link_errors": 0,
+  "link_errors": 1,
   "link_warnings": 0
 }

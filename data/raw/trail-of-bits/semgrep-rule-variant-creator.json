@@ -90,10 +90,13 @@
     "mismatched_categories": [
       "systems"
     ],
+    "mismatch_weights": {
+      "systems": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0333,
     "contamination_level": "low"
   },
   "references_content_analysis": {
@@ -204,14 +207,20 @@
       "shell",
       "systems"
     ],
+    "mismatch_weights": {
+      "java": 0.25,
+      "python": 0.25,
+      "shell": 0.1,
+      "systems": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript",
       "python"
     ],
     "scope_breadth": 6,
-    "contamination_score": 0.7,
-    "contamination_level": "high"
+    "contamination_score": 0.4133,
+    "contamination_level": "medium"
   },
   "reference_reports": [
     {
@@ -243,6 +252,7 @@
         ],
         "primary_category": "config",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -324,14 +334,20 @@
           "shell",
           "systems"
         ],
+        "mismatch_weights": {
+          "java": 0.25,
+          "python": 0.25,
+          "shell": 0.1,
+          "systems": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
           "python"
         ],
         "scope_breadth": 6,
-        "contamination_score": 0.7,
-        "contamination_level": "high"
+        "contamination_score": 0.4133,
+        "contamination_level": "medium"
       }
     },
     {
@@ -402,11 +418,16 @@
           "java",
           "systems"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "java": 0.25,
+          "systems": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 4,
-        "contamination_score": 0.55,
-        "contamination_level": "high"
+        "contamination_score": 0.23,
+        "contamination_level": "medium"
       }
     }
   ],

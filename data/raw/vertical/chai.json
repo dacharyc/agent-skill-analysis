@@ -27,17 +27,17 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"biomodals_script\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"category\""
     },
     {
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"tags\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
     },
     {
       "level": "pass",
@@ -109,10 +109,13 @@
     "mismatched_categories": [
       "python"
     ],
+    "mismatch_weights": {
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0333,
     "contamination_level": "low"
   },
   "references_content_analysis": {
@@ -161,11 +164,15 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "contamination_score": 0.3417,
-    "contamination_level": "medium"
+    "contamination_score": 0.1417,
+    "contamination_level": "low"
   },
   "reference_reports": [
     {
@@ -216,11 +223,15 @@
           "config",
           "shell"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     }
   ],

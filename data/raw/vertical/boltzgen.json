@@ -27,16 +27,6 @@
     {
       "level": "warning",
       "category": "Frontmatter",
-      "message": "unrecognized field: \"proteinbase_url\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
-      "message": "unrecognized field: \"biomodals_script\""
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
       "message": "unrecognized field: \"category\""
     },
     {
@@ -48,6 +38,16 @@
       "level": "warning",
       "category": "Frontmatter",
       "message": "unrecognized field: \"proteinbase_slug\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"proteinbase_url\""
+    },
+    {
+      "level": "warning",
+      "category": "Frontmatter",
+      "message": "unrecognized field: \"biomodals_script\""
     },
     {
       "level": "pass",
@@ -119,11 +119,15 @@
       "config",
       "python"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 3,
-    "contamination_score": 0.3417,
-    "contamination_level": "medium"
+    "contamination_score": 0.1217,
+    "contamination_level": "low"
   },
   "references_content_analysis": {
     "word_count": 763,
@@ -185,10 +189,13 @@
     "mismatched_categories": [
       "shell"
     ],
+    "mismatch_weights": {
+      "shell": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 2,
-    "contamination_score": 0.1333,
+    "contamination_score": 0.0133,
     "contamination_level": "low"
   },
   "reference_reports": [
@@ -254,10 +261,13 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0133,
         "contamination_level": "low"
       }
     }

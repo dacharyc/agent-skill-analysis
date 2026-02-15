@@ -117,12 +117,16 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.4167,
+    "contamination_score": 0.2167,
     "contamination_level": "medium"
   },
   "references_content_analysis": {
@@ -289,12 +293,16 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.4167,
+    "contamination_score": 0.2167,
     "contamination_level": "medium"
   },
   "reference_reports": [
@@ -394,13 +402,16 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     },
     {
@@ -501,13 +512,16 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     }
   ],

@@ -251,12 +251,16 @@
       "config",
       "systems"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "systems": 1
+    },
     "language_mismatch": true,
     "tech_references": [
       "mobile"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.7167,
+    "contamination_score": 0.6167,
     "contamination_level": "high"
   },
   "references_content_analysis": {
@@ -847,6 +851,16 @@
       "ruby",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "dotnet": 1,
+      "java": 1,
+      "javascript": 1,
+      "mobile": 1,
+      "python": 1,
+      "ruby": 1,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
@@ -913,6 +927,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -978,6 +993,9 @@
         "mismatched_categories": [
           "python"
         ],
+        "mismatch_weights": {
+          "python": 1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
@@ -1061,11 +1079,16 @@
           "python",
           "shell"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25,
+          "python": 0.25,
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 4,
-        "contamination_score": 0.55,
-        "contamination_level": "high"
+        "contamination_score": 0.23,
+        "contamination_level": "medium"
       }
     },
     {
@@ -1122,10 +1145,14 @@
           "config",
           "systems"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "systems": 1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
+        "contamination_score": 0.2417,
         "contamination_level": "medium"
       }
     },
@@ -1178,6 +1205,7 @@
         ],
         "primary_category": "systems",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -1253,12 +1281,15 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "dotnet"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1313,6 +1344,7 @@
         ],
         "primary_category": "systems",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -1381,6 +1413,7 @@
         ],
         "primary_category": "java",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "java"
@@ -1443,6 +1476,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -1512,10 +1546,13 @@
           "java",
           "mobile"
         ],
-        "primary_category": "java",
+        "primary_category": "mobile",
         "mismatched_categories": [
-          "mobile"
+          "java"
         ],
+        "mismatch_weights": {
+          "java": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
@@ -1584,6 +1621,7 @@
         "language_categories": [],
         "primary_category": "",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 0,
@@ -1650,6 +1688,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -1730,6 +1769,7 @@
         ],
         "primary_category": "ruby",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "ruby"
@@ -1792,6 +1832,7 @@
         ],
         "primary_category": "systems",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -1862,6 +1903,7 @@
         ],
         "primary_category": "mobile",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "mobile"
@@ -1989,6 +2031,14 @@
           "python",
           "ruby"
         ],
+        "mismatch_weights": {
+          "dotnet": 1,
+          "java": 1,
+          "javascript": 1,
+          "mobile": 1,
+          "python": 1,
+          "ruby": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",

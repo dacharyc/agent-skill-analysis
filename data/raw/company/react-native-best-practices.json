@@ -225,6 +225,7 @@
     ],
     "primary_category": "shell",
     "mismatched_categories": [],
+    "mismatch_weights": {},
     "language_mismatch": false,
     "tech_references": [
       "javascript",
@@ -797,6 +798,13 @@
       "shell",
       "systems"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "java": 1,
+      "mobile": 1,
+      "shell": 0.25,
+      "systems": 1
+    },
     "language_mismatch": true,
     "tech_references": [
       "java",
@@ -854,13 +862,17 @@
           "config",
           "java"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "java": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.4167,
-        "contamination_level": "medium"
+        "contamination_score": 0.1967,
+        "contamination_level": "low"
       }
     },
     {
@@ -925,12 +937,15 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.4333,
+        "contamination_score": 0.3333,
         "contamination_level": "medium"
       }
     },
@@ -1000,12 +1015,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1061,12 +1079,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1112,13 +1133,16 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     },
     {
@@ -1163,12 +1187,15 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.4333,
+        "contamination_score": 0.3333,
         "contamination_level": "medium"
       }
     },
@@ -1218,12 +1245,15 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1285,13 +1315,16 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.5083,
-        "contamination_level": "high"
+        "contamination_score": 0.4083,
+        "contamination_level": "medium"
       }
     },
     {
@@ -1352,13 +1385,17 @@
           "config",
           "shell"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     },
     {
@@ -1411,14 +1448,17 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "java",
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.2083,
-        "contamination_level": "medium"
+        "contamination_score": 0.1083,
+        "contamination_level": "low"
       }
     },
     {
@@ -1471,12 +1511,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1523,6 +1566,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -1582,12 +1626,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1635,12 +1682,15 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1683,6 +1733,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -1730,12 +1781,15 @@
         "mismatched_categories": [
           "javascript"
         ],
+        "mismatch_weights": {
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -1813,13 +1867,17 @@
           "config",
           "shell"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     },
     {
@@ -1865,6 +1923,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -1907,6 +1966,7 @@
         ],
         "primary_category": "shell",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -1976,14 +2036,19 @@
           "javascript",
           "shell"
         ],
+        "mismatch_weights": {
+          "java": 1,
+          "javascript": 1,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
           "mobile"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.55,
-        "contamination_level": "high"
+        "contamination_score": 0.45,
+        "contamination_level": "medium"
       }
     },
     {
@@ -2032,13 +2097,18 @@
           "mobile",
           "shell"
         ],
+        "mismatch_weights": {
+          "java": 1,
+          "mobile": 1,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
           "mobile"
         ],
         "scope_breadth": 5,
-        "contamination_score": 0.625,
+        "contamination_score": 0.525,
         "contamination_level": "high"
       }
     },
@@ -2087,20 +2157,26 @@
           "swift"
         ],
         "language_categories": [
+          "java",
           "mobile",
           "systems"
         ],
         "primary_category": "systems",
         "mismatched_categories": [
+          "java",
           "mobile"
         ],
+        "mismatch_weights": {
+          "java": 1,
+          "mobile": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
           "mobile"
         ],
-        "scope_breadth": 3,
-        "contamination_score": 0.2083,
+        "scope_breadth": 4,
+        "contamination_score": 0.4167,
         "contamination_level": "medium"
       }
     },
@@ -2139,6 +2215,7 @@
         ],
         "primary_category": "shell",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -2177,6 +2254,7 @@
         ],
         "primary_category": "shell",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"
@@ -2236,12 +2314,15 @@
         "mismatched_categories": [
           "shell"
         ],
+        "mismatch_weights": {
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0333,
         "contamination_level": "low"
       }
     },
@@ -2293,6 +2374,9 @@
         "mismatched_categories": [
           "java"
         ],
+        "mismatch_weights": {
+          "java": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
@@ -2373,6 +2457,12 @@
           "shell",
           "systems"
         ],
+        "mismatch_weights": {
+          "java": 1,
+          "javascript": 1,
+          "shell": 0.25,
+          "systems": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
@@ -2426,6 +2516,7 @@
         ],
         "primary_category": "javascript",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "javascript"

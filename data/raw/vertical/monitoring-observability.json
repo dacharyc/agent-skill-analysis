@@ -284,13 +284,17 @@
       "config",
       "python"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "python": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript"
     ],
     "scope_breadth": 4,
-    "contamination_score": 0.7167,
-    "contamination_level": "high"
+    "contamination_score": 0.4967,
+    "contamination_level": "medium"
   },
   "references_content_analysis": {
     "word_count": 13056,
@@ -736,6 +740,14 @@
       "shell",
       "systems"
     ],
+    "mismatch_weights": {
+      "java": 0.25,
+      "javascript": 0.25,
+      "markup": 0.1,
+      "python": 0.25,
+      "shell": 0.1,
+      "systems": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "dotnet",
@@ -743,7 +755,7 @@
       "python"
     ],
     "scope_breadth": 8,
-    "contamination_score": 1,
+    "contamination_score": 0.76,
     "contamination_level": "high"
   },
   "reference_reports": [
@@ -843,13 +855,17 @@
           "markup",
           "shell"
         ],
+        "mismatch_weights": {
+          "markup": 0.1,
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 4,
-        "contamination_score": 0.7167,
-        "contamination_level": "high"
+        "contamination_score": 0.4767,
+        "contamination_level": "medium"
       }
     },
     {
@@ -929,11 +945,15 @@
           "python",
           "shell"
         ],
+        "mismatch_weights": {
+          "python": 0.25,
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.6417,
-        "contamination_level": "high"
+        "contamination_score": 0.4217,
+        "contamination_level": "medium"
       }
     },
     {
@@ -1063,6 +1083,7 @@
         "language_categories": [],
         "primary_category": "",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [
           "dotnet"
@@ -1196,12 +1217,18 @@
           "python",
           "systems"
         ],
+        "mismatch_weights": {
+          "java": 0.25,
+          "javascript": 0.25,
+          "python": 0.25,
+          "systems": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript"
         ],
         "scope_breadth": 5,
-        "contamination_score": 0.925,
+        "contamination_score": 0.6583,
         "contamination_level": "high"
       }
     },
@@ -1262,6 +1289,7 @@
         ],
         "primary_category": "python",
         "mismatched_categories": [],
+        "mismatch_weights": {},
         "language_mismatch": false,
         "tech_references": [],
         "scope_breadth": 1,
@@ -1307,10 +1335,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0133,
         "contamination_level": "low"
       }
     },
@@ -1362,11 +1393,15 @@
           "python",
           "shell"
         ],
+        "mismatch_weights": {
+          "python": 0.25,
+          "shell": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.6417,
-        "contamination_level": "high"
+        "contamination_score": 0.4217,
+        "contamination_level": "medium"
       }
     },
     {
@@ -1477,13 +1512,19 @@
           "shell",
           "systems"
         ],
+        "mismatch_weights": {
+          "config": 0.25,
+          "javascript": 1,
+          "shell": 0.25,
+          "systems": 1
+        },
         "language_mismatch": true,
         "tech_references": [
           "javascript",
           "python"
         ],
         "scope_breadth": 5,
-        "contamination_score": 0.925,
+        "contamination_score": 0.8583,
         "contamination_level": "high"
       }
     }
@@ -1492,7 +1533,7 @@
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:9090 (request failed: Head \"http://localhost:9090\": dial tcp 127.0.0.1:9090: connect: connection refused)"
+      "message": "http://localhost:9090 (request failed: Head \"http://localhost:9090\": dial tcp [::1]:9090: connect: connection refused)"
     },
     {
       "level": "error",

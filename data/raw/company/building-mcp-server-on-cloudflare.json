@@ -125,13 +125,17 @@
       "config",
       "shell"
     ],
+    "mismatch_weights": {
+      "config": 0.25,
+      "shell": 0.25
+    },
     "language_mismatch": true,
     "tech_references": [
       "javascript"
     ],
     "scope_breadth": 3,
-    "contamination_score": 0.3417,
-    "contamination_level": "medium"
+    "contamination_score": 0.1417,
+    "contamination_level": "low"
   },
   "references_content_analysis": {
     "word_count": 2151,
@@ -239,11 +243,16 @@
       "javascript",
       "markup"
     ],
+    "mismatch_weights": {
+      "config": 0.1,
+      "javascript": 0.25,
+      "markup": 0.1
+    },
     "language_mismatch": true,
     "tech_references": [],
     "scope_breadth": 4,
-    "contamination_score": 0.55,
-    "contamination_level": "high"
+    "contamination_score": 0.21,
+    "contamination_level": "medium"
   },
   "reference_reports": [
     {
@@ -290,10 +299,13 @@
         "mismatched_categories": [
           "config"
         ],
+        "mismatch_weights": {
+          "config": 0.1
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 2,
-        "contamination_score": 0.1333,
+        "contamination_score": 0.0133,
         "contamination_level": "low"
       }
     },
@@ -347,11 +359,15 @@
           "markup",
           "shell"
         ],
+        "mismatch_weights": {
+          "markup": 0.25,
+          "shell": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1417,
+        "contamination_level": "low"
       }
     },
     {
@@ -428,11 +444,15 @@
           "config",
           "javascript"
         ],
+        "mismatch_weights": {
+          "config": 0.1,
+          "javascript": 0.25
+        },
         "language_mismatch": true,
         "tech_references": [],
         "scope_breadth": 3,
-        "contamination_score": 0.3417,
-        "contamination_level": "medium"
+        "contamination_score": 0.1217,
+        "contamination_level": "low"
       }
     }
   ],
@@ -445,7 +465,7 @@
     {
       "level": "error",
       "category": "Links",
-      "message": "http://localhost:8788/mcp (request failed: Head \"http://localhost:8788/mcp\": dial tcp 127.0.0.1:8788: connect: connection refused)"
+      "message": "http://localhost:8788/mcp (request failed: Head \"http://localhost:8788/mcp\": dial tcp [::1]:8788: connect: connection refused)"
     }
   ],
   "link_errors": 2,
