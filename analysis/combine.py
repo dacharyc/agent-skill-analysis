@@ -158,11 +158,17 @@ def main():
     # LLM scores are optional — the pipeline works without them
     llm_scores_path = PROCESSED / "llm-scores.json"
     llm_index = {}
+    ref_llm_index = {}
     if llm_scores_path.exists():
         llm_data = load_json(llm_scores_path)
         for skill in llm_data.get("skills", []):
             key = (skill["name"], skill["source"])
             llm_index[key] = skill.get("llm_scores", {})
+            if skill.get("ref_llm_aggregate"):
+                ref_llm_index[key] = {
+                    "aggregate": skill["ref_llm_aggregate"],
+                    "per_file": skill.get("ref_llm_scores", []),
+                }
 
     # Build GitHub URL index from snapshot metadata
     url_index = _build_github_url_index(validation.get("snapshot", {}))
@@ -233,12 +239,25 @@ def main():
         # LLM judge scores (if available)
         llm = llm_index.get(key, {})
         record["llm_clarity"] = llm.get("clarity")
-        record["llm_coherence"] = llm.get("coherence")
-        record["llm_relevance"] = llm.get("relevance")
         record["llm_actionability"] = llm.get("actionability")
-        record["llm_completeness"] = llm.get("completeness")
+        record["llm_token_efficiency"] = llm.get("token_efficiency")
+        record["llm_scope_discipline"] = llm.get("scope_discipline")
+        record["llm_directive_precision"] = llm.get("directive_precision")
+        record["llm_novelty"] = llm.get("novelty")
         record["llm_overall"] = llm.get("overall")
         record["llm_assessment"] = llm.get("brief_assessment")
+
+        # Reference file LLM judge scores (if available)
+        ref_llm = ref_llm_index.get(key, {})
+        ref_agg = ref_llm.get("aggregate", {})
+        record["ref_llm_clarity"] = ref_agg.get("clarity")
+        record["ref_llm_instructional_value"] = ref_agg.get("instructional_value")
+        record["ref_llm_token_efficiency"] = ref_agg.get("token_efficiency")
+        record["ref_llm_novelty"] = ref_agg.get("novelty")
+        record["ref_llm_skill_relevance"] = ref_agg.get("skill_relevance")
+        record["ref_llm_overall"] = ref_agg.get("overall")
+        record["ref_llm_files_scored"] = ref_agg.get("files_scored")
+        record["ref_llm_per_file"] = ref_llm.get("per_file", [])
 
         combined_skills.append(record)
 
@@ -259,6 +278,7 @@ def main():
                 "low": sum(1 for s in combined_skills if s["contamination_level"] == "low"),
             },
             "has_llm_scores": sum(1 for s in combined_skills if s["llm_overall"] is not None),
+            "has_ref_llm_scores": sum(1 for s in combined_skills if s["ref_llm_overall"] is not None),
             "link_health": {
                 "total_broken": sum(s["link_errors"] for s in combined_skills),
                 "skills_with_broken_links": sum(1 for s in combined_skills if s["link_errors"] > 0),
@@ -305,7 +325,8 @@ def main():
     print(f"Combined {len(combined_skills)} skills → {OUTPUT}")
     print(f"  Passed: {combined['summary']['passed']}, Failed: {combined['summary']['failed']}")
     print(f"  Avg tokens: {combined['summary']['avg_tokens']}")
-    print(f"  LLM scores available: {combined['summary']['has_llm_scores']}")
+    print(f"  LLM scores available: {combined['summary']['has_llm_scores']} skills, "
+          f"{combined['summary']['has_ref_llm_scores']} with ref scores")
     print(f"  Contamination: {combined['summary']['contamination_distribution']}")
     lh = combined['summary']['link_health']
     print(f"  Link health: {lh['total_broken']} broken links across {lh['skills_with_broken_links']} skills")

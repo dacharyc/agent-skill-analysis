@@ -403,7 +403,7 @@ Based on our findings, we recommend the following practices:
 **Future work:**
 
 - **Behavioral testing**: Measure actual agent code generation quality with and without high-risk skills across domains, to validate whether our structural risk scores predict real performance degradation. Controlled experiments comparing code correctness with and without mixed-language skill content would establish the causal link that our structural analysis and the existing literature [@moumoula2025plc; @shi2023distracted; @ali2024copybias] predict but that has not been directly tested in the skill file context. Of particular interest is comparing the effect of application-to-application language mixing (e.g., Python + JavaScript for the same API) against application-to-auxiliary mixing (e.g., Python + bash + YAML) to calibrate the similarity weights in our risk scoring
-- **LLM-as-judge quality scoring**: Use Claude to evaluate skill quality on dimensions like clarity, coherence, and actionability (infrastructure built, awaiting execution)
+- **LLM-as-judge quality scoring**: Use Claude to evaluate skill quality on dimensions including clarity, actionability, token efficiency, scope discipline, directive precision, and novelty (infrastructure built, awaiting execution)
 - **Longitudinal analysis**: Track skill quality trends as the ecosystem matures and companies update their skills
 - **Skill composition analysis**: Study how multiple active skills interact and potentially conflict
 - **Expanded coverage**: Our ecosystem survey (Appendix A) identifies 800+ additional skills; analyzing the full set would strengthen statistical power
