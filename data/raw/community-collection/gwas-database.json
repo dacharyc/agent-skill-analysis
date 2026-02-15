@@ -279,14 +279,14 @@
   ],
   "link_results": [
     {
-      "level": "pass",
+      "level": "error",
       "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/ (HTTP 200)"
+      "message": "https://www.ebi.ac.uk/gwas/ (HTTP 500)"
     },
     {
-      "level": "pass",
+      "level": "error",
       "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/rest/docs/api (HTTP 200)"
+      "message": "https://www.ebi.ac.uk/gwas/rest/docs/api (HTTP 500)"
     },
     {
       "level": "pass",
@@ -304,9 +304,9 @@
       "message": "https://github.com/EBISPOT/GWAS_Catalog-workshop (HTTP 200)"
     },
     {
-      "level": "pass",
+      "level": "error",
       "category": "Links",
-      "message": "https://www.ebi.ac.uk/gwas/docs (HTTP 200)"
+      "message": "https://www.ebi.ac.uk/gwas/docs (request failed: Head \"https://www.ebi.ac.uk/gwas/docs\": context deadline exceeded (Client.Timeout exceeded while awaiting headers))"
     },
     {
       "level": "pass",
@@ -319,6 +319,6 @@
       "message": "https://www.pgscatalog.org/ (HTTP 200)"
     }
   ],
-  "link_errors": 0,
+  "link_errors": 3,
   "link_warnings": 0
 }

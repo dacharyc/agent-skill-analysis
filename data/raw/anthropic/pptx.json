@@ -2,7 +2,7 @@
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/anthropic-skills/skills/pptx",
   "passed": true,
   "errors": 0,
-  "warnings": 5,
+  "warnings": 4,
   "results": [
     {
       "level": "pass",
@@ -38,11 +38,6 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "description: (690 chars)"
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
-      "message": "description has 20 comma-separated segments, most very short \u2014 this looks like a keyword list; per the spec, the description should concisely describe what the skill does and when to use it"
     },
     {
       "level": "pass",

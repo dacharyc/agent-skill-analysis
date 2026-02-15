@@ -2,7 +2,7 @@
   "skill_dir": "/Users/dachary/workspace/agent-skill-analysis/data/skills/vercel-skills/skills/claude.ai/vercel-deploy-claimable",
   "passed": false,
   "errors": 1,
-  "warnings": 1,
+  "warnings": 0,
   "results": [
     {
       "level": "pass",
@@ -23,11 +23,6 @@
       "level": "pass",
       "category": "Frontmatter",
       "message": "description: (317 chars)"
-    },
-    {
-      "level": "warning",
-      "category": "Frontmatter",
-      "message": "description contains 5 quoted strings \u2014 this looks like keyword stuffing; per the spec, the description should concisely describe what the skill does and when to use it, not list trigger phrases"
     },
     {
       "level": "pass",
@@ -106,9 +101,9 @@
       "message": "https://vercel.com/claim-deployment?code=... (HTTP 200)"
     },
     {
-      "level": "pass",
+      "level": "info",
       "category": "Links",
-      "message": "https://claude.ai/settings/capabilities (HTTP 200)"
+      "message": "https://claude.ai/settings/capabilities (HTTP 403 \u2014 may block automated requests)"
     }
   ],
   "link_errors": 1,
