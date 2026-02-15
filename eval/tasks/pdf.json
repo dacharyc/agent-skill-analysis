@@ -1,0 +1,172 @@
+{
+  "skill_name": "pdf",
+  "tasks": [
+    {
+      "id": "pdf-01",
+      "type": "direct_target",
+      "prompt": "Write a Python script that takes a directory of PDF files and creates a summary report. For each PDF, extract the text using pdfplumber, count the number of pages, extract any tables, and write a summary CSV file with columns: filename, page_count, word_count, table_count, first_100_chars. Handle corrupted PDFs gracefully with try/except.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import pdfplumber",
+        "import csv|import pandas",
+        "extract_text",
+        "extract_tables",
+        "len\\(.*pages\\)",
+        "try:|except:"
+      ],
+      "anti_patterns": [
+        "pdf-lib",
+        "PDFDocument",
+        "require\\(",
+        "const\\s+",
+        "import.*from\\s+['\"]pdf",
+        "new Uint8Array"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://github.com/jsvine/pdfplumber#readme",
+          "description": "pdfplumber docs - source of import pdfplumber, extract_text(), extract_tables(), and pages attribute patterns"
+        },
+        {
+          "url": "https://pdf-lib.js.org/",
+          "description": "pdf-lib JS library docs - source of anti-pattern PDFDocument and pdf-lib import syntax"
+        }
+      ],
+      "notes": "Direct target in Python using pdfplumber, the primary text extraction library featured in the skill. The skill is Python-focused with pypdf and pdfplumber as primary tools. Tests whether the skill correctly informs Python PDF processing."
+    },
+    {
+      "id": "pdf-02",
+      "type": "cross_language",
+      "prompt": "Write a Node.js script using the pdf-lib library that creates a new PDF document. The PDF should have 3 pages: a title page with centered text 'Annual Report 2025' in 24pt font, a second page with a bulleted list of 5 items, and a third page with a horizontal line and footer text. Save the result to output.pdf.",
+      "target_language": "javascript",
+      "expected_patterns": [
+        "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+        "addPage|drawText",
+        "fs\\.writeFileSync|writeFile",
+        "Uint8Array|Buffer",
+        "StandardFonts|embedFont"
+      ],
+      "anti_patterns": [
+        "from reportlab",
+        "from pypdf",
+        "canvas\\.Canvas",
+        "SimpleDocTemplate",
+        "PdfWriter",
+        "import pdfplumber"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://pdf-lib.js.org/",
+          "description": "pdf-lib JS library docs - source of PDFDocument.create(), addPage(), drawText(), StandardFonts, and embedFont patterns"
+        },
+        {
+          "url": "https://www.reportlab.com/docs/reportlab-userguide.pdf",
+          "description": "ReportLab Python docs - source of anti-pattern canvas.Canvas and SimpleDocTemplate syntax"
+        },
+        {
+          "url": "https://pypdf.readthedocs.io/en/stable/",
+          "description": "pypdf Python docs - source of anti-pattern PdfWriter import syntax"
+        }
+      ],
+      "notes": "Cross-language test: the skill mentions pdf-lib for JavaScript in REFERENCE.md but the primary examples are all Python (reportlab, pypdf, pdfplumber). Tests whether JavaScript PDF output stays idiomatic or bleeds Python library patterns (reportlab Canvas, PdfWriter)."
+    },
+    {
+      "id": "pdf-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Ruby script using the Prawn gem that generates an invoice PDF. The invoice should have a company name header, a table with columns for Item, Quantity, Unit Price, and Total, at least 5 sample line items, a subtotal/tax/total section at the bottom, and a footer with the invoice date and number. Save to invoice.pdf.",
+      "target_language": "ruby",
+      "expected_patterns": [
+        "require.*prawn|Prawn::Document",
+        "generate|new.*Prawn",
+        "table|make_table",
+        "text\\s+['\"]",
+        "\\.pdf",
+        "def\\s+|do\\s*\\|"
+      ],
+      "anti_patterns": [
+        "from reportlab",
+        "SimpleDocTemplate",
+        "canvas\\.Canvas",
+        "getSampleStyleSheet",
+        "Paragraph\\(",
+        "from pypdf"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://prawnpdf.org/docs/prawn/2.5/",
+          "description": "Prawn Ruby gem docs - source of Prawn::Document.generate, table, text, and PDF generation patterns"
+        },
+        {
+          "url": "https://www.reportlab.com/docs/reportlab-userguide.pdf",
+          "description": "ReportLab Python docs - source of anti-pattern canvas.Canvas, SimpleDocTemplate, getSampleStyleSheet, and Paragraph patterns"
+        }
+      ],
+      "notes": "Similar syntax test: Ruby's syntax is similar to Python in some patterns. The skill is heavily Python-centric with reportlab for PDF creation. Tests whether reportlab patterns (Canvas, SimpleDocTemplate, Platypus) bleed into Ruby Prawn code."
+    },
+    {
+      "id": "pdf-04",
+      "type": "grounded",
+      "prompt": "Given the following Python code that attempts to merge PDFs, identify the bugs and fix them:\n\n```python\nfrom pypdf import PdfReader\nimport sys\nimport os\n\ndef merge_pdfs(input_files, output_path):\n    writer = PdfReader()\n    for pdf_file in input_files:\n        reader = PdfReader(pdf_file)\n        for page in reader.pages:\n            writer.add_page(page)\n    writer.write(output_path)\n\nif __name__ == '__main__':\n    files = sys.argv[1:]\n    merge_pdfs(files, 'merged.pdf')\n```\n\nFix all issues and add proper error handling for missing files and invalid PDFs.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from pypdf import.*PdfWriter",
+        "PdfWriter\\(\\)",
+        "with open.*wb",
+        "writer\\.write\\(",
+        "os\\.path\\.exists|Path.*exists",
+        "try:|except:"
+      ],
+      "anti_patterns": [
+        "pdf-lib",
+        "PDFDocument",
+        "require\\(",
+        "qpdf",
+        "pdftk"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://pypdf.readthedocs.io/en/stable/user/merging-pdfs.html",
+          "description": "pypdf merging docs - source of PdfWriter, add_page(), and writer.write() patterns for merging PDFs"
+        },
+        {
+          "url": "https://pypdf.readthedocs.io/en/stable/modules/PdfWriter.html",
+          "description": "pypdf PdfWriter API reference - source of correct PdfWriter() constructor and write(output) method signatures"
+        }
+      ],
+      "notes": "Grounded task with buggy code. The primary bug is using PdfReader instead of PdfWriter for the merger, and missing file handle for write(). The skill shows the correct pypdf merge pattern. Tests whether the skill properly informs the fix."
+    },
+    {
+      "id": "pdf-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Python script that converts a Markdown file to a well-formatted HTML document. The script should parse the Markdown using the markdown library, apply a CSS stylesheet for clean typography (include embedded CSS for headings, paragraphs, code blocks, and tables), wrap the output in proper HTML5 structure with a <head> and <body>, and save the result to an HTML file. Support command-line arguments for input and output paths.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import markdown|from markdown",
+        "import argparse|sys\\.argv",
+        "<html|<!DOCTYPE",
+        "<style>|<link.*css",
+        "markdown\\.markdown|md\\.convert",
+        "with open.*w"
+      ],
+      "anti_patterns": [
+        "from pypdf",
+        "from reportlab",
+        "import pdfplumber",
+        "PdfReader|PdfWriter",
+        "\\.pdf",
+        "canvas\\.Canvas"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://python-markdown.github.io/",
+          "description": "Python-Markdown library docs - source of import markdown and markdown.markdown() conversion patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/library/argparse.html",
+          "description": "Python argparse docs - source of CLI argument parsing patterns"
+        }
+      ],
+      "notes": "Adjacent domain test: document conversion is related to PDF processing but this task is Markdown-to-HTML, not involving PDFs at all. Tests whether the PDF skill's heavy pypdf/reportlab/pdfplumber patterns bleed into an unrelated document processing task."
+    }
+  ]
+}

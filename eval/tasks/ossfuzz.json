@@ -1,0 +1,208 @@
+{
+  "skill_name": "ossfuzz",
+  "tasks": [
+    {
+      "id": "ossfuzz-01",
+      "type": "direct_target",
+      "prompt": "Write a complete OSS-Fuzz project enrollment for a C++ JSON parsing library called 'fastjson'. Create the project.yaml, Dockerfile, and build.sh files. The library uses CMake for building, supports both libfuzzer and AFL++, and should be tested with AddressSanitizer and UndefinedBehaviorSanitizer. Include a basic fuzz harness that tests the JSON parser with arbitrary input.",
+      "target_language": "cpp",
+      "expected_patterns": [
+        "LLVMFuzzerTestOneInput",
+        "gcr\\.io/oss-fuzz-base/base-builder",
+        "\\$CXX.*\\$CXXFLAGS",
+        "\\$LIB_FUZZING_ENGINE",
+        "\\$OUT/",
+        "libfuzzer",
+        "address",
+        "project\\.yaml"
+      ],
+      "anti_patterns": [
+        "atheris",
+        "FuzzedDataProvider\\(data\\)",
+        "compile_python_fuzzer",
+        "cargo fuzz",
+        "import sys"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new_project_guide.md",
+          "description": "OSS-Fuzz C++ patterns: LLVMFuzzerTestOneInput entry point, $CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE, $OUT directory, gcr.io/oss-fuzz-base/base-builder Docker image, project.yaml structure with libfuzzer and address sanitizer"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/further-reading/fuzzer_environment.md",
+          "description": "OSS-Fuzz build environment: $OUT and $SRC environment variables, static linking requirements"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/ujson_fuzzer.py",
+          "description": "Anti-patterns: Python Atheris fuzzer example showing atheris.Setup, atheris.Fuzz, FuzzedDataProvider patterns that should not appear in C++"
+        }
+      ],
+      "notes": "Direct C++ OSS-Fuzz enrollment task. Anti-patterns detect Python Atheris fuzzing (atheris, FuzzedDataProvider, compile_python_fuzzer) or Rust cargo-fuzz patterns bleeding from the skill's multi-language fuzzing examples."
+    },
+    {
+      "id": "ossfuzz-02",
+      "type": "cross_language",
+      "prompt": "Write a Go fuzz test for a URL parser library using Go's native testing.F fuzzing framework (not OSS-Fuzz). The fuzz function should test URL parsing with various malformed inputs and check for panics and incorrect results.",
+      "target_language": "go",
+      "expected_patterns": [
+        "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+        "f\\.Add\\(",
+        "f\\.Fuzz\\(",
+        "testing",
+        "url\\.Parse|ParseURL"
+      ],
+      "anti_patterns": [
+        "LLVMFuzzerTestOneInput",
+        "atheris",
+        "helper\\.py",
+        "build_fuzzers",
+        "gcr\\.io/oss-fuzz-base",
+        "\\$LIB_FUZZING_ENGINE"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new-project-guide/go_lang.md",
+          "description": "Go fuzzing with testing.F: func FuzzDemo(f *testing.F), f.Fuzz() method for native Go 1.18 fuzzers, f.Add() for seed corpus"
+        },
+        {
+          "url": "https://go.dev/doc/security/fuzz",
+          "description": "Go native fuzzing: testing.F, f.Add seed corpus, f.Fuzz function signature"
+        },
+        {
+          "url": "https://pkg.go.dev/testing#F",
+          "description": "Go testing.F type: Add, Fuzz methods for fuzz testing"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new_project_guide.md",
+          "description": "Anti-patterns: OSS-Fuzz C++ patterns (LLVMFuzzerTestOneInput, $LIB_FUZZING_ENGINE, base-builder) that should not appear in native Go tests"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/ujson_fuzzer.py",
+          "description": "Anti-patterns: Python Atheris patterns (atheris, helper.py) that should not appear in Go"
+        }
+      ],
+      "notes": "Go native fuzzing is NOT the same as OSS-Fuzz infrastructure. Tests whether OSS-Fuzz-specific patterns (LLVMFuzzerTestOneInput, helper.py, base-builder, $LIB_FUZZING_ENGINE) or Python Atheris patterns bleed into native Go fuzz tests."
+    },
+    {
+      "id": "ossfuzz-03",
+      "type": "similar_syntax",
+      "prompt": "Write an OSS-Fuzz Python harness using Atheris to fuzz a YAML parsing library (pyyaml). Include the harness file, the build.sh that uses compile_python_fuzzer, and the project.yaml. Handle expected parsing exceptions properly.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import atheris",
+        "atheris\\.instrument_func|@atheris\\.instrument_func",
+        "atheris\\.FuzzedDataProvider",
+        "atheris\\.Setup",
+        "atheris\\.Fuzz",
+        "compile_python_fuzzer",
+        "yaml\\.safe_load|yaml\\.load"
+      ],
+      "anti_patterns": [
+        "LLVMFuzzerTestOneInput",
+        "\\$CXX.*\\$CXXFLAGS",
+        "\\$LIB_FUZZING_ENGINE",
+        "cargo fuzz",
+        "extern.*int LLVMFuzzer"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/ujson_fuzzer.py",
+          "description": "Atheris Python fuzzer example: import atheris, atheris.FuzzedDataProvider, atheris.Setup(), atheris.Fuzz() patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/build.sh",
+          "description": "OSS-Fuzz Python build.sh: compile_python_fuzzer usage for building Python fuzzers, looping through *_fuzzer.py files"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/project.yaml",
+          "description": "OSS-Fuzz Python project.yaml: language: python, fuzzing_engines: libfuzzer, sanitizers: address and undefined"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new-project-guide.md",
+          "description": "Anti-patterns: C++ LLVMFuzzerTestOneInput, $CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE that should not appear in Python"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new-project-guide/rust_lang.md",
+          "description": "Anti-patterns: Rust cargo fuzz patterns that should not appear in Python"
+        }
+      ],
+      "notes": "Python Atheris harness is syntactically similar to C++ libfuzzer patterns in structure. Tests whether C++ libfuzzer build patterns ($CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE, LLVMFuzzerTestOneInput) or Rust cargo-fuzz patterns bleed into Python harness code."
+    },
+    {
+      "id": "ossfuzz-04",
+      "type": "grounded",
+      "prompt": "Given the following broken OSS-Fuzz build.sh, fix the issues so the C++ fuzz harnesses build correctly. The project uses autotools and has two harnesses.\n\n```bash\n#!/bin/bash -eu\ncd $SRC/myproject\n./configure\nmake\n\ngcc -std=c++11 -I. fuzz/parse_harness.cc -o $OUT/parse_harness ./libmyproject.so\ngcc -std=c++11 -I. fuzz/validate_harness.cc -o $OUT/validate_harness ./libmyproject.so\n\ncp fuzz/corpus/* $OUT/\n```",
+      "target_language": "bash",
+      "expected_patterns": [
+        "\\$CXX",
+        "\\$CXXFLAGS",
+        "\\$LIB_FUZZING_ENGINE",
+        "libmyproject\\.a|\\.a\\b",
+        "--disable-shared|static",
+        "seed_corpus\\.zip|_seed_corpus"
+      ],
+      "anti_patterns": [
+        "compile_python_fuzzer",
+        "atheris",
+        "cargo fuzz build",
+        "pip3 install",
+        "\\bgcc\\b"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new_project_guide.md",
+          "description": "OSS-Fuzz C++ build patterns: $CXX compiler variable, $CXXFLAGS for compiler flags, $LIB_FUZZING_ENGINE for linking, static library (.a) linking requirements, seed corpus naming as my_fuzzer_seed_corpus.zip"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/further-reading/fuzzer_environment.md",
+          "description": "OSS-Fuzz environment: $OUT directory for build artifacts, static linking recommendations"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/build.sh",
+          "description": "Anti-patterns: Python compile_python_fuzzer, pip3 install that should not appear in C++ build"
+        }
+      ],
+      "notes": "Grounded build.sh debugging task. The script has multiple issues: uses gcc instead of $CXX, missing $CXXFLAGS and $LIB_FUZZING_ENGINE, links dynamically (.so) instead of statically (.a), wrong corpus handling. Anti-patterns detect Python/Rust patterns and the unfixed gcc."
+    },
+    {
+      "id": "ossfuzz-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Dockerfile for an OSS-Fuzz Rust project that fuzzes a cryptographic library. Use the appropriate base builder image for Rust, install any needed system dependencies, clone the project repository, and set up the build environment. Include the project.yaml specifying Rust-specific constraints.",
+      "target_language": "dockerfile",
+      "expected_patterns": [
+        "FROM gcr\\.io/oss-fuzz-base/base-builder",
+        "RUN.*git clone",
+        "WORKDIR",
+        "COPY build\\.sh",
+        "language:\\s*rust",
+        "address"
+      ],
+      "anti_patterns": [
+        "base-builder-python|base_builder_python",
+        "apt-get.*install.*python",
+        "compile_python_fuzzer",
+        "\\$CXX.*\\$CXXFLAGS",
+        "LLVMFuzzerTestOneInput"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new-project-guide/rust_lang.md",
+          "description": "OSS-Fuzz Rust projects: FROM gcr.io/oss-fuzz-base/base-builder-rust, language: rust in project.yaml, cargo fuzz build patterns, address sanitizer support"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new_project_guide.md",
+          "description": "OSS-Fuzz Dockerfile patterns: FROM base-builder, RUN git clone, WORKDIR, COPY build.sh to $SRC"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/Dockerfile",
+          "description": "Anti-patterns: Python base-builder-python image, pip3 install that should not appear in Rust Dockerfile"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/project.yaml",
+          "description": "Anti-patterns: Python language: python that should not appear in Rust project.yaml"
+        }
+      ],
+      "notes": "Rust OSS-Fuzz Dockerfile is adjacent to the C++/Python focus of the skill. Tests whether Python builder images or C++ compilation patterns bleed into a Rust project setup. Rust in OSS-Fuzz only supports AddressSanitizer."
+    }
+  ]
+}

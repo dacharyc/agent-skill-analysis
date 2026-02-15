@@ -1,0 +1,186 @@
+{
+  "skill_name": "azure-identity-dotnet",
+  "tasks": [
+    {
+      "id": "azure-identity-dotnet-01",
+      "type": "direct_target",
+      "prompt": "Write a C# ASP.NET Core service that uses Azure Identity to authenticate with Azure Key Vault and Azure Blob Storage. The service should use dependency injection with Microsoft.Extensions.Azure to register both clients, configure DefaultAzureCredential with options to exclude interactive browser credential, and expose two endpoints: GET /secrets/{name} to retrieve a Key Vault secret and GET /blobs/{container}/{name} to download a blob. Include proper error handling for AuthenticationFailedException and CredentialUnavailableException.",
+      "target_language": "csharp",
+      "expected_patterns": [
+        "using Azure\\.Identity",
+        "DefaultAzureCredential",
+        "AddAzureClients|UseCredential",
+        "SecretClient|BlobServiceClient",
+        "AuthenticationFailedException|CredentialUnavailableException",
+        "builder\\.Services|app\\.Map"
+      ],
+      "anti_patterns": [
+        "from azure\\.identity",
+        "import azure",
+        "DefaultAzureCredential\\(\\)",
+        "def\\s+\\w+\\(",
+        "pip install",
+        "require\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
+          "description": "Azure Identity .NET SDK reference - source of DefaultAzureCredential, AuthenticationFailedException, and CredentialUnavailableException patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.azure",
+          "description": "Microsoft.Extensions.Azure docs - source of AddAzureClients and UseCredential DI registration patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.security.keyvault.secrets.secretclient",
+          "description": "Azure Key Vault Secrets .NET SDK reference - source of SecretClient patterns"
+        }
+      ],
+      "notes": "Direct target in C#/.NET, the exact language and SDK covered by this skill. Tests whether the skill correctly enhances Azure Identity .NET code with proper DI patterns and error handling as documented."
+    },
+    {
+      "id": "azure-identity-dotnet-02",
+      "type": "cross_language",
+      "prompt": "Write a Python script that authenticates with Azure using the azure-identity package and retrieves secrets from Azure Key Vault. Use DefaultAzureCredential for authentication, implement a function that takes a vault URL and a list of secret names, retrieves all secrets in parallel using asyncio, and returns them as a dictionary. Include proper error handling for authentication failures.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from azure\\.identity import DefaultAzureCredential",
+        "from azure\\.keyvault\\.secrets import SecretClient",
+        "import asyncio",
+        "async def|await",
+        "credential = DefaultAzureCredential\\(\\)",
+        "def\\s+\\w+\\("
+      ],
+      "anti_patterns": [
+        "using Azure\\.Identity",
+        "new DefaultAzureCredential",
+        "var\\s+credential",
+        "builder\\.Services",
+        "AddAzureClients",
+        "namespace\\s+"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
+          "description": "Azure Identity Python SDK reference - source of from azure.identity import DefaultAzureCredential pattern"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient",
+          "description": "Azure Key Vault Secrets Python SDK reference - source of SecretClient Python import and usage patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
+          "description": "Azure Identity .NET SDK reference - source of anti-pattern using Azure.Identity and new DefaultAzureCredential C# syntax"
+        }
+      ],
+      "notes": "Cross-language test: same Azure Identity concept but in Python instead of C#. The skill only covers .NET. Tests whether C# patterns (using statements, var keyword, namespace declarations, ASP.NET DI) bleed into Python code."
+    },
+    {
+      "id": "azure-identity-dotnet-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Java Spring Boot service that authenticates with Azure services using the Azure Identity client library for Java. The service should configure a DefaultAzureCredential bean, use it to create a SecretClient for Key Vault access, and expose a REST endpoint at /api/config that retrieves application configuration values from Key Vault. Include health checks for the Azure connectivity.",
+      "target_language": "java",
+      "expected_patterns": [
+        "import com\\.azure\\.identity",
+        "import com\\.azure\\.security\\.keyvault",
+        "DefaultAzureCredentialBuilder",
+        "@Bean|@RestController|@GetMapping",
+        "public class",
+        "SecretClient|SecretClientBuilder"
+      ],
+      "anti_patterns": [
+        "using Azure\\.Identity",
+        "new DefaultAzureCredential\\(\\)",
+        "DefaultAzureCredentialOptions",
+        "builder\\.Services",
+        "var\\s+credential\\s*=",
+        "namespace\\s+"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.defaultazurecredentialbuilder",
+          "description": "Azure Identity Java SDK reference - source of DefaultAzureCredentialBuilder and Java credential patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/java/api/com.azure.security.keyvault.secrets.secretclient",
+          "description": "Azure Key Vault Secrets Java SDK reference - source of SecretClient and SecretClientBuilder Java patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
+          "description": "Azure Identity .NET SDK reference - source of anti-pattern new DefaultAzureCredential() and DefaultAzureCredentialOptions C# syntax"
+        }
+      ],
+      "notes": "Similar syntax test: Java and C# have very similar syntax (both are statically typed, class-based, use namespaces/packages). The skill's C# patterns (constructor-based credential creation, Options objects, using statements) are syntactically close to Java. Tests whether C#-specific patterns bleed into Java code."
+    },
+    {
+      "id": "azure-identity-dotnet-04",
+      "type": "grounded",
+      "prompt": "Given the following C# code that has authentication issues in production, diagnose the problems and fix them:\n\n```csharp\nusing Azure.Identity;\nusing Azure.Security.KeyVault.Secrets;\n\npublic class SecretService\n{\n    public async Task<string> GetSecret(string name)\n    {\n        var credential = new DefaultAzureCredential();\n        var client = new SecretClient(\n            new Uri(\"https://myvault.vault.azure.net\"),\n            credential);\n        \n        var secret = await client.GetSecretAsync(name);\n        return secret.Value.Value;\n    }\n}\n```\n\nProblems: (1) credential is created on every call instead of being reused, (2) no production-specific credential (should use ManagedIdentityCredential), (3) no error handling, (4) vault URL is hardcoded. Fix all issues and implement environment-based credential selection.",
+      "target_language": "csharp",
+      "expected_patterns": [
+        "ManagedIdentityCredential|ChainedTokenCredential",
+        "private.*readonly|static",
+        "IConfiguration|Environment",
+        "try|catch.*AuthenticationFailedException",
+        "catch.*CredentialUnavailableException",
+        "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+      ],
+      "anti_patterns": [
+        "from azure",
+        "import azure",
+        "def\\s+",
+        "pip install",
+        "async def",
+        "python"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.managedidentitycredential",
+          "description": "Azure ManagedIdentityCredential .NET docs - source of ManagedIdentityCredential and ChainedTokenCredential patterns for production"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
+          "description": "Azure Identity .NET SDK reference - source of credential reuse and AuthenticationFailedException handling patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments",
+          "description": "ASP.NET Core environments docs - source of IsDevelopment/IsProduction and ASPNETCORE_ENVIRONMENT patterns"
+        }
+      ],
+      "notes": "Grounded task with buggy C# Azure Identity code. The skill explicitly covers reusing credentials, using deterministic credentials in production, and error handling best practices. Tests whether the skill properly informs the fix."
+    },
+    {
+      "id": "azure-identity-dotnet-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a C# ASP.NET Core middleware that implements JWT bearer token authentication using Microsoft.AspNetCore.Authentication.JwtBearer. The middleware should validate tokens against an identity provider's JWKS endpoint, check for required claims (sub, email, roles), implement role-based authorization with [Authorize] attributes, and include a custom claims transformation that maps external roles to application-specific roles.",
+      "target_language": "csharp",
+      "expected_patterns": [
+        "AddAuthentication|AddJwtBearer",
+        "JwtBearerDefaults",
+        "TokenValidationParameters",
+        "\\[Authorize.*\\]",
+        "ClaimsTransformation|IClaimsTransformation",
+        "builder\\.Services|app\\.UseAuthentication"
+      ],
+      "anti_patterns": [
+        "DefaultAzureCredential",
+        "ManagedIdentityCredential",
+        "ClientSecretCredential",
+        "Azure\\.Identity",
+        "SecretClient",
+        "BlobServiceClient"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn",
+          "description": "ASP.NET Core JWT authentication docs - source of AddAuthentication, AddJwtBearer, and TokenValidationParameters patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authorization/claims",
+          "description": "ASP.NET Core claims-based authorization docs - source of IClaimsTransformation and [Authorize] attribute patterns"
+        }
+      ],
+      "notes": "Adjacent domain test: JWT authentication is related to Azure Identity (both are auth) but uses standard ASP.NET JWT bearer, not Azure SDK credentials. Tests whether the Azure Identity skill's patterns (DefaultAzureCredential, ManagedIdentityCredential, Azure SDK client construction) bleed into standard JWT auth code."
+    }
+  ]
+}

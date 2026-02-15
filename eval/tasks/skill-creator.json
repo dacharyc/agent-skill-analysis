@@ -1,0 +1,158 @@
+{
+  "skill_name": "skill-creator",
+  "tasks": [
+    {
+      "id": "skill-creator-01",
+      "type": "direct_target",
+      "prompt": "Write a SKILL.md file for a new skill called 'database-migrator' that helps developers run and manage database migrations. The skill should include YAML frontmatter with name and description fields. The description should explain what the skill does and when to use it. The body should include sections for workflow steps, reference file pointers (references/sequelize.md, references/knex.md, references/prisma.md), and a quick start example showing a migration command.",
+      "target_language": "markdown",
+      "expected_patterns": [
+        "^---",
+        "name:\\s+database-migrator",
+        "description:",
+        "references/",
+        "## |# ",
+        "```"
+      ],
+      "anti_patterns": [
+        "README\\.md",
+        "CHANGELOG\\.md",
+        "INSTALLATION_GUIDE",
+        "compatibility:",
+        "license:"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
+          "description": "Claude Code skills specification - source of SKILL.md structure, YAML frontmatter with name/description fields, and references/ directory pattern"
+        }
+      ],
+      "notes": "Direct target task: creating a SKILL.md is the exact purpose of this meta-skill. Tests whether the skill-creator correctly guides the structure. Anti-patterns include extraneous files the skill explicitly warns against creating."
+    },
+    {
+      "id": "skill-creator-02",
+      "type": "cross_language",
+      "prompt": "Write a Python CLI tool using argparse that validates a SKILL.md file. It should check that: (1) the file starts with valid YAML frontmatter delimited by ---, (2) the frontmatter contains required 'name' and 'description' fields, (3) the description is under 1024 characters, (4) the name matches the pattern [a-z0-9-] with no consecutive hyphens, and (5) the markdown body is under 500 lines. Print validation results with pass/fail for each check.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import argparse|argparse\\.ArgumentParser",
+        "import yaml|from yaml",
+        "def\\s+",
+        "re\\.|regex",
+        "\\[a-z0-9",
+        "frontmatter|---"
+      ],
+      "anti_patterns": [
+        "init_skill\\.py",
+        "package_skill\\.py",
+        "scripts/",
+        "const\\s+|let\\s+|var\\s+",
+        "require\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
+          "description": "Claude Code skills specification - source of SKILL.md validation rules: required name/description fields, name pattern, description length limits"
+        },
+        {
+          "url": "https://docs.python.org/3/library/argparse.html",
+          "description": "Python argparse docs - source of ArgumentParser and CLI parsing patterns"
+        },
+        {
+          "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+          "description": "PyYAML docs - source of YAML frontmatter parsing patterns"
+        }
+      ],
+      "notes": "Cross-language test: the skill-creator itself references Python scripts (init_skill.py, package_skill.py) but never shows their implementation. This task asks for a Python validator. Tests whether the model correctly writes standalone Python rather than trying to mimic the skill's internal script references."
+    },
+    {
+      "id": "skill-creator-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Bash script that initializes a new skill directory structure. Given a skill name as the first argument and an output path as the second argument, it should create the directory tree: skill-name/SKILL.md, skill-name/scripts/, skill-name/references/, skill-name/assets/. The SKILL.md should be populated with a template containing YAML frontmatter with the skill name and a placeholder description, plus markdown section headers for Overview, Workflow, and References.",
+      "target_language": "bash",
+      "expected_patterns": [
+        "#!/bin/bash",
+        "mkdir -p",
+        "\\$1|\\$\\{1\\}",
+        "cat.*<<.*EOF|cat.*<<.*'EOF'",
+        "SKILL\\.md",
+        "references/",
+        "scripts/"
+      ],
+      "anti_patterns": [
+        "init_skill\\.py",
+        "import\\s+",
+        "def\\s+",
+        "python3?\\s+scripts/"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
+          "description": "Claude Code skills specification - source of expected directory structure: SKILL.md, scripts/, references/, and YAML frontmatter template"
+        },
+        {
+          "url": "https://www.gnu.org/software/bash/manual/bash.html",
+          "description": "GNU Bash manual - source of mkdir -p, heredoc (cat <<EOF), and shell variable patterns"
+        }
+      ],
+      "notes": "Similar syntax test: Bash is syntactically close to the shell commands shown throughout the skill (which invokes Python scripts via bash). The skill's init_skill.py does exactly this task but in Python. Tests whether the Bash output stays idiomatic or bleeds Python patterns from the skill."
+    },
+    {
+      "id": "skill-creator-04",
+      "type": "grounded",
+      "prompt": "Given the following poorly structured SKILL.md file, refactor it to follow best practices:\n\n```markdown\n---\nname: api-tester\ndescription: Tests APIs\nlicense: MIT\ncompatibility: needs curl\nmetadata:\n  version: 1.0\n---\n\n# API Tester\n\n## When to Use This Skill\nUse this skill when you want to test APIs.\n\n## Installation\nRun pip install requests.\n\n## Full API Reference\n[500 lines of API documentation omitted]\n\n## Changelog\n- v1.0: Initial release\n- v0.9: Beta\n```\n\nIdentify the problems and produce a corrected version. Explain each fix.",
+      "target_language": "markdown",
+      "expected_patterns": [
+        "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+        "references/",
+        "name:\\s+api-tester"
+      ],
+      "anti_patterns": [
+        "## When to Use This Skill",
+        "## Changelog",
+        "## Installation",
+        "v1\\.0: Initial release"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
+          "description": "Claude Code skills specification - source of SKILL.md best practices: description field usage, references/ directory for long content, and prohibited sections (changelog, installation)"
+        }
+      ],
+      "notes": "Grounded task with a provided bad SKILL.md. Tests understanding of the skill-creator's guidelines: move 'when to use' into description, remove changelog, move long API reference to references/ dir, remove installation section. The skill explicitly warns against these anti-patterns."
+    },
+    {
+      "id": "skill-creator-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a TypeScript function that packages a directory into a .zip file using the 'archiver' npm library. The function should accept a source directory path and output file path, recursively add all files from the source directory, and return a Promise that resolves with the total byte size of the archive. Include proper error handling and stream cleanup.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*archiver|require.*archiver",
+        "Promise<number>|Promise<",
+        "createWriteStream",
+        "archive\\.directory|archive\\.glob",
+        "archive\\.finalize",
+        "async|await|new Promise"
+      ],
+      "anti_patterns": [
+        "package_skill\\.py",
+        "\\.skill\\b",
+        "import zipfile",
+        "import os",
+        "def\\s+",
+        "skill\\.json"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.npmjs.com/package/archiver",
+          "description": "Archiver npm package docs - source of archive.directory, archive.finalize, and createWriteStream patterns"
+        },
+        {
+          "url": "https://nodejs.org/api/fs.html",
+          "description": "Node.js fs module docs - source of createWriteStream pattern"
+        }
+      ],
+      "notes": "Adjacent domain test: the skill-creator packages skills into .skill files (which are zip files). This task asks for generic zip archiving in TypeScript. Tests whether skill-creator's packaging concepts (skill.json, .skill extension, validation steps) bleed into a general-purpose archiving task."
+    }
+  ]
+}

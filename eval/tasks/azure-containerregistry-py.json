@@ -1,0 +1,173 @@
+{
+  "skill_name": "azure-containerregistry-py",
+  "tasks": [
+    {
+      "id": "azure-containerregistry-py-01",
+      "type": "direct_target",
+      "prompt": "Write a Python script that connects to an Azure Container Registry, lists all repositories, and for each repository finds images older than 90 days that have no tags. The script should use the azure-containerregistry SDK with DefaultAzureCredential for authentication. For each candidate image, print the repository name, digest, creation date, and size. Include a --dry-run flag that only reports without deleting, and a --delete flag that removes the untagged old manifests.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from azure\\.containerregistry import ContainerRegistryClient",
+        "from azure\\.identity import DefaultAzureCredential",
+        "list_repository_names",
+        "list_manifest_properties",
+        "delete_manifest",
+        "argparse|sys\\.argv"
+      ],
+      "anti_patterns": [
+        "using Azure|namespace\\s+",
+        "new ContainerRegistryClient",
+        "BlobServiceClient",
+        "var\\s+client|const\\s+client",
+        "dotnet\\s+add",
+        "SecretClient"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-containerregistry/azure.containerregistry.containerregistryclient",
+          "description": "Azure Container Registry Python SDK reference - source of ContainerRegistryClient, list_repository_names, list_manifest_properties, and delete_manifest patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
+          "description": "Azure Identity Python SDK reference - source of DefaultAzureCredential import pattern"
+        }
+      ],
+      "notes": "Direct target in Python, the exact SDK covered by this skill. Uses the same patterns shown in the skill's examples (list repos, check manifests, delete old untagged). Tests whether the skill correctly enhances its primary use case."
+    },
+    {
+      "id": "azure-containerregistry-py-02",
+      "type": "cross_language",
+      "prompt": "Write a Go program that connects to an Azure Container Registry using the azcontainerregistry package from the Azure SDK for Go. The program should list all repositories, get tag properties for a specified repository passed as a CLI argument, and output the results as JSON to stdout. Use DefaultAzureCredential for authentication.",
+      "target_language": "go",
+      "expected_patterns": [
+        "package main",
+        "azcontainerregistry|containerregistry",
+        "azidentity\\.NewDefaultAzureCredential",
+        "json\\.Marshal|json\\.NewEncoder",
+        "func main\\(",
+        "os\\.Args|flag\\."
+      ],
+      "anti_patterns": [
+        "from azure",
+        "import azure",
+        "ContainerRegistryClient\\(",
+        "DefaultAzureCredential\\(\\)",
+        "list_repository_names",
+        "def\\s+\\w+\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry",
+          "description": "Azure Container Registry Go SDK docs - source of azcontainerregistry package and Go client patterns"
+        },
+        {
+          "url": "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity",
+          "description": "Azure Identity Go SDK docs - source of azidentity.NewDefaultAzureCredential pattern"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-containerregistry/azure.containerregistry.containerregistryclient",
+          "description": "Azure Container Registry Python SDK - source of anti-pattern Python method names like list_repository_names and DefaultAzureCredential()"
+        }
+      ],
+      "notes": "Cross-language test: same Azure Container Registry domain but in Go instead of Python. The skill only covers the Python SDK. Tests whether Python SDK method names (list_repository_names, list_manifest_properties) and Python syntax bleed into Go code."
+    },
+    {
+      "id": "azure-containerregistry-py-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Python script that uses the Docker SDK for Python (docker package) to interact with a local Docker registry. The script should list all images, show their tags, get image sizes, and remove images older than a specified number of days. Include proper error handling for connection failures and permission errors.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import docker",
+        "docker\\.from_env|DockerClient",
+        "client\\.images\\.list",
+        "image\\.tags",
+        "image\\.attrs",
+        "client\\.images\\.remove|image\\.remove"
+      ],
+      "anti_patterns": [
+        "from azure",
+        "ContainerRegistryClient",
+        "DefaultAzureCredential",
+        "list_repository_names",
+        "list_manifest_properties",
+        "azurecr\\.io"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docker-py.readthedocs.io/en/stable/",
+          "description": "Docker SDK for Python docs - source of docker.from_env(), client.images.list(), image.tags, and image.remove() patterns"
+        },
+        {
+          "url": "https://docker-py.readthedocs.io/en/stable/images.html",
+          "description": "Docker SDK images API docs - source of image listing, tag inspection, and removal method patterns"
+        }
+      ],
+      "notes": "Similar syntax test: Python with Docker SDK is syntactically close to the skill's Python with Azure ACR SDK. Both deal with container images but use different libraries. Tests whether Azure-specific patterns (ContainerRegistryClient, DefaultAzureCredential, Azure method names) bleed into Docker SDK code."
+    },
+    {
+      "id": "azure-containerregistry-py-04",
+      "type": "grounded",
+      "prompt": "Given the following Python code that attempts to use the Azure Container Registry SDK, fix the bugs and add missing functionality:\n\n```python\nfrom azure.containerregistry import ContainerRegistryClient\nfrom azure.identity import DefaultAzureCredential\nimport os\n\ndef lock_production_images(registry_url):\n    client = ContainerRegistryClient(registry_url)\n    \n    for repo in client.list_repository_names():\n        if 'prod' in repo:\n            for tag in client.list_tag_properties(repo):\n                if tag.name == 'latest':\n                    # Lock the image\n                    client.update_tag_properties(repo, tag.name, \n                        can_delete=True, can_write=True)\n\nlock_production_images(os.environ['REGISTRY'])\n```\n\nFix: (1) missing credential parameter, (2) incorrect lock values (should be False to lock), (3) should also lock the manifest, (4) add error handling.",
+      "target_language": "python",
+      "expected_patterns": [
+        "DefaultAzureCredential\\(\\)",
+        "credential=",
+        "can_delete=False",
+        "can_write=False",
+        "update_manifest_properties",
+        "try:|except:"
+      ],
+      "anti_patterns": [
+        "new ContainerRegistryClient",
+        "using\\s+Azure",
+        "var\\s+credential",
+        "BlobServiceClient",
+        "dotnet\\s+"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-containerregistry/azure.containerregistry.containerregistryclient",
+          "description": "Azure Container Registry Python SDK reference - source of credential parameter requirement, update_manifest_properties, and update_tag_properties with can_delete/can_write flags"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
+          "description": "Azure Identity Python SDK reference - source of DefaultAzureCredential() constructor pattern"
+        }
+      ],
+      "notes": "Grounded task with buggy Azure ACR Python code. The skill demonstrates the correct patterns for authentication and locking images. Tests whether the skill properly informs the fix while keeping the output in Python."
+    },
+    {
+      "id": "azure-containerregistry-py-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Python script that uses the Azure Blob Storage SDK (azure-storage-blob) to implement a simple file backup system. The script should upload all files from a local directory to a specified container, preserve the directory structure as blob name prefixes, skip files that haven't changed (compare using MD5 hash), and support a --restore flag to download blobs back to a local directory. Use DefaultAzureCredential for authentication.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+        "DefaultAzureCredential",
+        "upload_blob|download_blob",
+        "container_client|blob_client",
+        "os\\.walk|pathlib",
+        "md5|hashlib"
+      ],
+      "anti_patterns": [
+        "ContainerRegistryClient",
+        "list_repository_names",
+        "list_manifest_properties",
+        "delete_manifest",
+        "list_tag_properties",
+        "azurecr\\.io"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient",
+          "description": "Azure Blob Storage Python SDK reference - source of BlobServiceClient, container_client, upload_blob, and download_blob patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
+          "description": "Azure Identity Python SDK reference - source of DefaultAzureCredential authentication pattern"
+        }
+      ],
+      "notes": "Adjacent domain test: Azure Blob Storage is a related Azure SDK but for file storage, not container images. Tests whether the Container Registry skill's ACR-specific patterns (repository names, manifests, tags, digests) bleed into Blob Storage code."
+    }
+  ]
+}

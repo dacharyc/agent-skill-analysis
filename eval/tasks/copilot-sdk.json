@@ -1,0 +1,197 @@
+{
+  "skill_name": "copilot-sdk",
+  "tasks": [
+    {
+      "id": "copilot-sdk-01",
+      "type": "direct_target",
+      "prompt": "Write a Node.js/TypeScript application using the GitHub Copilot SDK that creates a client, starts a streaming session with gpt-4.1, defines a custom tool called 'search_docs' that takes a query parameter, and includes a pre-tool-use hook that denies shell access. Handle the streaming deltas by writing them to stdout.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*CopilotClient.*from.*@github/copilot-sdk",
+        "defineTool",
+        "createSession",
+        "streaming:\\s*true",
+        "onPreToolUse",
+        "permissionDecision.*deny",
+        "assistant\\.message_delta"
+      ],
+      "anti_patterns": [
+        "from copilot import",
+        "copilot\\.NewClient",
+        "CopilotClient\\(\\).*\\.start\\(\\)",
+        "create_session\\(",
+        "send_and_wait\\(",
+        "CreateSessionAsync"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/getting-started.md",
+          "description": "Copilot SDK getting started: CopilotClient import from @github/copilot-sdk, new CopilotClient(), createSession, defineTool, streaming: true, session.on with assistant.message_delta"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/hooks/pre-tool-use.md",
+          "description": "Pre-tool-use hooks: onPreToolUse handler, permissionDecision with allow/deny/ask options"
+        }
+      ],
+      "notes": "Direct TypeScript task matching skill's primary Node.js examples. Anti-patterns detect Python (from copilot import, create_session, send_and_wait), Go (copilot.NewClient), or .NET (CreateSessionAsync) SDK method name contamination."
+    },
+    {
+      "id": "copilot-sdk-02",
+      "type": "cross_language",
+      "prompt": "Write a Java application using the GitHub Copilot SDK that creates a client, establishes a session with a custom system message, sends a prompt, and prints the response. Handle authentication via environment variable.",
+      "target_language": "java",
+      "expected_patterns": [
+        "class\\s+\\w+",
+        "public static void main",
+        "CopilotClient|copilot",
+        "createSession|session"
+      ],
+      "anti_patterns": [
+        "import.*CopilotClient.*from",
+        "from copilot import",
+        "copilot\\.NewClient\\(nil\\)",
+        "defineTool\\(",
+        "define_tool\\(",
+        "session\\.on\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/getting-started.md",
+          "description": "Anti-patterns: Node.js import CopilotClient from @github/copilot-sdk, defineTool, session.on patterns that should not appear in Java"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/python/README.md",
+          "description": "Anti-patterns: Python from copilot import, define_tool patterns that should not appear in Java"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/go/README.md",
+          "description": "Anti-patterns: Go copilot.NewClient(nil) pattern that should not appear in Java"
+        }
+      ],
+      "notes": "Java is NOT one of the 4 SDK languages in the skill (Node/Python/Go/.NET). Tests whether the model invents Java SDK patterns or bleeds Node.js/Python/Go idioms. There is no official Java Copilot SDK, so the response should acknowledge this or adapt."
+    },
+    {
+      "id": "copilot-sdk-03",
+      "type": "similar_syntax",
+      "prompt": "Write a C# .NET application using the GitHub Copilot SDK that creates a BYOK session using an Azure OpenAI provider, sends a prompt with the Responses wire API, and handles the response. Include proper async/await disposal patterns.",
+      "target_language": "csharp",
+      "expected_patterns": [
+        "new CopilotClient\\(\\)",
+        "CreateSessionAsync",
+        "SendAndWaitAsync",
+        "provider.*type.*openai|azure",
+        "wireApi.*responses",
+        "await using",
+        "DisposeAsync"
+      ],
+      "anti_patterns": [
+        "client\\.createSession\\(",
+        "client\\.create_session\\(",
+        "copilot\\.NewClient\\(",
+        "sendAndWait\\(",
+        "send_and_wait\\(",
+        "client\\.stop\\(\\)"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/dotnet/README.md",
+          "description": ".NET Copilot SDK: new CopilotClient(), CreateSessionAsync, SendAndWaitAsync, await using, DisposeAsync, provider configuration with type openai/azure, wireApi.responses"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/using",
+          "description": "C# await using disposal pattern for async resource cleanup"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/getting-started.md",
+          "description": "Anti-patterns: TypeScript camelCase createSession, sendAndWait patterns that should not appear in .NET"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/python/README.md",
+          "description": "Anti-patterns: Python snake_case create_session, send_and_wait, client.stop() patterns that should not appear in .NET"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/go/README.md",
+          "description": "Anti-patterns: Go copilot.NewClient pattern that should not appear in .NET"
+        }
+      ],
+      "notes": "C#/.NET is in the skill but has fewer examples than TypeScript. Tests whether TypeScript camelCase (createSession, sendAndWait), Python snake_case (create_session, send_and_wait), or Go PascalCase (NewClient) method names bleed into .NET code."
+    },
+    {
+      "id": "copilot-sdk-04",
+      "type": "grounded",
+      "prompt": "Given the following Python Copilot SDK code that has bugs, fix it so it properly creates a streaming session with a custom tool, handles events correctly, and shuts down cleanly.\n\n```python\nfrom copilot import CopilotClient\nfrom copilot.tools import define_tool\n\nasync def main():\n    client = CopilotClient()\n    session = client.create_session({\"model\": \"gpt-4.1\", \"streaming\": True})\n    \n    @define_tool(description=\"Look up user info\")\n    async def lookup_user(params) -> dict:\n        return {\"name\": \"Alice\", \"role\": \"admin\"}\n    \n    session.on(\"assistant.message_delta\", lambda e: print(e.data.delta_content))\n    response = session.send_and_wait({\"prompt\": \"Who is user 42?\"})\n    print(response.data.content)\n```",
+      "target_language": "python",
+      "expected_patterns": [
+        "await client\\.start\\(\\)",
+        "await client\\.create_session",
+        "await session\\.send_and_wait",
+        "await client\\.stop\\(\\)",
+        "asyncio\\.run"
+      ],
+      "anti_patterns": [
+        "client\\.createSession",
+        "session\\.sendAndWait",
+        "client\\.Stop\\(\\)",
+        "client\\.CreateSession"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/python/README.md",
+          "description": "Python Copilot SDK: await client.start(), await client.create_session(), await session.send_and_wait(), await client.stop(), asyncio patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/library/asyncio.html",
+          "description": "Python asyncio.run() for running async main functions"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/getting-started.md",
+          "description": "Anti-patterns: TypeScript camelCase client.createSession, session.sendAndWait that should not appear in Python"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/dotnet/README.md",
+          "description": "Anti-patterns: .NET PascalCase client.Stop(), client.CreateSession that should not appear in Python"
+        }
+      ],
+      "notes": "Grounded Python debugging task. The code is missing awaits and client.start(). Tests whether fixes use correct Python SDK patterns (snake_case, await) or bleed TypeScript (camelCase) or .NET (PascalCase) patterns."
+    },
+    {
+      "id": "copilot-sdk-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Go application using the GitHub Copilot SDK that connects to two MCP servers (one remote HTTP for GitHub, one local stdio for filesystem access), creates a session that can use tools from both servers, and sends a prompt asking to summarize a local file.",
+      "target_language": "go",
+      "expected_patterns": [
+        "copilot\\.NewClient\\(nil\\)",
+        "client\\.Start\\(ctx\\)",
+        "client\\.CreateSession\\(ctx",
+        "session\\.SendAndWait\\(ctx",
+        "McpServers|mcpServers"
+      ],
+      "anti_patterns": [
+        "client\\.createSession\\(",
+        "from copilot import",
+        "new CopilotClient\\(\\)",
+        "@github/copilot-sdk",
+        "npm install"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/go/README.md",
+          "description": "Go Copilot SDK: copilot.NewClient(nil), client.Start(ctx), client.CreateSession(ctx, config), session.Send with context"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/mcp/overview.md",
+          "description": "MCP server configuration: mcpServers property in SessionConfig with remote HTTP and local stdio server configurations"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/docs/getting-started.md",
+          "description": "Anti-patterns: Node.js createSession camelCase, new CopilotClient(), @github/copilot-sdk import, npm install that should not appear in Go"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/github/copilot-sdk/refs/heads/main/python/README.md",
+          "description": "Anti-patterns: Python from copilot import pattern that should not appear in Go"
+        }
+      ],
+      "notes": "Go SDK with MCP focus (adjacent to basic SDK usage). Tests whether TypeScript (createSession, new CopilotClient), Python (from copilot import), or Node package references bleed into Go code."
+    }
+  ]
+}

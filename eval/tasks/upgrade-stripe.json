@@ -1,0 +1,210 @@
+{
+  "skill_name": "upgrade-stripe",
+  "tasks": [
+    {
+      "id": "upgrade-stripe-01",
+      "type": "direct_target",
+      "prompt": "Write a Python module that initializes a Stripe client pinned to the 2026-01-28.clover API version, creates a customer with email and metadata, then creates a subscription for that customer with a price ID. Include proper error handling with Stripe exceptions.",
+      "target_language": "python",
+      "expected_patterns": [
+        "StripeClient",
+        "stripe\\.api_version",
+        "v1\\.customers\\.create|client\\.customers\\.create",
+        "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+        "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+      ],
+      "anti_patterns": [
+        "require\\(['\"]stripe['\"]\\)",
+        "Stripe\\.api_version\\s*=",
+        "apiVersion:",
+        "const stripe",
+        "Stripe::Customer"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.stripe.com/api/customers/create.md?lang=python",
+          "description": "Stripe Python customer creation - source of StripeClient, client.v1.customers.create() patterns"
+        },
+        {
+          "url": "https://docs.stripe.com/api/subscriptions/create.md?lang=python",
+          "description": "Stripe Python subscription creation - source of client.v1.subscriptions.create() patterns"
+        },
+        {
+          "url": "https://docs.stripe.com/api/versioning.md?lang=python",
+          "description": "Stripe API versioning - source of stripe.api_version property assignment pattern"
+        },
+        {
+          "url": "https://docs.stripe.com/error-handling.md?lang=python",
+          "description": "Stripe Python error handling - source of stripe.StripeError, stripe.CardError, stripe.InvalidRequestError exception patterns"
+        },
+        {
+          "url": "https://docs.stripe.com/api/customers/create.md?lang=node",
+          "description": "Anti-patterns: Node.js require('stripe'), apiVersion property, const stripe"
+        },
+        {
+          "url": "https://docs.stripe.com/api/customers/create.md?lang=ruby",
+          "description": "Anti-patterns: Ruby Stripe::Customer and Stripe.api_version patterns"
+        }
+      ],
+      "notes": "Direct Python task matching skill's primary Python examples. Anti-patterns detect Ruby (Stripe.api_version, Stripe::Customer) or JavaScript (require/const/apiVersion) bleed from the skill's multi-language examples."
+    },
+    {
+      "id": "upgrade-stripe-02",
+      "type": "cross_language",
+      "prompt": "Write a Go function that initializes a Stripe client, retrieves a customer by ID, and updates their default payment method. Use the official stripe-go library with proper API version handling.",
+      "target_language": "go",
+      "expected_patterns": [
+        "github\\.com/stripe/stripe-go",
+        "stripe\\.Key\\s*=",
+        "customer\\.Get\\(",
+        "func\\s+\\w+\\("
+      ],
+      "anti_patterns": [
+        "stripe\\.api_version",
+        "require\\(['\"]stripe['\"]\\)",
+        "Stripe\\.api_version",
+        "apiVersion:",
+        "stripe_version="
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://github.com/stripe/stripe-go",
+          "description": "Go stripe-go library: stripe.Key assignment, customer.Get() method signatures"
+        },
+        {
+          "url": "https://pkg.go.dev/github.com/stripe/stripe-go/v82",
+          "description": "Go SDK package reference for expected customer.Get patterns and stripe.Key usage"
+        },
+        {
+          "url": "https://docs.stripe.com/api/customers/retrieve?lang=python",
+          "description": "Anti-patterns: Python stripe.api_version, stripe_version= parameter"
+        },
+        {
+          "url": "https://docs.stripe.com/api/customers/retrieve?lang=node",
+          "description": "Anti-patterns: Node.js require('stripe'), apiVersion property"
+        },
+        {
+          "url": "https://docs.stripe.com/api/customers/retrieve?lang=ruby",
+          "description": "Anti-patterns: Ruby Stripe.api_version assignment"
+        }
+      ],
+      "notes": "Go is a strongly-typed language mentioned in the skill (should NOT set API version directly), but no Go code examples are provided. Tests whether Python/Ruby/JS API version patterns bleed into Go output, which the skill explicitly says to avoid for strongly-typed languages."
+    },
+    {
+      "id": "upgrade-stripe-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Node.js Express middleware that initializes Stripe with explicit API versioning, verifies incoming webhook signatures using the raw request body, and dispatches events to handler functions based on event type.",
+      "target_language": "javascript",
+      "expected_patterns": [
+        "require\\(['\"]stripe['\"]\\)",
+        "apiVersion:\\s*['\"]",
+        "stripe\\.webhooks\\.constructEvent",
+        "req\\.body",
+        "module\\.exports|export"
+      ],
+      "anti_patterns": [
+        "stripe\\.api_version\\s*=",
+        "stripe_version=",
+        "Stripe\\.api_version",
+        "import stripe",
+        "Stripe::Webhook"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.stripe.com/api?lang=node",
+          "description": "Node.js Stripe initialization with require('stripe') and apiVersion constructor option"
+        },
+        {
+          "url": "https://docs.stripe.com/webhooks?lang=node",
+          "description": "Node.js stripe.webhooks.constructEvent for webhook signature verification"
+        },
+        {
+          "url": "https://docs.stripe.com/api?lang=python",
+          "description": "Anti-patterns: Python stripe.api_version= assignment and import stripe"
+        },
+        {
+          "url": "https://docs.stripe.com/webhooks?lang=ruby",
+          "description": "Anti-patterns: Ruby Stripe::Webhook.construct_event pattern"
+        }
+      ],
+      "notes": "JavaScript is in the skill with code examples. Tests whether Python's stripe.api_version= or Ruby's Stripe::Webhook patterns contaminate JS webhook code. JS uses apiVersion in constructor, not assignment."
+    },
+    {
+      "id": "upgrade-stripe-04",
+      "type": "grounded",
+      "prompt": "Given the following existing payment integration code, upgrade it from Stripe API version 2024-12-18.acacia to 2026-01-28.clover. Update the API version, replace any deprecated patterns, and ensure the Stripe.js script tag uses the correct version.\n\n```python\nimport stripe\n\nstripe.api_key = 'sk_test_xxx'\nstripe.api_version = '2024-12-18.acacia'\n\ndef create_checkout_session(price_id, success_url, cancel_url):\n    session = stripe.checkout.Session.create(\n        mode='subscription',\n        line_items=[{'price': price_id, 'quantity': 1}],\n        success_url=success_url,\n        cancel_url=cancel_url,\n    )\n    return session\n```\n\n```html\n<script src=\"https://js.stripe.com/basil/stripe.js\"></script>\n```",
+      "target_language": "python",
+      "expected_patterns": [
+        "2026-01-28\\.clover",
+        "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+        "js\\.stripe\\.com/clover/stripe\\.js"
+      ],
+      "anti_patterns": [
+        "2024-12-18\\.acacia",
+        "basil",
+        "require\\(['\"]stripe['\"]\\)",
+        "Stripe\\.api_version"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.stripe.com/upgrades#2026-01-28",
+          "description": "Stripe API version upgrade details for 2026-01-28.clover including Stripe.js path changes"
+        },
+        {
+          "url": "https://docs.stripe.com/api/versioning?lang=python",
+          "description": "Python API versioning patterns and stripe.api_version assignment"
+        },
+        {
+          "url": "https://docs.stripe.com/js",
+          "description": "Stripe.js script tag URL pattern (js.stripe.com/{version}/stripe.js)"
+        },
+        {
+          "url": "https://docs.stripe.com/api?lang=node",
+          "description": "Anti-patterns: Node.js require('stripe') pattern"
+        },
+        {
+          "url": "https://docs.stripe.com/api?lang=ruby",
+          "description": "Anti-patterns: Ruby Stripe.api_version pattern"
+        }
+      ],
+      "notes": "Grounded task with real code context. Tests correct version upgrade knowledge (acacia->clover, basil->clover for Stripe.js). Anti-patterns ensure old version strings are replaced and no cross-language contamination occurs."
+    },
+    {
+      "id": "upgrade-stripe-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Ruby service class that handles Stripe webhook events for subscription lifecycle changes (customer.subscription.created, customer.subscription.updated, customer.subscription.deleted). Parse the event, verify the signature, and update a local database record accordingly.",
+      "target_language": "ruby",
+      "expected_patterns": [
+        "Stripe::Webhook\\.construct_event",
+        "class\\s+\\w+",
+        "customer\\.subscription\\.",
+        "def\\s+\\w+"
+      ],
+      "anti_patterns": [
+        "stripe\\.webhooks\\.constructEvent",
+        "stripe\\.api_version\\s*=",
+        "const stripe",
+        "import stripe"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.stripe.com/webhooks?lang=ruby",
+          "description": "Ruby Stripe::Webhook.construct_event for webhook signature verification"
+        },
+        {
+          "url": "https://docs.stripe.com/api/events?lang=ruby",
+          "description": "Ruby event type handling for subscription lifecycle events"
+        },
+        {
+          "url": "https://docs.stripe.com/webhooks?lang=node",
+          "description": "Anti-patterns: Node.js stripe.webhooks.constructEvent pattern"
+        },
+        {
+          "url": "https://docs.stripe.com/api?lang=python",
+          "description": "Anti-patterns: Python import stripe and stripe.api_version= patterns"
+        }
+      ],
+      "notes": "Ruby is in the skill but webhook handling is adjacent to the upgrade focus. Tests whether JavaScript webhook patterns (stripe.webhooks.constructEvent) bleed into Ruby output. Ruby uses Stripe::Webhook.construct_event."
+    }
+  ]
+}

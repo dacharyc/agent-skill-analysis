@@ -1,0 +1,220 @@
+{
+  "skill_name": "monitoring-observability",
+  "tasks": [
+    {
+      "id": "monitoring-observability-01",
+      "type": "direct_target",
+      "prompt": "Write a Python script that uses the OpenTelemetry SDK to instrument a Flask web application. The script should create a tracer provider, set up a OTLP exporter to send traces to a collector at localhost:4317, and add automatic instrumentation for Flask routes. Include a sample route that creates a custom span with attributes for user_id and request_type.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from opentelemetry",
+        "TracerProvider",
+        "OTLPSpanExporter",
+        "FlaskInstrumentor",
+        "set_attribute",
+        "start_as_current_span"
+      ],
+      "anti_patterns": [
+        "require\\(",
+        "import\\s+\"",
+        "package\\s+main",
+        "func\\s+main",
+        "@Service",
+        "public class"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry.io/main/content/en/docs/languages/python/getting-started.md",
+          "description": "OpenTelemetry Python getting started guide - source of from opentelemetry, start_as_current_span, and set_attribute patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry.io/main/content/en/docs/languages/python/instrumentation.md",
+          "description": "OpenTelemetry Python instrumentation guide - source of TracerProvider, set_attribute, and from opentelemetry.sdk.trace patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry.io/main/content/en/docs/languages/python/exporters.md",
+          "description": "OpenTelemetry Python exporters guide - source of OTLPSpanExporter (both HTTP and gRPC variants) and TracerProvider patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/open-telemetry/opentelemetry-python-contrib/main/instrumentation/opentelemetry-instrumentation-flask/src/opentelemetry/instrumentation/flask/__init__.py",
+          "description": "OpenTelemetry Flask instrumentation source code - source of FlaskInstrumentor class and instrument_app() method"
+        }
+      ],
+      "notes": "Direct target in Python, the primary scripting language used throughout the skill. The skill contains Python OTel examples directly. Tests whether the skill enhances or remains neutral for its primary use case."
+    },
+    {
+      "id": "monitoring-observability-02",
+      "type": "cross_language",
+      "prompt": "Write a Go service that exposes Prometheus metrics for a microservice. It should register custom metrics for HTTP request duration (histogram), request count (counter), and active connections (gauge). Include a /metrics endpoint using the promhttp handler and middleware that records metrics for each incoming request.",
+      "target_language": "go",
+      "expected_patterns": [
+        "package\\s+main",
+        "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+        "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+        "promhttp\\.Handler",
+        "func\\s+",
+        "http\\.Handle"
+      ],
+      "anti_patterns": [
+        "from prometheus_client",
+        "import prometheus_client",
+        "from opentelemetry",
+        "console\\.log",
+        "require\\(",
+        "def\\s+\\w+\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/client_golang/main/prometheus/examples_test.go",
+          "description": "Prometheus Go client examples - source of prometheus.NewCounterVec with complete usage example showing WithLabelValues pattern"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/client_golang/main/prometheus/histogram.go",
+          "description": "Prometheus Go client histogram source - source of prometheus.NewHistogramVec function definition and usage examples"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/client_golang/main/prometheus/promauto/auto.go",
+          "description": "Prometheus promauto package - source of promauto.NewCounterVec and promauto.NewHistogramVec with auto-registration"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/client_golang/main/prometheus/promhttp/http.go",
+          "description": "Prometheus promhttp package - source of promhttp.Handler() function for /metrics endpoint"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/docs/main/docs/guides/go-application.md",
+          "description": "Prometheus Go application guide - source of promauto usage patterns and http.Handle with promhttp.HandlerFor"
+        },
+        {
+          "url": "https://prometheus.github.io/client_python/",
+          "description": "Prometheus Python client docs - source of anti-pattern from prometheus_client import syntax"
+        }
+      ],
+      "notes": "Cross-language test: the skill's references contain Go tracing examples (tracing_guide.md) but the primary language is Python. Tests whether Go output stays idiomatic or bleeds Python patterns from the skill's Python-heavy examples."
+    },
+    {
+      "id": "monitoring-observability-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Node.js Express middleware module that implements structured JSON logging with correlation IDs. Each log entry should include timestamp, level, message, service name, and a request_id extracted from the x-request-id header or generated as a UUID. Use Winston as the logging library. Export the middleware function and the configured logger.",
+      "target_language": "javascript",
+      "expected_patterns": [
+        "require\\(|import\\s+",
+        "winston",
+        "module\\.exports|export\\s+",
+        "req\\.headers",
+        "x-request-id",
+        "JSON|json",
+        "uuid|crypto\\.randomUUID"
+      ],
+      "anti_patterns": [
+        "import logging",
+        "structlog",
+        "logging\\.getLogger",
+        "log\\.Printf",
+        "Logger\\.getLogger",
+        "def\\s+\\w+\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/winstonjs/winston/refs/heads/master/README.md",
+          "description": "Winston logging library docs - source of winston import, JSON format, and transport configuration patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/expressjs/expressjs.com/refs/heads/gh-pages/en/guide/using-middleware.md",
+          "description": "Express.js middleware docs - source of req.headers and middleware function patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/python/cpython/refs/heads/3.14/Lib/logging/__init__.py",
+          "description": "Python logging module docs - source of anti-pattern import logging and logging.getLogger syntax"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/hynek/structlog/refs/heads/main/docs/getting-started.md",
+          "description": "structlog Python getting started guide - source of anti-pattern import structlog and structlog.get_logger syntax"
+        }
+      ],
+      "notes": "Similar syntax test: JavaScript/Node.js is syntactically similar to the TypeScript examples that appear in the logging and tracing guides. The skill has Node.js structured logging examples in references/logging_guide.md. Highest PLC risk since Node.js patterns in the skill could bleed Python idioms."
+    },
+    {
+      "id": "monitoring-observability-04",
+      "type": "grounded",
+      "prompt": "Given the following Prometheus alert rule file, audit it for best practices and rewrite it with improvements:\n\n```yaml\ngroups:\n  - name: api-alerts\n    rules:\n      - alert: HighErrorRate\n        expr: http_errors_total > 100\n        labels:\n          severity: critical\n      - alert: HighLatency\n        expr: http_request_duration_seconds > 2\n        annotations:\n          summary: Latency is high\n      - alert: DiskFull\n        expr: node_filesystem_avail_bytes / node_filesystem_size_bytes < 0.1\n        for: 1m\n        labels:\n          severity: warning\n```\n\nRewrite these alert rules following production best practices: use rate() for counters, add 'for' clauses to prevent flapping, include required labels (severity, team) and annotations (summary, description, runbook_url), and use histogram_quantile for latency.",
+      "target_language": "yaml",
+      "expected_patterns": [
+        "rate\\(",
+        "for:\\s+\\d+[ms]",
+        "description:",
+        "severity:",
+        "histogram_quantile",
+        "labels:",
+        "annotations:"
+      ],
+      "anti_patterns": [
+        "http_errors_total > 100",
+        "http_request_duration_seconds > 2",
+        "def\\s+",
+        "import\\s+",
+        "function\\s+"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/prometheus/refs/heads/main/docs/configuration/alerting_rules.md",
+          "description": "Prometheus alerting rules configuration docs - source of for: clause, labels:, annotations:, severity: label, description: annotation"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/docs/main/docs/practices/rules.md",
+          "description": "Prometheus recording and alerting rules best practices - source of rate() function usage with counters in alert expressions"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prometheus/docs/main/docs/practices/histograms.md",
+          "description": "Prometheus histogram best practices - source of histogram_quantile() function for calculating percentiles from histogram buckets"
+        }
+      ],
+      "notes": "Grounded task with a provided alert rules file. The skill has an alert_quality_checker.py script and detailed alerting best practices in references. Tests whether the skill properly informs the audit without injecting Python code patterns into what should be a YAML-only output."
+    },
+    {
+      "id": "monitoring-observability-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Python script that implements a health check aggregator service. It should periodically poll a list of microservice health endpoints (provided as a config list), track their status over time, calculate uptime percentages over the last 24 hours, and expose an aggregate health status endpoint using FastAPI. Include proper timeout handling and retry logic for the HTTP calls.",
+      "target_language": "python",
+      "expected_patterns": [
+        "FastAPI|fastapi",
+        "httpx|aiohttp|requests",
+        "async\\s+def|def\\s+",
+        "timeout",
+        "retry|retries",
+        "uptime|availability",
+        "asyncio|schedule|apscheduler"
+      ],
+      "anti_patterns": [
+        "promql|PromQL",
+        "histogram_quantile",
+        "alertmanager",
+        "grafana",
+        "rate\\(http_requests_total",
+        "package main"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/master/README.md",
+          "description": "FastAPI README - source of from fastapi import FastAPI, @app.get() decorator, and async def endpoint patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/encode/httpx/master/docs/async.md",
+          "description": "HTTPX async client docs - source of httpx.AsyncClient(), async with client, and await client.get() patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/encode/httpx/master/docs/advanced/timeouts.md",
+          "description": "HTTPX timeout configuration - source of timeout parameter usage with httpx.Client() and AsyncClient()"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/aio-libs/aiohttp/master/README.rst",
+          "description": "aiohttp README - source of import aiohttp, aiohttp.ClientSession(), and async with session.get() patterns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/aio-libs/aiohttp/master/docs/client_quickstart.rst",
+          "description": "aiohttp client quickstart - source of aiohttp.ClientTimeout() and timeout configuration patterns"
+        }
+      ],
+      "notes": "Adjacent domain test: health checking is related to monitoring but is an application-level concern, not an observability stack concern. Tests whether the skill's heavy emphasis on Prometheus/Grafana/alerting patterns bleeds into a general health-check application task."
+    }
+  ]
+}

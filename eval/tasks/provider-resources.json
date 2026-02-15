@@ -1,0 +1,167 @@
+{
+  "skill_name": "provider-resources",
+  "tasks": [
+    {
+      "id": "provider-resources-01",
+      "type": "direct_target",
+      "prompt": "Implement a Terraform provider resource for an S3-compatible storage bucket using the Plugin Framework. Include the resource struct, Metadata, Schema with validators and plan modifiers, and full CRUD operations (Create, Read, Update, Delete). The bucket should have name (required, forces replacement), region (required), versioning_enabled (optional bool), and tags. Follow the standard service package patterns.",
+      "target_language": "go",
+      "expected_patterns": [
+        "framework\\.ResourceWithConfigure",
+        "resource\\.MetadataRequest",
+        "schema\\.Schema\\{",
+        "schema\\.StringAttribute",
+        "stringplanmodifier\\.RequiresReplace",
+        "resp\\.Diagnostics\\.AddError",
+        "resp\\.State\\.Set\\(ctx"
+      ],
+      "anti_patterns": [
+        "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+        "variable\\s+\"\\w+\"",
+        "terraform\\s*\\{",
+        "def\\s+create|def\\s+read",
+        "class\\s+\\w+Resource"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource.go",
+          "description": "Terraform Plugin Framework resource: framework.ResourceWithConfigure interface, resource.MetadataRequest in Metadata(), schema.Schema{} with schema.StringAttribute, Create/Read/Update/Delete methods with resp.Diagnostics.AddError and resp.State.Set(ctx), stringplanmodifier.RequiresReplace() for plan modifiers"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/examples/resources/scaffolding_example/resource.tf",
+          "description": "Anti-patterns: HCL resource block syntax (resource \"type\" \"name\" {}) that should not appear in Go provider code"
+        }
+      ],
+      "notes": "Direct Go Plugin Framework task. Anti-patterns detect HCL configuration language (resource block, variable block, terraform block) bleeding from the skill's documentation examples, and Python/Ruby class-based resource patterns."
+    },
+    {
+      "id": "provider-resources-02",
+      "type": "cross_language",
+      "prompt": "Write a Python Pulumi resource provider for a custom database service. Implement the CRUD operations (create, read, update, delete) using the Pulumi dynamic provider interface. The resource should manage a database with name, engine, and size properties.",
+      "target_language": "python",
+      "expected_patterns": [
+        "pulumi",
+        "ResourceProvider|dynamic\\.Resource",
+        "def create\\(",
+        "def read\\(",
+        "def update\\(",
+        "def delete\\("
+      ],
+      "anti_patterns": [
+        "framework\\.ResourceWithConfigure",
+        "resource\\.MetadataRequest",
+        "schema\\.StringAttribute",
+        "resp\\.Diagnostics",
+        "resource\\.TestCase\\{",
+        "hcl|terraform"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.pulumi.com/docs/concepts/resources/dynamic-providers/",
+          "description": "Pulumi dynamic provider: ResourceProvider interface, CRUD method signatures (def create, def read, def update, def delete)"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource.go",
+          "description": "Anti-patterns: Terraform Plugin Framework Go types (framework.ResourceWithConfigure, resource.MetadataRequest, schema.StringAttribute, resp.Diagnostics, resource.TestCase) that should not appear in Python"
+        }
+      ],
+      "notes": "Pulumi Python is a different IaC tool than Terraform. Tests whether Go Terraform Plugin Framework types (ResourceWithConfigure, Diagnostics, schema.StringAttribute) or HCL patterns bleed into Python Pulumi code."
+    },
+    {
+      "id": "provider-resources-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Terraform provider acceptance test in Go for a cloud database resource. Include a basic test, a disappears test, import state verification, and the test helper functions (testAccCheckExists, testAccCheckDestroy). Use the standard testing patterns with resource.ParallelTest.",
+      "target_language": "go",
+      "expected_patterns": [
+        "resource\\.ParallelTest\\(t",
+        "resource\\.TestCase\\{",
+        "acctest\\.PreCheck",
+        "ProtoV5ProviderFactories",
+        "CheckDestroy",
+        "ImportState.*true",
+        "testAccCheck.*Exists",
+        "testAccCheck.*Destroy",
+        "ExpectNonEmptyPlan"
+      ],
+      "anti_patterns": [
+        "terraform plan|terraform apply",
+        "\\$ terraform",
+        "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+        "pytest|unittest|describe\\(",
+        "go test -run"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource_test.go",
+          "description": "Terraform acceptance testing: resource.Test with resource.TestCase{}, resource.TestStep, PreCheck function, ProtoV6ProviderFactories (note: example uses V6, but V5 pattern is similar), CheckDestroy, ImportState verification, modern state checking with statecheck.ExpectKnownValue()"
+        },
+        {
+          "url": "https://pkg.go.dev/github.com/hashicorp/terraform-plugin-testing/helper/resource",
+          "description": "Test helper package: resource.ParallelTest, TestCase, TestStep, ImportState, CheckDestroy patterns, ExpectNonEmptyPlan"
+        }
+      ],
+      "notes": "Go acceptance test is syntactically similar to Go resource code but tests the testing framework patterns specifically. Anti-patterns detect HCL/CLI usage (terraform plan/apply), and test frameworks from other languages (pytest, unittest, describe)."
+    },
+    {
+      "id": "provider-resources-04",
+      "type": "grounded",
+      "prompt": "Given the following partial Terraform provider resource implementation, complete the missing Read and Update operations. Ensure proper error handling, state management, and the finder pattern for handling resource not found.\n\n```go\ntype resourceDatabase struct {\n    framework.ResourceWithConfigure\n}\n\ntype resourceDatabaseModel struct {\n    ID          types.String `tfsdk:\"id\"`\n    Name        types.String `tfsdk:\"name\"`\n    Engine      types.String `tfsdk:\"engine\"`\n    Size        types.Int64  `tfsdk:\"size\"`\n    Status      types.String `tfsdk:\"status\"`\n}\n\nfunc (r *resourceDatabase) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {\n    var data resourceDatabaseModel\n    resp.Diagnostics.Append(req.Plan.Get(ctx, &data)...)\n    if resp.Diagnostics.HasError() { return }\n    // ... create logic ...\n    resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)\n}\n```",
+      "target_language": "go",
+      "expected_patterns": [
+        "func \\(r \\*resourceDatabase\\) Read",
+        "func \\(r \\*resourceDatabase\\) Update",
+        "req\\.State\\.Get\\(ctx",
+        "req\\.Plan\\.Get\\(ctx",
+        "tfresource\\.NotFound|ResourceNotFound",
+        "resp\\.State\\.RemoveResource\\(ctx\\)",
+        "resp\\.Diagnostics\\.Append"
+      ],
+      "anti_patterns": [
+        "d\\.Set\\(",
+        "d\\.Get\\(",
+        "schema\\.Resource\\{",
+        "ResourceData",
+        "CreateWithoutTimeout"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource.go",
+          "description": "Plugin Framework CRUD operations: func (r *resourceType) Read/Update methods, req.State.Get(ctx) to get current state, req.Plan.Get(ctx) for desired state in Update, resp.State.Set(ctx) to save state, resp.Diagnostics.Append for error handling, resp.State.RemoveResource(ctx) for not found handling"
+        }
+      ],
+      "notes": "Grounded Go completion task. Anti-patterns detect SDKv2 patterns (d.Set, d.Get, schema.Resource, ResourceData, CreateWithoutTimeout) bleeding in instead of Plugin Framework patterns. The skill covers both but the grounded code uses Plugin Framework."
+    },
+    {
+      "id": "provider-resources-05",
+      "type": "adjacent_domain",
+      "prompt": "Write HCL Terraform configuration that defines a provider block, a resource for a cloud database with all required arguments, a data source that looks up an existing database by name, and an output block showing the database endpoint. Include proper variable definitions with validation.",
+      "target_language": "hcl",
+      "expected_patterns": [
+        "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+        "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+        "variable\\s+\"\\w+\"\\s*\\{",
+        "output\\s+\"\\w+\"\\s*\\{",
+        "provider\\s+\"\\w+\"\\s*\\{",
+        "validation\\s*\\{"
+      ],
+      "anti_patterns": [
+        "func\\s+\\w+\\(",
+        "schema\\.StringAttribute",
+        "resource\\.CreateRequest",
+        "resp\\.Diagnostics",
+        "framework\\.ResourceWithConfigure"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/examples/resources/scaffolding_example/resource.tf",
+          "description": "HCL resource block syntax example: resource \"type\" \"name\" {} configuration pattern"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource.go",
+          "description": "Anti-patterns: Go Plugin Framework provider code (func definitions, schema.StringAttribute, resource.CreateRequest, resp.Diagnostics, framework.ResourceWithConfigure) that should not appear in HCL configuration"
+        }
+      ],
+      "notes": "Adjacent domain: HCL configuration (user-facing) vs Go provider code (developer-facing). The skill is about writing Go provider code, but HCL appears in documentation examples. Anti-patterns detect Go provider code patterns bleeding into what should be pure HCL."
+    }
+  ]
+}

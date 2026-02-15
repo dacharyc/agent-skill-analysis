@@ -1,0 +1,194 @@
+{
+  "skill_name": "react-native-best-practices",
+  "tasks": [
+    {
+      "id": "react-native-best-practices-01",
+      "type": "direct_target",
+      "prompt": "Write a React Native component in TypeScript that renders a large list of product items using FlashList from @shopify/flash-list. Each item should display a product image, name, price, and rating. Implement proper estimatedItemSize, keyExtractor, and renderItem with React.memo to prevent unnecessary re-renders. Include a loading skeleton state and pull-to-refresh functionality.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*FlashList|from.*@shopify/flash-list",
+        "estimatedItemSize",
+        "renderItem",
+        "React\\.memo|memo\\(",
+        "keyExtractor",
+        "onRefresh|refreshing"
+      ],
+      "anti_patterns": [
+        "UITableView|UICollectionView",
+        "RecyclerView|LazyColumn",
+        "class.*Activity|class.*Fragment",
+        "@objc|@implementation",
+        "#include|std::",
+        "build\\.gradle"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://shopify.github.io/flash-list/docs/",
+          "description": "Shopify FlashList docs - source of FlashList import, estimatedItemSize, renderItem, and keyExtractor patterns"
+        },
+        {
+          "url": "https://reactnative.dev/docs/flatlist",
+          "description": "React Native FlatList docs - source of onRefresh, refreshing, and list component patterns"
+        },
+        {
+          "url": "https://react.dev/reference/react/memo",
+          "description": "React.memo docs - source of memo() wrapping pattern for preventing re-renders"
+        }
+      ],
+      "notes": "Direct target in TypeScript/React Native, the skill's primary domain. FlashList is highlighted as CRITICAL in the skill. Tests whether the skill correctly enhances list virtualization patterns without bleeding native platform code from its references."
+    },
+    {
+      "id": "react-native-best-practices-02",
+      "type": "cross_language",
+      "prompt": "Write a Swift class for an iOS UIKit application that implements a custom UICollectionView with a compositional layout. The collection view should display a grid of photo thumbnails with sections for 'Recent', 'Favorites', and 'Albums'. Include proper cell registration, diffable data source setup, and memory-efficient image loading with prefetching.",
+      "target_language": "swift",
+      "expected_patterns": [
+        "import UIKit",
+        "UICollectionView",
+        "UICollectionViewCompositionalLayout|NSCollectionLayoutSection",
+        "UICollectionViewDiffableDataSource|NSDiffableDataSourceSnapshot",
+        "class.*:.*UIViewController|class.*:.*UICollectionViewCell",
+        "func\\s+"
+      ],
+      "anti_patterns": [
+        "import React|from 'react",
+        "FlashList|FlatList|ScrollView",
+        "StyleSheet\\.create",
+        "const\\s+.*=.*\\(\\)\\s*=>",
+        "useCallback|useMemo|useState",
+        "RecyclerView|Kotlin"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uicollectionview",
+          "description": "Apple UICollectionView docs - source of UICollectionView, compositional layout, and diffable data source patterns"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uicollectionviewcompositionallayout",
+          "description": "Apple UICollectionViewCompositionalLayout docs - source of NSCollectionLayoutSection and layout configuration patterns"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource",
+          "description": "Apple DiffableDataSource docs - source of NSDiffableDataSourceSnapshot and typed data source patterns"
+        }
+      ],
+      "notes": "Cross-language test: the skill's native references contain Swift code (native-turbo-modules.md, native-threading-model.md) but for React Native bridging, not standalone iOS. Tests whether React Native component patterns (hooks, JSX, StyleSheet) bleed into pure Swift UIKit code."
+    },
+    {
+      "id": "react-native-best-practices-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Kotlin Android Activity that implements a RecyclerView with a ListAdapter for displaying a feed of social media posts. Each post should show author avatar, text content, timestamp, and like/comment counts. Use View Binding for view references, implement DiffUtil.ItemCallback for efficient updates, and handle click events with a lambda callback.",
+      "target_language": "kotlin",
+      "expected_patterns": [
+        "class.*:.*AppCompatActivity|class.*Activity",
+        "RecyclerView",
+        "ListAdapter|RecyclerView\\.Adapter",
+        "DiffUtil\\.ItemCallback|DiffUtil",
+        "ViewBinding|binding\\.",
+        "fun\\s+on"
+      ],
+      "anti_patterns": [
+        "import React|from 'react",
+        "FlashList|FlatList",
+        "StyleSheet\\.create",
+        "useState|useCallback",
+        "UICollectionView|UITableView",
+        "@objc|DispatchQueue"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView",
+          "description": "Android RecyclerView docs - source of RecyclerView.Adapter, ViewHolder, and list rendering patterns"
+        },
+        {
+          "url": "https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter",
+          "description": "Android ListAdapter docs - source of ListAdapter and DiffUtil.ItemCallback patterns for efficient list updates"
+        },
+        {
+          "url": "https://developer.android.com/topic/libraries/view-binding",
+          "description": "Android View Binding docs - source of ViewBinding and binding. accessor patterns"
+        }
+      ],
+      "notes": "Similar syntax test: Kotlin is present in the skill's native reference files (native-turbo-modules.md, native-memory-patterns.md, native-measure-tti.md) but used for React Native native modules. Kotlin's syntax is close enough to trigger PLC. Tests whether React Native patterns or Swift patterns from the skill bleed into pure Android Kotlin code."
+    },
+    {
+      "id": "react-native-best-practices-04",
+      "type": "grounded",
+      "prompt": "Given the following React Native component that has performance issues, identify the problems and refactor it:\n\n```tsx\nimport React, { useState, useEffect } from 'react';\nimport { ScrollView, View, Text, Image, StyleSheet } from 'react-native';\n\ninterface Item { id: string; title: string; imageUrl: string; description: string; }\n\nexport function ProductList({ items }: { items: Item[] }) {\n  const [filtered, setFiltered] = useState(items);\n  const [search, setSearch] = useState('');\n\n  useEffect(() => {\n    setFiltered(items.filter(i => i.title.includes(search)));\n  }, [search, items]);\n\n  return (\n    <ScrollView>\n      {filtered.map(item => (\n        <View key={item.id} style={styles.card}>\n          <Image source={{ uri: item.imageUrl }} style={styles.image} />\n          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#333' }}>{item.title}</Text>\n          <Text>{item.description}</Text>\n        </View>\n      ))}\n    </ScrollView>\n  );\n}\n\nconst styles = StyleSheet.create({ card: { padding: 16 }, image: { width: 100, height: 100 } });\n```\n\nFix the performance issues: replace ScrollView with FlashList, extract inline styles, memoize the renderItem function, and use useDeferredValue for the search filter.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "FlashList|FlatList",
+        "React\\.memo|memo\\(",
+        "useCallback|useMemo",
+        "useDeferredValue|useTransition",
+        "StyleSheet\\.create",
+        "estimatedItemSize|renderItem"
+      ],
+      "anti_patterns": [
+        "RecyclerView",
+        "UICollectionView",
+        "@objc",
+        "class.*Activity",
+        "build\\.gradle",
+        "DispatchQueue"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://shopify.github.io/flash-list/docs/",
+          "description": "Shopify FlashList docs - source of FlashList replacement for ScrollView/FlatList with estimatedItemSize"
+        },
+        {
+          "url": "https://react.dev/reference/react/useDeferredValue",
+          "description": "React useDeferredValue docs - source of useDeferredValue hook for deferred search filtering"
+        },
+        {
+          "url": "https://react.dev/reference/react/useCallback",
+          "description": "React useCallback docs - source of useCallback pattern for memoizing renderItem"
+        },
+        {
+          "url": "https://reactnative.dev/docs/stylesheet",
+          "description": "React Native StyleSheet docs - source of StyleSheet.create pattern for extracting inline styles"
+        }
+      ],
+      "notes": "Grounded task with a provided buggy React Native component. The skill's CRITICAL guidance covers replacing ScrollView with FlashList and using useDeferredValue. Tests whether the refactoring stays in React Native/TypeScript and does not introduce native platform patterns from the skill's reference files."
+    },
+    {
+      "id": "react-native-best-practices-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a React web application component in TypeScript using React 18+ that implements an infinite-scroll data table. The table should fetch paginated data from a REST API, use React.lazy and Suspense for code splitting the table rows, implement virtualization with react-window, and include column sorting and filtering. Use proper React patterns (hooks, error boundaries).",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import React|from 'react'",
+        "react-window|FixedSizeList|VariableSizeList",
+        "React\\.lazy|lazy\\(",
+        "Suspense",
+        "useState|useEffect|useCallback",
+        "fetch\\(|axios"
+      ],
+      "anti_patterns": [
+        "react-native|React Native",
+        "FlashList|@shopify",
+        "StyleSheet\\.create",
+        "Animated\\.View|Reanimated",
+        "import.*from 'react-native",
+        "Hermes|Metro"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://react-window.vercel.app/",
+          "description": "react-window docs - source of FixedSizeList and VariableSizeList virtualization patterns for React web"
+        },
+        {
+          "url": "https://react.dev/reference/react/lazy",
+          "description": "React.lazy docs - source of lazy() and Suspense code-splitting patterns"
+        },
+        {
+          "url": "https://react.dev/reference/react/useState",
+          "description": "React hooks docs - source of useState, useEffect, useCallback patterns for React web"
+        }
+      ],
+      "notes": "Adjacent domain test: React web is adjacent to React Native but distinctly different (DOM vs native views, react-window vs FlashList, web bundling vs Metro). Tests whether the React Native skill's patterns (StyleSheet, Animated, FlashList, Hermes, Metro) bleed into a React web task."
+    }
+  ]
+}

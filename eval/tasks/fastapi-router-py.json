@@ -1,0 +1,197 @@
+{
+  "skill_name": "fastapi-router-py",
+  "tasks": [
+    {
+      "id": "fastapi-router-py-01",
+      "type": "direct_target",
+      "prompt": "Write a FastAPI router module for managing a 'projects' resource. Include CRUD endpoints: POST /projects (create, return 201), GET /projects (list with pagination via skip/limit query params), GET /projects/{project_id} (get single), PUT /projects/{project_id} (update), DELETE /projects/{project_id} (return 204). Use Pydantic models for ProjectCreate, ProjectUpdate, and ProjectResponse. Include an authentication dependency using Depends(get_current_user_required) on mutation endpoints.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from fastapi import.*APIRouter|Router",
+        "router = APIRouter",
+        "response_model=",
+        "status\\.HTTP_201_CREATED|status_code=201",
+        "status\\.HTTP_204_NO_CONTENT|status_code=204",
+        "Depends\\(get_current_user"
+      ],
+      "anti_patterns": [
+        "require\\(|import\\s+express",
+        "app\\.get\\(|app\\.post\\(",
+        "const\\s+router",
+        "module\\.exports",
+        "public class|@RestController",
+        "func\\s+\\(.*http\\.ResponseWriter"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
+          "description": "FastAPI APIRouter docs - source of APIRouter, router prefix, and modular route organization patterns"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/response-model/",
+          "description": "FastAPI response model docs - source of response_model parameter and Pydantic model patterns"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/dependencies/",
+          "description": "FastAPI dependencies docs - source of Depends() and get_current_user dependency injection patterns"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/response-status-code/",
+          "description": "FastAPI status codes docs - source of status.HTTP_201_CREATED and status.HTTP_204_NO_CONTENT patterns"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL A - Direct target. This is a Python-only skill (score 0.00), so we expect correct output with no contamination. This task matches the skill's exact purpose (creating FastAPI routers with CRUD). Establishes baseline for a clean single-language skill."
+    },
+    {
+      "id": "fastapi-router-py-02",
+      "type": "cross_language",
+      "prompt": "Write a Ruby on Rails controller for managing a 'projects' resource. Include RESTful actions: index (list with pagination), show (single), create, update, destroy. Use strong parameters for mass assignment protection. Include before_action for authentication. Return JSON responses with proper HTTP status codes (201 for create, 204 for destroy).",
+      "target_language": "ruby",
+      "expected_patterns": [
+        "class.*Controller.*<.*ApplicationController",
+        "def index|def show|def create",
+        "before_action",
+        "render json:",
+        "params\\.require|permit",
+        "status:\\s*:created|:no_content"
+      ],
+      "anti_patterns": [
+        "from fastapi",
+        "APIRouter",
+        "Depends\\(",
+        "response_model",
+        "BaseModel",
+        "def\\s+\\w+\\(.*:\\s+str"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://guides.rubyonrails.org/action_controller_overview.html",
+          "description": "Rails ActionController docs - source of ApplicationController, before_action, render json:, and strong parameters patterns"
+        },
+        {
+          "url": "https://guides.rubyonrails.org/routing.html",
+          "description": "Rails routing docs - source of RESTful resource routing and controller action conventions (index, show, create, update, destroy)"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
+          "description": "FastAPI APIRouter docs - source of anti-pattern APIRouter, Depends, and response_model patterns"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL A - Cross-language. Same CRUD domain but Ruby on Rails instead of Python/FastAPI. Since this skill is single-language (Python only), we expect NO contamination. FastAPI-specific patterns (APIRouter, Depends, response_model, Pydantic BaseModel) should not appear."
+    },
+    {
+      "id": "fastapi-router-py-03",
+      "type": "similar_syntax",
+      "prompt": "Write a Python Flask blueprint for managing a 'projects' resource with CRUD endpoints. Use Flask-RESTful or plain Flask routes. Include request validation using marshmallow schemas, JWT authentication via a decorator, and proper HTTP status codes. The blueprint should be registerable with a Flask app via app.register_blueprint().",
+      "target_language": "python",
+      "expected_patterns": [
+        "from flask import.*Blueprint|Flask",
+        "Blueprint\\(",
+        "request\\.json|request\\.get_json",
+        "jsonify",
+        "marshmallow|Schema",
+        "@.*route\\("
+      ],
+      "anti_patterns": [
+        "from fastapi",
+        "APIRouter",
+        "Depends\\(",
+        "response_model=",
+        "BaseModel",
+        "Query\\(|Path\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://flask.palletsprojects.com/en/stable/blueprints/",
+          "description": "Flask Blueprint docs - source of Blueprint(), register_blueprint, and route decorator patterns"
+        },
+        {
+          "url": "https://flask.palletsprojects.com/en/stable/api/#flask.json.jsonify",
+          "description": "Flask jsonify docs - source of jsonify() and request.get_json() patterns"
+        },
+        {
+          "url": "https://marshmallow.readthedocs.io/en/stable/",
+          "description": "Marshmallow docs - source of Schema-based request validation patterns (Flask alternative to Pydantic)"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
+          "description": "FastAPI APIRouter docs - source of anti-pattern APIRouter, Depends, Query(), and Path() patterns"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL A - Similar syntax. Flask is the closest Python framework to FastAPI. Since the skill is single-language, this tests the highest-risk PLC vector: same language, similar framework. FastAPI-specific patterns (APIRouter, Depends, Pydantic, Path/Query params) should NOT bleed into Flask code."
+    },
+    {
+      "id": "fastapi-router-py-04",
+      "type": "grounded",
+      "prompt": "Given the following FastAPI router code, review it for issues and improve it:\n\n```python\nfrom fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass Item(BaseModel):\n    name: str\n    price: float\n\nitems = {}\n\n@app.post(\"/items\")\ndef create(item: Item):\n    id = str(len(items) + 1)\n    items[id] = item\n    return item\n\n@app.get(\"/items/{id}\")\ndef get(id: str):\n    return items[id]\n\n@app.delete(\"/items/{id}\")\ndef delete(id: str):\n    del items[id]\n```\n\nFix: (1) use APIRouter instead of app directly, (2) add response_model annotations, (3) add proper status codes (201, 204), (4) add 404 handling for missing items, (5) add authentication dependency, (6) use descriptive function names.",
+      "target_language": "python",
+      "expected_patterns": [
+        "APIRouter",
+        "response_model=",
+        "status\\.HTTP_201_CREATED",
+        "status\\.HTTP_204_NO_CONTENT",
+        "HTTPException.*404|status_code=404",
+        "Depends\\("
+      ],
+      "anti_patterns": [
+        "require\\(",
+        "const\\s+",
+        "module\\.exports",
+        "public class",
+        "@Controller"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
+          "description": "FastAPI APIRouter docs - source of APIRouter pattern that should replace direct app usage"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/response-model/",
+          "description": "FastAPI response model docs - source of response_model= annotation pattern"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/response-status-code/",
+          "description": "FastAPI status codes docs - source of status.HTTP_201_CREATED and status.HTTP_204_NO_CONTENT patterns"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/tutorial/dependencies/",
+          "description": "FastAPI dependencies docs - source of Depends() pattern for adding authentication"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL A - Grounded task. The skill explicitly teaches these exact patterns (APIRouter, response_model, status codes, Depends). We expect the skill to help here with no cross-language contamination since it only contains Python."
+    },
+    {
+      "id": "fastapi-router-py-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Python module that implements a WebSocket server using FastAPI's WebSocket support. The server should manage multiple chat rooms, allow clients to join/leave rooms, broadcast messages to all clients in a room, and maintain a connection manager class that tracks active connections per room. Include heartbeat/ping-pong handling and graceful disconnection.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from fastapi import.*WebSocket",
+        "WebSocketDisconnect",
+        "websocket\\.accept|websocket\\.send",
+        "class.*ConnectionManager|class.*Manager",
+        "async def",
+        "await websocket"
+      ],
+      "anti_patterns": [
+        "socket\\.io|socketio",
+        "require.*ws|import.*ws",
+        "const\\s+wss",
+        "io\\.on\\(",
+        "new WebSocket\\(",
+        "channels\\.py|consumers\\.py"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://fastapi.tiangolo.com/advanced/websockets/",
+          "description": "FastAPI WebSocket docs - source of WebSocket, WebSocketDisconnect, websocket.accept(), and websocket.send_text() patterns"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/advanced/websockets/#handling-disconnections-and-multiple-clients",
+          "description": "FastAPI WebSocket connection manager docs - source of ConnectionManager class pattern for multi-client management"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL A - Adjacent domain. WebSocket is adjacent to REST API routing but different (persistent connections vs request/response). Since the skill is Python-only, tests whether REST-specific patterns bleed into WebSocket code. No cross-language contamination expected."
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "skill_name": "neon-postgres",
+  "tasks": [
+    {
+      "id": "neon-postgres-01",
+      "type": "direct_target",
+      "prompt": "Write a TypeScript module for a Next.js API route that connects to Neon Postgres using the @neondatabase/serverless driver. The module should export an async function that: creates a connection using neon() with the DATABASE_URL environment variable, runs a parameterized SELECT query to fetch users by email domain, returns the results as typed objects, and handles connection errors. Include proper TypeScript types for the User interface.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*@neondatabase/serverless|neon.*serverless",
+        "neon\\(",
+        "process\\.env\\.DATABASE_URL|DATABASE_URL",
+        "interface\\s+User|type\\s+User",
+        "async\\s+function|async\\s+\\(",
+        "export"
+      ],
+      "anti_patterns": [
+        "import psycopg|import asyncpg",
+        "neon_api|NeonAPI",
+        "from neon_api",
+        "pip install",
+        "def\\s+\\w+\\(",
+        "class\\s+.*Model"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://neon.com/docs/serverless/serverless-driver.md",
+          "description": "Neon serverless driver: import { neon } from '@neondatabase/serverless', neon(process.env.DATABASE_URL) function, template literal queries with sql``, TypeScript usage with async/await"
+        },
+        {
+          "url": "https://neon.com/docs/guides/python.md",
+          "description": "Anti-patterns: Python database drivers (psycopg, asyncpg imports) that should not appear in TypeScript"
+        }
+      ],
+      "notes": "Direct target in TypeScript, the primary language of the skill (serverless driver, Drizzle ORM, TypeScript SDK examples). Tests whether the skill correctly enhances TypeScript/Neon code generation."
+    },
+    {
+      "id": "neon-postgres-02",
+      "type": "cross_language",
+      "prompt": "Write a Python FastAPI endpoint that connects to a PostgreSQL database and implements a REST API for a 'products' table. Use asyncpg as the database driver. The endpoint should support GET /products (list with pagination), GET /products/{id} (single product), and POST /products (create new). Include connection pooling setup and proper async/await patterns.",
+      "target_language": "python",
+      "expected_patterns": [
+        "from fastapi|import fastapi",
+        "import asyncpg|from asyncpg",
+        "async def",
+        "await.*fetch|await.*execute",
+        "create_pool|Pool",
+        "@app\\.get|@router\\.get"
+      ],
+      "anti_patterns": [
+        "@neondatabase",
+        "neon\\(",
+        "import.*drizzle",
+        "import.*prisma",
+        "const\\s+|let\\s+|var\\s+",
+        "require\\("
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://neon.com/docs/guides/python.md",
+          "description": "Python with Neon: asyncpg connection patterns including await asyncpg.connect(), await conn.execute(), await conn.fetch(), async/await usage, asyncio.run() for async functions"
+        },
+        {
+          "url": "https://fastapi.tiangolo.com/",
+          "description": "FastAPI framework: @app.get, @router.get decorator patterns, async def endpoint definitions"
+        },
+        {
+          "url": "https://neon.com/docs/serverless/serverless-driver.md",
+          "description": "Anti-patterns: TypeScript/JavaScript Neon serverless driver (@neondatabase/serverless, neon() function) that should not appear in Python"
+        }
+      ],
+      "notes": "Cross-language test: the skill has a Python SDK reference (neon-python-sdk.md) but the primary language is TypeScript/JavaScript. This asks for Python with asyncpg (not neon-specific). Tests whether Neon-specific patterns (@neondatabase imports, neon() function) or TypeScript/JS syntax bleeds into Python."
+    },
+    {
+      "id": "neon-postgres-03",
+      "type": "similar_syntax",
+      "prompt": "Write a JavaScript Express.js middleware that implements database connection pooling for PostgreSQL using the 'pg' (node-postgres) library. The middleware should create a shared Pool instance, attach it to the request object, implement health check endpoint at /db/health that tests the connection, and gracefully shut down the pool on SIGTERM. Include configuration for max pool size, idle timeout, and connection timeout.",
+      "target_language": "javascript",
+      "expected_patterns": [
+        "require.*pg|import.*pg|Pool",
+        "new Pool\\(",
+        "pool\\.query|client\\.query",
+        "pool\\.connect",
+        "max:|connectionTimeoutMillis|idleTimeoutMillis",
+        "SIGTERM|process\\.on"
+      ],
+      "anti_patterns": [
+        "@neondatabase/serverless",
+        "neon\\(",
+        "import.*neon",
+        "drizzle\\(",
+        "neonConfig",
+        "import asyncpg|from asyncpg"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://neon.com/docs/guides/node.md",
+          "description": "Node.js with Neon: node-postgres (pg) usage including const { Pool } = require('pg'), new Pool() with config, pool.connect(), client.query(), client.release(), proper connection handling with try-finally"
+        },
+        {
+          "url": "https://node-postgres.com/apis/pool",
+          "description": "node-postgres Pool API: max pool size, connectionTimeoutMillis, idleTimeoutMillis configuration options"
+        },
+        {
+          "url": "https://neon.com/docs/serverless/serverless-driver.md",
+          "description": "Anti-patterns: Neon serverless driver (@neondatabase/serverless, neon(), neonConfig) that should not appear when using standard pg library"
+        }
+      ],
+      "notes": "Similar syntax test: JavaScript is the closest language to the skill's TypeScript examples. Uses standard pg library (not @neondatabase/serverless). Tests whether Neon-specific patterns (neon(), neonConfig, serverless driver) bleed into standard PostgreSQL driver usage."
+    },
+    {
+      "id": "neon-postgres-04",
+      "type": "grounded",
+      "prompt": "Given the following database schema, write Drizzle ORM TypeScript code to define the schema and create typed query functions:\n\n```sql\nCREATE TABLE organizations (\n  id SERIAL PRIMARY KEY,\n  name VARCHAR(255) NOT NULL,\n  slug VARCHAR(100) UNIQUE NOT NULL,\n  created_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE members (\n  id SERIAL PRIMARY KEY,\n  org_id INTEGER REFERENCES organizations(id) ON DELETE CASCADE,\n  email VARCHAR(255) NOT NULL,\n  role VARCHAR(50) DEFAULT 'member',\n  joined_at TIMESTAMPTZ DEFAULT NOW(),\n  UNIQUE(org_id, email)\n);\n```\n\nDefine the Drizzle schema with proper types, relations, and write query functions for: listing all members of an org, adding a member, and getting org details with member count.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*drizzle-orm|from.*drizzle",
+        "pgTable|serial|varchar|timestamp",
+        "relations\\(|one\\(|many\\(",
+        "eq\\(|and\\(",
+        "export\\s+const",
+        "InferSelectModel|InferInsertModel|typeof"
+      ],
+      "anti_patterns": [
+        "import.*prisma|@prisma",
+        "neon_api|NeonAPI",
+        "from neon_api",
+        "import psycopg",
+        "class.*Model.*:",
+        "def\\s+"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://neon.com/docs/guides/drizzle.md",
+          "description": "Drizzle ORM with Neon: import from drizzle-orm, schema definition with pgTable/serial/text/timestamp, db.insert().values(), db.select().from(), connection setup with drizzle(neon()) or drizzle(new Pool())"
+        },
+        {
+          "url": "https://orm.drizzle.team/docs/column-types/pg",
+          "description": "Drizzle ORM PostgreSQL column types: pgTable, serial, varchar, timestamp schema definition patterns"
+        },
+        {
+          "url": "https://orm.drizzle.team/docs/rqb",
+          "description": "Drizzle ORM relational queries: relations(), one(), many() relationship patterns, eq(), and() query operators"
+        },
+        {
+          "url": "https://orm.drizzle.team/docs/goodies#type-api",
+          "description": "Drizzle ORM type helpers: InferSelectModel, InferInsertModel, typeof for TypeScript type inference"
+        }
+      ],
+      "notes": "Grounded task with a provided SQL schema. The skill has a dedicated neon-drizzle.md reference. Tests whether Drizzle ORM code is generated correctly with proper TypeScript patterns and does not mix in Python SDK patterns from the neon-python-sdk.md reference."
+    },
+    {
+      "id": "neon-postgres-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a TypeScript utility module that implements a generic caching layer using Redis. The module should export a Cache class with methods: get<T>(key), set<T>(key, value, ttlSeconds), delete(key), and invalidatePattern(pattern). Use ioredis as the client library. Include proper TypeScript generics, JSON serialization/deserialization, and error handling for connection failures.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*ioredis|import.*Redis",
+        "class Cache|export class Cache",
+        "<T>|generic",
+        "JSON\\.parse|JSON\\.stringify",
+        "get\\(|set\\(",
+        "async\\s+"
+      ],
+      "anti_patterns": [
+        "@neondatabase",
+        "neon\\(",
+        "DATABASE_URL",
+        "postgres|pg\\b|sql`",
+        "drizzle|prisma",
+        "SELECT|INSERT|CREATE TABLE"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://github.com/redis/ioredis#readme",
+          "description": "ioredis docs - source of import Redis/ioredis, get/set/del commands, and connection patterns"
+        },
+        {
+          "url": "https://redis.io/docs/latest/commands/",
+          "description": "Redis commands reference - source of key-value operations, TTL, and pattern-based key scanning"
+        }
+      ],
+      "notes": "Adjacent domain test: caching is related to database work but uses Redis, not Postgres. Tests whether the Neon Postgres skill's heavy SQL/database patterns bleed into a Redis caching task. The skill's TypeScript patterns should not inject Postgres-specific concepts."
+    }
+  ]
+}

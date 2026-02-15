@@ -1,0 +1,193 @@
+{
+  "skill_name": "sharp-edges",
+  "tasks": [
+    {
+      "id": "sharp-edges-01",
+      "type": "direct_target",
+      "prompt": "Analyze the following Python authentication module for sharp edges and security footguns. Identify dangerous defaults, silent failures, and configuration cliffs. Provide specific recommendations following pit-of-success principles.\n\n```python\nclass AuthConfig:\n    def __init__(self, hash_algo='sha256', otp_lifetime=300, max_attempts=0, verify_ssl=True):\n        self.hash_algo = hash_algo\n        self.otp_lifetime = otp_lifetime\n        self.max_attempts = max_attempts\n        self.verify_ssl = verify_ssl\n\ndef verify_token(token, key=''):\n    if not key:\n        return True\n    return hmac.compare_digest(compute_hmac(token, key), token)\n```",
+      "target_language": "python",
+      "expected_patterns": [
+        "max_attempts.*0",
+        "otp_lifetime.*0",
+        "key.*empty|not key.*bypass|silent",
+        "hash_algo.*accept|validate",
+        "pit of success|secure.?by.?default"
+      ],
+      "anti_patterns": [
+        "sodium_crypto_box",
+        "Crypto::seal",
+        "hmac\\.Equal\\(",
+        "PASSWORD_DEFAULT"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.python.org/3/library/hmac.html",
+          "description": "Python hmac.compare_digest expected usage for constant-time comparison"
+        },
+        {
+          "url": "https://docs.python.org/3/library/hashlib.html",
+          "description": "Python hashlib algorithms relevant to hash_algo validation patterns"
+        },
+        {
+          "url": "https://www.php.net/manual/en/function.sodium-crypto-box.php",
+          "description": "Anti-patterns: PHP sodium_crypto_box and PASSWORD_DEFAULT from PHP crypto APIs"
+        },
+        {
+          "url": "https://pkg.go.dev/crypto/hmac",
+          "description": "Anti-patterns: Go hmac.Equal() constant-time comparison function"
+        }
+      ],
+      "notes": "Direct Python analysis task matching the skill's Python examples (OTP lifetime, verify_token patterns). Anti-patterns detect PHP (sodium_crypto_box, PASSWORD_DEFAULT) or Go (hmac.Equal) contamination from the 18 language reference files."
+    },
+    {
+      "id": "sharp-edges-02",
+      "type": "cross_language",
+      "prompt": "Write a Rust library that provides a safe cryptographic API for message signing and verification. Design it so the default path is secure, type confusion between keys and signatures is impossible, and algorithm selection is not exposed to callers. Follow misuse-resistant API design principles.",
+      "target_language": "rust",
+      "expected_patterns": [
+        "struct\\s+(Signature|SigningKey|VerifyingKey)",
+        "impl\\s+",
+        "pub\\s+fn\\s+(sign|verify)",
+        "Result<"
+      ],
+      "anti_patterns": [
+        "def\\s+verify_",
+        "function\\s+verify",
+        "func\\s+\\w+\\(",
+        "password_hash\\(",
+        "\\$algorithm"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.rs/ring/latest/ring/signature/index.html",
+          "description": "Rust ring crate: misuse-resistant signing/verification API with distinct key and signature types"
+        },
+        {
+          "url": "https://docs.rs/ed25519-dalek/latest/ed25519_dalek/",
+          "description": "Rust ed25519-dalek: SigningKey, VerifyingKey, Signature type-safe patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/library/hmac.html",
+          "description": "Anti-patterns: Python def verify_ function signatures"
+        },
+        {
+          "url": "https://www.php.net/manual/en/function.password-hash.php",
+          "description": "Anti-patterns: PHP password_hash() and $algorithm variable patterns"
+        }
+      ],
+      "notes": "Rust has a language reference file in the skill but no inline code examples. Tests whether Python (def verify_), JavaScript (function verify), Go (func), or PHP ($algorithm, password_hash) patterns bleed into Rust crypto API design."
+    },
+    {
+      "id": "sharp-edges-03",
+      "type": "similar_syntax",
+      "prompt": "Review this Go HTTP middleware for security sharp edges. Identify timing attacks, configuration cliffs, and dangerous defaults.\n\n```go\nfunc AuthMiddleware(secret string, timeout int) func(http.Handler) http.Handler {\n    return func(next http.Handler) http.Handler {\n        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n            token := r.Header.Get(\"Authorization\")\n            if token == secret {\n                next.ServeHTTP(w, r)\n                return\n            }\n            if timeout == 0 {\n                next.ServeHTTP(w, r)\n                return\n            }\n            http.Error(w, \"Unauthorized\", http.StatusUnauthorized)\n        })\n    }\n}\n```",
+      "target_language": "go",
+      "expected_patterns": [
+        "timing.?(safe|attack|constant.?time)",
+        "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+        "timeout.*0.*bypass|skip",
+        "secret.*empty"
+      ],
+      "anti_patterns": [
+        "hmac\\.compare_digest",
+        "hash_equals\\(",
+        "===\\s*secret",
+        "timing_safe_equal"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://pkg.go.dev/crypto/subtle",
+          "description": "Go crypto/subtle.ConstantTimeCompare for timing-safe comparison"
+        },
+        {
+          "url": "https://pkg.go.dev/crypto/hmac",
+          "description": "Go hmac.Equal for constant-time HMAC comparison"
+        },
+        {
+          "url": "https://docs.python.org/3/library/hmac.html",
+          "description": "Anti-patterns: Python hmac.compare_digest function"
+        },
+        {
+          "url": "https://www.php.net/manual/en/function.hash-equals.php",
+          "description": "Anti-patterns: PHP hash_equals() constant-time comparison"
+        }
+      ],
+      "notes": "Go is syntactically similar to C and has extensive reference files in the skill. Anti-patterns detect Python (hmac.compare_digest), PHP (hash_equals), JavaScript (===), or Ruby (timing_safe_equal) constant-time comparison functions bleeding into Go analysis."
+    },
+    {
+      "id": "sharp-edges-04",
+      "type": "grounded",
+      "prompt": "Perform a sharp-edges analysis on the following PHP session management class. Check for unvalidated constructor parameters, dangerous defaults, algorithm selection footguns, and configuration cliffs.\n\n```php\nclass SessionManager {\n    public function __construct(\n        public string $hashAlgo = 'sha256',\n        public int $sessionLifetime = 3600,\n        public bool $secureCookies = false,\n        public string $sameSite = 'Lax',\n        public int $maxRetries = -1\n    ) {}\n\n    public function createSession(string $userId): string {\n        $token = hash($this->hashAlgo, random_bytes(32) . $userId);\n        setcookie('session', $token, [\n            'expires' => time() + $this->sessionLifetime,\n            'secure' => $this->secureCookies,\n            'samesite' => $this->sameSite,\n            'httponly' => true\n        ]);\n        return $token;\n    }\n}\n```",
+      "target_language": "php",
+      "expected_patterns": [
+        "secureCookies.*false|default.*insecure",
+        "hashAlgo.*accept|md5|crc32|validate",
+        "maxRetries.*-1|negative|undefined",
+        "constructor.*param.*unvalidated|not validated"
+      ],
+      "anti_patterns": [
+        "hmac\\.compare_digest",
+        "crypto\\.subtle",
+        "hmac\\.Equal",
+        "import hashlib"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.php.net/manual/en/function.hash.php",
+          "description": "PHP hash() function and algorithm parameter validation concerns"
+        },
+        {
+          "url": "https://www.php.net/manual/en/function.setcookie.php",
+          "description": "PHP setcookie options: secure, samesite, httponly cookie attributes"
+        },
+        {
+          "url": "https://docs.python.org/3/library/hmac.html",
+          "description": "Anti-patterns: Python hmac.compare_digest and import hashlib"
+        },
+        {
+          "url": "https://pkg.go.dev/crypto/hmac",
+          "description": "Anti-patterns: Go hmac.Equal function"
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto",
+          "description": "Anti-patterns: JavaScript crypto.subtle API"
+        }
+      ],
+      "notes": "Grounded PHP task with a real code snippet matching the skill's PHP constructor validation pattern. Anti-patterns detect Python (hmac.compare_digest, hashlib), JavaScript (crypto.subtle), or Go (hmac.Equal) bleed."
+    },
+    {
+      "id": "sharp-edges-05",
+      "type": "adjacent_domain",
+      "prompt": "Design a TypeScript configuration validation library for a web application. It should reject dangerous security configurations at startup rather than silently accepting them. Handle cases like SSL disabled, empty secrets, zero timeouts, and unknown configuration keys. The library should make the secure path the default.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "interface\\s+\\w*Config",
+        "throw|Error\\(",
+        "ssl|tls|https",
+        "timeout.*>\\s*0|timeout.*positive",
+        "secret.*\\.length|secret.*empty"
+      ],
+      "anti_patterns": [
+        "def\\s+validate_config",
+        "func\\s+Validate",
+        "class\\s+\\w+\\s*\\{\\s*public function",
+        "string\\s+\\$"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+          "description": "TypeScript interface definitions for Config types and type-safe validation"
+        },
+        {
+          "url": "https://docs.python.org/3/library/hmac.html",
+          "description": "Anti-patterns: Python def validate_config function signature"
+        },
+        {
+          "url": "https://www.php.net/manual/en/language.oop5.php",
+          "description": "Anti-patterns: PHP class with public function and string $ parameter syntax"
+        }
+      ],
+      "notes": "Adjacent domain task - configuration validation library rather than sharp-edge analysis. TypeScript has a reference file in the skill. Anti-patterns detect Python (def validate_config), Go (func Validate), or PHP (public function, $) syntax contamination."
+    }
+  ]
+}

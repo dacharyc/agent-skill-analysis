@@ -1,0 +1,182 @@
+{
+  "skill_name": "claude-settings-audit",
+  "tasks": [
+    {
+      "id": "claude-settings-audit-01",
+      "type": "direct_target",
+      "prompt": "Generate a Claude Code settings.json permissions allow list for a Python project that uses poetry for dependency management, Django as the framework, Docker for containerization, and has a Makefile. The project also uses Sentry for error tracking. Only include read-only commands appropriate for the detected stack.",
+      "target_language": "json",
+      "expected_patterns": [
+        "Bash\\(poetry show",
+        "Bash\\(python3? --version",
+        "Bash\\(docker --version",
+        "Bash\\(make -",
+        "Bash\\(git status",
+        "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+        "Skill\\(sentry-skills:"
+      ],
+      "anti_patterns": [
+        "Bash\\(npm ",
+        "Bash\\(yarn ",
+        "Bash\\(pnpm ",
+        "Bash\\(pip ",
+        "Bash\\(cargo ",
+        "Bash\\(go "
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
+          "description": "Claude Code settings.json format and permissions allow list structure"
+        },
+        {
+          "url": "https://python-poetry.org/docs/cli/",
+          "description": "Poetry CLI commands: poetry show, poetry --version for dependency inspection"
+        },
+        {
+          "url": "https://docs.djangoproject.com/",
+          "description": "Django documentation domain for WebFetch permission pattern"
+        },
+        {
+          "url": "https://docs.docker.com/reference/cli/docker/",
+          "description": "Docker CLI read-only commands: docker --version, docker ps"
+        }
+      ],
+      "notes": "Direct task matching the skill's core purpose. Tests that only poetry commands appear (not pip/npm/yarn) and that Django/Sentry-specific entries are included. Anti-patterns catch wrong package manager or undetected-stack commands."
+    },
+    {
+      "id": "claude-settings-audit-02",
+      "type": "cross_language",
+      "prompt": "Generate a Claude Code settings.json permissions allow list for a Rust project using Cargo, with a CI pipeline in GitHub Actions. The project has no web framework, no Docker, and no external services. Include only commands appropriate for the detected stack.",
+      "target_language": "json",
+      "expected_patterns": [
+        "Bash\\(rustc --version",
+        "Bash\\(cargo --version",
+        "Bash\\(cargo tree",
+        "Bash\\(cargo metadata",
+        "Bash\\(git status"
+      ],
+      "anti_patterns": [
+        "Bash\\(python",
+        "Bash\\(npm",
+        "Bash\\(poetry",
+        "Bash\\(pip",
+        "Bash\\(go ",
+        "WebFetch\\(domain:docs\\.djangoproject",
+        "Skill\\(sentry-skills:"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
+          "description": "Claude Code settings.json permissions format for Bash command allow lists"
+        },
+        {
+          "url": "https://doc.rust-lang.org/cargo/commands/index.html",
+          "description": "Cargo CLI commands: cargo tree, cargo metadata, cargo --version for Rust inspection"
+        }
+      ],
+      "notes": "Rust project that is NOT in the skill's primary examples (which focus on Python/Node.js). Tests whether Python/Node.js commands bleed in despite the project being Rust-only."
+    },
+    {
+      "id": "claude-settings-audit-03",
+      "type": "similar_syntax",
+      "prompt": "Generate a Claude Code settings.json permissions allow list for a Node.js project that uses pnpm as its package manager, TypeScript, and Vite as the build tool. The project has no Python, no Docker, and no Sentry.",
+      "target_language": "json",
+      "expected_patterns": [
+        "Bash\\(pnpm list",
+        "Bash\\(pnpm why",
+        "Bash\\(node --version",
+        "Bash\\(tsc --version"
+      ],
+      "anti_patterns": [
+        "Bash\\(npm list",
+        "Bash\\(npm view",
+        "Bash\\(yarn ",
+        "Bash\\(python",
+        "Bash\\(poetry",
+        "Skill\\(sentry-skills:",
+        "WebFetch\\(domain:docs\\.sentry"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
+          "description": "Claude Code settings.json permissions allow list format"
+        },
+        {
+          "url": "https://pnpm.io/cli/list",
+          "description": "pnpm CLI commands: pnpm list, pnpm why for dependency inspection"
+        },
+        {
+          "url": "https://www.npmjs.com/package/pnpm",
+          "description": "pnpm package manager as distinct from npm/yarn"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/compiler-options.html",
+          "description": "TypeScript tsc --version command for stack detection"
+        }
+      ],
+      "notes": "Tests the skill's package manager exclusivity rule: pnpm detected means NO npm/yarn commands. This is the highest PLC risk because all three JS package managers appear in the skill. Anti-patterns catch wrong package manager selection and Sentry bleed."
+    },
+    {
+      "id": "claude-settings-audit-04",
+      "type": "grounded",
+      "prompt": "Given the following existing settings.json file and project structure, generate a merged settings.json that adds missing permissions without duplicating existing ones.\n\nExisting settings.json:\n```json\n{\n  \"permissions\": {\n    \"allow\": [\n      \"Bash(git status:*)\",\n      \"Bash(git log:*)\",\n      \"Bash(npm list:*)\"\n    ],\n    \"deny\": []\n  }\n}\n```\n\nProject files detected:\n- package.json (with package-lock.json)\n- tsconfig.json\n- Dockerfile\n- .sentryclirc",
+      "target_language": "json",
+      "expected_patterns": [
+        "Bash\\(git status:\\*\\)",
+        "Bash\\(git log:\\*\\)",
+        "Bash\\(npm list:\\*\\)",
+        "Bash\\(docker --version",
+        "Bash\\(tsc --version",
+        "Bash\\(node --version"
+      ],
+      "anti_patterns": [
+        "Bash\\(yarn ",
+        "Bash\\(pnpm ",
+        "Bash\\(pip ",
+        "Bash\\(poetry "
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
+          "description": "Claude Code settings.json merge behavior and permissions allow list format"
+        },
+        {
+          "url": "https://docs.docker.com/reference/cli/docker/",
+          "description": "Docker CLI commands for detected Dockerfile stack"
+        }
+      ],
+      "notes": "Grounded merge task. Tests that existing permissions are preserved and new ones added correctly. package-lock.json means npm (not yarn/pnpm). Anti-patterns catch wrong package manager or undetected-stack bleed."
+    },
+    {
+      "id": "claude-settings-audit-05",
+      "type": "adjacent_domain",
+      "prompt": "Generate an .mcp.json configuration file for a project that uses both Sentry and Linear for issue tracking. Include the proper MCP server configurations for both services. The Sentry organization slug is 'acme-corp' and project slug is 'backend-api'.",
+      "target_language": "json",
+      "expected_patterns": [
+        "mcpServers",
+        "sentry",
+        "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+        "linear",
+        "@linear/mcp-server",
+        "LINEAR_API_KEY"
+      ],
+      "anti_patterns": [
+        "github.*mcp",
+        "Bash\\(",
+        "permissions",
+        "WebFetch"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/claude-code/mcp-servers",
+          "description": "Claude Code .mcp.json configuration format for MCP servers"
+        },
+        {
+          "url": "https://www.npmjs.com/package/@linear/mcp-server",
+          "description": "Linear MCP server npm package and LINEAR_API_KEY configuration"
+        }
+      ],
+      "notes": "Adjacent domain: MCP configuration instead of settings.json permissions. Tests knowledge of MCP server setup from the skill. Anti-pattern ensures no GitHub MCP (skill explicitly says never suggest it) and no confusion with settings.json format."
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "skill_name": "prompt-agent",
+  "tasks": [
+    {
+      "id": "prompt-agent-01",
+      "type": "direct_target",
+      "prompt": "Write a Bash script that performs a security audit of a directory containing configuration files. The script should: check file permissions (flag any world-readable files), scan for exposed secrets (API keys, passwords, tokens in plaintext using regex patterns), verify that JSON config files have valid structure using jq, generate a summary report with severity levels (CRITICAL, WARNING, INFO), and output the report in a structured format. Include proper error handling and support for a --verbose flag.",
+      "target_language": "bash",
+      "expected_patterns": [
+        "#!/bin/bash",
+        "find\\s+|ls\\s+",
+        "grep.*-[EriP]|egrep",
+        "jq\\s+",
+        "CRITICAL|WARNING|INFO",
+        "chmod|stat|permissions"
+      ],
+      "anti_patterns": [
+        "import\\s+",
+        "def\\s+\\w+\\(",
+        "class\\s+",
+        "const\\s+|let\\s+|var\\s+",
+        "require\\(",
+        "from\\s+\\w+\\s+import"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.gnu.org/software/bash/manual/bash.html",
+          "description": "GNU Bash manual - source of shell scripting patterns: find, grep -E, stat, chmod, and conditional constructs"
+        },
+        {
+          "url": "https://jqlang.github.io/jq/manual/",
+          "description": "jq manual - source of jq JSON validation patterns for checking config file structure"
+        }
+      ],
+      "notes": "Direct target in Bash, the primary scripting language used in the skill's installation and audit workflows. The skill is entirely Bash-based. Tests whether the skill enhances security audit script generation."
+    },
+    {
+      "id": "prompt-agent-02",
+      "type": "cross_language",
+      "prompt": "Write a Python script that validates the integrity of files in a directory by computing and verifying SHA-256 checksums. The script should: generate a checksums.json manifest file for all files in a directory, verify files against an existing checksums.json, report any mismatches or missing files, and support both --generate and --verify modes. Output results as structured JSON to stdout.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import hashlib",
+        "import json",
+        "sha256|hashlib\\.sha256",
+        "def\\s+\\w+\\(",
+        "argparse|sys\\.argv",
+        "json\\.dump|json\\.dumps"
+      ],
+      "anti_patterns": [
+        "#!/bin/bash",
+        "shasum\\s+-a\\s+256",
+        "curl\\s+",
+        "jq\\s+",
+        "unzip\\s+",
+        "\\$\\{.*\\}|\\$[A-Z_]+"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.python.org/3/library/hashlib.html",
+          "description": "Python hashlib docs - source of hashlib.sha256 and digest/hexdigest patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/library/json.html",
+          "description": "Python json module docs - source of json.dump/json.dumps patterns for manifest output"
+        },
+        {
+          "url": "https://docs.python.org/3/library/argparse.html",
+          "description": "Python argparse docs - source of --generate/--verify CLI mode patterns"
+        }
+      ],
+      "notes": "Cross-language test: the skill performs SHA-256 checksum verification but entirely in Bash (using shasum -a 256 and jq). This asks for the same concept in Python. Tests whether Bash patterns (shell variable syntax, shasum commands, jq invocations) bleed into Python code."
+    },
+    {
+      "id": "prompt-agent-03",
+      "type": "similar_syntax",
+      "prompt": "Write a shell script (POSIX sh compatible) that sets up a cron job for running automated system health checks. The script should: accept a schedule expression and a command as arguments, validate the cron expression format, add the job to the user's crontab without overwriting existing entries, verify the job was added successfully, and support a --remove flag to uninstall the job. Include proper error handling for permission issues.",
+      "target_language": "sh",
+      "expected_patterns": [
+        "#!/bin/sh|#!/usr/bin/env sh",
+        "crontab",
+        "cron|schedule",
+        "\\$1|\\$2|\\$\\{",
+        "if\\s+\\[|test\\s+",
+        "trap\\s+"
+      ],
+      "anti_patterns": [
+        "openclaw\\s+cron",
+        "moltbot|clawdbot",
+        "AGENT_HOME",
+        "prompt-agent",
+        "skill\\.json",
+        "HEARTBEAT\\.md"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html",
+          "description": "POSIX crontab specification - source of crontab command usage and cron expression format"
+        },
+        {
+          "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html",
+          "description": "POSIX shell specification - source of #!/bin/sh, test/[ constructs, trap, and POSIX-compatible shell patterns"
+        }
+      ],
+      "notes": "Similar syntax test: POSIX sh is syntactically very close to Bash. The skill uses cron job setup via 'openclaw cron add' (a proprietary command). Tests whether the skill's proprietary agent-specific patterns (openclaw, AGENT_HOME, skill.json, prompt-agent-specific paths) bleed into a generic POSIX cron setup script."
+    },
+    {
+      "id": "prompt-agent-04",
+      "type": "grounded",
+      "prompt": "Given the following Bash script that downloads and installs a plugin, identify security issues and fix them:\n\n```bash\n#!/bin/bash\nPLUGIN_URL=\"http://example.com/plugin.tar.gz\"\nTEMP_DIR=/tmp/plugin_install\n\nmkdir $TEMP_DIR\ncurl $PLUGIN_URL -o $TEMP_DIR/plugin.tar.gz\ntar xzf $TEMP_DIR/plugin.tar.gz -C /usr/local/plugins/\nchmod 777 /usr/local/plugins/*\nrm -rf $TEMP_DIR\necho \"Installed successfully\"\n```\n\nFix: (1) use HTTPS not HTTP, (2) use mktemp for temp directory, (3) add checksum verification, (4) check for path traversal in archive, (5) use restrictive permissions instead of 777, (6) add error handling with set -e and trap for cleanup, (7) quote all variables.",
+      "target_language": "bash",
+      "expected_patterns": [
+        "https://",
+        "mktemp\\s+-d",
+        "shasum|sha256sum",
+        "set -e|set -euo",
+        "trap.*EXIT|trap.*cleanup",
+        "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+      ],
+      "anti_patterns": [
+        "openclaw",
+        "AGENT_HOME",
+        "prompt-agent",
+        "clawsec\\.prompt\\.security",
+        "skill\\.json",
+        "HEARTBEAT"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.gnu.org/software/bash/manual/bash.html",
+          "description": "GNU Bash manual - source of set -euo pipefail, trap EXIT, and variable quoting patterns"
+        },
+        {
+          "url": "https://www.gnu.org/software/coreutils/manual/coreutils.html#mktemp-invocation",
+          "description": "GNU coreutils mktemp docs - source of mktemp -d pattern for secure temporary directory creation"
+        },
+        {
+          "url": "https://man.openbsd.org/sha256",
+          "description": "sha256sum/shasum reference - source of checksum verification patterns for download integrity"
+        }
+      ],
+      "notes": "Grounded task with an insecure Bash install script. The skill contains extensive security-hardened installation code with the same patterns (mktemp, shasum, trap, path traversal checks). Tests whether the skill properly informs security fixes without injecting its own proprietary URLs and agent-specific paths."
+    },
+    {
+      "id": "prompt-agent-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Python class that implements a simple rule-based intrusion detection system (IDS) for analyzing web server access logs. The class should parse Apache/Nginx combined log format lines, detect suspicious patterns (SQL injection attempts, directory traversal, excessive 404s from single IPs, brute force login attempts), maintain a threat score per IP address, and generate alerts when thresholds are exceeded. Include a method to produce a JSON report of all detected threats.",
+      "target_language": "python",
+      "expected_patterns": [
+        "class.*IDS|class.*Detector|class.*Monitor",
+        "re\\.compile|re\\.search|re\\.match",
+        "SQL.*injection|sqli|union.*select",
+        "\\.\\./|directory.*traversal|path.*traversal",
+        "def\\s+parse|def\\s+analyze|def\\s+detect",
+        "json\\.dump|json\\.dumps"
+      ],
+      "anti_patterns": [
+        "openclaw|moltbot|clawdbot",
+        "AGENT_HOME",
+        "prompt-agent|prompt.security",
+        "skill\\.json|SKILL\\.md",
+        "HEARTBEAT",
+        "shasum.*256|checksums\\.json"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.python.org/3/library/re.html",
+          "description": "Python re module docs - source of re.compile, re.search patterns for log line pattern matching"
+        },
+        {
+          "url": "https://docs.python.org/3/library/json.html",
+          "description": "Python json module docs - source of json.dumps pattern for threat report output"
+        },
+        {
+          "url": "https://httpd.apache.org/docs/current/logs.html",
+          "description": "Apache HTTP Server log docs - source of combined log format specification for parsing access logs"
+        }
+      ],
+      "notes": "Adjacent domain test: intrusion detection is security-adjacent to the skill's security audit purpose but is log analysis, not agent protection. Tests whether the skill's agent-security-specific concepts (agent folders, skill integrity, heartbeat checking) bleed into a general-purpose IDS task."
+    }
+  ]
+}

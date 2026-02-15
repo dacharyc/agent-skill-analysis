@@ -1,0 +1,176 @@
+{
+  "skill_name": "doc-coauthoring",
+  "tasks": [
+    {
+      "id": "doc-coauthoring-01",
+      "type": "direct_target",
+      "prompt": "Write a Python script that implements a command-line tool for managing a collaborative document editing workflow. The tool should support three commands: 'init' (create a new document from a template with YAML frontmatter for title, author, date, and status), 'review' (parse the document and check for TODO placeholders, broken links, and sections marked [To be written]), and 'export' (convert the markdown document to HTML with a table of contents). Use argparse for CLI parsing.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import argparse",
+        "import markdown|import re",
+        "def\\s+init|def\\s+review|def\\s+export",
+        "argparse\\.ArgumentParser",
+        "TODO|\\[To be written\\]",
+        "with open.*w|with open.*r"
+      ],
+      "anti_patterns": [
+        "str_replace",
+        "create_file",
+        "sub-agent|sub_agent",
+        "Reader Claude|Reader Testing",
+        "Stage 1|Stage 2|Stage 3"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.python.org/3/library/argparse.html",
+          "description": "Python argparse docs - source of ArgumentParser and subcommand patterns for init/review/export CLI"
+        },
+        {
+          "url": "https://python-markdown.github.io/",
+          "description": "Python-Markdown library docs - source of markdown-to-HTML conversion patterns for the export command"
+        },
+        {
+          "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+          "description": "PyYAML docs - source of YAML frontmatter parsing patterns for document metadata"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL B - Direct target (but as code). This is a non-code skill about documentation workflows. This task asks for a code tool related to the skill's domain. Tests whether the skill's workflow-specific jargon (str_replace, create_file, Reader Claude, Stages) bleeds into a general-purpose code tool."
+    },
+    {
+      "id": "doc-coauthoring-02",
+      "type": "cross_language",
+      "prompt": "Write a Go HTTP server that implements a REST API for a document management system. The API should support: POST /documents (create a new document with title, content, and author), GET /documents/{id} (retrieve a document), PUT /documents/{id} (update content), GET /documents/{id}/versions (list version history), and POST /documents/{id}/review (trigger a review workflow that checks for completeness). Use the standard library net/http and encoding/json packages.",
+      "target_language": "go",
+      "expected_patterns": [
+        "package main",
+        "net/http",
+        "encoding/json",
+        "func.*http\\.ResponseWriter.*\\*http\\.Request",
+        "json\\.NewDecoder|json\\.Marshal",
+        "http\\.HandleFunc|mux\\.HandleFunc"
+      ],
+      "anti_patterns": [
+        "str_replace",
+        "create_file",
+        "sub-agent",
+        "Reader Claude",
+        "brainstorm|curation",
+        "from fastapi|import flask"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://pkg.go.dev/net/http",
+          "description": "Go net/http package docs - source of http.HandleFunc, http.ResponseWriter, and *http.Request handler patterns"
+        },
+        {
+          "url": "https://pkg.go.dev/encoding/json",
+          "description": "Go encoding/json package docs - source of json.NewDecoder, json.Marshal, and JSON serialization patterns"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL B - Cross-language. Document management API in Go. Since the skill is non-code (purely about writing documentation), no code patterns should bleed from it. Tests whether loading a non-code skill degrades Go code generation."
+    },
+    {
+      "id": "doc-coauthoring-03",
+      "type": "similar_syntax",
+      "prompt": "Write a TypeScript Node.js module that parses Markdown documents and extracts structured metadata. The module should: parse YAML frontmatter, extract all headings into a hierarchical table of contents, find all links and check if they are valid URLs, count words per section, and return a DocumentAnalysis object with all extracted data. Use the 'gray-matter' and 'unified/remark' packages.",
+      "target_language": "typescript",
+      "expected_patterns": [
+        "import.*gray-matter|import.*matter",
+        "import.*unified|import.*remark",
+        "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+        "export\\s+",
+        "frontmatter|metadata",
+        "async\\s+function|function\\s+"
+      ],
+      "anti_patterns": [
+        "str_replace",
+        "create_file",
+        "sub-agent|subAgent",
+        "Reader Claude|Reader Testing",
+        "brainstorm|curation|refinement",
+        "Stage 1|Stage 2|Stage 3"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://www.npmjs.com/package/gray-matter",
+          "description": "gray-matter npm package docs - source of YAML frontmatter parsing patterns for Markdown documents"
+        },
+        {
+          "url": "https://unifiedjs.com/learn/guide/using-unified/",
+          "description": "unified/remark ecosystem docs - source of Markdown AST parsing patterns for heading extraction and document analysis"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL B - Similar syntax. TypeScript document parsing is tangentially related to the doc-coauthoring workflow. Since the skill is non-code, tests whether the skill's specific workflow concepts (stages, brainstorming, reader testing) pollute code output."
+    },
+    {
+      "id": "doc-coauthoring-04",
+      "type": "grounded",
+      "prompt": "Given the following Python code that generates a technical specification document, fix the bugs and improve it:\n\n```python\nimport datetime\n\ndef generate_spec(title, sections):\n    doc = f\"# {title}\\n\"\n    doc += f\"Date: {datetime.date.today()}\\n\\n\"\n    \n    for section in sections:\n        doc += f\"## {section['name']}\\n\"\n        doc += section['content'] + \"\\n\"\n    \n    return doc\n\nsections = [\n    {'name': 'Overview', 'content': 'TBD'},\n    {'name': 'Requirements', 'content': ''},\n    {'name': 'Architecture', 'content': 'See diagram'},\n]\n\nresult = generate_spec('API Design Spec', sections)\nprint(result)\n```\n\nImprove: (1) add YAML frontmatter, (2) add table of contents generation, (3) handle empty sections with placeholder text, (4) add section numbering, (5) validate required sections exist, (6) save to file with proper encoding.",
+      "target_language": "python",
+      "expected_patterns": [
+        "---\\\\n|frontmatter",
+        "table.*of.*contents|toc|## Contents",
+        "\\[To be written\\]|\\[TBD\\]|placeholder",
+        "def\\s+generate",
+        "with open.*w.*encoding",
+        "enumerate|\\d+\\."
+      ],
+      "anti_patterns": [
+        "str_replace",
+        "create_file",
+        "sub-agent|sub_agent",
+        "Reader Claude",
+        "brainstorm|curation"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://docs.python.org/3/library/functions.html#open",
+          "description": "Python built-in open() docs - source of file I/O patterns with encoding parameter"
+        },
+        {
+          "url": "https://docs.python.org/3/library/datetime.html",
+          "description": "Python datetime docs - source of datetime.date.today() pattern used in spec generation"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL B - Grounded task. A document generation script that is thematically related to the skill's domain. Tests whether the non-code skill's internal methodology (str_replace editing, artifact creation, reader testing) bleeds into the code output."
+    },
+    {
+      "id": "doc-coauthoring-05",
+      "type": "adjacent_domain",
+      "prompt": "Write a Python script that implements a simple static site generator. The script should: read all .md files from a content/ directory, parse YAML frontmatter for title, date, and tags, convert Markdown to HTML using the markdown library, apply a Jinja2 HTML template with navigation and footer, generate an index page listing all posts sorted by date, and write the output to a build/ directory. Include proper error handling and a --watch flag for development.",
+      "target_language": "python",
+      "expected_patterns": [
+        "import markdown|from markdown",
+        "from jinja2|import jinja2",
+        "import yaml|from yaml",
+        "os\\.walk|glob|pathlib",
+        "def\\s+build|def\\s+render",
+        "with open"
+      ],
+      "anti_patterns": [
+        "str_replace",
+        "create_file",
+        "sub-agent",
+        "Reader Claude|Reader Testing",
+        "brainstorm|curation|refinement",
+        "context gathering|Stage [123]"
+      ],
+      "pattern_sources": [
+        {
+          "url": "https://python-markdown.github.io/",
+          "description": "Python-Markdown library docs - source of markdown-to-HTML conversion patterns"
+        },
+        {
+          "url": "https://jinja.palletsprojects.com/en/stable/",
+          "description": "Jinja2 template engine docs - source of template loading and rendering patterns"
+        },
+        {
+          "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+          "description": "PyYAML docs - source of YAML frontmatter parsing for document metadata"
+        }
+      ],
+      "notes": "NEGATIVE CONTROL B - Adjacent domain. Static site generation is related to document processing but is purely a code task. Tests whether loading the non-code doc-coauthoring skill degrades a standard Python coding task. Since this is a non-code skill (score 0.00), we expect zero impact on code generation quality."
+    }
+  ]
+}
