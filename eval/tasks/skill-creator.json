@@ -23,8 +23,12 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
-          "description": "Claude Code skills specification - source of SKILL.md structure, YAML frontmatter with name/description fields, and references/ directory pattern"
+          "url": "https://agentskills.io/specification.md",
+          "description": "Agent Skills specification - source of SKILL.md structure with YAML frontmatter delimiter (---), name: field format (lowercase alphanumeric and hyphens), description: field (1-1024 chars), and references/ directory pattern"
+        },
+        {
+          "url": "https://www.markdownguide.org/basic-syntax/",
+          "description": "Markdown Guide - source of ## heading syntax and ``` code block syntax for SKILL.md markdown content"
         }
       ],
       "notes": "Direct target task: creating a SKILL.md is the exact purpose of this meta-skill. Tests whether the skill-creator correctly guides the structure. Anti-patterns include extraneous files the skill explicitly warns against creating."
@@ -51,16 +55,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
-          "description": "Claude Code skills specification - source of SKILL.md validation rules: required name/description fields, name pattern, description length limits"
+          "url": "https://agentskills.io/specification.md",
+          "description": "Agent Skills specification - source of SKILL.md validation rules: required name/description fields, name pattern ([a-z0-9-] with constraints), description length limits (1-1024 chars), frontmatter delimiter (---)"
         },
         {
           "url": "https://docs.python.org/3/library/argparse.html",
-          "description": "Python argparse docs - source of ArgumentParser and CLI parsing patterns"
+          "description": "Python argparse docs - source of ArgumentParser and CLI parsing patterns for validating SKILL.md files"
         },
         {
           "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
-          "description": "PyYAML docs - source of YAML frontmatter parsing patterns"
+          "description": "PyYAML docs - source of YAML frontmatter parsing patterns for extracting name and description fields"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for defining validation functions"
+        },
+        {
+          "url": "https://docs.python.org/3/library/re.html",
+          "description": "Python re module docs - source of regex pattern matching for validating skill name format ([a-z0-9-])"
         }
       ],
       "notes": "Cross-language test: the skill-creator itself references Python scripts (init_skill.py, package_skill.py) but never shows their implementation. This task asks for a Python validator. Tests whether the model correctly writes standalone Python rather than trying to mimic the skill's internal script references."
@@ -87,12 +99,12 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
-          "description": "Claude Code skills specification - source of expected directory structure: SKILL.md, scripts/, references/, and YAML frontmatter template"
+          "url": "https://agentskills.io/specification.md",
+          "description": "Agent Skills specification - source of expected directory structure: SKILL.md (required filename), scripts/, references/, assets/, and YAML frontmatter template with name/description fields"
         },
         {
           "url": "https://www.gnu.org/software/bash/manual/bash.html",
-          "description": "GNU Bash manual - source of mkdir -p, heredoc (cat <<EOF), and shell variable patterns"
+          "description": "GNU Bash manual - source of positional parameters ($1, ${1}), heredoc syntax (cat <<EOF, cat <<'EOF'), and mkdir -p patterns (user verified: Bash manual works despite rate limiting)"
         }
       ],
       "notes": "Similar syntax test: Bash is syntactically close to the shell commands shown throughout the skill (which invokes Python scripts via bash). The skill's init_skill.py does exactly this task but in Python. Tests whether the Bash output stays idiomatic or bleeds Python patterns from the skill."
@@ -115,8 +127,8 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/skills",
-          "description": "Claude Code skills specification - source of SKILL.md best practices: description field usage, references/ directory for long content, and prohibited sections (changelog, installation)"
+          "url": "https://agentskills.io/specification.md",
+          "description": "Agent Skills specification - source of SKILL.md best practices: description field should describe what the skill does and when to use it (not separate 'When to Use' section), references/ directory for long content to avoid bloat, prohibited sections (changelog, installation, license details beyond field)"
         }
       ],
       "notes": "Grounded task with a provided bad SKILL.md. Tests understanding of the skill-creator's guidelines: move 'when to use' into description, remove changelog, move long API reference to references/ dir, remove installation section. The skill explicitly warns against these anti-patterns."
@@ -144,12 +156,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://www.npmjs.com/package/archiver",
-          "description": "Archiver npm package docs - source of archive.directory, archive.finalize, and createWriteStream patterns"
+          "url": "https://github.com/archiverjs/node-archiver",
+          "description": "Archiver GitHub repository - source of require('archiver') and import archiver patterns, archive.directory() and archive.glob() methods for adding files, archive.finalize() method for completing the archive (verified in README and examples/express.js)"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+          "description": "TypeScript handbook - source of Promise<T> type annotation syntax, specifically Promise<number> for functions returning Promises that resolve to numbers (e.g., byte size)"
         },
         {
           "url": "https://nodejs.org/api/fs.html",
-          "description": "Node.js fs module docs - source of createWriteStream pattern"
+          "description": "Node.js fs module docs - source of createWriteStream pattern for writing archive output to files"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html#asyncawait",
+          "description": "TypeScript async/await documentation - source of async function and await keyword syntax for Promise-based operations"
         }
       ],
       "notes": "Adjacent domain test: the skill-creator packages skills into .skill files (which are zip files). This task asks for generic zip archiving in TypeScript. Tests whether skill-creator's packaging concepts (skill.json, .skill extension, validation steps) bleed into a general-purpose archiving task."

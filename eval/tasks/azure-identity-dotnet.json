@@ -25,15 +25,19 @@
       "pattern_sources": [
         {
           "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
-          "description": "Azure Identity .NET SDK reference - source of DefaultAzureCredential, AuthenticationFailedException, and CredentialUnavailableException patterns"
+          "description": "Azure Identity .NET SDK: DefaultAzureCredential class, constructor with DefaultAzureCredentialOptions, AuthenticationFailedException and CredentialUnavailableException exception types, GetToken methods"
         },
         {
           "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.azure",
-          "description": "Microsoft.Extensions.Azure docs - source of AddAzureClients and UseCredential DI registration patterns"
+          "description": "Microsoft.Extensions.Azure namespace: AddAzureClients extension method for DI, UseCredential configuration patterns, IAzureClientFactory registration"
         },
         {
           "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.security.keyvault.secrets.secretclient",
-          "description": "Azure Key Vault Secrets .NET SDK reference - source of SecretClient patterns"
+          "description": "Azure Key Vault Secrets .NET SDK: SecretClient class initialization with TokenCredential, GetSecretAsync method, BlobServiceClient patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis",
+          "description": "ASP.NET Core Minimal APIs: builder.Services for service registration (builder.Services.AddMemoryCache, etc.) and app.MapGet/app.MapPost/app.Map for endpoint mapping as required by prompt"
         }
       ],
       "notes": "Direct target in C#/.NET, the exact language and SDK covered by this skill. Tests whether the skill correctly enhances Azure Identity .NET code with proper DI patterns and error handling as documented."
@@ -67,6 +71,14 @@
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient",
           "description": "Azure Key Vault Secrets Python SDK reference - source of SecretClient Python import and usage patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/library/asyncio.html",
+          "description": "Python asyncio library - source of import asyncio, async def function declarations, and await keyword for parallel secret retrieval as specified in prompt"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for defining functions as required by prompt ('implement a function')"
         },
         {
           "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
@@ -104,6 +116,18 @@
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.security.keyvault.secrets.secretclient",
           "description": "Azure Key Vault Secrets Java SDK reference - source of SecretClient and SecretClientBuilder Java patterns"
+        },
+        {
+          "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-requestmapping.html",
+          "description": "Spring Framework request mapping annotations - source of @RestController, @GetMapping for REST endpoints as required by prompt ('expose a REST endpoint')"
+        },
+        {
+          "url": "https://docs.spring.io/spring-framework/reference/core/beans/java/bean-annotation.html",
+          "description": "Spring Framework @Bean annotation - source of @Bean annotation for bean declarations as required by prompt ('configure a DefaultAzureCredential bean')"
+        },
+        {
+          "url": "https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html",
+          "description": "Java class definitions - source of public class keyword for defining Java classes as required for Java Spring Boot service"
         },
         {
           "url": "https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential",
@@ -145,6 +169,14 @@
         {
           "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments",
           "description": "ASP.NET Core environments docs - source of IsDevelopment/IsProduction and ASPNETCORE_ENVIRONMENT patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields",
+          "description": "C# field modifiers - source of private, readonly, and static keywords for reusable credential fields as required by fix ('credential is created on every call instead of being reused')"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration",
+          "description": "ASP.NET Core configuration - source of IConfiguration interface for accessing vault URL from config as required by fix ('vault URL is hardcoded')"
         }
       ],
       "notes": "Grounded task with buggy C# Azure Identity code. The skill explicitly covers reusing credentials, using deterministic credentials in production, and error handling best practices. Tests whether the skill properly informs the fix."
@@ -178,6 +210,14 @@
         {
           "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authorization/claims",
           "description": "ASP.NET Core claims-based authorization docs - source of IClaimsTransformation and [Authorize] attribute patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer.jwtbearerdefaults",
+          "description": "JwtBearerDefaults class - source of JwtBearerDefaults.AuthenticationScheme constant for JWT Bearer authentication scheme"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis",
+          "description": "ASP.NET Core Minimal APIs - source of builder.Services for DI registration and app.UseAuthentication middleware registration as required for JWT middleware setup"
         }
       ],
       "notes": "Adjacent domain test: JWT authentication is related to Azure Identity (both are auth) but uses standard ASP.NET JWT bearer, not Azure SDK credentials. Tests whether the Azure Identity skill's patterns (DefaultAzureCredential, ManagedIdentityCredential, Azure SDK client construction) bleed into standard JWT auth code."

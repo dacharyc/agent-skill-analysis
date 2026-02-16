@@ -42,6 +42,10 @@
           "description": "Anti-patterns: Node.js require('stripe'), apiVersion property, const stripe"
         },
         {
+          "url": "https://docs.python.org/3/reference/simple_stmts.html#import",
+          "description": "Python import statement - source of import keyword for importing stripe module"
+        },
+        {
           "url": "https://docs.stripe.com/api/customers/create.md?lang=ruby",
           "description": "Anti-patterns: Ruby Stripe::Customer and Stripe.api_version patterns"
         }
@@ -68,12 +72,12 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://github.com/stripe/stripe-go",
-          "description": "Go stripe-go library: stripe.Key assignment, customer.Get() method signatures"
+          "url": "https://raw.githubusercontent.com/stripe/stripe-go/refs/heads/master/README.md",
+          "description": "Go stripe-go README: import path github.com/stripe/stripe-go/v84, stripe.Key assignment pattern, customer.Get() usage examples"
         },
         {
-          "url": "https://pkg.go.dev/github.com/stripe/stripe-go/v82",
-          "description": "Go SDK package reference for expected customer.Get patterns and stripe.Key usage"
+          "url": "https://raw.githubusercontent.com/stripe/stripe-go/refs/heads/master/customer/client.go",
+          "description": "Go stripe-go customer package: customer.Get(id, params) method signature and implementation"
         },
         {
           "url": "https://docs.stripe.com/api/customers/retrieve?lang=python",
@@ -82,6 +86,10 @@
         {
           "url": "https://docs.stripe.com/api/customers/retrieve?lang=node",
           "description": "Anti-patterns: Node.js require('stripe'), apiVersion property"
+        },
+        {
+          "url": "https://go.dev/doc/code",
+          "description": "Go documentation - source of func keyword for defining Go functions"
         },
         {
           "url": "https://docs.stripe.com/api/customers/retrieve?lang=ruby",
@@ -111,16 +119,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.stripe.com/api?lang=node",
-          "description": "Node.js Stripe initialization with require('stripe') and apiVersion constructor option"
+          "url": "https://raw.githubusercontent.com/stripe/stripe-node/refs/heads/master/README.md",
+          "description": "Node.js Stripe initialization: require('stripe') pattern, apiVersion constructor option, import/export patterns"
         },
         {
-          "url": "https://docs.stripe.com/webhooks?lang=node",
-          "description": "Node.js stripe.webhooks.constructEvent for webhook signature verification"
+          "url": "https://docs.stripe.com/webhooks.md?lang=node",
+          "description": "Node.js webhook handling: stripe.webhooks.constructEvent for signature verification, req.body usage with express.raw middleware"
         },
         {
           "url": "https://docs.stripe.com/api?lang=python",
           "description": "Anti-patterns: Python stripe.api_version= assignment and import stripe"
+        },
+        {
+          "url": "https://nodejs.org/api/modules.html",
+          "description": "Node.js modules - source of require() function and module.exports pattern for Node.js modules"
         },
         {
           "url": "https://docs.stripe.com/webhooks?lang=ruby",
@@ -147,16 +159,12 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.stripe.com/upgrades#2026-01-28",
-          "description": "Stripe API version upgrade details for 2026-01-28.clover including Stripe.js path changes"
-        },
-        {
-          "url": "https://docs.stripe.com/api/versioning?lang=python",
-          "description": "Python API versioning patterns and stripe.api_version assignment"
+          "url": "https://docs.stripe.com/api/versioning.md?lang=python",
+          "description": "Stripe API versioning: specifies '2026-01-28.clover' as the current version string, stripe.api_version assignment pattern"
         },
         {
           "url": "https://docs.stripe.com/js",
-          "description": "Stripe.js script tag URL pattern (js.stripe.com/{version}/stripe.js)"
+          "description": "Stripe.js script tag: js.stripe.com/clover/stripe.js URL pattern with version-based path"
         },
         {
           "url": "https://docs.stripe.com/api?lang=node",
@@ -188,16 +196,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.stripe.com/webhooks?lang=ruby",
-          "description": "Ruby Stripe::Webhook.construct_event for webhook signature verification"
+          "url": "https://docs.stripe.com/webhooks.md?lang=ruby",
+          "description": "Ruby webhook handling: Stripe::Webhook.construct_event for signature verification, event.type handling with case statements, subscription event examples (customer.subscription.created)"
         },
         {
-          "url": "https://docs.stripe.com/api/events?lang=ruby",
-          "description": "Ruby event type handling for subscription lifecycle events"
+          "url": "https://docs.stripe.com/api/events.md?lang=ruby",
+          "description": "Ruby event types: subscription lifecycle events (customer.subscription.created, customer.subscription.updated, customer.subscription.deleted)"
         },
         {
-          "url": "https://docs.stripe.com/webhooks?lang=node",
+          "url": "https://docs.stripe.com/webhooks.md?lang=node",
           "description": "Anti-patterns: Node.js stripe.webhooks.constructEvent pattern"
+        },
+        {
+          "url": "https://ruby-doc.org/3.3.6/syntax/modules_and_classes_rdoc.html",
+          "description": "Ruby classes - source of class keyword for defining Ruby service classes"
+        },
+        {
+          "url": "https://ruby-doc.org/3.3.6/syntax/methods_rdoc.html",
+          "description": "Ruby methods - source of def keyword for defining methods in Ruby classes"
         },
         {
           "url": "https://docs.stripe.com/api?lang=python",

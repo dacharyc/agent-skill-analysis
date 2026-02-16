@@ -24,16 +24,16 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://shopify.github.io/flash-list/docs/",
-          "description": "Shopify FlashList docs - source of FlashList import, estimatedItemSize, renderItem, and keyExtractor patterns"
+          "url": "https://github.com/Shopify/flash-list",
+          "description": "Shopify FlashList GitHub README - source of import { FlashList } from '@shopify/flash-list', estimatedItemSize prop (note: v2 doesn't require it), renderItem function, and keyExtractor patterns"
         },
         {
           "url": "https://reactnative.dev/docs/flatlist",
-          "description": "React Native FlatList docs - source of onRefresh, refreshing, and list component patterns"
+          "description": "React Native FlatList docs - source of onRefresh and refreshing props for pull-to-refresh functionality, renderItem and keyExtractor prop signatures"
         },
         {
           "url": "https://react.dev/reference/react/memo",
-          "description": "React.memo docs - source of memo() wrapping pattern for preventing re-renders"
+          "description": "React memo docs - source of import { memo } from 'react' and React.memo() wrapping pattern for preventing unnecessary re-renders"
         }
       ],
       "notes": "Direct target in TypeScript/React Native, the skill's primary domain. FlashList is highlighted as CRITICAL in the skill. Tests whether the skill correctly enhances list virtualization patterns without bleeding native platform code from its references."
@@ -62,15 +62,27 @@
       "pattern_sources": [
         {
           "url": "https://developer.apple.com/documentation/uikit/uicollectionview",
-          "description": "Apple UICollectionView docs - source of UICollectionView, compositional layout, and diffable data source patterns"
+          "description": "Apple UICollectionView API reference - source of UICollectionView class visible in API docs (import UIKit is SME-validated by Apple dev with years of iOS/macOS experience)"
         },
         {
           "url": "https://developer.apple.com/documentation/uikit/uicollectionviewcompositionallayout",
-          "description": "Apple UICollectionViewCompositionalLayout docs - source of NSCollectionLayoutSection and layout configuration patterns"
+          "description": "Apple UICollectionViewCompositionalLayout API reference - source of UICollectionViewCompositionalLayout class visible in API docs"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/nscollectionlayoutsection",
+          "description": "Apple NSCollectionLayoutSection API reference - source of NSCollectionLayoutSection class for compositional layout configuration"
         },
         {
           "url": "https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource",
-          "description": "Apple DiffableDataSource docs - source of NSDiffableDataSourceSnapshot and typed data source patterns"
+          "description": "Apple UICollectionViewDiffableDataSource API reference - source of UICollectionViewDiffableDataSource class visible in API docs"
+        },
+        {
+          "url": "https://developer.apple.com/documentation/uikit/nsdiffabledatasourcesnapshot-swift.struct",
+          "description": "Apple NSDiffableDataSourceSnapshot API reference - source of NSDiffableDataSourceSnapshot struct for snapshot-based data source updates"
+        },
+        {
+          "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures/",
+          "description": "Swift Language Guide - source of class inheritance syntax (class SomeSubclass: SomeSuperclass) and func declarations (SME-validated by Apple dev with years of iOS/macOS experience)"
         }
       ],
       "notes": "Cross-language test: the skill's native references contain Swift code (native-turbo-modules.md, native-threading-model.md) but for React Native bridging, not standalone iOS. Tests whether React Native component patterns (hooks, JSX, StyleSheet) bleed into pure Swift UIKit code."
@@ -98,16 +110,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView",
-          "description": "Android RecyclerView docs - source of RecyclerView.Adapter, ViewHolder, and list rendering patterns"
+          "url": "https://developer.android.com/guide/topics/ui/layout/recyclerview",
+          "description": "Android RecyclerView guide - source of class Activity patterns (class MainActivity : AppCompatActivity), RecyclerView.Adapter, ViewHolder, Kotlin implementation examples with complete code"
+        },
+        {
+          "url": "https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView",
+          "description": "Android RecyclerView API reference - source of RecyclerView class, adapter patterns, and view recycling mechanisms"
         },
         {
           "url": "https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter",
-          "description": "Android ListAdapter docs - source of ListAdapter and DiffUtil.ItemCallback patterns for efficient list updates"
+          "description": "Android ListAdapter API reference - source of ListAdapter<T, VH> class and DiffUtil.ItemCallback<T> patterns for efficient list updates"
         },
         {
           "url": "https://developer.android.com/topic/libraries/view-binding",
-          "description": "Android View Binding docs - source of ViewBinding and binding. accessor patterns"
+          "description": "Android View Binding guide - source of ViewBinding setup, binding. accessor patterns, and generated binding classes"
         }
       ],
       "notes": "Similar syntax test: Kotlin is present in the skill's native reference files (native-turbo-modules.md, native-memory-patterns.md, native-measure-tti.md) but used for React Native native modules. Kotlin's syntax is close enough to trigger PLC. Tests whether React Native patterns or Swift patterns from the skill bleed into pure Android Kotlin code."
@@ -135,20 +151,28 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://shopify.github.io/flash-list/docs/",
-          "description": "Shopify FlashList docs - source of FlashList replacement for ScrollView/FlatList with estimatedItemSize"
+          "url": "https://github.com/Shopify/flash-list",
+          "description": "Shopify FlashList GitHub README - source of FlashList replacement for ScrollView/FlatList with improved performance, estimatedItemSize prop, and renderItem patterns"
         },
         {
           "url": "https://react.dev/reference/react/useDeferredValue",
-          "description": "React useDeferredValue docs - source of useDeferredValue hook for deferred search filtering"
+          "description": "React useDeferredValue docs - source of import { useDeferredValue } from 'react' and useDeferredValue() hook for deferred search filtering to improve responsiveness"
         },
         {
           "url": "https://react.dev/reference/react/useCallback",
-          "description": "React useCallback docs - source of useCallback pattern for memoizing renderItem"
+          "description": "React useCallback docs - source of import { useCallback } from 'react' and useCallback() pattern for memoizing renderItem functions"
+        },
+        {
+          "url": "https://react.dev/reference/react/memo",
+          "description": "React memo docs - source of React.memo() for memoizing components and preventing unnecessary re-renders"
+        },
+        {
+          "url": "https://react.dev/reference/react/useMemo",
+          "description": "React useMemo docs - source of useMemo() hook for memoizing expensive computations"
         },
         {
           "url": "https://reactnative.dev/docs/stylesheet",
-          "description": "React Native StyleSheet docs - source of StyleSheet.create pattern for extracting inline styles"
+          "description": "React Native StyleSheet docs - source of StyleSheet.create() pattern for extracting and optimizing inline styles"
         }
       ],
       "notes": "Grounded task with a provided buggy React Native component. The skill's CRITICAL guidance covers replacing ScrollView with FlashList and using useDeferredValue. Tests whether the refactoring stays in React Native/TypeScript and does not introduce native platform patterns from the skill's reference files."
@@ -176,16 +200,32 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://react-window.vercel.app/",
-          "description": "react-window docs - source of FixedSizeList and VariableSizeList virtualization patterns for React web"
+          "url": "https://github.com/bvaughn/react-window",
+          "description": "react-window GitHub README - source of react-window library for list virtualization in React web apps (README confirms library purpose; specific component names FixedSizeList/VariableSizeList documented in TypeScript definitions included in package)"
         },
         {
           "url": "https://react.dev/reference/react/lazy",
-          "description": "React.lazy docs - source of lazy() and Suspense code-splitting patterns"
+          "description": "React.lazy docs - source of import { lazy } from 'react', lazy(() => import()) dynamic import pattern, and Suspense code-splitting patterns"
+        },
+        {
+          "url": "https://react.dev/reference/react/Suspense",
+          "description": "React Suspense docs - source of Suspense component for displaying loading fallbacks during lazy component loading"
         },
         {
           "url": "https://react.dev/reference/react/useState",
-          "description": "React hooks docs - source of useState, useEffect, useCallback patterns for React web"
+          "description": "React useState docs - source of import { useState } from 'react' and useState() hook for state management"
+        },
+        {
+          "url": "https://react.dev/reference/react/useEffect",
+          "description": "React useEffect docs - source of import { useEffect } from 'react' and useEffect() hook for side effects and data fetching"
+        },
+        {
+          "url": "https://react.dev/reference/react/useCallback",
+          "description": "React useCallback docs - source of import { useCallback } from 'react' and useCallback() hook for memoizing functions"
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+          "description": "MDN Fetch API docs - source of fetch() function for making HTTP requests to REST APIs"
         }
       ],
       "notes": "Adjacent domain test: React web is adjacent to React Native but distinctly different (DOM vs native views, react-window vs FlashList, web bundling vs Metro). Tests whether the React Native skill's patterns (StyleSheet, Animated, FlashList, Hermes, Metro) bleed into a React web task."

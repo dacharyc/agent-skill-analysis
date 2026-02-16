@@ -26,23 +26,27 @@
       "pattern_sources": [
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.defaultazurecredentialbuilder",
-          "description": "Java DefaultAzureCredentialBuilder: managedIdentityClientId, tenantId, build() pattern"
+          "description": "Java DefaultAzureCredentialBuilder API reference - source of new DefaultAzureCredentialBuilder(), managedIdentityClientId() method, tenantId() method, and .build() method with code examples"
         },
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.credentialunavailableexception",
-          "description": "Java CredentialUnavailableException for authentication error handling"
+          "description": "Java CredentialUnavailableException API reference - exception thrown when credential is unavailable for authentication error handling"
         },
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.storage.blob.blobserviceclientbuilder",
-          "description": "Java BlobServiceClientBuilder for Azure Blob Storage client creation"
+          "description": "Java BlobServiceClientBuilder API reference - source of BlobServiceClientBuilder class for Azure Blob Storage client creation with builder pattern"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/java/api/com.azure.security.keyvault.keys.keyclientbuilder",
+          "description": "Java KeyClientBuilder API reference - source of KeyClientBuilder class with credential(), vaultUrl(), and build() methods for Azure Key Vault client creation"
         },
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
-          "description": "Anti-patterns: Python DefaultAzureCredential() direct instantiation, from azure.identity"
+          "description": "Anti-patterns: Python DefaultAzureCredential() direct instantiation, from azure.identity import pattern"
         },
         {
           "url": "https://learn.microsoft.com/en-us/javascript/api/@azure/identity/defaultazurecredential",
-          "description": "Anti-patterns: JavaScript require @azure/identity pattern"
+          "description": "Anti-patterns: JavaScript require('@azure/identity') pattern"
         },
         {
           "url": "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity",
@@ -80,6 +84,10 @@
           "description": "Python BlobServiceClient with credential= keyword argument"
         },
         {
+          "url": "https://docs.python.org/3/tutorial/errors.html",
+          "description": "Python exception handling - source of except keyword and Error exception handling as required by prompt ('handles authentication errors')"
+        },
+        {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.defaultazurecredentialbuilder",
           "description": "Anti-patterns: Java DefaultAzureCredentialBuilder, .build(), .buildClient() patterns"
         }
@@ -109,19 +117,23 @@
       "pattern_sources": [
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.chainedtokencredentialbuilder",
-          "description": "Java ChainedTokenCredentialBuilder: addFirst, addLast, build() for custom credential chains"
+          "description": "Java ChainedTokenCredentialBuilder API reference - source of new ChainedTokenCredentialBuilder(), addFirst(), addLast(), and build() methods for custom credential chains"
         },
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.managedidentitycredentialbuilder",
-          "description": "Java ManagedIdentityCredentialBuilder for production managed identity"
+          "description": "Java ManagedIdentityCredentialBuilder API reference - source of ManagedIdentityCredentialBuilder for production managed identity authentication"
         },
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.azureclicredentialbuilder",
-          "description": "Java AzureCliCredentialBuilder for local development authentication"
+          "description": "Java AzureCliCredentialBuilder API reference - source of AzureCliCredentialBuilder for local development authentication"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/java/api/com.azure.cosmos.cosmosclient",
+          "description": "Java CosmosClient API reference - source of CosmosClient class for Azure Cosmos DB database operations"
         },
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.chainedtokencredential",
-          "description": "Anti-patterns: Python from azure.identity ChainedTokenCredential pattern"
+          "description": "Anti-patterns: Python from azure.identity import ChainedTokenCredential pattern"
         },
         {
           "url": "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity",
@@ -158,6 +170,10 @@
           "description": "Java SecretClientBuilder: vaultUrl, credential, build() pattern"
         },
         {
+          "url": "https://docs.oracle.com/javase/tutorial/essential/exceptions/catch.html",
+          "description": "Java exception handling - source of try/catch blocks and throws keyword for proper error handling in fixes"
+        },
+        {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
           "description": "Anti-patterns: Python DefaultAzureCredential() direct instantiation, from azure.identity"
         }
@@ -188,19 +204,23 @@
       "pattern_sources": [
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.workloadidentitycredentialbuilder",
-          "description": "Java WorkloadIdentityCredentialBuilder: tenantId, clientId, tokenFilePath configuration"
+          "description": "Java WorkloadIdentityCredentialBuilder API reference - source of new WorkloadIdentityCredentialBuilder(), tenantId(), clientId(), and tokenFilePath() methods for AKS workload identity configuration with code examples"
         },
         {
           "url": "https://learn.microsoft.com/en-us/java/api/com.azure.core.credential.tokenrequestcontext",
-          "description": "Java TokenRequestContext for specifying Azure Management API scope"
+          "description": "Java TokenRequestContext API reference - source of TokenRequestContext class for specifying Azure Management API scope (https://management.azure.com/.default)"
         },
         {
           "url": "https://learn.microsoft.com/en-us/azure/developer/java/sdk/logging-overview",
-          "description": "Java Azure SDK logging: AZURE_LOG_LEVEL, enableAccountIdentifierLogging"
+          "description": "Java Azure SDK logging overview - source of AZURE_LOG_LEVEL environment variable for default logger configuration"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/java/api/com.azure.identity.defaultazurecredentialbuilder",
+          "description": "Java DefaultAzureCredentialBuilder API reference - source of enableAccountIdentifierLogging() method inherited from CredentialBuilderBase for verbose authentication logging"
         },
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.workloadidentitycredential",
-          "description": "Anti-patterns: Python from azure.identity WorkloadIdentityCredential"
+          "description": "Anti-patterns: Python from azure.identity import WorkloadIdentityCredential pattern"
         },
         {
           "url": "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity",

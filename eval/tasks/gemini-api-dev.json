@@ -22,24 +22,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=python",
-          "description": "Python google-genai SDK: from google import genai, genai.Client(), client.models.generate_content"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Gemini API quickstart: Python from google import genai, genai.Client(), client.models.generate_content(model='gemini-3-flash-preview'), response.text"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/models",
-          "description": "Current Gemini model names: gemini-3-flash-preview, gemini-3-pro-preview"
+          "url": "https://ai.google.dev/gemini-api/docs/models.md.txt",
+          "description": "Gemini models documentation: gemini-3-flash-preview and gemini-3-pro-preview model names, capabilities"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/structured-output?lang=python",
-          "description": "Python structured JSON output with response schema configuration"
+          "url": "https://ai.google.dev/gemini-api/docs/structured-output.md.txt",
+          "description": "Python structured JSON output: response_json_schema configuration with Pydantic BaseModel, response_mime_type application/json"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=node",
-          "description": "Anti-patterns: Node.js GoogleGenAI class from @google/genai"
-        },
-        {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=go",
-          "description": "Anti-patterns: Go genai.NewClient pattern"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Anti-patterns: Node.js GoogleGenAI class from @google/genai, Go genai.NewClient pattern"
         }
       ],
       "notes": "Direct Python task using the current SDK. Anti-patterns detect the deprecated legacy SDK (google.generativeai, GenerativeModel), JavaScript SDK (GoogleGenAI), Go SDK (NewClient), and deprecated model names (gemini-2.5/2.0/1.5)."
@@ -65,24 +61,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=rest",
-          "description": "Gemini REST API: generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Gemini REST API: generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent endpoint with curl examples"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/models",
-          "description": "Current model name: gemini-3-flash-preview for REST endpoint"
+          "url": "https://docs.rs/reqwest/latest/reqwest/",
+          "description": "Rust reqwest HTTP client library - source of reqwest async HTTP client for making REST API calls, reqwest::Client::new(), client.post().json().send().await patterns"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=python",
-          "description": "Anti-patterns: Python from google import genai SDK pattern"
+          "url": "https://ai.google.dev/gemini-api/docs/models.md.txt",
+          "description": "Current model names: gemini-3-flash-preview for REST API calls"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=node",
-          "description": "Anti-patterns: Node.js GoogleGenAI SDK pattern"
-        },
-        {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=go",
-          "description": "Anti-patterns: Go genai.NewClient SDK pattern"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Anti-patterns: Python from google import genai, Node.js GoogleGenAI, Go genai.NewClient SDK patterns"
         }
       ],
       "notes": "Rust has no official Gemini SDK, so this tests whether Python/JS/Go/Java SDK patterns bleed into what should be raw HTTP REST API calls. Anti-patterns detect all four SDK languages' import/install patterns."
@@ -109,20 +101,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://www.npmjs.com/package/@google/genai",
-          "description": "Node.js @google/genai SDK: GoogleGenAI class, ai.models.generateContent"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Node.js @google/genai SDK quickstart: import GoogleGenAI from @google/genai, new GoogleGenAI(), ai.models.generateContent()"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/function-calling?lang=node",
-          "description": "TypeScript function calling: functionDeclarations, tools configuration"
+          "url": "https://ai.google.dev/gemini-api/docs/function-calling.md.txt",
+          "description": "TypeScript function calling: functionDeclarations object structure, tools parameter with functionDeclarations array, response.functionCalls handling"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=python",
-          "description": "Anti-patterns: Python genai.Client(), client.models.generate_content snake_case"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Anti-patterns: Python genai.Client() and client.models.generate_content snake_case method names"
         },
         {
-          "url": "https://www.npmjs.com/package/@google/generative-ai",
-          "description": "Anti-patterns: deprecated @google/generative-ai package"
+          "url": "https://ai.google.dev/gemini-api/docs/migrate.md.txt",
+          "description": "Anti-patterns: deprecated @google/generative-ai package (replaced by @google/genai)"
         }
       ],
       "notes": "TypeScript is in the skill with examples. Tests whether Python SDK patterns (genai.Client(), client.models.generate_content with snake_case) bleed into TypeScript. Also catches deprecated JS SDK (@google/generative-ai) and old model names."
@@ -147,16 +139,16 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://ai.google.dev/gemini-api/docs/migrate",
-          "description": "Migration guide from deprecated google-generativeai to google-genai SDK"
+          "url": "https://ai.google.dev/gemini-api/docs/migrate.md.txt",
+          "description": "Migration guide: before/after patterns from google-generativeai to google-genai, GenerativeModel to client.models.generate_content, centralized Client object pattern"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=python",
-          "description": "Current Python SDK: from google import genai, genai.Client(), client.models.generate_content"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Current Python SDK patterns: from google import genai, genai.Client(), client.models.generate_content() usage"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/models",
-          "description": "Current model names replacing deprecated gemini-1.5-flash"
+          "url": "https://ai.google.dev/gemini-api/docs/models.md.txt",
+          "description": "Current model names: gemini-3-flash-preview, gemini-3-pro-preview replacing deprecated gemini-1.5/2.0/2.5 models"
         }
       ],
       "notes": "Grounded migration task with real deprecated code. Tests that the model correctly migrates to new SDK patterns and new model names. Anti-patterns ensure old SDK patterns and deprecated model names are fully replaced."
@@ -182,20 +174,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://pkg.go.dev/google.golang.org/genai",
-          "description": "Go genai SDK: genai.NewClient, embedding methods"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Go genai SDK quickstart: google.golang.org/genai import, genai.NewClient(ctx, nil), client.Models.GenerateContent patterns"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/embeddings?lang=go",
-          "description": "Go Gemini embeddings API usage patterns"
+          "url": "https://go.dev/doc/code",
+          "description": "Go documentation - source of func main() entry point required for executable Go programs"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=python",
-          "description": "Anti-patterns: Python from google import genai, client.models.generate_content"
+          "url": "https://ai.google.dev/gemini-api/docs/embeddings.md.txt",
+          "description": "Go embeddings API: client.Models.EmbedContent() usage, cosineSimilarity() helper function with dotProduct calculation, embedding vectors"
         },
         {
-          "url": "https://ai.google.dev/gemini-api/docs/quickstart?lang=node",
-          "description": "Anti-patterns: Node.js GoogleGenAI, ai.models.generateContent"
+          "url": "https://ai.google.dev/gemini-api/docs/quickstart.md.txt",
+          "description": "Anti-patterns: Python from google import genai with client.models.generate_content, Node.js GoogleGenAI with ai.models.generateContent"
         }
       ],
       "notes": "Go embeddings task is adjacent to the skill's text generation focus. Tests whether Python (from google import genai, client.models.generate_content) or JavaScript (GoogleGenAI, ai.models.generateContent) SDK patterns bleed into Go code."

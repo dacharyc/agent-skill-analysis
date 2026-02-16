@@ -30,6 +30,10 @@
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
           "description": "Azure Identity Python SDK reference - source of DefaultAzureCredential import pattern"
+        },
+        {
+          "url": "https://docs.python.org/3/library/argparse.html",
+          "description": "Python argparse module - source of argparse for CLI argument parsing (--dry-run, --delete flags)"
         }
       ],
       "notes": "Direct target in Python, the exact SDK covered by this skill. Uses the same patterns shown in the skill's examples (list repos, check manifests, delete old untagged). Tests whether the skill correctly enhances its primary use case."
@@ -65,6 +69,18 @@
           "description": "Azure Identity Go SDK docs - source of azidentity.NewDefaultAzureCredential pattern"
         },
         {
+          "url": "https://go.dev/doc/code",
+          "description": "Go documentation: How to Write Go Code - source of 'package main' declaration and 'func main()' entry point required for executable programs"
+        },
+        {
+          "url": "https://pkg.go.dev/encoding/json",
+          "description": "Go encoding/json package - source of json.Marshal and json.NewEncoder for JSON output to stdout"
+        },
+        {
+          "url": "https://pkg.go.dev/flag",
+          "description": "Go flag package - source of flag parsing for CLI arguments (repository parameter)"
+        },
+        {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-containerregistry/azure.containerregistry.containerregistryclient",
           "description": "Azure Container Registry Python SDK - source of anti-pattern Python method names like list_repository_names and DefaultAzureCredential()"
         }
@@ -94,12 +110,16 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docker-py.readthedocs.io/en/stable/",
-          "description": "Docker SDK for Python docs - source of docker.from_env(), client.images.list(), image.tags, and image.remove() patterns"
+          "url": "https://docs.docker.com/reference/api/engine/sdk.md",
+          "description": "Docker SDK overview: import docker, docker.from_env() client initialization pattern"
+        },
+        {
+          "url": "https://docs.docker.com/reference/api/engine/sdk/examples.md",
+          "description": "Docker SDK Python examples: client.images.list() usage for listing images"
         },
         {
           "url": "https://docker-py.readthedocs.io/en/stable/images.html",
-          "description": "Docker SDK images API docs - source of image listing, tag inspection, and removal method patterns"
+          "description": "Docker SDK images API reference: image.tags attribute, image.attrs raw data, client.images.remove() and image.remove() methods with force parameter"
         }
       ],
       "notes": "Similar syntax test: Python with Docker SDK is syntactically close to the skill's Python with Azure ACR SDK. Both deal with container images but use different libraries. Tests whether Azure-specific patterns (ContainerRegistryClient, DefaultAzureCredential, Azure method names) bleed into Docker SDK code."
@@ -132,6 +152,10 @@
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
           "description": "Azure Identity Python SDK reference - source of DefaultAzureCredential() constructor pattern"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/errors.html",
+          "description": "Python exception handling - source of try/except blocks for error handling as specified in fix instructions"
         }
       ],
       "notes": "Grounded task with buggy Azure ACR Python code. The skill demonstrates the correct patterns for authentication and locking images. Tests whether the skill properly informs the fix while keeping the output in Python."
@@ -165,6 +189,14 @@
         {
           "url": "https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential",
           "description": "Azure Identity Python SDK reference - source of DefaultAzureCredential authentication pattern"
+        },
+        {
+          "url": "https://docs.python.org/3/library/os.html#os.walk",
+          "description": "Python os.walk() - source of directory tree traversal for uploading all files from local directory"
+        },
+        {
+          "url": "https://docs.python.org/3/library/hashlib.html",
+          "description": "Python hashlib module - source of MD5 hashing for comparing file changes as specified in prompt"
         }
       ],
       "notes": "Adjacent domain test: Azure Blob Storage is a related Azure SDK but for file storage, not container images. Tests whether the Container Registry skill's ACR-specific patterns (repository names, manifests, tags, digests) bleed into Blob Storage code."

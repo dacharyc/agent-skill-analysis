@@ -85,6 +85,14 @@
           "description": "Prometheus Go application guide - source of promauto usage patterns and http.Handle with promhttp.HandlerFor"
         },
         {
+          "url": "https://go.dev/doc/code",
+          "description": "Go documentation - source of package main declaration and func syntax required for executable Go programs"
+        },
+        {
+          "url": "https://pkg.go.dev/net/http",
+          "description": "Go net/http package docs - source of http.Handle function for registering HTTP handlers"
+        },
+        {
           "url": "https://prometheus.github.io/client_python/",
           "description": "Prometheus Python client docs - source of anti-pattern from prometheus_client import syntax"
         }
@@ -121,6 +129,14 @@
         {
           "url": "https://raw.githubusercontent.com/expressjs/expressjs.com/refs/heads/gh-pages/en/guide/using-middleware.md",
           "description": "Express.js middleware docs - source of req.headers and middleware function patterns"
+        },
+        {
+          "url": "https://nodejs.org/api/modules.html",
+          "description": "Node.js modules documentation - source of module.exports and export syntax for exporting middleware and logger"
+        },
+        {
+          "url": "https://nodejs.org/api/crypto.html#cryptorandomuuidoptions",
+          "description": "Node.js crypto.randomUUID() documentation - source of UUID generation for correlation IDs"
         },
         {
           "url": "https://raw.githubusercontent.com/python/cpython/refs/heads/3.14/Lib/logging/__init__.py",
@@ -212,6 +228,18 @@
         {
           "url": "https://raw.githubusercontent.com/aio-libs/aiohttp/master/docs/client_quickstart.rst",
           "description": "aiohttp client quickstart - source of aiohttp.ClientTimeout() and timeout configuration patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/library/asyncio.html",
+          "description": "Python asyncio documentation - source of import asyncio, async def, and asyncio event loop patterns for periodic polling"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for defining functions"
+        },
+        {
+          "url": "https://urllib3.readthedocs.io/en/stable/reference/urllib3.util.html#urllib3.util.Retry",
+          "description": "urllib3 Retry class documentation - source of retry logic configuration (max_retries, backoff_factor) used with httpx/requests"
         }
       ],
       "notes": "Adjacent domain test: health checking is related to monitoring but is an application-level concern, not an observability stack concern. Tests whether the skill's heavy emphasis on Prometheus/Grafana/alerting patterns bleeds into a general health-check application task."

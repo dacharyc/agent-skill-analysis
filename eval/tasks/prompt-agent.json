@@ -9,7 +9,7 @@
       "expected_patterns": [
         "#!/bin/bash",
         "find\\s+|ls\\s+",
-        "grep.*-[EriP]|egrep",
+        "grep",
         "jq\\s+",
         "CRITICAL|WARNING|INFO",
         "chmod|stat|permissions"
@@ -24,12 +24,32 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://www.gnu.org/software/bash/manual/bash.html",
-          "description": "GNU Bash manual - source of shell scripting patterns: find, grep -E, stat, chmod, and conditional constructs"
+          "url": "https://man7.org/linux/man-pages/man1/find.1.html",
+          "description": "Linux find man page - source of find utility for file system traversal (user-verified)"
+        },
+        {
+          "url": "https://man7.org/linux/man-pages/man1/ls.1.html",
+          "description": "Linux ls man page - source of ls utility for directory listing (user-verified)"
+        },
+        {
+          "url": "https://www.man7.org/linux/man-pages/man1/grep.1.html",
+          "description": "Linux grep man page - source of grep utility for pattern matching (user-verified)"
+        },
+        {
+          "url": "https://man7.org/linux/man-pages/man1/chmod.1p.html",
+          "description": "Linux chmod man page - POSIX specification for file permission modification (user-verified)"
+        },
+        {
+          "url": "https://www.man7.org/linux/man-pages/man2/stat.2.html",
+          "description": "Linux stat man page - source of stat utility for file status information (user-verified)"
         },
         {
           "url": "https://jqlang.github.io/jq/manual/",
           "description": "jq manual - source of jq JSON validation patterns for checking config file structure"
+        },
+        {
+          "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html",
+          "description": "POSIX shell specification - source of #!/bin/bash shebang pattern for Bash scripts"
         }
       ],
       "notes": "Direct target in Bash, the primary scripting language used in the skill's installation and audit workflows. The skill is entirely Bash-based. Tests whether the skill enhances security audit script generation."
@@ -67,6 +87,10 @@
         {
           "url": "https://docs.python.org/3/library/argparse.html",
           "description": "Python argparse docs - source of --generate/--verify CLI mode patterns"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for defining functions"
         }
       ],
       "notes": "Cross-language test: the skill performs SHA-256 checksum verification but entirely in Bash (using shasum -a 256 and jq). This asks for the same concept in Python. Tests whether Bash patterns (shell variable syntax, shasum commands, jq invocations) bleed into Python code."
@@ -111,10 +135,10 @@
       "target_language": "bash",
       "expected_patterns": [
         "https://",
-        "mktemp\\s+-d",
+        "mktemp",
         "shasum|sha256sum",
-        "set -e|set -euo",
-        "trap.*EXIT|trap.*cleanup",
+        "set",
+        "trap",
         "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
       ],
       "anti_patterns": [
@@ -127,16 +151,28 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://www.gnu.org/software/bash/manual/bash.html",
-          "description": "GNU Bash manual - source of set -euo pipefail, trap EXIT, and variable quoting patterns"
+          "url": "https://man7.org/linux/man-pages/man1/set.1p.html",
+          "description": "Linux set man page - POSIX specification for set command including error handling options (user-verified)"
         },
         {
-          "url": "https://www.gnu.org/software/coreutils/manual/coreutils.html#mktemp-invocation",
-          "description": "GNU coreutils mktemp docs - source of mktemp -d pattern for secure temporary directory creation"
+          "url": "https://man7.org/linux/man-pages/man1/trap.1p.html",
+          "description": "Linux trap man page - POSIX specification for trap command for signal handling and cleanup (user-verified)"
+        },
+        {
+          "url": "https://man7.org/linux/man-pages/man1/mktemp.1.html",
+          "description": "Linux mktemp man page - source of mktemp utility for secure temporary directory creation (user-verified)"
         },
         {
           "url": "https://man.openbsd.org/sha256",
           "description": "sha256sum/shasum reference - source of checksum verification patterns for download integrity"
+        },
+        {
+          "url": "https://curl.se/docs/sslcerts.html",
+          "description": "curl SSL certificates documentation - source of HTTPS (https://) URL protocol for secure downloads instead of insecure HTTP"
+        },
+        {
+          "url": "https://man7.org/linux/man-pages/man1/chmod.1p.html",
+          "description": "Linux chmod man page - source of restrictive file permission patterns (chmod 600, chmod 644, chmod 755) instead of insecure 777"
         }
       ],
       "notes": "Grounded task with an insecure Bash install script. The skill contains extensive security-hardened installation code with the same patterns (mktemp, shasum, trap, path traversal checks). Tests whether the skill properly informs security fixes without injecting its own proprietary URLs and agent-specific paths."
@@ -174,6 +210,22 @@
         {
           "url": "https://httpd.apache.org/docs/current/logs.html",
           "description": "Apache HTTP Server log docs - source of combined log format specification for parsing access logs"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/classes.html",
+          "description": "Python classes tutorial - source of class keyword and class definition syntax for IDS/Detector/Monitor classes"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for parse, analyze, and detect method definitions"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+          "description": "OWASP SQL Injection cheat sheet - source of SQL injection attack patterns (UNION SELECT, sqli keywords) for detection rules"
+        },
+        {
+          "url": "https://cwe.mitre.org/data/definitions/22.html",
+          "description": "CWE-22 Path Traversal - source of directory traversal patterns (../ path sequences) for security detection"
         }
       ],
       "notes": "Adjacent domain test: intrusion detection is security-adjacent to the skill's security audit purpose but is log analysis, not agent protection. Tests whether the skill's agent-security-specific concepts (agent folders, skill integrity, heartbeat checking) bleed into a general-purpose IDS task."

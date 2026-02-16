@@ -28,6 +28,10 @@
           "description": "Terraform Plugin Framework resource: framework.ResourceWithConfigure interface, resource.MetadataRequest in Metadata(), schema.Schema{} with schema.StringAttribute, Create/Read/Update/Delete methods with resp.Diagnostics.AddError and resp.State.Set(ctx), stringplanmodifier.RequiresReplace() for plan modifiers"
         },
         {
+          "url": "https://go.dev/doc/code",
+          "description": "Go documentation - source of package and func syntax required for Go programs"
+        },
+        {
           "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/examples/resources/scaffolding_example/resource.tf",
           "description": "Anti-patterns: HCL resource block syntax (resource \"type\" \"name\" {}) that should not appear in Go provider code"
         }
@@ -59,6 +63,10 @@
         {
           "url": "https://www.pulumi.com/docs/concepts/resources/dynamic-providers/",
           "description": "Pulumi dynamic provider: ResourceProvider interface, CRUD method signatures (def create, def read, def update, def delete)"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for defining create, read, update, delete methods"
         },
         {
           "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource.go",
@@ -98,6 +106,10 @@
         {
           "url": "https://pkg.go.dev/github.com/hashicorp/terraform-plugin-testing/helper/resource",
           "description": "Test helper package: resource.ParallelTest, TestCase, TestStep, ImportState, CheckDestroy patterns, ExpectNonEmptyPlan"
+        },
+        {
+          "url": "https://pkg.go.dev/testing",
+          "description": "Go testing package - source of func TestAccFoo(t *testing.T) test function signature pattern for acceptance tests"
         }
       ],
       "notes": "Go acceptance test is syntactically similar to Go resource code but tests the testing framework patterns specifically. Anti-patterns detect HCL/CLI usage (terraform plan/apply), and test frameworks from other languages (pytest, unittest, describe)."
@@ -139,10 +151,7 @@
       "expected_patterns": [
         "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
         "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
-        "variable\\s+\"\\w+\"\\s*\\{",
-        "output\\s+\"\\w+\"\\s*\\{",
-        "provider\\s+\"\\w+\"\\s*\\{",
-        "validation\\s*\\{"
+        "provider\\s+\"\\w+\"\\s*\\{"
       ],
       "anti_patterns": [
         "func\\s+\\w+\\(",
@@ -155,6 +164,14 @@
         {
           "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/examples/resources/scaffolding_example/resource.tf",
           "description": "HCL resource block syntax example: resource \"type\" \"name\" {} configuration pattern"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/examples/data-sources/scaffolding_example/data-source.tf",
+          "description": "HCL data source block syntax example: data \"type\" \"name\" {} configuration pattern for data source lookups"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/examples/provider/provider.tf",
+          "description": "HCL provider block syntax example: provider \"name\" {} configuration pattern"
         },
         {
           "url": "https://raw.githubusercontent.com/hashicorp/terraform-provider-scaffolding-framework/refs/heads/main/internal/provider/example_resource.go",

@@ -24,20 +24,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
-          "description": "FastAPI APIRouter docs - source of APIRouter, router prefix, and modular route organization patterns"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/bigger-applications.md",
+          "description": "FastAPI APIRouter tutorial: from fastapi import APIRouter, router = APIRouter() instantiation, @router.get/@router.post decorators, app.include_router() patterns"
         },
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/response-model/",
-          "description": "FastAPI response model docs - source of response_model parameter and Pydantic model patterns"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/response-model.md",
+          "description": "FastAPI response_model tutorial: response_model= parameter in decorators, Pydantic BaseModel integration for input/output filtering"
         },
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/dependencies/",
-          "description": "FastAPI dependencies docs - source of Depends() and get_current_user dependency injection patterns"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/dependencies/index.md",
+          "description": "FastAPI dependencies tutorial: Depends() function usage, dependency injection pattern, reusable dependencies"
         },
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/response-status-code/",
-          "description": "FastAPI status codes docs - source of status.HTTP_201_CREATED and status.HTTP_204_NO_CONTENT patterns"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs_src/response_status_code/tutorial002_py310.py",
+          "description": "FastAPI status code example: from fastapi import status, status.HTTP_201_CREATED usage in status_code parameter"
         }
       ],
       "notes": "NEGATIVE CONTROL A - Direct target. This is a Python-only skill (score 0.00), so we expect correct output with no contamination. This task matches the skill's exact purpose (creating FastAPI routers with CRUD). Establishes baseline for a clean single-language skill."
@@ -142,20 +142,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
-          "description": "FastAPI APIRouter docs - source of APIRouter pattern that should replace direct app usage"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/bigger-applications.md",
+          "description": "FastAPI APIRouter tutorial: APIRouter() pattern that should replace direct app usage"
         },
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/response-model/",
-          "description": "FastAPI response model docs - source of response_model= annotation pattern"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/response-model.md",
+          "description": "FastAPI response_model tutorial: response_model= annotation pattern for output filtering"
         },
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/response-status-code/",
-          "description": "FastAPI status codes docs - source of status.HTTP_201_CREATED and status.HTTP_204_NO_CONTENT patterns"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs_src/response_status_code/tutorial002_py310.py",
+          "description": "FastAPI status code example: status.HTTP_201_CREATED and status.HTTP_204_NO_CONTENT usage"
         },
         {
-          "url": "https://fastapi.tiangolo.com/tutorial/dependencies/",
-          "description": "FastAPI dependencies docs - source of Depends() pattern for adding authentication"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/handling-errors.md",
+          "description": "FastAPI error handling tutorial: HTTPException with status_code=404, raising custom HTTP errors with detail messages"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/tutorial/dependencies/index.md",
+          "description": "FastAPI dependencies tutorial: Depends() pattern for adding authentication and dependency injection"
         }
       ],
       "notes": "NEGATIVE CONTROL A - Grounded task. The skill explicitly teaches these exact patterns (APIRouter, response_model, status codes, Depends). We expect the skill to help here with no cross-language contamination since it only contains Python."
@@ -183,12 +187,12 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://fastapi.tiangolo.com/advanced/websockets/",
-          "description": "FastAPI WebSocket docs - source of WebSocket, WebSocketDisconnect, websocket.accept(), and websocket.send_text() patterns"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs/en/docs/advanced/websockets.md",
+          "description": "FastAPI WebSocket tutorial: from fastapi import WebSocket, WebSocketDisconnect exception handling, await websocket.accept() and websocket.send_text() methods"
         },
         {
-          "url": "https://fastapi.tiangolo.com/advanced/websockets/#handling-disconnections-and-multiple-clients",
-          "description": "FastAPI WebSocket connection manager docs - source of ConnectionManager class pattern for multi-client management"
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/refs/heads/master/docs_src/websockets/tutorial003_py310.py",
+          "description": "FastAPI WebSocket ConnectionManager example: ConnectionManager class with active_connections list, connect/disconnect methods, send_personal_message and broadcast patterns"
         }
       ],
       "notes": "NEGATIVE CONTROL A - Adjacent domain. WebSocket is adjacent to REST API routing but different (persistent connections vs request/response). Since the skill is Python-only, tests whether REST-specific patterns bleed into WebSocket code. No cross-language contamination expected."

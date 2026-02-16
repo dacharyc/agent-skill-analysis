@@ -24,11 +24,23 @@
       "pattern_sources": [
         {
           "url": "https://docs.python.org/3/library/argparse.html",
-          "description": "Python argparse docs - source of ArgumentParser and subcommand patterns for init/review/export CLI"
+          "description": "Python argparse docs - source of import argparse, ArgumentParser, and subcommand patterns for init/review/export CLI"
         },
         {
-          "url": "https://python-markdown.github.io/",
-          "description": "Python-Markdown library docs - source of markdown-to-HTML conversion patterns for the export command"
+          "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+          "description": "Python function definitions - source of def keyword for defining init, review, and export functions as required by prompt"
+        },
+        {
+          "url": "https://python-markdown.github.io/reference/",
+          "description": "Python-Markdown library reference - source of import markdown, markdown.markdown() function, and Markdown() class for markdown-to-HTML conversion"
+        },
+        {
+          "url": "https://docs.python.org/3/library/re.html",
+          "description": "Python re module docs - source of import re and regex pattern matching for TODO detection and link validation"
+        },
+        {
+          "url": "https://docs.python.org/3/library/functions.html#open",
+          "description": "Python built-in open() docs - source of with open(..., 'r') and with open(..., 'w') file I/O patterns"
         },
         {
           "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
@@ -59,6 +71,10 @@
         "from fastapi|import flask"
       ],
       "pattern_sources": [
+        {
+          "url": "https://go.dev/doc/code",
+          "description": "Go documentation - source of package main declaration required for executable Go programs"
+        },
         {
           "url": "https://pkg.go.dev/net/http",
           "description": "Go net/http package docs - source of http.HandleFunc, http.ResponseWriter, and *http.Request handler patterns"
@@ -93,12 +109,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://www.npmjs.com/package/gray-matter",
-          "description": "gray-matter npm package docs - source of YAML frontmatter parsing patterns for Markdown documents"
+          "url": "https://github.com/jonschlinkert/gray-matter",
+          "description": "gray-matter GitHub README - source of import matter / import gray-matter patterns, YAML frontmatter parsing with matter() function, and .data/.content properties"
         },
         {
           "url": "https://unifiedjs.com/learn/guide/using-unified/",
-          "description": "unified/remark ecosystem docs - source of Markdown AST parsing patterns for heading extraction and document analysis"
+          "description": "unified/remark ecosystem guide - source of import unified and import remarkParse patterns, Markdown AST parsing with .use(remarkParse), and document structure extraction"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/functions.html",
+          "description": "TypeScript functions - source of function and async function syntax for parsing and extraction operations as required by prompt"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/modules.html",
+          "description": "TypeScript modules docs - source of export statements for module exports"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+          "description": "TypeScript object types docs - source of interface and type declarations for DocumentAnalysis structured data"
         }
       ],
       "notes": "NEGATIVE CONTROL B - Similar syntax. TypeScript document parsing is tangentially related to the doc-coauthoring workflow. Since the skill is non-code, tests whether the skill's specific workflow concepts (stages, brainstorming, reader testing) pollute code output."
@@ -126,11 +154,23 @@
       "pattern_sources": [
         {
           "url": "https://docs.python.org/3/library/functions.html#open",
-          "description": "Python built-in open() docs - source of file I/O patterns with encoding parameter"
+          "description": "Python built-in open() docs - source of with open(..., 'w', encoding='utf-8') file I/O pattern with encoding parameter"
         },
         {
           "url": "https://docs.python.org/3/library/datetime.html",
           "description": "Python datetime docs - source of datetime.date.today() pattern used in spec generation"
+        },
+        {
+          "url": "https://docs.python.org/3/library/functions.html#enumerate",
+          "description": "Python built-in enumerate() docs - source of enumerate() pattern for section numbering (1., 2., 3.)"
+        },
+        {
+          "url": "https://python-markdown.github.io/reference/",
+          "description": "Python-Markdown docs - source of [TBD] and [To be written] placeholder conventions in markdown documentation"
+        },
+        {
+          "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+          "description": "PyYAML docs - source of YAML frontmatter (---\\n...\\n---) format for document metadata"
         }
       ],
       "notes": "NEGATIVE CONTROL B - Grounded task. A document generation script that is thematically related to the skill's domain. Tests whether the non-code skill's internal methodology (str_replace editing, artifact creation, reader testing) bleeds into the code output."
@@ -158,16 +198,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://python-markdown.github.io/",
-          "description": "Python-Markdown library docs - source of markdown-to-HTML conversion patterns"
+          "url": "https://python-markdown.github.io/reference/",
+          "description": "Python-Markdown library reference - source of import markdown, markdown.markdown() and Markdown() class for markdown-to-HTML conversion in static site generator"
         },
         {
-          "url": "https://jinja.palletsprojects.com/en/stable/",
-          "description": "Jinja2 template engine docs - source of template loading and rendering patterns"
+          "url": "https://jinja.palletsprojects.com/en/stable/api/",
+          "description": "Jinja2 API docs - source of from jinja2 import Environment/FileSystemLoader patterns, env.get_template() loading, and template.render() with variables"
         },
         {
           "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
-          "description": "PyYAML docs - source of YAML frontmatter parsing for document metadata"
+          "description": "PyYAML docs - source of import yaml and YAML frontmatter parsing (yaml.safe_load) for document metadata (title, date, tags)"
+        },
+        {
+          "url": "https://docs.python.org/3/library/pathlib.html",
+          "description": "Python pathlib docs - source of pathlib.Path for directory traversal and file operations in static site generator"
+        },
+        {
+          "url": "https://docs.python.org/3/library/os.html",
+          "description": "Python os module docs - source of os.walk for recursive directory traversal to find .md files in content/ directory"
         }
       ],
       "notes": "NEGATIVE CONTROL B - Adjacent domain. Static site generation is related to document processing but is purely a code task. Tests whether loading the non-code doc-coauthoring skill degrades a standard Python coding task. Since this is a non-code skill (score 0.00), we expect zero impact on code generation quality."

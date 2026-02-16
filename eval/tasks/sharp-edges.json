@@ -29,6 +29,18 @@
           "description": "Python hashlib algorithms relevant to hash_algo validation patterns"
         },
         {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+          "description": "OWASP Authentication Cheat Sheet - source of dangerous defaults (max_attempts=0), timeout bypass patterns, and secure authentication configuration"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html",
+          "description": "OWASP Secure Product Design - source of 'pit of success' principle, secure-by-default design, and fail securely patterns"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/archive/blogs/brada/the-pit-of-success",
+          "description": "Microsoft: The Pit of Success - original articulation of pit-of-success design principle where users 'fall into' secure practices"
+        },
+        {
           "url": "https://www.php.net/manual/en/function.sodium-crypto-box.php",
           "description": "Anti-patterns: PHP sodium_crypto_box and PASSWORD_DEFAULT from PHP crypto APIs"
         },
@@ -65,6 +77,10 @@
         {
           "url": "https://docs.rs/ed25519-dalek/latest/ed25519_dalek/",
           "description": "Rust ed25519-dalek: SigningKey, VerifyingKey, Signature type-safe patterns"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html",
+          "description": "OWASP Secure Product Design - source of misuse-resistant API design principles and type-safe security patterns"
         },
         {
           "url": "https://docs.python.org/3/library/hmac.html",
@@ -104,6 +120,14 @@
           "description": "Go hmac.Equal for constant-time HMAC comparison"
         },
         {
+          "url": "https://cwe.mitre.org/data/definitions/208.html",
+          "description": "CWE-208: Observable Timing Discrepancy - source of timing attack vulnerabilities and constant-time comparison requirements"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+          "description": "OWASP Authentication Cheat Sheet - source of timeout=0 bypass patterns and secure authentication configuration"
+        },
+        {
           "url": "https://docs.python.org/3/library/hmac.html",
           "description": "Anti-patterns: Python hmac.compare_digest function"
         },
@@ -139,6 +163,14 @@
         {
           "url": "https://www.php.net/manual/en/function.setcookie.php",
           "description": "PHP setcookie options: secure, samesite, httponly cookie attributes"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+          "description": "OWASP Session Management Cheat Sheet - source of secureCookies dangerous defaults and secure cookie configuration patterns"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html",
+          "description": "OWASP Secure Product Design - source of unvalidated constructor parameters and secure-by-default design"
         },
         {
           "url": "https://docs.python.org/3/library/hmac.html",
@@ -177,6 +209,14 @@
         {
           "url": "https://www.typescriptlang.org/docs/handbook/2/objects.html",
           "description": "TypeScript interface definitions for Config types and type-safe validation"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html",
+          "description": "OWASP Secure Product Design - source of secure defaults, configuration validation, and fail-secure patterns"
+        },
+        {
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+          "description": "OWASP Authentication Cheat Sheet - source of empty secret detection, positive timeout validation, and SSL/TLS requirements"
         },
         {
           "url": "https://docs.python.org/3/library/hmac.html",

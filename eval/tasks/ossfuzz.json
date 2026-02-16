@@ -26,7 +26,11 @@
       "pattern_sources": [
         {
           "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new_project_guide.md",
-          "description": "OSS-Fuzz C++ patterns: LLVMFuzzerTestOneInput entry point, $CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE, $OUT directory, gcr.io/oss-fuzz-base/base-builder Docker image, project.yaml structure with libfuzzer and address sanitizer"
+          "description": "OSS-Fuzz build patterns: $CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE, $OUT directory, gcr.io/oss-fuzz-base/base-builder Docker image, project.yaml structure with libfuzzer and address sanitizer"
+        },
+        {
+          "url": "https://llvm.org/docs/LibFuzzer.html",
+          "description": "LibFuzzer documentation - source of LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) fuzz target entry point function signature"
         },
         {
           "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/further-reading/fuzzer_environment.md",
@@ -118,6 +122,18 @@
           "description": "OSS-Fuzz Python project.yaml: language: python, fuzzing_engines: libfuzzer, sanitizers: address and undefined"
         },
         {
+          "url": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+          "description": "PyYAML documentation - source of yaml.safe_load() and yaml.load() YAML parsing functions for fuzzing YAML input"
+        },
+        {
+          "url": "https://docs.python.org/3/reference/simple_stmts.html#import",
+          "description": "Python import statement documentation - source of import keyword for importing atheris module"
+        },
+        {
+          "url": "https://docs.python.org/3/glossary.html#term-decorator",
+          "description": "Python decorator documentation - source of @ decorator syntax for @atheris.instrument_func"
+        },
+        {
           "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new-project-guide.md",
           "description": "Anti-patterns: C++ LLVMFuzzerTestOneInput, $CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE that should not appear in Python"
         },
@@ -158,6 +174,10 @@
           "description": "OSS-Fuzz environment: $OUT directory for build artifacts, static linking recommendations"
         },
         {
+          "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html",
+          "description": "POSIX shell command language - source of bash variable expansion syntax ($VAR) used in build.sh scripts"
+        },
+        {
           "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/build.sh",
           "description": "Anti-patterns: Python compile_python_fuzzer, pip3 install that should not appear in C++ build"
         }
@@ -192,6 +212,10 @@
         {
           "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/docs/getting-started/new_project_guide.md",
           "description": "OSS-Fuzz Dockerfile patterns: FROM base-builder, RUN git clone, WORKDIR, COPY build.sh to $SRC"
+        },
+        {
+          "url": "https://docs.docker.com/reference/dockerfile/",
+          "description": "Dockerfile reference - source of FROM, RUN, WORKDIR, COPY instruction syntax for building Docker images"
         },
         {
           "url": "https://raw.githubusercontent.com/google/oss-fuzz/refs/heads/master/projects/ujson/Dockerfile",

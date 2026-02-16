@@ -28,6 +28,18 @@
           "description": "Neon serverless driver: import { neon } from '@neondatabase/serverless', neon(process.env.DATABASE_URL) function, template literal queries with sql``, TypeScript usage with async/await"
         },
         {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/objects.html",
+          "description": "TypeScript object types - source of interface and type declarations for User interface definition"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/functions.html",
+          "description": "TypeScript functions - source of async function syntax for database queries"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/modules.html",
+          "description": "TypeScript modules - source of export keyword for exporting functions from modules"
+        },
+        {
           "url": "https://neon.com/docs/guides/python.md",
           "description": "Anti-patterns: Python database drivers (psycopg, asyncpg imports) that should not appear in TypeScript"
         }
@@ -61,8 +73,12 @@
           "description": "Python with Neon: asyncpg connection patterns including await asyncpg.connect(), await conn.execute(), await conn.fetch(), async/await usage, asyncio.run() for async functions"
         },
         {
-          "url": "https://fastapi.tiangolo.com/",
-          "description": "FastAPI framework: @app.get, @router.get decorator patterns, async def endpoint definitions"
+          "url": "https://docs.python.org/3/library/asyncio.html",
+          "description": "Python asyncio documentation - source of async def syntax for asynchronous functions"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/fastapi/fastapi/master/README.md",
+          "description": "FastAPI README - source of from fastapi import FastAPI, @app.get() and @router.get() decorator patterns, async def endpoint definitions"
         },
         {
           "url": "https://neon.com/docs/serverless/serverless-driver.md",
@@ -100,6 +116,10 @@
         {
           "url": "https://node-postgres.com/apis/pool",
           "description": "node-postgres Pool API: max pool size, connectionTimeoutMillis, idleTimeoutMillis configuration options"
+        },
+        {
+          "url": "https://nodejs.org/api/process.html#process_signal_events",
+          "description": "Node.js process signal events - source of process.on('SIGTERM') pattern for graceful shutdown handling"
         },
         {
           "url": "https://neon.com/docs/serverless/serverless-driver.md",
@@ -140,7 +160,11 @@
         },
         {
           "url": "https://orm.drizzle.team/docs/rqb",
-          "description": "Drizzle ORM relational queries: relations(), one(), many() relationship patterns, eq(), and() query operators"
+          "description": "Drizzle ORM relational queries: relations(), one(), many() relationship patterns, eq() filter operator"
+        },
+        {
+          "url": "https://orm.drizzle.team/docs/operators",
+          "description": "Drizzle ORM query operators - source of and() operator for combining multiple filter conditions in WHERE clauses"
         },
         {
           "url": "https://orm.drizzle.team/docs/goodies#type-api",
@@ -178,6 +202,18 @@
         {
           "url": "https://redis.io/docs/latest/commands/",
           "description": "Redis commands reference - source of key-value operations, TTL, and pattern-based key scanning"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/classes.html",
+          "description": "TypeScript classes - source of class keyword and export class patterns for defining Cache class"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+          "description": "TypeScript generics - source of <T> generic type parameter syntax for type-safe get/set methods"
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+          "description": "JSON object documentation - source of JSON.parse() and JSON.stringify() for serialization/deserialization"
         }
       ],
       "notes": "Adjacent domain test: caching is related to database work but uses Redis, not Postgres. Tests whether the Neon Postgres skill's heavy SQL/database patterns bleed into a Redis caching task. The skill's TypeScript patterns should not inject Postgres-specific concepts."

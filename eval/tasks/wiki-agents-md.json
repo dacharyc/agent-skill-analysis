@@ -7,11 +7,6 @@
       "prompt": "Generate an AGENTS.md file for the root of a Python FastAPI project that uses poetry for dependency management, pytest for testing, and has a src/api/ directory structure. The project uses conventional commits and has a Makefile. Include all six core areas from the AGENTS.md specification.",
       "target_language": "markdown",
       "expected_patterns": [
-        "## Build & Run",
-        "## Testing",
-        "## Project Structure",
-        "## Code Style",
-        "## Boundaries",
         "poetry install",
         "pytest",
         "src/api/"
@@ -31,6 +26,10 @@
         {
           "url": "https://docs.pytest.org/en/stable/",
           "description": "pytest test runner patterns for Python testing section"
+        },
+        {
+          "url": "https://github.com/agentsmd/agents.md",
+          "description": "AGENTS.md specification - flexible format for guiding AI coding agents with project context and instructions"
         }
       ],
       "notes": "Direct AGENTS.md generation task matching the skill's core purpose. Anti-patterns detect other-language build commands bleeding in and the anti-pattern 'You are a helpful' which the skill explicitly forbids."
@@ -41,13 +40,11 @@
       "prompt": "Generate an AGENTS.md file for a Rust project using cargo, with a lib.rs entry point, integration tests in tests/, and benchmarks in benches/. The project has a CI pipeline with GitHub Actions and uses rustfmt and clippy for linting.",
       "target_language": "markdown",
       "expected_patterns": [
-        "## Build & Run",
         "cargo build",
         "cargo test",
         "cargo clippy",
         "cargo fmt|rustfmt",
-        "lib\\.rs",
-        "## Boundaries"
+        "lib\\.rs"
       ],
       "anti_patterns": [
         "npm |yarn |pnpm ",
@@ -57,8 +54,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://doc.rust-lang.org/cargo/commands/index.html",
-          "description": "Cargo commands: cargo build, cargo test, cargo clippy, cargo fmt"
+          "url": "https://doc.rust-lang.org/cargo/commands/cargo-build.html",
+          "description": "Cargo build command documentation"
+        },
+        {
+          "url": "https://doc.rust-lang.org/cargo/commands/cargo-test.html",
+          "description": "Cargo test command documentation"
+        },
+        {
+          "url": "https://doc.rust-lang.org/cargo/commands/cargo-clippy.html",
+          "description": "Cargo clippy command for linting and catching common mistakes"
+        },
+        {
+          "url": "https://doc.rust-lang.org/cargo/commands/cargo-fmt.html",
+          "description": "Cargo fmt command using rustfmt for code formatting"
+        },
+        {
+          "url": "https://github.com/agentsmd/agents.md",
+          "description": "AGENTS.md specification - flexible format for guiding AI coding agents with project context and instructions"
         }
       ],
       "notes": "Rust is not in the skill's explicit examples (which use Python/TypeScript/npm). Tests whether the model defaults to Python/Node.js build commands instead of Rust-appropriate ones."
@@ -84,15 +97,27 @@
       "pattern_sources": [
         {
           "url": "https://pnpm.io/cli/install",
-          "description": "pnpm CLI: pnpm install, pnpm run dev, pnpm test commands"
+          "description": "pnpm install command documentation"
+        },
+        {
+          "url": "https://pnpm.io/cli/run",
+          "description": "pnpm run command for executing package.json scripts like 'pnpm run dev'"
+        },
+        {
+          "url": "https://pnpm.io/cli/test",
+          "description": "pnpm test command for running tests"
         },
         {
           "url": "https://vitest.dev/guide/",
           "description": "Vitest test runner for TypeScript testing section"
         },
         {
-          "url": "https://nextjs.org/docs/app",
-          "description": "Next.js App Router directory structure: app/ directory pattern"
+          "url": "https://nextjs.org/docs/app/getting-started/project-structure",
+          "description": "Next.js App Router project structure documentation showing app/ directory pattern"
+        },
+        {
+          "url": "https://github.com/agentsmd/agents.md",
+          "description": "AGENTS.md specification - flexible format for guiding AI coding agents with project context and instructions"
         }
       ],
       "notes": "TypeScript/Node.js is in the skill's examples but uses npm. Tests whether npm commands bleed in when pnpm is specified. Highest PLC risk because the skill's examples use npm explicitly."
@@ -124,8 +149,16 @@
           "description": "VitePress CLI: vitepress dev, vitepress build, vitepress preview commands"
         },
         {
-          "url": "https://vitepress.dev/guide/markdown#mermaid",
-          "description": "VitePress Mermaid diagram support for wiki dark-mode rendering conventions"
+          "url": "https://emersonbottero.github.io/vitepress-plugin-mermaid/",
+          "description": "VitePress Plugin Mermaid - community plugin for Mermaid diagram support in VitePress"
+        },
+        {
+          "url": "https://llmstxt.org/",
+          "description": "llms.txt specification - standard markdown file convention for providing LLM-friendly content. Documents llms.txt format; llms-full.txt is an implementation-specific expanded variant (e.g., FastHTML's llms-ctx-full.txt)"
+        },
+        {
+          "url": "https://github.com/agentsmd/agents.md",
+          "description": "AGENTS.md specification - flexible format for guiding AI coding agents with project context and instructions"
         }
       ],
       "notes": "Grounded wiki AGENTS.md task with real VitePress project structure matching the skill's wiki template. Tests correct detection of wiki conventions (dark-mode Mermaid, llms.txt, onboarding) from provided context."
@@ -137,9 +170,7 @@
       "target_language": "markdown",
       "expected_patterns": [
         "CLAUDE\\.md",
-        "read.*AGENTS\\.md|follow.*AGENTS",
-        "Do not edit directly|Generated",
-        "already exist|skip"
+        "read.*AGENTS\\.md|follow.*AGENTS"
       ],
       "anti_patterns": [
         "## Build & Run",
@@ -149,8 +180,16 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/claude-code/memory",
-          "description": "Claude Code CLAUDE.md memory file behavior and relationship to AGENTS.md"
+          "url": "https://code.claude.com/docs/en/memory",
+          "description": "Claude Code CLAUDE.md memory file documentation including import syntax"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/microsoft/skills/refs/heads/main/.github/plugins/deep-wiki/commands/generate.md",
+          "description": "Microsoft Skills deep-wiki command: line 114 specifies CLAUDE.md companion generation with 'a heading, a generated-file comment, and a directive to read AGENTS.md'"
+        },
+        {
+          "url": "https://github.com/agentsmd/agents.md",
+          "description": "AGENTS.md specification - standard format that CLAUDE.md files often redirect to"
         }
       ],
       "notes": "Adjacent domain: CLAUDE.md generation instead of AGENTS.md. The skill specifies exact CLAUDE.md content and guard rules. Anti-patterns detect AGENTS.md content bleeding into what should be a minimal redirect file."

@@ -24,8 +24,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://github.com/jsvine/pdfplumber#readme",
-          "description": "pdfplumber docs - source of import pdfplumber, extract_text(), extract_tables(), and pages attribute patterns"
+          "url": "https://github.com/jsvine/pdfplumber",
+          "description": "pdfplumber GitHub README - source of import pdfplumber, extract_text(), extract_tables(), .pages list attribute, and len(pdf.pages) page count pattern"
+        },
+        {
+          "url": "https://docs.python.org/3/library/functions.html#len",
+          "description": "Python built-in len() docs - source of len() function for counting pages in pdf.pages list"
+        },
+        {
+          "url": "https://docs.python.org/3/library/csv.html",
+          "description": "Python csv module docs - source of import csv and CSV writing patterns for summary report"
+        },
+        {
+          "url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html",
+          "description": "Pandas DataFrame.to_csv() documentation - source of import pandas pattern for CSV export as alternative to csv module"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/errors.html",
+          "description": "Python exception handling tutorial - source of try: and except: blocks for handling corrupted PDFs gracefully"
         },
         {
           "url": "https://pdf-lib.js.org/",
@@ -58,6 +74,14 @@
         {
           "url": "https://pdf-lib.js.org/",
           "description": "pdf-lib JS library docs - source of PDFDocument.create(), addPage(), drawText(), StandardFonts, and embedFont patterns"
+        },
+        {
+          "url": "https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options",
+          "description": "Node.js fs.writeFileSync() documentation - source of fs.writeFileSync() for saving PDF files to disk"
+        },
+        {
+          "url": "https://nodejs.org/api/buffer.html",
+          "description": "Node.js Buffer documentation - source of Buffer and Uint8Array patterns for binary PDF data"
         },
         {
           "url": "https://www.reportlab.com/docs/reportlab-userguide.pdf",
@@ -93,8 +117,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://prawnpdf.org/docs/prawn/2.5/",
-          "description": "Prawn Ruby gem docs - source of Prawn::Document.generate, table, text, and PDF generation patterns"
+          "url": "https://github.com/prawnpdf/prawn",
+          "description": "Prawn Ruby gem GitHub - source of require 'prawn', Prawn::Document.generate() and Prawn::Document.new patterns for PDF generation"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prawnpdf/prawn/master/manual/table/table.rb",
+          "description": "Prawn table examples - source of table and make_table methods for creating invoice tables with rows and columns"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/prawnpdf/prawn/master/manual/text/text.rb",
+          "description": "Prawn text examples - source of text method for adding text content and headers to PDFs"
+        },
+        {
+          "url": "https://ruby-doc.org/3.3.6/syntax/modules_and_classes_rdoc.html#label-require",
+          "description": "Ruby require documentation - source of require 'gem_name' syntax for loading Ruby gems like Prawn"
+        },
+        {
+          "url": "https://ruby-doc.org/3.3.6/syntax/methods_rdoc.html",
+          "description": "Ruby method definitions - source of def method_name syntax for defining methods"
         },
         {
           "url": "https://www.reportlab.com/docs/reportlab-userguide.pdf",
@@ -126,11 +166,23 @@
       "pattern_sources": [
         {
           "url": "https://pypdf.readthedocs.io/en/stable/user/merging-pdfs.html",
-          "description": "pypdf merging docs - source of PdfWriter, add_page(), and writer.write() patterns for merging PDFs"
+          "description": "pypdf merging docs - source of from pypdf import PdfWriter, PdfWriter(), add_page(), and writer.write() patterns for merging PDFs"
         },
         {
           "url": "https://pypdf.readthedocs.io/en/stable/modules/PdfWriter.html",
-          "description": "pypdf PdfWriter API reference - source of correct PdfWriter() constructor and write(output) method signatures"
+          "description": "pypdf PdfWriter API reference - source of correct PdfWriter() constructor and write(output) method signatures with file objects"
+        },
+        {
+          "url": "https://docs.python.org/3/library/functions.html#open",
+          "description": "Python built-in open() docs - source of with open(..., 'wb') binary write mode pattern for saving PDF files"
+        },
+        {
+          "url": "https://docs.python.org/3/library/os.path.html",
+          "description": "Python os.path module docs - source of os.path.exists() for checking if input files exist before merging"
+        },
+        {
+          "url": "https://docs.python.org/3/tutorial/errors.html",
+          "description": "Python exception handling tutorial - source of try: and except: blocks for error handling with missing files and invalid PDFs"
         }
       ],
       "notes": "Grounded task with buggy code. The primary bug is using PdfReader instead of PdfWriter for the merger, and missing file handle for write(). The skill shows the correct pypdf merge pattern. Tests whether the skill properly informs the fix."
@@ -158,12 +210,24 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://python-markdown.github.io/",
-          "description": "Python-Markdown library docs - source of import markdown and markdown.markdown() conversion patterns"
+          "url": "https://python-markdown.github.io/reference/",
+          "description": "Python-Markdown library reference - source of import markdown, markdown.markdown() function, and Markdown.convert() method for converting markdown to HTML"
         },
         {
           "url": "https://docs.python.org/3/library/argparse.html",
-          "description": "Python argparse docs - source of CLI argument parsing patterns"
+          "description": "Python argparse docs - source of import argparse and CLI argument parsing patterns for input/output paths"
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html",
+          "description": "MDN HTML5 docs - source of <!DOCTYPE html> and <html> structure for well-formed HTML documents"
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style",
+          "description": "MDN <style> element docs - source of <style> and <link rel='stylesheet'> patterns for embedding CSS in HTML"
+        },
+        {
+          "url": "https://docs.python.org/3/library/functions.html#open",
+          "description": "Python built-in open() docs - source of with open(..., 'w', encoding='utf-8') pattern for writing HTML output files"
         }
       ],
       "notes": "Adjacent domain test: document conversion is related to PDF processing but this task is Markdown-to-HTML, not involving PDFs at all. Tests whether the PDF skill's heavy pypdf/reportlab/pdfplumber patterns bleed into an unrelated document processing task."

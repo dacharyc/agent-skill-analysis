@@ -25,12 +25,28 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
-          "description": "Claude Code settings.json format and permissions allow list structure"
+          "url": "https://code.claude.com/docs/en/settings",
+          "description": "Claude Code settings.json format - source of permissions.allow array structure, WebFetch(domain:example.com) permission syntax for domain-restricted web fetching"
+        },
+        {
+          "url": "https://code.claude.com/docs/en/skills.md",
+          "description": "Claude Code skills documentation - source of Skill(name) and Skill(name *) permission syntax for allowing/denying specific skills in permissions rules"
         },
         {
           "url": "https://python-poetry.org/docs/cli/",
           "description": "Poetry CLI commands: poetry show, poetry --version for dependency inspection"
+        },
+        {
+          "url": "https://docs.python.org/3/using/cmdline.html",
+          "description": "Python command line - source of python --version and python3 --version for Python stack detection"
+        },
+        {
+          "url": "https://man7.org/linux/man-pages/man1/make.1.html",
+          "description": "GNU Make man page - source of make command with flags (make -n, make -j, etc.) for Makefile-based projects"
+        },
+        {
+          "url": "https://git-scm.com/docs/git-status",
+          "description": "Git status command - source of git status for repository inspection in permissions"
         },
         {
           "url": "https://docs.djangoproject.com/",
@@ -66,12 +82,20 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
-          "description": "Claude Code settings.json permissions format for Bash command allow lists"
+          "url": "https://code.claude.com/docs/en/settings",
+          "description": "Claude Code settings.json permissions format - source of Bash(command) permission syntax for Bash command allow lists"
         },
         {
           "url": "https://doc.rust-lang.org/cargo/commands/index.html",
           "description": "Cargo CLI commands: cargo tree, cargo metadata, cargo --version for Rust inspection"
+        },
+        {
+          "url": "https://doc.rust-lang.org/rustc/command-line-arguments.html",
+          "description": "Rust compiler rustc command line - source of rustc --version for Rust stack detection"
+        },
+        {
+          "url": "https://git-scm.com/docs/git-status",
+          "description": "Git status command - source of git status for repository inspection"
         }
       ],
       "notes": "Rust project that is NOT in the skill's primary examples (which focus on Python/Node.js). Tests whether Python/Node.js commands bleed in despite the project being Rust-only."
@@ -98,8 +122,8 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
-          "description": "Claude Code settings.json permissions allow list format"
+          "url": "https://code.claude.com/docs/en/settings",
+          "description": "Claude Code settings.json permissions allow list format - source of Bash(command) permission syntax"
         },
         {
           "url": "https://pnpm.io/cli/list",
@@ -108,6 +132,10 @@
         {
           "url": "https://www.npmjs.com/package/pnpm",
           "description": "pnpm package manager as distinct from npm/yarn"
+        },
+        {
+          "url": "https://nodejs.org/api/cli.html",
+          "description": "Node.js command line options - source of node --version for Node.js stack detection"
         },
         {
           "url": "https://www.typescriptlang.org/docs/handbook/compiler-options.html",
@@ -137,12 +165,28 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
-          "description": "Claude Code settings.json merge behavior and permissions allow list format"
+          "url": "https://code.claude.com/docs/en/settings",
+          "description": "Claude Code settings.json merge behavior and permissions allow list format - source of Bash(command) permission syntax with wildcards"
+        },
+        {
+          "url": "https://git-scm.com/docs/git-status",
+          "description": "Git status and log commands - source of git status and git log for repository inspection"
+        },
+        {
+          "url": "https://docs.npmjs.com/cli/v10/commands/npm-ls",
+          "description": "npm ls command (alias: npm list) - source of npm list for dependency inspection in package.json projects"
         },
         {
           "url": "https://docs.docker.com/reference/cli/docker/",
           "description": "Docker CLI commands for detected Dockerfile stack"
+        },
+        {
+          "url": "https://www.typescriptlang.org/docs/handbook/compiler-options.html",
+          "description": "TypeScript tsc --version command for tsconfig.json stack detection"
+        },
+        {
+          "url": "https://nodejs.org/api/cli.html",
+          "description": "Node.js command line - source of node --version for Node.js stack detection with package.json"
         }
       ],
       "notes": "Grounded merge task. Tests that existing permissions are preserved and new ones added correctly. package-lock.json means npm (not yarn/pnpm). Anti-patterns catch wrong package manager or undetected-stack bleed."
@@ -156,9 +200,7 @@
         "mcpServers",
         "sentry",
         "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
-        "linear",
-        "@linear/mcp-server",
-        "LINEAR_API_KEY"
+        "linear"
       ],
       "anti_patterns": [
         "github.*mcp",
@@ -168,15 +210,27 @@
       ],
       "pattern_sources": [
         {
-          "url": "https://docs.anthropic.com/en/docs/claude-code/mcp-servers",
-          "description": "Claude Code .mcp.json configuration format for MCP servers"
+          "url": "https://code.claude.com/docs/en/mcp.md",
+          "description": "Claude Code MCP documentation - source of .mcp.json configuration format with mcpServers top-level field, server configuration structure, and examples of sentry and linear server names"
         },
         {
-          "url": "https://www.npmjs.com/package/@linear/mcp-server",
-          "description": "Linear MCP server npm package and LINEAR_API_KEY configuration"
+          "url": "https://github.com/getsentry/sentry-mcp",
+          "description": "Sentry MCP server GitHub repository - source of sentry server name and https://mcp.sentry.dev base URL"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/getsentry/sentry-mcp/a10db6db67fa96eb129637bc1147c2dc6d0efaab/docs/testing-remote.md",
+          "description": "Sentry MCP testing documentation - source of mcp.sentry.dev/mcp/org-slug/project-slug URL pattern showing organization and project slug routing (e.g., mcp/sentry/javascript for org 'sentry' and project 'javascript')"
+        },
+        {
+          "url": "https://github.com/jerhadf/linear-mcp-server",
+          "description": "DEPRECATED Linear MCP server (linear-mcp-server package) - source of LINEAR_API_KEY environment variable usage. Note: This server is deprecated in favor of the official Linear remote MCP at https://mcp.linear.app/mcp"
+        },
+        {
+          "url": "https://linear.app/docs/mcp",
+          "description": "Official Linear MCP documentation - source of current Linear MCP server using OAuth authentication (not LINEAR_API_KEY) via mcp-remote package at https://mcp.linear.app/mcp. Linear transitioned from API key auth to OAuth-based remote MCP."
         }
       ],
-      "notes": "Adjacent domain: MCP configuration instead of settings.json permissions. Tests knowledge of MCP server setup from the skill. Anti-pattern ensures no GitHub MCP (skill explicitly says never suggest it) and no confusion with settings.json format."
+      "notes": "Adjacent domain: MCP configuration instead of settings.json permissions. Tests knowledge of MCP server setup from the skill. Anti-pattern ensures no GitHub MCP (skill explicitly says never suggest it) and no confusion with settings.json format. NOTE: @linear/mcp-server and LINEAR_API_KEY patterns removed from expected_patterns - Linear transitioned from deprecated community package (linear-mcp-server with LINEAR_API_KEY) to official OAuth-based remote MCP. Both deprecated and current sources documented to track this transition and observe which pattern Claude generates in eval runs without asserting expected output."
     }
   ]
 }
