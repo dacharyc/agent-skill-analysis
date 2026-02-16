@@ -1,0 +1,3148 @@
+{
+  "skill_name": "sharp-edges",
+  "scored_at": "2026-02-16T20:43:49.411265+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.62,
+  "risk_level": "high",
+  "test_category": "multi_reference",
+  "tasks": [
+    {
+      "task_id": "sharp-edges-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The response is entirely in Python and provides a thorough security analysis identifying the critical issues (empty key bypass, weak hash default, disabled rate limiting, logic error in HMAC comparison). The refactored code uses idiomatic Python constructs (dataclasses, frozen=True, keyword-only arguments, type hints, proper logging). However, the code is truncated \u2014 the compute_hmac function is cut off mid-signature \u2014 and the task was to provide a security analysis rather than just a refactored module, though the analysis portion is well done. No cross-language contamination is present.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_misses": [
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a thorough security analysis written entirely in Python with idiomatic examples. It correctly identifies the critical authentication bypass (empty key returning True), the dangerous max_attempts=0 default, weak hash algorithm acceptance, OTP lifetime bounds issues, and the verify_ssl boolean trap. Each finding includes realistic attack scenarios and well-designed fixes following pit-of-success principles. The output appears truncated at finding #6 (type validation), losing some completeness, but the vast majority of the task is accomplished with high quality and actionable recommendations.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate"
+              ],
+              "expected_misses": [
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "contamination_signals": [],
+              "code_quality": 4,
+              "brief_assessment": "The output is a thorough security analysis written entirely in Python with idiomatic constructs (type hints, frozenset, logging, warnings module, dataclass-style patterns). It correctly identifies all major security footguns\u2014empty-key bypass, unlimited brute force default, weak hash acceptance, unbounded OTP lifetime, and the verify_ssl boolean trap\u2014and provides specific, actionable fixes following pit-of-success principles. The only notable issue is that the 'Complete Secure Implementation' at the end is truncated mid-line (cuts off at `verify_ssl: bool = T`), leaving the consolidated solution incomplete. No cross-language contamination is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate"
+              ],
+              "expected_misses": [
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely Python with idiomatic usage of standard library modules (hmac, hashlib, dataclasses, warnings, typing). It does an excellent job of analyzing the original module's security issues (silent bypass, broken comparison logic, unlimited attempts, weak hashing) and provides a well-structured refactored version with fail-closed defaults, input validation, and proper HMAC verification. The final function `create_secure_token` is truncated, leaving the analysis slightly incomplete, and `compute_hmac` is referenced but not defined in the original code analysis section. No cross-language contamination is detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent"
+              ],
+              "expected_misses": [
+                "hash_algo.*accept|validate",
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely Python with no cross-language contamination. It provides a thorough security analysis of the authentication module, correctly identifying critical issues like the empty-key bypass, unlimited max_attempts default, unvalidated hash algorithms, and ambiguous OTP lifetime semantics. The fixes provided are idiomatic Python with proper type hints, validation, and error messages. The output is slightly truncated (cut off mid-recommendation for verify_ssl Option A), and the task is an analysis task rather than pure code generation, but the analysis is well-structured, accurate, and follows pit-of-success principles as requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate"
+              ],
+              "expected_misses": [
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely Python with no cross-language contamination. It provides a thorough security analysis of the authentication module, correctly identifying the empty-key bypass, unlimited max_attempts default, weak hash acceptance, OTP lifetime edge cases, and SSL override risks. The recommendations are idiomatic Python using dataclasses, Literal types, hmac, and logging. The final recommended implementation is truncated (cut off mid-class), which prevents it from scoring a 5 on functional correctness and code quality, but the analysis portion is comprehensive and well-structured.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate",
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic usage of typing hints, warnings, exceptions, and standard library modules. It thoroughly analyzes the original code's security issues (empty key bypass, weak hashing, unlimited attempts, silent failures) and provides a well-structured secure redesign. The main completeness issue is that the verify_token function is truncated\u2014it never actually performs the HMAC comparison or returns a result, and compute_hmac is referenced but not defined. The analysis portion is excellent, but the redesigned code is incomplete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_misses": [
+                "hash_algo.*accept|validate"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The response is entirely in Python and provides a thorough, well-structured security analysis of the authentication module. It correctly identifies the critical vulnerabilities (empty key bypass, max_attempts=0, unvalidated hash algorithm, ambiguous otp_lifetime semantics, and the verify_ssl boolean trap) with clear attack scenarios and idiomatic Python fixes. The output is slightly truncated at the end (the last fix is cut off mid-line), and while it covers the major issues comprehensively, it could have also addressed the logic error in verify_token where compute_hmac(token, key) is compared against the raw token itself. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate"
+              ],
+              "expected_misses": [
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely Python with no cross-language contamination. It provides a thorough security analysis identifying the critical empty-key bypass, dangerous max_attempts=0 default, unvalidated hash algorithm, ambiguous otp_lifetime semantics, and the overridable verify_ssl flag, all with concrete fix recommendations following pit-of-success principles. The analysis is well-structured and actionable. Minor deductions: the 'Recommended Secure Implementation' section at the end is truncated/incomplete, and some suggestions (like the i_understand_disabling_ssl_is_dangerous parameter) are more illustrative than production-ready. The verify_token fix still has a logic issue (comparing compute_hmac(token, key) with token itself rather than a separate signature), but this mirrors the original code's structure.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "max_attempts.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "otp_lifetime.*0",
+                  "matched": true
+                },
+                {
+                  "pattern": "key.*empty|not key.*bypass|silent",
+                  "matched": true
+                },
+                {
+                  "pattern": "hash_algo.*accept|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "pit of success|secure.?by.?default",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "max_attempts.*0",
+                "otp_lifetime.*0",
+                "key.*empty|not key.*bypass|silent",
+                "hash_algo.*accept|validate"
+              ],
+              "expected_misses": [
+                "pit of success|secure.?by.?default"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "sodium_crypto_box",
+                  "matched": false
+                },
+                {
+                  "pattern": "Crypto::seal",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "PASSWORD_DEFAULT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "sharp-edges-02",
+      "task_type": "cross_language",
+      "target_language": "rust",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Rust with proper use of newtypes, ZeroizeOnDrop, thiserror, and ed25519-dalek APIs. The misuse-resistant design principles are well-applied: distinct types for SigningKey, VerifyingKey, and Signature prevent type confusion, and algorithm selection is hidden. However, the code is clearly truncated mid-function (sign-and-verify method is cut off), and the VerifyingKey and Signature struct definitions along with their implementations (including the critical verify method) are missing entirely, so only about half of the stated task is actually implemented.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "impl !Clone for SecretKey {} uses negative trait impls which is an unstable nightly-only feature, not standard stable Rust - though this is a Rust concept, not cross-language contamination"
+              ],
+              "brief_assessment": "The code is well-designed Rust following misuse-resistant API principles with strong type safety, zeroization, and a minimal error type. However, the code is clearly truncated mid-implementation \u2014 the PublicKey section is cut off, and Message and MessageSignature implementations (including the critical verify method) are missing. The use of `impl !Clone for SecretKey {}` requires nightly Rust and conflicts with the `ZeroizeOnDrop` derive which may already prevent Clone. Despite being incomplete, the design intent and implemented portions are high quality and idiomatic Rust.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": false
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Use of `impl !Clone for SigningKey {}` which is unstable negative trait impl syntax \u2014 while valid Rust nightly, it's not standard stable Rust and may reflect conceptual borrowing from other type system paradigms"
+              ],
+              "brief_assessment": "The code is well-structured Rust with strong misuse-resistant design principles: distinct newtypes for SigningKey/VerifyingKey/Signature, zeroization of secret keys, redacted Debug output, and hardcoded Ed25519. However, the code is truncated \u2014 the SignatureError enum is cut off mid-definition, and the signing, verification, and test modules are referenced but not provided, leaving the implementation incomplete (roughly 50-60% of the task). The `impl !Clone` syntax requires nightly Rust and is unconventional for a library targeting stable Rust.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Rust with proper use of newtypes for misuse resistance, zeroize-on-drop for key material, thiserror for error handling, and ed25519-dalek as the backend. However, the code is truncated mid-function (public_key() method is cut off), and the PublicKey, Signature, and tests modules are never shown, meaning signature verification and the core promise of type-safe distinct types are declared but not implemented. The design intent is excellent but roughly half the task is missing due to truncation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Rust with idiomatic patterns (newtype wrappers, proper error enums, Debug redaction for secret material). However, it is clearly truncated mid-function \u2014 the `verifying_key()` method, the `sign()` method, and the `verify()` function are never completed, meaning the core signing and verification functionality is missing. The design principles (type confusion prevention, opaque algorithm selection, misuse-resistant API) are well-articulated in the completed portions, but less than half of the required task is actually implemented. No cross-language contamination was detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Comment '(no []byte confusion)' references Go's byte slice type rather than Rust's &[u8]"
+              ],
+              "brief_assessment": "The code is valid Rust with idiomatic use of newtypes, the ed25519_dalek crate, and proper module structure. It follows misuse-resistant design principles well: distinct types for keys/signatures, redacted Debug for SigningKey, hardcoded Ed25519, and secure key generation. However, the code is truncated mid-implementation \u2014 the Signature Debug impl, CryptoError type, operations module, and tests module are all missing, leaving the library incomplete. There's a minor Go contamination signal in a comment referencing '[]byte'.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Use of `impl !Clone for SecretKey {}` which is unstable negative impl syntax - while valid Rust nightly, it's not standard stable Rust and could indicate conceptual borrowing from other type system paradigms"
+              ],
+              "brief_assessment": "The code is well-structured Rust with strong type safety principles, proper use of zeroize for secret key material, and good separation of concerns. However, the code is clearly truncated mid-function (PublicKey::from_bytes export method cuts off), missing the Signature type implementation, verification logic, and tests module \u2014 so the task is only partially accomplished. The use of `impl !Clone` is a nightly-only feature that would not compile on stable Rust. The overall design philosophy of misuse-resistant API is well-executed in the portions that are present.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Rust with proper use of newtypes, derive macros, zeroize, and the ed25519_dalek API. It demonstrates excellent misuse-resistant design: distinct types for SigningKey/VerifyingKey/Signature, no algorithm exposure, ZeroizeOnDrop on the signing key, and a single error type. However, the code is truncated mid-function (Signature::from_bytes is cut off), and there are no Debug/Display impls shown or tests included. The core sign/verify flow is complete, but the incomplete Signature deserialization and missing tests reduce the functional completeness score.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Signature::from_bytes returns Option but ed25519_dalek::Signature::from_bytes returns the signature directly (not Result), indicating possible API confusion with another library version or pattern",
+                "The code references hex::encode without declaring the hex dependency"
+              ],
+              "brief_assessment": "The code is well-designed Rust with strong misuse-resistant principles: distinct newtypes for keys and signatures, no algorithm exposure, redacted Debug for SigningKey, and no Clone on SigningKey. However, the code is truncated (Signer's Default impl is cut off, Verifier module and tests are missing), reducing functional completeness. There's a minor API mismatch where Signature::from_bytes wraps ed25519_dalek::Signature::from_bytes in an Option via .map(), but in recent ed25519_dalek versions from_bytes returns the value directly (not Result), which would cause a compilation error. The Signature field is also accessed directly in signer.rs (Signature { inner }) bypassing the pub(crate) visibility boundary inconsistently.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                  "matched": true
+                },
+                {
+                  "pattern": "impl\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "pub\\s+fn\\s+(sign|verify)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Result<",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "struct\\s+(Signature|SigningKey|VerifyingKey)",
+                "impl\\s+",
+                "pub\\s+fn\\s+(sign|verify)",
+                "Result<"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+verify_",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+verify",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "password_hash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$algorithm",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "sharp-edges-03",
+      "task_type": "similar_syntax",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a security review of Go HTTP middleware, not a code generation task per se. The review correctly identifies all major security issues (timing attack via == instead of subtle.ConstantTimeCompare, fail-open on timeout==0, missing Bearer prefix handling, empty secret acceptance). All Go code snippets are idiomatic and use correct standard library APIs (crypto/subtle, net/http, strings). The secure reimplementation is well-structured. The only minor gap is that the review doesn't deeply explore the unused timeout parameter's intended purpose or discuss additional concerns like logging failed attempts or rate limiting, but the core task is thoroughly accomplished.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": true
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "timing.?(safe|attack|constant.?time)",
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with fully idiomatic use of net/http middleware patterns (Handler wrapping, HandlerFunc, http.Error). The analysis correctly identifies real security issues: timing attack via == instead of subtle.ConstantTimeCompare, the dangerous timeout==0 bypass, and missing secret validation. The fixes provided are well-written Go. The secure rewrite at the end is truncated mid-sentence, which slightly hurts completeness and quality, but the core analysis and code are solid.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": true
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "timing.?(safe|attack|constant.?time)",
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a security review/analysis response rather than pure code generation, but all Go code snippets are entirely correct and idiomatic. The review comprehensively identifies all major security issues: timing attack via string equality, the critical timeout=0 auth bypass, empty secret acceptance, missing Bearer prefix handling, and lack of rate limiting. The recommended secure implementation uses proper Go patterns (crypto/subtle, sync.Mutex, struct-based config with validation, standard middleware signature). No cross-language contamination is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [
+                "timing.?(safe|attack|constant.?time)"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a security review of Go HTTP middleware, not a code generation task per se. The review correctly identifies all major security issues (timing attack via `==`, dangerous `timeout == 0` bypass, missing Bearer prefix validation, empty secret). The provided secure implementation is idiomatic Go using `crypto/subtle`, proper middleware chaining, and standard `net/http` patterns. The review is thorough and the replacement code is production-quality. Minor note: the length check before `ConstantTimeCompare` can itself leak length information, though this is a known trade-off. The task was a review task and the output accomplishes it well, though one could argue for slightly more depth on certain edges (e.g., lack of rate limiting, logging).",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": true
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "timing.?(safe|attack|constant.?time)",
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "secret.*empty"
+              ],
+              "expected_misses": [
+                "timeout.*0.*bypass|skip"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The task was to review the Go HTTP middleware for security issues, and the response provides an excellent, thorough security analysis identifying timing attacks (string == vs crypto/subtle.ConstantTimeCompare), the dangerous zero-timeout bypass, empty secret acceptance, and other issues. All code examples are idiomatic Go using correct standard library APIs (crypto/subtle, net/http, golang.org/x/time/rate, context). The recommended secure implementation is cut off mid-function, which prevents a perfect functional correctness score, but the analysis itself is comprehensive and well-structured.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": true
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "timing.?(safe|attack|constant.?time)",
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a thorough, well-structured security review of the Go HTTP middleware. All code snippets \u2014 both the original analysis and the recommended rewrite \u2014 are idiomatic Go using correct standard library APIs (crypto/subtle, net/http, strings). The review correctly identifies all critical security issues: timing attack via naive string comparison, the catastrophic timeout=0 auth bypass (configuration cliff), empty secret acceptance, and missing token format validation. The recommended rewrite is production-quality Go with proper error handling, constant-time comparison, and fail-fast validation. No cross-language contamination is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": true
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "timing.?(safe|attack|constant.?time)",
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a security review/analysis of the provided Go middleware, not just raw code generation. All Go code snippets (both identifying vulnerabilities and the secure rewrite) are syntactically correct and use idiomatic Go patterns (middleware chaining, functional options, crypto/subtle, context.WithTimeout). The review correctly identifies the timing attack (== vs subtle.ConstantTimeCompare), the dangerous default (timeout==0 bypasses auth), the unused timeout parameter, and missing Bearer prefix validation. The secure rewrite is well-structured and production-quality. Minor gap: the rewrite references 'context' package without importing it explicitly, and the task asked to 'identify' issues which was done thoroughly, though one could argue even more edge cases (e.g., empty secret at call site) could be explored.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "secret.*empty"
+              ],
+              "expected_misses": [
+                "timing.?(safe|attack|constant.?time)",
+                "timeout.*0.*bypass|skip"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 4,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a security review/analysis response, not a code generation task. The output correctly identifies all major security issues in the Go middleware: timing attack via string comparison (should use crypto/subtle.ConstantTimeCompare), the dangerous timeout==0 bypass that skips authentication entirely, and the empty secret bypass. All Go code examples throughout the analysis are idiomatic and correct, using proper standard library APIs (crypto/subtle, context.WithTimeout, http.Handler middleware pattern). The analysis is thorough, well-structured, and provides actionable fixes. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": true
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "timing.?(safe|attack|constant.?time)",
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a thorough, well-structured security review of the provided Go middleware. All code snippets\u2014both the analysis of the original and the recommended fixes\u2014are idiomatic Go using correct standard library APIs (crypto/subtle, net/http, strings.CutPrefix). The review correctly identifies all critical issues (timing attack via == comparison, timeout=0 auth bypass, empty secret acceptance, unused parameter) and provides actionable fixes. The final recommended implementation is production-quality idiomatic Go with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "timing.?(safe|attack|constant.?time)",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*0.*bypass|skip",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                "timeout.*0.*bypass|skip",
+                "secret.*empty"
+              ],
+              "expected_misses": [
+                "timing.?(safe|attack|constant.?time)"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "hash_equals\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "===\\s*secret",
+                  "matched": false
+                },
+                {
+                  "pattern": "timing_safe_equal",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "sharp-edges-04",
+      "task_type": "grounded",
+      "target_language": "php",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely PHP with correct idiomatic usage of PHP APIs (hash(), setcookie(), random_bytes(), in_array(), promoted constructor properties, readonly modifiers, class constants). The analysis thoroughly covers all requested dimensions: unvalidated constructor parameters (hashAlgo, sameSite, sessionLifetime), dangerous defaults (secureCookies=false, maxRetries=-1), algorithm selection footguns (md5/sha1 acceptance), and configuration cliffs (SameSite=None without Secure). The final recommended implementation is truncated mid-line ('throw ne'), which is the only completeness issue; otherwise the analysis is comprehensive and well-structured.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is a thorough sharp-edges analysis written entirely in PHP with correct idiomatic usage of PHP APIs (hash(), random_bytes(), setcookie(), bin2hex(), etc.). The analysis correctly identifies critical issues: unvalidated hash algorithm, insecure cookie default, magic -1 value for maxRetries, and the misuse of hash for token generation. All code examples are valid PHP with no cross-language contamination. The output appears truncated at the end (session lifetime section cuts off mid-sentence), which prevents a perfect functional correctness score, but the vast majority of the requested analysis is present and well-structured.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined",
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated analysis is entirely in PHP with correct, idiomatic API references throughout (hash(), setcookie(), random_bytes(), in_array(), bin2hex(), etc.). The analysis comprehensively identifies the major sharp edges \u2014 unvalidated constructor parameters, dangerous defaults (secureCookies=false), algorithm selection footguns, magic values (maxRetries=-1), and configuration cliffs (SameSite=None without Secure). The output is slightly truncated at the end (Finding #7 on session fixation is cut off mid-fix), which is the only completeness issue. Overall this is a high-quality, well-structured security review with actionable fixes.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely PHP with no cross-language contamination. It correctly uses PHP-native APIs like hash(), hash_hmac(), setcookie(), random_bytes(), in_array(), and PHP 8.x constructor property promotion with readonly modifiers. The analysis is thorough, covering all requested dimensions (unvalidated constructor parameters, dangerous defaults, algorithm selection footguns, and configuration cliffs) with clear explanations and fixes. However, the hardened version is truncated \u2014 the createSession method is cut off mid-implementation \u2014 which prevents a perfect functional correctness score. The analysis quality is strong with well-categorized severity levels.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely PHP-based analysis with correct PHP code examples throughout. All API usage (hash(), setcookie(), in_array(), trigger_error(), InvalidArgumentException) is idiomatic PHP. The analysis thoroughly covers unvalidated constructor parameters (hashAlgo), dangerous defaults (secureCookies=false, maxRetries=-1), algorithm selection footguns, and configuration cliffs, hitting all four requested dimensions. Minor issues: the final markdown reference link is truncated/cut off, and the analysis doesn't address the token generation design flaw (hashing random_bytes reduces entropy compared to using raw random_bytes directly via bin2hex), but overall it's a comprehensive and well-structured sharp-edges analysis.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in PHP with no cross-language contamination. All API calls (hash(), setcookie(), random_bytes(), in_array(), etc.) are idiomatic PHP usage. The analysis is thorough, covering all requested dimensions: unvalidated constructor parameters (hashAlgo, sameSite, sessionLifetime), dangerous defaults (secureCookies=false), algorithm selection footguns (accepting weak hashes), and configuration cliffs (maxRetries=-1, SameSite=None without Secure). The output appears truncated at the summary table, cutting off the final row, which is a minor completeness issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a thorough, well-structured sharp-edges analysis written entirely in PHP with correct idiomatic usage throughout all code examples. It comprehensively addresses all four requested dimensions: unvalidated constructor parameters (hashAlgo, sameSite, sessionLifetime), dangerous defaults (secureCookies=false, maxRetries=-1), algorithm selection footguns (weak token generation using hash instead of HMAC, no uniqueness guarantees), and configuration cliffs (missing cookie path/domain, no token storage). The fixes provided are idiomatic PHP with proper use of in_array with strict comparison, InvalidArgumentException, bin2hex(random_bytes()), and correct setcookie array syntax. No cross-language contamination detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid PHP with no cross-language contamination. The analysis correctly identifies key sharp edges: unvalidated hash algorithm, insecure default for secureCookies, unvalidated SameSite, negative/zero session lifetime, and the unused maxRetries parameter. All fix suggestions use idiomatic PHP (in_array with strict, InvalidArgumentException, implode). The output is truncated at finding #6 (weak token generation), leaving that analysis incomplete, which prevents a perfect functional correctness score. Overall this is a thorough, well-structured security review with accurate PHP-specific details.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely PHP with no cross-language contamination. All API calls (hash(), setcookie(), random_bytes(), in_array(), trigger_error(), etc.) are idiomatic PHP usage. The analysis thoroughly covers most of the requested sharp edges\u2014unvalidated constructor parameters, dangerous defaults (secureCookies=false), algorithm selection footguns, and the SameSite/Secure configuration cliff. The output is truncated at finding #7 (the SameSite+Secure interaction cliff), leaving that section and possibly a summary incomplete, which prevents a perfect functional correctness score. The quality of the analysis and suggested fixes is strong, with well-structured PHP examples throughout.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "secureCookies.*false|default.*insecure",
+                  "matched": true
+                },
+                {
+                  "pattern": "hashAlgo.*accept|md5|crc32|validate",
+                  "matched": true
+                },
+                {
+                  "pattern": "maxRetries.*-1|negative|undefined",
+                  "matched": true
+                },
+                {
+                  "pattern": "constructor.*param.*unvalidated|not validated",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "secureCookies.*false|default.*insecure",
+                "hashAlgo.*accept|md5|crc32|validate",
+                "maxRetries.*-1|negative|undefined"
+              ],
+              "expected_misses": [
+                "constructor.*param.*unvalidated|not validated"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "hmac\\.compare_digest",
+                  "matched": false
+                },
+                {
+                  "pattern": "crypto\\.subtle",
+                  "matched": false
+                },
+                {
+                  "pattern": "hmac\\.Equal",
+                  "matched": false
+                },
+                {
+                  "pattern": "import hashlib",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "sharp-edges-05",
+      "task_type": "adjacent_domain",
+      "target_language": "typescript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic patterns including generics, interfaces, union types, and class-based design. It demonstrates good structure with ConfigurationError, ConfigurationValidationResult, and ConfigValidator classes. However, the code is clearly truncated mid-expression (`if (this.options.`), missing the strict mode handling, the `validateType` private method implementation, the security-specific built-in rules (SSL disabled, empty secrets, zero timeouts), and any default secure schema definitions. While the architecture is sound, roughly half the promised functionality\u2014particularly the security-first defaults and pre-built validation rules\u2014is missing due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": true
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "interface\\s+\\w*Config",
+                "throw|Error\\(",
+                "ssl|tls|https",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_misses": [
+                "timeout.*>\\s*0|timeout.*positive"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic patterns including discriminated unions for ValidationResult, a fluent builder pattern, and proper generic typing. However, the code is clearly truncated mid-function (cuts off at 'success: fals'), leaving the boolean validator incomplete and missing the core configuration validation engine, unknown key rejection logic, SSL/timeout validation schemas, and the startup fail-fast mechanism. What is present is well-structured and demonstrates good security-conscious design (e.g., rejecting empty strings by default, rejecting zero/negative timeouts), but a significant portion of the task requirements remain unimplemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": false
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "throw|Error\\(",
+                "ssl|tls|https"
+              ],
+              "expected_misses": [
+                "interface\\s+\\w*Config",
+                "timeout.*>\\s*0|timeout.*positive",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic patterns including proper type definitions, generics, union types, and module organization. The type system is well-leveraged with ValidatorFn<T> generics and discriminated types. However, the code is clearly truncated mid-function (the noWildcard validator is cut off), and critically, the main ConfigValidator class that would tie everything together \u2014 performing schema validation, rejecting unknown keys, applying defaults, and throwing at startup \u2014 is missing entirely. Only types and individual validator functions are present, covering roughly half the requested functionality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": true
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "interface\\s+\\w*Config",
+                "throw|Error\\(",
+                "ssl|tls|https"
+              ],
+              "expected_misses": [
+                "timeout.*>\\s*0|timeout.*positive",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic patterns including proper use of generics, classes, method chaining (fluent API), and TypeScript-specific features like parameter properties and type annotations. However, the code is clearly truncated mid-function (cuts off during `requirePositiveTimeout`), meaning several required features (zero timeout handling, additional rule factories, and potentially the full library demo) are incomplete. The implemented portions\u2014SSL validation, empty/weak secret rejection, unknown key detection, and secure defaults\u2014are well-structured and production-quality, but the incomplete output prevents a higher functional correctness score.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": false
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "throw|Error\\(",
+                "ssl|tls|https"
+              ],
+              "expected_misses": [
+                "interface\\s+\\w*Config",
+                "timeout.*>\\s*0|timeout.*positive",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic patterns including proper class hierarchies, generics, readonly modifiers, and TypeScript-specific constructs. There are no foreign language patterns or contamination signals. However, the code is clearly truncated mid-function (cuts off in the UrlRule validate method), missing the core configuration schema definition, the actual validator that ties rules together, the unknown-key rejection logic, SSL validation, secret validation, and the secure-defaults mechanism. While the architecture shown is well-designed, less than half the task requirements are actually implemented in the delivered code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": false
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "throw|Error\\(",
+                "ssl|tls|https"
+              ],
+              "expected_misses": [
+                "interface\\s+\\w*Config",
+                "timeout.*>\\s*0|timeout.*positive",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": null,
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": true
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": true
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "interface\\s+\\w*Config",
+                "throw|Error\\(",
+                "ssl|tls|https",
+                "timeout.*>\\s*0|timeout.*positive"
+              ],
+              "expected_misses": [
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper use of TypeScript-specific features like generics, union types, parameter properties, and getters. The validation library design is well-structured with a security-first approach, covering SSL, empty secrets, zero timeouts, valid ports, and URL validation. However, the code is clearly truncated mid-function (cuts off at the `oneOf` rule definition), missing the critical unknown configuration keys detection feature and the main validator class that would tie everything together. The implemented portions are high quality with good documentation and thoughtful security defaults.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": false
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "throw|Error\\(",
+                "ssl|tls|https",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_misses": [
+                "interface\\s+\\w*Config",
+                "timeout.*>\\s*0|timeout.*positive"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic patterns including branded types, proper class inheritance with Object.setPrototypeOf, and well-structured interfaces. No cross-language contamination is detected. However, the code is clearly truncated \u2014 the errors.ts file is cut off mid-class, and the core config-validator.ts, validators.ts, examples/usage.ts, and tests files are never provided. This means while the types and partial error hierarchy are well-designed, the actual validation logic (the core of the library) is missing, leaving the task only partially accomplished.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": true
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "interface\\s+\\w*Config",
+                "throw|Error\\(",
+                "ssl|tls|https",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_misses": [
+                "timeout.*>\\s*0|timeout.*positive"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The `Validator<T>` type is referenced in validators.ts without importing it from types.ts - minor oversight but not cross-language contamination",
+                "The `allowEmpty?: false` and `allowZero?: false` type annotations are unusual TypeScript patterns - using a literal `false` type means the property can only be `false`, not `true`, which likely doesn't achieve the intended behavior of a boolean toggle"
+              ],
+              "brief_assessment": "The code is well-structured TypeScript with proper use of generics, discriminated unions (ValidationResult), and type-safe schema definitions. It demonstrates good security-first design with secure defaults. However, the code is clearly truncated mid-function (the `secret` validator cuts off), meaning several promised features like SSL validation, unknown key rejection, and the core validation engine are missing. The `allowEmpty?: false` and `allowZero?: false` type annotations are semantically incorrect for their intended purpose as optional boolean flags. No significant cross-language contamination is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "interface\\s+\\w*Config",
+                  "matched": false
+                },
+                {
+                  "pattern": "throw|Error\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "ssl|tls|https",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout.*>\\s*0|timeout.*positive",
+                  "matched": false
+                },
+                {
+                  "pattern": "secret.*\\.length|secret.*empty",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "throw|Error\\(",
+                "ssl|tls|https"
+              ],
+              "expected_misses": [
+                "interface\\s+\\w*Config",
+                "timeout.*>\\s*0|timeout.*positive",
+                "secret.*\\.length|secret.*empty"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "def\\s+validate_config",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+Validate",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                  "matched": false
+                },
+                {
+                  "pattern": "string\\s+\\$",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

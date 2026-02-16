@@ -1,0 +1,3915 @@
+{
+  "skill_name": "monitoring-observability",
+  "scored_at": "2026-02-16T19:12:08.166519+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.5,
+  "risk_level": "medium",
+  "test_category": "app_to_aux",
+  "tasks": [
+    {
+      "task_id": "monitoring-observability-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using the correct OpenTelemetry Python SDK APIs idiomatically \u2014 TracerProvider, BatchSpanProcessor, OTLPSpanExporter, FlaskInstrumentor, and custom span creation with attributes are all used correctly. It fulfills all requested features: tracer provider creation, OTLP exporter to localhost:4317, automatic Flask instrumentation, and a sample route with custom span carrying user_id and request_type attributes. The code is truncated at the end (the error_example route is cut off mid-statement with `span.`), which is a minor completeness issue. Overall quality is good with proper error handling, logging, and well-structured nested spans.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct OpenTelemetry SDK usage for Python, including proper TracerProvider setup, OTLP gRPC exporter configuration, BatchSpanProcessor, FlaskInstrumentor, and manual span creation with custom attributes. The code appears truncated \u2014 the get_user route is cut off mid-function, meaning the custom span creation with user_id and request_type attributes is only partially demonstrated (attributes are set on the auto-generated span but a dedicated child span with start_as_current_span is not shown). The API usage is idiomatic, though importing RequestsInstrumentor without it being explicitly requested is a minor addition rather than a contamination issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with fully idiomatic OpenTelemetry SDK usage \u2014 correct imports, TracerProvider setup, OTLP gRPC exporter configuration, BatchSpanProcessor, FlaskInstrumentor, and manual span creation with set_attribute/record_exception. However, the code is truncated mid-function (the create_order route is cut off) and several referenced helper functions (simulate_database_query, process_payment, simulate_create_order) are never defined, which significantly impacts completeness. The implemented portions correctly demonstrate the core task requirements: tracer provider, OTLP exporter to localhost:4317, Flask auto-instrumentation, and a sample route with custom span attributes for user_id and request_type.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct, idiomatic usage of the OpenTelemetry Python SDK, Flask instrumentation, OTLP gRPC exporter, TracerProvider, BatchSpanProcessor, custom spans with attributes, events, and status. All requested features (tracer provider, OTLP exporter to localhost:4317, FlaskInstrumentor, sample route with custom span with user_id and request_type attributes) are present. The only issue is that the code is truncated at the /error route (mid-statement 'rais'), making it incomplete, though the core task requirements are fully satisfied before that point. No cross-language contamination is detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the OpenTelemetry Python SDK, Flask instrumentation, OTLP gRPC exporter, and TracerProvider setup. All major requested features are present: tracer provider creation, OTLP exporter to localhost:4317, automatic Flask instrumentation, and a custom span with user_id and request_type attributes. However, the code is truncated mid-function in the /process route, leaving the response and error handling incomplete, and the main entry point is missing. The overall quality is good with proper resource configuration, batch span processing, and logging correlation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct and idiomatic use of the OpenTelemetry Python SDK, including TracerProvider, OTLPSpanExporter, BatchSpanProcessor, FlaskInstrumentor, and custom span creation with attributes. All major requested features are present: tracer provider setup, OTLP exporter to localhost:4317, automatic Flask instrumentation, and a sample route with custom spans containing user_id and request_type attributes. However, the code is truncated mid-function (the create_order route and fetch_user_data helper are incomplete), which prevents it from being fully functional as-is. The overall structure and patterns are production-quality with good error handling, logging, and docstrings.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of the OpenTelemetry Python SDK, Flask instrumentation, OTLP gRPC exporter, and manual span creation with attributes. All major requested features are present: TracerProvider setup, OTLP exporter to localhost:4317, FlaskInstrumentor, and a sample route with custom span attributes for user_id and request_type. The code is truncated at the end (the /error route is cut off mid-string), which slightly impacts functional correctness and quality, but the vast majority of the task is fully implemented. There are no cross-language contamination signals.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with fully idiomatic OpenTelemetry Python SDK usage, including correct use of TracerProvider, OTLPSpanExporter, BatchSpanProcessor, FlaskInstrumentor, and manual span creation with tracer.start_as_current_span(). The API patterns (Resource with SERVICE_NAME, insecure=True on the exporter, Status/StatusCode usage) are all correct for the Python SDK. The code is truncated at the end of the process_request route (cuts off at 'return jsonify... ), 4' instead of completing the response and remaining logic), which means not all requested functionality is fully delivered, though the vast majority of the task is implemented. Overall quality is good with helpful docstrings, logging, and structured organization.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct OpenTelemetry SDK usage including TracerProvider setup, OTLP gRPC exporter configuration, FlaskInstrumentor, BatchSpanProcessor, and manual span creation with attributes. The API usage is idiomatic with one minor issue: `trace.Status(trace.StatusCode.ERROR)` should use `trace.status.Status(trace.status.StatusCode.ERROR)` or the more common `from opentelemetry.trace import StatusCode` and `span.set_status(StatusCode.ERROR, str(e))`. The code is truncated at the end of the `create_order` route (cut off at `span.set_`), which means the task is not fully complete, though the core requirements (tracer provider, OTLP exporter, Flask auto-instrumentation, custom span with user_id and request_type attributes) are all present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": true
+                },
+                {
+                  "pattern": "TracerProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "OTLPSpanExporter",
+                  "matched": true
+                },
+                {
+                  "pattern": "FlaskInstrumentor",
+                  "matched": true
+                },
+                {
+                  "pattern": "set_attribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "start_as_current_span",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from opentelemetry",
+                "TracerProvider",
+                "OTLPSpanExporter",
+                "FlaskInstrumentor",
+                "set_attribute",
+                "start_as_current_span"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "package\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+main",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Service",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "monitoring-observability-02",
+      "task_type": "cross_language",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with idiomatic usage of the Prometheus client_golang library, including correct use of promauto, HistogramVec, CounterVec, Gauge, and promhttp handler. The middleware pattern wrapping http.ResponseWriter to capture status codes is a well-known Go idiom. However, the code is truncated mid-file in main.go \u2014 the /metrics endpoint registration and server startup are missing, though the structure clearly indicates they would follow. The custom responseWriter implementation is well done, and the metrics package cleanly separates metric definitions. The inclusion of extra CustomMetrics (orders, cache, queue) is beyond scope but not harmful.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with idiomatic use of the prometheus/client_golang library, gorilla/mux, and standard Go patterns (middleware, response writer wrapping, interfaces). The metrics registration using promauto, HistogramVec/CounterVec/Gauge with proper labels, and the custom responseWriter wrapper are all well-done. However, the code is truncated mid-function in the middleware (PrometheusMiddleware), missing the actual call to next.ServeHTTP and metric recording logic, and the main.go and handlers files are absent, meaning the /metrics endpoint setup and the complete working service are never shown. This significantly impacts functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "GetActiveConnections uses a type assertion `.(prometheus.Gauge).Get()` which is not a valid method on the prometheus.Gauge interface \u2014 this looks like a pattern borrowed from other metric libraries",
+                "The code references `your-module/internal/store` which is never defined",
+                "chi router dependency is used in the middleware for route pattern extraction, which is a reasonable choice but adds an external dependency not mentioned in the task"
+              ],
+              "brief_assessment": "The code is well-structured Go that correctly registers custom Prometheus metrics (histogram, counter, gauge) using the idiomatic prometheus/client_golang library and promauto for auto-registration. The middleware pattern, response writer wrapping, and /metrics endpoint handler are all properly implemented. However, the main.go is truncated mid-function, leaving the server setup incomplete, and `prometheus.Gauge.Get()` is not a valid method on that interface (the correct approach would be to use a separate mechanism or testutil). Despite the truncation, the core metrics registration, middleware, and endpoint code are complete and functional.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with idiomatic usage of the prometheus/client_golang library. Metrics are properly defined using promauto with correct HistogramVec, CounterVec, and Gauge types, and the metrics package includes helpful helper methods. However, the code is truncated mid-function in the middleware file \u2014 the responseWriter wrapper, the actual middleware handler, the main.go with the /metrics endpoint and HTTP server setup are all missing. This means roughly half the task (middleware recording metrics per request, /metrics endpoint via promhttp, and wiring it all together) is not implemented.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Go and makes correct use of the prometheus/client_golang and gorilla/mux APIs. The metrics package properly defines histogram, counter, and gauge metrics with appropriate labels and buckets. However, the code is truncated mid-function in the middleware (PrometheusMiddleware cuts off at `r.ContentLength`), meaning the middleware recording logic is incomplete and the main.go/handlers are never shown. The /metrics endpoint setup and the actual HTTP server wiring are missing. The portions that are present are well-structured and production-quality, but the incompleteness significantly impacts functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "activeConnections.Get() is not a valid method on prometheus.Gauge - this method does not exist in the Go Prometheus client library; Gauge only supports Set/Inc/Dec/Add/Sub"
+              ],
+              "brief_assessment": "The code is well-structured Go with proper use of the Prometheus client library (promauto, HistogramVec, CounterVec, Gauge, promhttp.Handler). The middleware pattern with wrapped responseWriter is idiomatic Go. However, the code is truncated mid-function in main.go (references a non-existent 'store' package and cuts off), making it incomplete. The `activeConnections.Get()` call is invalid \u2014 prometheus.Gauge has no Get() method in the Go client (that's a pattern from other language clients). The additional metrics beyond what was requested (request/response sizes) show good practice but the core task is only partially delivered due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Go using the correct Prometheus client_golang APIs (promauto, HistogramVec, CounterVec, Gauge, promhttp). The metrics definitions, custom responseWriter wrapper, and middleware pattern are all well-structured and correct. However, the code is truncated mid-function in the middleware \u2014 the PrometheusMiddleware handler function is cut off before completing the request serving, metric recording, and the main.go file (which would wire up the /metrics endpoint and HTTP server) is missing entirely. This means roughly half the task (the actual server setup, /metrics endpoint, and complete middleware logic) is not present.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with idiomatic use of the prometheus/client_golang and gorilla/mux APIs. The metrics registration, custom responseWriter wrapper, and middleware pattern are all well-structured and follow Go conventions. However, the code is truncated mid-function in the middleware (PrometheusMiddleware), so the actual metric recording after request processing, the handlers, and the main.go with the /metrics endpoint and server setup are missing. This means only about half the task is fully implemented\u2014the metrics definitions are complete but the middleware is incomplete and the server wiring is absent. The getter methods on the Metrics struct are unnecessary boilerplate but not a significant issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "activeConnections.Get() - prometheus.Gauge does not have a Get() method in the Go client library; this may be confused with another language's Prometheus client API"
+              ],
+              "brief_assessment": "The code is well-structured Go with proper use of the Prometheus client_golang library including promauto, HistogramVec, CounterVec, and Gauge. The main contamination signal is `activeConnections.Get()` \u2014 the Go prometheus.Gauge interface does not expose a `Get()` method (that exists in the Java/Python clients). The code is truncated in main.go, missing the server setup and route registration, but the core metrics registration, middleware, and /metrics handler are all properly implemented. The chi router dependency for route pattern extraction is a reasonable choice but adds an external dependency assumption.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package\\s+main",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "matched": true
+                },
+                {
+                  "pattern": "promhttp\\.Handler",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.Handle",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package\\s+main",
+                "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
+                "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                "promhttp\\.Handler",
+                "func\\s+",
+                "http\\.Handle"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "import prometheus_client",
+                  "matched": false
+                },
+                {
+                  "pattern": "from opentelemetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "console\\.log",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "monitoring-observability-03",
+      "task_type": "similar_syntax",
+      "target_language": "javascript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic JavaScript/Node.js using Winston and Express correctly. It fully implements structured JSON logging with correlation IDs (extracted from x-request-id or generated as UUIDs), includes timestamp, level, message, service name, and request_id in each log entry, and exports both the middleware and logger as requested. The only issue is the example usage file (index.js) is truncated mid-route, but the core module files (logger.js and loggingMiddleware.js) are complete and fully functional. The code demonstrates production-quality patterns including child loggers, response time tracking, error logging middleware, and environment-aware formatting.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json",
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js with fully idiomatic use of Winston, Express middleware patterns, and uuid. It covers all requested features: structured JSON logging with timestamp, level, message, service name, and request_id (extracted from x-request-id or generated as UUID), and exports both the middleware and configured logger. The only issue is that the error logging middleware (errorLoggingMiddleware.js) is truncated/cut off, which is a minor completeness gap since the core task requirements are fully met in the first two files. The code goes above and beyond with redaction, configurable options, and response logging.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json",
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript using ESM imports, Winston, Express, and Node.js crypto APIs correctly. The Winston format configuration uses `{ format: 'iso' }` for timestamp which isn't a documented option (should be `'YYYY-MM-DDTHH:mm:ss.SSSZ'` or omitted to get ISO by default), but this is a minor API deviation rather than cross-language contamination. The Console transport applies `printf` formatting which overrides the JSON format from the createLogger level, meaning Console output won't be structured JSON \u2014 only file/additional transports would get JSON. The `res.send` monkey-patching approach works but could cause issues with non-string responses. The code covers all requested features: timestamp, level, message, service name, request_id from header or UUID, Winston logger, and exported middleware + logger.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json"
+              ],
+              "expected_misses": [
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic JavaScript/Node.js using Winston and Express APIs correctly. It implements all requested features: structured JSON logging with timestamp, level, message, service name, and request_id (extracted from x-request-id header or generated as UUID). The middleware and logger are properly exported. Minor issues: the global error handler in index.js is truncated/cut off, and the response logging via res.end override is a reasonable but slightly fragile pattern. The res.end override also references req.headers['x-request-id'] for the request_id in the example route responses, but the header was never set on the request object (only on the response), which is a small logic inconsistency.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json",
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js with proper use of Winston and Express APIs. It correctly implements structured JSON logging with correlation IDs, timestamp, level, message, service name, and request_id extraction/generation. There is a variable shadowing bug in errorLoggingMiddleware where `const logger = req.logger || logger` shadows the module-level `logger`. The `loggingMiddleware` returns a factory function (must be invoked as `loggingMiddleware()`) which is a valid pattern but slightly unconventional for simple Express middleware. The usage example is truncated but the core module is complete and well-structured with good extras like header sanitization and error logging middleware.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json",
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js using ES module syntax correctly. All Winston and Express APIs are used idiomatically \u2014 winston.createLogger, winston.format.combine/timestamp/json, logger.child(), Express middleware signature (req, res, next), res.on('finish'), etc. The code fully accomplishes the task: structured JSON logging with Winston, correlation IDs from x-request-id or generated UUID, timestamp, level, message, service name, and request_id in every log entry. Code quality is production-grade with environment-aware formatting, response duration tracking, appropriate log levels based on status codes, and a clean helper for error logging.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json"
+              ],
+              "expected_misses": [
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js with idiomatic use of Winston, Express middleware patterns, and the uuid library. It fully accomplishes the task: structured JSON logging with timestamps, levels, messages, service name, and request_id (extracted from x-request-id header or generated as UUID). The middleware and logger are properly exported. The code goes beyond requirements with file transports, error logging middleware, response interception for logging, and child loggers for correlation. The example usage file is truncated at the end but all core required functionality in the module files is complete and production-quality.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json",
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic JavaScript/Node.js using correct Winston and Express APIs. It fully implements structured JSON logging with correlation IDs, timestamps, levels, service name, and request_id extraction/generation. There's a variable shadowing bug in errorLoggingMiddleware where `const logger = req.logger || logger` shadows the outer `logger`, which would cause a ReferenceError. The res.send monkey-patching approach works but can double-log in edge cases, and the usage example is truncated. Overall a solid implementation with minor issues.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json",
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript using ES module syntax, which is idiomatic for modern Node.js. All APIs are used correctly: Winston's createLogger, format combiners, child loggers, Express middleware pattern with req/res/next, crypto.randomUUID, and res.on('finish'). Every requested feature is present \u2014 structured JSON logging, correlation IDs from x-request-id or generated UUID, timestamp, level, message, service name, and request_id. The code goes beyond the minimum by adding response timing, environment-aware formatting, error helpers, and usage examples, all at production quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(|import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "winston",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.headers",
+                  "matched": true
+                },
+                {
+                  "pattern": "x-request-id",
+                  "matched": true
+                },
+                {
+                  "pattern": "JSON|json",
+                  "matched": true
+                },
+                {
+                  "pattern": "uuid|crypto\\.randomUUID",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "require\\(|import\\s+",
+                "winston",
+                "module\\.exports|export\\s+",
+                "req\\.headers",
+                "x-request-id",
+                "JSON|json"
+              ],
+              "expected_misses": [
+                "uuid|crypto\\.randomUUID"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "import logging",
+                  "matched": false
+                },
+                {
+                  "pattern": "structlog",
+                  "matched": false
+                },
+                {
+                  "pattern": "logging\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "log\\.Printf",
+                  "matched": false
+                },
+                {
+                  "pattern": "Logger\\.getLogger",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "monitoring-observability-04",
+      "task_type": "grounded",
+      "target_language": "yaml",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The YAML is fully valid Prometheus alerting rule syntax with no foreign language contamination. All requested best practices are implemented: rate() for counters, histogram_quantile for latency, appropriate 'for' clauses, complete labels (severity, team), and thorough annotations (summary, description, runbook_url). The code goes beyond requirements by adding filesystem type filtering, predict_linear for proactive disk alerts, humanized template functions, and dashboard URLs. The surrounding Markdown documentation is appropriate context, not contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": false
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid YAML and uses fully idiomatic Prometheus alerting rule syntax with no foreign language contamination. It demonstrates excellent best practices: rate() on counters, histogram_quantile for latency, proper 'for' clauses, comprehensive labels (severity, team, component), and detailed annotations including runbook_url. However, the output is clearly truncated\u2014the DiskSpaceLow alert is cut off mid-expression, leaving the rewrite incomplete. The audit section and the alerts that are complete are production-quality, but the incompleteness prevents a top score on functional correctness and overall quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": false
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is entirely valid YAML conforming to the Prometheus alerting rule file schema. All PromQL expressions are idiomatic \u2014 rate() is correctly applied to counters, histogram_quantile() is used with the _bucket metric and proper 'by (le, ...)' grouping, and filesystem selectors filter out irrelevant fstypes. Every requested best practice is addressed: 'for' clauses on all rules, severity and team labels, summary/description/runbook_url annotations, plus bonus additions like tiered warning/critical alerts, dashboard links, and an interval on the group. The output is production-quality and comprehensive.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": true
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "http_errors_total > 100",
+                "http_request_duration_seconds > 2"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.4,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid YAML conforming to the Prometheus alerting rule file schema. It correctly uses rate() for counters, histogram_quantile() for latency, adds appropriate 'for' clauses, and includes all requested labels (severity, team) and annotations (summary, description, runbook_url). The additional improvements\u2014separating infrastructure alerts into their own group, adding a tiered critical disk alert, filtering pseudo-filesystems, including dashboard_url and component labels\u2014go beyond the requirements and reflect genuine production best practices. The surrounding Markdown documentation is well-structured and does not constitute cross-language contamination; it serves as an audit explanation as the task requested.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": false
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid YAML following Prometheus alerting rule file conventions with no cross-language contamination. It correctly applies best practices: rate() on counters, histogram_quantile for latency, appropriate 'for' clauses, comprehensive labels (severity, team, component), and full annotations (summary, description, runbook_url). The audit section is thorough and well-structured. The only issue is that the output is truncated \u2014 the DiskSpaceWarning alert rule is cut off mid-expression, leaving the file incomplete. Despite this, the vast majority of the task (5 of ~6 rules plus the audit) is fully implemented and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": true
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "http_errors_total > 100",
+                "http_request_duration_seconds > 2"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.4,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent YAML for Prometheus alerting rules with no cross-language contamination. All Prometheus-specific constructs (rate(), histogram_quantile(), label matchers, template variables like {{ $value | humanizePercentage }}) are used correctly and idiomatically. The code fully addresses every requirement: rate() for counters, histogram_quantile for latency, 'for' clauses on all alerts, required labels (severity, team), and comprehensive annotations (summary, description, runbook_url). It goes beyond the requirements by adding filesystem type filtering, a critical disk space variant, investigation steps in descriptions, and dashboard links. Production-quality output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": false
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid YAML conforming to the Prometheus alerting rule file format. It uses fully idiomatic Prometheus APIs: rate() for counters, histogram_quantile() for latency, proper Go template annotations with humanize functions, and correct label selectors with regex exclusions. All requested best practices are implemented \u2014 rate() for counters, for clauses on every rule, required labels (severity, team), required annotations (summary, description, runbook_url), and histogram_quantile for latency \u2014 plus valuable extras like tiered alerting (warning/critical), filesystem type filtering, group-level interval, and dashboard_url annotations. The surrounding Markdown documentation is appropriate context for the task and does not constitute language contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": false
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "contamination_signals": [],
+              "code_quality": 4,
+              "brief_assessment": "The code is entirely valid YAML and follows Prometheus alerting rule syntax correctly. It demonstrates excellent use of Prometheus best practices: rate() for counters, histogram_quantile() for latency, proper 'for' clauses, required labels (severity, team), and comprehensive annotations (summary, description, runbook_url). The code is truncated mid-way through the DiskSpaceLow alert's description annotation, which means the final alert rule is incomplete. Additionally, while the audit commentary and extra alerts (ErrorBudgetFastBurn, CriticalLatency) go beyond what was asked, they demonstrate strong domain knowledge. The only issue is the truncation preventing full task completion.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": false
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent YAML for Prometheus alerting rules with no cross-language contamination. The code correctly uses Prometheus-idiomatic constructs: rate() for counters, histogram_quantile() for latency, proper PromQL syntax, Go template expressions ({{ $labels.service }}, {{ $value | humanizePercentage }}), and valid Prometheus alert rule file structure (groups, rules, expr, for, labels, annotations). All requested improvements are implemented \u2014 rate() for counters, histogram_quantile for latency, 'for' clauses on all rules, severity/team labels, and full annotations including summary, description, and runbook_url. The addition of a warning/critical split for disk alerts and fstype filtering are thoughtful production enhancements. The only very minor note is that the description text is truncated at the end of the markdown explanation, but the YAML itself is complete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "rate\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "for:\\s+\\d+[ms]",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "severity:",
+                  "matched": true
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": true
+                },
+                {
+                  "pattern": "labels:",
+                  "matched": true
+                },
+                {
+                  "pattern": "annotations:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "rate\\(",
+                "for:\\s+\\d+[ms]",
+                "description:",
+                "severity:",
+                "histogram_quantile",
+                "labels:",
+                "annotations:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "http_errors_total > 100",
+                  "matched": true
+                },
+                {
+                  "pattern": "http_request_duration_seconds > 2",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "function\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "http_errors_total > 100",
+                "http_request_duration_seconds > 2"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.4,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "monitoring-observability-05",
+      "task_type": "adjacent_domain",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python, using appropriate libraries (FastAPI, httpx, asyncio, dataclasses, Pydantic) with correct API patterns. The architecture is well-designed with proper separation of concerns\u2014ServiceConfig, ServiceHealthTracker, and HealthCheckAggregator classes are cleanly structured with retry logic and timeout handling. However, the code is truncated mid-function in `poll_services()`, meaning the polling loop, the FastAPI lifespan/startup integration, the aggregate health endpoint, and the response models are all missing. This leaves roughly 60% of the task implemented, with significant gaps in the core polling mechanism and the API exposure layer.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of FastAPI, httpx, asyncio, Pydantic, and dataclasses. It demonstrates good architectural design with proper data models, configuration loading, retry logic setup, and appropriate use of async patterns. However, the code is clearly truncated mid-function (cut off during `asyncio.gather` in the `stop` method), meaning significant portions of the implementation are missing \u2014 including the actual health check loop, retry logic, uptime calculation, and the FastAPI endpoint definitions. This limits functional completeness to roughly half the task being implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct syntax and idiomatic usage of asyncio, httpx, FastAPI, and dataclasses. However, the code is clearly truncated mid-function \u2014 it cuts off inside `_perform_health_check` and is missing the actual HTTP call logic, the `_record_result` method, the uptime calculation logic, the FastAPI endpoint definition, and the application setup. This means less than half the task is actually implemented in the delivered code. The architectural design and patterns shown (retry logic, concurrent checks, deque-based history) are reasonable, but the incomplete state significantly limits its value.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python, using FastAPI, httpx, asyncio, and dataclasses correctly. It demonstrates good architecture with proper separation of concerns (ServiceHealthTracker, HealthCheckAggregator), async locking, and clean typing. However, the code is truncated mid-function (cuts off in the `stop()` method), leaving the retry logic, the actual polling loop (`_run_checks`), the FastAPI endpoint definitions, and the lifespan/startup logic unimplemented. Roughly half the task's functionality is present in structure but incomplete in execution.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct syntax and idiomatic use of FastAPI, Pydantic, httpx, and dataclasses. However, the code is severely truncated \u2014 it cuts off mid-section (at '# Pro') and never implements the actual health check polling logic, retry mechanism, background tasks, or the FastAPI endpoint definitions. While the configuration models, data structures, and uptime calculation logic are well-designed and production-quality, less than half of the required functionality is actually present. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of FastAPI, httpx, Pydantic, and asyncio. It demonstrates good architectural patterns including dataclasses, enums, proper async patterns, and clean separation of concerns. However, the code is truncated mid-function (_check_service is cut off), meaning the actual HTTP health check with retry logic, the FastAPI endpoint definitions, and the app startup/shutdown hooks are all missing \u2014 critical components of the task. The portions that are present (tracking, uptime calculation, aggregation logic, polling loop) are well-implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python, using FastAPI, httpx, Pydantic, and asyncio correctly. It demonstrates solid design with proper models, retry logic with exponential backoff, concurrent polling via asyncio.gather, and clean separation of concerns. However, the code is clearly truncated mid-function \u2014 the poll_services method is cut off, and the FastAPI endpoints, lifespan/startup logic, uptime calculation, and aggregate health endpoint are missing. This means roughly half the task (the actual API exposure, uptime percentage calculation, and background polling loop) is not implemented in the visible code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of FastAPI, Pydantic, httpx, and asyncio. The data models, configuration handling, Prometheus metrics setup, and health tracking logic are well-structured and production-oriented. However, the code is clearly truncated mid-definition (cuts off during Prometheus metric declarations), meaning essential functionality \u2014 the actual polling loop with retry logic, the FastAPI endpoint definitions, and the aggregate health calculation \u2014 is missing. As a result, it accomplishes less than half of the stated task despite the high quality of what is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of FastAPI, httpx, asyncio, and dataclasses. The architecture is well-designed with proper async patterns, retry logic, connection pooling, and clean separation of concerns. However, the code is clearly truncated mid-function \u2014 the _check_service method is cut off, and critically the FastAPI endpoint exposure (the aggregate health status endpoint) is entirely missing, along with the main application setup. This means roughly 40-50% of the required functionality is absent, including the actual API endpoint which is a core requirement.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FastAPI|fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "httpx|aiohttp|requests",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+def|def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "timeout",
+                  "matched": true
+                },
+                {
+                  "pattern": "retry|retries",
+                  "matched": true
+                },
+                {
+                  "pattern": "uptime|availability",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio|schedule|apscheduler",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FastAPI|fastapi",
+                "httpx|aiohttp|requests",
+                "async\\s+def|def\\s+",
+                "timeout",
+                "retry|retries",
+                "uptime|availability",
+                "asyncio|schedule|apscheduler"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "promql|PromQL",
+                  "matched": false
+                },
+                {
+                  "pattern": "histogram_quantile",
+                  "matched": false
+                },
+                {
+                  "pattern": "alertmanager",
+                  "matched": false
+                },
+                {
+                  "pattern": "grafana",
+                  "matched": false
+                },
+                {
+                  "pattern": "rate\\(http_requests_total",
+                  "matched": false
+                },
+                {
+                  "pattern": "package main",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

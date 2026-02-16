@@ -1,6 +1,6 @@
 {
   "summary": {
-    "correlation_structural_behavioral": -0.125,
+    "correlation_structural_behavioral": 0.077,
     "n_skills": 19,
     "excluded_from_aggregates": [
       {
@@ -11,11 +11,11 @@
     ],
     "by_risk_level": {
       "medium": {
-        "mean_delta": -0.023,
+        "mean_delta": -0.094,
         "n": 8
       },
       "high": {
-        "mean_delta": -0.058,
+        "mean_delta": -0.063,
         "n": 10
       },
       "control": {
@@ -49,11 +49,11 @@
         "n": 1
       },
       "app_to_aux": {
-        "mean_delta": -0.192,
+        "mean_delta": -0.275,
         "n": 2
       },
       "hidden_contamination": {
-        "mean_delta": 0.008,
+        "mean_delta": -0.192,
         "n": 2
       },
       "app_to_app_and_aux": {
@@ -61,7 +61,7 @@
         "n": 1
       },
       "multi_reference": {
-        "mean_delta": -0.033,
+        "mean_delta": -0.083,
         "n": 1
       },
       "meta_skill_high_novelty": {
@@ -71,23 +71,23 @@
     },
     "by_task_type": {
       "direct_target": {
-        "mean_delta": 0.018,
+        "mean_delta": -0.009,
         "n": 19
       },
       "cross_language": {
-        "mean_delta": -0.083,
+        "mean_delta": -0.171,
         "n": 19
       },
       "similar_syntax": {
-        "mean_delta": -0.004,
+        "mean_delta": -0.018,
         "n": 19
       },
       "grounded": {
-        "mean_delta": -0.18,
+        "mean_delta": -0.193,
         "n": 19
       },
       "adjacent_domain": {
-        "mean_delta": 0.013,
+        "mean_delta": -0.009,
         "n": 19
       }
     },
@@ -116,22 +116,22 @@
       {
         "name": "neon-postgres",
         "skill_md_only_delta": 0.017,
-        "skill_plus_refs_delta": 0.083,
-        "ref_attribution": 0.067
+        "skill_plus_refs_delta": 0.0,
+        "ref_attribution": -0.017
       },
       {
         "name": "react-native-best-practices",
-        "skill_md_only_delta": -0.383,
-        "skill_plus_refs_delta": -0.067,
-        "ref_attribution": 0.317
+        "skill_md_only_delta": -0.283,
+        "skill_plus_refs_delta": -0.383,
+        "ref_attribution": -0.1
       }
     ],
     "realistic_context": {
       "n_skills": 19,
-      "mean_delta_skill_only": -0.047,
-      "mean_delta_realistic": -0.031,
-      "mean_mitigation_ratio": -0.701,
-      "correlation_structural_realistic": 0.066
+      "mean_delta_skill_only": -0.08,
+      "mean_delta_realistic": -0.029,
+      "mean_mitigation_ratio": -0.678,
+      "correlation_structural_realistic": 0.053
     }
   },
   "skills": [
@@ -30577,14 +30577,14 @@
           "target_language": "python",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.0,
+            "api_idiomaticity": -0.333,
             "functional_correctness": 0.0,
             "code_quality": 0.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.0,
-            "functional_correctness": 0.0,
+            "api_idiomaticity": -0.333,
+            "functional_correctness": -0.333,
             "code_quality": 0.0
           },
           "baseline_means": {
@@ -30595,14 +30595,14 @@
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
+            "api_idiomaticity": 4.667,
             "functional_correctness": 4.0,
             "code_quality": 4.0
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 4.0,
+            "api_idiomaticity": 4.667,
+            "functional_correctness": 3.667,
             "code_quality": 4.0
           },
           "pattern_results": {
@@ -31252,8 +31252,8 @@
               }
             ]
           },
-          "delta_composite": 0.0,
-          "delta_composite_realistic": 0.0,
+          "delta_composite": -0.083,
+          "delta_composite_realistic": -0.167,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -31265,13 +31265,13 @@
           "deltas": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": 0.333,
+            "functional_correctness": -0.333,
             "code_quality": 0.0
           },
           "deltas_realistic": {
-            "language_correctness": 0.0,
-            "api_idiomaticity": 0.0,
-            "functional_correctness": 0.667,
+            "language_correctness": -1.0,
+            "api_idiomaticity": -1.0,
+            "functional_correctness": 0.333,
             "code_quality": 0.0
           },
           "baseline_means": {
@@ -31283,13 +31283,13 @@
           "skill_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 3.667,
+            "functional_correctness": 3.0,
             "code_quality": 4.0
           },
           "realistic_means": {
-            "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 4.0,
+            "language_correctness": 4.0,
+            "api_idiomaticity": 4.0,
+            "functional_correctness": 3.667,
             "code_quality": 4.0
           },
           "pattern_results": {
@@ -31667,7 +31667,7 @@
                   },
                   {
                     "pattern": "promhttp\\.Handler",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "func\\s+",
@@ -31682,15 +31682,14 @@
                   "package\\s+main",
                   "prometheus\\.NewHistogramVec|promauto\\.NewHistogramVec",
                   "prometheus\\.NewCounterVec|promauto\\.NewCounterVec",
+                  "promhttp\\.Handler",
                   "func\\s+",
                   "http\\.Handle"
                 ],
-                "expected_misses": [
-                  "promhttp\\.Handler"
-                ],
-                "expected_hit_count": 5,
+                "expected_misses": [],
+                "expected_hit_count": 6,
                 "expected_total": 6,
-                "expected_hit_rate": 0.8333333333333334,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "from prometheus_client",
@@ -31940,8 +31939,8 @@
               }
             ]
           },
-          "delta_composite": 0.083,
-          "delta_composite_realistic": 0.167,
+          "delta_composite": -0.083,
+          "delta_composite_realistic": -0.417,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -31953,14 +31952,14 @@
           "deltas": {
             "language_correctness": 0.0,
             "api_idiomaticity": -0.333,
-            "functional_correctness": 0.0,
+            "functional_correctness": -0.333,
             "code_quality": -0.333
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": -0.667,
-            "functional_correctness": 0.0,
-            "code_quality": -0.333
+            "api_idiomaticity": -0.333,
+            "functional_correctness": 0.333,
+            "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
@@ -31971,14 +31970,14 @@
           "skill_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 4.667,
-            "functional_correctness": 4.333,
+            "functional_correctness": 4.0,
             "code_quality": 4.333
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 4.333,
-            "functional_correctness": 4.333,
-            "code_quality": 4.333
+            "api_idiomaticity": 4.667,
+            "functional_correctness": 4.667,
+            "code_quality": 4.667
           },
           "pattern_results": {
             "baseline": [
@@ -32624,7 +32623,7 @@
                   },
                   {
                     "pattern": "uuid|crypto\\.randomUUID",
-                    "matched": true
+                    "matched": false
                   }
                 ],
                 "expected_hits": [
@@ -32633,13 +32632,14 @@
                   "module\\.exports|export\\s+",
                   "req\\.headers",
                   "x-request-id",
-                  "JSON|json",
+                  "JSON|json"
+                ],
+                "expected_misses": [
                   "uuid|crypto\\.randomUUID"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 7,
+                "expected_hit_count": 6,
                 "expected_total": 7,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.8571428571428571,
                 "anti_results": [
                   {
                     "pattern": "import logging",
@@ -32674,8 +32674,8 @@
               }
             ]
           },
-          "delta_composite": -0.167,
-          "delta_composite_realistic": -0.25,
+          "delta_composite": -0.25,
+          "delta_composite_realistic": 0.0,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -32981,11 +32981,11 @@
                 "anti_results": [
                   {
                     "pattern": "http_errors_total > 100",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "http_request_duration_seconds > 2",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "def\\s+",
@@ -33000,14 +33000,11 @@
                     "matched": false
                   }
                 ],
-                "anti_pattern_hits": [
-                  "http_errors_total > 100",
-                  "http_request_duration_seconds > 2"
-                ],
-                "anti_pattern_hit_count": 2,
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
                 "anti_pattern_total": 5,
-                "anti_pattern_hit_rate": 0.4,
-                "contamination_detected": true
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
               },
               {
                 "expected_results": [
@@ -33209,7 +33206,7 @@
                   },
                   {
                     "pattern": "http_request_duration_seconds > 2",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "def\\s+",
@@ -33225,11 +33222,12 @@
                   }
                 ],
                 "anti_pattern_hits": [
-                  "http_errors_total > 100"
+                  "http_errors_total > 100",
+                  "http_request_duration_seconds > 2"
                 ],
-                "anti_pattern_hit_count": 1,
+                "anti_pattern_hit_count": 2,
                 "anti_pattern_total": 5,
-                "anti_pattern_hit_rate": 0.2,
+                "anti_pattern_hit_rate": 0.4,
                 "contamination_detected": true
               },
               {
@@ -33351,11 +33349,11 @@
                 "anti_results": [
                   {
                     "pattern": "http_errors_total > 100",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "http_request_duration_seconds > 2",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "def\\s+",
@@ -33370,19 +33368,22 @@
                     "matched": false
                   }
                 ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
+                "anti_pattern_hits": [
+                  "http_errors_total > 100",
+                  "http_request_duration_seconds > 2"
+                ],
+                "anti_pattern_hit_count": 2,
                 "anti_pattern_total": 5,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
+                "anti_pattern_hit_rate": 0.4,
+                "contamination_detected": true
               }
             ]
           },
           "delta_composite": -0.417,
           "delta_composite_realistic": 0.0,
           "anti_pattern_rate_baseline": 0.0,
-          "anti_pattern_rate_skill": 0.267,
-          "anti_pattern_rate_realistic": 0.067
+          "anti_pattern_rate_skill": 0.133,
+          "anti_pattern_rate_realistic": 0.267
         },
         {
           "task_id": "monitoring-observability-05",
@@ -33390,33 +33391,33 @@
           "target_language": "python",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
-            "functional_correctness": 0.0,
-            "code_quality": 0.333
+            "api_idiomaticity": -0.667,
+            "functional_correctness": -0.667,
+            "code_quality": 0.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
+            "api_idiomaticity": -0.333,
             "functional_correctness": -0.333,
-            "code_quality": 0.333
+            "code_quality": -0.333
           },
           "baseline_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 4.667,
+            "api_idiomaticity": 5.0,
             "functional_correctness": 3.0,
-            "code_quality": 3.667
+            "code_quality": 4.0
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 3.0,
+            "api_idiomaticity": 4.333,
+            "functional_correctness": 2.333,
             "code_quality": 4.0
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
+            "api_idiomaticity": 4.667,
             "functional_correctness": 2.667,
-            "code_quality": 4.0
+            "code_quality": 3.667
           },
           "pattern_results": {
             "baseline": [
@@ -34110,44 +34111,44 @@
               }
             ]
           },
-          "delta_composite": 0.167,
-          "delta_composite_realistic": 0.083,
+          "delta_composite": -0.334,
+          "delta_composite_realistic": -0.25,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
         }
       ],
-      "mean_delta_composite": -0.067,
-      "stdev_delta_composite": 0.231,
-      "mean_delta_composite_realistic": 0.0,
+      "mean_delta_composite": -0.233,
+      "stdev_delta_composite": 0.149,
+      "mean_delta_composite_realistic": -0.167,
       "delta_by_task_type": {
-        "direct_target": 0.0,
-        "cross_language": 0.083,
-        "similar_syntax": -0.167,
+        "direct_target": -0.083,
+        "cross_language": -0.083,
+        "similar_syntax": -0.25,
         "grounded": -0.417,
-        "adjacent_domain": 0.167
+        "adjacent_domain": -0.334
       },
       "delta_by_task_type_realistic": {
-        "direct_target": 0.0,
-        "cross_language": 0.167,
-        "similar_syntax": -0.25,
+        "direct_target": -0.167,
+        "cross_language": -0.417,
+        "similar_syntax": 0.0,
         "grounded": 0.0,
-        "adjacent_domain": 0.083
+        "adjacent_domain": -0.25
       },
       "statistics": {
         "n_comparisons": 15,
-        "paired_t_stat": -1.0,
-        "paired_t_p": 0.3173,
-        "wilcoxon_w": 8,
-        "wilcoxon_p": 0.3105,
-        "cohens_d": -0.103
+        "paired_t_stat": -4.09,
+        "paired_t_p": 0.0,
+        "wilcoxon_w": 0,
+        "wilcoxon_p": 0.0077,
+        "cohens_d": -0.333
       },
       "statistics_realistic": {
         "n_comparisons": 15,
-        "paired_t_stat": 0.0,
-        "paired_t_p": 1.0,
-        "cohens_d": 0.0,
-        "mitigation_ratio": 1.0
+        "paired_t_stat": -2.092,
+        "paired_t_p": 0.0365,
+        "cohens_d": -0.244,
+        "mitigation_ratio": 0.286
       }
     },
     {
@@ -34162,15 +34163,15 @@
           "target_language": "typescript",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": -0.667,
-            "functional_correctness": -1.0,
+            "api_idiomaticity": -1.0,
+            "functional_correctness": -0.667,
             "code_quality": -0.333
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": -1.0,
+            "api_idiomaticity": -0.667,
             "functional_correctness": -0.667,
-            "code_quality": -0.333
+            "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
@@ -34180,15 +34181,15 @@
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 4.0,
-            "functional_correctness": 4.0,
+            "api_idiomaticity": 3.667,
+            "functional_correctness": 4.333,
             "code_quality": 4.667
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 3.667,
+            "api_idiomaticity": 4.0,
             "functional_correctness": 4.333,
-            "code_quality": 4.667
+            "code_quality": 5.0
           },
           "pattern_results": {
             "baseline": [
@@ -34838,7 +34839,7 @@
             ]
           },
           "delta_composite": -0.5,
-          "delta_composite_realistic": -0.5,
+          "delta_composite_realistic": -0.334,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -34849,15 +34850,15 @@
           "target_language": "python",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
+            "api_idiomaticity": -0.333,
             "functional_correctness": 0.333,
             "code_quality": 0.0
           },
           "deltas_realistic": {
-            "language_correctness": 0.0,
+            "language_correctness": -0.333,
             "api_idiomaticity": -1.667,
             "functional_correctness": 0.0,
-            "code_quality": -0.667
+            "code_quality": -0.333
           },
           "baseline_means": {
             "language_correctness": 5.0,
@@ -34867,15 +34868,15 @@
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
+            "api_idiomaticity": 4.333,
             "functional_correctness": 3.333,
             "code_quality": 4.0
           },
           "realistic_means": {
-            "language_correctness": 5.0,
+            "language_correctness": 4.667,
             "api_idiomaticity": 3.0,
             "functional_correctness": 3.0,
-            "code_quality": 3.333
+            "code_quality": 3.667
           },
           "pattern_results": {
             "baseline": [
@@ -35309,80 +35310,6 @@
               }
             ],
             "realistic": [
-              {
-                "expected_results": [
-                  {
-                    "pattern": "from fastapi|import fastapi",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "import asyncpg|from asyncpg",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "async def",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "await.*fetch|await.*execute",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "create_pool|Pool",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "@app\\.get|@router\\.get",
-                    "matched": true
-                  }
-                ],
-                "expected_hits": [
-                  "from fastapi|import fastapi",
-                  "async def",
-                  "await.*fetch|await.*execute",
-                  "@app\\.get|@router\\.get"
-                ],
-                "expected_misses": [
-                  "import asyncpg|from asyncpg",
-                  "create_pool|Pool"
-                ],
-                "expected_hit_count": 4,
-                "expected_total": 6,
-                "expected_hit_rate": 0.6666666666666666,
-                "anti_results": [
-                  {
-                    "pattern": "@neondatabase",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "neon\\(",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "import.*drizzle",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "import.*prisma",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "const\\s+|let\\s+|var\\s+",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "require\\(",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [
-                  "const\\s+|let\\s+|var\\s+"
-                ],
-                "anti_pattern_hit_count": 1,
-                "anti_pattern_total": 6,
-                "anti_pattern_hit_rate": 0.16666666666666666,
-                "contamination_detected": true
-              },
               {
                 "expected_results": [
                   {
@@ -35530,14 +35457,86 @@
                 "anti_pattern_total": 6,
                 "anti_pattern_hit_rate": 0.16666666666666666,
                 "contamination_detected": true
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "from fastapi|import fastapi",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "import asyncpg|from asyncpg",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "async def",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "await.*fetch|await.*execute",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "create_pool|Pool",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "@app\\.get|@router\\.get",
+                    "matched": true
+                  }
+                ],
+                "expected_hits": [
+                  "from fastapi|import fastapi",
+                  "async def",
+                  "await.*fetch|await.*execute",
+                  "@app\\.get|@router\\.get"
+                ],
+                "expected_misses": [
+                  "import asyncpg|from asyncpg",
+                  "create_pool|Pool"
+                ],
+                "expected_hit_count": 4,
+                "expected_total": 6,
+                "expected_hit_rate": 0.6666666666666666,
+                "anti_results": [
+                  {
+                    "pattern": "@neondatabase",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "neon\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "import.*drizzle",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "import.*prisma",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "const\\s+|let\\s+|var\\s+",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "require\\(",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 6,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
               }
             ]
           },
-          "delta_composite": 0.167,
-          "delta_composite_realistic": -0.584,
+          "delta_composite": 0.0,
+          "delta_composite_realistic": -0.583,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
-          "anti_pattern_rate_realistic": 0.167
+          "anti_pattern_rate_realistic": 0.111
         },
         {
           "task_id": "neon-postgres-03",
@@ -35546,14 +35545,14 @@
           "deltas": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.333,
-            "functional_correctness": 0.333,
+            "functional_correctness": 0.0,
             "code_quality": 0.333
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.333,
-            "functional_correctness": 0.333,
-            "code_quality": 0.667
+            "functional_correctness": 0.667,
+            "code_quality": 1.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
@@ -35564,14 +35563,14 @@
           "skill_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 4.667,
+            "functional_correctness": 4.333,
             "code_quality": 4.333
           },
           "realistic_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 4.667,
-            "code_quality": 4.667
+            "functional_correctness": 5.0,
+            "code_quality": 5.0
           },
           "pattern_results": {
             "baseline": [
@@ -35904,7 +35903,7 @@
                 "anti_results": [
                   {
                     "pattern": "@neondatabase/serverless",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "neon\\(",
@@ -35927,13 +35926,11 @@
                     "matched": false
                   }
                 ],
-                "anti_pattern_hits": [
-                  "@neondatabase/serverless"
-                ],
-                "anti_pattern_hit_count": 1,
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
                 "anti_pattern_total": 6,
-                "anti_pattern_hit_rate": 0.16666666666666666,
-                "contamination_detected": true
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
               },
               {
                 "expected_results": [
@@ -36008,77 +36005,6 @@
               }
             ],
             "realistic": [
-              {
-                "expected_results": [
-                  {
-                    "pattern": "require.*pg|import.*pg|Pool",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "new Pool\\(",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "pool\\.query|client\\.query",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "pool\\.connect",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "max:|connectionTimeoutMillis|idleTimeoutMillis",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "SIGTERM|process\\.on",
-                    "matched": true
-                  }
-                ],
-                "expected_hits": [
-                  "require.*pg|import.*pg|Pool",
-                  "new Pool\\(",
-                  "pool\\.query|client\\.query",
-                  "pool\\.connect",
-                  "max:|connectionTimeoutMillis|idleTimeoutMillis",
-                  "SIGTERM|process\\.on"
-                ],
-                "expected_misses": [],
-                "expected_hit_count": 6,
-                "expected_total": 6,
-                "expected_hit_rate": 1.0,
-                "anti_results": [
-                  {
-                    "pattern": "@neondatabase/serverless",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "neon\\(",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "import.*neon",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "drizzle\\(",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "neonConfig",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "import asyncpg|from asyncpg",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
-                "anti_pattern_total": 6,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
-              },
               {
                 "expected_results": [
                   {
@@ -36221,13 +36147,84 @@
                 "anti_pattern_total": 6,
                 "anti_pattern_hit_rate": 0.0,
                 "contamination_detected": false
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "require.*pg|import.*pg|Pool",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "new Pool\\(",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "pool\\.query|client\\.query",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "pool\\.connect",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "max:|connectionTimeoutMillis|idleTimeoutMillis",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "SIGTERM|process\\.on",
+                    "matched": true
+                  }
+                ],
+                "expected_hits": [
+                  "require.*pg|import.*pg|Pool",
+                  "new Pool\\(",
+                  "pool\\.query|client\\.query",
+                  "pool\\.connect",
+                  "max:|connectionTimeoutMillis|idleTimeoutMillis",
+                  "SIGTERM|process\\.on"
+                ],
+                "expected_misses": [],
+                "expected_hit_count": 6,
+                "expected_total": 6,
+                "expected_hit_rate": 1.0,
+                "anti_results": [
+                  {
+                    "pattern": "@neondatabase/serverless",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "neon\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "import.*neon",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "drizzle\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "neonConfig",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "import asyncpg|from asyncpg",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 6,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
               }
             ]
           },
-          "delta_composite": 0.25,
-          "delta_composite_realistic": 0.333,
+          "delta_composite": 0.167,
+          "delta_composite_realistic": 0.5,
           "anti_pattern_rate_baseline": 0.0,
-          "anti_pattern_rate_skill": 0.056,
+          "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
         },
         {
@@ -36242,9 +36239,9 @@
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": -0.333,
-            "functional_correctness": -0.333,
-            "code_quality": 0.333
+            "api_idiomaticity": 0.0,
+            "functional_correctness": 0.0,
+            "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
@@ -36260,9 +36257,9 @@
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 4.333,
-            "functional_correctness": 4.333,
-            "code_quality": 5.0
+            "api_idiomaticity": 4.667,
+            "functional_correctness": 4.667,
+            "code_quality": 4.667
           },
           "pattern_results": {
             "baseline": [
@@ -36912,7 +36909,7 @@
             ]
           },
           "delta_composite": 0.25,
-          "delta_composite_realistic": -0.083,
+          "delta_composite_realistic": 0.0,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -36923,14 +36920,14 @@
           "target_language": "typescript",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
+            "api_idiomaticity": 0.0,
             "functional_correctness": 0.333,
-            "code_quality": 0.333
+            "code_quality": 0.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
-            "functional_correctness": 1.0,
+            "api_idiomaticity": 0.0,
+            "functional_correctness": 0.667,
             "code_quality": 0.0
           },
           "baseline_means": {
@@ -36941,14 +36938,14 @@
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
+            "api_idiomaticity": 4.667,
             "functional_correctness": 3.333,
-            "code_quality": 4.333
+            "code_quality": 4.0
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 4.0,
+            "api_idiomaticity": 4.667,
+            "functional_correctness": 3.667,
             "code_quality": 4.0
           },
           "pattern_results": {
@@ -37326,7 +37323,7 @@
                   },
                   {
                     "pattern": "JSON\\.parse|JSON\\.stringify",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "get\\(|set\\(",
@@ -37341,14 +37338,15 @@
                   "import.*ioredis|import.*Redis",
                   "class Cache|export class Cache",
                   "<T>|generic",
-                  "JSON\\.parse|JSON\\.stringify",
                   "get\\(|set\\(",
                   "async\\s+"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 6,
+                "expected_misses": [
+                  "JSON\\.parse|JSON\\.stringify"
+                ],
+                "expected_hit_count": 5,
                 "expected_total": 6,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.8333333333333334,
                 "anti_results": [
                   {
                     "pattern": "@neondatabase",
@@ -37598,49 +37596,49 @@
               }
             ]
           },
-          "delta_composite": 0.25,
-          "delta_composite_realistic": 0.333,
+          "delta_composite": 0.083,
+          "delta_composite_realistic": 0.167,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
         }
       ],
-      "mean_delta_composite": 0.083,
-      "stdev_delta_composite": 0.328,
-      "mean_delta_composite_realistic": -0.1,
+      "mean_delta_composite": 0.0,
+      "stdev_delta_composite": 0.295,
+      "mean_delta_composite_realistic": -0.05,
       "delta_by_task_type": {
         "direct_target": -0.5,
-        "cross_language": 0.167,
-        "similar_syntax": 0.25,
+        "cross_language": 0.0,
+        "similar_syntax": 0.167,
         "grounded": 0.25,
-        "adjacent_domain": 0.25
+        "adjacent_domain": 0.083
       },
       "delta_by_task_type_realistic": {
-        "direct_target": -0.5,
-        "cross_language": -0.584,
-        "similar_syntax": 0.333,
-        "grounded": -0.083,
-        "adjacent_domain": 0.333
+        "direct_target": -0.334,
+        "cross_language": -0.583,
+        "similar_syntax": 0.5,
+        "grounded": 0.0,
+        "adjacent_domain": 0.167
       },
       "statistics": {
         "n_comparisons": 15,
-        "paired_t_stat": 0.791,
-        "paired_t_p": 0.4292,
-        "wilcoxon_w": 9,
-        "wilcoxon_p": 0.2076,
-        "cohens_d": 0.129
+        "paired_t_stat": 0.0,
+        "paired_t_p": 1.0,
+        "wilcoxon_w": 38,
+        "wilcoxon_p": 0.6002,
+        "cohens_d": 0.0
       },
       "statistics_realistic": {
         "n_comparisons": 15,
-        "paired_t_stat": -0.792,
-        "paired_t_p": 0.4285,
-        "cohens_d": -0.141,
-        "mitigation_ratio": 2.2
+        "paired_t_stat": -0.361,
+        "paired_t_p": 0.718,
+        "cohens_d": -0.071,
+        "mitigation_ratio": 0
       },
       "hidden_contamination": {
         "skill_md_only_delta": 0.017,
-        "skill_plus_refs_delta": 0.083,
-        "ref_attribution": 0.067
+        "skill_plus_refs_delta": 0.0,
+        "ref_attribution": -0.017
       }
     },
     {
@@ -51447,13 +51445,13 @@
           "deltas": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": 1.333,
-            "code_quality": 0.667
+            "functional_correctness": 0.333,
+            "code_quality": 0.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": 0.333,
+            "functional_correctness": 0.667,
             "code_quality": 0.667
           },
           "baseline_means": {
@@ -51465,13 +51463,13 @@
           "skill_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 5.0,
-            "code_quality": 4.667
+            "functional_correctness": 4.0,
+            "code_quality": 4.0
           },
           "realistic_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 4.0,
+            "functional_correctness": 4.333,
             "code_quality": 4.667
           },
           "pattern_results": {
@@ -52121,8 +52119,8 @@
               }
             ]
           },
-          "delta_composite": 0.5,
-          "delta_composite_realistic": 0.25,
+          "delta_composite": 0.083,
+          "delta_composite_realistic": 0.334,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -52132,14 +52130,14 @@
           "task_type": "cross_language",
           "target_language": "swift",
           "deltas": {
-            "language_correctness": 0.0,
-            "api_idiomaticity": 0.0,
-            "functional_correctness": 0.0,
-            "code_quality": 0.0
+            "language_correctness": -0.667,
+            "api_idiomaticity": -1.0,
+            "functional_correctness": -0.667,
+            "code_quality": -1.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.0,
+            "api_idiomaticity": -0.333,
             "functional_correctness": 0.0,
             "code_quality": 0.0
           },
@@ -52150,14 +52148,14 @@
             "code_quality": 4.0
           },
           "skill_means": {
-            "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 3.0,
-            "code_quality": 4.0
+            "language_correctness": 4.333,
+            "api_idiomaticity": 4.0,
+            "functional_correctness": 2.333,
+            "code_quality": 3.0
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
+            "api_idiomaticity": 4.667,
             "functional_correctness": 3.0,
             "code_quality": 4.0
           },
@@ -52808,8 +52806,8 @@
               }
             ]
           },
-          "delta_composite": 0.0,
-          "delta_composite_realistic": 0.0,
+          "delta_composite": -0.834,
+          "delta_composite_realistic": -0.083,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -52819,15 +52817,15 @@
           "task_type": "similar_syntax",
           "target_language": "kotlin",
           "deltas": {
-            "language_correctness": 0.0,
+            "language_correctness": -0.667,
             "api_idiomaticity": -1.0,
-            "functional_correctness": 0.0,
-            "code_quality": -0.333
+            "functional_correctness": -0.667,
+            "code_quality": -1.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": 0.333,
+            "functional_correctness": 0.667,
             "code_quality": 0.0
           },
           "baseline_means": {
@@ -52837,15 +52835,15 @@
             "code_quality": 4.0
           },
           "skill_means": {
-            "language_correctness": 5.0,
+            "language_correctness": 4.333,
             "api_idiomaticity": 4.0,
-            "functional_correctness": 3.0,
-            "code_quality": 3.667
+            "functional_correctness": 2.333,
+            "code_quality": 3.0
           },
           "realistic_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 3.333,
+            "functional_correctness": 3.667,
             "code_quality": 4.0
           },
           "pattern_results": {
@@ -53185,7 +53183,7 @@
                   },
                   {
                     "pattern": "FlashList|FlatList",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "StyleSheet\\.create",
@@ -53204,17 +53202,19 @@
                     "matched": false
                   }
                 ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
+                "anti_pattern_hits": [
+                  "FlashList|FlatList"
+                ],
+                "anti_pattern_hit_count": 1,
                 "anti_pattern_total": 6,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
+                "anti_pattern_hit_rate": 0.16666666666666666,
+                "contamination_detected": true
               },
               {
                 "expected_results": [
                   {
                     "pattern": "class.*:.*AppCompatActivity|class.*Activity",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "RecyclerView",
@@ -53230,26 +53230,25 @@
                   },
                   {
                     "pattern": "ViewBinding|binding\\.",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "fun\\s+on",
-                    "matched": false
+                    "matched": true
                   }
                 ],
                 "expected_hits": [
+                  "class.*:.*AppCompatActivity|class.*Activity",
                   "RecyclerView",
                   "ListAdapter|RecyclerView\\.Adapter",
-                  "DiffUtil\\.ItemCallback|DiffUtil"
-                ],
-                "expected_misses": [
-                  "class.*:.*AppCompatActivity|class.*Activity",
+                  "DiffUtil\\.ItemCallback|DiffUtil",
                   "ViewBinding|binding\\.",
                   "fun\\s+on"
                 ],
-                "expected_hit_count": 3,
+                "expected_misses": [],
+                "expected_hit_count": 6,
                 "expected_total": 6,
-                "expected_hit_rate": 0.5,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "import React|from 'react",
@@ -53499,10 +53498,10 @@
               }
             ]
           },
-          "delta_composite": -0.333,
-          "delta_composite_realistic": 0.083,
+          "delta_composite": -0.834,
+          "delta_composite_realistic": 0.167,
           "anti_pattern_rate_baseline": 0.0,
-          "anti_pattern_rate_skill": 0.056,
+          "anti_pattern_rate_skill": 0.111,
           "anti_pattern_rate_realistic": 0.0
         },
         {
@@ -53511,26 +53510,26 @@
           "target_language": "typescript",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
+            "api_idiomaticity": -0.333,
             "functional_correctness": 0.0,
             "code_quality": 0.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.333,
-            "functional_correctness": -0.333,
+            "api_idiomaticity": 0.0,
+            "functional_correctness": 0.0,
             "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 4.667,
-            "functional_correctness": 5.0,
+            "api_idiomaticity": 5.0,
+            "functional_correctness": 4.667,
             "code_quality": 5.0
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 5.0,
+            "api_idiomaticity": 4.667,
+            "functional_correctness": 4.667,
             "code_quality": 5.0
           },
           "realistic_means": {
@@ -53838,7 +53837,7 @@
                   },
                   {
                     "pattern": "React\\.memo|memo\\(",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "useCallback|useMemo",
@@ -53859,16 +53858,17 @@
                 ],
                 "expected_hits": [
                   "FlashList|FlatList",
-                  "React\\.memo|memo\\(",
                   "useCallback|useMemo",
                   "useDeferredValue|useTransition",
                   "StyleSheet\\.create",
                   "estimatedItemSize|renderItem"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 6,
+                "expected_misses": [
+                  "React\\.memo|memo\\("
+                ],
+                "expected_hit_count": 5,
                 "expected_total": 6,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.8333333333333334,
                 "anti_results": [
                   {
                     "pattern": "RecyclerView",
@@ -53982,7 +53982,7 @@
                   },
                   {
                     "pattern": "React\\.memo|memo\\(",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "useCallback|useMemo",
@@ -54003,87 +54003,17 @@
                 ],
                 "expected_hits": [
                   "FlashList|FlatList",
-                  "React\\.memo|memo\\(",
                   "useCallback|useMemo",
                   "useDeferredValue|useTransition",
                   "StyleSheet\\.create",
                   "estimatedItemSize|renderItem"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 6,
+                "expected_misses": [
+                  "React\\.memo|memo\\("
+                ],
+                "expected_hit_count": 5,
                 "expected_total": 6,
-                "expected_hit_rate": 1.0,
-                "anti_results": [
-                  {
-                    "pattern": "RecyclerView",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "UICollectionView",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "@objc",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "class.*Activity",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "build\\.gradle",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "DispatchQueue",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
-                "anti_pattern_total": 6,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
-              },
-              {
-                "expected_results": [
-                  {
-                    "pattern": "FlashList|FlatList",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "React\\.memo|memo\\(",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "useCallback|useMemo",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "useDeferredValue|useTransition",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "StyleSheet\\.create",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "estimatedItemSize|renderItem",
-                    "matched": true
-                  }
-                ],
-                "expected_hits": [
-                  "FlashList|FlatList",
-                  "React\\.memo|memo\\(",
-                  "useCallback|useMemo",
-                  "useDeferredValue|useTransition",
-                  "StyleSheet\\.create",
-                  "estimatedItemSize|renderItem"
-                ],
-                "expected_misses": [],
-                "expected_hit_count": 6,
-                "expected_total": 6,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.8333333333333334,
                 "anti_results": [
                   {
                     "pattern": "RecyclerView",
@@ -54187,10 +54117,81 @@
                 "anti_pattern_total": 6,
                 "anti_pattern_hit_rate": 0.0,
                 "contamination_detected": false
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "FlashList|FlatList",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "React\\.memo|memo\\(",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "useCallback|useMemo",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "useDeferredValue|useTransition",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "StyleSheet\\.create",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "estimatedItemSize|renderItem",
+                    "matched": true
+                  }
+                ],
+                "expected_hits": [
+                  "FlashList|FlatList",
+                  "React\\.memo|memo\\(",
+                  "useCallback|useMemo",
+                  "useDeferredValue|useTransition",
+                  "StyleSheet\\.create",
+                  "estimatedItemSize|renderItem"
+                ],
+                "expected_misses": [],
+                "expected_hit_count": 6,
+                "expected_total": 6,
+                "expected_hit_rate": 1.0,
+                "anti_results": [
+                  {
+                    "pattern": "RecyclerView",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "UICollectionView",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "@objc",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "class.*Activity",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "build\\.gradle",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "DispatchQueue",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 6,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
               }
             ]
           },
-          "delta_composite": 0.083,
+          "delta_composite": -0.083,
           "delta_composite_realistic": 0.0,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
@@ -54201,8 +54202,8 @@
           "task_type": "adjacent_domain",
           "target_language": "typescript",
           "deltas": {
-            "language_correctness": -1.0,
-            "api_idiomaticity": -1.0,
+            "language_correctness": -0.333,
+            "api_idiomaticity": -0.333,
             "functional_correctness": -0.333,
             "code_quality": 0.0
           },
@@ -54219,8 +54220,8 @@
             "code_quality": 3.0
           },
           "skill_means": {
-            "language_correctness": 4.0,
-            "api_idiomaticity": 3.0,
+            "language_correctness": 4.667,
+            "api_idiomaticity": 3.667,
             "functional_correctness": 2.333,
             "code_quality": 3.0
           },
@@ -54458,15 +54459,15 @@
                   },
                   {
                     "pattern": "react-window|FixedSizeList|VariableSizeList",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "React\\.lazy|lazy\\(",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "Suspense",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "useState|useEffect|useCallback",
@@ -54479,17 +54480,16 @@
                 ],
                 "expected_hits": [
                   "import React|from 'react'",
+                  "react-window|FixedSizeList|VariableSizeList",
+                  "React\\.lazy|lazy\\(",
+                  "Suspense",
                   "useState|useEffect|useCallback",
                   "fetch\\(|axios"
                 ],
-                "expected_misses": [
-                  "react-window|FixedSizeList|VariableSizeList",
-                  "React\\.lazy|lazy\\(",
-                  "Suspense"
-                ],
-                "expected_hit_count": 3,
+                "expected_misses": [],
+                "expected_hit_count": 6,
                 "expected_total": 6,
-                "expected_hit_rate": 0.5,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "react-native|React Native",
@@ -54536,11 +54536,11 @@
                   },
                   {
                     "pattern": "React\\.lazy|lazy\\(",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "Suspense",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "useState|useEffect|useCallback",
@@ -54548,22 +54548,22 @@
                   },
                   {
                     "pattern": "fetch\\(|axios",
-                    "matched": false
+                    "matched": true
                   }
                 ],
                 "expected_hits": [
                   "import React|from 'react'",
                   "react-window|FixedSizeList|VariableSizeList",
-                  "React\\.lazy|lazy\\(",
-                  "Suspense",
-                  "useState|useEffect|useCallback"
-                ],
-                "expected_misses": [
+                  "useState|useEffect|useCallback",
                   "fetch\\(|axios"
                 ],
-                "expected_hit_count": 5,
+                "expected_misses": [
+                  "React\\.lazy|lazy\\(",
+                  "Suspense"
+                ],
+                "expected_hit_count": 4,
                 "expected_total": 6,
-                "expected_hit_rate": 0.8333333333333334,
+                "expected_hit_rate": 0.6666666666666666,
                 "anti_results": [
                   {
                     "pattern": "react-native|React Native",
@@ -54892,49 +54892,49 @@
               }
             ]
           },
-          "delta_composite": -0.583,
+          "delta_composite": -0.25,
           "delta_composite_realistic": 0.167,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.167,
           "anti_pattern_rate_realistic": 0.0
         }
       ],
-      "mean_delta_composite": -0.067,
-      "stdev_delta_composite": 0.414,
-      "mean_delta_composite_realistic": 0.1,
+      "mean_delta_composite": -0.384,
+      "stdev_delta_composite": 0.428,
+      "mean_delta_composite_realistic": 0.117,
       "delta_by_task_type": {
-        "direct_target": 0.5,
-        "cross_language": 0.0,
-        "similar_syntax": -0.333,
-        "grounded": 0.083,
-        "adjacent_domain": -0.583
+        "direct_target": 0.083,
+        "cross_language": -0.834,
+        "similar_syntax": -0.834,
+        "grounded": -0.083,
+        "adjacent_domain": -0.25
       },
       "delta_by_task_type_realistic": {
-        "direct_target": 0.25,
-        "cross_language": 0.0,
-        "similar_syntax": 0.083,
+        "direct_target": 0.334,
+        "cross_language": -0.083,
+        "similar_syntax": 0.167,
         "grounded": 0.0,
         "adjacent_domain": 0.167
       },
       "statistics": {
         "n_comparisons": 15,
-        "paired_t_stat": -0.636,
-        "paired_t_p": 0.5249,
-        "wilcoxon_w": 19,
-        "wilcoxon_p": 0.3863,
-        "cohens_d": -0.075
+        "paired_t_stat": -3.44,
+        "paired_t_p": 0.0006,
+        "wilcoxon_w": 1,
+        "wilcoxon_p": 0.0069,
+        "cohens_d": -0.418
       },
       "statistics_realistic": {
         "n_comparisons": 15,
-        "paired_t_stat": 1.702,
-        "paired_t_p": 0.0888,
-        "cohens_d": 0.122,
-        "mitigation_ratio": 2.5
+        "paired_t_stat": 1.825,
+        "paired_t_p": 0.068,
+        "cohens_d": 0.144,
+        "mitigation_ratio": 1.304
       },
       "hidden_contamination": {
-        "skill_md_only_delta": -0.383,
-        "skill_plus_refs_delta": -0.067,
-        "ref_attribution": 0.317
+        "skill_md_only_delta": -0.283,
+        "skill_plus_refs_delta": -0.383,
+        "ref_attribution": -0.1
       }
     },
     {
@@ -54949,13 +54949,13 @@
           "target_language": "python",
           "deltas": {
             "language_correctness": 0.0,
-            "api_idiomaticity": 0.0,
+            "api_idiomaticity": -0.333,
             "functional_correctness": 0.0,
-            "code_quality": 0.0
+            "code_quality": 0.333
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
-            "api_idiomaticity": -0.333,
+            "api_idiomaticity": 0.0,
             "functional_correctness": 0.0,
             "code_quality": 0.0
           },
@@ -54967,13 +54967,13 @@
           },
           "skill_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
+            "api_idiomaticity": 4.667,
             "functional_correctness": 4.0,
-            "code_quality": 4.0
+            "code_quality": 4.333
           },
           "realistic_means": {
             "language_correctness": 5.0,
-            "api_idiomaticity": 4.667,
+            "api_idiomaticity": 5.0,
             "functional_correctness": 4.0,
             "code_quality": 4.0
           },
@@ -55216,9 +55216,7 @@
                 "anti_pattern_total": 4,
                 "anti_pattern_hit_rate": 0.0,
                 "contamination_detected": false
-              }
-            ],
-            "realistic": [
+              },
               {
                 "expected_results": [
                   {
@@ -55313,6 +55311,125 @@
                 "expected_hit_count": 4,
                 "expected_total": 5,
                 "expected_hit_rate": 0.8,
+                "anti_results": [
+                  {
+                    "pattern": "sodium_crypto_box",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "Crypto::seal",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "hmac\\.Equal\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "PASSWORD_DEFAULT",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 4,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
+              }
+            ],
+            "realistic": [
+              {
+                "expected_results": [
+                  {
+                    "pattern": "max_attempts.*0",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "otp_lifetime.*0",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "key.*empty|not key.*bypass|silent",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "hash_algo.*accept|validate",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "pit of success|secure.?by.?default",
+                    "matched": false
+                  }
+                ],
+                "expected_hits": [
+                  "max_attempts.*0",
+                  "otp_lifetime.*0",
+                  "key.*empty|not key.*bypass|silent",
+                  "hash_algo.*accept|validate"
+                ],
+                "expected_misses": [
+                  "pit of success|secure.?by.?default"
+                ],
+                "expected_hit_count": 4,
+                "expected_total": 5,
+                "expected_hit_rate": 0.8,
+                "anti_results": [
+                  {
+                    "pattern": "sodium_crypto_box",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "Crypto::seal",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "hmac\\.Equal\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "PASSWORD_DEFAULT",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 4,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "max_attempts.*0",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "otp_lifetime.*0",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "key.*empty|not key.*bypass|silent",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "hash_algo.*accept|validate",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "pit of success|secure.?by.?default",
+                    "matched": true
+                  }
+                ],
+                "expected_hits": [
+                  "max_attempts.*0",
+                  "otp_lifetime.*0",
+                  "key.*empty|not key.*bypass|silent",
+                  "hash_algo.*accept|validate",
+                  "pit of success|secure.?by.?default"
+                ],
+                "expected_misses": [],
+                "expected_hit_count": 5,
+                "expected_total": 5,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "sodium_crypto_box",
@@ -55399,7 +55516,7 @@
             ]
           },
           "delta_composite": 0.0,
-          "delta_composite_realistic": -0.083,
+          "delta_composite_realistic": 0.0,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -55409,16 +55526,16 @@
           "task_type": "cross_language",
           "target_language": "rust",
           "deltas": {
-            "language_correctness": 0.333,
-            "api_idiomaticity": 0.333,
-            "functional_correctness": 0.0,
-            "code_quality": 0.333
+            "language_correctness": 0.0,
+            "api_idiomaticity": -0.333,
+            "functional_correctness": -0.333,
+            "code_quality": -0.333
           },
           "deltas_realistic": {
-            "language_correctness": 0.333,
-            "api_idiomaticity": 0.0,
-            "functional_correctness": -0.333,
-            "code_quality": -0.667
+            "language_correctness": -0.333,
+            "api_idiomaticity": -0.667,
+            "functional_correctness": 0.0,
+            "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 4.667,
@@ -55427,16 +55544,16 @@
             "code_quality": 4.0
           },
           "skill_means": {
-            "language_correctness": 5.0,
-            "api_idiomaticity": 5.0,
-            "functional_correctness": 3.0,
-            "code_quality": 4.333
+            "language_correctness": 4.667,
+            "api_idiomaticity": 4.333,
+            "functional_correctness": 2.667,
+            "code_quality": 3.667
           },
           "realistic_means": {
-            "language_correctness": 5.0,
-            "api_idiomaticity": 4.667,
-            "functional_correctness": 2.667,
-            "code_quality": 3.333
+            "language_correctness": 4.333,
+            "api_idiomaticity": 4.0,
+            "functional_correctness": 3.0,
+            "code_quality": 4.0
           },
           "pattern_results": {
             "baseline": [
@@ -55617,7 +55734,7 @@
                 "expected_results": [
                   {
                     "pattern": "struct\\s+(Signature|SigningKey|VerifyingKey)",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "impl\\s+",
@@ -55633,15 +55750,16 @@
                   }
                 ],
                 "expected_hits": [
-                  "struct\\s+(Signature|SigningKey|VerifyingKey)",
                   "impl\\s+",
                   "pub\\s+fn\\s+(sign|verify)",
                   "Result<"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 4,
+                "expected_misses": [
+                  "struct\\s+(Signature|SigningKey|VerifyingKey)"
+                ],
+                "expected_hit_count": 3,
                 "expected_total": 4,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.75,
                 "anti_results": [
                   {
                     "pattern": "def\\s+verify_",
@@ -55912,7 +56030,7 @@
                   },
                   {
                     "pattern": "pub\\s+fn\\s+(sign|verify)",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "Result<",
@@ -55922,14 +56040,13 @@
                 "expected_hits": [
                   "struct\\s+(Signature|SigningKey|VerifyingKey)",
                   "impl\\s+",
+                  "pub\\s+fn\\s+(sign|verify)",
                   "Result<"
                 ],
-                "expected_misses": [
-                  "pub\\s+fn\\s+(sign|verify)"
-                ],
-                "expected_hit_count": 3,
+                "expected_misses": [],
+                "expected_hit_count": 4,
                 "expected_total": 4,
-                "expected_hit_rate": 0.75,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "def\\s+verify_",
@@ -55960,8 +56077,8 @@
               }
             ]
           },
-          "delta_composite": 0.25,
-          "delta_composite_realistic": -0.167,
+          "delta_composite": -0.25,
+          "delta_composite_realistic": -0.25,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -55973,32 +56090,32 @@
           "deltas": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": -1.0,
-            "code_quality": -0.667
+            "functional_correctness": 0.333,
+            "code_quality": -0.333
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": -0.667,
-            "code_quality": -0.333
+            "functional_correctness": 1.0,
+            "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 5.0,
+            "functional_correctness": 4.0,
             "code_quality": 5.0
           },
           "skill_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 4.0,
-            "code_quality": 4.333
+            "functional_correctness": 4.333,
+            "code_quality": 4.667
           },
           "realistic_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 4.333,
-            "code_quality": 4.667
+            "functional_correctness": 5.0,
+            "code_quality": 5.0
           },
           "pattern_results": {
             "baseline": [
@@ -56006,7 +56123,7 @@
                 "expected_results": [
                   {
                     "pattern": "timing.?(safe|attack|constant.?time)",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
@@ -56014,7 +56131,7 @@
                   },
                   {
                     "pattern": "timeout.*0.*bypass|skip",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "secret.*empty",
@@ -56022,16 +56139,15 @@
                   }
                 ],
                 "expected_hits": [
+                  "timing.?(safe|attack|constant.?time)",
                   "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "timeout.*0.*bypass|skip",
                   "secret.*empty"
                 ],
-                "expected_misses": [
-                  "timing.?(safe|attack|constant.?time)",
-                  "timeout.*0.*bypass|skip"
-                ],
-                "expected_hit_count": 2,
+                "expected_misses": [],
+                "expected_hit_count": 4,
                 "expected_total": 4,
-                "expected_hit_rate": 0.5,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "hmac\\.compare_digest",
@@ -56068,7 +56184,7 @@
                   },
                   {
                     "pattern": "timeout.*0.*bypass|skip",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "secret.*empty",
@@ -56078,13 +56194,14 @@
                 "expected_hits": [
                   "timing.?(safe|attack|constant.?time)",
                   "hmac\\.Equal|subtle\\.ConstantTimeCompare",
-                  "timeout.*0.*bypass|skip",
                   "secret.*empty"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 4,
+                "expected_misses": [
+                  "timeout.*0.*bypass|skip"
+                ],
+                "expected_hit_count": 3,
                 "expected_total": 4,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.75,
                 "anti_results": [
                   {
                     "pattern": "hmac\\.compare_digest",
@@ -56169,7 +56286,7 @@
                 "expected_results": [
                   {
                     "pattern": "timing.?(safe|attack|constant.?time)",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
@@ -56185,70 +56302,15 @@
                   }
                 ],
                 "expected_hits": [
-                  "hmac\\.Equal|subtle\\.ConstantTimeCompare",
-                  "timeout.*0.*bypass|skip",
-                  "secret.*empty"
-                ],
-                "expected_misses": [
-                  "timing.?(safe|attack|constant.?time)"
-                ],
-                "expected_hit_count": 3,
-                "expected_total": 4,
-                "expected_hit_rate": 0.75,
-                "anti_results": [
-                  {
-                    "pattern": "hmac\\.compare_digest",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "hash_equals\\(",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "===\\s*secret",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "timing_safe_equal",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
-                "anti_pattern_total": 4,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
-              },
-              {
-                "expected_results": [
-                  {
-                    "pattern": "timing.?(safe|attack|constant.?time)",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "timeout.*0.*bypass|skip",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "secret.*empty",
-                    "matched": true
-                  }
-                ],
-                "expected_hits": [
-                  "hmac\\.Equal|subtle\\.ConstantTimeCompare",
-                  "secret.*empty"
-                ],
-                "expected_misses": [
                   "timing.?(safe|attack|constant.?time)",
-                  "timeout.*0.*bypass|skip"
+                  "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "timeout.*0.*bypass|skip",
+                  "secret.*empty"
                 ],
-                "expected_hit_count": 2,
+                "expected_misses": [],
+                "expected_hit_count": 4,
                 "expected_total": 4,
-                "expected_hit_rate": 0.5,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "hmac\\.compare_digest",
@@ -56277,7 +56339,7 @@
                 "expected_results": [
                   {
                     "pattern": "timing.?(safe|attack|constant.?time)",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
@@ -56293,16 +56355,68 @@
                   }
                 ],
                 "expected_hits": [
+                  "timing.?(safe|attack|constant.?time)",
                   "hmac\\.Equal|subtle\\.ConstantTimeCompare",
                   "timeout.*0.*bypass|skip",
                   "secret.*empty"
                 ],
-                "expected_misses": [
-                  "timing.?(safe|attack|constant.?time)"
-                ],
-                "expected_hit_count": 3,
+                "expected_misses": [],
+                "expected_hit_count": 4,
                 "expected_total": 4,
-                "expected_hit_rate": 0.75,
+                "expected_hit_rate": 1.0,
+                "anti_results": [
+                  {
+                    "pattern": "hmac\\.compare_digest",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "hash_equals\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "===\\s*secret",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "timing_safe_equal",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 4,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "timing.?(safe|attack|constant.?time)",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "timeout.*0.*bypass|skip",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "secret.*empty",
+                    "matched": true
+                  }
+                ],
+                "expected_hits": [
+                  "timing.?(safe|attack|constant.?time)",
+                  "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "timeout.*0.*bypass|skip",
+                  "secret.*empty"
+                ],
+                "expected_misses": [],
+                "expected_hit_count": 4,
+                "expected_total": 4,
+                "expected_hit_rate": 1.0,
                 "anti_results": [
                   {
                     "pattern": "hmac\\.compare_digest",
@@ -56329,6 +56443,60 @@
               }
             ],
             "realistic": [
+              {
+                "expected_results": [
+                  {
+                    "pattern": "timing.?(safe|attack|constant.?time)",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "timeout.*0.*bypass|skip",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "secret.*empty",
+                    "matched": true
+                  }
+                ],
+                "expected_hits": [
+                  "hmac\\.Equal|subtle\\.ConstantTimeCompare",
+                  "timeout.*0.*bypass|skip",
+                  "secret.*empty"
+                ],
+                "expected_misses": [
+                  "timing.?(safe|attack|constant.?time)"
+                ],
+                "expected_hit_count": 3,
+                "expected_total": 4,
+                "expected_hit_rate": 0.75,
+                "anti_results": [
+                  {
+                    "pattern": "hmac\\.compare_digest",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "hash_equals\\(",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "===\\s*secret",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "timing_safe_equal",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 4,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
+              },
               {
                 "expected_results": [
                   {
@@ -56435,65 +56603,11 @@
                 "anti_pattern_total": 4,
                 "anti_pattern_hit_rate": 0.0,
                 "contamination_detected": false
-              },
-              {
-                "expected_results": [
-                  {
-                    "pattern": "timing.?(safe|attack|constant.?time)",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "hmac\\.Equal|subtle\\.ConstantTimeCompare",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "timeout.*0.*bypass|skip",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "secret.*empty",
-                    "matched": true
-                  }
-                ],
-                "expected_hits": [
-                  "hmac\\.Equal|subtle\\.ConstantTimeCompare",
-                  "timeout.*0.*bypass|skip",
-                  "secret.*empty"
-                ],
-                "expected_misses": [
-                  "timing.?(safe|attack|constant.?time)"
-                ],
-                "expected_hit_count": 3,
-                "expected_total": 4,
-                "expected_hit_rate": 0.75,
-                "anti_results": [
-                  {
-                    "pattern": "hmac\\.compare_digest",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "hash_equals\\(",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "===\\s*secret",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "timing_safe_equal",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
-                "anti_pattern_total": 4,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
               }
             ]
           },
-          "delta_composite": -0.417,
-          "delta_composite_realistic": -0.25,
+          "delta_composite": 0.0,
+          "delta_composite_realistic": 0.25,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -56506,13 +56620,13 @@
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
             "functional_correctness": -0.333,
-            "code_quality": 0.333
+            "code_quality": 0.0
           },
           "deltas_realistic": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
             "functional_correctness": -0.333,
-            "code_quality": -0.333
+            "code_quality": 0.0
           },
           "baseline_means": {
             "language_correctness": 5.0,
@@ -56524,13 +56638,13 @@
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
             "functional_correctness": 4.0,
-            "code_quality": 4.667
+            "code_quality": 4.333
           },
           "realistic_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
             "functional_correctness": 4.0,
-            "code_quality": 4.0
+            "code_quality": 4.333
           },
           "pattern_results": {
             "baseline": [
@@ -57025,8 +57139,8 @@
               }
             ]
           },
-          "delta_composite": 0.0,
-          "delta_composite_realistic": -0.167,
+          "delta_composite": -0.083,
+          "delta_composite_realistic": -0.083,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
@@ -57038,13 +57152,13 @@
           "deltas": {
             "language_correctness": 0.0,
             "api_idiomaticity": 0.0,
-            "functional_correctness": 0.0,
+            "functional_correctness": -0.333,
             "code_quality": 0.0
           },
           "deltas_realistic": {
-            "language_correctness": -0.333,
-            "api_idiomaticity": -0.333,
-            "functional_correctness": -0.667,
+            "language_correctness": -0.5,
+            "api_idiomaticity": -0.5,
+            "functional_correctness": 0.0,
             "code_quality": 0.0
           },
           "baseline_means": {
@@ -57056,13 +57170,13 @@
           "skill_means": {
             "language_correctness": 5.0,
             "api_idiomaticity": 5.0,
-            "functional_correctness": 3.0,
+            "functional_correctness": 2.667,
             "code_quality": 4.0
           },
           "realistic_means": {
-            "language_correctness": 4.667,
-            "api_idiomaticity": 4.667,
-            "functional_correctness": 2.333,
+            "language_correctness": 4.5,
+            "api_idiomaticity": 4.5,
+            "functional_correctness": 3.0,
             "code_quality": 4.0
           },
           "pattern_results": {
@@ -57130,7 +57244,7 @@
                 "expected_results": [
                   {
                     "pattern": "interface\\s+\\w*Config",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "throw|Error\\(",
@@ -57150,17 +57264,17 @@
                   }
                 ],
                 "expected_hits": [
-                  "interface\\s+\\w*Config",
                   "throw|Error\\(",
                   "ssl|tls|https"
                 ],
                 "expected_misses": [
+                  "interface\\s+\\w*Config",
                   "timeout.*>\\s*0|timeout.*positive",
                   "secret.*\\.length|secret.*empty"
                 ],
-                "expected_hit_count": 3,
+                "expected_hit_count": 2,
                 "expected_total": 5,
-                "expected_hit_rate": 0.6,
+                "expected_hit_rate": 0.4,
                 "anti_results": [
                   {
                     "pattern": "def\\s+validate_config",
@@ -57189,7 +57303,7 @@
                 "expected_results": [
                   {
                     "pattern": "interface\\s+\\w*Config",
-                    "matched": true
+                    "matched": false
                   },
                   {
                     "pattern": "throw|Error\\(",
@@ -57205,17 +57319,17 @@
                   },
                   {
                     "pattern": "secret.*\\.length|secret.*empty",
-                    "matched": false
+                    "matched": true
                   }
                 ],
                 "expected_hits": [
-                  "interface\\s+\\w*Config",
                   "throw|Error\\(",
-                  "ssl|tls|https"
+                  "ssl|tls|https",
+                  "secret.*\\.length|secret.*empty"
                 ],
                 "expected_misses": [
-                  "timeout.*>\\s*0|timeout.*positive",
-                  "secret.*\\.length|secret.*empty"
+                  "interface\\s+\\w*Config",
+                  "timeout.*>\\s*0|timeout.*positive"
                 ],
                 "expected_hit_count": 3,
                 "expected_total": 5,
@@ -57254,7 +57368,7 @@
                   },
                   {
                     "pattern": "throw|Error\\(",
-                    "matched": false
+                    "matched": true
                   },
                   {
                     "pattern": "ssl|tls|https",
@@ -57270,17 +57384,76 @@
                   }
                 ],
                 "expected_hits": [
+                  "throw|Error\\(",
                   "ssl|tls|https"
                 ],
                 "expected_misses": [
                   "interface\\s+\\w*Config",
-                  "throw|Error\\(",
                   "timeout.*>\\s*0|timeout.*positive",
                   "secret.*\\.length|secret.*empty"
                 ],
-                "expected_hit_count": 1,
+                "expected_hit_count": 2,
                 "expected_total": 5,
-                "expected_hit_rate": 0.2,
+                "expected_hit_rate": 0.4,
+                "anti_results": [
+                  {
+                    "pattern": "def\\s+validate_config",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "func\\s+Validate",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "string\\s+\\$",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 4,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "interface\\s+\\w*Config",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "throw|Error\\(",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "ssl|tls|https",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "timeout.*>\\s*0|timeout.*positive",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "secret.*\\.length|secret.*empty",
+                    "matched": false
+                  }
+                ],
+                "expected_hits": [
+                  "throw|Error\\(",
+                  "ssl|tls|https"
+                ],
+                "expected_misses": [
+                  "interface\\s+\\w*Config",
+                  "timeout.*>\\s*0|timeout.*positive",
+                  "secret.*\\.length|secret.*empty"
+                ],
+                "expected_hit_count": 2,
+                "expected_total": 5,
+                "expected_hit_rate": 0.4,
                 "anti_results": [
                   {
                     "pattern": "def\\s+validate_config",
@@ -57325,80 +57498,21 @@
                   },
                   {
                     "pattern": "secret.*\\.length|secret.*empty",
-                    "matched": false
+                    "matched": true
                   }
                 ],
                 "expected_hits": [
                   "interface\\s+\\w*Config",
                   "throw|Error\\(",
-                  "ssl|tls|https"
-                ],
-                "expected_misses": [
-                  "timeout.*>\\s*0|timeout.*positive",
+                  "ssl|tls|https",
                   "secret.*\\.length|secret.*empty"
                 ],
-                "expected_hit_count": 3,
-                "expected_total": 5,
-                "expected_hit_rate": 0.6,
-                "anti_results": [
-                  {
-                    "pattern": "def\\s+validate_config",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "func\\s+Validate",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "string\\s+\\$",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
-                "anti_pattern_total": 4,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
-              },
-              {
-                "expected_results": [
-                  {
-                    "pattern": "interface\\s+\\w*Config",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "throw|Error\\(",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "ssl|tls|https",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "timeout.*>\\s*0|timeout.*positive",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "secret.*\\.length|secret.*empty",
-                    "matched": false
-                  }
-                ],
-                "expected_hits": [
-                  "interface\\s+\\w*Config",
-                  "throw|Error\\(",
-                  "ssl|tls|https"
-                ],
                 "expected_misses": [
-                  "timeout.*>\\s*0|timeout.*positive",
-                  "secret.*\\.length|secret.*empty"
+                  "timeout.*>\\s*0|timeout.*positive"
                 ],
-                "expected_hit_count": 3,
+                "expected_hit_count": 4,
                 "expected_total": 5,
-                "expected_hit_rate": 0.6,
+                "expected_hit_rate": 0.8,
                 "anti_results": [
                   {
                     "pattern": "def\\s+validate_config",
@@ -57441,64 +57555,6 @@
                   },
                   {
                     "pattern": "timeout.*>\\s*0|timeout.*positive",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "secret.*\\.length|secret.*empty",
-                    "matched": true
-                  }
-                ],
-                "expected_hits": [
-                  "interface\\s+\\w*Config",
-                  "throw|Error\\(",
-                  "ssl|tls|https",
-                  "timeout.*>\\s*0|timeout.*positive",
-                  "secret.*\\.length|secret.*empty"
-                ],
-                "expected_misses": [],
-                "expected_hit_count": 5,
-                "expected_total": 5,
-                "expected_hit_rate": 1.0,
-                "anti_results": [
-                  {
-                    "pattern": "def\\s+validate_config",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "func\\s+Validate",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
-                    "matched": false
-                  },
-                  {
-                    "pattern": "string\\s+\\$",
-                    "matched": false
-                  }
-                ],
-                "anti_pattern_hits": [],
-                "anti_pattern_hit_count": 0,
-                "anti_pattern_total": 4,
-                "anti_pattern_hit_rate": 0.0,
-                "contamination_detected": false
-              },
-              {
-                "expected_results": [
-                  {
-                    "pattern": "interface\\s+\\w*Config",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "throw|Error\\(",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "ssl|tls|https",
-                    "matched": true
-                  },
-                  {
-                    "pattern": "timeout.*>\\s*0|timeout.*positive",
                     "matched": false
                   },
                   {
@@ -57562,20 +57618,80 @@
                   },
                   {
                     "pattern": "secret.*\\.length|secret.*empty",
-                    "matched": true
+                    "matched": false
                   }
                 ],
                 "expected_hits": [
                   "interface\\s+\\w*Config",
                   "throw|Error\\(",
                   "ssl|tls|https",
+                  "timeout.*>\\s*0|timeout.*positive"
+                ],
+                "expected_misses": [
+                  "secret.*\\.length|secret.*empty"
+                ],
+                "expected_hit_count": 4,
+                "expected_total": 5,
+                "expected_hit_rate": 0.8,
+                "anti_results": [
+                  {
+                    "pattern": "def\\s+validate_config",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "func\\s+Validate",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "class\\s+\\w+\\s*\\{\\s*public function",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "string\\s+\\$",
+                    "matched": false
+                  }
+                ],
+                "anti_pattern_hits": [],
+                "anti_pattern_hit_count": 0,
+                "anti_pattern_total": 4,
+                "anti_pattern_hit_rate": 0.0,
+                "contamination_detected": false
+              },
+              {
+                "expected_results": [
+                  {
+                    "pattern": "interface\\s+\\w*Config",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "throw|Error\\(",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "ssl|tls|https",
+                    "matched": true
+                  },
+                  {
+                    "pattern": "timeout.*>\\s*0|timeout.*positive",
+                    "matched": false
+                  },
+                  {
+                    "pattern": "secret.*\\.length|secret.*empty",
+                    "matched": false
+                  }
+                ],
+                "expected_hits": [
+                  "throw|Error\\(",
+                  "ssl|tls|https"
+                ],
+                "expected_misses": [
+                  "interface\\s+\\w*Config",
                   "timeout.*>\\s*0|timeout.*positive",
                   "secret.*\\.length|secret.*empty"
                 ],
-                "expected_misses": [],
-                "expected_hit_count": 5,
+                "expected_hit_count": 2,
                 "expected_total": 5,
-                "expected_hit_rate": 1.0,
+                "expected_hit_rate": 0.4,
                 "anti_results": [
                   {
                     "pattern": "def\\s+validate_config",
@@ -57602,44 +57718,44 @@
               }
             ]
           },
-          "delta_composite": 0.0,
-          "delta_composite_realistic": -0.333,
+          "delta_composite": -0.083,
+          "delta_composite_realistic": -0.25,
           "anti_pattern_rate_baseline": 0.0,
           "anti_pattern_rate_skill": 0.0,
           "anti_pattern_rate_realistic": 0.0
         }
       ],
-      "mean_delta_composite": -0.033,
-      "stdev_delta_composite": 0.24,
-      "mean_delta_composite_realistic": -0.2,
+      "mean_delta_composite": -0.083,
+      "stdev_delta_composite": 0.102,
+      "mean_delta_composite_realistic": -0.067,
       "delta_by_task_type": {
         "direct_target": 0.0,
-        "cross_language": 0.25,
-        "similar_syntax": -0.417,
-        "grounded": 0.0,
-        "adjacent_domain": 0.0
+        "cross_language": -0.25,
+        "similar_syntax": 0.0,
+        "grounded": -0.083,
+        "adjacent_domain": -0.083
       },
       "delta_by_task_type_realistic": {
-        "direct_target": -0.083,
-        "cross_language": -0.167,
-        "similar_syntax": -0.25,
-        "grounded": -0.167,
-        "adjacent_domain": -0.333
+        "direct_target": 0.0,
+        "cross_language": -0.25,
+        "similar_syntax": 0.25,
+        "grounded": -0.083,
+        "adjacent_domain": -0.25
       },
       "statistics": {
-        "n_comparisons": 13,
-        "paired_t_stat": -0.485,
-        "paired_t_p": 0.6276,
-        "wilcoxon_w": 9,
-        "wilcoxon_p": 0.398,
-        "cohens_d": -0.056
+        "n_comparisons": 15,
+        "paired_t_stat": -0.96,
+        "paired_t_p": 0.3372,
+        "wilcoxon_w": 18,
+        "wilcoxon_p": 0.3329,
+        "cohens_d": -0.114
       },
       "statistics_realistic": {
-        "n_comparisons": 15,
-        "paired_t_stat": -3.595,
-        "paired_t_p": 0.0003,
-        "cohens_d": -0.26,
-        "mitigation_ratio": -4.2
+        "n_comparisons": 14,
+        "paired_t_stat": -0.715,
+        "paired_t_p": 0.4747,
+        "cohens_d": -0.059,
+        "mitigation_ratio": 0.357
       }
     },
     {
