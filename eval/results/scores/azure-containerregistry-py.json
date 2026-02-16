@@ -1,0 +1,3798 @@
+{
+  "skill_name": "azure-containerregistry-py",
+  "scored_at": "2026-02-16T11:42:16.129323+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.33,
+  "risk_level": "medium",
+  "test_category": "net_negative",
+  "tasks": [
+    {
+      "task_id": "azure-containerregistry-py-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely Python with no foreign language patterns. It uses the azure-containerregistry SDK correctly with ContainerRegistryClient, list_repository_names(), list_manifest_properties(), and delete_manifest() \u2014 all idiomatic Python SDK calls. However, the code is truncated mid-function in the `run()` method, which means the main execution loop (iterating repositories, printing results, and performing deletions) and the argparse CLI setup with --dry-run/--delete flags are missing. The implemented portions are well-structured with good error handling, type hints, and documentation, but the incompleteness significantly impacts functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [
+                "from azure\\.containerregistry import ContainerRegistryClient"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no cross-language contamination. It uses the azure-containerregistry SDK correctly with ContainerRegistryClient, list_repository_names(), list_manifest_properties(), DefaultAzureCredential, and appropriate manifest property access (tags, digest, last_updated_on, size_in_bytes). However, the code is truncated mid-function \u2014 the print_candidates_table method is cut off and the crucial --delete functionality (calling client.delete_manifest) and the argparse main block are missing, meaning roughly half the requested features are not implemented. The API usage has a minor issue: it checks last_updated_on rather than created_on for the age comparison, which is a slight deviation from the task description but arguably reasonable. Overall the implemented portion is well-structured with good error handling and documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.containerregistry import ContainerRegistryClient",
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct use of the azure-containerregistry SDK (ContainerRegistryClient, list_repository_names, list_manifest_properties, delete_manifest, DefaultAzureCredential). The API usage is idiomatic, though using 'manifest.created_on' and 'manifest.size_in_bytes' may not exactly match all SDK versions (the documented attribute is 'size_in_bytes' in newer versions but some versions use different names). The code is clearly truncated mid-execution\u2014the except block for ResourceNotFoundError is cut off, and the summary/closing logic is missing\u2014which reduces functional correctness. Overall, what is present is well-structured with good logging, argument parsing, and formatted output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.containerregistry import ContainerRegistryClient",
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no foreign language patterns. It uses the azure-containerregistry SDK correctly with DefaultAzureCredential and appropriate API calls like list_repository_names(), list_manifest_properties(), and delete_manifest(). However, the code is truncated mid-function (cuts off at 'for repo_name in reposit'), meaning the main processing loop, the main() entry point, and the delete execution path are incomplete. The manifest property 'tags' may not exist on ArtifactManifestProperties (the correct check may involve 'tag_count' or listing tags separately), which is a minor API concern. What is present is well-structured with good documentation, error handling, and type hints.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [
+                "from azure\\.containerregistry import ContainerRegistryClient"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct syntax and no foreign language contamination. The azure-containerregistry SDK usage is mostly idiomatic, using ContainerRegistryClient, list_manifest_properties, DefaultAzureCredential, and delete_manifest correctly. However, the code is truncated mid-function \u2014 the main() function's with-block is incomplete, missing the repository iteration loop, the actual dry-run/delete logic execution, and summary statistics printing. The helper functions are well-structured and correct, but the incomplete main() means roughly 60-70% of the task is implemented. The use of `manifest.last_updated_on` rather than `created_on` for age checking is a minor semantic deviation from the task's 'creation date' requirement, though the SDK property `created_on` does exist on ArtifactManifestProperties.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.containerregistry import ContainerRegistryClient",
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no cross-language contamination. It correctly uses the azure-containerregistry SDK's synchronous ContainerRegistryClient with DefaultAzureCredential, list_repository_names(), list_manifest_properties(), and delete_manifest() \u2014 all idiomatic for the Python SDK. Minor API concern: it uses manifest.created_on and manifest.size_in_bytes which may not exist on ArtifactManifestProperties (the correct attributes are created_on being available but size_in_bytes may actually be size_in_bytes or not present \u2014 this is a borderline issue). The code is truncated at the end (the summary print block is cut off), so the script is incomplete but covers the vast majority of the requested functionality including --dry-run, --delete, age filtering, and printing of digest/date/size.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.containerregistry import ContainerRegistryClient",
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no foreign language patterns. It uses the azure-containerregistry SDK correctly with ContainerRegistryClient, list_repository_names(), list_manifest_properties(), delete_manifest(), and DefaultAzureCredential. However, the code is truncated mid-loop (cut off at 'for digest, manife'), so the delete logic and summary reporting are incomplete. There is also a bug referencing 'args.days_threshold' instead of 'args.days', and 'manifest.size_in_bytes' may not be a valid attribute (the SDK uses 'size_in_bytes' on some versions but not all). The attribute 'manifest.tags' for checking untagged manifests may need to be accessed differently depending on SDK version, but is a reasonable approach.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [
+                "from azure\\.containerregistry import ContainerRegistryClient"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct syntax and good idiomatic usage of the azure-containerregistry SDK (ContainerRegistryClient, list_repository_names, list_manifest_properties, DefaultAzureCredential). However, the code is truncated \u2014 the delete_old_manifests method is cut off mid-implementation, and the argparse main block with --dry-run and --delete flags is missing. The field 'last_updated_on' is used where 'created_on' might be more appropriate per the task description, but both are valid manifest properties. The reporting functionality is well-implemented with good error handling and formatting, but the incomplete deletion logic and missing CLI argument parsing mean the task is only partially accomplished.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.containerregistry import ContainerRegistryClient",
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct syntax and idiomatic usage of the azure-containerregistry SDK (ContainerRegistryClient, list_repository_names, list_manifest_properties, delete_manifest, DefaultAzureCredential). The API usage is mostly correct, though `manifest.created_on` and `manifest.size_in_bytes` may not exist on ArtifactManifestProperties (the actual attributes are `created_on` which does exist, but `size_in_bytes` should be `size_in_bytes` \u2014 this is correct in newer SDK versions). The code is truncated at the end of the summary section, missing the final print statements and closing of main(), which slightly impacts functional completeness. Overall it covers all requested features: listing repos, finding untagged old images, printing details, and --dry-run/--delete flags.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.containerregistry import ContainerRegistryClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": true
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.containerregistry import ContainerRegistryClient",
+                "from azure\\.identity import DefaultAzureCredential",
+                "list_repository_names",
+                "list_manifest_properties",
+                "delete_manifest",
+                "argparse|sys\\.argv"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure|namespace\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+client|const\\s+client",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+add",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-containerregistry-py-02",
+      "task_type": "cross_language",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "Minor: task says 'CLI argument' suggesting positional arg, but code uses flags instead; accessing page.Repositories.Names may not exactly match SDK structure (could be page.Repositories directly depending on version)"
+              ],
+              "brief_assessment": "The code is entirely valid Go with no foreign language patterns. It correctly uses the azcontainerregistry SDK's NewClient, NewListRepositoriesPager, and NewListTagsPager with proper pager iteration patterns. The API field access for page.Repositories.Names and tag.ChangeableAttributes closely follows the SDK structure, though minor field naming differences may exist across SDK versions. The task asks for a repository 'passed as a CLI argument' which typically implies a positional argument (os.Args), but the code uses flags instead\u2014a minor deviation. Overall, the code is well-structured, handles nil pointer dereferences carefully, and produces clean JSON output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "The pager response field `page.Repositories.Names` may not match the actual SDK structure - the actual field path might be `page.Repositories.Names` or similar but needs verification against the real SDK; `page.Tags` access pattern on the ListTagsPager response may not exactly match the SDK's response structure (could be `page.Tags` under a wrapper)"
+              ],
+              "brief_assessment": "The code is clean, idiomatic Go with proper error handling, context usage, and JSON output. It correctly uses DefaultAzureCredential and the azcontainerregistry package with the pager pattern. Minor concerns: the task says the repository should be passed as a CLI argument, but it uses a flag (`-repository`) rather than a positional argument, which is a minor deviation. The API field access patterns (e.g., `page.Repositories.Names`, `page.Tags`, `tag.ChangeableAttributes`) are plausible but may have slight discrepancies with the actual SDK structure \u2014 for instance, the real SDK uses `page.Repositories.Names` correctly but the tag listing response wrapper might differ slightly. Overall this is high-quality code that would largely work correctly.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "page.Repositories.Names - the actual Go SDK uses page.Repositories.Names but the response struct field path may differ; the actual field is likely page.Repositories.Names which is plausible but the response type is *azcontainerregistry.Repositories with a Names field",
+                "page.Tags - the actual Go SDK ListTagsPager returns a page with Tags field that contains TagAttributeBase items; the field access pattern (tag.CreatedOn, tag.LastUpdatedOn) may not match the actual SDK struct which uses tag.ChangeableAttributes and nested properties",
+                "NewListTagsPager - the actual SDK method is NewListTagsPager which returns ArtifactTagProperties items with slightly different field names; the actual struct fields may differ from what's used (e.g., CreatedOn vs CreatedTime)"
+              ],
+              "brief_assessment": "The code is entirely valid Go with good structure, error handling, and idiomatic patterns like context propagation and wrapped errors. However, there are potential API accuracy issues: the azcontainerregistry SDK's response struct field paths (e.g., page.Repositories.Names, tag.CreatedOn, tag.LastUpdatedOn, tag.Digest on tag list items) may not precisely match the actual SDK types, suggesting possible contamination from documentation or other SDK versions. The program covers all requested functionality (list repos, get tags, JSON output, DefaultAzureCredential, CLI args) but the field access patterns on pager responses may cause compilation errors against the real SDK.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "NewListRepositoriesPager method name - the actual SDK method is NewListRepositoriesPager but the response structure access pattern (page.Repositories.Names) may not match the actual SDK response shape",
+                "NewListTagsPager method name and response structure (page.Tags with fields like tag.ChangeableAttributes) may not precisely match the actual azcontainerregistry SDK API - the actual SDK uses different field names like WriteEnabled/DeleteEnabled/ReadEnabled/ListEnabled rather than CanDelete/CanWrite/CanRead/CanList on the ChangeableAttributes struct",
+                "The task says repository should be passed as a CLI argument, but the code uses flags instead of positional arguments"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with good structure, error handling, and JSON output. However, there are API accuracy concerns: the azcontainerregistry SDK's tag listing response structure and field names (e.g., ChangeableAttributes fields are actually named DeleteEnabled, WriteEnabled, ReadEnabled, ListEnabled rather than CanDelete, CanWrite, CanRead, CanList) appear inaccurate, suggesting possible contamination from documentation of other SDK versions or languages. The task specifies the repository should be a CLI argument, but the code uses flag-based input instead, which is a minor deviation from requirements. The pager pattern (NewListRepositoriesPager/NewListTagsPager) and response field access patterns are approximately correct but not precisely matching the actual SDK surface.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with no foreign language patterns. The Azure SDK API usage is largely idiomatic \u2014 NewClient, NewListRepositoriesPager, NewListTagsPager, and pointer dereferencing patterns all match the azcontainerregistry Go SDK. The response field access (page.Repositories.Names, page.Tags, tag.ChangeableAttributes) closely matches the actual SDK structs, though minor field name discrepancies (e.g., LastUpdatedOn, ChangeableAttributes vs actual field names) could cause compilation issues depending on the exact SDK version. The task asks for the repository as a CLI argument but the code uses a flag rather than a positional argument \u2014 this is a minor deviation. Overall, the code is well-structured, handles nil pointers correctly, uses proper error handling, and produces clean JSON output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The task says 'passed as a CLI argument' which typically implies a positional argument (os.Args), but the code uses a flag (-repository) instead; this is a minor interpretation issue, not contamination",
+                "page.Repositories.Names - the actual SDK uses page.Repositories (a Repositories struct with Names field), so accessing page.Repositories.Names appears correct but the exact field path may vary by SDK version",
+                "page.Tags - the actual ListTagsPager response uses page.Tags which is a slice of TagProperties pointers; the field names like tag.CreatedOn and tag.LastUpdatedOn need verification against the actual SDK struct fields (actual SDK uses CreatedOn and LastUpdatedOn which appears correct)"
+              ],
+              "brief_assessment": "The code is entirely valid Go with no cross-language contamination. The Azure SDK API usage is mostly idiomatic and correct - it properly uses the pager pattern (NewListRepositoriesPager, NewListTagsPager), handles pointer dereferencing for SDK response fields, and uses DefaultAzureCredential. Minor concerns include: the task says repository should be a 'CLI argument' which more naturally implies a positional arg rather than a flag, and some SDK field paths (page.Repositories.Names, tag.CreatedOn, tag.LastUpdatedOn) may not exactly match the current SDK version's struct layout. Overall the code is well-structured with proper error handling and clean JSON output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "The response field access pattern page.Repositories.Names may not match the actual SDK structure exactly - the actual SDK returns page.Repositories as a Repositories struct with Names field, but the nesting (page.Repositories.Names) is plausible but could reflect documentation confusion",
+                "page.Tags direct access on the ListTagsPager result - the actual field path may be page.Tags with TagAttributeBases items, and field names like ChangeableAttributes vs WriteableProperties may differ slightly from the actual SDK"
+              ],
+              "brief_assessment": "The code is entirely valid Go with no cross-language contamination. It correctly uses the azcontainerregistry.NewClient constructor, DefaultAzureCredential, and pager patterns (NewListRepositoriesPager, NewListTagsPager) that are idiomatic to the Azure SDK for Go. The response struct field access paths (e.g., page.Repositories.Names, tag.ChangeableAttributes, tag.CreatedOn, tag.LastUpdatedOn) are approximately correct but may have minor deviations from the actual SDK field names (e.g., the actual SDK may use WriteableProperties instead of ChangeableAttributes, or CreatedAt instead of CreatedOn). The task asks for a repository 'passed as a CLI argument' but the code makes it optional, which is a minor deviation. Overall this is well-structured, production-quality Go code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "The response field `page.Repositories.Names` uses a nested struct access pattern that may not exactly match the actual SDK response structure - the real SDK returns `page.Repositories.Names` but the wrapper type may differ slightly",
+                "NewListTagsPager response field `page.Tags` - the actual SDK uses `page.TagAttributeBases` or similar field name in the response struct"
+              ],
+              "brief_assessment": "The code is well-structured, idiomatic Go with proper error handling, context usage, and nil-pointer safety for Azure SDK pointer types. The overall architecture is clean with good separation of concerns. However, there are potential API accuracy issues: the `NewListRepositoriesPager` response structure access pattern (`page.Repositories.Names`) and the tag listing response fields (`page.Tags`, tag field names like `CreatedOn`, `LastUpdatedOn`, `ChangeableAttributes`) may not precisely match the actual azcontainerregistry SDK struct definitions, suggesting some approximation or minor contamination from documentation of other SDK versions. The program accomplishes all requested features (list repos, get tag properties, JSON output, DefaultAzureCredential) but the tag listing API field names likely need adjustment to match the real SDK.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": null,
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "azcontainerregistry|containerregistry",
+                  "matched": true
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.Marshal|json\\.NewEncoder",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.Args|flag\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "azcontainerregistry|containerregistry",
+                "azidentity\\.NewDefaultAzureCredential",
+                "json\\.Marshal|json\\.NewEncoder",
+                "func main\\(",
+                "os\\.Args|flag\\."
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-containerregistry-py-03",
+      "task_type": "similar_syntax",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Docker SDK usage (docker.from_env(), client.images.list(), image.tags, image.attrs, etc.). However, the code is clearly truncated mid-function \u2014 the remove_old_images method is cut off, which means the cleanup/removal feature (a key part of the task) is incomplete. The implemented portions (listing images, showing tags, getting sizes) are well-structured with proper error handling, type hints, and good formatting using tabulate/humanize, but the incompleteness significantly impacts functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the Docker SDK (docker.from_env(), client.images.list(), image.attrs, image.tags, etc.). It demonstrates good structure with a class-based design, proper logging, argparse integration, and correct error handling for DockerException, APIError, and PermissionError. However, the code is truncated mid-function in print_image_table, so the image removal logic and main execution block are missing, meaning only listing/display functionality is partially implemented. The implemented portions are high quality with good documentation and type hints.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Docker SDK usage (docker.from_env(), client.images.list(), client.images.remove(), etc.) and idiomatic patterns. However, the code is truncated mid-function \u2014 the remove_old_images method is cut off during a print statement, and any remaining methods (like a main function or argparse handling) are missing. The implemented portions demonstrate good error handling, clean structure, and proper type hints, but the incomplete state means it only partially accomplishes the task. The decision to skip tagged images in removal is a reasonable safety measure but deviates somewhat from the stated requirement.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the Docker SDK for Python (docker.from_env(), client.images.list(), image.attrs, image.tags, image.short_id, etc.). It handles connection errors, permission issues, lists images with tags and sizes, and includes logic for removing old images. However, the code is clearly truncated mid-function (cut off in get_image_details), and the remove-old-images functionality is not visible in the provided code, meaning the task is only partially accomplished. The overall code quality is good with proper class structure, type hints, error handling, and formatted output using tabulate.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct use of the Docker SDK (`docker.DockerClient`, `client.images.list()`, `image.tags`, `image.attrs`, etc.). However, the code is clearly truncated mid-function (`print_image_table` is cut off), meaning the image removal logic and CLI argument handling are missing. The implemented portions \u2014 connecting, listing images with tags/sizes/ages, error handling \u2014 are well-structured and idiomatic, but the incompleteness significantly limits functional correctness since the cleanup/removal feature (a core requirement) is absent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the Docker SDK (docker.DockerClient, client.images.list(), client.images.remove(), image.attrs, image.tags, image.short_id, client.ping()). The code is well-structured with proper type hints, docstrings, logging, and error handling. However, the code is clearly truncated mid-function \u2014 the remove_image method is cut off at the NotFound exception handler, and there is no main function or CLI entry point to tie everything together. This means the removal workflow and the script's overall execution flow are incomplete, reducing functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Docker SDK usage (docker.from_env(), client.images.list(), image.tags, image.attrs, etc.). It handles listing images, displaying tags and sizes, filtering by age, and includes proper error handling for DockerException and APIError. However, the code is truncated mid-function \u2014 the remove_old_images method is cut off, leaving a core requirement (removing images older than N days) incomplete. The overall structure, typing hints, and use of third-party libraries (humanize, tabulate) reflect good quality, but the incompleteness significantly impacts functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the Docker SDK for Python (docker.from_env(), client.images.list(), image.attrs, image.tags, image.short_id, client.ping()). However, the code is clearly truncated mid-function \u2014 the list_images method is incomplete, and the critical remove_old_images functionality and the main/argparse entry point are missing. The implemented portions demonstrate good error handling for connection failures and API errors, proper type hints, and clean structure, but roughly half the task (removal of old images, the CLI interface) is absent due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the Docker SDK for Python (docker.from_env(), client.images.list(), image.attrs, image.short_id, etc.). The code handles listing images, showing tags, getting sizes, and begins the remove_old_images method, but it is truncated mid-function \u2014 the removal logic, the argparse CLI, and the main entry point are missing, so a significant portion of the task (old image removal and script execution) is incomplete. Error handling for connection failures and permission errors is well-implemented in the portions that exist.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import docker",
+                  "matched": true
+                },
+                {
+                  "pattern": "docker\\.from_env|DockerClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.list",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.tags",
+                  "matched": true
+                },
+                {
+                  "pattern": "image\\.attrs",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.images\\.remove|image\\.remove",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import docker",
+                "docker\\.from_env|DockerClient",
+                "client\\.images\\.list",
+                "image\\.tags",
+                "image\\.attrs",
+                "client\\.images\\.remove|image\\.remove"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-containerregistry-py-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no foreign language contamination. It correctly addresses all four required fixes: adding DefaultAzureCredential, setting can_delete/can_write to False, locking manifests via update_manifest_properties, and adding comprehensive error handling. The API usage is idiomatic for the Azure Container Registry Python SDK, though the client could also be used as a context manager (`with` statement) instead of explicit `close()`. Overall this is production-quality code with good logging, proper cleanup, and environment variable validation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": false
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [
+                "credential="
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It properly addresses all four required fixes: adding credentials, correcting lock values to False, locking manifests, and adding error handling. The API usage is mostly idiomatic for the Azure Container Registry Python SDK, though the use of ArtifactManifestProperties as a constructor for the properties parameter in update_manifest_properties may not exactly match the current SDK signature (which can accept keyword arguments like can_delete and can_write directly, or use ContentProperties). The context manager usage, error handling, and informative logging make this production-quality code. One minor concern is that the task also says 'should also lock the manifest' implying both tag and manifest locking might be expected, but the code only locks the manifest\u2014though locking the manifest is arguably the correct and sufficient approach.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "credential=",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "ArtifactManifestProperties is not typically used as a direct constructor argument to update_manifest_properties in the Python SDK; the idiomatic approach uses ArtifactManifestProperties or ContentProperties with keyword arguments like can_delete and can_write directly, or uses the dedicated properties parameter differently",
+                "The update_manifest_properties call passes a constructed ArtifactManifestProperties object, but the actual Python SDK signature for update_manifest_properties typically accepts keyword arguments directly (can_delete=False, can_write=False) rather than a properties=ArtifactManifestProperties(...) pattern - this resembles patterns from other SDKs"
+              ],
+              "brief_assessment": "The code is entirely valid Python and addresses all four requested fixes: adding credentials, correcting lock values, locking manifests, and adding error handling. However, the API usage for update_manifest_properties is slightly non-idiomatic \u2014 the Python Azure Container Registry SDK typically accepts can_delete/can_write as direct keyword arguments rather than wrapping them in an ArtifactManifestProperties constructor passed via a properties parameter. The code also doesn't lock the tag itself (only the manifest), which could be considered a minor omission since the original code was updating tag properties and the task says to 'also' lock the manifest. Overall it's good quality with minor API idiom deviations.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "credential=",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It properly addresses all four requested fixes: adding DefaultAzureCredential, setting can_delete/can_write to False, locking manifests via update_manifest_properties with the tag digest, and adding comprehensive error handling. The API usage is idiomatic for the Azure Container Registry Python SDK, though the positional passing of credential (vs keyword `credential=`) is a trivial deviation from some documentation examples. The code includes thoughtful extras like client.close(), URL format validation, and __main__ guard.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": false
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [
+                "credential="
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "ArtifactManifestProperties used as a keyword argument to update_manifest_properties via 'properties=' parameter - the actual Python SDK uses keyword arguments like can_delete=False, can_write=False directly, or uses ArtifactManifestProperties but the parameter passing style is slightly off",
+                "update_manifest_properties typically accepts the tag_or_digest directly and keyword arguments rather than a 'properties' object in the Python SDK - this pattern resembles the .NET SDK's approach where you pass a properties object"
+              ],
+              "brief_assessment": "The code is entirely valid Python with no syntax contamination from other languages. It correctly addresses all four requested fixes: adding credentials, setting lock values to False, locking manifests, and adding error handling. However, the API usage has some idiomatic issues - the Python Azure Container Registry SDK's update_manifest_properties typically accepts can_delete and can_write as direct keyword arguments rather than wrapping them in an ArtifactManifestProperties object passed via a 'properties' parameter. This pattern of passing a properties object is more reminiscent of the .NET SDK approach. The code also locks only the manifest but not the tag properties, which was one of the requirements (the original code updated tags, and the fix should arguably lock both tags and manifests).",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "credential=",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It properly addresses all four requested fixes: adding credentials, setting lock values to False, locking the manifest, and adding error handling. The API usage is mostly idiomatic for the Azure Container Registry Python SDK, though there's a minor concern: `update_tag_properties` does exist in the Python SDK (it's not non-existent as claimed), so the original tag locking could have been kept alongside the manifest locking. The use of `ArtifactManifestProperties` as a wrapper object is slightly debatable \u2014 some SDK versions accept keyword arguments directly \u2014 but it's a valid pattern. Overall this is clean, well-documented, production-quality code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "credential=",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no foreign language patterns. It correctly addresses all four required fixes: adding DefaultAzureCredential, setting can_delete/can_write to False, locking manifests via update_manifest_properties, and adding comprehensive error handling. The API usage is largely idiomatic for the Azure Container Registry Python SDK, though the positional passing of credential (rather than keyword `credential=`) is a minor stylistic note. The code includes good practices like client.close(), __main__ guard, and environment variable validation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": false
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [
+                "credential="
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "update_manifest_properties using a properties=ArtifactManifestProperties(...) pattern is not how the Python SDK works \u2014 the Python SDK's update_manifest_properties accepts keyword arguments like can_delete and can_write directly, not a properties object; ArtifactManifestProperties is a read-only return type, not a settable input model",
+                "update_tag_properties does exist in the Python SDK and the explanation incorrectly claims it doesn't \u2014 the task asked to also lock the manifest in addition to the tag, not instead of it",
+                "The code only locks the manifest but does NOT also lock the tag properties as the task requires (fix #3 says 'should also lock the manifest', implying both tag and manifest should be locked)"
+              ],
+              "brief_assessment": "The code is entirely valid Python with proper error handling, context manager usage, and credential passing. However, the API usage has notable issues: `update_manifest_properties` in the Python Azure SDK takes keyword arguments (can_delete=False, can_write=False) directly rather than a `properties=ArtifactManifestProperties(...)` object\u2014ArtifactManifestProperties is a read-only model. Additionally, `update_tag_properties` does exist in the Python SDK contrary to the explanation, and the task asked to 'also lock the manifest' (in addition to locking the tag), but the code only locks the manifest and drops the tag locking entirely, missing part of fix #3.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "credential=",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "ArtifactManifestProperties is not typically used as a constructor argument to update_manifest_properties; the idiomatic Python SDK pattern uses ContentProperties or keyword arguments directly",
+                "update_manifest_properties typically takes the manifest digest rather than a tag name as the second parameter",
+                "update_tag_properties does exist in the Python SDK and should also be used to lock the tag per the task requirements",
+                "The task asks to also lock the manifest, not to replace tag locking with manifest locking"
+              ],
+              "brief_assessment": "The code is entirely valid Python with good structure including context manager usage and error handling. However, it replaces tag locking with manifest locking rather than doing both as requested (the task says 'should also lock the manifest'). The API usage has some issues: update_manifest_properties typically accepts a digest rather than a tag name, and the use of ArtifactManifestProperties as a constructor for the properties parameter is not quite idiomatic \u2014 the SDK typically uses keyword arguments like can_delete=False directly. The claim that update_tag_properties is 'non-existent' is incorrect.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_delete=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "can_write=False",
+                  "matched": true
+                },
+                {
+                  "pattern": "update_manifest_properties",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredential\\(\\)",
+                "credential=",
+                "can_delete=False",
+                "can_write=False",
+                "update_manifest_properties",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "using\\s+Azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-containerregistry-py-05",
+      "task_type": "adjacent_domain",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the azure-storage-blob SDK (BlobServiceClient, DefaultAzureCredential, ContentSettings with content_md5 as bytes, upload_blob with overwrite=True). The MD5 comparison logic correctly handles Azure's byte-based content_md5 by base64-encoding for comparison. However, the code is clearly truncated mid-function \u2014 the backup_directory method is cut off, and the restore functionality (--restore flag) and argparse CLI are entirely missing. This means roughly half the task (restore, CLI argument parsing, completion of backup) is not implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "MD5 hash handling is incorrect - Azure SDK returns content_md5 as bytes (not base64 string), so the base64.b64decode call is wrong",
+                "content_settings.content_md5 access pattern is slightly off - in the Python SDK, blob properties return content_md5 as a bytearray directly from blob.properties.content_settings.content_md5"
+              ],
+              "brief_assessment": "The code is entirely valid Python with no cross-language syntax contamination. However, the code is truncated mid-function (the upload_file method is cut off), meaning the core upload logic, restore functionality, and CLI argument parsing are missing \u2014 this significantly impacts functional completeness. The MD5 comparison logic has an API idiomaticity issue: the Azure Python SDK returns content_md5 as raw bytes, not a base64-encoded string, so the base64.b64decode pattern is incorrect and suggests possible confusion with other SDK versions or languages. The implemented portions show good structure and documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no foreign language patterns. The Azure Blob Storage SDK usage is idiomatic and correct\u2014using BlobServiceClient with DefaultAzureCredential, ContentSettings for MD5, upload_blob with overwrite, and download_blob().readall(). However, the code is clearly truncated mid-function (cuts off at 'logger.info(f\"D'), missing the complete download_blob function, the restore_directory function, and the argparse/main entry point. While the backup portion is well-implemented with MD5 comparison, container creation, and directory structure preservation, the --restore functionality and CLI argument parsing are missing, leaving roughly half the task incomplete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct usage of the azure-storage-blob and azure-identity SDKs, including DefaultAzureCredential, BlobServiceClient, ContentSettings, and proper MD5 comparison logic. However, the code is truncated mid-function (download_blob is cut off), meaning the --restore functionality and the argparse CLI entry point are missing \u2014 roughly half the task (restore, CLI argument parsing) is unimplemented. The MD5 comparison has a subtle issue: content_md5 from blob properties is returned as bytes, but the local MD5 is computed as a base64 string, so the equality check may not work correctly without conversion. Additionally, passing a base64 string instead of bytes to ContentSettings(content_md5=...) is incorrect \u2014 it expects bytes.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the azure-storage-blob SDK (BlobServiceClient, DefaultAzureCredential, ContentSettings, container/blob client patterns, upload_blob with overwrite and metadata). However, the code is truncated mid-function in backup_directory, meaning the core backup loop, the restore functionality, and the CLI argument parsing (--restore flag) are all missing. Only roughly 40% of the required task is implemented. The portions that do exist are well-structured and production-quality with good documentation, error handling, and MD5 comparison logic.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic usage of the azure-storage-blob SDK, including proper use of DefaultAzureCredential, BlobServiceClient, container/blob clients, ContentSettings for MD5, and ResourceNotFoundError handling. All major features are implemented: upload with directory structure preservation, MD5 comparison for skipping unchanged files, and --restore mode. However, the code is truncated at the end (the --verbose argument and presumably the main() function body with BlobServiceClient instantiation are cut off), which means the script is not fully runnable as-is \u2014 hence the minor deductions in functional correctness and code quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of the azure-storage-blob SDK (BlobServiceClient, DefaultAzureCredential, get_blob_properties, upload_blob with overwrite/metadata/content_settings). However, the code is clearly truncated mid-function \u2014 the backup_directory method is incomplete and the restore functionality (the --restore flag and download logic) plus the argparse CLI are missing entirely, meaning roughly half the task requirements are unimplemented. What is present is well-structured, well-documented, and correctly uses MD5 metadata for skip logic and preserves directory structure via blob name prefixes.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Azure Blob Storage SDK usage (DefaultAzureCredential, BlobServiceClient, container_client, list_blobs, etc.). The API patterns are idiomatic for the azure-storage-blob Python SDK. However, the code is truncated mid-function \u2014 the backup() method is incomplete and the restore functionality is entirely missing, which are critical parts of the task. The MD5 comparison logic using content_settings.content_md5 has a potential issue since that property is already bytes in the Python SDK rather than base64-encoded string, but the approach is reasonable. The code that is present is well-structured with good documentation and type hints.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with no cross-language contamination. It uses the azure-storage-blob SDK correctly and idiomatically, including DefaultAzureCredential, BlobServiceClient, ContentSettings, and proper blob operations. However, the code is truncated mid-function \u2014 the restore_files function is cut off during the download step, and the argparse main block is missing entirely, meaning the --restore flag handling and CLI entry point are absent. The MD5 comparison logic has a potential issue: content_md5 from Azure is returned as bytes (not base64 string), so the base64.b64decode call may be incorrect depending on SDK version. The import of base64 and mimetypes inside function bodies is a minor style issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "upload_blob|download_blob",
+                  "matched": true
+                },
+                {
+                  "pattern": "container_client|blob_client",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "md5|hashlib",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.storage\\.blob import BlobServiceClient|BlobClient",
+                "DefaultAzureCredential",
+                "upload_blob|download_blob",
+                "container_client|blob_client",
+                "os\\.walk|pathlib",
+                "md5|hashlib"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "ContainerRegistryClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_repository_names",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_manifest_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "delete_manifest",
+                  "matched": false
+                },
+                {
+                  "pattern": "list_tag_properties",
+                  "matched": false
+                },
+                {
+                  "pattern": "azurecr\\.io",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

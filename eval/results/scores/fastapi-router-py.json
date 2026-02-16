@@ -1,0 +1,3848 @@
+{
+  "skill_name": "fastapi-router-py",
+  "scored_at": "2026-02-16T13:06:45.101900+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.0,
+  "risk_level": "control",
+  "test_category": "negative_control_code",
+  "tasks": [
+    {
+      "task_id": "fastapi-router-py-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns \u2014 proper use of APIRouter, Depends, Query, Pydantic v2 models (from_attributes, model_dump, model_copy), and status codes. All requested CRUD endpoints are present with correct HTTP methods, status codes (201, 204), pagination, and auth dependency on mutation endpoints. However, the code is truncated at the end of the delete endpoint, cutting off the actual deletion logic, which slightly impacts functional correctness. The use of datetime.utcnow() is deprecated in newer Python but is a minor issue. Overall, this is well-structured, well-documented code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with proper FastAPI/Pydantic idioms. The Pydantic models are well-structured using modern v2 patterns (model_config, model_dump with exclude_unset). However, the actual router file (routers/projects.py) with the CRUD endpoints is missing \u2014 the code is truncated after the service layer, so the core deliverable (the FastAPI router with endpoints, status codes, Depends(get_current_user_required), pagination query params) is absent. The service layer and models are good quality but only partially fulfill the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "app\\.get\\(|app\\.post\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The output includes XML-like tool-use tags (`<read_file>`, `<write_file>`, `<list_dir>`) that are artifacts of an agentic coding assistant workflow, not standard Python code"
+              ],
+              "brief_assessment": "The code is entirely valid Python using idiomatic FastAPI patterns \u2014 proper use of APIRouter, Depends, Query with Annotated, Pydantic model_validate, status codes, and response_model. However, the code is incomplete: the delete endpoint is truncated (missing the actual `await service.delete_project(project_id)` call), the Pydantic schema definitions (ProjectCreate, ProjectUpdate, ProjectResponse) and the ProjectService are not provided, making it impossible to run standalone. The inclusion of agentic tool-use XML tags in the output is unprofessional but does not constitute cross-language contamination in the Python code itself.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "app\\.get\\(|app\\.post\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI and Pydantic v2 patterns (APIRouter, Depends, Query, response_model, status codes, model_dump, model_copy, from_attributes). All requested CRUD endpoints are present with correct status codes (201 for POST, 204 for DELETE), pagination via skip/limit, proper Pydantic models, and auth dependency on mutation endpoints. The only issue is that the delete endpoint is truncated \u2014 the final HTTPException for the authorization check is cut off mid-word ('HTTPExc'), which means the code would not run as-is. Otherwise, this is well-structured, well-documented, production-style code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with proper FastAPI/Pydantic idioms. The Pydantic models are well-structured using Field validators and from_attributes config. However, the code is clearly truncated \u2014 the singleton service instance is cut off mid-variable, and critically, the main router file (projects.py) with the actual CRUD endpoints, Depends(get_current_user_required), status codes (201, 204), and pagination query params is never shown. Only the models and partial service layer are provided, so the core requirement of a FastAPI router with CRUD endpoints is missing.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "app\\.get\\(|app\\.post\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic FastAPI patterns (APIRouter, Depends, Query with Annotated, status codes, Pydantic response_model). However, the code is truncated mid-function in the delete endpoint and critically missing the Pydantic schema definitions (ProjectCreate, ProjectUpdate, ProjectResponse) and the ProjectService, which are imported but never defined. The router itself covers all required CRUD endpoints with correct status codes (201, 204), pagination via skip/limit, and auth dependencies on mutation endpoints, but the incomplete delete handler and missing schemas/service reduce functional completeness. The inclusion of tool-calling XML artifacts (read_file, write_file) in the output is unprofessional but not a language contamination issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns: APIRouter with prefix/tags, Pydantic v2 models with Field constraints and from_attributes, Query params for pagination, Depends for auth, proper HTTP status codes, and model_dump(exclude_unset=True) for partial updates. All requested endpoints and Pydantic models are present, auth dependency is correctly applied to mutation endpoints (POST, PUT, DELETE), and read endpoints are unprotected as specified. The only issue is that the DELETE endpoint is truncated \u2014 the function body is cut off mid-comment, so the delete logic is incomplete, preventing a perfect functional correctness score.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with proper FastAPI/Pydantic idioms. The Pydantic models and service layer are well-structured with good use of model_dump(exclude_unset=True) and from_attributes. However, the code is clearly truncated \u2014 the actual router file (routers/projects.py) with the CRUD endpoints is never shown, which means the core deliverable (the FastAPI router with endpoints, status codes, pagination, and auth dependencies) is missing. Only the models and a partial service layer are provided, leaving the primary task incomplete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": true
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "app\\.get\\(|app\\.post\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 2,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [
+                "XML-like tool invocation tags (<read_file>, <write_file>, <list_dir>) instead of actual Python code",
+                "No actual Python code was generated - only tool commands and descriptions",
+                "The <write_file> blocks contain no file content - they are empty",
+                "One tag is malformed: closing </read_file> used instead of </write_file>"
+              ],
+              "brief_assessment": "This output contains zero actual Python code. It consists entirely of tool invocation XML tags (read_file, write_file, list_dir) with empty file contents, followed by a markdown summary describing what *would* have been implemented. No Pydantic models, no FastAPI router, no endpoints, and no functional code of any kind were produced. The response appears to be a confused agent trace rather than generated code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*APIRouter|Router",
+                  "matched": false
+                },
+                {
+                  "pattern": "router = APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED|status_code=201",
+                  "matched": false
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(get_current_user",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "from fastapi import.*APIRouter|Router",
+                "router = APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED|status_code=201",
+                "status\\.HTTP_204_NO_CONTENT|status_code=204",
+                "Depends\\(get_current_user"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "require\\(|import\\s+express",
+                  "matched": false
+                },
+                {
+                  "pattern": "app\\.get\\(|app\\.post\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+router",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class|@RestController",
+                  "matched": false
+                },
+                {
+                  "pattern": "func\\s+\\(.*http\\.ResponseWriter",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "fastapi-router-py-02",
+      "task_type": "cross_language",
+      "target_language": "ruby",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby on Rails code with no cross-language contamination. The controller properly implements all RESTful actions with strong parameters, before_action callbacks for authentication and authorization, correct HTTP status codes (201 for create, 204 for destroy), and Kaminari-style pagination. The code goes beyond the requirements by including a well-structured model with validations and scopes, routes, application controller with token authentication, and a migration. The only trivial issue is a truncated index name (`created_a` instead of `created_at`) in the migration, which appears to be a copy/paste truncation rather than a conceptual error.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby on Rails code with no cross-language contamination. All RESTful actions are implemented correctly with proper HTTP status codes (201 for create, 204 for destroy), strong parameters via `project_params`, `before_action` for authentication, and Kaminari-style pagination. The code goes beyond requirements with authorization, error handling, pagination metadata, and supporting model/routes files. The only minor issue is the model file is truncated at the very end (missing closing quote and `end` keywords), but this doesn't affect the controller which is the primary deliverable.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby on Rails code with no cross-language contamination. It correctly implements all RESTful actions with proper HTTP status codes (201 for create via :created, 204 for destroy via :no_content), strong parameters, before_action callbacks for authentication and authorization, and Kaminari-based pagination with metadata. The code follows Rails conventions throughout, including rescue of ActiveRecord::RecordNotFound, symbolic status codes, and proper use of as_json for JSON serialization. The addition of authorization logic and pagination metadata goes beyond the minimum requirements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby on Rails code with no cross-language contamination. All RESTful actions are implemented correctly with proper HTTP status codes (201 for create, 204 for destroy), strong parameters via project_params, before_action for authentication, and Kaminari-style pagination. The code goes above and beyond by including the model, routes, application controller with token authentication, authorization logic, and comprehensive cURL examples. The only minor note is the spec file is truncated, but all requested functionality is fully present and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby on Rails code with no cross-language contamination. All RESTful actions are implemented correctly with proper HTTP status codes (201 for create, 204 for destroy), strong parameters via project_params, before_action for authentication, and Kaminari-style pagination. The code goes above and beyond by including supporting files (routes, model, application controller), authorization logic, and well-structured JSON response formatting. The only minor observation is that the ApplicationController file appears slightly truncated at the end, but all required functionality is fully present in the main controller.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Ruby on Rails. It implements all requested RESTful actions (index with pagination via Kaminari, show, create, update, destroy) with strong parameters, before_action for authentication, and correct HTTP status codes (201 for create, 204 for destroy). The controller goes beyond the minimum by including authorization, pagination metadata, error handling for RecordNotFound, and even provides a model, migration, routes, and specs. No cross-language contamination detected; all patterns are standard Rails conventions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby on Rails code with no cross-language contamination. All RESTful actions are implemented correctly with proper HTTP status codes (201 for create, 204 for destroy), strong parameters, before_action for authentication, and Kaminari-style pagination. The code goes above and beyond by including a well-structured model, application controller with token authentication, routes, error handling with rescue_from, and authorization logic \u2014 all following Rails conventions perfectly.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, fully idiomatic Ruby on Rails code with no cross-language contamination. The controller correctly implements all RESTful actions with proper HTTP status codes (201 for create, 204 for destroy), strong parameters via project_params, before_action callbacks for authentication and authorization, and Kaminari-style pagination. The inclusion of supporting files (routes, model, migration) goes beyond the requirements and demonstrates production-quality Rails conventions. The only minor note is that set_project uses find_by with a manual not-found check rather than find with rescue, but both are valid Rails patterns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [
+                "as_json(include_associations: false) is not a standard Rails as_json option \u2014 the correct option would be `include: []` or similar; this could be a confusion with another serialization library",
+                "accessible_by is a CanCanCan method being used in a controller that implements its own manual authorization rather than using CanCanCan consistently"
+              ],
+              "brief_assessment": "The code is entirely valid Ruby on Rails and implements all requested features: RESTful actions, pagination, strong parameters, authentication before_action, and correct HTTP status codes (201 for create, 204 for destroy). Minor issues include the use of `as_json(include_associations: false)` which is not a standard Rails option (the correct keyword is `include`), and the mixing of `accessible_by` (a CanCanCan pattern) with manual authorization logic. The `authorize_project` callback has a subtle issue where it won't halt the action chain if `@project` is nil (when `set_project` already rendered a 404), but overall the code is well-structured and production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*Controller.*<.*ApplicationController",
+                  "matched": true
+                },
+                {
+                  "pattern": "def index|def show|def create",
+                  "matched": true
+                },
+                {
+                  "pattern": "before_action",
+                  "matched": true
+                },
+                {
+                  "pattern": "render json:",
+                  "matched": true
+                },
+                {
+                  "pattern": "params\\.require|permit",
+                  "matched": true
+                },
+                {
+                  "pattern": "status:\\s*:created|:no_content",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class.*Controller.*<.*ApplicationController",
+                "def index|def show|def create",
+                "before_action",
+                "render json:",
+                "params\\.require|permit",
+                "status:\\s*:created|:no_content"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(.*:\\s+str",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "fastapi-router-py-03",
+      "task_type": "similar_syntax",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using idiomatic Flask-RESTful patterns with proper marshmallow schemas and a JWT decorator. It correctly implements the Blueprint, schemas, authentication, and the list/create endpoints. However, the code is truncated mid-function in ProjectResource, so the GET-single, PUT, and DELETE endpoints are missing, as well as the route registration (api.add_resource calls). This means roughly 40-50% of the CRUD functionality is absent, significantly impacting completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": true
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": true
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json",
+                "jsonify",
+                "marshmallow|Schema",
+                "@.*route\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using idiomatic Flask, marshmallow, and PyJWT patterns. The marshmallow schemas are well-constructed with proper validation, and the JWT decorator extraction logic follows standard Flask patterns. However, the code is clearly truncated \u2014 the JWT decorator implementation is cut off mid-function, and the main blueprint file (projects.py) with the actual CRUD route handlers is never shown, meaning the core deliverable is missing. The project service layer and model are also absent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": false
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": true
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "jsonify",
+                "marshmallow|Schema",
+                "@.*route\\("
+              ],
+              "expected_misses": [
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 1,
+              "functional_correctness": 2,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Code explicitly uses FastAPI instead of the requested Flask framework",
+                "Uses Pydantic BaseModel instead of marshmallow schemas as requested",
+                "Uses FastAPI Depends() dependency injection instead of Flask decorators for JWT auth",
+                "Uses FastAPI HTTPBearer security scheme instead of Flask JWT decorator pattern",
+                "Uses FastAPI APIRouter instead of Flask Blueprint",
+                "Uses SQLAlchemy async patterns typical of FastAPI rather than Flask-SQLAlchemy",
+                "The AI explicitly states 'I notice this project uses FastAPI, not Flask' and deliberately ignores the user's request"
+              ],
+              "brief_assessment": "The code is entirely in Python but uses the completely wrong framework \u2014 FastAPI instead of the explicitly requested Flask. The AI deliberately chose to ignore the user's requirement for Flask blueprints, marshmallow schemas, and JWT decorators, instead generating FastAPI routers with Pydantic models and FastAPI dependency injection. Additionally, the code is truncated mid-function (get_project method is cut off), and the service layer is incomplete, meaning even the FastAPI implementation doesn't fully accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": false
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": false
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "marshmallow|Schema"
+              ],
+              "expected_misses": [
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json",
+                "jsonify",
+                "@.*route\\("
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 6,
+              "expected_hit_rate": 0.3333333333333333,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "from fastapi",
+                "APIRouter",
+                "Depends\\(",
+                "response_model=",
+                "BaseModel",
+                "Query\\(|Path\\("
+              ],
+              "anti_pattern_hit_count": 6,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 1.0,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic Flask-RESTful patterns with proper marshmallow schemas, JWT authentication decorator, and Blueprint registration. However, the code is clearly truncated mid-function \u2014 the ProjectResource class's get method is cut off, and the PUT and DELETE endpoints are missing, along with the API route registration (api.add_resource calls). This means roughly half the CRUD operations (update, delete, and the single-get completion) are absent. The implemented portions are well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": true
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": true
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json",
+                "jsonify",
+                "marshmallow|Schema",
+                "@.*route\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using idiomatic Flask patterns \u2014 blueprints, marshmallow schemas, JWT decorators with functools.wraps, Flask's g object, and proper HTTP status code tuples. The schemas, auth decorators, and structure are well-designed. However, the code is clearly truncated: the jwt_optional decorator is cut off, and critically, the main blueprint file (projects.py) with the actual CRUD route handlers and the project model/service are never shown. Since the core deliverable \u2014 the blueprint with CRUD endpoints \u2014 is missing, it only partially accomplishes the task despite excellent quality in what is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": false
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": true
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "Blueprint\\(",
+                "jsonify",
+                "marshmallow|Schema",
+                "@.*route\\("
+              ],
+              "expected_misses": [
+                "request\\.json|request\\.get_json"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 1,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "User requested Flask blueprint with app.register_blueprint() but code uses FastAPI router pattern",
+                "User requested marshmallow schemas but code uses Pydantic BaseModel/Field",
+                "User requested Flask-RESTful or plain Flask routes but code uses FastAPI/SQLAlchemy async patterns",
+                "User requested JWT authentication via a decorator but no JWT decorator is implemented",
+                "Code uses FastAPI's ConfigDict(from_attributes=True) instead of Flask/marshmallow patterns",
+                "Code uses SQLAlchemy async session (AsyncSession) typical of FastAPI rather than Flask-SQLAlchemy",
+                "The AI explicitly states 'I notice this project uses FastAPI, not Flask' and deliberately ignores the user's Flask requirement"
+              ],
+              "brief_assessment": "The code is valid Python but completely ignores the user's request for Flask. Instead it implements a FastAPI router with Pydantic schemas, async SQLAlchemy, and no marshmallow or Flask blueprint in sight. The AI explicitly acknowledged the mismatch and chose FastAPI anyway. Additionally, the code is truncated mid-function (delete_project is cut off), the router/endpoint definitions are missing entirely, and JWT authentication is not implemented. This fails the core requirements of the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": false
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": false
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "marshmallow|Schema"
+              ],
+              "expected_misses": [
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json",
+                "jsonify",
+                "@.*route\\("
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 6,
+              "expected_hit_rate": 0.3333333333333333,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "from fastapi",
+                "APIRouter",
+                "Depends\\(",
+                "response_model=",
+                "BaseModel",
+                "Query\\(|Path\\("
+              ],
+              "anti_pattern_hit_count": 6,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 1.0,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using Flask, Flask-RESTful, marshmallow, and PyJWT idiomatically. Schemas, JWT decorator, Blueprint registration, and the Flask-RESTful Api/Resource pattern are all correct and idiomatic. However, the code is clearly truncated: it only implements the ProjectListResource (GET list and POST) but is missing the ProjectDetailResource for single-project GET, PUT/PATCH, and DELETE endpoints, meaning roughly half the CRUD functionality is absent. The missing POST error handler also lacks a status code. Overall code quality is good with pagination, filtering, and proper validation, but incompleteness is a significant gap.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": true
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": true
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json",
+                "jsonify",
+                "marshmallow|Schema",
+                "@.*route\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic Flask, marshmallow, and PyJWT APIs. The schemas, JWT decorator, and project structure are well-designed. However, the code is clearly truncated \u2014 the JWT decorator is cut off mid-function, and the actual blueprint file (projects.py) with CRUD endpoints and the project model/service are never shown, meaning the core deliverable (the registerable blueprint with CRUD routes) is missing. This significantly impacts functional completeness despite the high quality of what is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": false
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": true
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "Blueprint\\(",
+                "jsonify",
+                "marshmallow|Schema",
+                "@.*route\\("
+              ],
+              "expected_misses": [
+                "request\\.json|request\\.get_json"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": false
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": false
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 1,
+              "functional_correctness": 2,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Code explicitly uses FastAPI (APIRouter, Pydantic schemas) instead of the requested Flask framework",
+                "Uses Pydantic BaseModel/Field instead of marshmallow schemas as requested",
+                "Uses FastAPI's async patterns with SQLAlchemy AsyncSession instead of Flask patterns",
+                "Uses FastAPI's ConfigDict(from_attributes=True) instead of marshmallow's Meta class",
+                "No Flask Blueprint created - uses FastAPI router concept instead",
+                "No marshmallow schema validation as requested",
+                "No JWT decorator as requested - would likely use FastAPI Depends() pattern",
+                "The AI explicitly acknowledged it was ignoring the Flask requirement and building FastAPI instead"
+              ],
+              "brief_assessment": "The code is written in Python but completely ignores the user's request for Flask, instead implementing a FastAPI solution. The AI explicitly states it noticed 'this project uses FastAPI, not Flask' and proceeds to build FastAPI code with Pydantic schemas instead of the requested Flask blueprint with marshmallow schemas and JWT decorator. The code is also truncated mid-function (create_project is cut off), and includes non-code artifacts like function_calls XML tags from an agent tool-use interface. This is a fundamental framework contamination \u2014 not cross-language, but cross-framework \u2014 and fails to deliver the requested Flask blueprint, marshmallow validation, or JWT authentication decorator.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from flask import.*Blueprint|Flask",
+                  "matched": true
+                },
+                {
+                  "pattern": "Blueprint\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "request\\.json|request\\.get_json",
+                  "matched": false
+                },
+                {
+                  "pattern": "jsonify",
+                  "matched": false
+                },
+                {
+                  "pattern": "marshmallow|Schema",
+                  "matched": true
+                },
+                {
+                  "pattern": "@.*route\\(",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "from flask import.*Blueprint|Flask",
+                "marshmallow|Schema"
+              ],
+              "expected_misses": [
+                "Blueprint\\(",
+                "request\\.json|request\\.get_json",
+                "jsonify",
+                "@.*route\\("
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 6,
+              "expected_hit_rate": 0.3333333333333333,
+              "anti_results": [
+                {
+                  "pattern": "from fastapi",
+                  "matched": true
+                },
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "BaseModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "Query\\(|Path\\(",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "from fastapi",
+                "APIRouter",
+                "Depends\\(",
+                "response_model=",
+                "BaseModel",
+                "Query\\(|Path\\("
+              ],
+              "anti_pattern_hit_count": 6,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 1.0,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "fastapi-router-py-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns. All six requested improvements are properly implemented: APIRouter with prefix/tags, response_model annotations, proper status codes (201, 204), 404 handling, HTTPBearer authentication dependency, and descriptive function names. The code also includes good extras like docstrings, type hints, separate input/response models, and a clear usage example. The only minor nitpick is using `.dict()` (deprecated in Pydantic v2 in favor of `.model_dump()`) but this is valid for Pydantic v1 and still works in v2 with a deprecation warning, so it's not a real issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python/FastAPI with no cross-language contamination. It addresses all six requested fixes: uses APIRouter, adds response_model annotations, uses proper status codes (201, 204), includes 404 handling, adds authentication dependencies, and uses descriptive function names. It goes beyond the requirements by adding PATCH/list endpoints, ownership checks, field validation with Pydantic Field, docstrings, and an integration example. The only minor concern is that the auth imports reference modules (app.auth.jwt, app.models.user) that aren't provided, but this is a reasonable design pattern for a real application and doesn't affect correctness of the router code itself.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python/FastAPI with no cross-language contamination. It addresses all six requested improvements (APIRouter, response_model, status codes 201/204, 404 handling, authentication dependency, descriptive names) and goes beyond by adding PATCH/list endpoints, ownership checks, separate request/response models, docstrings, and async definitions. The only minor caveat is that the auth imports reference hypothetical modules (src.auth.jwt, src.models), but this is reasonable for a refactored project structure. The ID generation via `len(items) + 1` could produce collisions after deletions, but this was present in the original code and the task didn't specifically ask to fix it.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns. All six requested improvements are properly implemented: APIRouter usage, response_model annotations, correct status codes (201, 204), 404 handling, HTTPBearer authentication dependency, and descriptive function names. Additional quality improvements include renaming `id` to `item_id` to avoid shadowing the built-in, proper type hints, docstrings, and a separate ItemResponse model. The only minor note is that the ID generation strategy (len(items) + 1) could produce collisions after deletions, but this was present in the original code and not part of the requested fixes.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns. It addresses all six requested improvements: APIRouter usage, response_model annotations, proper status codes (201/204), 404 handling, authentication dependency, and descriptive function names. It also adds ownership checks and async endpoints as bonuses. The minor functional issue is that get_item references 'get_current_user' (an undefined/unimported dependency) while create_item and delete_item use 'get_current_user_required' (which is imported), and the ItemResponse model with owner_id won't be fully usable without the external auth modules. The ID generation strategy (len(items)+1) is still fragile after deletions, but is acknowledged as in-memory placeholder. Overall this is high-quality, well-documented code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns: APIRouter with prefix/tags, Depends for auth, proper status codes, response_model annotations, Pydantic models with Config, and async endpoints. All six requested fixes are implemented. The only functional concern is the dependency on external modules (src.auth.jwt.get_current_user_required, src.models.User) that aren't defined, making it not self-contained, though this is a reasonable design choice. The added ownership check on delete and comprehensive docstrings go beyond requirements, demonstrating high code quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [
+                "item.dict() is deprecated in Pydantic v2 in favor of item.model_dump(), though it still works in Pydantic v1"
+              ],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns. All six requested fixes are properly implemented: APIRouter with prefix/tags, response_model annotations, proper status codes (201, 204), 404 handling, HTTPBearer authentication dependency, and descriptive function names. The only minor issue is using item.dict() which is a Pydantic v1 pattern (deprecated in v2 in favor of model_dump()), but this is a trivial version-dependent concern rather than cross-language contamination. The code also includes thoughtful extras like avoiding shadowing the built-in `id`, async functions, docstrings, and OpenAPI summaries.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns throughout. All six requested fixes are properly implemented: APIRouter is used instead of app directly, response_model annotations are present on all endpoints, proper status codes (201, 204) are used, 404 handling is added for missing items, authentication dependencies are included via Depends(), and function names are descriptive. The code goes beyond requirements by adding a list endpoint, ownership authorization checks, separate create/response models, docstrings, and an integration example. The only minor note is that the auth imports reference modules that don't exist in the codebase, but this is a reasonable architectural assumption and clearly documented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using idiomatic FastAPI patterns: APIRouter with prefix/tags, Depends for auth, HTTPException with status constants, Pydantic models with Config, async endpoints, and proper type hints. All six requested fixes are implemented. The only concern is that it imports from hypothetical modules (app.auth.jwt, app.models.user) that don't exist in the provided context, making it not runnable as-is, and the ID generation scheme (len(items)+1) will produce collisions after deletions \u2014 but these are minor practical issues. The ownership check on delete and optional auth on get are thoughtful additions beyond what was requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "APIRouter",
+                  "matched": true
+                },
+                {
+                  "pattern": "response_model=",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_201_CREATED",
+                  "matched": true
+                },
+                {
+                  "pattern": "status\\.HTTP_204_NO_CONTENT",
+                  "matched": true
+                },
+                {
+                  "pattern": "HTTPException.*404|status_code=404",
+                  "matched": false
+                },
+                {
+                  "pattern": "Depends\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "APIRouter",
+                "response_model=",
+                "status\\.HTTP_201_CREATED",
+                "status\\.HTTP_204_NO_CONTENT",
+                "Depends\\("
+              ],
+              "expected_misses": [
+                "HTTPException.*404|status_code=404"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports",
+                  "matched": false
+                },
+                {
+                  "pattern": "public class",
+                  "matched": false
+                },
+                {
+                  "pattern": "@Controller",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "fastapi-router-py-05",
+      "task_type": "adjacent_domain",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct FastAPI WebSocket API usage and good structural design including a ConnectionManager class, message dataclass, heartbeat monitoring, and proper async patterns. However, the code is clearly truncated mid-function (cuts off in the `connect` method), meaning significant portions of the implementation are missing \u2014 including the rest of connect, disconnect, broadcast, the WebSocket endpoint, and room leave logic. What is present is well-structured and idiomatic, with no cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new WebSocket\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic FastAPI/Pydantic usage. It demonstrates good structure with a ConnectionManager class, Pydantic models for messages, proper type hints, and asyncio-based heartbeat monitoring. However, the code is clearly truncated mid-function (the `disconnect` method is cut off), meaning significant portions of the task\u2014broadcasting, leave handling, the actual WebSocket endpoint, and graceful disconnection logic\u2014are missing from the visible implementation. It also imports from hypothetical internal modules (app.auth.jwt, app.models.user) which is reasonable for a project structure but not self-contained.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [
+                "from fastapi import.*WebSocket"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic FastAPI WebSocket API usage, including proper use of `websocket.accept()`, `send_json()`, and async/await patterns. The ConnectionManager class is well-structured with good documentation, type hints, and logging. However, the code is clearly truncated \u2014 it cuts off mid-method (`get_all_rooms`), and critically, the FastAPI app definition, the actual WebSocket endpoint routes (join/leave rooms, message handling), and the heartbeat loop (`_heartbeat_loop`) are all missing. This means significant portions of the requested functionality (the server endpoint, ping-pong handling, room join/leave protocol) are not present in the generated output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using FastAPI's WebSocket support idiomatically, with proper async/await patterns, Pydantic models, and correct use of WebSocket accept/send_json/receive_text APIs. However, the code is clearly truncated mid-function (cuts off in the docstring of broadcast_to_room), meaning key functionality like the actual broadcast loop, heartbeat/ping-pong handling, the WebSocket endpoint route, and graceful disconnection logic are missing. What is present is well-structured with good logging, type hints, and a clean ConnectionManager design.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new WebSocket\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct FastAPI WebSocket idioms and well-structured Pydantic models. However, the code is clearly truncated mid-implementation \u2014 the disconnect method, broadcast logic, heartbeat monitor coroutine, and the actual WebSocket router endpoint are all missing. The implemented portions (models, ConnectionManager initialization, connect method) are high quality and idiomatic, but significant task requirements (broadcast, leave/disconnect handling, ping-pong, graceful disconnection, the actual WebSocket endpoint) are absent due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic FastAPI WebSocket API usage (websocket.accept(), send_text(), WebSocketDisconnect, etc.) and correct use of Pydantic models with model_dump_json(). The ConnectionManager class is well-designed with proper room tracking, broadcast functionality, and heartbeat infrastructure. However, the code is clearly truncated mid-function \u2014 the get_room_count method is cut off, and critically, the actual FastAPI endpoint/route handler for the WebSocket (the @app.websocket decorator with the message receive loop), the heartbeat_loop implementation, and graceful disconnection handling are all missing. This means roughly half the requested functionality (the server endpoint, join/leave protocol, ping-pong handling) is not present in the generated output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic FastAPI WebSocket usage, proper use of dataclasses, asyncio, and type hints. The code is well-structured with a clean ConnectionManager class, Message/Client dataclasses, and proper enum usage. However, the code is clearly truncated mid-function (broadcast_to_room is cut off), meaning several critical features are incomplete: the broadcast implementation, heartbeat monitor, user list methods, and the actual WebSocket endpoint/route handler are all missing. This significantly impacts functional completeness despite the high quality of what is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new WebSocket\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic FastAPI/Pydantic usage and well-structured models and connection manager design. However, the code is clearly truncated mid-function (the disconnect method is cut off), and critical components like the WebSocket router endpoint, the heartbeat loop implementation, the broadcast method, and the main.py mounting are missing entirely. This means less than half of the required functionality (room join/leave, broadcasting, heartbeat/ping-pong, graceful disconnection) is actually implemented. What is present is high quality with good typing, logging, and documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of FastAPI's WebSocket support, Pydantic models, asyncio, and standard library features. The ConnectionManager design is well-structured with proper tracking of rooms, connections, and users, plus heartbeat monitoring. However, the code is clearly truncated mid-function (cut off during `disconnect` method), leaving out the remainder of the disconnect logic, broadcast implementation, heartbeat monitor coroutine, ping-pong handling, the actual FastAPI endpoint, and graceful shutdown \u2014 significant gaps that prevent it from fully accomplishing the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from fastapi import.*WebSocket",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebSocketDisconnect",
+                  "matched": true
+                },
+                {
+                  "pattern": "websocket\\.accept|websocket\\.send",
+                  "matched": true
+                },
+                {
+                  "pattern": "class.*ConnectionManager|class.*Manager",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def",
+                  "matched": true
+                },
+                {
+                  "pattern": "await websocket",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from fastapi import.*WebSocket",
+                "WebSocketDisconnect",
+                "websocket\\.accept|websocket\\.send",
+                "class.*ConnectionManager|class.*Manager",
+                "async def",
+                "await websocket"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "socket\\.io|socketio",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*ws|import.*ws",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+wss",
+                  "matched": false
+                },
+                {
+                  "pattern": "io\\.on\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "new WebSocket\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "channels\\.py|consumers\\.py",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3243 @@
+{
+  "skill_name": "upgrade-stripe",
+  "scored_at": "2026-02-16T05:53:30.645320+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.93,
+  "risk_level": "high",
+  "test_category": "multi_sdk",
+  "tasks": [
+    {
+      "task_id": "upgrade-stripe-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with proper use of the stripe Python SDK. It correctly pins the API version, creates customers with email/metadata, creates subscriptions with price IDs, and handles Stripe exceptions comprehensively. The code is truncated (the `create_customer_with_subscription` method is cut off), costing it on completeness, but the core requested functionality is fully implemented. One minor note: in newer versions of the stripe library (v6+), exceptions are under `stripe.StripeError` rather than `stripe.error.StripeError`, but the pattern used here is correct for the widely-used v5.x and earlier SDKs.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with proper type hints, logging, and class structure. It correctly uses the stripe Python SDK's module-level configuration (stripe.api_key, stripe.api_version) and resource-based API calls (stripe.Customer.create, stripe.Subscription.create) with appropriate exception handling using stripe.error.* exceptions. The code is truncated at the end (create_customer_with_subscription is cut off), which slightly impacts functional correctness, but the core required functionality (client initialization with pinned API version, customer creation with email/metadata, subscription creation with price ID, and Stripe exception handling) is fully implemented. The return type annotations suggesting Optional[...] while the methods always either return or raise is a minor inconsistency.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "StripeClient",
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "StripeErrorWithParamCode is not a real class in stripe.error \u2014 likely hallucinated or confused with another SDK",
+                "stripe_version is not a valid keyword argument to stripe.Customer.create() or stripe.Subscription.create(); this is a module-level or client-level setting, not a per-call parameter",
+                "Methods are declared as async but call synchronous stripe SDK methods (stripe.Customer.create, stripe.Subscription.create) without await \u2014 mixing async declaration with sync calls",
+                "Importing from stripe.error is the older pattern; newer stripe-python versions use stripe instead, though stripe.error still works for backward compatibility"
+              ],
+              "brief_assessment": "The code is in Python and follows a reasonable structure with logging, docstrings, and layered error handling. However, it has notable issues: the methods are declared async but invoke synchronous Stripe API calls without awaiting anything, the `stripe_version` parameter is incorrectly passed as a keyword argument to individual API calls rather than being set at the client/module level, and `StripeErrorWithParamCode` is not a real Stripe exception class. The code is also truncated mid-function, leaving the `create_customer_with_subscription` method incomplete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with no foreign language patterns. It uses the older `stripe.error.*` exception hierarchy (pre-v6 style with `stripe.error` instead of `stripe.StripeError`, etc.) and sets the global `stripe.api_key` rather than using the newer `stripe.StripeClient` constructor, but this is still a valid and widely-used pattern in the Python SDK. The code is truncated at the end (the final `except Exception` block is cut off), which slightly impacts functional correctness and code quality, but the vast majority of the task\u2014initializing with a pinned API version, creating a customer with email/metadata, creating a subscription with a price ID, and handling Stripe exceptions\u2014is implemented. Overall, this is well-structured, well-documented code with only minor issues.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct Stripe Python SDK usage (stripe.Customer.create, stripe.Subscription.create, stripe.error.* exceptions, module-level api_key/api_version settings). The API version pinning and error handling are properly implemented. The code is truncated\u2014the create_customer_with_subscription method is cut off mid-definition\u2014which prevents a perfect functional correctness score, but the core tasks (customer creation and subscription creation) are fully implemented. The use of stripe.error.* exception hierarchy is idiomatic for the Python SDK with no foreign SDK patterns detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Import of non-existent 'StripeErrorWithParamCode' from stripe.error",
+                "Methods are declared as 'async' but call synchronous stripe.Customer.create() and stripe.Subscription.create() without await \u2014 the stripe-python SDK's synchronous API doesn't return coroutines",
+                "stripe.error module path is outdated/incorrect in newer stripe-python versions (should be stripe.StripeError etc. for newer SDK, or stripe.error for older)",
+                "Use of e.user_message which is not a standard attribute on all Stripe exception classes (correct attribute is e.user_message for some but str(e) is more reliable)"
+              ],
+              "brief_assessment": "The code is valid Python and demonstrates good structure with logging, type hints, and docstrings. However, it has several issues: methods are declared async but call synchronous Stripe SDK methods without await, which means they won't actually work correctly as coroutines. It imports the non-existent 'StripeErrorWithParamCode'. The code is also truncated \u2014 the create_customer_with_subscription method is cut off mid-implementation, leaving the cleanup/rollback logic incomplete. The overall approach to error handling is reasonable but overly verbose with repetitive except blocks.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct syntax and idiomatic patterns. It uses the older `stripe.error.*` exception hierarchy (which was the standard before the newer `stripe` v2+ SDK introduced `stripe.StripeError` directly), but this is still valid and widely used. The code properly initializes the API version, creates customers with email/metadata, and creates subscriptions with a price ID, all with comprehensive error handling. The code is truncated at the `create_customer_with_subscription` convenience method, but the core required functionality (customer creation and subscription creation) is fully implemented. The docstrings claim returning None on failure but actually re-raise exceptions, which is a minor inconsistency.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct Stripe Python SDK usage patterns. It properly pins the API version, creates customers with email/metadata, and creates subscriptions with a price ID. Error handling correctly uses stripe.error exception classes. Minor issues: the code is truncated (create_customer_with_subscription is incomplete), the `e.user_message` attribute is not standard on all Stripe exceptions (typically `str(e)` or `e.user_message` on CardError specifically), and `e.decline_code` is accessed as an attribute rather than via `e.json_body`. The `stripe.error` import path is correct for older stripe library versions but newer versions use `stripe` directly \u2014 this is a minor idiomatic concern.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Methods are declared as `async` but call synchronous `stripe.Customer.create()` and `stripe.Subscription.create()` \u2014 the Python Stripe SDK does not have native async support for these methods, suggesting possible confusion with a Node.js/JS async pattern",
+                "Import of `StripeErrorWithParamCode` which is not a standard class in the `stripe.error` module",
+                "Passing `stripe_version` as a keyword argument to `stripe.Customer.create()` and `stripe.Subscription.create()` \u2014 the per-request version override in the Python SDK is done via `stripe_version` on the `stripe.api_key` or request options, not as a direct parameter to `.create()`. This may reflect patterns from the Node.js SDK where options are passed inline.",
+                "Use of `e.user_message` \u2014 the standard Python Stripe SDK exception attribute is `e.user_message` in some versions but more commonly accessed differently; this is minor but slightly suspect"
+              ],
+              "brief_assessment": "The code is valid Python and covers the requested task (customer creation, subscription creation, error handling, API version pinning). However, the methods are declared `async` while calling synchronous Stripe SDK methods, which is a significant idiom mismatch \u2014 likely influenced by Node.js patterns where Stripe calls are inherently async. The `stripe_version` parameter passed directly to `.create()` calls is not standard in the Python SDK (it should be passed via request options or set globally). The `StripeErrorWithParamCode` import doesn't exist in the standard library. Despite these issues, the overall structure, logging, docstrings, and error handling hierarchy are well done.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "StripeClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.customers\\.create|client\\.customers\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "stripe\\.api_version"
+              ],
+              "expected_misses": [
+                "StripeClient",
+                "v1\\.customers\\.create|client\\.customers\\.create",
+                "v1\\.subscriptions\\.create|client\\.subscriptions\\.create",
+                "stripe\\.StripeError|stripe\\.CardError|stripe\\.InvalidRequestError"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Customer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "upgrade-stripe-02",
+      "task_type": "cross_language",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with no foreign language patterns. It correctly uses the stripe-go v76 library with idiomatic patterns including package-level functions (customer.Get, customer.Update, paymentmethod.Attach), stripe.String() helpers, iterator patterns for listing, and proper error wrapping. The API version is set via stripe.APIVersion which is the correct approach, though wrapping a global-state library in a struct is somewhat misleading since the stripe-go library uses global configuration. The error code check for ErrorCodeResourceAlreadyExists may not match the actual Stripe error code for already-attached payment methods (which is typically 'resource_already_exists' but the constant name may differ). The code is truncated at the very end of main() but the core task functions are complete. Minor issue: the StripeClient wrapper gives a false impression of instance-based configuration when stripe-go uses globals.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The version number v81 is unrealistically high for the stripe-go library (current major versions are around v76-v79), suggesting the model may have hallucinated the version number",
+                "Using global stripe.Key for initialization is the legacy pattern; newer idiomatic stripe-go code uses stripe.BackendConfig or per-request client instances via the client package (e.g., client.API)"
+              ],
+              "brief_assessment": "The code is entirely valid Go with no cross-language contamination. It correctly uses the stripe-go package-level functions (customer.Get, customer.Update) with proper param structs like CustomerInvoiceSettingsParams and stripe.String() helper, which are idiomatic to the Go SDK. The version v81 is fabricated but the API patterns are correct for the stripe-go library. The advanced example is truncated (main function cuts off mid-expression), which slightly impacts completeness, but the primary function fully accomplishes the task. The use of the global stripe.Key rather than a per-client backend is the older but still functional pattern.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Setting global stripe.Key and stripe.APIVersion inside method calls is not idiomatic for the stripe-go library \u2014 the idiomatic approach uses client.API (backend-based client) rather than package-level globals for thread safety",
+                "stripe.APIVersion is typically not meant to be overridden by users \u2014 it's set by the library to match the SDK version; setting it to a fabricated version '2026-01-28.clover' is suspicious",
+                "v81 of stripe-go does not exist \u2014 the current latest major version is around v81 is far too high; real versions are like v76 or v78, suggesting hallucination",
+                "SetStripeVersion is a real method on params but using it alongside global APIVersion setting is redundant and unusual",
+                "context.Context is accepted as parameter but never passed through to the Stripe API calls \u2014 the stripe-go library supports context via params.Context but it's not used here",
+                "Importing 'github.com/stripe/stripe-go/v81/customer' uses the service package directly rather than the newer client-based API pattern introduced in recent versions"
+              ],
+              "brief_assessment": "The code is syntactically valid Go and demonstrates a reasonable understanding of the stripe-go library's older API pattern (package-level functions like customer.Get/Update). However, it has notable issues: the version number (v81) is fabricated, the API version string is fictional, context is accepted but never used, and setting global state (stripe.Key, stripe.APIVersion) inside methods is not thread-safe or idiomatic. The functional logic of retrieving a customer and updating InvoiceSettings.DefaultPaymentMethod is correct in concept, though the unnecessary pre-fetch before update is wasteful. The unused `cust` variable from the Get call in UpdateCustomerDefaultPaymentMethod would cause a compilation error.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "apiVersion:"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct syntax and idiomatic patterns. It properly uses the stripe-go v76 library with the correct package-level API (customer.Get, customer.Update, paymentmethod.Attach, paymentmethod.List) and idiomatic helpers like stripe.String(). The functional implementation covers all three requested tasks (init client, retrieve customer, update default payment method) plus extras like listing payment methods and attaching before updating. Minor issues: the error code check for ErrorCodeResourceAlreadyExists may not be the exact code Stripe returns for already-attached payment methods (it's typically 'resource_already_exists' but the actual behavior differs), setting stripe.APIVersion directly is acceptable but slightly non-standard, and the advanced example is truncated mid-code. The wrapper struct around global state is a reasonable pattern but slightly misleading since stripe-go uses global config.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "stripe.SetBackendConfig with stripe.BackendConfig struct - this API pattern doesn't match the actual stripe-go library; the real library uses stripe.GetBackendWithConfig or sets backends differently",
+                "stripe.GetBackend(stripe.APIBackend).(*stripe.BackendConfiguration) - the type assertion to *stripe.BackendConfiguration is not the standard pattern in stripe-go",
+                "The version v81 is speculative/non-existent - current stripe-go versions are around v76-v79; the API version '2024-12-18.acacia' is fabricated",
+                "The context handling is done manually with goroutines instead of using the built-in Params.Context field that stripe-go provides for context propagation"
+              ],
+              "brief_assessment": "The code is entirely valid Go with no cross-language syntax contamination, and the core logic of retrieving and updating a Stripe customer's default payment method is correct in structure. However, several API patterns are inaccurate: the stripe-go SDK version (v81) doesn't exist, stripe.SetBackendConfig isn't the real API, and context support should use params.Context rather than manual goroutine+channel wrapping. The first example is mostly idiomatic for stripe-go, but the advanced example introduces unnecessary complexity that ignores the SDK's built-in context support.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "stripe.Params{Context: ctx} uses a deprecated/removed pattern - newer stripe-go versions use params.Context = ctx or functional options, not a Context field in Params struct",
+                "params.SetStripeVersion() - this method doesn't exist on stripe.Params in the stripe-go library; API version is typically set globally via stripe.APIVersion or per-backend",
+                "v81 is a fabricated/hallucinated major version - the real stripe-go library is around v76-v79 at most; this suggests confusion about versioning",
+                "Setting stripe.Key globally in a method of a wrapper struct is an anti-pattern mixing global state with instance-based design; the newer stripe-go versions support per-client instances via client.API"
+              ],
+              "brief_assessment": "The code is syntactically valid Go and demonstrates a reasonable structure for wrapping Stripe operations. However, it contains several API inaccuracies: the `v81` import version is fabricated, `SetStripeVersion()` doesn't exist as a method on params, and the `Context` field inside `stripe.Params` is a deprecated pattern from older versions that has since been replaced. The global `stripe.Key` assignment inside an instance method contradicts the wrapper pattern. The core logic (retrieve then update customer with InvoiceSettings.DefaultPaymentMethod) is functionally sound, but the incorrect API details reduce idiomaticity.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "apiVersion:"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with no foreign language patterns. It correctly uses the stripe-go/v76 library with idiomatic patterns including stripe.String() helpers, iterator-based list traversal, and proper error wrapping. The code fully accomplishes the task \u2014 initializing the client, retrieving a customer, and updating the default payment method \u2014 with useful extras like payment method attachment and listing. Minor issues: the custom StripeClient wrapper around global state is somewhat redundant (stripe-go uses global config by default), setting stripe.APIVersion directly is functional but slightly unusual (most users rely on the library default), and the error code check for ErrorCodeResourceAlreadyExists may not match the actual Stripe error code for already-attached payment methods. The second code block is truncated but the core task is fully complete in the first block.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The version number v81 and API version '2026-01-28.clover' appear fabricated/hallucinated rather than reflecting a real stripe-go release, though the API patterns themselves are correct for the stripe-go library",
+                "Setting stripe.Key as a global variable is the correct Go pattern but wrapping it in a struct-based client in the advanced example mimics patterns more common in other language SDKs where you instantiate a client object"
+              ],
+              "brief_assessment": "The code is entirely valid Go with proper syntax and idiomatic patterns. The stripe-go API usage is largely correct \u2014 using package-level functions like customer.Get, customer.Update, paymentmethod.Attach, and helper functions like stripe.String() for pointer parameters. The version number (v81) and associated API version string are hallucinated but the structural patterns are accurate for the stripe-go library. The code is truncated at the end of the advanced example (cut off mid-function in main), but the primary function is complete and would accomplish the task. Error handling with Stripe error type assertions and context usage demonstrate good quality.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Using global stripe.Key and stripe.APIVersion instead of per-client backends (stripe-go idiomatic approach uses client.API or backends for concurrent safety)",
+                "Accepting context parameter but never passing it to API calls - stripe-go supports params.Context for request-scoped context",
+                "Package name 'stripe' conflicts with the imported stripe-go package alias",
+                "Fabricated API version '2026-01-28.clover' and library version 'v81' that don't exist",
+                "Not using stripe.BackendConfig or client-based initialization which is the modern idiomatic pattern"
+              ],
+              "brief_assessment": "The code is syntactically valid Go and demonstrates correct general patterns for the stripe-go library (using customer.Get, customer.Update, CustomerParams with InvoiceSettings). However, it relies on global state (stripe.Key, stripe.APIVersion) rather than using per-client backends, which is not idiomatic for production stripe-go usage and is unsafe for concurrent use. The context parameter is accepted but never used (stripe-go supports params.Context). The package name 'stripe' directly conflicts with the imported stripe-go package. The fabricated version numbers (v81, API version '2026-01-28.clover') suggest hallucination rather than cross-language contamination, but the overall pattern of wrapping global state in a struct hints at patterns from other language SDKs where client instantiation works differently.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "github\\.com/stripe/stripe-go",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.Key\\s*=",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.Get\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "github\\.com/stripe/stripe-go",
+                "stripe\\.Key\\s*=",
+                "customer\\.Get\\(",
+                "func\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "upgrade-stripe-03",
+      "task_type": "similar_syntax",
+      "target_language": "javascript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js with idiomatic Express and Stripe SDK usage. It properly initializes Stripe with explicit API versioning via the options object, correctly uses express.raw() to preserve the raw body for webhook signature verification with stripeClient.webhooks.constructEvent(), and implements a clean event dispatching pattern via a handler map. The architecture is well-structured as a factory function, includes proper error handling, and the usage example correctly places express.raw() before express.json(). The only minor issue is the truncated PORT line at the end of app.js, but all three requested features are fully implemented.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(['\"]stripe['\"]\\)",
+                "apiVersion:\\s*['\"]",
+                "req\\.body",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [
+                "stripe\\.webhooks\\.constructEvent"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The API version string '2026-01-28.clover' is fictional/non-existent, though the pattern of specifying apiVersion is correct",
+                "Passing toleranceSeconds as a 4th positional argument to constructEvent is not the standard API signature - the tolerance is typically passed within an options object or as the tolerance parameter in newer versions"
+              ],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js and correctly implements all three requested features: explicit API versioning in Stripe initialization, webhook signature verification using the raw request body, and event-type-based dispatching to handler functions. The overall architecture is clean with a factory pattern for middleware creation and a wildcard catch-all handler. Minor issues include the fictional API version string and the slightly non-standard way of passing toleranceSeconds to constructEvent (the Stripe Node SDK accepts tolerance as a named option in the 4th argument object, not as a bare number). The code is well-structured and production-oriented with proper error handling and logging.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(['\"]stripe['\"]\\)",
+                "apiVersion:\\s*['\"]",
+                "stripe\\.webhooks\\.constructEvent",
+                "req\\.body",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "typescript: true option passed to Stripe constructor (this is a TypeScript-specific option, not idiomatic for plain JavaScript)",
+                "API version '2026-01-28.clover' is fictitious/hallucinated"
+              ],
+              "brief_assessment": "The code is entirely valid JavaScript using ES module syntax. It correctly demonstrates Stripe initialization with explicit API versioning, webhook signature verification via stripe.webhooks.constructEvent(), and event dispatching via a handler map. The `typescript: true` option in the Stripe constructor is a minor cross-language contamination signal (it's a TypeScript-specific hint that serves no purpose in plain JS). The raw body capture approach works but is slightly unconventional \u2014 the more idiomatic Express approach would be using express.raw() with a content-type match. The fabricated API version string is a minor correctness concern but doesn't affect the structural validity.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "apiVersion:\\s*['\"]",
+                "stripe\\.webhooks\\.constructEvent",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [
+                "require\\(['\"]stripe['\"]\\)",
+                "req\\.body"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "typescript: true option passed to Stripe constructor is a TypeScript-related config, slightly odd in a pure JS context"
+              ],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js with proper Express and Stripe API usage. It correctly initializes Stripe with explicit API versioning, verifies webhook signatures using constructEvent with the raw body, and dispatches events via a handler map. Minor issues include the `typescript: true` option being unnecessary in a JS context, the slightly unusual pattern of using both `express.raw()` with a `verify` callback and then referencing `req.rawBody` (when the body is already available as `req.body` buffer after `express.raw()`), and the event handler examples being truncated at the end. Overall it's well-structured and functional.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(['\"]stripe['\"]\\)",
+                "apiVersion:\\s*['\"]",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [
+                "stripe\\.webhooks\\.constructEvent",
+                "req\\.body"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(['\"]stripe['\"]\\)",
+                "apiVersion:\\s*['\"]",
+                "stripe\\.webhooks\\.constructEvent",
+                "req\\.body",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "typescript: true option passed to Stripe constructor \u2014 this is a TypeScript SDK option, not idiomatic for plain JavaScript usage",
+                "Manual reimplementation of webhook signature verification (verifyWebhookSignature) instead of using the idiomatic stripe.webhooks.constructEvent() method provided by the Node.js Stripe SDK",
+                "apiVersion '2026-01-28.clover' is a fabricated/hallucinated version string"
+              ],
+              "brief_assessment": "The code is syntactically valid JavaScript/Node.js and addresses all three requested features (API versioning, webhook signature verification, event dispatching). However, it manually reimplements Stripe's webhook signature verification using crypto instead of using the idiomatic `stripe.webhooks.constructEvent(rawBody, sig, secret)` provided by the official Node.js SDK, which is a significant deviation from best practice. The `typescript: true` option is a foreign pattern leaking from TypeScript usage, and the API version string appears fabricated. The code is also truncated at the end of `app.js`, though the core middleware file is complete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": false
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "apiVersion:\\s*['\"]",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [
+                "require\\(['\"]stripe['\"]\\)",
+                "stripe\\.webhooks\\.constructEvent",
+                "req\\.body"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js with correct Express middleware patterns and proper Stripe SDK usage. The Stripe initialization with explicit `apiVersion`, `webhooks.constructEvent()` for signature verification, and event-type-based dispatching are all idiomatic. Minor concerns: the `captureRawBody` function concatenates as a string rather than using `express.raw()` or `express.json({ verify: ... })` which is the more standard approach; returning 500 instead of 200 on handler errors could cause Stripe retries contrary to the comment's intent. The usage example is truncated mid-handler, but the core middleware implementation is complete and functional.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(['\"]stripe['\"]\\)",
+                "apiVersion:\\s*['\"]",
+                "req\\.body",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [
+                "stripe\\.webhooks\\.constructEvent"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [
+                "typescript: true option passed to Stripe constructor is unusual for a pure JavaScript project",
+                "apiVersion '2026-01-28.clover' is a fabricated/hallucinated version string"
+              ],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js with proper Express and Stripe SDK usage. It correctly handles all three requested features: explicit API versioning, webhook signature verification using the raw request body, and event dispatching to registered handlers via a Map-based registry. Minor issues include a hallucinated API version string, the unnecessary `typescript: true` option in a JS-only context, and the advanced usage example being truncated. The class-based middleware pattern is well-structured though slightly over-engineered for typical Express usage.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require\\(['\"]stripe['\"]\\)",
+                "apiVersion:\\s*['\"]",
+                "stripe\\.webhooks\\.constructEvent",
+                "req\\.body",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js using ESM imports, Express, and the Stripe Node SDK correctly. The API usage is idiomatic \u2014 `stripe.webhooks.constructEvent()` is the correct method, `express.raw()` is properly used for raw body parsing, and the dispatch pattern is clean. The fake API version string '2026-01-28.clover' is not a real Stripe API version, which is a minor concern but doesn't affect the pattern correctness. The architecture is well-structured with proper separation of middleware, routes, and app setup, and the critical ordering note about raw body parsing before `express.json()` is correctly highlighted. One minor quality issue: returning error details in the 200 response body (`error: err.message`) in the catch block could leak internal information.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "apiVersion:\\s*['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.body",
+                  "matched": true
+                },
+                {
+                  "pattern": "module\\.exports|export",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "apiVersion:\\s*['\"]",
+                "stripe\\.webhooks\\.constructEvent",
+                "req\\.body",
+                "module\\.exports|export"
+              ],
+              "expected_misses": [
+                "require\\(['\"]stripe['\"]\\)"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe_version=",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe::Webhook",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "upgrade-stripe-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using the correct stripe Python SDK patterns with no cross-language contamination. The API version string and Stripe.js script tag path are updated correctly from acacia/basil to clover. The functional score is slightly reduced because the task asked to 'replace any deprecated patterns' yet the response simply states none were found without demonstrating any investigation or potential updates (e.g., newer parameter names, return_url vs success_url changes, etc.) \u2014 this could be correct if no deprecations exist, but given these are fictional API versions it's hard to fully verify. The code quality is good with helpful documentation and recommendations, though it lacks error handling in the code itself.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Stripe Python SDK usage throughout. The API version string and Stripe.js script tag are updated as requested. Since '2026-01-28.clover' is a fictional/future version, no real deprecated patterns can be verified as replaced \u2014 the code notes compatibility but doesn't demonstrate any concrete deprecated-pattern replacements, which is a minor gap in the task. The additional best practices section (env vars, type hints, error handling, docstrings) is high quality and fully idiomatic Python.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct idiomatic usage of the Stripe Python SDK. The API version string and Stripe.js script tag are updated correctly from 'acacia'/'basil' to 'clover'. However, since both Stripe API versions referenced are fictional/future, it's impossible to verify whether deprecated patterns were truly addressed or if the checkout.Session.create call would need changes \u2014 the code essentially just does a find-and-replace on version strings. The notes section is helpful but the claim about backward compatibility is speculative. No cross-language contamination is detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using the idiomatic stripe Python SDK. The API version string and Stripe.js script tag are correctly updated from acacia/basil to clover. Since the task involves a fictional API version upgrade (2026-01-28.clover doesn't exist yet), it's impossible to verify whether deprecated patterns were truly addressed or if the checkout session creation code would need changes \u2014 the code essentially just swaps version strings and assumes no breaking changes. The notes and recommendations are helpful but the code doesn't demonstrate any actual deprecated-pattern replacements, which was part of the task request.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The Python code is entirely correct and idiomatic, using the proper stripe Python SDK patterns throughout. The API version string and Stripe.js script tag are updated as requested. The code also includes helpful supplementary material (webhook handling, testing recommendations, frontend integration). The only minor concern for functional correctness is that since these are fictional future API versions, the claim that 'no deprecated patterns' exist cannot truly be verified \u2014 the code essentially makes minimal changes beyond the version strings, which may or may not fully satisfy a real version migration. The JavaScript and SQL snippets are supplementary context, not contamination of the Python code.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using the idiomatic Stripe Python SDK. The API version string and Stripe.js script tag are updated correctly from acacia/basil to clover. However, since both the old and new API versions are fictional/future, there's no way to verify whether deprecated patterns were actually replaced \u2014 the code simply kept the same patterns unchanged. The task asked to 'replace any deprecated patterns,' and the response assumes none exist without demonstrating investigation, which is a minor completeness gap. The accompanying documentation and guidance notes are helpful and well-structured.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The Python code is entirely correct in language and uses the idiomatic stripe Python SDK API. The version string and Stripe.js script tag are properly updated from acacia/basil to clover. The code loses a point on functional correctness because the task asked to 'replace any deprecated patterns' but the response simply states none were found without demonstrating any investigation or awareness of potential API changes between these versions (e.g., changes to checkout session parameters). The included JavaScript snippet for Stripe initialization is a reasonable addition but is minor supplementary content, not contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using the correct Stripe Python SDK idioms with no cross-language contamination. It correctly updates the API version string to '2026-01-28.clover' and the Stripe.js script tag from 'basil' to 'clover'. However, since these are fictional API versions, the claim 'no breaking changes detected' and the assertion that no deprecated patterns need replacing is unverifiable and potentially a gap \u2014 the task explicitly asked to 'replace any deprecated patterns,' yet the response simply states there are none. The additional webhook and testing examples are helpful but go beyond what was requested, and the webhook code assumes Flask without importing it.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct idiomatic Stripe Python SDK usage. The API version string and Stripe.js script tag are updated as requested. Since these are fictional API versions, we cannot verify whether there are actual deprecated patterns that should have been replaced; the code notes that no breaking changes affect this particular call, which is a reasonable assumption but means the 'replace any deprecated patterns' part of the task is only addressed by assertion rather than demonstration. The code is clean and well-documented with helpful migration notes.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "2026-01-28\\.clover",
+                  "matched": true
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "js\\.stripe\\.com/clover/stripe\\.js",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "2026-01-28\\.clover",
+                "stripe\\.api_version\\s*=\\s*['\"]2026-01-28\\.clover['\"]",
+                "js\\.stripe\\.com/clover/stripe\\.js"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "2024-12-18\\.acacia",
+                  "matched": true
+                },
+                {
+                  "pattern": "basil",
+                  "matched": true
+                },
+                {
+                  "pattern": "require\\(['\"]stripe['\"]\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stripe\\.api_version",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "2024-12-18\\.acacia",
+                "basil"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "upgrade-stripe-05",
+      "task_type": "adjacent_domain",
+      "target_language": "ruby",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Ruby/Rails with correct usage of the Stripe Ruby gem API (Stripe::Webhook.construct_event, event.data.object, etc.). It handles all three required webhook events, verifies signatures, and updates database records. However, the code is clearly truncated \u2014 the handle_status_change method is cut off mid-implementation, and likely revoke_subscription_access and the associated controller/migration are missing. The overall structure, error handling, and use of Rails patterns (deliver_later, find_or_initialize_by, assign_attributes) are well done.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby with idiomatic Rails patterns and correct usage of the Stripe Ruby SDK (Stripe::Webhook.construct_event, event.data.object, etc.). It handles signature verification, event parsing, and database updates well. However, the code is truncated mid-function in handle_subscription_deleted \u2014 the soft-delete logic, helper methods (find_or_initialize_subscription, extract_subscription_items, notify_subscription_created, handle_status_change), and the corresponding model/migration are all missing, leaving significant gaps in completeness. The STRIPE_API_VERSION constant references a fictional future version but is otherwise harmless.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby with idiomatic Rails patterns. The Stripe gem API usage is correct \u2014 `Stripe::Webhook.construct_event`, `event.data.object`, and `Stripe::SignatureVerificationError` are all proper Ruby SDK calls. The code handles all three requested webhook events (created, updated, deleted), verifies the signature, and updates local database records. Minor issues: it inherits from `ApplicationService` and uses a `ServiceResult` pattern that is custom/nonstandard (though reasonable), the `with_error_handling` method is referenced but never defined, the controller file is truncated, and there's no migration file for the Subscription model. These are completeness gaps but the core service logic is solid.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Ruby with proper use of the Stripe Ruby gem API (Stripe::Webhook.construct_event, event.data.object, etc.) and Rails conventions (service object pattern, keyword arguments, ActiveRecord, deliver_later, Rails.logger). It handles all three required webhook events with signature verification and local database updates. The only issue is that the controller implementation is truncated mid-line, leaving the webhook endpoint incomplete, though the core service class is fully realized and production-quality.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Ruby/Rails with correct usage of the Stripe Ruby gem API (Stripe::Webhook.construct_event, event.data.object, etc.) and Rails conventions (ActiveRecord transactions, deliver_later, service object pattern). It handles all three requested webhook events with signature verification and database updates. However, the code is clearly truncated mid-method (cuts off at 'Rails.logger.inf') \u2014 missing the rest of handle_subscription_deleted, handle_status_transition, handle_subscription_cancellation, update_subscription_items, and the controller integration. The API version string '2026-01-28.clover' is fictitious, and setting Stripe.api_version in the initializer is a global side effect that could cause issues, but these are minor quality concerns rather than contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby with idiomatic Rails patterns. The Stripe gem API usage is correct \u2014 `Stripe::Webhook.construct_event`, accessing `event.data.object`, and attribute accessors on the Stripe subscription object all match the Ruby SDK. The service handles all three requested webhook events with signature verification and database updates. Minor issues: it inherits from `ApplicationService` and uses `ServiceResult` which are custom abstractions shown but not fully implemented (the `ServiceResult` class is truncated), and the `with_error_handling` block is referenced but never defined. The rescue clause for `SignatureVerificationError` is outside `call`'s own begin block which could miss it depending on `with_error_handling`'s implementation. Overall it's a well-structured, near-production-quality solution with minor completeness gaps.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Ruby code that fully accomplishes the task. It correctly uses the Stripe Ruby gem's API (Stripe::Webhook.construct_event, event.data.object, accessing subscription fields via dot notation), follows Ruby conventions (keyword arguments, bang methods, safe navigation operator, frozen constants), and implements all three required webhook events with proper signature verification. The code is well-structured with comprehensive error handling, custom exception hierarchy, status change tracking, user notification hooks, and access management \u2014 all organized cleanly as a service object pattern common in Rails applications.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Ruby/Rails and uses the Stripe Ruby SDK correctly (Stripe::Webhook.construct_event, event.data.object, dot-access on Stripe objects). It handles signature verification, event routing, subscription creation, and updates well. However, the code is clearly truncated mid-method \u2014 the handle_subscription_updated rescue clause is cut off, and handle_subscription_deleted, several helper methods (find_or_create_user, extract_plan_id, handle_status_transition, subscription_active?, etc.) are missing entirely, leaving significant gaps in the implementation. No cross-language contamination is detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby with idiomatic Rails patterns and correct usage of the Stripe Ruby SDK (Stripe::Webhook.construct_event, event.data.object, etc.). However, the output is clearly truncated mid-file (Subscription model cut off), and it references undefined classes (ApplicationService, ServiceResult) without providing their implementations. The webhook controller endpoint that would receive the payload is also missing. The core webhook handling logic for all three subscription events is well-structured and functionally sound, but the incompleteness significantly limits its practical usability.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Stripe::Webhook\\.construct_event",
+                  "matched": true
+                },
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "customer\\.subscription\\.",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Stripe::Webhook\\.construct_event",
+                "class\\s+\\w+",
+                "customer\\.subscription\\.",
+                "def\\s+\\w+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "stripe\\.webhooks\\.constructEvent",
+                  "matched": false
+                },
+                {
+                  "pattern": "stripe\\.api_version\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "const stripe",
+                  "matched": false
+                },
+                {
+                  "pattern": "import stripe",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

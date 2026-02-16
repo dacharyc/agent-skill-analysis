@@ -1,0 +1,3548 @@
+{
+  "skill_name": "skill-creator",
+  "scored_at": "2026-02-16T10:19:46.272439+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.46,
+  "risk_level": "medium",
+  "test_category": "meta_skill_high_novelty",
+  "tasks": [
+    {
+      "task_id": "skill-creator-01",
+      "task_type": "direct_target",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "YAML frontmatter is placed after the H1 heading rather than at the very top of the file, which deviates from standard frontmatter convention where --- delimiters must be the first thing in the file"
+              ],
+              "brief_assessment": "The code is well-written Markdown with comprehensive content covering all requested elements: YAML frontmatter with name/description, workflow steps, reference file pointers, and quick start examples. The main issue is that the YAML frontmatter is positioned after the H1 heading instead of at the very beginning of the file, which means most frontmatter parsers would not recognize it as valid frontmatter \u2014 they would treat it as regular Markdown content. Otherwise, the document is thorough, well-organized, and goes beyond the minimum requirements with additional useful sections like best practices and common issues.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is well-structured Markdown with proper YAML frontmatter containing the required name and description fields. It includes all requested elements: workflow steps, reference file pointers to all three specified files (references/sequelize.md, references/knex.md, references/prisma.md), and a quick start example showing migration commands for each framework. The content is comprehensive, well-organized with clear headings, and entirely idiomatic Markdown with no foreign language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The code is wrapped in <write_to_file><path>...</path><content>...</content></write_to_file> XML tags, which are an IDE/tool-specific action format (e.g., Cline/MCP tool use), not part of standard Markdown"
+              ],
+              "brief_assessment": "The SKILL.md content itself is well-structured Markdown with proper YAML frontmatter, all requested sections (workflow steps, reference file pointers, quick start example), and appropriate content. The main issue is the wrapping in <write_to_file> XML tags and the explanatory prose after the file content, which are tool-use artifacts rather than pure Markdown output. The actual Markdown content within is correct, idiomatic, and fully addresses all task requirements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Markdown with proper YAML frontmatter containing the required name and description fields. It includes all requested sections: workflow steps, reference file pointers to references/sequelize.md, references/knex.md, and references/prisma.md, and quick start examples showing migration commands. The content goes above and beyond by including examples for all three tools, best practices, common issues, and environment considerations. No cross-language contamination is present; all CLI commands shown (Sequelize, Knex, Prisma) are accurate and idiomatic.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is well-structured Markdown with proper YAML frontmatter containing the required name and description fields. All requested elements are present: workflow steps, reference file pointers to the three specified files (references/sequelize.md, references/knex.md, references/prisma.md), and a quick start example showing migration commands. The content is comprehensive, well-organized with clear headings, and includes additional useful sections like best practices and troubleshooting. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is well-structured Markdown with proper YAML frontmatter containing the required name and description fields. All requested elements are present: workflow steps, reference file pointers to the three specified files (references/sequelize.md, references/knex.md, references/prisma.md), and quick start examples showing migration commands. The content is idiomatic Markdown throughout with no foreign patterns, and the document is comprehensive yet concise, covering common operations across all three ORMs with correct CLI commands.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Markdown with proper YAML frontmatter containing the required name and description fields. It includes all requested sections: workflow steps, reference file pointers to the three specified files (references/sequelize.md, references/knex.md, references/prisma.md), and a comprehensive quick start example with migration commands. The document is well-structured, thorough, and goes beyond minimum requirements with best practices and troubleshooting sections. No cross-language contamination is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is well-structured Markdown with proper YAML frontmatter containing the required name and description fields. It includes all requested sections: workflow steps, reference file pointers to references/sequelize.md, references/knex.md, and references/prisma.md, and a quick start example with migration commands. The content is entirely in idiomatic Markdown with no foreign language patterns, and goes beyond the minimum requirements by including helpful sections on common operations, troubleshooting, and best practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Markdown with proper YAML frontmatter containing the required name and description fields. It includes all requested elements: workflow steps, reference file pointers to the three specified files (references/sequelize.md, references/knex.md, references/prisma.md), and a quick start example showing migration commands. The structure is clean, well-organized, and follows idiomatic Markdown conventions with no foreign language contamination. The description in the frontmatter clearly explains what the skill does and when to use it.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "^---",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+database-migrator",
+                  "matched": true
+                },
+                {
+                  "pattern": "description:",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "## |# ",
+                  "matched": true
+                },
+                {
+                  "pattern": "```",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "name:\\s+database-migrator",
+                "description:",
+                "references/",
+                "## |# ",
+                "```"
+              ],
+              "expected_misses": [
+                "^---"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "README\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "CHANGELOG\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "INSTALLATION_GUIDE",
+                  "matched": false
+                },
+                {
+                  "pattern": "compatibility:",
+                  "matched": false
+                },
+                {
+                  "pattern": "license:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "skill-creator-02",
+      "task_type": "cross_language",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of argparse, PyYAML, pathlib, and type hints. It is well-structured with a clean ValidationResult class and SkillValidator class. However, the code is truncated mid-function \u2014 the _validate_name_pattern method is cut off, and presumably the _validate_body_length method and the argparse CLI entry point (main function) are also missing. This means roughly 2 of the 5 validation checks are incomplete, and the CLI argument parsing is absent, so it only partially accomplishes the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "import yaml|from yaml",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python, using argparse, re, pathlib, and typing correctly. It implements all five validation checks (YAML frontmatter, required fields, description length, name pattern, body length) with clear structure and good OOP design via ValidationResult. However, the code is truncated \u2014 the validate_skill_file function and the main argparse CLI entry point are cut off, meaning it wouldn't run as-is. The custom YAML parser is simplistic (doesn't handle multiline values) but reasonable for this use case. The leading/trailing hyphen check is a nice extra touch beyond what was requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [
+                "import yaml|from yaml"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of argparse (implied but not shown due to truncation), yaml, re, pathlib, and typing. It correctly implements all five validation checks with clear structure and good error handling. However, the code is truncated at the end \u2014 the markdown body line count check is cut off mid-expression, and the argparse CLI entry point (main function with argument parsing) is missing. This means the tool isn't complete as a runnable CLI, though the validation logic that is present is well-implemented and correct.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "import yaml|from yaml",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python with proper use of argparse (implied), yaml, pathlib, and type hints. The code is well-structured with a clean OOP design using ValidationResult and SkillValidator classes. However, the code is truncated mid-function \u2014 the _check_name_pattern method is cut off and the _check_body_length method, the argparse CLI setup, and the main entry point are all missing, meaning roughly 2 of the 5 checks plus the CLI interface are not implemented. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "import yaml|from yaml",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of argparse (implied but not shown due to truncation), pathlib, re, and type hints. It correctly implements all five validation checks: frontmatter parsing, required fields, description length, name pattern matching, and body line count. However, the code is truncated mid-function \u2014 the print_results function and likely the argparse main block are cut off, preventing it from being a fully runnable CLI tool. The YAML parsing is simplistic (no multi-line values) but reasonable for the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [
+                "import yaml|from yaml"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python, using argparse, pathlib, re, typing, and sys correctly. It implements all five requested validation checks with clear pass/fail output and proper exit codes. Minor functional concern: the frontmatter parsing is a simplistic key-value split rather than using a proper YAML parser, which means multi-line values, quoted strings, or nested YAML would not be handled correctly\u2014the description length check could be inaccurate for quoted/multi-line descriptions. Additionally, it adds an extra leading/trailing hyphen check not explicitly requested, though this is reasonable. Overall, this is clean, well-structured, production-ready code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [
+                "import yaml|from yaml"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "scripts/"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of argparse, PyYAML, pathlib, and typing. However, the code is truncated mid-function \u2014 the _validate_name_pattern method is incomplete, the _validate_body_length method is missing entirely, the argparse CLI setup (main function) is absent, and the script lacks an entry point. This means roughly 2 of the 5 validation checks are not implemented, and the tool cannot actually be run as a CLI. The code that is present is well-structured with good use of classes, clear documentation, and proper error handling.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "import yaml|from yaml",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of argparse, pathlib, re, and typing. It is well-structured with a clean ValidationResult class and proper separation of concerns. However, the code is truncated mid-function \u2014 the validate_skill_file function is cut off during the description length check, so the markdown body line count check (check 5) and the main/argparse entry point are missing. This means roughly 60-70% of the task is implemented, with significant remaining gaps in completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [
+                "import yaml|from yaml"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of argparse, yaml, pathlib, re, and typing. It uses proper Python patterns throughout with no cross-language contamination. However, the code is truncated mid-function \u2014 the `_check_description_length`, `_check_name_pattern`, `_check_body_length` methods and the `main()` / argparse CLI setup are missing, so roughly 40% of the task implementation is absent. The implemented portions (frontmatter extraction/parsing, required fields check, class structure) are well-designed and high quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse|argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.|regex",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[a-z0-9",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|---",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import argparse|argparse\\.ArgumentParser",
+                "import yaml|from yaml",
+                "def\\s+",
+                "re\\.|regex",
+                "\\[a-z0-9",
+                "frontmatter|---"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "skill-creator-03",
+      "task_type": "similar_syntax",
+      "target_language": "bash",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Bash throughout. It uses standard shell constructs (set -e, $#, mkdir -p, heredocs, date command) with no foreign language patterns. The script fully accomplishes the task \u2014 creating the directory tree, populating SKILL.md with YAML frontmatter and the required markdown sections (Overview, Workflow, References). It goes slightly beyond requirements by adding README files in subdirectories, extra frontmatter fields (created, status), and existence checks, all of which are sensible additions. The code is well-structured with proper quoting, error handling, and user feedback.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Bash code with no cross-language contamination. It uses proper Bash constructs throughout: set -euo pipefail, $# for argument count, [[ ]] for regex matching, heredocs for file creation, ${2:-.} for default values, and mkdir -p for directory creation. The script fully accomplishes the task \u2014 creating the directory tree (scripts/, references/, assets/) and populating SKILL.md with YAML frontmatter and the required markdown sections (Overview, Workflow, References). It goes beyond the requirements by adding input validation, existence checks, example files, and a README, all of which are reasonable enhancements rather than deviations.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "def\\s+"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Bash throughout. It correctly uses mkdir -p, heredocs, sed, parameter expansion with defaults (${2:-.}), regex matching, and set -e \u2014 all standard Bash patterns. It fully accomplishes the task: creates the directory tree, populates SKILL.md with YAML frontmatter containing the skill name and placeholder description, and includes the required Overview, Workflow, and References section headers. The code goes beyond requirements with input validation, existence checks, example files, and helpful output, all of which enhance quality. The only very minor note is the use of sed -i.bak for portability (macOS), which is a reasonable choice. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "def\\s+"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Bash code with no foreign language contamination. It fully accomplishes the task: creates the required directory structure (skill-name/scripts/, references/, assets/), generates SKILL.md with YAML frontmatter containing the skill name and placeholder description, and includes the requested markdown section headers (Overview, Workflow, References). The code goes slightly beyond requirements by adding README files in subdirectories, extra YAML fields (created, status), and helpful output messages, but these are reasonable enhancements. Input validation, error handling with `set -e`, and existence checks demonstrate production-quality practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Bash code. It uses proper Bash conventions throughout: shebang, set -e, parameter expansion with defaults (${2:-.}), regex matching with [[ =~ ]], heredocs for file creation, and appropriate quoting. The script fully accomplishes the task by creating the required directory tree (scripts/, references/, assets/) and populating SKILL.md with YAML frontmatter containing the skill name and placeholder description, plus the requested Overview, Workflow, and References markdown sections. It goes beyond requirements by adding input validation, existence checks, example placeholder files, and helpful output messages \u2014 all of which enhance rather than detract from quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "def\\s+"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The script is entirely correct Bash with idiomatic usage of mkdir -p, heredocs, parameter expansion with defaults, regex validation, and proper quoting throughout. It fully creates the required directory tree and SKILL.md with YAML frontmatter and the specified section headers. The only minor deviation from the task specification is the creation of extra example files (example.py, example.md, README.txt) that were not requested, which adds unrequested scope but doesn't break anything. Overall this is production-quality Bash with good error handling, input validation, and user-friendly output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "def\\s+"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Bash code with no signs of cross-language contamination. It fully accomplishes the stated task: creates the required directory structure (skill-name/scripts/, references/, assets/), generates SKILL.md with YAML frontmatter containing the skill name and placeholder description, and includes the required markdown section headers (Overview, Workflow, References). The script goes slightly beyond requirements by adding README files in subdirectories, extra frontmatter fields (created, status), and helpful output, but these are reasonable enhancements that don't detract from correctness. Error handling with set -e, argument validation, and existence checking are all good production practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The surrounding text suggests saving the bash script as 'scripts/init_skill.py' and running it with that .py extension, which is a Python naming convention applied to a bash script"
+              ],
+              "brief_assessment": "The bash code itself is entirely correct and idiomatic, using appropriate constructs like set -e, parameter expansion with defaults, regex validation, heredocs, mkdir -p, and sed. It fully accomplishes the task: creates the directory tree, populates SKILL.md with YAML frontmatter containing the skill name and placeholder description, and includes the required markdown section headers. The sed -i.bak approach is a reasonable cross-platform choice (macOS/Linux). Minor quality deductions: the extra example files (example.py, example.md, README.txt) go beyond what was requested, and the surrounding documentation confusingly recommends saving a .sh script with a .py extension.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": true
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "init_skill\\.py",
+                "def\\s+"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Bash throughout. It uses proper Bash constructs (set -e, parameter expansion with default values, regex matching, heredocs, mkdir -p, chmod). It fully accomplishes the task: creates the directory tree, populates SKILL.md with YAML frontmatter containing name and placeholder description, and includes Overview, Workflow, and References section headers. The script goes slightly beyond requirements by adding example files in subdirectories and input validation, which enhances quality without detracting from correctness. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "mkdir -p",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$\\{1\\}",
+                  "matched": true
+                },
+                {
+                  "pattern": "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                  "matched": true
+                },
+                {
+                  "pattern": "SKILL\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "scripts/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mkdir -p",
+                "\\$1|\\$\\{1\\}",
+                "cat.*<<.*EOF|cat.*<<.*'EOF'",
+                "SKILL\\.md",
+                "references/",
+                "scripts/"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "init_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "python3?\\s+scripts/",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "def\\s+"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "skill-creator-04",
+      "task_type": "grounded",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown with proper YAML frontmatter, which is exactly what was requested. It thoroughly identifies all problems in the original SKILL.md (vague descriptions, bloated content, misplaced changelog, inconsistent metadata, contradictory dependencies) and produces a well-structured corrected version with semantic versioning, a parameters table, usage examples, and separation of concerns via external file references. The explanations are clear and each fix is well-justified. No cross-language contamination is present; the embedded Python in usage examples is appropriate illustrative content within Markdown fenced code blocks.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [
+                "references/"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 3,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": true
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "## Changelog",
+                "## Installation"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [
+                "Python code examples embedded within the Markdown skill file - while illustrative, these are Python snippets rather than pure Markdown structural content, which could be seen as mild cross-language inclusion though they serve a documentation purpose"
+              ],
+              "brief_assessment": "The output is well-structured Markdown that thoroughly addresses all problems in the original SKILL.md file. The explanations are clear, the corrected version follows best practices for skill files (concise frontmatter description, progressive disclosure, no bloat), and each fix is well-justified. The embedded Python code snippets are appropriate for a documentation/skill file and serve an illustrative purpose rather than representing contamination. Overall this is a high-quality, complete response to the refactoring task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "references/",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with proper frontmatter YAML and well-structured sections. The response thoroughly identifies all seven problems in the original SKILL.md and produces a corrected version that follows best practices: a rich description field for triggering, removal of extraneous fields (license, changelog, installation), actionable workflow content in the body, and progressive disclosure via references. No cross-language contamination is present; embedded bash and Python snippets are appropriate illustrative examples within the Markdown skill file. The explanations are clear and the corrected file is production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "references/",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with no cross-language contamination. The refactored SKILL.md follows best practices: proper frontmatter with semantic versioning and structured dependencies, consistent tooling (curl throughout), well-organized sections (Usage, Parameters, Examples, Output, Installation, Changelog), and the verbose API reference correctly externalized. All identified problems are clearly explained with actionable fixes, and the corrected version is professional, complete, and production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [
+                "references/"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 3,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": true
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "## Changelog",
+                "## Installation"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.5,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with no cross-language contamination. It thoroughly identifies all problems in the original SKILL.md (vague description, redundant sections, bloated inline docs, changelog, unnecessary frontmatter), produces a well-structured corrected version following best practices (concise frontmatter with rich description, progressive disclosure via reference files, actionable workflow steps with examples), and provides clear explanations for every fix. The refactored file is idiomatic for a SKILL.md convention targeting AI agents, and the overall quality is production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "references/",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with properly structured frontmatter and body content. The refactored SKILL.md follows best practices: lean frontmatter with only necessary fields, rich description for triggering, progressive disclosure via references, and removal of extraneous content (changelog, installation, bloated API docs). The embedded Python snippets are idiomatic and appropriate as illustrative examples within the Markdown skill file. The explanation of each fix is thorough and well-reasoned. Minor note: the convention of detailed numbered trigger scenarios in the description and the reference file structure assumes a specific Claude skill framework that isn't universally standardized, but this is a reasonable interpretation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "references/",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown with appropriate YAML frontmatter and embedded code blocks, showing no cross-language contamination. It thoroughly identifies all problems in the original SKILL.md (metadata inconsistencies, vague description, missing sections, changelog ordering, etc.) and produces a well-structured corrected version following best practices. The corrected file includes all critical sections\u2014description, prerequisites, installation with verification, usage examples, a parameters table, output specification, error handling, limitations, and a properly ordered changelog. The explanations for each fix are clear and accurate. This is production-quality work with no completeness issues.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": false
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [
+                "references/"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 3,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": true
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": true
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "## When to Use This Skill",
+                "## Changelog",
+                "## Installation"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.75,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with well-structured frontmatter and body sections following SKILL.md best practices. All seven problems in the original are clearly identified and convincingly fixed, with thorough explanations for each change. The corrected version demonstrates idiomatic Markdown conventions (proper headings hierarchy, linked references, embedded code blocks) with no foreign language contamination. The refactored file is concise, uses progressive disclosure appropriately, and includes practical workflow guidance \u2014 a genuinely excellent response.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "references/",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with no cross-language contamination. It correctly identifies all major problems in the original SKILL.md (vague description, misplaced 'When to Use' section, bloated content, missing instructions) and produces a well-structured corrected version. The embedded Python and Bash snippets are appropriate illustrative examples within the Markdown context, not foreign contamination. The only minor note is that the refactored SKILL.md conventions (frontmatter fields, references/ directory) assume a specific SKILL.md framework without citing it, but the guidance is reasonable and internally consistent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                  "matched": true
+                },
+                {
+                  "pattern": "references/",
+                  "matched": true
+                },
+                {
+                  "pattern": "name:\\s+api-tester",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "description:.*[Tt]est.*API|description:.*HTTP|description:.*endpoint",
+                "references/",
+                "name:\\s+api-tester"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## When to Use This Skill",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Changelog",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Installation",
+                  "matched": false
+                },
+                {
+                  "pattern": "v1\\.0: Initial release",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "skill-creator-05",
+      "task_type": "adjacent_domain",
+      "target_language": "typescript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper type annotations, idiomatic use of the archiver npm library (archive.directory, archive.pipe, archive.pointer, archive.finalize), and correct Node.js stream handling. It fully accomplishes the task: accepts source directory and output path, recursively adds files, returns a Promise resolving with byte size, and includes error handling with stream cleanup. Minor quality deductions for console.log statements in library code and the glob filter approach in the alternative function which may not work exactly as shown with archiver's glob API signature, but the primary function is production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper type annotations and idiomatic use of the archiver npm library. It correctly uses archive.directory() for recursive addition, archive.pointer() for byte size, and properly handles stream events (close, error, warning). The only minor quality concern is that stream cleanup on error paths is incomplete \u2014 if the archive emits an error, the output stream isn't explicitly destroyed/closed, and the `totalBytes` variable is unnecessary since `archive.pointer()` is called directly in the close handler. Otherwise, this is well-structured, well-documented, and functionally complete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic TypeScript using the archiver npm library correctly. It validates the source directory, creates the output directory if needed, sets up proper error handling on both the output stream and archive, uses archive.directory() for recursive addition, and resolves with archive.pointer() on the 'close' event. Stream cleanup is handled properly through the pipe mechanism and event listeners. The only very minor nitpick is that the `totalBytes` variable is unnecessary (could resolve directly with `archive.pointer()`), but this is trivial. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent TypeScript code that correctly uses the archiver library's API. The code properly creates a write stream, pipes the archiver output, uses `archive.directory()` for recursive addition, handles errors on both the archive and output stream, includes stream cleanup via `archive.abort()` and `output.destroy()`, and resolves with `archive.pointer()` for byte size. The advanced version with glob support and progress tracking is a nice bonus. The only very minor nit is the console.log statements in production code, but the overall implementation is thorough and idiomatic.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper type annotations and idiomatic use of the archiver library. It correctly uses createWriteStream, archive.pipe, archive.directory with `false` to add contents without a wrapper folder, and archive.finalize(). The error handling covers output stream errors, archive errors, and warnings. Minor quality concerns: the `totalBytes` variable is unnecessarily declared before the close handler since it's only used there, and there's no explicit stream cleanup (e.g., calling `archive.destroy()` or `output.destroy()`) in error paths\u2014though the streams will be garbage collected. Overall, this is solid, production-ready code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with idiomatic use of the archiver API (archive.directory, archive.pointer, archive.pipe, archive.finalize). It handles error events on both the output stream and the archive, validates inputs, and returns the byte size as promised. One minor concern is stream cleanup on error paths \u2014 if the archive emits an error, the output stream isn't explicitly destroyed/cleaned up, and the partially written zip file isn't removed. Also, the function signature is `async` but returns a manually constructed Promise, which is a minor style issue rather than a bug. Overall it accomplishes the task well with only minor omissions in cleanup rigor.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper type annotations, async/Promise patterns, and idiomatic use of the archiver npm library (archive.directory, archive.pipe, archive.pointer, archive.finalize). The primary function fully accomplishes the task with input validation, error handling, stream cleanup, and recursive directory addition. However, the advanced alternative function is truncated mid-line ('archive.directory(sourceDir, ba'), which prevents it from compiling, and the first function includes console.log statements that reduce production readiness. The main function's error handling could also be improved by adding cleanup on rejection paths, though the advanced version demonstrates better cleanup practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct TypeScript with proper type annotations, idiomatic use of the archiver npm library (createWriteStream, archive.directory, archive.pipe, archive.pointer, archive.finalize), and comprehensive error handling. It fulfills all requirements: accepts source directory and output path, recursively adds files, returns a Promise resolving with byte size, includes proper error handling for both stream and archive errors, and handles stream cleanup through the pipe/close pattern. The validation, output directory creation, and warning handling are nice quality touches.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct TypeScript using idiomatic archiver API patterns (createWriteStream, archive.pipe, archive.directory with false for root-relative paths, archive.finalize, archive.pointer). It handles all requested features: recursive directory addition, Promise-based return of byte size, error handling on both archive and output streams, and output directory creation. Minor quality nits: the `totalBytes` variable is unnecessary (could just resolve with `archive.pointer()` directly), stream cleanup on error paths could be more thorough (e.g., calling `archive.destroy()` or `output.destroy()` and unlinking the partial file), and using synchronous fs calls in a Promise constructor is slightly suboptimal. Overall, this is solid, production-near code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*archiver|require.*archiver",
+                  "matched": true
+                },
+                {
+                  "pattern": "Promise<number>|Promise<",
+                  "matched": true
+                },
+                {
+                  "pattern": "createWriteStream",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.directory|archive\\.glob",
+                  "matched": true
+                },
+                {
+                  "pattern": "archive\\.finalize",
+                  "matched": true
+                },
+                {
+                  "pattern": "async|await|new Promise",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*archiver|require.*archiver",
+                "Promise<number>|Promise<",
+                "createWriteStream",
+                "archive\\.directory|archive\\.glob",
+                "archive\\.finalize",
+                "async|await|new Promise"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "package_skill\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.skill\\b",
+                  "matched": false
+                },
+                {
+                  "pattern": "import zipfile",
+                  "matched": false
+                },
+                {
+                  "pattern": "import os",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

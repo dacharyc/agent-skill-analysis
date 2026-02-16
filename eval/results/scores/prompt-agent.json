@@ -1,0 +1,3816 @@
+{
+  "skill_name": "prompt-agent",
+  "scored_at": "2026-02-16T12:40:37.480126+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.48,
+  "risk_level": "medium",
+  "test_category": "net_negative",
+  "tasks": [
+    {
+      "task_id": "prompt-agent-01",
+      "task_type": "direct_target",
+      "target_language": "bash",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with idiomatic usage of arrays, associative arrays, trap, set -euo pipefail, and proper POSIX/GNU utilities. It demonstrates good structure with helper functions, color output, dependency checking, cross-platform stat handling, and comprehensive secret-scanning regex patterns. However, the code is clearly truncated mid-function \u2014 the secret scanning loop, JSON validation with jq, report generation, and main argument parsing/execution are all missing, meaning it only partially accomplishes the stated task. What is present is well-written and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": true
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/bash",
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "import\\s+"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with proper use of set -euo pipefail, declare -A/-a, [[ ]] conditionals, OSTYPE detection for stat differences, and appropriate >&2 redirections. The script is well-structured with good error handling, dependency checking, and modular functions. However, the code is clearly truncated mid-function \u2014 the permission check function is cut off, and the remaining audit functions (secret scanning, JSON validation, report generation, and the main execution logic) are missing, meaning it only partially accomplishes the stated task. What is present is high quality and production-oriented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with idiomatic patterns (set -euo pipefail, declare -A, proper quoting, find -print0, etc.) and no cross-language contamination. It makes good use of jq for JSON construction, associative arrays for secret patterns, and handles macOS/Linux stat differences. However, the code is clearly truncated mid-function \u2014 the scan_secrets function is incomplete, and the JSON validation check, final report generation, and argument parsing/main logic are all missing, meaning roughly half the required features (JSON validation, full report output, complete secret scanning) are not implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with idiomatic constructs (set -euo pipefail, declare -a, trap cleanup, proper quoting, getopts-style parsing, command -v for dependency checking). It demonstrates good structure and error handling. However, the code is clearly truncated mid-function (cut off in the middle of check_secret_patterns), so several required features are incomplete: the JSON validation via jq, the report generation with severity levels, and the structured output are all missing. What is implemented\u2014permission checks, secret scanning patterns, verbose flag, argument parsing\u2014is well done.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": true
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/bash",
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with idiomatic usage of shell constructs (associative arrays, set -euo pipefail, find -print0, proper quoting, OSTYPE checks for cross-platform stat). However, the code is clearly truncated mid-function \u2014 the scan_for_secrets function is cut off, and the report generation, JSON validation with jq, argument parsing loop, and main execution flow are all missing. The implemented portions (permissions checking, secret pattern definitions, finding management, dependency checking) are well-structured and production-quality, but roughly half the required functionality is absent due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with proper use of associative arrays, set -euo pipefail, correct stat flags for cross-platform support, and appropriate use of jq for JSON validation. However, the code is clearly truncated mid-function (cut off inside process_file at the scan_secrets call), meaning the report generation, the main loop, argument parsing completion, and structured output formatting are missing. The implemented portions \u2014 permission checking, secret scanning with regex, JSON validation with jq, verbose flag support, and finding accumulation with severity levels \u2014 are well-written and functionally sound for what's present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with proper use of associative arrays, trap, getopts-style parsing, stat with both Linux/macOS fallbacks, and correct quoting practices. It demonstrates good structure with functions, color output, verbose mode, dependency checking, and proper error handling. However, the code is clearly truncated mid-function (cut off inside the scan_secrets while loop), meaning the secret scanning completion, JSON validation via jq, report generation, and the main argument parsing/execution flow are all missing. This leaves significant portions of the requested functionality unimplemented, though the architecture for all features is well-established in what exists.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": true
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/bash",
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with proper use of associative arrays, set -euo pipefail, correct stat flags for cross-platform support, jq for JSON construction, and standard Bash patterns throughout. No cross-language contamination is detected. However, the code is truncated mid-function \u2014 the secret scanning loop, JSON validation, and final report generation are missing, meaning roughly half of the required functionality (secret scan completion, JSON validation with jq, and structured summary report output) is absent. What is present is well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with proper use of associative arrays, set -euo pipefail, process substitution with find -print0, and appropriate use of jq for JSON construction. It handles cross-platform stat differences and uses proper error handling patterns. However, the code is clearly truncated mid-function \u2014 the validate_json function and the final report generation/main logic are cut off, meaning JSON validation and the structured summary report (key requirements) are not implemented. The implemented portions (permissions checking, secret scanning) are well-structured and functional.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "find\\s+|ls\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "grep",
+                  "matched": true
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "CRITICAL|WARNING|INFO",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod|stat|permissions",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "find\\s+|ls\\s+",
+                "grep",
+                "jq\\s+",
+                "CRITICAL|WARNING|INFO",
+                "chmod|stat|permissions"
+              ],
+              "expected_misses": [
+                "#!/bin/bash"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "import\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+|let\\s+|var\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from\\s+\\w+\\s+import",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "prompt-agent-02",
+      "task_type": "cross_language",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with proper use of pathlib, hashlib, argparse, json, and type hints. It uses correct Pythonic patterns (iter with sentinel, os.walk, Path.relative_to). However, the code is clearly truncated mid-function \u2014 the verify_checksums function is cut off during result assembly, and the argparse CLI with --generate/--verify modes and main() entry point are missing entirely. This means the verify mode is incomplete and the command-line interface is absent, so roughly half the task requirements are unimplemented. What is present is well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with proper use of pathlib, hashlib, argparse, json, and typing. It uses standard Pythonic patterns like iter(lambda: f.read(4096), b\"\") for chunked reading and Path.rglob for directory traversal. However, the code is truncated\u2014it cuts off mid-function during the 'extra files' detection logic, and the argparse CLI with --generate/--verify modes and the main() function are missing entirely. This means the script cannot actually be run as requested, significantly impacting functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of standard library modules (hashlib, pathlib, argparse, dataclasses, json). It demonstrates good practices like chunked file reading, proper type hints, and structured output. However, the code is truncated mid-way through the argument parser setup \u2014 the verify subparser is incomplete and the main function's logic for handling both modes and outputting JSON to stdout is missing, meaning roughly 25-30% of the functional implementation is absent. What is present is well-structured and would work correctly.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of standard library APIs (hashlib, pathlib, argparse, json, os.walk). It demonstrates good practices like type hints, docstrings, and structured error handling. However, the code is clearly truncated \u2014 the verify_checksums function is cut off mid-implementation (missing the checksum comparison logic, closing of the function, and the main/argparse entry point with --generate and --verify modes). This means the verification reporting and CLI interface are incomplete, preventing the script from fully accomplishing the stated task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of standard library modules (hashlib, pathlib, argparse, json). It demonstrates good structure with a well-designed class, type hints, and docstrings. However, the code is clearly truncated mid-function \u2014 the verify_manifest method is cut off at '# Scan current direct', meaning the verification logic, the argparse CLI with --generate/--verify modes, and the main entry point are all missing. This means roughly half the core functionality (verification, mismatch/missing file reporting, CLI argument handling) is absent, significantly impacting functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python, using appropriate standard library modules (hashlib, argparse, pathlib, json, dataclasses) with no foreign language patterns. It correctly implements SHA-256 computation, manifest generation, and verification with mismatch/missing/extra file detection. However, the code is truncated at the end of main()\u2014the argument validation and the final logic that dispatches to generate/verify and outputs structured JSON to stdout are cut off, which means the script is incomplete and would not run as-is. The implemented portions are well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python, using appropriate standard library modules (hashlib, argparse, pathlib, json) with proper type hints and docstrings. However, the code is clearly truncated mid-function \u2014 the verify_checksums function is cut off in the middle of building the mismatches list, and the argparse CLI with --generate/--verify modes and the main entry point are missing. This means roughly half the task (verification completion, CLI argument handling, JSON output to stdout) is unimplemented. What is present is well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with correct use of standard library APIs (hashlib, argparse, pathlib, json, os.walk). It demonstrates good practices like chunked file reading, type hints, and class-based organization. However, the code is clearly truncated mid-function during the verify_manifest method \u2014 the mismatches append dict is cut off, and the rest of the verification logic, the --verify/--generate CLI handling via argparse, and the main entry point are all missing. The manifest uses filenames as keys rather than relative paths, which could cause collisions in subdirectories. Despite the truncation, the implemented portions (generation, partial verification) are well-structured and functionally sound.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python, using appropriate standard library modules (hashlib, pathlib, argparse, json) with correct patterns such as chunked file reading via iter() and Path.rglob(). It implements both generate and verify modes with structured JSON output, checksum mismatch detection, missing file reporting, and unexpected file detection. However, the code is truncated mid-function in main(), missing the argparse argument definitions and the mode dispatch logic, which prevents it from being a fully runnable script \u2014 though the core logic for both modes is complete and correct.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import hashlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "import json",
+                  "matched": true
+                },
+                {
+                  "pattern": "sha256|hashlib\\.sha256",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import hashlib",
+                "import json",
+                "sha256|hashlib\\.sha256",
+                "def\\s+\\w+\\(",
+                "argparse|sys\\.argv",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "#!/bin/bash",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum\\s+-a\\s+256",
+                  "matched": false
+                },
+                {
+                  "pattern": "curl\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "jq\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "unzip\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$\\{.*\\}|\\$[A-Z_]+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "prompt-agent-03",
+      "task_type": "similar_syntax",
+      "target_language": "sh",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid POSIX sh with idiomatic shell patterns\u2014proper use of trap, command -v, printf, awk, grep, and crontab manipulation. The cron validation logic is thorough and well-structured. However, the code is clearly truncated mid-function (cuts off inside check_permissions), meaning the core functionality of adding/removing cron entries, verifying success, and the --remove flag handling are never implemented. What exists is high quality but roughly half the required task is missing.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid POSIX sh with no cross-language contamination. It uses idiomatic shell patterns correctly (printf, set -eu, heredocs, grep, awk, cut, tr). However, the code is clearly truncated mid-function \u2014 the validate_cron_schedule function is cut off ('return 1 || return'), and the core functionality for adding, removing, verifying cron jobs, and handling permissions is missing entirely. The validation logic and helper functions that are present are well-structured and of good quality, but the script is incomplete for the stated task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "contamination_signals": [],
+              "code_quality": 3,
+              "brief_assessment": "The code is entirely in POSIX sh with no foreign language patterns. It uses idiomatic shell constructs (command -v, trap, mktemp, awk, grep) and proper crontab manipulation patterns. However, the code is truncated mid-function \u2014 the add_cron_job function is cut off, and the remove functionality, verification of job addition, and the main argument parsing/dispatch logic are all missing. This means roughly half the required features (add+verify, remove, main flow) are not implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Use of ANSI color codes with printf and escape sequences in a way that may not be fully POSIX-compatible (\\033 in variable assignments without proper quoting context)",
+                "The set -e usage combined with complex conditional logic can be fragile in POSIX sh"
+              ],
+              "brief_assessment": "The code is well-structured POSIX sh with good validation logic, comprehensive help text, and proper cleanup via traps. However, the code is clearly truncated mid-function \u2014 the add_cron_job function is cut off, and the --remove functionality, verification step, and main argument parsing/dispatch logic are all missing. This means roughly half the required features (add completion, remove, verify) are not implemented. The portions present demonstrate good shell scripting practices with idiomatic use of crontab, awk, grep, and sed.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid POSIX sh with proper idioms\u2014using printf, awk, grep, and standard crontab manipulation. It demonstrates good structure with validation, color output, usage documentation, and a marker-based approach for managing entries. However, the code is clearly truncated mid-function (cut off during validate_cron_field's single numeric value check), so the --remove logic, crontab addition, verification, and permission error handling are missing or incomplete. This significantly impacts functional completeness despite the solid foundation of what was generated.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid POSIX sh with proper idioms \u2014 correct use of command -v, printf, awk, grep, set -e, and standard shell constructs. The cron validation logic is thorough and well-structured with good error messaging and help text. However, the code is clearly truncated mid-function: the check_cron_availability function is cut off, and the critical add-to-crontab, verify-added, and --remove functionality are entirely missing, meaning it only partially accomplishes the stated task. What is present is high quality with good error handling patterns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid POSIX sh with idiomatic shell patterns (trap, command -v, printf, awk, grep). It demonstrates excellent cron validation, proper argument parsing, and good error handling structure. However, the code is clearly truncated mid-function (cuts off at '# Check if command ex'), meaning the core functionality of adding a cron job, removing a cron job (--remove flag), verifying the job was added, and the main execution flow are all missing. This significantly impacts functional completeness despite the high quality of what is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct POSIX sh with no foreign language contamination \u2014 proper use of printf, command -v, grep, awk, and crontab idioms. However, the code is clearly truncated mid-function (cut off inside check_permissions), missing the core functionality: adding to crontab, removing jobs (--remove flag), verification of job addition, and the main argument parsing/dispatch logic. Only validation and helper functions are implemented, covering less than half the requested features.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid POSIX sh with idiomatic shell patterns (printf over echo, proper quoting, command -v, set -e, IFS manipulation). It demonstrates thorough cron expression validation and good error handling structure. However, the code is clearly truncated mid-function (cut off during check_crontab_permission), missing critical functionality: the actual cron job addition, the --remove flag implementation, the successful verification step, and the main argument parsing/dispatch logic. Roughly half the task requirements are unimplemented due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "#!/bin/sh|#!/usr/bin/env sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "crontab",
+                  "matched": true
+                },
+                {
+                  "pattern": "cron|schedule",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$1|\\$2|\\$\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "if\\s+\\[|test\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "#!/bin/sh|#!/usr/bin/env sh",
+                "crontab",
+                "cron|schedule",
+                "\\$1|\\$2|\\$\\{",
+                "if\\s+\\[|test\\s+",
+                "trap\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw\\s+cron",
+                  "matched": false
+                },
+                {
+                  "pattern": "moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT\\.md",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "prompt-agent-04",
+      "task_type": "grounded",
+      "target_language": "bash",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid, idiomatic Bash with no cross-language contamination. It addresses all seven requested security fixes comprehensively: HTTPS, mktemp, checksum verification, path traversal detection (both relative and absolute), restrictive permissions (750/640 via find), set -euo pipefail with trap cleanup, and all variables properly quoted. It goes beyond the requirements with additional hardening like curl safety options (--fail, --max-filesize, --max-time), tar safety flags (--no-same-owner, --no-same-permissions), and proper stderr error reporting. The explanatory documentation is thorough and accurate.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with no cross-language contamination. It addresses all seven requested fixes (HTTPS, mktemp, checksum verification, path traversal detection, restrictive permissions, error handling with set -euo pipefail and trap, and full variable quoting) and goes beyond with additional protections like file size/count limits, intermediate extraction directory, and per-type permission setting. The use of curl flags, find for permission setting, stat with Linux/macOS fallback, and shasum are all idiomatic Bash/POSIX patterns. The code is production-quality with thorough documentation of the security improvements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid, idiomatic Bash with no foreign language contamination. It addresses all seven requested security fixes comprehensively: HTTPS, mktemp, checksum verification, path traversal detection (including absolute paths and ~/ patterns), restrictive permissions via find, set -euo pipefail with trap cleanup, and fully quoted variables. It also goes beyond requirements with tar bomb protection, extraction to a staging directory before installation, and download retry logic. The only minor note is using `shasum -a 256` (macOS-centric) rather than `sha256sum` (Linux), but this is a valid choice and the script is functionally correct either way.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with no cross-language contamination. It addresses all seven requested fixes: HTTPS, mktemp, checksum verification (SHA-256), path traversal checks (both relative ../ and absolute paths), restrictive permissions (644/755 via find), error handling (set -euo pipefail with trap cleanup), and proper variable quoting throughout. Additional security measures like --no-same-owner, --no-same-permissions, curl --fail with timeout, and proper stderr error messages demonstrate production-quality work. The only minor note is the placeholder checksum, which is appropriate and clearly documented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid bash with no cross-language contamination. It addresses all seven requested fixes (HTTPS, mktemp, checksum verification, path traversal detection, restrictive permissions, set -euo pipefail with trap cleanup, and fully quoted variables) and goes beyond by adding size limits, dependency checks, file count validation, backup/rollback logic, and plugin structure validation. The use of bash idioms (command -v, set -euo pipefail, mktemp -d, find -exec, trap on multiple signals, stat with fallback for Linux/macOS) is fully idiomatic. The only minor nit is the dependency check includes 'jq' which is used for optional plugin.json validation that may be overly opinionated, but this doesn't detract from quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with no foreign language patterns. It addresses all seven requested security fixes: HTTPS, mktemp, checksum verification (sha256), path traversal detection (grep for ../, leading /, ~), restrictive permissions (644/755 via find), error handling (set -euo pipefail, trap for cleanup), and proper variable quoting throughout. It also goes beyond requirements with tar bomb protection, extraction to a temp staging area, and curl retry/fail flags. The trap quoting of $TEMP_DIR is slightly unusual (single quotes inside double quotes) but functions correctly. Overall this is production-quality security-hardened Bash.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Bash with proper use of set -euo pipefail, trap, mktemp, curl flags, and standard Unix utilities. All seven requested fixes are implemented. One minor functional issue: the path traversal check occurs after extraction has already happened (the tar is extracted to the temp dir before the ../  and absolute path checks are performed), which means a malicious archive could still cause harm during the initial extraction step\u2014ideally the listing check should precede extraction. Otherwise, the script is thorough, well-documented, and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Bash with no cross-language contamination. It addresses all seven requested security fixes (HTTPS, mktemp, checksum verification, path traversal checks, restrictive permissions, error handling with set -euo pipefail and trap, and proper variable quoting) and goes beyond them with additional protections like file size limits, tar bomb detection, retry logic, and extraction to a staging directory before installation. All commands (curl, tar, stat, shasum, find, mktemp, trap) are used idiomatically. The only minor nit is that `shasum -a 256` is macOS-centric (sha256sum is more common on Linux), but the script also handles macOS `stat` syntax as a fallback, showing cross-platform awareness. Overall this is production-quality, security-hardened Bash.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Bash with no foreign language patterns or cross-language contamination. It addresses all seven requested security fixes and goes beyond by adding tar bomb protection, two-stage extraction, and curl retry logic. All variables are properly quoted, the trap cleanup is correctly implemented, and the path traversal check uses an appropriate regex. The use of `shasum -a 256` is slightly less portable than `sha256sum` on some Linux distros, but both are valid and idiomatic. Overall this is production-quality secure shell scripting.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "https://",
+                  "matched": true
+                },
+                {
+                  "pattern": "mktemp",
+                  "matched": true
+                },
+                {
+                  "pattern": "shasum|sha256sum",
+                  "matched": true
+                },
+                {
+                  "pattern": "set",
+                  "matched": true
+                },
+                {
+                  "pattern": "trap",
+                  "matched": true
+                },
+                {
+                  "pattern": "chmod 6[04][04]|chmod [0-7][0-5][0-4]",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "https://",
+                "mktemp",
+                "shasum|sha256sum",
+                "set",
+                "trap",
+                "chmod 6[04][04]|chmod [0-7][0-5][0-4]"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "openclaw",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "clawsec\\.prompt\\.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "prompt-agent-05",
+      "task_type": "adjacent_domain",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic usage of standard library modules (re, json, dataclasses, defaultdict, enum). It demonstrates good design with well-structured classes, type hints, and compiled regex patterns. However, the code is clearly truncated mid-method (cuts off during detect_directory_traversal), so several key features are missing: directory traversal detection logic, brute force detection, 404 tracking, the _add_threat helper, alert generation, and crucially the JSON report method. Only about half the required functionality is actually implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic usage of standard library modules (re, json, datetime, dataclasses, enum, defaultdict, typing). The code quality is good with well-structured classes, docstrings, type hints, and compiled regex patterns. However, the code is clearly truncated mid-function \u2014 it cuts off during detect_sql_injection and is missing the remaining detection methods (directory traversal, excessive 404s, brute force), the _url_decode helper, the main analysis method, and critically the JSON report generation method. Less than half the required functionality is actually implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of standard library modules (re, json, logging, dataclasses, defaultdict, enum). It demonstrates good design with well-structured dataclasses and clean pattern definitions. However, the code is clearly truncated mid-function \u2014 it cuts off inside parse_log_line and is missing the core analysis methods (detect_sql_injection, detect_directory_traversal, brute force detection, the main analyze method, alert generation, and the JSON report method). This means roughly half or less of the requested functionality is actually implemented, significantly impacting functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of dataclasses, enums, typing, defaultdict, and compiled regex patterns. However, the code is clearly truncated mid-function \u2014 the detect_sql_injection method is cut off, and critical methods like _add_threat, detect_directory_traversal, brute force detection, the main analyze method, and the generate_report JSON method are all missing. While the architecture and what's present is well-designed, it accomplishes less than half the stated task since most detection logic and the JSON report generation are absent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of standard library modules (re, json, dataclasses, defaultdict, enum, typing). It demonstrates good structure with well-defined classes, type hints, and docstrings. However, the code is clearly truncated \u2014 the `add_threat` method is cut off mid-implementation, and critical methods like `analyze_line` (the main analysis loop tying detection methods together) and `generate_report` (the JSON report method explicitly requested) are missing entirely. The detection helper methods and parsing logic are well-implemented for what's present, but the incomplete state means it only partially accomplishes the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of standard library modules (re, json, dataclasses, collections, enum, typing). The class design, data structures, and patterns used are all well-structured and Pythonic. However, the code is clearly truncated mid-line (cuts off at 'self.suspicious_ua_patterns = [re.c'), meaning the core analysis methods (parse_log_line, analyze, detect methods, generate_report) are completely missing. While the data model and configuration are solid, less than half the actual task functionality is implemented \u2014 no log parsing, no detection logic execution, no alert generation, and no JSON report method.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": true
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python, making excellent use of dataclasses, enums, type hints, defaultdict, and compiled regex patterns. The architecture is well-designed with clean separation of concerns. However, the code is clearly truncated mid-method (cuts off during detect_sql_injection), so several critical features are missing: the remaining detection methods, the threat scoring/alerting logic, and the JSON report generation method. Based on what's present, roughly 40-50% of the task is implemented (parsing, data structures, pattern definitions, and one partial detection method).",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of standard library modules (re, json, dataclasses, defaultdict, enum, typing). It demonstrates good design with well-structured classes, type hints, and docstrings. However, the code is clearly truncated \u2014 it cuts off mid-method in update_threat_score, meaning the core analysis loop, alert generation logic, and the JSON report method are all missing. While the scaffolding for parsing and detection is solid, approximately half the required functionality (threshold-based alerting, the main analyze method, and JSON report generation) is absent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic use of standard library modules (re, json, dataclasses, collections, enum, typing). The architecture is well-designed with proper dataclasses, enums, and compiled regex patterns. However, the code is clearly truncated mid-function \u2014 the parse_log_line method is cut off, and critical methods like the detection logic for each attack type, the analyze/process methods, and the JSON report generation method are missing. This means roughly half the required functionality (all detection rules, threshold alerting, and JSON reporting) is absent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class.*IDS|class.*Detector|class.*Monitor",
+                  "matched": false
+                },
+                {
+                  "pattern": "re\\.compile|re\\.search|re\\.match",
+                  "matched": true
+                },
+                {
+                  "pattern": "SQL.*injection|sqli|union.*select",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.\\./|directory.*traversal|path.*traversal",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+parse|def\\s+analyze|def\\s+detect",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.dump|json\\.dumps",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "re\\.compile|re\\.search|re\\.match",
+                "SQL.*injection|sqli|union.*select",
+                "\\.\\./|directory.*traversal|path.*traversal",
+                "def\\s+parse|def\\s+analyze|def\\s+detect"
+              ],
+              "expected_misses": [
+                "class.*IDS|class.*Detector|class.*Monitor",
+                "json\\.dump|json\\.dumps"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "openclaw|moltbot|clawdbot",
+                  "matched": false
+                },
+                {
+                  "pattern": "AGENT_HOME",
+                  "matched": false
+                },
+                {
+                  "pattern": "prompt-agent|prompt.security",
+                  "matched": false
+                },
+                {
+                  "pattern": "skill\\.json|SKILL\\.md",
+                  "matched": false
+                },
+                {
+                  "pattern": "HEARTBEAT",
+                  "matched": false
+                },
+                {
+                  "pattern": "shasum.*256|checksums\\.json",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

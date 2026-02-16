@@ -28,6 +28,15 @@ from config import (
 JUDGE_DIMS = ["language_correctness", "api_idiomaticity", "functional_correctness", "code_quality"]
 TASK_TYPES = ["direct_target", "cross_language", "similar_syntax", "grounded", "adjacent_domain"]
 
+# Skills excluded from cross-skill correlation and aggregate statistics.
+# These are still analyzed individually but don't contribute to the
+# contamination correlation, risk-level summaries, or aggregate figures.
+# doc-coauthoring: Non-code workflow skill that causes behavioral override
+# (model follows skill's collaborative workflow instead of generating code).
+# Measures a different phenomenon than cross-contamination — see
+# eval/analysis-notes/doc-coauthoring.md for details.
+EXCLUDED_FROM_AGGREGATES = {"doc-coauthoring"}
+
 
 # ---------------------------------------------------------------------------
 # Data loading helpers
@@ -367,8 +376,14 @@ def analyze_skill(skill_name: str, score_data: dict) -> dict:
 
 def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
     """Compute cross-skill correlations and comparisons."""
-    # Filter to skills with valid deltas for aggregate statistics
-    valid_analyses = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+    # Filter to skills with valid deltas, excluding skills that measure
+    # different phenomena (e.g. behavioral override rather than contamination)
+    valid_analyses = [sa for sa in skill_analyses
+                      if sa.get("mean_delta_composite") is not None
+                      and sa["skill_name"] not in EXCLUDED_FROM_AGGREGATES]
+    excluded = [sa for sa in skill_analyses
+                if sa["skill_name"] in EXCLUDED_FROM_AGGREGATES
+                and sa.get("mean_delta_composite") is not None]
 
     # Correlation: structural score vs behavioral delta
     contam_scores = []
@@ -465,6 +480,11 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
     return {
         "correlation_structural_behavioral": round(r, 3),
         "n_skills": len(valid_analyses),
+        "excluded_from_aggregates": [
+            {"name": sa["skill_name"], "reason": "behavioral_override",
+             "delta": sa["mean_delta_composite"]}
+            for sa in excluded
+        ],
         "by_risk_level": risk_summary,
         "by_test_category": category_summary,
         "by_task_type": task_type_summary,
@@ -480,7 +500,9 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
 
 def fig_correlation(skill_analyses: list[dict]):
     """Scatter: structural contamination score vs behavioral delta."""
-    skill_analyses = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+    skill_analyses = [sa for sa in skill_analyses
+                      if sa.get("mean_delta_composite") is not None
+                      and sa["skill_name"] not in EXCLUDED_FROM_AGGREGATES]
     if not skill_analyses:
         print("  → behavioral_correlation.png (skipped, no valid data)")
         return
@@ -515,7 +537,9 @@ def fig_correlation(skill_analyses: list[dict]):
 
 def fig_deltas_by_risk(skill_analyses: list[dict]):
     """Box plot: deltas grouped by risk level."""
-    skill_analyses = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+    skill_analyses = [sa for sa in skill_analyses
+                      if sa.get("mean_delta_composite") is not None
+                      and sa["skill_name"] not in EXCLUDED_FROM_AGGREGATES]
 
     fig, ax = plt.subplots(figsize=(8, 5))
 
@@ -548,6 +572,8 @@ def fig_deltas_by_risk(skill_analyses: list[dict]):
 
 def fig_task_types(skill_analyses: list[dict]):
     """Bar chart: mean delta by task type across risk levels."""
+    skill_analyses = [sa for sa in skill_analyses
+                      if sa["skill_name"] not in EXCLUDED_FROM_AGGREGATES]
     fig, ax = plt.subplots(figsize=(10, 5))
 
     risk_levels = ["high", "medium", "control"]
@@ -624,7 +650,8 @@ def fig_context_mitigation(skill_analyses: list[dict]):
     # Only include skills that have both valid deltas and realistic data
     has_realistic = [sa for sa in skill_analyses
                      if sa.get("mean_delta_composite") is not None
-                     and sa.get("mean_delta_composite_realistic") is not None]
+                     and sa.get("mean_delta_composite_realistic") is not None
+                     and sa["skill_name"] not in EXCLUDED_FROM_AGGREGATES]
     if not has_realistic:
         print("  → behavioral_context_mitigation.png (skipped, no data)")
         return
@@ -752,8 +779,15 @@ def print_summary(skill_analyses: list[dict], cross: dict):
     for tt, stats in cross["by_task_type"].items():
         print(f"  {tt}: mean delta = {stats['mean_delta']:+.3f} (n={stats['n']})")
 
+    if cross.get("excluded_from_aggregates"):
+        print("\nExcluded from aggregates:")
+        for ex in cross["excluded_from_aggregates"]:
+            print(f"  {ex['name']}: delta={ex['delta']:+.3f} (reason: {ex['reason']})")
+
     print("\nPer-skill results:")
-    valid_skills = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+    valid_skills = [sa for sa in skill_analyses
+                    if sa.get("mean_delta_composite") is not None
+                    and sa["skill_name"] not in EXCLUDED_FROM_AGGREGATES]
     skipped_skills = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is None]
     sorted_skills = sorted(valid_skills, key=lambda s: s["mean_delta_composite"])
     for sa in sorted_skills:

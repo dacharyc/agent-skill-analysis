@@ -161,6 +161,50 @@ def _parse_judge_json(text: str) -> dict | None:
     except (json.JSONDecodeError, ValueError):
         pass
 
+    # Strategy 4: Truncated JSON recovery — the judge response was cut off by
+    # max_tokens before the closing brace.  The four numeric scores appear first,
+    # so we can often salvage them even when the trailing fields are incomplete.
+    # Approach: strip to the last complete key-value pair, close any open arrays
+    # and the object, then parse.
+    fence = re.search(r"```(?:json)?\s*\n?(.*)", text, re.DOTALL)
+    fragment = fence.group(1) if fence else text
+    brace_start = fragment.find("{")
+    if brace_start >= 0:
+        fragment = fragment[brace_start:]
+        # Strip any trailing incomplete value (partial string, dangling comma, etc.)
+        # by keeping up to the last complete key-value line.
+        lines = fragment.split("\n")
+        kept: list[str] = []
+        for line in lines:
+            kept.append(line)
+            stripped = line.strip()
+            # If the line is just a closing brace/bracket we already have it
+            if stripped in ("}", "},", "]", "],"):
+                continue
+            # A complete key-value pair ends with a comma or with a closing bracket
+            if stripped.endswith(",") or stripped.endswith("]") or stripped.endswith("],"):
+                continue
+            # The opening brace
+            if stripped == "{":
+                continue
+            # Otherwise this line may be the truncated one — keep it only if
+            # it looks like a complete value (ends with a number or quoted string + optional comma)
+            if not re.search(r'([\d"\]]})\s*,?\s*$', stripped):
+                # Truncated mid-value — drop this line
+                kept.pop()
+                break
+        rebuilt = "\n".join(kept).rstrip().rstrip(",")
+        # Close any unclosed array brackets
+        open_brackets = rebuilt.count("[") - rebuilt.count("]")
+        rebuilt += "]" * open_brackets
+        # Close the object
+        open_braces = rebuilt.count("{") - rebuilt.count("}")
+        rebuilt += "}" * open_braces
+        try:
+            return json.loads(rebuilt)
+        except json.JSONDecodeError:
+            pass
+
     return None
 
 

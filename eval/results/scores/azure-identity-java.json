@@ -1,0 +1,3669 @@
+{
+  "skill_name": "azure-identity-java",
+  "scored_at": "2026-02-16T09:01:59.453394+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.52,
+  "risk_level": "high",
+  "test_category": "sdk_cross_lang",
+  "tasks": [
+    {
+      "task_id": "azure-identity-java-01",
+      "task_type": "direct_target",
+      "target_language": "java",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java and uses the correct Azure SDK for Java APIs (DefaultAzureCredentialBuilder, BlobServiceClientBuilder, KeyClientBuilder) idiomatically. The task specifically requested handling of CredentialUnavailableException, but the code catches ClientAuthenticationException instead and references a custom AzureAuthenticationException that is never defined\u2014this is a minor functional gap. The code is also truncated at the end (getKeyClient method cut off), and the connection-testing calls during initialization (getAccountInfo, listPropertiesOfKeys) are arguably unnecessary in a production service. Overall it demonstrates solid understanding of the Azure Java SDK with good structure and logging.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder"
+              ],
+              "expected_misses": [
+                "CredentialUnavailableException"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java with idiomatic usage of the Azure SDK for Java. It properly uses DefaultAzureCredentialBuilder with tenantId() and managedIdentityClientId(), creates both BlobServiceClient and KeyClient, and handles CredentialUnavailableException appropriately. The code is slightly truncated at the end (the getCredential method is cut off), but all core requested functionality is fully implemented. The use of @PostConstruct, Spring @Value injection, proper logging, and Javadoc comments make this production-quality code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java using the idiomatic Azure SDK for Java APIs. DefaultAzureCredentialBuilder with tenantId() and managedIdentityClientId(), BlobServiceClientBuilder, and KeyClientBuilder are all used correctly. The CredentialUnavailableException handling is present, though in practice it won't fire during client construction (it fires on token retrieval), which is a minor functional nuance rather than a real deficiency. The application.properties file is truncated but that's supplementary material. Overall this is clean, well-structured, production-quality Spring Boot code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct Spring Boot and Azure SDK for Java API usage. The DefaultAzureCredentialBuilder configuration with tenantId() and managedIdentityClientId() is idiomatic. The code is truncated at the end (getBlobServiceClient getter is cut off, and the custom AzureAuthenticationException class is not defined), which prevents a perfect functional correctness score. One minor issue: CredentialUnavailableException is unlikely to be thrown during credential builder construction\u2014it typically occurs at token acquisition time\u2014but the overall error handling approach is reasonable.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java using the correct Azure SDK for Java APIs (DefaultAzureCredentialBuilder, BlobServiceClientBuilder, KeyClientBuilder) with proper Spring Boot annotations. The API usage is fully idiomatic \u2014 tenantId(), managedIdentityClientId(), TokenRequestContext, and credential validation via getToken().block() are all correct Java SDK patterns. The code is truncated mid-method (getBlobServiceClient's catch block is cut off, and getKeyClient is likely missing), which prevents a perfect functional correctness score. Overall quality is good with proper logging, lazy initialization with double-checked locking, and comprehensive error handling for CredentialUnavailableException.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java using idiomatic Azure SDK for Java APIs. The DefaultAzureCredentialBuilder correctly uses tenantId() and managedIdentityClientId(), and the BlobServiceClientBuilder and KeyClientBuilder are used properly. One minor concern is that CredentialUnavailableException is unlikely to be thrown during client construction (it occurs at token acquisition time, not builder time), so the error handling placement is somewhat misleading\u2014though the code would still function correctly if an exception did propagate. The inclusion of application.properties, Maven dependencies, and accessor methods with null checks demonstrates production-quality practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java using idiomatic Azure SDK for Java APIs \u2014 DefaultAzureCredentialBuilder with tenantId() and managedIdentityClientId(), BlobServiceClientBuilder with endpoint()/credential(), and KeyClientBuilder with vaultUrl()/credential() are all correct. Error handling for CredentialUnavailableException is properly included. The code is truncated at the end (getter method cut off), which slightly impacts functional completeness. One minor concern: CredentialUnavailableException is unlikely to be thrown during credential builder construction (it occurs at token request time), so the try-catch in createAzureCredential is somewhat misleading, but this is a domain understanding issue rather than a contamination signal.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java using the proper Azure SDK for Java APIs (DefaultAzureCredentialBuilder, BlobServiceClientBuilder, KeyClientBuilder) with idiomatic Spring Boot patterns (@Service, @Value, @PostConstruct). It correctly configures tenantId and managedIdentityClientId, creates both clients, and handles CredentialUnavailableException. The code is truncated at the very end (isInitialized method is cut off), which is a minor completeness issue but the core task is fully implemented. The code quality is good with proper logging, Javadoc, and layered error handling.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java using the correct Azure SDK for Java APIs. The DefaultAzureCredentialBuilder, BlobServiceClientBuilder, and KeyClientBuilder are used idiomatically with the correct method names (tenantId, managedIdentityClientId, endpoint, vaultUrl, credential, buildClient). One minor note: CredentialUnavailableException is unlikely to be thrown during client construction (it typically occurs at token acquisition time, not builder time), so the catch blocks in createBlobServiceClient/createKeyClient may not trigger as expected during initialization. However, wrapping them in @PostConstruct with error handling is a reasonable defensive approach. The code is well-structured, well-documented, and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "managedIdentityClientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "KeyClientBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "CredentialUnavailableException",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder",
+                "managedIdentityClientId\\(",
+                "tenantId\\(",
+                "\\.build\\(\\)",
+                "BlobServiceClientBuilder",
+                "KeyClientBuilder",
+                "CredentialUnavailableException"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "require.*@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewDefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential_chain|ChainedTokenCredential.*add_credential",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-java-02",
+      "task_type": "cross_language",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic use of the azure-identity and azure-storage-blob SDKs. It properly uses DefaultAzureCredential, BlobServiceClient, and handles ClientAuthenticationError, HttpResponseError, and ServiceRequestError appropriately. However, the code is truncated in the main() function \u2014 the script cuts off mid-assignment, so the full orchestration (creating the client, listing containers, and calling them together) is incomplete. The implemented portions are well-structured with good documentation, error handling, and troubleshooting tips.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with fully idiomatic use of the azure-identity and azure-storage-blob SDKs. It properly uses DefaultAzureCredential, BlobServiceClient, and handles ClientAuthenticationError, HttpResponseError, and ResourceNotFoundError correctly. The code is well-structured with docstrings, type hints, and helpful troubleshooting messages. The only issue is that the code is truncated mid-function (get_container_details is cut off), but all core requested features (authentication, listing containers, error handling) are fully implemented before the truncation point.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It uses the azure-identity and azure-storage-blob SDKs idiomatically \u2014 DefaultAzureCredential, BlobServiceClient construction with account_url and credential, list_containers() iteration, and ClientAuthenticationError handling are all correct Python SDK patterns. The script fully accomplishes all requested features (authentication, container listing, error handling) and demonstrates production-quality practices including logging, resource cleanup in a finally block, CLI argument handling with helpful usage messages, and comprehensive error troubleshooting guidance.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the azure-identity and azure-storage-blob SDKs. DefaultAzureCredential, BlobServiceClient, and error handling with ClientAuthenticationError and HttpResponseError are all used correctly. The code is truncated at the end of the main() function \u2014 the try block is cut off mid-line, so the main execution flow (calling get_blob_service_client and list_containers) is incomplete. Despite this, the helper functions are fully implemented and would accomplish the task if the main function were complete. Code quality is good with proper docstrings, type hints, and structured error handling.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the azure-identity and azure-storage-blob SDKs. DefaultAzureCredential, BlobServiceClient, and exception handling (ClientAuthenticationError, HttpResponseError, ServiceRequestError) are all used correctly. The code is truncated at the end of main() \u2014 the BlobServiceClient creation and subsequent calls to list_containers/get_account_info are cut off, so the script is incomplete, but the vast majority of the task is implemented. Code quality is good with proper docstrings, type hints, and helpful error messages.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with fully idiomatic usage of the azure-identity and azure-storage-blob SDKs. It properly uses DefaultAzureCredential, constructs BlobServiceClient with account_url and credential, iterates over list_containers(), and catches ClientAuthenticationError from azure.core.exceptions. The code includes proper logging, CLI argument handling, credential cleanup in a finally block, and helpful error messages guiding the user on authentication options. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the azure-identity and azure-storage-blob SDKs. DefaultAzureCredential, BlobServiceClient, and exception handling (ClientAuthenticationError, HttpResponseError, ServiceRequestError) are all used properly. The code is truncated at the end of the main() function\u2014the call to authenticate_and_list_containers and the if __name__ == '__main__' block are missing\u2014which prevents it from being fully runnable as-is, though the core logic is complete. The type annotation `List[ContainerProperties]` for list_containers output is slightly imprecise (it returns ItemPaged, and items are ContainerProperties), but this is a minor quibble. Overall, well-structured and production-quality aside from the truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, fully idiomatic Python code using the azure-identity and azure-storage-blob SDKs correctly. DefaultAzureCredential is properly instantiated, BlobServiceClient is constructed with the correct account_url and credential parameters, and containers are listed via list_containers(). Authentication errors are handled comprehensively with ClientAuthenticationError, HttpResponseError, and ServiceRequestError from azure.core.exceptions. The code includes proper cleanup, CLI argument handling, helpful user messages, and production-quality documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It uses the azure-identity and azure-storage-blob SDKs idiomatically \u2014 DefaultAzureCredential, BlobServiceClient with account_url, list_containers(), and ClientAuthenticationError are all correct Python SDK patterns. The script fully accomplishes the task: authenticates with DefaultAzureCredential, creates a BlobServiceClient, lists containers, and handles authentication errors with helpful messages. Code quality is production-grade with proper logging, cleanup in a finally block, flexible input handling, type hints, and docstrings.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential=credential",
+                  "matched": true
+                },
+                {
+                  "pattern": "except.*Error",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "DefaultAzureCredential\\(\\)",
+                "BlobServiceClient",
+                "credential=credential",
+                "except.*Error"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "import com\\.azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "new.*Builder\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.buildClient\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-java-03",
+      "task_type": "similar_syntax",
+      "target_language": "java",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and uses the appropriate Azure SDK for Java (azure-identity and azure-cosmos). The API usage is idiomatic \u2014 CosmosClientBuilder, ChainedTokenCredentialBuilder, ManagedIdentityCredentialBuilder, and AzureCliCredentialBuilder are all correct Java SDK classes with proper builder patterns. However, the code is truncated mid-function (testCredential method is cut off), meaning the credential testing, Cosmos client creation, query execution, and error handling for unauthenticatable chains are incomplete. The maxRetry method on ManagedIdentityCredentialBuilder is a minor deviation but not a cross-language contamination issue. What is present is well-structured with good logging and documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct language syntax and uses the proper Azure SDK for Java APIs (azure-identity, azure-cosmos). The API usage shown is idiomatic \u2014 ChainedTokenCredentialBuilder, ManagedIdentityCredentialBuilder, AzureCliCredentialBuilder are all correct Java SDK classes. However, the code is severely truncated: CredentialManager.java cuts off mid-variable declaration, and CosmosDbService.java, Product.java, and CosmosDbApp.java are never shown. The task's core requirements (Cosmos DB query, authentication error handling) are not implemented in the visible code. The pom.xml and project structure are well done.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "ChainedTokenCredentialBuilder uses .addFirst() and .addLast() methods which do not exist in the Java Azure Identity SDK; the correct method is .addAll() or repeated .addCredential() calls",
+                "CredentialUnavailableException is unlikely to be thrown during CosmosClient construction since token retrieval is lazy; the error handling pattern suggests confusion with how the Python SDK raises exceptions eagerly"
+              ],
+              "brief_assessment": "The code is entirely valid Java with proper Spring configuration patterns, good logging, and clean structure. However, the ChainedTokenCredentialBuilder API is incorrect \u2014 the Java SDK uses .addCredential() not .addFirst()/.addLast(), which is a significant API contamination issue. The code is also truncated mid-method in the service class, leaving the queryItems error handling incomplete. The CredentialUnavailableException catch around CosmosClientBuilder is misplaced since authentication errors would occur at query time, not at client creation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and uses the proper Azure SDK for Java APIs (azure-identity and azure-cosmos). The imports, builder patterns, and API usage are idiomatic for the Java Azure SDK. However, the code is truncated mid-method \u2014 the `createChainedCredential` method is cut off during construction of the ManagedIdentityCredential, so the chained credential building, Cosmos DB query execution, and credential testing logic are missing. This means roughly half the core task (actual credential chaining, query execution, and error handling for failed authentication) is not implemented in the visible code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and uses the appropriate Azure SDK for Java APIs (azure-identity, azure-cosmos). The ChainedTokenCredential builder pattern, ManagedIdentityCredentialBuilder, and AzureCliCredentialBuilder are all idiomatic Java Azure SDK patterns. However, the code is critically truncated mid-line in the CredentialProvider.java file \u2014 the actual Cosmos DB client creation, query execution, and authentication error handling are never shown. This means less than half the task (credential chaining setup, Cosmos DB query, error handling) is actually implemented in the visible code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "ChainedTokenCredentialBuilder uses addFirst()/addLast() methods which do not exist in the Java Azure Identity SDK; the correct method is addAll() or individual .addCredential() calls",
+                "The code is truncated/incomplete - CosmosDbService constructor and query methods are cut off mid-implementation"
+              ],
+              "brief_assessment": "The code is entirely valid Java with proper Spring Configuration patterns and correct Cosmos DB client setup structure. However, ChainedTokenCredentialBuilder in the Java SDK does not have addFirst()/addLast() methods \u2014 the correct method is addCredential(), suggesting possible contamination from the .NET SDK which uses AddFirst/AddLast-like patterns or a hallucinated API. The code is also significantly truncated, cutting off mid-constructor in the service class, so the actual Cosmos DB query logic and credential failure handling are never implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and idiomatic use of the Azure SDK for Java (azure-identity and azure-cosmos libraries). The API usage for ChainedTokenCredentialBuilder, ManagedIdentityCredentialBuilder, AzureCliCredentialBuilder, and CosmosClientBuilder follows correct Java SDK patterns. However, the code is critically truncated mid-function \u2014 the createChainedCredential method is cut off during construction of the ManagedIdentityCredential, and the remaining methods (createCosmosClient, performCosmosOperations, and the custom exception class) are missing entirely. This means less than half the core task logic is present, significantly impacting functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and uses the correct Azure SDK for Java libraries (azure-identity, azure-cosmos). The API usage for ChainedTokenCredentialBuilder, ManagedIdentityCredentialBuilder, and AzureCliCredentialBuilder appears idiomatic for the Java Azure SDK. However, the code is severely truncated \u2014 it cuts off mid-class in CosmosConfig.java, meaning the actual Cosmos DB authentication, query execution, and credential chain error handling (the core task requirements) are never shown. The pom.xml and project structure are well done but the functional implementation is incomplete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "ChainedTokenCredentialBuilder uses .addFirst() and .addLast() which are not part of the Java Azure Identity SDK - the correct method is .addAll() or repeated .addCredential() calls",
+                "The code is truncated/incomplete - cuts off mid-comment in CosmosDbConfig and only one file is shown",
+                "Unnecessary Spring Boot dependencies (spring-boot-starter-data-jpa) for a Cosmos DB task suggest template contamination"
+              ],
+              "brief_assessment": "The code is valid Java and demonstrates a reasonable architecture with Spring Boot configuration. However, it is significantly incomplete - cutting off mid-file without showing the CosmosClient bean creation, the service layer, or the query execution. The ChainedTokenCredentialBuilder API is incorrect: the Java SDK uses .addCredential() method, not .addFirst()/.addLast(), which may indicate contamination from another SDK or hallucination. The task requirements for performing a basic query and handling authentication failures are not addressed in the visible code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ChainedTokenCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "ManagedIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "AzureCliCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "addFirst|addLast",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CosmosClient|cosmosClient",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ChainedTokenCredentialBuilder",
+                "ManagedIdentityCredentialBuilder",
+                "AzureCliCredentialBuilder",
+                "addFirst|addLast",
+                "\\.build\\(\\)",
+                "CosmosClient|cosmosClient"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential\\b(?!Builder)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewChainedTokenCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "@azure/identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "ChainedTokenCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-java-04",
+      "task_type": "grounded",
+      "target_language": "java",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes the two main bugs in the original: using `DefaultAzureCredentialBuilder().build()` instead of the constructor directly, and using `.buildClient()` instead of `.build()` on `SecretClientBuilder`. The code is entirely idiomatic Java using the correct Azure SDK for Java APIs. The enhanced version adds proper client reuse, logging, error handling, and helpful documentation about environment variables and Maven dependencies. One minor note: `.buildClient()` vs `.build()` \u2014 the actual Azure SDK Java API uses `.buildClient()` for synchronous and `.buildAsyncClient()` for async, so the fix is correct; however, some older SDK versions did use `.build()`, making this a reasonable correction. The `managedIdentityClientId` accepting a potentially null `System.getenv()` value is acceptable as DefaultAzureCredentialBuilder handles null gracefully.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "try.*catch|throws",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [
+                "ChainedTokenCredentialBuilder uses .addFirst()/.addLast() methods which don't exist in the Java SDK \u2014 the correct method is .addCredential(); this pattern may be confused with .NET's ChainedTokenCredential or a fabricated API",
+                "SecretClientBuilder uses .buildClient() instead of .build() \u2014 though .buildClient() is actually correct for synchronous client in the Java SDK, the original broken code used .build() which is also valid"
+              ],
+              "brief_assessment": "The code is entirely valid Java with correct Azure SDK usage for the main fix (using DefaultAzureCredentialBuilder instead of direct constructor instantiation). The primary fix is correct and well-explained, with good error handling and client reuse. The advanced ChainedTokenCredential example uses .addFirst()/.addLast() which are not the actual Java SDK methods (the correct method is .addCredential()), suggesting possible contamination from another language SDK or hallucination. The output is cut off at the very end but the core task is fully accomplished.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java and correctly uses the Azure SDK for Java. The core fix of using DefaultAzureCredentialBuilder instead of direct constructor instantiation is correct and addresses the primary bug. However, the change from .build() to .buildClient() on SecretClientBuilder is incorrect \u2014 the Azure Key Vault Secrets SDK for Java uses .buildClient() for synchronous and .buildAsyncClient() for async, but the original code's .build() method does not exist, so this is a valid correction. One minor concern is that passing System.getenv(\"AZURE_CLIENT_ID\") to managedIdentityClientId() could pass null when no user-assigned MI is intended, which may or may not cause issues depending on the SDK version. The error handling and logging additions are good quality improvements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes the core bug: `new DefaultAzureCredential()` is not a valid constructor in the Azure SDK for Java \u2014 `DefaultAzureCredentialBuilder().build()` is the correct idiomatic pattern. The fix is entirely in Java with proper Azure SDK for Java API usage. The code adds appropriate error handling, logging, and provides an enhanced version with `managedIdentityClientId` configuration. The explanation of the authentication chain, environment variables, and Maven dependencies is thorough and accurate.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Minor: `.buildClient()` is used instead of `.build()` \u2014 in the Azure SDK for Java, `SecretClientBuilder` uses `.buildClient()` for sync and `.buildAsyncClient()` for async, so this is actually correct; however the original broken code used `.build()` which is not valid for `SecretClientBuilder`, making the fix appropriate"
+              ],
+              "brief_assessment": "The code is entirely valid Java with correct Azure SDK for Java API usage. The key fix of replacing `new DefaultAzureCredential()` with `new DefaultAzureCredentialBuilder().build()` is correct, and changing `.build()` to `.buildClient()` on `SecretClientBuilder` is also the right API call. The enhanced version with logging, managed identity configuration, and error handling is well-structured. The code is truncated at the end (test class cuts off mid-method), but the core task is fully accomplished. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java with proper Azure SDK usage. The main fix of using DefaultAzureCredentialBuilder instead of directly constructing DefaultAzureCredential is correct and essential. However, the comment claiming SecretClientBuilder uses 'buildClient() not build()' is actually incorrect \u2014 the Azure SDK for Java's SecretClientBuilder does use .buildClient() for sync and .buildAsyncClient() for async, so that part is correct, though the original code's .build() method does not exist on SecretClientBuilder making the fix valid. The code adds good error handling, logging, and credential reuse. One minor concern: passing System.getenv(\"AZURE_CLIENT_ID\") to managedIdentityClientId() could pass null when running in CI/CD with a service principal, but DefaultAzureCredentialBuilder handles null gracefully (it simply skips user-assigned MI configuration), so this is acceptable.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes the two main bugs: using `new DefaultAzureCredentialBuilder().build()` instead of directly instantiating `DefaultAzureCredential`, and changing `.build()` to `.buildClient()` on SecretClientBuilder. The Java Azure SDK APIs are used idiomatically. One minor note: the `.buildClient()` fix is correct for newer SDK versions, though `.build()` was actually the correct method name in some earlier versions of the Key Vault secrets SDK \u2014 the response could have been clearer about version-specific behavior. The enhanced version with client caching, logging, error handling, Maven dependencies, and usage examples is thorough and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "try.*catch|throws",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "`.buildClient()` is used instead of `.build()` on SecretClientBuilder \u2014 `.build()` is the correct method in the Azure SDK for Java; `.buildClient()` may be confused with .NET's pattern or is incorrect for this specific builder",
+                "`ChainedTokenCredentialBuilder.addFirst()` and `.addLast()` are not part of the Java Azure Identity SDK \u2014 the correct method is `.addCredential()`; this pattern resembles .NET's ChainedTokenCredential API"
+              ],
+              "brief_assessment": "The code correctly identifies the core bug (using `new DefaultAzureCredential()` instead of the builder pattern) and provides a well-structured fix with proper error handling and constructor-based client initialization. However, there are API contamination issues: `SecretClientBuilder` uses `.build()` not `.buildClient()` in the Java SDK, and `ChainedTokenCredentialBuilder` uses `.addCredential()` rather than `.addFirst()`/`.addLast()`, which appear borrowed from .NET patterns. The code is truncated at the end but the primary implementation is complete and functionally sound.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "new DefaultAzureCredential\\(\\)(?!\\.)"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java with correct Azure SDK usage. The main fix of using DefaultAzureCredentialBuilder().build() instead of the direct constructor is correct and addresses the core issue. However, the fix changing build() to buildClient() is questionable \u2014 in the Azure SDK for Java, SecretClientBuilder uses .buildClient() for sync and .buildAsyncClient() for async, but some SDK versions also accept .build(). The original code's build() method does not actually exist on SecretClientBuilder, so buildClient() is the correct fix. Error handling and logging additions are good quality improvements. The code would accomplish the stated task of authenticating via environment variables in CI/CD and managed identity in Azure.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.build\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "try.*catch|throws",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "DefaultAzureCredentialBuilder\\(\\)",
+                "\\.build\\(\\)",
+                "SecretClientBuilder"
+              ],
+              "expected_misses": [
+                "new DefaultAzureCredentialBuilder\\(\\)\\.build\\(\\)",
+                "try.*catch|throws"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)(?!\\.)",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "credential\\s*=\\s*DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient\\.create|secret_client",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-java-05",
+      "task_type": "adjacent_domain",
+      "target_language": "java",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Code is truncated/incomplete - main application Java file cuts off after package declaration",
+                "Includes unnecessary dependencies like OkHttp which suggests potential contamination from non-Azure-SDK HTTP patterns",
+                "Project structure over-engineered with many files promised but never delivered"
+              ],
+              "brief_assessment": "The code is truncated at the most critical point \u2014 the actual Java implementation is cut off after the package declaration of the main class. While the pom.xml is well-structured with correct Azure SDK Java dependencies, none of the actual functional code (WorkloadIdentityCredential usage, token retrieval, logging configuration) is present. The project structure and build configuration are reasonable, but the application fails to deliver on any of the core requirements since the Java source code is missing.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": false
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "management\\.azure\\.com"
+              ],
+              "expected_misses": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "TokenRequestContext",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 7,
+              "expected_hit_rate": 0.14285714285714285,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and uses the appropriate Azure Identity SDK for Java (com.azure.identity). However, the code is significantly truncated \u2014 ConfigurationValidator.java is cut off mid-declaration, and the main WorkloadIdentityDemo.java and TokenManager.java classes are never shown. This means the core functionality (building WorkloadIdentityCredential with both env vars and explicit parameters, retrieving a token, and enabling verbose logging) is not fully demonstrated. The project structure, POM, and what exists of the code are well-organized and idiomatic for Java/Maven.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "TokenRequestContext",
+                "management\\.azure\\.com"
+              ],
+              "expected_misses": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 7,
+              "expected_hit_rate": 0.2857142857142857,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java using the correct Azure Identity SDK for Java (com.azure.identity). The WorkloadIdentityCredentialBuilder API usage is idiomatic with correct methods (tenantId, clientId, tokenFilePath, build). The code configures credentials using both environment variables and explicit parameters, retrieves a management API token, and sets AZURE_LOG_LEVEL for verbose logging\u2014though the idiomatic way to enable verbose Azure SDK logging is via environment variable or Azure SDK configuration rather than System.setProperty. The code is truncated in the second file (the demo runner is cut off mid-method), which slightly impacts functional completeness. The Spring Boot wrapper is a reasonable design choice but adds unnecessary framework dependency for the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "TokenRequestContext",
+                "management\\.azure\\.com",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and uses the appropriate Azure Identity SDK for Java (com.azure.identity.WorkloadIdentityCredential and its builder pattern). However, the code is clearly truncated mid-file \u2014 the AzureConfig class is cut off, and the main WorkloadIdentityApp.java and TokenRetriever.java files are never shown. While the pom.xml and project structure are well-organized, the incomplete delivery means significant portions of the task (actually retrieving a token, configuring with both environment variables and explicit parameters, enabling verbose logging in code) cannot be verified as implemented. The API patterns shown (builder pattern for credential, TokenRequestContext) appear idiomatic for the Java Azure SDK with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "TokenRequestContext",
+                "management\\.azure\\.com"
+              ],
+              "expected_misses": [
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct syntax and appropriate Azure SDK for Java API usage (WorkloadIdentityCredentialBuilder, TokenRequestContext, etc.). However, the code is severely truncated \u2014 the WorkloadIdentityConfig class is cut off mid-constant definition, and the main application class (AksWorkloadIdentityApp.java) and TokenService.java are never shown. This means the core functionality of authenticating and retrieving a token is missing, so the task is only partially accomplished through the pom.xml and the beginning of a config class. The project structure and Maven configuration are well-organized.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "TokenRequestContext",
+                "management\\.azure\\.com"
+              ],
+              "expected_misses": [
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "System.setProperty(\"AZURE_LOG_LEVEL\", \"verbose\") is not the correct way to enable verbose Azure SDK logging in Java; the correct approach is to configure logging via the HttpLogOptions on client builders or set the AZURE_LOG_LEVEL environment variable externally, or use Configuration objects"
+              ],
+              "brief_assessment": "The code is entirely valid Java using the correct Azure Identity SDK classes (WorkloadIdentityCredential, WorkloadIdentityCredentialBuilder, TokenRequestContext). It demonstrates both environment-variable-based and explicit-parameter-based credential creation, and retrieves a token for the management API scope. The verbose logging approach via System.setProperty is slightly off \u2014 the Java SDK typically reads AZURE_LOG_LEVEL as an environment variable or via Azure SDK's Configuration class, not as a Java system property with that exact key. The code is truncated at the end (WorkloadIdentityApplication class is cut off mid-declaration), which slightly impacts functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "TokenRequestContext",
+                "management\\.azure\\.com",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 1,
+              "code_quality": 2,
+              "contamination_signals": [],
+              "brief_assessment": "The code is written in Java with correct syntax and uses appropriate Azure SDK dependencies in the pom.xml. However, the actual Java source code is truncated mid-class name ('WorkloadIdentityAuthentica'), meaning essentially none of the functional code (credential creation, token retrieval, logging configuration) is present. The pom.xml is well-structured with correct Azure Identity SDK dependencies, but without the implementation classes, the code cannot accomplish any part of the stated task. The project structure is over-engineered for the requirements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": false
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "TokenRequestContext"
+              ],
+              "expected_misses": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "management\\.azure\\.com",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 7,
+              "expected_hit_rate": 0.14285714285714285,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct language syntax and uses the appropriate Azure SDK for Java APIs (azure-identity, azure-core). However, the main application class WorkloadIdentityDemo.java is truncated mid-declaration ('publ'), meaning the core logic for authenticating with WorkloadIdentityCredential, retrieving a token, and enabling verbose logging is never shown. The supporting files (EnvironmentBasedAuth, ExplicitConfigAuth, TokenValidator) are also completely missing. The pom.xml and project structure are well-organized, but the incomplete code means less than half the task is actually implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "WorkloadIdentityCredentialBuilder",
+                "TokenRequestContext",
+                "management\\.azure\\.com",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_misses": [
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\("
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Java using the correct Azure Identity SDK for Java (com.azure.identity). The WorkloadIdentityCredentialBuilder API is used correctly with tenantId(), clientId(), tokenFilePath(), and build(). The approach of setting AZURE_LOG_LEVEL via System.setProperty is not the idiomatic way to enable verbose Azure SDK logging (should use AZURE_LOG_LEVEL environment variable or configure HttpLogOptions), which is a minor deviation. The code is truncated at the end (getTokenForScope method is incomplete), and the Spring @Component annotation adds an unnecessary dependency, but overall the implementation covers environment variable reading, explicit parameter configuration, and token retrieval for the management API scope as requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "WorkloadIdentityCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "tenantId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "clientId\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "tokenFilePath\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenRequestContext",
+                  "matched": true
+                },
+                {
+                  "pattern": "management\\.azure\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "AZURE_LOG_LEVEL|enableAccountIdentifierLogging",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "WorkloadIdentityCredentialBuilder",
+                "tenantId\\(",
+                "clientId\\(",
+                "tokenFilePath\\(",
+                "TokenRequestContext",
+                "management\\.azure\\.com",
+                "AZURE_LOG_LEVEL|enableAccountIdentifierLogging"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredentialBuilder",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "azidentity\\.NewWorkloadIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "WorkloadIdentityCredential\\.new",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

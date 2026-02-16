@@ -1,0 +1,3899 @@
+{
+  "skill_name": "copilot-sdk",
+  "scored_at": "2026-02-16T07:06:24.722451+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.63,
+  "risk_level": "high",
+  "test_category": "multi_sdk",
+  "tasks": [
+    {
+      "task_id": "copilot-sdk-01",
+      "task_type": "direct_target",
+      "target_language": "typescript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package with these imports (CopilotClient, CopilotStreamingSession, ToolDefinition, StreamingDelta) does not exist as a real published SDK - the entire API surface is fabricated",
+                "The API design pattern (createStreamingSession, onBeforeToolUse, registerTool, session.stream(), getFinalMessage) resembles a blend of OpenAI's Node SDK patterns and Anthropic's SDK patterns rather than any actual GitHub Copilot SDK",
+                "The streaming pattern with 'for await (const delta of session.stream())' and delta types like 'content', 'tool_call', 'tool_result' closely mirrors OpenAI's streaming API design",
+                "The pre-tool-use hook pattern (onBeforeToolUse returning boolean) appears borrowed from agent framework patterns like LangChain or similar rather than any real Copilot SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript with proper Node.js patterns, type annotations, and async/await usage. However, the entire API surface is fabricated \u2014 there is no published '@github/copilot-sdk' npm package with these interfaces. The invented API borrows heavily from OpenAI's Node SDK patterns (streaming deltas, tool definitions with JSON Schema parameters, message roles) and generic agent framework patterns (pre-tool-use hooks, tool registration). While the code logically addresses all requested features (client creation, streaming with gpt-4.1, custom tool definition, pre-tool-use hook, stdout output), it cannot actually run against any real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": false
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": false
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": false
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 7,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package and its API (CopilotClient, defineTool, createSession, session.on events like 'assistant.message_delta', 'session.idle', sendAndWait) do not correspond to any known real SDK - this appears to be a fabricated/hallucinated API",
+                "The event-driven pattern with session.on('assistant.message_delta') resembles OpenAI's Assistants API streaming pattern or Anthropic's streaming events rather than any known GitHub Copilot SDK",
+                "The 'defineTool' pattern with inline handler resembles patterns from Vercel AI SDK or LangChain rather than a GitHub Copilot SDK",
+                "The hooks pattern with 'onPreToolUse' returning 'permissionDecision' objects resembles Copilot Extensions agent patterns but the actual SDK interface is fabricated",
+                "The 'sendAndWait' pattern appears borrowed from agent framework patterns rather than any real Copilot SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript and well-structured with good error handling, cleanup, and clear organization. However, the entire API surface is fabricated \u2014 there is no known '@github/copilot-sdk' npm package with this interface. The API design borrows patterns from multiple real SDKs (OpenAI Assistants streaming events, Vercel AI SDK tool definitions, agent framework hooks) but doesn't correspond to any actual GitHub Copilot SDK. While the code logically covers all requested features (client creation, streaming, custom tool, pre-tool-use hook, stdout output), it would not run against any real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": true
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": true
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": true
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": true
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package with 'CopilotClient', 'defineTool', 'createSession' API does not correspond to any known published SDK \u2014 this appears to be a fabricated/hallucinated API",
+                "The event-emitter pattern with session.on('assistant.message_delta') resembles OpenAI Realtime API or Anthropic SDK patterns rather than any known GitHub Copilot SDK",
+                "The 'defineTool' pattern with inline handler resembles Vercel AI SDK's tool definition pattern",
+                "The hooks.onPreToolUse pattern with permissionDecision/permissionDecisionReason resembles Copilot Extensions agent patterns but conflated into a client SDK that doesn't exist in this form",
+                "session.sendAndWait() is not a known method from any established SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript and well-structured with proper error handling, cleanup, and clear organization. However, the entire API surface (@github/copilot-sdk with CopilotClient, defineTool, createSession, session event emitters) appears to be fabricated \u2014 there is no known published npm package matching this interface. The code borrows idioms from multiple real SDKs (OpenAI's streaming events, Vercel AI SDK's tool definitions, Copilot Extensions' permission hooks) and stitches them into a plausible-looking but non-functional whole. While it conceptually addresses all task requirements (client creation, streaming, custom tool, pre-tool-use hook, stdout output), it cannot actually run against any real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": true
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": true
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": true
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": true
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses OpenAI-style `client.chat.completions.create()` API pattern rather than any known GitHub Copilot SDK API",
+                "The package `@copilot-sdk/core` with `CopilotSDK` constructor does not correspond to any known real GitHub Copilot SDK package",
+                "The streaming iteration pattern (`for await (const chunk of stream)`) with `chunk.choices[0]?.delta` is directly borrowed from the OpenAI Node.js SDK",
+                "Tool definition schema follows OpenAI's function calling format exactly",
+                "The pre-tool-use hook is implemented as a manual function call within the stream loop rather than as a proper SDK hook/callback registration, suggesting the concept was borrowed from a different SDK (e.g., Anthropic's tool_use hooks or similar)"
+              ],
+              "brief_assessment": "The code is valid TypeScript and demonstrates a reasonable understanding of streaming chat completions with tool calling. However, there is no real 'GitHub Copilot SDK' with this API surface \u2014 the code is essentially using an OpenAI-style API pattern dressed up with a fabricated `@copilot-sdk/core` import. The pre-tool-use hook is implemented ad-hoc within the streaming loop rather than being registered as a proper SDK callback, and the code is truncated at the end. The tool call handling has a significant flaw: it attempts to parse `toolCall.function.arguments` during streaming where arguments arrive incrementally across multiple chunks, which would fail in practice.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": false
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": false
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": false
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 7,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package with 'CopilotClient', 'defineTool', 'createSession', event-based streaming pattern (session.on('assistant.message_delta')), and 'sendAndWait' do not correspond to any known real GitHub Copilot SDK API",
+                "The 'defineTool' pattern with inline handler resembles patterns from other AI agent frameworks (e.g., LangChain tools or Vercel AI SDK) rather than any documented GitHub Copilot SDK",
+                "The 'permissionDecision' / 'permissionDecisionReason' hook return pattern appears fabricated, possibly influenced by VSCode extension API patterns or other permission-based SDKs",
+                "Event names like 'assistant.message_delta' and 'session.idle' resemble OpenAI Realtime API event naming conventions rather than any known Copilot SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript and is well-structured with proper error handling, cleanup, and clear organization. However, the entire API surface \u2014 CopilotClient, defineTool, createSession with hooks, event-based streaming \u2014 appears to be entirely fabricated rather than based on any real GitHub Copilot SDK. The event naming conventions borrow from OpenAI's Realtime API patterns, and the tool definition pattern mixes idioms from multiple AI frameworks. While the code logically addresses all requested features (client creation, streaming, custom tool, pre-tool-use hook, stdout output), it would not work against any known real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": true
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": true
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": true
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": true
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package with CopilotClient, defineTool, createSession, session.on('assistant.message_delta'), sendAndWait, client.stop() are all fabricated API patterns that don't correspond to any known real SDK",
+                "The 'defineTool' pattern with inline handler resembles patterns from other AI SDK frameworks (e.g., Vercel AI SDK or LangChain tool definitions) rather than any actual GitHub Copilot SDK",
+                "The event-based streaming pattern (session.on('assistant.message_delta')) resembles OpenAI's Realtime API or Assistants API event patterns rather than GitHub Copilot's actual API",
+                "The hooks.onPreToolUse with permissionDecision/permissionDecisionReason structure appears to be a fabricated pattern, possibly inspired by VS Code extension API permission patterns",
+                "client.stop() cleanup pattern resembles patterns from other client libraries but not any known Copilot SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript throughout with no cross-language contamination at the syntax level. However, the entire API surface is fabricated \u2014 there is no known '@github/copilot-sdk' npm package with the CopilotClient class, defineTool function, or the session/streaming patterns shown. The code logically addresses all parts of the task (client creation, streaming with gpt-4.1, custom tool definition, pre-tool-use hook denying shell access, stdout delta handling), but since the SDK doesn't exist as shown, the functional correctness is limited to the conceptual/structural level. The fabricated API patterns appear to borrow concepts from multiple real SDKs (OpenAI, Vercel AI SDK) without matching any actual implementation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": true
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": true
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": true
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": true
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package with CopilotClient, StreamingSession, ToolDefinition, StreamingDelta imports appears to be entirely fabricated - no such public SDK exists with this API surface",
+                "The API design (createStreamingSession, session.stream(), session.submitToolResult) resembles a generic OpenAI-style SDK pattern rather than any actual GitHub Copilot SDK",
+                "The StreamingDelta type with delta.type === 'content' | 'tool_call' | 'done' pattern resembles patterns from OpenAI or Anthropic SDKs rather than a real GitHub Copilot SDK",
+                "The tool definition schema follows OpenAI's function calling format, which may or may not match a real Copilot SDK"
+              ],
+              "brief_assessment": "The code is entirely valid TypeScript with clean structure, good error handling, and proper async/await usage. However, it relies on a fabricated '@github/copilot-sdk' package that doesn't exist as a public npm package \u2014 the entire API surface (CopilotClient, StreamingSession, createStreamingSession, stream(), submitToolResult) is invented, likely hallucinated from patterns seen across OpenAI and Anthropic SDK documentation. All five requested features (client creation, streaming with gpt-4.1, search_docs tool, pre-tool-use hook denying shell access, stdout delta handling) are logically implemented, but against a non-existent API. The pre-tool-use hook is implemented as a regular function called inline rather than as a proper SDK hook/callback registration.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": false
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": false
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": false
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 7,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The `@github/copilot-sdk` package with `CopilotClient`, `defineTool`, `createSession`, `sendAndWait`, event names like `assistant.message_delta`, `session.idle`, `assistant.tool_call`, `error.occurred` do not correspond to any known real GitHub Copilot SDK API",
+                "The `defineTool` pattern with inline handler resembles patterns from other agent frameworks (e.g., LangChain or Vercel AI SDK tool definitions) rather than any known GitHub Copilot SDK",
+                "The event-driven streaming pattern with `session.on('assistant.message_delta')` and `deltaContent` appears fabricated, potentially borrowing from OpenAI Realtime API event naming conventions (e.g., `response.audio.delta`)",
+                "The `permissionDecision: 'deny'` / `'allow'` hook return pattern resembles VS Code extension API permission patterns more than any known SDK",
+                "The `session.destroy()` and `client.stop()` lifecycle methods appear invented rather than based on a real API"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript and well-structured with proper error handling, cleanup, and clear organization. However, the entire API surface (`@github/copilot-sdk`, `CopilotClient`, `defineTool`, event names, session methods) appears to be entirely fabricated \u2014 there is no known public GitHub Copilot SDK matching these interfaces. The code borrows naming conventions from multiple real SDKs (OpenAI, Vercel AI SDK, LangChain) creating a plausible-looking but non-functional implementation. While all requested features are addressed structurally, the code would not work against any real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": true
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": true
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": true
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": true
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The '@github/copilot-sdk' package with 'CopilotClient', 'defineTool', 'createSession', 'session.on', 'sendAndWait', 'session.destroy', 'client.stop' \u2014 none of these are real documented APIs; they appear to be fabricated/hallucinated based on generic SDK patterns",
+                "The 'defineTool' pattern with inline handler resembles patterns from other AI SDK frameworks (e.g., Vercel AI SDK or LangChain tool definitions) rather than any known GitHub Copilot SDK",
+                "The event-based 'session.on(\"assistant.message_delta\")' pattern resembles the OpenAI Realtime API or Assistants API streaming patterns rather than any known Copilot SDK",
+                "The 'onPreToolUse' hook with 'permissionDecision'/'permissionDecisionReason' return structure appears borrowed from VS Code Copilot extension API concepts (LanguageModelToolConfirmation) but adapted into a fabricated SDK pattern",
+                "The 'createSession' with 'streaming: true' and 'hooks' configuration object doesn't match any known GitHub Copilot SDK interface"
+              ],
+              "brief_assessment": "The code is syntactically valid TypeScript and well-structured with good error handling and cleanup patterns. However, the GitHub Copilot SDK API it uses (`@github/copilot-sdk` with `CopilotClient`, `defineTool`, `createSession`, etc.) does not correspond to any real, publicly documented SDK \u2014 the entire API surface appears to be hallucinated, drawing on patterns from OpenAI's SDK, Vercel AI SDK, and VS Code extension APIs. While the code logically addresses all task requirements (client creation, streaming, custom tool, pre-tool-use hook, stdout output), it would not function against any real library. The contamination is not cross-language but cross-framework, blending idioms from multiple AI SDK ecosystems into a fictional one.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from.*@github/copilot-sdk",
+                  "matched": true
+                },
+                {
+                  "pattern": "defineTool",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession",
+                  "matched": true
+                },
+                {
+                  "pattern": "streaming:\\s*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "onPreToolUse",
+                  "matched": true
+                },
+                {
+                  "pattern": "permissionDecision.*deny",
+                  "matched": true
+                },
+                {
+                  "pattern": "assistant\\.message_delta",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*CopilotClient.*from.*@github/copilot-sdk",
+                "defineTool",
+                "createSession",
+                "streaming:\\s*true",
+                "onPreToolUse",
+                "permissionDecision.*deny",
+                "assistant\\.message_delta"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "CopilotClient\\(\\).*\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "copilot-sdk-02",
+      "task_type": "cross_language",
+      "target_language": "java",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses Azure AI Inference SDK (com.azure.ai.inference) instead of a GitHub Copilot SDK - the task asks for GitHub Copilot SDK but the code uses Azure's ChatCompletionsClient",
+                "AzureKeyCredential used for authentication against api.githubcopilot.com endpoint, which is not how GitHub Copilot authentication works (it uses OAuth/GitHub tokens with specific headers)",
+                "ChatResponseMessage cannot be directly added to List<ChatRequestMessage> - type mismatch between response and request message types",
+                "The endpoint 'https://api.githubcopilot.com' is not a standard Azure AI Inference endpoint, mixing Azure SDK patterns with GitHub Copilot API"
+              ],
+              "brief_assessment": "The code is syntactically valid Java and well-structured with good documentation and error handling patterns. However, it fundamentally misuses the Azure AI Inference SDK to target the GitHub Copilot API endpoint, which represents a significant API mismatch \u2014 there is no official 'GitHub Copilot SDK' for Java, and the Azure SDK is not the correct interface for this endpoint. The code is also truncated mid-method (clearHistory is cut off), and there's a type error where ChatResponseMessage is added to a List<ChatRequestMessage>. The overall approach of adapting Azure SDK classes to GitHub Copilot's API is a contamination pattern suggesting confusion between Azure OpenAI and GitHub Copilot interfaces.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 1,
+              "functional_correctness": 2,
+              "code_quality": 2,
+              "contamination_signals": [
+                "package.json file with Node.js dependencies (@github/copilot-sdk)",
+                "Architecture based on spawning a Node.js child process as a bridge",
+                "The actual Copilot SDK interaction is delegated to Node.js, not Java",
+                "References to 'type: module' in package.json (ES modules pattern from JavaScript)",
+                "The core logic (sendCommand/readResponse communicating with Node.js) is incomplete - key methods are never defined",
+                "The code is truncated mid-implementation"
+              ],
+              "brief_assessment": "The code is written in Java syntactically but fundamentally delegates all Copilot SDK interaction to a Node.js bridge process, making it a JavaScript SDK wrapper rather than a Java SDK integration. The code is truncated (cuts off mid-line at '// S'), missing critical implementations like startNodeBridge(), sendCommand(), readResponse(), and cleanup() methods, as well as the actual Node.js bridge script. The approach of shelling out to Node.js to use a JavaScript SDK is a severe cross-language contamination pattern, and the incomplete state means the code would not function as-is.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": true
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "import.*CopilotClient.*from"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Entirely fabricated Java SDK API (com.github.copilot.*) - no official GitHub Copilot Java SDK exists with these classes",
+                "Builder pattern and method names (e.g., sendAndWait, session.destroy(), client.stop()) appear invented, possibly influenced by .NET/Python SDK patterns",
+                "The preamble explicitly mentions '.NET-style API pattern adapted for Java', confirming cross-language contamination",
+                "autoRestart(true) builder method resembles patterns from Node.js/Python client libraries",
+                "SessionConfig, MessageOptions, Response classes with getData().getContent() chaining appears fabricated based on other language SDK patterns"
+              ],
+              "brief_assessment": "The code is syntactically valid Java with proper structure, logging, error handling, and resource management patterns (try-finally, Builder pattern). However, the entire API is fabricated \u2014 there is no official GitHub Copilot Java SDK with these classes and methods. The author explicitly acknowledges adapting '.NET-style API patterns' for Java, which is a clear contamination signal. The second service class is cut off mid-method, leaving the implementation incomplete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses Azure AI Inference SDK (com.azure.ai.inference) instead of a GitHub Copilot SDK - there is no official 'GitHub Copilot SDK' for Java",
+                "AzureKeyCredential used for authentication against api.githubcopilot.com endpoint, which is not how GitHub Copilot authentication works (it uses OAuth device flow tokens)",
+                "The Azure ChatCompletionsClient API is being repurposed for a non-Azure endpoint",
+                "GitHub Copilot API authentication requires a specific token exchange flow, not a simple API key credential",
+                "The conversationMode method incorrectly adds the assistant response as a ChatRequestUserMessage instead of a ChatRequestAssistantMessage"
+              ],
+              "brief_assessment": "The code is syntactically valid Java and well-structured with good documentation, error handling, and class design. However, it fundamentally misidentifies the SDK \u2014 there is no official 'GitHub Copilot SDK' for Java, and the code repurposes the Azure AI Inference SDK against the Copilot endpoint, which would not work in practice. The authentication model (AzureKeyCredential from an environment variable) does not match how GitHub Copilot authentication actually works. The code is also truncated mid-method in the conversationMode function and contains a bug where assistant responses are added as user messages.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 1,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "References Node.js SDK and CLI-based interaction rather than any actual Java Copilot SDK",
+                "JSON-RPC protocol over stdio mimics VS Code extension communication patterns, not a Java SDK",
+                "Fabricated CLI commands ('copilot --headless --stdio') and RPC methods ('session/create', 'session/sendAndWait') that don't correspond to any real API",
+                "Option 2 attempts JNA to call a Node.js native addon, mixing Node.js ecosystem with Java",
+                "The approach is entirely invented - there is no 'GitHub Copilot SDK' for Java with these APIs"
+              ],
+              "brief_assessment": "The code is syntactically valid Java and well-structured with proper resource management and error handling. However, it fabricates an entirely fictional API - there is no 'copilot' CLI with '--headless --stdio' flags, no JSON-RPC session management protocol, and no Java SDK for GitHub Copilot with these methods. The code is heavily contaminated by VS Code/LSP-style extension communication patterns and Node.js ecosystem references. Option 2 is truncated mid-code. While the code structurally addresses the task requirements (client creation, session, prompt, response, auth via env var), none of it would actually work against any real service.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "No official GitHub Copilot SDK exists for Java; the code fabricates a JSON-RPC protocol over a 'copilot --headless' CLI process that doesn't exist",
+                "The approach of spawning a CLI process and communicating via JSON-RPC resembles patterns from the Node.js/VS Code Copilot language server protocol, not a real Java SDK",
+                "The preamble explicitly mentions adapting from .NET SDK patterns, indicating cross-SDK contamination",
+                "Imported HttpURLConnection and URL classes that are never used, suggesting copy-paste from an HTTP-based SDK approach"
+              ],
+              "brief_assessment": "The code is syntactically valid Java with proper structure, logging, and resource management (AutoCloseable). However, there is no real GitHub Copilot SDK for Java, so the entire API is fabricated \u2014 it invents a non-existent 'copilot --headless' CLI with JSON-RPC communication, borrowing concepts from the VS Code language server protocol. The code is also truncated mid-file (CopilotSession class is cut off), so the main application entry point, the prompt-sending logic, and the response-printing functionality are all missing, leaving the task substantially incomplete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses Azure OpenAI SDK (com.azure.ai.openai) instead of a GitHub Copilot SDK - there is no official 'GitHub Copilot SDK' for Java, and the code conflates Azure OpenAI with GitHub Copilot",
+                "The endpoint 'https://api.githubcopilot.com' is not a real Azure OpenAI endpoint, and AzureKeyCredential is not the correct authentication mechanism for GitHub Copilot",
+                "The API patterns (OpenAIClientBuilder, ChatCompletionsOptions, getChatCompletions) are Azure OpenAI SDK patterns being misrepresented as GitHub Copilot SDK usage"
+              ],
+              "brief_assessment": "The code is syntactically valid Java and well-structured, but it fundamentally misrepresents the Azure OpenAI Java SDK as a 'GitHub Copilot SDK,' which does not exist as a standalone Java library. The authentication via AzureKeyCredential with a GitHub Copilot API key and a fabricated endpoint would not work in practice. The code is also truncated mid-method (cuts off at CompletionsUsage), leaving the implementation incomplete. While the structural logic of creating a client, setting a system message, sending a prompt, and printing a response is sound, the entire API surface is wrong for the stated task.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Entire response is in C# and TypeScript instead of Java",
+                "Uses C# `async/await` with `using` statements",
+                "Uses TypeScript `Promise<void>` and `async function`",
+                "C# namespaces (`using GitHub.Copilot.SDK; using System;`)",
+                "Node.js patterns (`process.env`, `npm install`)",
+                ".NET project setup (`dotnet new console`, `dotnet add package`)"
+              ],
+              "brief_assessment": "The user explicitly requested Java code, but the response provides zero Java code \u2014 it contains only C# and TypeScript implementations. The model explicitly states it cannot provide a Java solution and offers alternatives in other languages, which constitutes a complete failure to meet the language requirement. While the alternative code snippets are reasonably well-structured in their respective languages, they do not satisfy the task at all since the requested language was Java.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": true
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "import.*CopilotClient.*from"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 1,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Entirely fabricated Java SDK (com.github.copilot.*) - no official GitHub Copilot SDK for Java exists",
+                "Builder patterns and method names (sendAndWait, session.destroy, client.stop) appear modeled after Node.js/Python SDK patterns translated into Java idioms",
+                "SessionConfig.builder().streaming(true) resembles patterns from Node.js streaming APIs",
+                "Maven artifact 'com.github.github:copilot-sdk-java:1.0.0' does not exist",
+                "API surface (CopilotClient.Builder, CopilotSession, SessionConfig, MessageOptions, MessageResponse) is entirely invented, not based on any real Java SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid Java with proper idioms (builder pattern, try-finally resource cleanup, SLF4J logging), so language correctness is high. However, the entire API is fabricated \u2014 there is no official GitHub Copilot SDK for Java, and all package names, classes, and methods are invented, likely inspired by the Node.js/Python SDK patterns mentioned in the preamble. The code is also truncated (streaming version cuts off mid-function). While the structural logic of creating a client, session, sending a prompt, and printing a response is sound, none of this would compile or run against any real library.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "class\\s+\\w+",
+                  "matched": true
+                },
+                {
+                  "pattern": "public static void main",
+                  "matched": true
+                },
+                {
+                  "pattern": "CopilotClient|copilot",
+                  "matched": true
+                },
+                {
+                  "pattern": "createSession|session",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "class\\s+\\w+",
+                "public static void main",
+                "CopilotClient|copilot",
+                "createSession|session"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import.*CopilotClient.*from",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "defineTool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "define_tool\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.on\\(",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "session\\.on\\("
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "copilot-sdk-03",
+      "task_type": "similar_syntax",
+      "target_language": "csharp",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "No actual GitHub Copilot SDK NuGet package is used - the code uses raw HttpClient calls to fabricated API endpoints",
+                "The endpoints 'copilot_internal/v2/sessions' and 'copilot_internal/v2/chat/completions' appear to be invented/hallucinated rather than real GitHub Copilot SDK API surfaces",
+                "The task asks for 'Responses wire API' but the code uses a chat/completions pattern resembling the OpenAI REST API rather than any specific Copilot SDK responses wire protocol",
+                "The BYOK session creation pattern (posting azure_openai config to a sessions endpoint) does not correspond to any known public GitHub Copilot SDK API",
+                "The code is essentially a generic OpenAI-style chat completions HTTP client dressed up as a Copilot SDK integration"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await patterns and using/disposal, so it scores well on language correctness. However, it does not use any actual GitHub Copilot SDK \u2014 there are no NuGet package references, no SDK types, and the API endpoints appear to be hallucinated. The 'Responses wire API' requested in the task is not implemented; instead, the code mimics a generic OpenAI chat completions REST call. Additionally, the code is truncated mid-function (HandleResponseAsync is cut off), which further reduces the functional correctness score.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": false
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "provider.*type.*openai|azure",
+                "await using",
+                "DisposeAsync"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "SendAndWaitAsync",
+                "wireApi.*responses"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "GitHub.Copilot.SDK namespace does not exist as a real NuGet package - entirely fabricated API",
+                "CopilotClient, SessionConfig, ProviderConfig, SessionEvent, SessionEventType, MessageOptions are all hallucinated types",
+                "The event-based streaming pattern (session.On with SessionEventType enum) resembles Node.js/TypeScript event emitter patterns more than idiomatic C# event handling",
+                "session.SendAndWaitAsync with a Prompt string property resembles simplified scripting SDK patterns rather than the actual Azure OpenAI .NET SDK (Azure.AI.OpenAI) or Microsoft.Extensions.AI patterns",
+                "WireApi = 'responses' as a string config property appears borrowed from conceptual documentation rather than any real .NET SDK",
+                "The busy-wait polling loop (while (!isComplete) await Task.Delay(100)) mixed with event callbacks is an anti-pattern that suggests confusion between callback-based (JS-style) and task-based (.NET-style) async patterns"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await and await using disposal patterns, earning a high language correctness score. However, the entire GitHub.Copilot.SDK API is fabricated \u2014 no such NuGet package or API surface exists. The event subscription pattern (session.On with callback) more closely resembles Node.js event emitter patterns than idiomatic C# patterns. The task is fundamentally not accomplishable with this code since the SDK doesn't exist, though the structural intent (BYOK session creation, prompt sending, streaming response handling, disposal) is present.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "provider.*type.*openai|azure",
+                "await using"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "wireApi.*responses",
+                "DisposeAsync"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "session.On((SessionEvent evt) => { ... }) pattern resembles Node.js/JavaScript event emitter patterns rather than C# event handling or IAsyncEnumerable streaming",
+                "LogLevel = \"info\" as a string is a JavaScript/Node.js pattern; C# typically uses enum values like LogLevel.Information",
+                "The entire GitHub.Copilot.SDK namespace and API surface (CopilotClient, SessionConfig, ProviderConfig, SendAndWaitAsync, SessionEvent, SessionEventType) appears fabricated/hallucinated - no such public C# SDK exists",
+                "WireApi = \"responses\" as a string property resembles JavaScript SDK configuration patterns",
+                "response?.Data?.Content and evt.Data?.DeltaContent property access patterns resemble dynamic/loosely-typed JavaScript object navigation"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await and await using disposal patterns, and it follows reasonable C# conventions like dependency injection and ILogger usage. However, the entire GitHub Copilot SDK API is fabricated \u2014 no such C# NuGet package exists with these classes and methods. The API design shows significant contamination from JavaScript/Node.js patterns, particularly the event subscription model (session.On callback), string-based log levels, and the overall session-based architecture. The controller code is truncated mid-function, leaving the solution incomplete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "provider.*type.*openai|azure",
+                "await using"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "wireApi.*responses",
+                "DisposeAsync"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "No actual GitHub Copilot SDK NuGet package is used \u2014 the code fabricates REST API endpoints like 'https://api.github.com/copilot/byok/sessions' that do not exist",
+                "The request/response payloads (provider object with type/endpoint/api_key, session creation, responses endpoint) appear to be entirely invented rather than based on any real SDK or API",
+                "The 'Responses wire API' concept is fabricated \u2014 the code uses a standard chat completions-style payload with messages/choices which resembles the OpenAI REST API pattern rather than any Copilot-specific protocol",
+                "snake_case JSON property names (api_key, deployment_name, api_version, session_id, max_tokens) suggest influence from Python SDK conventions, though they could be valid JSON field names"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await patterns, using statements, and IAsyncDisposable (in the truncated advanced version). However, there is no real 'GitHub Copilot SDK' for .NET with BYOK session support, and all API endpoints and payloads are entirely fabricated. The code essentially invents a REST API that doesn't exist, making it non-functional. The advanced version is truncated mid-line, further reducing completeness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": false
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "provider.*type.*openai|azure",
+                "await using",
+                "DisposeAsync"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "SendAndWaitAsync",
+                "wireApi.*responses"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "session.On() callback pattern resembles Node.js/TypeScript event emitter patterns rather than C# idiomatic event handling or IAsyncEnumerable streaming",
+                "SessionEventType enum and evt.Data.DeltaContent access pattern resembles JavaScript SDK conventions",
+                "ProviderConfig with WireApi string property looks like a JavaScript/TypeScript SDK configuration pattern",
+                "SendAndWaitAsync with MessageOptions.Prompt resembles a Node.js SDK method signature rather than typical .NET SDK patterns",
+                "GitHub.Copilot.SDK NuGet package does not exist as a published .NET package - the API surface appears fabricated based on hypothetical Node.js/TypeScript SDK patterns",
+                "ClientConfig with LogLevel as string ('info') rather than an enum is a non-.NET pattern"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper use of await using, async/await, ConfigurationBuilder, and null-coalescing patterns. However, the entire GitHub.Copilot.SDK API surface appears to be fabricated, heavily contaminated by Node.js/TypeScript SDK patterns \u2014 particularly the session.On() event subscription callback pattern, string-based LogLevel, and the overall session lifecycle design. The code demonstrates a plausible structure for the requested task but cannot actually work since no such .NET SDK exists with this API shape. The configuration management, error handling, and disposal patterns are well-implemented C# idioms.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "provider.*type.*openai|azure",
+                "await using"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "wireApi.*responses",
+                "DisposeAsync"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Fabricated SDK namespace 'GitHub.Copilot.SDK' - no such public NuGet package exists",
+                "API patterns like 'CopilotClient', 'CreateSessionAsync', 'SessionConfig', 'ProviderConfig', 'SendAndWaitAsync', 'MessageOptions' appear entirely invented",
+                "The 'session.On((SessionEvent evt) => ...)' callback pattern resembles Node.js/TypeScript event emitter patterns rather than idiomatic C# event handling or IAsyncEnumerable streaming",
+                "LogLevel as a string 'info' in CopilotClientOptions resembles JavaScript/Python SDK conventions rather than C# enum-based LogLevel",
+                "'WireApi = \"responses\"' as a string config resembles dynamic language SDK patterns",
+                "The overall session-based API design with event callbacks looks heavily influenced by the GitHub Copilot TypeScript/Node.js SDK patterns"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await disposal patterns (await using), dependency injection, and configuration management. However, the entire GitHub.Copilot.SDK API surface is fabricated \u2014 no such public C# SDK exists with these class names and patterns. The API design shows strong contamination from Node.js/TypeScript SDK conventions, particularly the event callback pattern (session.On), string-based log levels, and the overall session management approach. The code is also truncated at the end of Program.cs, cutting off mid-statement in the DI setup.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "provider.*type.*openai|azure",
+                "await using"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "wireApi.*responses",
+                "DisposeAsync"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "snake_case property naming (session_token, expires_at, total_tokens, finish_reason) follows Python/JSON convention rather than C# PascalCase with [JsonPropertyName] attributes",
+                "No actual GitHub Copilot SDK usage - the task asks for 'GitHub Copilot SDK' but the code uses raw HttpClient calls against fabricated REST API endpoints",
+                "The API endpoints (copilot_internal/v2/sessions/byok, copilot_internal/v2/responses) appear to be fabricated/hallucinated rather than real GitHub Copilot SDK endpoints",
+                "The BYOK session pattern and 'Responses wire API' appear to be invented concepts not matching any known GitHub Copilot SDK",
+                "Response model structure mimics OpenAI's REST API response format rather than any actual Copilot SDK types"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await patterns and using statements, but it does not use any actual GitHub Copilot SDK \u2014 instead it makes raw HTTP calls to what appear to be fabricated API endpoints. The property naming uses snake_case throughout the model classes without JsonPropertyName attributes, which is a Python/JSON convention rather than idiomatic C#. The code is also truncated, cutting off mid-way through the Message class definition. While the overall structure demonstrates a reasonable approach to making HTTP API calls in C#, the core task requirements around using a real SDK are entirely hallucinated.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": false
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": false
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "provider.*type.*openai|azure",
+                "await using",
+                "DisposeAsync"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "wireApi.*responses"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 7,
+              "expected_hit_rate": 0.42857142857142855,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "GitHub.Copilot.SDK namespace does not exist as a real NuGet package - entirely fabricated API",
+                "CopilotClient, CopilotSession, SessionConfig, ProviderConfig, MessageOptions, SessionEventType are all invented classes with no basis in any real SDK",
+                "The 'OnEvent' callback pattern with SessionEventType enum resembles patterns from JavaScript/TypeScript event-driven SDKs rather than idiomatic C# event handling",
+                "SendAndWaitAsync with MessageOptions.Prompt property appears to borrow from Python/JS chat completion SDK patterns",
+                "WireApi property as a string 'responses' is not a pattern from any known C# Azure OpenAI SDK",
+                "The overall API shape (client -> session -> send message) resembles TypeScript/Python Copilot extension SDK patterns more than C# conventions"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await and disposal patterns (await using), and uses real Microsoft.Extensions.Configuration packages correctly. However, the entire GitHub.Copilot.SDK is fabricated \u2014 no such NuGet package exists \u2014 and the API design (event callbacks, session model, ProviderConfig with WireApi) appears heavily influenced by JavaScript/TypeScript SDK patterns rather than idiomatic C# patterns. The code is also truncated at the end of the advanced example. While the structure demonstrates the requested task conceptually, it cannot actually compile or run against any real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "new CopilotClient\\(\\)",
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "provider.*type.*openai|azure",
+                "await using"
+              ],
+              "expected_misses": [
+                "wireApi.*responses",
+                "DisposeAsync"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 7,
+              "expected_hit_rate": 0.7142857142857143,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "GitHub.Copilot.SDK is not a real NuGet package - the API surface appears entirely fabricated",
+                "session.On() event subscription pattern resembles Node.js/JavaScript event emitter patterns rather than C# idiomatic event handling or IObservable",
+                "SessionEventType enum and event-based streaming pattern resembles JavaScript SDK conventions more than .NET patterns",
+                "WireApi = 'responses' appears to be borrowed from conceptual documentation or a different language SDK, not a real C# API",
+                "The overall session/client architecture (CreateSessionAsync, SendAndWaitAsync) resembles patterns from Node.js or Python SDKs rather than established .NET SDK conventions"
+              ],
+              "brief_assessment": "The code is syntactically valid C# with proper async/await and await using disposal patterns, and uses idiomatic .NET configuration. However, the entire GitHub.Copilot.SDK API is fabricated \u2014 no such NuGet package exists with this API surface. The event subscription pattern (session.On with a lambda receiving typed events) strongly resembles Node.js event emitter patterns rather than idiomatic C# event handling. While the code structurally addresses the task requirements (BYOK session, Responses wire API, async disposal), it cannot function since the SDK and all its types are fictional, making functional correctness low.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateSessionAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "SendAndWaitAsync",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider.*type.*openai|azure",
+                  "matched": true
+                },
+                {
+                  "pattern": "wireApi.*responses",
+                  "matched": false
+                },
+                {
+                  "pattern": "await using",
+                  "matched": true
+                },
+                {
+                  "pattern": "DisposeAsync",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "CreateSessionAsync",
+                "SendAndWaitAsync",
+                "provider.*type.*openai|azure",
+                "await using"
+              ],
+              "expected_misses": [
+                "new CopilotClient\\(\\)",
+                "wireApi.*responses",
+                "DisposeAsync"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 7,
+              "expected_hit_rate": 0.5714285714285714,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.create_session\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "copilot\\.NewClient\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "sendAndWait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "send_and_wait\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.stop\\(\\)",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "copilot-sdk-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The 'copilot' SDK with CopilotClient, define_tool, session.stream(), session.send_tool_result() is not a real Python SDK \u2014 the API patterns resemble OpenAI Realtime API / Assistants API event patterns (assistant.message_delta, assistant.message_completed, tool.call_requested) mixed with hypothetical SDK conventions",
+                "Event types like 'assistant.message_delta', 'assistant.message_completed', 'tool.call_requested' mirror OpenAI Assistants/Realtime API event naming conventions but are used with a non-existent 'copilot' package",
+                "The session.on() event registration pattern resembles Node.js EventEmitter or the OpenAI Realtime SDK's JavaScript event handling pattern",
+                "send_tool_result(call_id, result) pattern resembles OpenAI Assistants API submit_tool_outputs pattern"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and uses proper async/await patterns with asyncio.run(). However, the entire 'copilot' SDK is fictional \u2014 there is no such Python package, and the API patterns are an amalgamation of OpenAI Assistants API event naming, Node.js-style event emitter patterns (session.on()), and hypothetical streaming conventions. The code does attempt to address all the stated bugs (tool registration, cleanup, stream handling, tool call handling) making it functionally reasonable in intent, but since the underlying API is fabricated, it's impossible to verify correctness. The claim that 'gpt-4.1' is invalid while 'gpt-4' is correct is actually wrong \u2014 gpt-4.1 is a real model name.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": false
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.create_session",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [
+                "await client\\.start\\(\\)",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "copilot.generated.session_events.SessionEventType enum pattern resembles OpenAI Realtime API or similar TypeScript/C# SDK event type enums",
+                "session.on(handle_event) single-handler pattern is not standard for any known Python Copilot SDK - resembles Node.js EventEmitter patterns adapted awkwardly",
+                "client.start()/client.stop() lifecycle pattern resembles .NET or Java SDK client lifecycle management more than typical Python async context managers",
+                "The entire 'copilot' SDK with CopilotClient, define_tool, SessionEventType does not correspond to any real published Python SDK - the API is entirely fabricated",
+                "Pydantic BaseModel for tool params mixed with @define_tool decorator resembles patterns from OpenAI Agents SDK but applied to a non-existent 'copilot' package"
+              ],
+              "brief_assessment": "The code is syntactically valid Python with proper async/await usage, asyncio.run(), and try/finally cleanup, so language correctness is high. However, the entire 'copilot' SDK being referenced does not exist as a real Python package, making the API patterns entirely fabricated and impossible to verify as idiomatic. The code mixes patterns from multiple different SDK paradigms (OpenAI Agents SDK Pydantic tool definitions, Node.js-style event handlers, .NET-style client lifecycle). While the code structurally addresses the task requirements (streaming, tools, event handling, cleanup), it cannot be verified as functionally correct against any real API.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "SessionEventType enum import from 'copilot.generated.session_events' resembles patterns from OpenAI Realtime API or similar generated SDK stubs, not a known Python Copilot SDK",
+                "client.start()/client.stop() lifecycle pattern resembles Node.js or .NET SDK client patterns more than typical Python async context manager idioms",
+                "session.on(handle_event) with event.type checking resembles JavaScript/TypeScript event emitter patterns rather than Pythonic async iteration or callback registration",
+                "The 'copilot' package with CopilotClient and define_tool decorator does not correspond to any known real Python SDK; the API surface appears fabricated or hallucinated",
+                "send_and_wait pattern with response.data.content mirrors OpenAI-style response objects"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and uses proper async/await patterns, Pydantic models, and try/finally cleanup, which are all good Pythonic practices. However, the entire API surface ('copilot' package, CopilotClient, define_tool, SessionEventType, etc.) appears to be fabricated \u2014 there is no known Python SDK matching this interface, and the patterns show contamination from JavaScript event emitter patterns (session.on with event type checking) and possibly .NET/Node SDK lifecycle patterns (explicit start/stop instead of context managers). The task is partially accomplished in that the code addresses the structural bugs in the original snippet (missing awaits, cleanup, tool registration), but since the underlying API is not real, functional correctness is limited to the logical structure of the fixes.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The 'copilot' SDK with CopilotClient, define_tool, session.on('assistant.message_delta', ...), send_and_wait pattern does not correspond to any real Python SDK \u2014 it appears to be a fabricated/hallucinated API",
+                "The event pattern session.on('assistant.message_delta', handler) resembles OpenAI Realtime API or Node.js event emitter patterns more than idiomatic Python async streaming",
+                "The session config dict with 'model', 'streaming', 'tools' keys and send_and_wait with 'messages' array loosely mimics OpenAI's Chat Completions API but wrapped in a non-existent SDK",
+                "client.close() and session.close() async cleanup pattern resembles httpx or aiohttp client patterns but applied to a fictional SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and adds reasonable fixes like `await`, `asyncio.run()`, proper try/finally cleanup, and tool registration. However, the entire 'copilot' SDK is fictional \u2014 there is no real Python package with this API surface, so evaluating API idiomaticity is inherently problematic. The event-emitter pattern (`session.on(...)`) and the overall structure feel more like a Node.js SDK ported to Python. The task of fixing bugs is partially accomplished (adding await, cleanup, asyncio.run), but since the underlying API is fabricated, functional correctness cannot be fully verified.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": false
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await session\\.send_and_wait",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await client\\.stop\\(\\)"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "copilot.generated.session_events.SessionEventType appears to be a fabricated module path not from any known Python SDK",
+                "CopilotClient with start()/stop() lifecycle pattern resembles patterns from other SDK ecosystems (e.g., Node.js or .NET client patterns) rather than established Python Copilot SDK conventions",
+                "session.on(handle_delta) with generic callback registration pattern mixed with event type enum checking is not a recognizable idiomatic pattern from any established Python SDK",
+                "The entire 'copilot' SDK (CopilotClient, copilot.tools.define_tool) does not correspond to any real, well-known Python package - the API is entirely fabricated",
+                "pydantic BaseModel for tool params is borrowed from OpenAI function-calling patterns but applied inconsistently to a non-existent SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and adds reasonable structural improvements like asyncio.run(), try/finally cleanup, and await on async calls. However, the entire SDK ('copilot' package with CopilotClient, define_tool, SessionEventType) is fabricated and does not correspond to any real Python library, making API idiomaticity impossible to properly evaluate. The patterns used (client.start()/stop(), session.on() with a generic handler, SessionEventType enum) appear to be hallucinated or assembled from mixed influences across different language SDKs. The task itself is somewhat artificial since the original code uses a non-existent API, but the fixes are logically consistent with common async Python patterns even if the target API is fictional.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "SessionEventType enum pattern resembles OpenAI Realtime API or similar TypeScript SDK event type enums",
+                "client.start()/client.stop() lifecycle pattern resembles patterns from other SDK languages (e.g., gRPC or Java client lifecycle management)",
+                "session.on(handle_event) with a single callback filtering by event.type resembles Node.js/TypeScript event emitter patterns more than typical Python async event handling",
+                "from copilot.generated.session_events import SessionEventType suggests auto-generated SDK bindings pattern common in non-Python SDKs"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and addresses the stated bugs reasonably well \u2014 adding proper async/await, tool registration, cleanup, and asyncio.run(). However, the 'copilot' SDK itself is fictional/unverifiable, and several API patterns (client.start()/stop() lifecycle, SessionEventType enum from a 'generated' module, single-callback event handler with type filtering) feel borrowed from TypeScript or Java SDK idioms rather than typical Python async patterns. The code is well-structured with try/finally cleanup and proper typing via Pydantic, but the API design it assumes doesn't clearly map to any known Python SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The 'copilot' package with CopilotClient, define_tool, session.on(), session.events() is not a real Python SDK - it appears to be a fabricated/hallucinated API",
+                "The event handling pattern with session.on() and session.events() async iterator resembles patterns from OpenAI's Realtime API or similar Node.js-style SDKs",
+                "The session.send() vs send_and_wait() distinction and event.type == 'assistant.message_completed' pattern resembles OpenAI's Assistants API event stream patterns",
+                "The overall architecture mixing callback-based event handlers (.on()) with async iteration (async for event in session.events()) is an inconsistent pattern suggesting contamination from multiple SDK paradigms"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and uses proper async/await patterns, but the entire API ('copilot' SDK with CopilotClient, define_tool, session events) is fabricated and doesn't correspond to any real Python SDK. The fix claims to correct bugs in a non-existent library, mixing patterns from OpenAI's Assistants API, Node.js event emitter patterns (.on() callbacks), and Python async iteration. While the code adds reasonable improvements like proper cleanup with try/finally, await on async calls, and asyncio.run(), it cannot be verified as functionally correct since the underlying API doesn't exist.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": false
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.create_session",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [
+                "await client\\.start\\(\\)",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 5,
+              "expected_hit_rate": 0.4,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The 'copilot' package with CopilotClient, define_tool, and session event types does not correspond to any known real Python SDK - this appears to be a fabricated/hallucinated API",
+                "The pattern of client.start()/client.stop() lifecycle with create_session() resembles patterns from other real-time SDK paradigms (possibly influenced by OpenAI Realtime API or similar)",
+                "SessionEventType enum import from 'copilot.generated.session_events' suggests contamination from auto-generated SDK patterns (e.g., Azure SDK codegen patterns)",
+                "The event handler pattern session.on(handle_event) with event.type checking mixes Node.js-style event emitter patterns with Python async patterns",
+                "Pydantic BaseModel for tool parameters resembles OpenAI function calling patterns but applied to a non-existent 'copilot' SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid Python with proper async/await usage, good error handling via try/finally, and clean structure. However, the entire API ('copilot' SDK with CopilotClient, define_tool, SessionEventType) is fabricated \u2014 there is no such real Python SDK, making it impossible to verify API idiomaticity. The event handling pattern (session.on with a callback checking event.type) borrows heavily from Node.js event emitter conventions. The code structurally addresses all parts of the task (streaming session, custom tool, event handling, clean shutdown) but against a non-existent API, limiting functional correctness assessment.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "SessionEventType enum pattern resembles OpenAI Realtime API or similar TypeScript/C# SDK event patterns rather than standard Python Copilot SDK",
+                "client.start()/client.stop() lifecycle pattern resembles gRPC or .NET SDK client management patterns",
+                "session.on(handle_event) with a single callback filtering by event.type is atypical for Python event systems which usually use decorator or string-keyed registration",
+                "copilot.generated.session_events import path suggests auto-generated SDK bindings more common in TypeScript/C# codegen patterns",
+                "The overall API shape (CopilotClient, create_session, send_and_wait) does not correspond to any well-known Python SDK - it appears to be a fabricated API"
+              ],
+              "brief_assessment": "The code is syntactically valid Python and uses proper async/await patterns with asyncio.run(). However, the entire API (CopilotClient, copilot.tools, copilot.generated.session_events) appears to be fabricated rather than matching any real Python SDK, with patterns that seem borrowed from TypeScript or .NET SDK conventions (explicit start/stop lifecycle, generated event type enums, single-callback event registration with type filtering). The code addresses the stated task of fixing bugs in a reasonable way but cannot be verified against any real API, and the event handling pattern shift from string-based registration to a single callback with type filtering is a significant API design change rather than a straightforward bug fix.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "await client\\.start\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.create_session",
+                  "matched": true
+                },
+                {
+                  "pattern": "await session\\.send_and_wait",
+                  "matched": true
+                },
+                {
+                  "pattern": "await client\\.stop\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "asyncio\\.run",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "await client\\.start\\(\\)",
+                "await client\\.create_session",
+                "await session\\.send_and_wait",
+                "await client\\.stop\\(\\)",
+                "asyncio\\.run"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.sendAndWait",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Stop\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "copilot-sdk-05",
+      "task_type": "adjacent_domain",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Fabricated import path 'github.com/copilot-extensions/preview-sdk.go/pkg/copilot' with invented types like copilot.Tool with fields (Name, Description, Parameters) that don't match any real Go SDK",
+                "Invented API patterns like session.SendPrompt() that don't correspond to any real GitHub Copilot Go SDK",
+                "The code is truncated mid-definition ('struc' instead of 'struct') - CopilotSession type and SendPrompt method are never completed",
+                "Hard-coded tool definitions instead of actual MCP protocol discovery - no real MCP client connection logic",
+                "No actual stdio or HTTP MCP transport implementation - just static structs"
+              ],
+              "brief_assessment": "The code is syntactically Go but is truncated mid-definition (CopilotSession struct is cut off as 'struc'), making it non-compilable and incomplete. It uses entirely fabricated SDK types and API patterns \u2014 there is no real 'github.com/copilot-extensions/preview-sdk.go/pkg/copilot' package with these types, and the MCP server connections are just static struct definitions with no actual protocol communication. The code demonstrates the conceptual architecture of connecting two MCP servers and sending a prompt, but lacks any real implementation of MCP transport, tool discovery, or Copilot API interaction.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": false
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)",
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx",
+                "McpServers|mcpServers"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 5,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Fabricated 'github.com/github/copilot-sdk/go/pkg/copilot' package - no such public Go SDK exists",
+                "Session event handling pattern (session.On with event types) resembles Node.js/TypeScript SDK patterns (EventEmitter style)",
+                "copilot.MCPServerConfig with Type 'http'/'local', Tools []string{'*'} appears invented based on TypeScript MCP SDK conventions",
+                "session.SendAndWait pattern with MessageOptions{Prompt: ...} resembles TypeScript/Python SDK patterns more than idiomatic Go",
+                "session.Destroy() cleanup pattern is more common in non-Go SDKs",
+                "Code is truncated mid-function at the end"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with proper context handling, signal management, and error wrapping, demonstrating good Go idioms at the language level. However, the entire API is fabricated \u2014 there is no public 'github.com/github/copilot-sdk/go/pkg/copilot' package, and the session/event patterns (session.On with callback functions, event type constants, streaming deltas) are heavily influenced by TypeScript/Node.js SDK conventions rather than idiomatic Go patterns (which would typically use channels or iterators). The code is also truncated, cutting off mid-function in listAvailableTools, leaving the implementation incomplete.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx",
+                "McpServers|mcpServers"
+              ],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The entire API surface (copilot.NewClient, copilot.ClientConfig, copilot.SessionConfig, copilot.MCPServerConfig, session.On with event types, session.SendAndWait, copilot.MessageOptions) appears to be fabricated - there is no known 'github.com/github/copilot-sdk/go/pkg/copilot' Go package with this API",
+                "The session.On() callback pattern with event types (SessionEventTypeAssistantMessageDelta, SessionEventTypeToolUse, etc.) resembles JavaScript/TypeScript SDK event subscription patterns more than idiomatic Go patterns",
+                "The MCPServerConfig structure with Type: 'http'/'local', Tools: []string{'*'} pattern looks borrowed from TypeScript/JSON configuration styles for MCP servers",
+                "The go.mod file contains a nonsensical 'replace' directive replacing a module with a subdirectory of itself, suggesting confusion about Go module structure",
+                "event.Data.DeltaContent as *string with nil checks resembles patterns from auto-generated SDKs in other languages rather than idiomatic Go"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with proper structure (context handling, signal handling, error wrapping), but the entire Copilot SDK API is fabricated \u2014 there is no known Go SDK at that import path with those types and methods. The event subscription pattern with session.On() and event type constants strongly resembles JavaScript/TypeScript SDK patterns rather than idiomatic Go. The code does address all parts of the task (two MCP servers, session creation, prompt sending), but since the SDK doesn't exist in this form, it cannot actually function. The go.mod file has a broken replace directive.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx"
+              ],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)",
+                "McpServers|mcpServers"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Fabricated 'github.com/copilot-extensions/go-sdk/pkg/client' and 'github.com/copilot-extensions/go-sdk/pkg/types' packages that don't exist with those APIs",
+                "Invented client.Config, client.New(), ChatCompletionRequest, ChatCompletionMessage structs that resemble OpenAI Go SDK patterns rather than any real GitHub Copilot Go SDK",
+                "MCP protocol handling is entirely simulated/hardcoded rather than using any real MCP Go library (e.g., mark3labs/mcp-go)",
+                "HTTPTransport and StdioTransport are stub types with no real implementation",
+                "Tool listing is hardcoded rather than dynamically discovered from MCP servers"
+              ],
+              "brief_assessment": "The code is syntactically valid Go and uses proper Go idioms (error handling, context, structs), but it is fundamentally built around fabricated APIs \u2014 both the 'GitHub Copilot SDK' client package and the MCP server connections are entirely invented and non-functional. The code is also truncated mid-function (cuts off at 'Copilot sessio'), so the summarizeFile function and the actual prompt-sending logic are missing. The MCP connections are simulated with hardcoded tool lists rather than real protocol interactions, meaning this would not accomplish the stated task even conceptually.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": false
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)",
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx",
+                "McpServers|mcpServers"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 5,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The `copilot.MCPServerConfig` struct with fields like `Type`, `URL`, `Command`, `Args`, `Tools`, `Timeout` appears fabricated and resembles patterns from TypeScript/JavaScript Copilot SDK configurations",
+                "Session event handling pattern (`session.On(func(event copilot.SessionEvent))`) with event types like `SessionEventTypeAssistantMessageDelta` resembles JavaScript/TypeScript event emitter patterns more than idiomatic Go",
+                "The `session.SendAndWait` method with `copilot.MessageOptions{Prompt: ...}` does not match any known Go SDK API",
+                "The `client.ListSessions(ctx)` API is not part of any known Go Copilot SDK",
+                "The entire `github.com/github/copilot-sdk/go/pkg/copilot` package is fabricated \u2014 no such public Go SDK exists",
+                "The `unsubscribe` return from `session.On()` resembles JavaScript's event subscription pattern",
+                "MCPServers as a `map[string]copilot.MCPServerConfig` with string keys for server names resembles JavaScript/TypeScript configuration objects"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with proper error handling, context usage, signal handling, and idiomatic Go patterns (defer, error wrapping). However, the entire API is fabricated \u2014 there is no public `github.com/github/copilot-sdk/go/pkg/copilot` package. The API design shows heavy contamination from JavaScript/TypeScript patterns, particularly the event emitter subscription model with `session.On()` returning an `unsubscribe` function, and the MCP server configuration as a string-keyed map. Structurally the code addresses all task requirements (two MCP servers, session creation, file summarization prompt), but none of the API calls would actually work.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx",
+                "McpServers|mcpServers"
+              ],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The entire `github.com/github/copilot-sdk/go/pkg/copilot` package and its API (NewClient, CreateSession, SessionConfig, MCPServerConfig, session.On with event types, SendAndWait, MessageOptions) appear to be fabricated \u2014 no such public Go SDK exists with this API surface",
+                "The event-driven `session.On(func(event copilot.SessionEvent))` callback pattern resembles JavaScript/TypeScript SDK patterns (e.g., Node.js EventEmitter or TypeScript Copilot extensions SDK) rather than idiomatic Go patterns",
+                "SessionEventType constants like `SessionEventTypeAssistantMessageDelta`, `SessionEventTypeToolCallStart` etc. follow a naming pattern more typical of TypeScript/JavaScript MCP SDK event types",
+                "The `session.Destroy()` cleanup method is more typical of JS/TS SDKs than Go, where `Close()` is the idiomatic naming",
+                "MCPServerConfig with `Type: 'http'` and `Type: 'local'` plus `Tools: []string{\"*\"}` mirrors the TypeScript MCP configuration schema rather than any known Go SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with proper use of context, error handling, signal handling, and defer patterns, earning full marks for language correctness. However, the entire Copilot SDK API is fabricated \u2014 no such `github.com/github/copilot-sdk/go` package exists with this interface. The API design heavily borrows from TypeScript/JavaScript MCP SDK patterns (event callbacks, session.On, Destroy, event type naming). The code structurally addresses the task requirements (two MCP servers, session creation, file summarization prompt) but cannot actually execute since the SDK doesn't exist. The README is cut off mid-sentence, indicating truncation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx"
+              ],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)",
+                "McpServers|mcpServers"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The import paths 'github.com/copilot-extensions/preview-sdk.go/pkg/chat' and 'github.com/copilot-extensions/preview-sdk.go/pkg/mcp' do not correspond to real Go packages - the actual preview-sdk.go has a completely different API surface",
+                "chat.NewSession with a ToolHandler callback pattern resembles TypeScript/Python SDK patterns more than Go idioms",
+                "stream.Recv() pattern with EOF string check resembles gRPC streaming patterns but applied to a fabricated chat SDK",
+                "ChatCompletionRequest with Session field resembles OpenAI Python/TypeScript SDK patterns",
+                "mcp.NewClient(), ConnectHTTP(), ConnectStdio() API patterns are entirely fabricated - no such Go MCP SDK exists with this interface",
+                "The ServerConfig struct with Transport field mixing HTTP and stdio patterns resembles TypeScript MCP SDK configuration"
+              ],
+              "brief_assessment": "The code is syntactically valid Go and well-structured with proper error handling, context usage, and defer patterns. However, the APIs are entirely fabricated - there is no real Go GitHub Copilot SDK with the chat/mcp packages shown, and the API patterns (NewClient, ConnectHTTP, ConnectStdio, NewSession with ToolHandler, streaming with Recv) appear heavily influenced by TypeScript/Python SDK conventions rather than any real Go library. The code conceptually addresses all parts of the task (two MCP servers, tool routing, file summarization prompt) but would not compile against any real SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": false
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": false
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)",
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx",
+                "McpServers|mcpServers"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 5,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The entire `github.com/github/copilot-sdk/go/pkg/copilot` package and its API are fabricated - no such Go SDK exists with this import path or API surface",
+                "API patterns like `session.On(func(event copilot.SessionEvent))` with event types resemble JavaScript/TypeScript event emitter patterns (Node.js SDK style)",
+                "The `session.SendAndWait()` pattern and `SessionEvent` with `DeltaContent` fields resemble TypeScript Copilot SDK patterns rather than idiomatic Go",
+                "`unsubscribe := session.On(...)` returning an unsubscribe function is a JavaScript/TypeScript pattern, not idiomatic Go",
+                "`client.Start(ctx)` / `client.Stop()` lifecycle and `session.Destroy()` patterns feel borrowed from Node.js SDK conventions",
+                "MCPServerConfig with fields like `Tools: []string{\"*\"}` and `Timeout: 30000` (milliseconds) resembles JavaScript SDK configuration style",
+                "The streaming event subscription model with event types like `SessionEventTypeAssistantMessageDelta` mirrors TypeScript SDK event naming conventions"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with proper use of contexts, error handling, and goroutines for signal handling. However, the entire Copilot SDK API is fabricated \u2014 no such Go package exists at that import path. The API design is heavily contaminated with JavaScript/TypeScript patterns: the event subscription model with `session.On()` returning an unsubscribe function, event types with delta content streaming, and the overall session lifecycle management are all hallmarks of a Node.js SDK rather than idiomatic Go. The code is also truncated at the end (the sample file content is cut off). While the logical structure addresses the task requirements (two MCP servers, session creation, file summarization prompt), it cannot function as written.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx",
+                "McpServers|mcpServers"
+              ],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "copilot.SessionEvent with event.Type and event.Data patterns resemble JavaScript/TypeScript SDK event handling patterns rather than idiomatic Go",
+                "session.On() callback pattern is more typical of Node.js/JavaScript SDKs than Go SDKs",
+                "copilot.SessionEventTypeAssistantMessageDelta naming and usage resembles TypeScript Copilot SDK event types",
+                "session.SendAndWait() with MessageOptions{Prompt: prompt} pattern doesn't match any known Go SDK",
+                "The entire copilot SDK API (github.com/github/copilot-sdk/go) appears to be fabricated - no such public Go package exists",
+                "MCPServerConfig with Type, URL, Command, Args, Tools fields resembles the TypeScript/JavaScript MCP SDK configuration pattern"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with proper error handling, context usage, and signal handling. However, the entire GitHub Copilot SDK API is fabricated \u2014 no such Go SDK exists publicly. The API design heavily borrows patterns from TypeScript/JavaScript MCP and Copilot SDKs, including event-based callbacks (session.On), event type constants, and streaming delta patterns. While the code logically addresses all parts of the task (two MCP servers, session creation, file summarization prompt), it cannot function as written since the SDK doesn't exist.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "copilot\\.NewClient\\(nil\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.Start\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.CreateSession\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "session\\.SendAndWait\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "McpServers|mcpServers",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "client\\.Start\\(ctx\\)",
+                "client\\.CreateSession\\(ctx",
+                "session\\.SendAndWait\\(ctx"
+              ],
+              "expected_misses": [
+                "copilot\\.NewClient\\(nil\\)",
+                "McpServers|mcpServers"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 5,
+              "expected_hit_rate": 0.6,
+              "anti_results": [
+                {
+                  "pattern": "client\\.createSession\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from copilot import",
+                  "matched": false
+                },
+                {
+                  "pattern": "new CopilotClient\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "@github/copilot-sdk",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

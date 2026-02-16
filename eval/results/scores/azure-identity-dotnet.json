@@ -1,0 +1,3816 @@
+{
+  "skill_name": "azure-identity-dotnet",
+  "scored_at": "2026-02-16T12:09:35.388551+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.33,
+  "risk_level": "medium",
+  "test_category": "net_negative",
+  "tasks": [
+    {
+      "task_id": "azure-identity-dotnet-01",
+      "task_type": "direct_target",
+      "target_language": "csharp",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic ASP.NET Core and Azure SDK usage. The DI registration with Microsoft.Extensions.Azure is properly done, and the credential configuration is correct. However, the code is truncated \u2014 the blob endpoint (GET /blobs/{container}/{name}) is cut off mid-comment, and the SecretResponse/ErrorResponse model classes are missing. The route prefix is 'api' rather than matching the exact paths requested (GET /secrets/{name} vs GET /api/secrets/{name}). The DefaultAzureCredentialOptions.Retry property doesn't exist on that type \u2014 retry options are configured on the client options, not credential options \u2014 which is a minor API correctness issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with fully idiomatic usage of Microsoft.Extensions.Azure, Azure.Identity, and Azure.Security.KeyVault.Secrets APIs. The DI registration with AddAzureClients, UseCredential, and DefaultAzureCredentialOptions configuration is exemplary. However, the code is truncated mid-file \u2014 the SecretsController is cut off at the first line of its using statements, meaning neither controller endpoint (GET /secrets/{name} and GET /blobs/{container}/{name}) nor the required AuthenticationFailedException/CredentialUnavailableException error handling is actually implemented. This significantly impacts functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic ASP.NET Core patterns and proper use of Azure SDK APIs (Microsoft.Extensions.Azure registration with DefaultAzureCredential, SecretClient, BlobServiceClient). However, the code is truncated: the BlobsController is cut off mid-file, and the critical Program.cs file containing DI registration (AddAzureClients with DefaultAzureCredentialOptions excluding interactive browser credential) is missing entirely. The implemented portions demonstrate good quality with proper error handling for AuthenticationFailedException and CredentialUnavailableException, structured logging, and clean separation of concerns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# using ASP.NET Core minimal APIs with correct Azure SDK usage via Microsoft.Extensions.Azure. The DefaultAzureCredentialOptions incorrectly sets a 'Retry' property which belongs to ClientOptions, not credential options \u2014 this is a minor API misuse. The code is truncated at the blob endpoint's CredentialUnavailableException handler, so the second endpoint's error handling is incomplete, but the vast majority of the task is implemented. Overall structure, DI registration, and error handling patterns are idiomatic and well-organized.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# with proper ASP.NET Core patterns and correct usage of Microsoft.Extensions.Azure for dependency injection. The Azure client registration with DefaultAzureCredential options is idiomatic. However, the code is truncated \u2014 it cuts off mid-Program.cs and is missing the controllers (SecretsController and BlobsController) which contain the two required endpoints and the critical error handling for AuthenticationFailedException and CredentialUnavailableException. The AzureEventSourceListener usage in Program.cs is awkward and would not work correctly as written (building a service provider mid-configuration). Only about half the task is actually implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with fully idiomatic ASP.NET Core and Azure SDK usage, including proper use of Microsoft.Extensions.Azure patterns, SecretClient, BlobServiceClient, and structured logging. However, the code is truncated\u2014the BlobsController is cut off mid-constructor, and the Program.cs/Startup file with DI registration (AddAzureClients with DefaultAzureCredential configuration excluding interactive browser credential) is missing entirely. This means the blob download endpoint and the critical DI configuration are not present, leaving significant gaps in task completion. The implemented portions (AzureStorageService and SecretsController) are well-structured with proper error handling for AuthenticationFailedException and CredentialUnavailableException.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with fully idiomatic use of Microsoft.Extensions.Azure, Azure.Identity, and ASP.NET Core APIs. The DI registration, DefaultAzureCredential configuration, error handling for AuthenticationFailedException and CredentialUnavailableException, and the secrets endpoint are all well-implemented. However, the code is truncated mid-way through the blob download endpoint (cut off at the summary comment for the second action method), so the GET /blobs/{container}/{name} endpoint and the response model classes (SecretResponse, ErrorResponse) are missing, which significantly impacts functional completeness. The route prefix uses 'api/' which differs slightly from the requested '/secrets/{name}' and '/blobs/{container}/{name}' paths. The Retry property on DefaultAzureCredentialOptions is incorrect \u2014 that class doesn't have a Retry property \u2014 but this is a minor issue.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# with idiomatic ASP.NET Core patterns and correct usage of Microsoft.Extensions.Azure for DI registration, DefaultAzureCredential configuration with ExcludeInteractiveBrowserCredential, and proper Azure SDK client registration. However, the code is truncated mid-file in the SecretsController\u2014the BlobsController is entirely missing. This means the two required endpoints (GET /secrets/{name} and GET /blobs/{container}/{name}) and the explicit error handling for AuthenticationFailedException and CredentialUnavailableException are not present, leaving roughly half the task unimplemented. What is present is high quality with good configuration structure and retry policy setup.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic ASP.NET Core patterns. It properly uses Microsoft.Extensions.Azure for DI registration, DefaultAzureCredential with ExcludeInteractiveBrowserCredential, and handles AuthenticationFailedException and CredentialUnavailableException. However, the code is truncated mid-response \u2014 the SecretsController is cut off, the BlobsController and Program.cs/Startup registration are missing, meaning only about half the task is fully implemented. The BlobDownloadInfo type is slightly outdated (newer SDK versions use BlobDownloadResult), but this is a minor version concern rather than cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "AddAzureClients|UseCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|BlobServiceClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "AuthenticationFailedException|CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.Map",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "using Azure\\.Identity",
+                "DefaultAzureCredential",
+                "AddAzureClients|UseCredential",
+                "SecretClient|BlobServiceClient",
+                "AuthenticationFailedException|CredentialUnavailableException",
+                "builder\\.Services|app\\.Map"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure\\.identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-dotnet-02",
+      "task_type": "cross_language",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using the proper async Azure SDK packages (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient) with idiomatic async context manager patterns and asyncio.gather for parallelism. The API usage is fully idiomatic for the Python Azure SDK. However, the code is truncated \u2014 the `retrieve_secrets` standalone function is cut off mid-docstring, so the final convenience function and likely a `__main__` block are missing, which slightly reduces functional completeness. Error handling for authentication failures is well implemented throughout the class.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of the Azure SDK async libraries (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient). It correctly implements parallel secret retrieval using asyncio.gather with a semaphore for concurrency control, proper async context management, and comprehensive error handling for authentication failures and other Azure exceptions. The code is truncated at the end\u2014the standalone `retrieve_secrets` function's docstring and body are cut off\u2014which means the task is mostly but not fully complete, hence the minor deduction in functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using the proper async Azure SDK packages (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient) with idiomatic API usage. It correctly implements parallel retrieval via asyncio.gather, proper async context manager cleanup, and comprehensive error handling for authentication failures. The only issue is that the main() function is truncated at the end, cutting off the example output and the if __name__ block, which is a minor completeness gap but doesn't affect the core functionality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the Azure SDK async APIs (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient). It demonstrates proper async context manager patterns, parallel retrieval with asyncio.gather, and comprehensive error handling for authentication and HTTP failures. However, the code is truncated mid-function \u2014 the main `retrieve_secrets` function is cut off at `async w`, so the primary callable entry point is incomplete, which significantly impacts functional completeness. The class-based approach and extra features like `list_all_secrets` are well done but the return type diverges slightly from the task's request for a simple name-to-value dictionary.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with correct usage of azure-identity and azure-keyvault-secrets async APIs. It properly imports both sync and async variants of DefaultAzureCredential and SecretClient, handles authentication errors with ClientAuthenticationError, and uses asyncio.gather for parallel retrieval. However, the code is truncated \u2014 the critical `get_secrets_parallel` method is cut off mid-definition, meaning the main requested function (returning secrets as a dictionary) is incomplete. There's also a minor concern that creating a new AsyncSecretClient per secret in `get_secret_async` is inefficient, but not incorrect. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient",
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using the idiomatic async Azure SDK packages (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient). It properly uses asyncio.gather for parallel retrieval, implements comprehensive error handling for authentication failures and missing secrets, and includes an async context manager for resource cleanup. The only issue is that the main() function is truncated at the end (cut off mid-error-handling), but the core functionality \u2014 the retrieve_secrets function and the KeyVaultSecretRetriever class \u2014 is fully complete and correct.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python and uses the correct async Azure SDK APIs (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient) idiomatically. It implements parallel secret retrieval using asyncio.gather, includes proper error handling for authentication failures and other exceptions, and uses an async context manager for resource cleanup. However, the code is truncated \u2014 the `retrieve_secrets` standalone function is cut off mid-definition, leaving the primary requested interface incomplete. The class-based implementation above it is complete and functional, covering most of the task requirements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the azure-identity and azure-keyvault-secrets async APIs (AsyncDefaultAzureCredential, AsyncSecretClient used as async context manager, await client.get_secret). It correctly implements parallel retrieval via asyncio.gather with proper error handling for ClientAuthenticationError, ResourceNotFoundError, and HttpResponseError. The code is truncated at the end of _retrieve_single_secret (cut off mid-return), and the standalone function returning a plain dictionary (as requested) is missing\u2014only a class-based approach is provided\u2014so functional completeness takes a minor hit. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient",
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python using the proper async Azure SDK packages (azure.identity.aio.DefaultAzureCredential, azure.keyvault.secrets.aio.SecretClient) with idiomatic API usage. It implements parallel retrieval via asyncio.gather, proper async context management, and comprehensive error handling for authentication failures. The only issue is that the code is truncated at the end of main() \u2014 the final except clause is cut off mid-line \u2014 which prevents it from being fully complete, though the core functionality (retrieve_secrets function) is fully implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from azure\\.identity import DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "from azure\\.keyvault\\.secrets import SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "import asyncio",
+                  "matched": true
+                },
+                {
+                  "pattern": "async def|await",
+                  "matched": true
+                },
+                {
+                  "pattern": "credential = DefaultAzureCredential\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+\\w+\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import asyncio",
+                "async def|await",
+                "credential = DefaultAzureCredential\\(\\)",
+                "def\\s+\\w+\\("
+              ],
+              "expected_misses": [
+                "from azure\\.identity import DefaultAzureCredential",
+                "from azure\\.keyvault\\.secrets import SecretClient"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "AddAzureClients",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-dotnet-03",
+      "task_type": "similar_syntax",
+      "target_language": "java",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code that is present is entirely correct Java with idiomatic Spring Boot and Azure SDK usage\u2014proper use of DefaultAzureCredentialBuilder, SecretClientBuilder, Spring Boot configuration properties, and actuator health indicators. However, the code is truncated mid-file (cuts off during AzureConfig.java), meaning the key configuration bean definitions, the SecretClient bean, the KeyVaultService implementation, the REST controller for /api/config, the health indicator, and the model classes are all missing. Since less than half of the required functionality is actually present in the output, functional correctness is low despite the promising structure.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct Spring Boot and Azure SDK for Java API usage \u2014 DefaultAzureCredential, SecretClientBuilder, and Spring Boot Actuator HealthIndicator are all used idiomatically. However, the output appears truncated mid-file (application.yml cuts off at 'com.'), and several listed source files (KeyVaultServiceImpl, ConfigController, models, exception handler, SecurityConfiguration) are not shown, meaning the REST endpoint at /api/config and other core functionality are missing from the generated output. What is present is well-structured and production-oriented with proper retry config, health checks setup, and clean project organization.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java with proper Spring Boot and Azure SDK for Java usage. The Azure Identity library APIs (DefaultAzureCredentialBuilder, SecretClientBuilder, SecretClient) are used idiomatically. However, the code is truncated \u2014 the ConfigController's GET /{secretName} endpoint is cut off mid-signature, and there is no health check actuator/indicator implementation (only an isHealthy() method in the service that is never wired to a Spring Boot health endpoint). The configuration, credential bean, and main /api/config endpoint are well-structured, but the missing health check integration and incomplete endpoint reduce functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with proper Spring Boot conventions and correct usage of the Azure Identity and Key Vault Java SDKs (DefaultAzureCredentialBuilder, SecretClientBuilder, etc.). The API patterns are fully idiomatic for the Java Azure SDK. However, the code is clearly truncated mid-file \u2014 the AzureConfig class cuts off during a @Value annotation, and several critical files (ConfigController, KeyVaultService, KeyVaultServiceImpl, health indicator, models) are missing entirely. This means the REST endpoint at /api/config, the Key Vault retrieval logic, and the health check are not implemented, leaving significant gaps in task completion.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with proper Spring Boot idioms and correct Azure SDK for Java API usage (DefaultAzureCredential, SecretClientBuilder, etc.). The project structure, pom.xml, and configuration files are well-organized. However, the code is clearly truncated mid-file \u2014 the application.yml is cut off, and critical implementation files like the controller, service implementation, health indicator, and exception handler are missing, meaning the REST endpoint at /api/config and health checks are not actually shown. This significantly impacts functional completeness despite the solid architectural foundation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with correct Spring Boot and Azure SDK for Java idioms. It properly uses DefaultAzureCredentialBuilder, SecretClientBuilder with vaultUrl/credential/buildClient, and Spring's HealthIndicator interface. The health indicator class is truncated (the health() method is cut off mid-declaration), which means the health check feature is incomplete. Otherwise, the DefaultAzureCredential bean, SecretClient configuration, REST endpoint at /api/config, caching, and error handling are all well-implemented and idiomatic.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java with proper Spring Boot idioms and correct Azure SDK for Java API usage (DefaultAzureCredentialBuilder, SecretClientBuilder, etc.). The project structure, pom.xml, main class, properties config, and Azure configuration class all follow idiomatic patterns. However, the code is clearly truncated mid-file \u2014 the AzureConfiguration class is cut off during the DefaultAzureCredential bean definition, and several critical files (controller, service implementation, health indicator, model classes) are missing entirely, meaning the REST endpoint at /api/config and health checks are not implemented in the provided output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Java with proper Spring Boot conventions and uses the correct Azure SDK for Java (com.azure.identity.DefaultAzureCredential, com.azure.security.keyvault.secrets.SecretClient). The API usage is idiomatic for the Java Azure SDK with proper builder patterns. However, the code is significantly truncated \u2014 it cuts off during the application.yml configuration, missing the actual Java implementation files (controller, service, config, health indicator) that would fulfill the core requirements. Only the pom.xml, project structure, and partial YAML configuration are provided, leaving the majority of the functional task unimplemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Java with idiomatic Spring Boot and Azure SDK usage. The DefaultAzureCredential, SecretClient, and Spring configuration patterns are all properly used. However, the code is truncated mid-file \u2014 the ConfigController's health endpoint is cut off, and the dedicated Spring Boot Actuator health indicator class (implementing HealthIndicator) is missing entirely, as is the application.properties/yml. The task asked for health checks for Azure connectivity and a /api/config endpoint; the health check is only partially present via the service's isHealthy() method but never exposed as a proper Spring Boot health indicator. The caching annotation and batch endpoint are nice extras, though logging secret names at INFO level is a minor security concern.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import com\\.azure\\.identity",
+                  "matched": true
+                },
+                {
+                  "pattern": "import com\\.azure\\.security\\.keyvault",
+                  "matched": true
+                },
+                {
+                  "pattern": "DefaultAzureCredentialBuilder",
+                  "matched": true
+                },
+                {
+                  "pattern": "@Bean|@RestController|@GetMapping",
+                  "matched": true
+                },
+                {
+                  "pattern": "public class",
+                  "matched": true
+                },
+                {
+                  "pattern": "SecretClient|SecretClientBuilder",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import com\\.azure\\.identity",
+                "import com\\.azure\\.security\\.keyvault",
+                "DefaultAzureCredentialBuilder",
+                "@Bean|@RestController|@GetMapping",
+                "public class",
+                "SecretClient|SecretClientBuilder"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "using Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "new DefaultAzureCredential\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "DefaultAzureCredentialOptions",
+                  "matched": false
+                },
+                {
+                  "pattern": "builder\\.Services",
+                  "matched": false
+                },
+                {
+                  "pattern": "var\\s+credential\\s*=",
+                  "matched": false
+                },
+                {
+                  "pattern": "namespace\\s+",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-dotnet-04",
+      "task_type": "grounded",
+      "target_language": "csharp",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic C# using the correct Azure SDK APIs (Azure.Identity, Azure.Security.KeyVault.Secrets, Microsoft.Extensions.Configuration/Logging). It addresses all four requested issues: credential reuse via constructor injection, environment-based credential selection with ManagedIdentityCredential for production, comprehensive error handling with custom exceptions, and configurable vault URL. The code is truncated at the end \u2014 the SecretRetrievalException constructor is cut off \u2014 which prevents it from compiling as-is but the missing portion is trivially small. The Dispose pattern and structured logging are nice touches, though the IDisposable implementation could benefit from the full dispose pattern.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": false
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException"
+              ],
+              "expected_misses": [
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# with idiomatic use of Azure SDK, ASP.NET Core DI, IConfiguration, and ILogger. All four requested issues are addressed: credential reuse via singleton, environment-based credential selection (ManagedIdentityCredential for production, DefaultAzureCredential for development), comprehensive error handling with specific exception types, and configurable vault URL. The only minor concern is the use of ManagedIdentityId.FromUserAssignedClientId() and ManagedIdentityId.SystemAssigned which are newer API patterns (Azure.Identity 1.13+) \u2014 some might use the simpler string-based ManagedIdentityCredential constructor \u2014 but this is a valid and current approach, not contamination. The alternative section using Microsoft.Extensions.Azure is cut off but the core solution is complete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic patterns including dependency injection, structured logging, and proper async/await usage. All four requested fixes are addressed comprehensively. One minor concern is the use of ManagedIdentityId.FromUserAssignedClientId() and ManagedIdentityId.SystemAssigned, which were introduced in newer Azure.Identity versions (1.13+) \u2014 older versions use string-based constructors like new ManagedIdentityCredential(clientId). Additionally, secret.Value.Value is slightly ambiguous (Response<KeyVaultSecret>.Value gives the KeyVaultSecret, then .Value gives the secret string), though it is technically correct. The missing 'using Microsoft.Extensions.Configuration' and 'using Microsoft.Extensions.Hosting' directives are minor omissions but would cause compilation errors. Overall this is high-quality, production-ready code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic C# using the correct Azure SDK for .NET APIs (Azure.Identity, Azure.Security.KeyVault.Secrets). It addresses all four requested issues: credentials are created once and reused via constructor injection, environment-based credential selection uses ManagedIdentityCredential in production and DefaultAzureCredential in development, comprehensive error handling with specific catch blocks for RequestFailedException and AuthenticationFailedException is included, and the vault URL is sourced from IConfiguration. The custom exception hierarchy and IDisposable implementation demonstrate production-quality patterns. The DI registration snippet is truncated but the core service is complete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": false
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [
+                "catch.*CredentialUnavailableException"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic Azure SDK usage, proper DI patterns via IOptions<T>, and comprehensive error handling. The use of ManagedIdentityId.FromUserAssignedClientId() and ManagedIdentityId.SystemAssigned reflects a very recent Azure.Identity API (v1.13+); older versions use a simple string constructor, so this may not compile against all commonly deployed versions\u2014this is a minor API idiomaticity concern rather than cross-language contamination. The alternative Microsoft.Extensions.Azure section is truncated mid-line, but all four requested fixes are fully addressed in the main implementation. Overall this is production-quality code with no foreign-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "IHostEnvironment is from Microsoft.Extensions.Hosting namespace but not imported - minor namespace issue rather than cross-language contamination",
+                "ManagedIdentityId.SystemAssigned and ManagedIdentityId.FromUserAssignedClientId() are newer Azure.Identity API patterns (v1.13+) that may not exist in all versions - not contamination but version-specific API usage"
+              ],
+              "brief_assessment": "The code is well-structured C# that addresses all four requested fixes comprehensively. It uses proper Azure SDK patterns with TokenCredential, SecretClient, structured logging, and DI. The ManagedIdentityId API (SystemAssigned, FromUserAssignedClientId) is a relatively new addition to Azure.Identity (v1.13+); older versions used string-based constructors like `new ManagedIdentityCredential()` for system-assigned or `new ManagedIdentityCredential(clientId)` for user-assigned. The missing `using Microsoft.Extensions.Hosting` for IHostEnvironment is a minor omission. The `secret.Value.Value` pattern is correct - first `.Value` gets the Response<KeyVaultSecret> value, second `.Value` gets the secret string. Overall this is high-quality, production-ready code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic C# using the correct Azure SDK APIs (Azure.Identity, Azure.Security.KeyVault.Secrets) with proper Microsoft.Extensions patterns for configuration and logging. It addresses all four stated problems: credential reuse via constructor injection, environment-based credential selection with ManagedIdentityCredential for production, comprehensive error handling with specific exception types, and configurable vault URL. The code is truncated at the end \u2014 the SecretRetrievalException class is cut off mid-definition \u2014 and the IDisposable implementation is unnecessary since SecretClient doesn't need disposal, but overall it's well-structured production-quality code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": false
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException"
+              ],
+              "expected_misses": [
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# with idiomatic use of Azure SDK, dependency injection via IOptions, and structured logging. All four requested fixes are properly addressed: credential reuse via constructor injection, environment-based credential selection with ManagedIdentityCredential, comprehensive error handling, and configuration-based vault URL. The use of ManagedIdentityId.SystemAssigned and ManagedIdentityId.FromUserAssignedClientId() reflects a newer Azure.Identity API surface that may not exist in all versions (older versions used parameterless constructor and string overload), which is a minor idiomaticity concern but not cross-language contamination. The unit test is truncated but the core implementation is complete and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# with idiomatic .NET patterns including DI via constructor injection, IConfiguration, ILogger, and proper async naming conventions. All four requested issues are addressed: credential reuse via singleton/constructor, environment-based credential selection (ManagedIdentityCredential for production), comprehensive error handling with specific Azure SDK exceptions, and configuration-driven vault URL. The use of ManagedIdentityId.FromUserAssignedClientId() and ManagedIdentityId.SystemAssigned reflects a newer Azure.Identity API surface (v1.13+), which is correct but may not compile on older SDK versions; this is a minor concern. The use of IHostEnvironment without the Microsoft.Extensions.Hosting using directive is a trivial omission. Overall this is production-quality code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "ManagedIdentityCredential|ChainedTokenCredential",
+                  "matched": true
+                },
+                {
+                  "pattern": "private.*readonly|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "IConfiguration|Environment",
+                  "matched": true
+                },
+                {
+                  "pattern": "try|catch.*AuthenticationFailedException",
+                  "matched": true
+                },
+                {
+                  "pattern": "catch.*CredentialUnavailableException",
+                  "matched": true
+                },
+                {
+                  "pattern": "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "ManagedIdentityCredential|ChainedTokenCredential",
+                "private.*readonly|static",
+                "IConfiguration|Environment",
+                "try|catch.*AuthenticationFailedException",
+                "catch.*CredentialUnavailableException",
+                "IsProduction|IsDevelopment|ASPNETCORE_ENVIRONMENT"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "import azure",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install",
+                  "matched": false
+                },
+                {
+                  "pattern": "async def",
+                  "matched": false
+                },
+                {
+                  "pattern": "python",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "azure-identity-dotnet-05",
+      "task_type": "adjacent_domain",
+      "target_language": "csharp",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic C# using correct ASP.NET Core APIs for JWT authentication, claims transformation via IClaimsTransformation, and proper configuration binding. The claims transformation service is well-implemented with proper role mapping logic. However, the code is clearly truncated mid-file (cut off at 'Microso' in the JwtValidationMiddleware section), missing the actual middleware implementation, Program.cs service registration with AddAuthentication/AddJwtBearer, controller examples with [Authorize] attributes, and the JWKS endpoint validation setup. This means roughly half the task requirements are unimplemented in the visible code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": false
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "\\[Authorize.*\\]",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic ASP.NET Core patterns \u2014 proper use of IOptions, AuthorizationHandler, configuration binding, and the JwtBearer package APIs. However, the code is clearly truncated mid-function (cuts off in the RequiredClaimsAuthorizationHandler), and critical pieces like Program.cs (service registration, middleware pipeline), the ClaimsTransformation class, the JwtValidationMiddleware, and the SecureController with [Authorize] attributes are missing entirely. While the implemented portions are high quality and well-structured, the incompleteness means it only partially accomplishes the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": false
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "\\[Authorize.*\\]",
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 6,
+              "expected_hit_rate": 0.3333333333333333,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# using idiomatic ASP.NET Core patterns for JWT authentication configuration, authorization policies, and claims transformation via IClaimsTransformation. The JWT setup with JWKS (via Authority), required claims validation in OnTokenValidated, and role-based authorization policies are well-implemented. However, the code is clearly truncated mid-implementation \u2014 the RoleClaimsTransformation class is cut off during the role mapping logic, and there are no sample controllers demonstrating [Authorize] attribute usage. This incomplete claims transformation represents a significant gap in the requested functionality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": true
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "\\[Authorize.*\\]",
+                "ClaimsTransformation|IClaimsTransformation",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# with idiomatic ASP.NET Core patterns. The configuration models, IClaimsTransformation implementation, and role mapping logic are well-structured and follow framework conventions properly. However, the code is clearly truncated \u2014 it cuts off at '## 4. Claims Valid' and is missing critical components: the Program.cs/Startup configuration that wires up JwtBearer authentication with JWKS endpoint validation, the required claims validation middleware/handler, the [Authorize] attribute examples on controllers, and the actual middleware pipeline setup. This means roughly half the task requirements (JWKS validation, required claims checking, authorization attributes, service registration) are not demonstrated.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": false
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": false
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "\\[Authorize.*\\]",
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 6,
+              "expected_hit_rate": 0.3333333333333333,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct C# using idiomatic ASP.NET Core patterns for JWT bearer authentication, JWKS validation, claims transformation, and role-based authorization. The API usage (AddAuthentication, AddJwtBearer, TokenValidationParameters, JwtBearerEvents, IClaimsTransformation) is fully idiomatic with no foreign language contamination. However, the code is clearly truncated mid-function in JwtBearerConfiguration.cs \u2014 the OnTokenValidated handler is cut off, and several referenced files (ClaimsTransformation, JwtValidationService, authorization handlers, controllers, custom middleware, Program.cs) are never shown, leaving significant portions of the task unimplemented in the provided output.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": true
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "\\[Authorize.*\\]",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in C# with correct ASP.NET Core idioms for JWT Bearer authentication setup, JWKS validation via Authority, required claims checking, and role-based authorization policies. However, the code is clearly truncated mid-function\u2014the ValidateRequiredClaims method is cut off, and the critical RoleClaimsTransformation (IClaimsTransformation) class and controller examples with [Authorize] attributes are completely missing. The implemented portions are idiomatic and well-structured, but the incompleteness significantly impacts functional correctness since custom claims transformation (a key requirement) is referenced but never defined.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": true
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "\\[Authorize.*\\]",
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# using idiomatic ASP.NET Core patterns (IClaimsTransformation, IOptions<T>, ClaimsIdentity). The claims transformation service is well-implemented with proper role mapping, claim normalization, and logging. However, the code is clearly truncated\u2014it cuts off mid-file in the custom authorization section, missing the critical Program.cs/Startup configuration (AddAuthentication/AddJwtBearer with JWKS endpoint setup), the authorization handler, controller examples with [Authorize] attributes, and the required claims validation middleware. Only roughly half the requested functionality is actually shown.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": true
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "\\[Authorize.*\\]",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# with idiomatic ASP.NET Core patterns including extension methods for service configuration, proper use of JwtBearerDefaults, TokenValidationParameters, and options pattern for configuration. However, the code is clearly truncated mid-function \u2014 the JwtBearerConfiguration is cut off, and critical components like ClaimsTransformation, JwtBearerEvents, the authorization handler, controller with [Authorize] attributes, and Program.cs are missing. The implemented portions (configuration model and partial JWT setup) are well-structured with good documentation, but only about half of the requested functionality is actually present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": true
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "ClaimsTransformation|IClaimsTransformation"
+              ],
+              "expected_misses": [
+                "\\[Authorize.*\\]",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid C# using idiomatic ASP.NET Core patterns for JWT authentication, claims transformation, and authorization policies. The JWT configuration with JWKS endpoint discovery (via Authority), required claims validation in OnTokenValidated, role-based authorization policies, and IClaimsTransformation are all correctly implemented. However, the code is clearly truncated \u2014 the RoleClaimsTransformation.TransformAsync method is cut off mid-implementation, and there are no controller examples showing [Authorize] attribute usage, nor a Program.cs showing the middleware pipeline registration. This incomplete delivery means roughly 60-70% of the requested task is covered.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "AddAuthentication|AddJwtBearer",
+                  "matched": true
+                },
+                {
+                  "pattern": "JwtBearerDefaults",
+                  "matched": true
+                },
+                {
+                  "pattern": "TokenValidationParameters",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[Authorize.*\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "ClaimsTransformation|IClaimsTransformation",
+                  "matched": true
+                },
+                {
+                  "pattern": "builder\\.Services|app\\.UseAuthentication",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "AddAuthentication|AddJwtBearer",
+                "JwtBearerDefaults",
+                "TokenValidationParameters",
+                "\\[Authorize.*\\]",
+                "ClaimsTransformation|IClaimsTransformation",
+                "builder\\.Services|app\\.UseAuthentication"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "DefaultAzureCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ManagedIdentityCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "ClientSecretCredential",
+                  "matched": false
+                },
+                {
+                  "pattern": "Azure\\.Identity",
+                  "matched": false
+                },
+                {
+                  "pattern": "SecretClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "BlobServiceClient",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

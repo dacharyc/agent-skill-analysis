@@ -26,7 +26,7 @@ MODEL_JUDGE = "claude-opus-4-6"
 TEMPERATURE = 0.3
 RUNS_PER_CONDITION = 3
 MAX_GENERATION_TOKENS = 4096
-MAX_JUDGE_TOKENS = 1000
+MAX_JUDGE_TOKENS = 1500
 
 # --- Skill registry ---
 # Each skill has:

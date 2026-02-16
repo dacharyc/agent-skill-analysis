@@ -1,0 +1,3731 @@
+{
+  "skill_name": "pdf",
+  "scored_at": "2026-02-16T10:37:50.844863+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.33,
+  "risk_level": "medium",
+  "test_category": "net_negative",
+  "tasks": [
+    {
+      "task_id": "pdf-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of pdfplumber, csv, pathlib, and typing. The API usage for pdfplumber (open, pages, extract_text, extract_tables) is fully correct. The code is truncated at the end of print_summary_stats (the last print statement and the main block are cut off), which slightly impacts functional correctness since the entry point is missing, but all core functionality (PDF extraction, CSV writing, error handling) is well-implemented. The code includes extra helpful features like status/error columns and summary statistics beyond what was requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Python code with no cross-language contamination. It correctly uses pdfplumber's API (pdfplumber.open, page.extract_text(), page.extract_tables()), Python's csv.DictWriter, pathlib.Path.glob, argparse, and type hints. All requested features are implemented: page count, word count, table count, first 100 chars, CSV output, and graceful error handling for corrupted PDFs. The code goes beyond requirements with a CLI interface, progress reporting, and aggregate statistics, all implemented cleanly.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Python with correct pdfplumber API usage throughout. All requested features are implemented: page count, word count, table count, first 100 characters, and graceful error handling via try/except. The code goes beyond requirements with argparse CLI, logging, type hints, docstrings, summary statistics, and a status column for tracking errors \u2014 all well-structured and production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Python code that fully accomplishes the stated task. It correctly uses pdfplumber's API (pdfplumber.open, page.extract_text(), page.extract_tables()), handles corrupted PDFs gracefully with try/except, and writes a CSV with all requested columns plus helpful extras (status, error). The code is well-structured with type hints, docstrings, CLI argument parsing, summary statistics, and clean separation of concerns. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Python code that fully accomplishes the task. It correctly uses pdfplumber's API (open, pages, extract_text, extract_tables), handles corrupted PDFs gracefully with try/except, writes a CSV with all requested columns, and includes nice extras like progress output, statistics, and CLI argument handling. The type hints use `any` instead of `Any` (valid in Python 3.11+), and the code is well-documented with docstrings. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Python code with no cross-language contamination. It correctly uses pdfplumber's API (pdfplumber.open, page.extract_text, page.extract_tables), properly handles corrupted PDFs with try/except, and implements all requested features: filename, page_count, word_count, table_count, and first_100_chars in a CSV output. The code is well-structured with type hints, docstrings, logging, argparse for CLI usage, and clean separation of concerns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Python code with no cross-language contamination. It correctly uses pdfplumber's API (pdfplumber.open, page.extract_text, page.extract_tables), the csv module with DictWriter, pathlib for glob patterns, and proper type hints. All requested features are fully implemented: page count, word count, table count, first 100 characters, CSV output, and graceful error handling for corrupted PDFs. The code also adds useful extras like progress tracking, summary statistics, and CLI argument handling, all at production quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Python code with no cross-language contamination. It correctly uses pdfplumber's API (open, pages, extract_text, extract_tables), Python's pathlib, csv.DictWriter, and typing module all idiomatically. All requested features are implemented: text extraction, page counting, table counting, first_100_chars, CSV output, and graceful error handling for corrupted PDFs. The code goes above and beyond with progress reporting, summary statistics, CLI argument handling, and proper documentation. The only very minor note is the type hint `Dict[str, any]` where `Any` (capitalized) would be more correct, but this is trivial.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is excellent, idiomatic Python code with no cross-language contamination. It correctly uses pdfplumber's API (pdfplumber.open, page.extract_text(), page.extract_tables()), Python's csv.DictWriter, pathlib.Path, argparse, and logging \u2014 all in fully idiomatic fashion. All requested features are implemented: page count, word count, table count, first 100 chars, CSV output, and graceful error handling for corrupted PDFs. The code is well-structured with type hints, docstrings, separation of concerns, and useful summary statistics.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": true
+                },
+                {
+                  "pattern": "import csv|import pandas",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_text",
+                  "matched": true
+                },
+                {
+                  "pattern": "extract_tables",
+                  "matched": true
+                },
+                {
+                  "pattern": "len\\(.*pages\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import pdfplumber",
+                "import csv|import pandas",
+                "extract_text",
+                "extract_tables",
+                "len\\(.*pages\\)",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "const\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*from\\s+['\"]pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "new Uint8Array",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "pdf-02",
+      "task_type": "cross_language",
+      "target_language": "javascript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js using the pdf-lib API idiomatically. All API calls (PDFDocument.create, embedFont, addPage, drawText, drawLine, widthOfTextAtSize) are correct and match the pdf-lib documentation precisely. The code fully accomplishes all three requirements: centered title page with 24pt font, bulleted list with 5 items, and a page with horizontal line and footer text. Code quality is excellent with clear comments, proper async/await usage, error handling, and logical organization.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js using the pdf-lib API idiomatically. All three pages are properly implemented: centered title text at 24pt, a bulleted list with 5 items, and a horizontal line with footer text. The API usage is spot-on \u2014 PDFDocument.create(), embedFont(), drawText(), drawLine(), widthOfTextAtSize() for centering, and save()/writeFileSync() for output. Code is clean, well-commented, and production-ready with proper error handling.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript using ES module syntax with the pdf-lib library. All API calls (PDFDocument.create, embedFont, addPage, drawText, drawLine, widthOfTextAtSize, save) are idiomatic and correctly used. The script fully accomplishes all three requirements: centered title page with 24pt font, bulleted list with 5 items, and a horizontal line with footer text on the third page. Code is clean, well-structured, and production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js using the pdf-lib API idiomatically. All three pages are implemented as specified: centered title at 24pt, bulleted list with 5 items, and a horizontal line with footer text. The API usage is accurate \u2014 PDFDocument.create(), embedFont(), drawText(), drawLine(), and save() are all correct pdf-lib methods with proper option objects. Code is well-structured with clear comments, proper error handling, and correct use of widthOfTextAtSize for centering calculations.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "maxWidth is not a valid option for drawText in pdf-lib; this may be borrowed from canvas-based or other PDF APIs"
+              ],
+              "brief_assessment": "The code is entirely valid JavaScript/Node.js and uses the pdf-lib API correctly for the most part. The one notable issue is the use of `maxWidth` in `drawText`, which is not a supported option in pdf-lib's `drawText` method \u2014 this appears borrowed from another API (e.g., HTML Canvas). It won't cause an error (it will simply be ignored), but it won't provide word wrapping either. All three pages are implemented with appropriate content, centering logic is correct, and the code is well-structured with clear comments. The functional correctness is docked slightly because the bulleted list items won't wrap if they exceed page width, but in practice the chosen strings are short enough to fit.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript using ES module syntax appropriate for Node.js. The pdf-lib API usage is fully idiomatic \u2014 PDFDocument.create(), embedFont(), addPage(), drawText(), drawLine(), and save() are all correct pdf-lib methods with proper option objects. All three pages are implemented as specified: centered title in 24pt, 5-item bulleted list, and a page with a horizontal line and footer. The code is clean, well-structured, and production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js using the pdf-lib library with fully idiomatic API usage. All three pages are properly implemented: centered title in 24pt bold, a bulleted list with 5 items, and a horizontal line with footer text. The code uses correct pdf-lib methods (PDFDocument.create, embedFont, drawText, drawLine, widthOfTextAtSize) and properly saves to output.pdf. Error handling, async/await patterns, and overall structure are clean and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "drawText with maxWidth option is not a standard pdf-lib parameter - pdf-lib's drawText does not support maxWidth natively"
+              ],
+              "brief_assessment": "The code is entirely correct JavaScript/Node.js with proper use of the pdf-lib API. It correctly creates 3 pages with centered title text, a bulleted list, a horizontal line, and footer text. The only notable issue is the use of `maxWidth` in `drawText` on page 2, which is not a supported option in pdf-lib's `drawText` method \u2014 it will simply be ignored rather than cause an error, so functionality is minimally affected. Overall the code is well-structured, well-commented, and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid JavaScript (ESM syntax) using the pdf-lib API correctly and idiomatically. All three pages are implemented as specified: centered title in 24pt, a bulleted list of 5 items, and a horizontal line with footer text. API methods like PDFDocument.create(), addPage(), drawText(), drawLine(), embedFont(), widthOfTextAtSize(), and save() are all used correctly per the pdf-lib documentation. The code is clean, well-structured, and production-ready with no foreign language or API contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                  "matched": true
+                },
+                {
+                  "pattern": "addPage|drawText",
+                  "matched": true
+                },
+                {
+                  "pattern": "fs\\.writeFileSync|writeFile",
+                  "matched": true
+                },
+                {
+                  "pattern": "Uint8Array|Buffer",
+                  "matched": false
+                },
+                {
+                  "pattern": "StandardFonts|embedFont",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*pdf-lib|import.*pdf-lib|PDFDocument",
+                "addPage|drawText",
+                "fs\\.writeFileSync|writeFile",
+                "StandardFonts|embedFont"
+              ],
+              "expected_misses": [
+                "Uint8Array|Buffer"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "pdf-03",
+      "task_type": "similar_syntax",
+      "target_language": "ruby",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is well-written Ruby code using the Prawn gem idiomatically. All requested features are present: company header, item table with 5 line items, subtotal/tax/total section, and footer with invoice date and number. The code uses proper Prawn API methods (generate, table, bounding_box, stroke_horizontal_rule, number_pages, etc.) with correct Ruby syntax throughout. The only minor note is the use of `pdf.font \"Helvetica\", size: 24, style: :bold` which works but the more common idiomatic pattern might use `font_size` separately or inline options; however, this is perfectly valid Prawn API usage. The `color` option in `pdf.text` should be `color:` but it's used correctly here. Overall, this is production-quality code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Ruby code using the Prawn gem correctly. All requested features are present: company header, 5 line items in a proper table with Item/Quantity/Unit Price/Total columns, subtotal/tax/total section, and a footer with invoice date and number. The Prawn and prawn-table APIs are used correctly \u2014 `Prawn::Document.generate`, `pdf.table`, `pdf.text`, `stroke_horizontal_rule`, `number_pages`, etc. are all valid. Minor note: the `rows(1..-1).each_with_index` pattern for alternating colors may not work perfectly with prawn-table's row proxy objects, but the overall approach is sound. The code is well-organized with constants, clear sections, and console output summary.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby using idiomatic Prawn gem APIs. It covers all requested features: company header, 5-line-item table with the required columns, subtotal/tax/total section, footer with invoice date and number. The use of `pdf.font \"Helvetica\", size: 24, style: :bold` as a combined call is acceptable in Prawn but mixing `font` for setting font name with size/style in that way is slightly less common than using `font_size` or separate calls \u2014 however it is a valid Prawn API. The totals section using `move_up` for alignment is a bit fragile but functional. Overall this is clean, well-structured code that would produce the expected PDF.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby using the Prawn and prawn-table gems idiomatically. It fully accomplishes all requested features: company header, 5-line-item table with the correct columns, subtotal/tax/total section, and footer with invoice date and number. The only minor note is the repeated `pdf.font \"Helvetica\", size: ...` calls rather than using `pdf.font_size` or font blocks, but this is a stylistic preference and still valid Prawn API usage. The totals are hardcoded rather than computed from the line items, which is a minor quality concern but doesn't affect functional completeness. Overall, this is production-quality code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby using the Prawn gem with correct, idiomatic API calls. All requested features are present: company header, 5-item table with proper columns, subtotal/tax/total section, footer with invoice date and number. The font setting approach using `pdf.font \"Helvetica\", size: X, style: :bold` is correct Prawn syntax. Minor quality issues include the somewhat fragile totals layout using `move_up` for alignment (a small table would be cleaner), and the bounding_box cursor arithmetic for the two-column layout is a bit brittle. Overall it's solid, functional Ruby/Prawn code with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Ruby code that correctly uses the Prawn and prawn-table APIs. All requested features are present: company header, 5 line items in a table with the correct columns, subtotal/tax/total section, and a footer with invoice date and number. The code uses proper Ruby idioms (symbols for hash keys, blocks, frozen_string_literal pragma, Kernel#format). The only minor API note is that pdf.font with size/style as keyword arguments works but the more common Prawn pattern for one-off font changes might use font_size or inline formatting, though the approach used is perfectly valid. Overall this is production-quality code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby using the Prawn gem idiomatically. It covers all requested features: company header, 5-line-item table with proper columns, subtotal/tax/total section, and a footer with invoice date and number. The subtotal is hardcoded ($9,047.00) rather than computed from the line items (which actually sum to $9,047.00, so it is correct but fragile). The use of `pdf.font \"Helvetica\", size: X, style: Y` as a way to set font before `text` calls is a slightly non-standard pattern (Prawn's `font` method with size/style arguments works but mixing it this way rather than using `font_size` or inline options is a minor stylistic choice). The `color` option in `pdf.text` should technically be `color:` which Prawn does support. Overall, this is clean, functional, and well-structured code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby using the Prawn and prawn-table gems idiomatically. It covers all requested features: company header, 5 line items in a properly structured table, subtotal/tax/total section, and a footer with invoice number and date. The totals section uses a slightly fragile approach with move_up to align labels and values on the same line rather than using a small Prawn table, which would be more idiomatic and robust. The font API usage (`pdf.font \"Helvetica\", size: 24, style: :bold`) and text color via `pdf.text ... color:` are correct Prawn patterns. Overall a well-structured, functional invoice generator with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Ruby using idiomatic Prawn gem APIs. The `pdf.font` method is used with keyword arguments for size/style which sets the font but the Prawn API typically uses `pdf.font(name, style:, size:)` \u2014 this is correct Prawn syntax. One minor concern: the `text` method's `style:` option on the last line (italic) may not work as expected since Prawn's `text` doesn't accept a `style` keyword directly (it should be set via `font`), but this is a minor functional issue. The script covers all requested features: company header, 5 line items in a table, subtotal/tax/total section, footer with date and invoice number, and saves to invoice.pdf.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "require.*prawn|Prawn::Document",
+                  "matched": true
+                },
+                {
+                  "pattern": "generate|new.*Prawn",
+                  "matched": true
+                },
+                {
+                  "pattern": "table|make_table",
+                  "matched": true
+                },
+                {
+                  "pattern": "text\\s+['\"]",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+|do\\s*\\|",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "require.*prawn|Prawn::Document",
+                "generate|new.*Prawn",
+                "table|make_table",
+                "text\\s+['\"]",
+                "\\.pdf",
+                "def\\s+|do\\s*\\|"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "SimpleDocTemplate",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                },
+                {
+                  "pattern": "getSampleStyleSheet",
+                  "matched": false
+                },
+                {
+                  "pattern": "Paragraph\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "pdf-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct idiomatic usage of the pypdf library. It correctly identifies and fixes both key bugs (PdfReader\u2192PdfWriter, and writing to a file handle). Error handling is comprehensive, covering missing files, invalid PDFs, empty inputs, and write failures. Minor quality deductions: re-raising generic Exception shadows the original exception type (could use `raise ... from e`), and the logic for detecting the output filename from command-line args is a bit fragile\u2014if someone passes a non-existent PDF, it would be misinterpreted as the output filename.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with proper pypdf API usage. It correctly identifies and fixes all three bugs (PdfReader\u2192PdfWriter, missing import, write method usage). The comment about Bug Fix #2 claiming writer.write() requires a file handle rather than a path is slightly inaccurate\u2014PdfWriter.write() actually accepts both a path string and a file object in modern pypdf\u2014but using a file handle still works correctly. The error handling is comprehensive, covering missing files, permissions, empty PDFs, and invalid inputs. The code is well-documented and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It properly identifies and fixes all bugs in the original code (PdfReader\u2192PdfWriter, missing import, file handle for write). The pypdf API usage is fully idiomatic \u2014 PdfWriter, PdfReader, add_page, and writer.write with a file handle are all correct. Comprehensive error handling covers missing files, permission issues, invalid PDFs, empty inputs, and write failures. The output argument detection heuristic in __main__ is a nice touch, though slightly fragile, and the code quality is production-grade with docstrings, informative messages, and proper exit codes.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes all three bugs in the original code (PdfReader\u2192PdfWriter, missing PdfWriter import, and proper file handle for write). The pypdf API usage is fully idiomatic. Error handling is comprehensive with file existence checks, empty input validation, and try-except blocks. The output file detection heuristic in __main__ is somewhat fragile \u2014 if the last argument is an existing PDF that should be merged, it would incorrectly be treated as the output file \u2014 but this is a minor design issue rather than a correctness bug. The use of bare `Exception` for re-raising is not ideal; more specific exception types would be better.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no cross-language contamination. It correctly identifies and fixes the main bugs (PdfReader vs PdfWriter, missing import). The write method fix of using `open(output_path, 'wb')` is valid but slightly unnecessary \u2014 PdfWriter.write() in pypdf can accept a string path directly, so the original `writer.write(output_path)` would have worked once the class was corrected. This is a minor idiom deviation rather than a bug. The error handling is comprehensive and the code goes beyond requirements with the -o flag feature. Catching a generic Exception and re-raising as Exception loses the original exception chain (should use `raise ... from e`), and the broad except clause around reader processing masks specific pypdf errors.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes all bugs in the original code (PdfReader\u2192PdfWriter, proper file handle for write). It is entirely idiomatic Python using the pypdf API correctly. Error handling is comprehensive, covering missing files, invalid PDFs, empty inputs, and write failures. Minor quality concerns: catching broad `Exception` and re-raising as generic `Exception` loses the original exception type (could use `raise ... from e`), and the heuristic for detecting the output file argument (checking if it doesn't exist) is fragile\u2014an existing PDF intended as output would be treated as an input. Overall, this is solid, functional code.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes both bugs (PdfReader\u2192PdfWriter, and writing to a file handle). It is entirely idiomatic Python using the pypdf API correctly. Error handling is comprehensive, covering missing files, permissions, invalid PDFs, and empty inputs. Minor quality concerns: the heuristic for detecting the output file argument (checking if it doesn't exist) is fragile and could misidentify an existing PDF as an input file; also, re-raising generic Exception rather than preserving the original exception type is not ideal practice.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes all three bugs (PdfReader\u2192PdfWriter, missing import, file handle for write). The pypdf API usage is correct and idiomatic; the comment about Bug Fix #2 noting that write() needs a file handle rather than a path is slightly misleading since modern pypdf's PdfWriter.write() actually accepts both a path string and a file object, but using a file handle is still valid and a common pattern. The error handling is comprehensive, covering missing files, permissions, empty PDFs, and invalid arguments. The code is well-structured with good documentation, progress feedback, and a useful CLI interface with -o flag support.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly identifies and fixes the main bugs (PdfReader\u2192PdfWriter, proper file writing). The Python is entirely correct with no foreign language patterns. One minor note: PdfWriter.write() actually accepts both file paths (strings) and file handles in modern pypdf, so calling the original `writer.write(output_path)` with a string path wasn't strictly a bug\u2014though using a file handle with a context manager is more robust. The output file detection heuristic in __main__ is fragile (if the intended output file already exists, it gets treated as an input file), which is a minor functional concern. Overall, the error handling is thorough and the code is well-documented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from pypdf import.*PdfWriter",
+                  "matched": true
+                },
+                {
+                  "pattern": "PdfWriter\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*wb",
+                  "matched": true
+                },
+                {
+                  "pattern": "writer\\.write\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.path\\.exists|Path.*exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "try:|except:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from pypdf import.*PdfWriter",
+                "PdfWriter\\(\\)",
+                "with open.*wb",
+                "writer\\.write\\(",
+                "os\\.path\\.exists|Path.*exists",
+                "try:|except:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pdf-lib",
+                  "matched": false
+                },
+                {
+                  "pattern": "PDFDocument",
+                  "matched": false
+                },
+                {
+                  "pattern": "require\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "qpdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "pdftk",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "pdf-05",
+      "task_type": "adjacent_domain",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct, idiomatic usage of the markdown library, argparse, and pathlib. The CSS and HTML templates are well-crafted and comprehensive. However, the code is truncated mid-function \u2014 the `convert_markdown_to_html` function is cut off at the comment '# Extrac', meaning the actual markdown conversion, HTML assembly, file writing, and the argparse CLI entry point are all missing. This leaves roughly half the core logic unimplemented, significantly impacting functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert",
+                "with open.*w"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of the markdown library, argparse, and pathlib. It correctly parses Markdown with appropriate extensions, embeds comprehensive CSS styling, wraps output in proper HTML5 structure, and supports command-line arguments. However, the code is truncated \u2014 the main() function is cut off mid-definition, so the argparse argument definitions and the if __name__ == '__main__' block are missing. Despite this, roughly 90% of the task is implemented. The CSS is thorough and well-structured, covering all requested elements (headings, paragraphs, code blocks, tables). No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert",
+                "with open.*w"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of argparse, pathlib, and the markdown library. It covers all requested features: Markdown parsing with extensions, embedded CSS for headings/paragraphs/code/tables, proper HTML5 structure, and command-line arguments. However, the code is truncated at the end \u2014 the main() function is cut off mid-call (`convert_markdown_to_html(args.input, outp`), meaning the script wouldn't run as-is. There's also a potential argparse conflict between the positional 'output' argument and the '-o/--output' flag sharing similar semantics, which could cause issues. The unused imports of specific markdown extension modules (tables, fenced_code, codehilite) are minor but noted.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert"
+              ],
+              "expected_misses": [
+                "with open.*w"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of the markdown library, argparse, and pathlib. It properly sets up CLI arguments, reads Markdown, converts with extensions (tables, fenced_code, codehilite, toc), wraps output in HTML5 with embedded CSS, and writes to an output file. The CSS is comprehensive and well-structured. However, the code appears truncated \u2014 it cuts off mid-function in the `convert_markdown_to_html` method (at the extensions list), so the final conversion call, HTML assembly, file writing, and `main()` function are missing. This prevents it from being fully functional as-is, though the implemented portions are high quality with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert",
+                "with open.*w"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of the markdown library, argparse, and pathlib. The CSS and HTML template are well-crafted, and the script properly sets up extensions for tables, fenced code, etc. However, the code is truncated mid-function \u2014 the convert_markdown_to_html function is cut off at `markdown_path.with_s`, meaning the actual markdown conversion, file writing, and the argparse CLI entry point are missing. This means roughly half the core logic is absent, preventing the script from functioning as-is.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert",
+                "with open.*w"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of the markdown library, argparse, and pathlib. It covers all requested features: Markdown parsing with extensions, embedded CSS for headings/paragraphs/code blocks/tables, proper HTML5 structure, and command-line arguments. However, the code is truncated at the end of the main() function\u2014the output path resolution logic and the final `if __name__ == '__main__'` block are missing, and there's a potential argparse conflict between the positional 'output' argument and the '-o/--output' flag (same dest name). Despite the truncation, approximately 90% of the task is implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert"
+              ],
+              "expected_misses": [
+                "with open.*w"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of argparse, the markdown library, and pathlib. It correctly uses markdown extensions (tables, fenced_code, codehilite, etc.) and constructs a proper HTML5 document with embedded CSS covering headings, paragraphs, code blocks, and tables. The code appears truncated near the end of the convert_markdown_to_html function \u2014 it cuts off mid-extension list, so the final conversion call, file writing, and CLI argument handling are likely missing. Despite this, the implemented portions are well-structured, well-documented, and demonstrate production-quality patterns including error handling for missing dependencies, title extraction, and responsive CSS.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert",
+                "with open.*w"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of argparse, pathlib, and the markdown library. The CSS and HTML templates are comprehensive and well-structured. However, the code is truncated mid-function \u2014 the `convert_markdown_to_html` function is cut off inside a `with` statement, and the `main()` function with argparse CLI setup is missing entirely. This means the script cannot actually run as-is, leaving roughly 60-70% of the functional requirements implemented (markdown parsing, file writing, and CLI argument handling are incomplete).",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert",
+                "with open.*w"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic use of the markdown library, argparse, pathlib, and typing. It correctly parses Markdown with tables, fenced code, and code highlighting extensions, wraps the output in a proper HTML5 template with comprehensive embedded CSS, and supports command-line arguments. The code is truncated at the argparse section (the `-o` argument definition is cut off), so the `main()` function is incomplete \u2014 the output path fallback logic and `parser.parse_args()` call are missing. Otherwise, the implemented portions are well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "import argparse|sys\\.argv",
+                  "matched": true
+                },
+                {
+                  "pattern": "<html|<!DOCTYPE",
+                  "matched": true
+                },
+                {
+                  "pattern": "<style>|<link.*css",
+                  "matched": true
+                },
+                {
+                  "pattern": "markdown\\.markdown|md\\.convert",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "import argparse|sys\\.argv",
+                "<html|<!DOCTYPE",
+                "<style>|<link.*css",
+                "markdown\\.markdown|md\\.convert"
+              ],
+              "expected_misses": [
+                "with open.*w"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "from pypdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "from reportlab",
+                  "matched": false
+                },
+                {
+                  "pattern": "import pdfplumber",
+                  "matched": false
+                },
+                {
+                  "pattern": "PdfReader|PdfWriter",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\.pdf",
+                  "matched": false
+                },
+                {
+                  "pattern": "canvas\\.Canvas",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

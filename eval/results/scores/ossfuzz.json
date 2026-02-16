@@ -1,0 +1,3781 @@
+{
+  "skill_name": "ossfuzz",
+  "scored_at": "2026-02-16T08:36:13.986308+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.53,
+  "risk_level": "high",
+  "test_category": "app_to_app_and_aux",
+  "tasks": [
+    {
+      "task_id": "ossfuzz-01",
+      "task_type": "direct_target",
+      "target_language": "cpp",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly uses C++ for the fuzz harness and appropriate shell/YAML/Dockerfile syntax for the build infrastructure files. The OSS-Fuzz project structure follows idiomatic conventions with proper use of CMake flags, LIB_FUZZING_ENGINE, and standard environment variables. However, the main fuzz harness (json_parse_fuzzer.cpp) is truncated mid-implementation \u2014 it cuts off at 'Create a stri' \u2014 and the two additional promised fuzzers (streaming and validation) are referenced in build.sh but never provided. The project.yaml includes 'memory' sanitizer which wasn't requested but isn't harmful. The seed corpus creation and dictionary handling are well done.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code provides a well-structured OSS-Fuzz project enrollment with correct project.yaml, Dockerfile, and build.sh files that follow OSS-Fuzz conventions closely. The build.sh properly uses OSS-Fuzz environment variables ($CC, $CXX, $CFLAGS, $LIB_FUZZING_ENGINE, $OUT, etc.) and the Dockerfile correctly extends base-builder. However, the fuzz harness (fuzz_parser.cc) is critically truncated mid-comment \u2014 the actual LLVMFuzzerTestOneInput function is missing, which is the core deliverable. The project.yaml includes some fields not standard in OSS-Fuzz (file_github_issue, help_url, experimental, view_restrictions) and adds memory sanitizer beyond what was requested. The extra fuzz targets referenced in build.sh (fuzz_parser_strict, fuzz_serializer, fuzz_roundtrip) are never provided.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is well-structured and covers all requested components: project.yaml, Dockerfile, build.sh, and a C++ fuzz harness. The C++ harness correctly uses the LLVMFuzzerTestOneInput signature, proper includes, and idiomatic exception handling. The OSS-Fuzz configuration files follow standard conventions (proper base image, CMake flags propagating $CC/$CXX/$CFLAGS/$CXXFLAGS/$LIB_FUZZING_ENGINE). The only minor note is that the fastjson API (parser.parse, result.has_value(), etc.) is hypothetical since the library doesn't exist, but the patterns used are reasonable C++17 idioms. The inclusion of dictionary, seed corpus, and local testing instructions goes beyond the requirements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly provides project.yaml, Dockerfile, build.sh, and a fuzz harness in the appropriate languages (YAML, Dockerfile, Bash, C++). The OSS-Fuzz conventions are well-followed with proper use of $SRC, $OUT, $LIB_FUZZING_ENGINE, and base-builder image. The main fuzz harness (json_parse_fuzzer.cpp) is truncated mid-function, missing the actual parsing logic and closing brace, which prevents a perfect functional score. The project.yaml includes 'memory' sanitizer beyond what was requested, and the build.sh references additional fuzzers (streaming, serialize) not fully provided, but overall the structure is solid and would work with minor completion.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code provides a well-structured OSS-Fuzz enrollment with proper project.yaml, Dockerfile, and build.sh files that follow OSS-Fuzz conventions correctly. The C++ fuzz harness is truncated (cut off mid-comment in fuzz_json_parser.cc), which is a significant completeness issue since the actual fuzzing logic is missing. The build.sh is thorough with good seed corpus creation and dictionary file, and the Dockerfile correctly uses the base-builder image. The YAML configuration correctly specifies libfuzzer, afl, and the requested sanitizers (plus memory sanitizer as a bonus). No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly provides all requested files (project.yaml, Dockerfile, build.sh, and fuzz harness in C++) following OSS-Fuzz conventions. The C++ harness uses proper LLVMFuzzerTestOneInput signature, appropriate includes, and idiomatic C++17 patterns like structured bindings. The API calls to the hypothetical 'fastjson' library are reasonable guesses since the library is fictional, but the overall structure is sound. Minor issues include the Dockerfile WORKDIR being set but build.sh assuming $SRC/fastjson paths, and the library path in the linker command (libfastjson.a) lacking a full path to the build directory. The output is slightly truncated at the end but all essential components are present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code provides well-structured OSS-Fuzz project files (project.yaml, Dockerfile, build.sh) that follow OSS-Fuzz conventions correctly. The YAML, Dockerfile, and bash scripts are idiomatic and properly configured for the requested sanitizers and fuzzing engines. However, the critical fuzz harness (json_parse_fuzzer.cc) is truncated mid-include, meaning the actual C++ fuzzing code is incomplete. The project also references three fuzzers in build.sh but only begins to provide one. The memory sanitizer was added beyond what was requested, which is fine but wasn't asked for.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code provides a well-structured OSS-Fuzz enrollment with correct project.yaml, Dockerfile, and build.sh files that properly use OSS-Fuzz conventions (base-builder image, $SRC/$OUT/$LIB_FUZZING_ENGINE environment variables, CMake integration). The build.sh includes excellent extras like seed corpus generation and dictionary creation. However, the fuzz harness (fuzz_json_parser.cc) is critically truncated \u2014 it cuts off after just the copyright header, missing the actual LLVMFuzzerTestOneHarness function which is a core deliverable. The project.yaml includes 'memory' sanitizer which wasn't requested but isn't harmful. All files use appropriate language/format conventions with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured and complete OSS-Fuzz enrollment. The project.yaml, Dockerfile, build.sh, and fuzz harness all follow OSS-Fuzz conventions correctly. The C++ fuzz harness uses the standard LLVMFuzzerTestOneInput interface with proper includes and exception handling. The build.sh correctly uses OSS-Fuzz environment variables ($CC, $CXX, $CFLAGS, $CXXFLAGS, $LIB_FUZZING_ENGINE, $OUT, $SRC). Additional artifacts like the dictionary, seed corpus script, and local testing instructions add significant value. The only minor note is the output is slightly truncated at the end, but all required deliverables are fully present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": true
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$OUT/",
+                  "matched": true
+                },
+                {
+                  "pattern": "libfuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                },
+                {
+                  "pattern": "project\\.yaml",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "LLVMFuzzerTestOneInput",
+                "gcr\\.io/oss-fuzz-base/base-builder",
+                "\\$CXX.*\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "\\$OUT/",
+                "libfuzzer",
+                "address",
+                "project\\.yaml"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "FuzzedDataProvider\\(data\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "import sys",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "ossfuzz-02",
+      "task_type": "cross_language",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Go using the native testing.F fuzzing framework idiomatically. The seed corpus is comprehensive, the fuzz function properly tests url.Parse, url.ParseRequestURI, roundtrip consistency, and panic safety via defer/recover. The code is well-structured with helper functions for validation, roundtrip testing, and method exercising. Minor issue: the code appears truncated at the very end (`_ = parsed.Escape` is incomplete and likely should be `_ = parsed.EscapedPath()` or similar), which slightly affects functional completeness. Also, the `ParseRequestURI` check for relative URLs without schemes may produce false positives for query-only or fragment-only inputs that Go accepts.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing",
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Go, using the native testing.F fuzzing framework idiomatically with proper seed corpus additions via f.Add() and f.Fuzz() calls. It provides comprehensive fuzz testing for url.Parse, url.ParseRequestURI, and url.ParseQuery with good checks for panics, idempotency, and consistency. The third fuzz function (FuzzURLQueryParsing) is truncated mid-implementation, which is a minor completeness issue. The code quality is good with well-structured tests and meaningful assertions, though the panic recovery pattern with defer/recover is slightly verbose given that the fuzz framework itself catches panics.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing",
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with idiomatic use of the testing.F fuzzing framework, including proper seed corpus via f.Add(), the correct f.Fuzz(func(t *testing.T, input string)) signature, and appropriate use of defer/recover for panic detection. The fuzz test is well-structured with good invariant checks (scheme/port validity, idempotency via round-trip parsing, field contamination checks). However, the code is truncated at the end \u2014 the last check and closing braces are cut off, which prevents it from compiling as-is. The inclusion of a custom URL parser library alongside the fuzz test is reasonable given the task, though the task only asked for the fuzz test.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing"
+              ],
+              "expected_misses": [
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go using the native testing.F fuzzing framework correctly. It provides a comprehensive seed corpus and tests numerous properties including panic safety, round-trip consistency, UTF-8 validity, and component correctness. The code is truncated at the end (FuzzURLQueryParsing is cut off mid-seed), losing some completeness, and the empty-string check (Test 2) may produce false positives since url.Parse can legitimately return an empty string for certain non-empty inputs. Overall this is well-structured, idiomatic Go fuzz testing with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing",
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Go, correctly using testing.F with f.Add() seed corpus entries and f.Fuzz() with the proper signature. It thoroughly tests URL parsing for panics, round-trip consistency, and property validation of parsed results. The code is truncated at the end\u2014the testQueryParsing function is cut off mid-definition\u2014which prevents a perfect functional score but the vast majority of the task is well implemented. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing",
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with fully idiomatic use of the testing.F fuzzing framework, including proper seed corpus via f.Add(), correct f.Fuzz() signature, and appropriate use of t.Errorf. The fuzz test is well-designed with a comprehensive seed corpus, panic recovery, UTF-8 validation, scheme validity checks, and idempotency testing. However, the code is truncated at the end of the fuzz function (cut off mid-idempotency check), which prevents it from being fully complete. The custom URL parser and the test structure are both well-written with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing"
+              ],
+              "expected_misses": [
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Go, correctly using the testing.F fuzzing framework with proper seed corpus via f.Add() and f.Fuzz(). It demonstrates excellent understanding of Go's net/url package and testing patterns. However, the code is truncated \u2014 the testURLResolution function is cut off mid-declaration, and testParseRequestURI is called but never defined, which prevents it from compiling as-is. The implemented portions are well-structured with good coverage of panic detection, round-trip consistency, component validation, and query parsing.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing",
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "splitHostPort function is referenced but never defined - may be confusing net.SplitHostPort with a custom function",
+                "code is truncated at the end (MarshalBinary/UnmarshalBinary test incomplete)"
+              ],
+              "brief_assessment": "This is well-structured Go fuzz test code that correctly uses the testing.F framework with proper seed corpus, f.Add(), and f.Fuzz() patterns. The code tests multiple important invariants including round-trip consistency, component verification, and panic detection. However, it references an undefined splitHostPort function (should likely use net.SplitHostPort or url methods), and the code is truncated at the end mid-function. The overall approach is idiomatic Go with good test coverage of edge cases.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing",
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Go, correctly using testing.F with f.Add() seed corpus entries and f.Fuzz() with the proper signature. It provides a good variety of seed inputs and checks for panics, nil results, UTF-8 validity, and property-based invariants. The main issues are that the code is slightly truncated (Test 11 is cut off mid-comment) and the test checks properties of a custom URL parser rather than an existing library, though this is a reasonable interpretation of the task. The panic recovery via defer in the fuzz function is well-placed and the overall structure is clean.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Add\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "f\\.Fuzz\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "url\\.Parse|ParseURL",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "func Fuzz\\w+\\(f \\*testing\\.F\\)",
+                "f\\.Add\\(",
+                "f\\.Fuzz\\(",
+                "testing"
+              ],
+              "expected_misses": [
+                "url\\.Parse|ParseURL"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "helper\\.py",
+                  "matched": false
+                },
+                {
+                  "pattern": "build_fuzzers",
+                  "matched": false
+                },
+                {
+                  "pattern": "gcr\\.io/oss-fuzz-base",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "ossfuzz-03",
+      "task_type": "similar_syntax",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in the correct languages (Python for the harness, Bash for build.sh, YAML for project.yaml) with no cross-language contamination. The Atheris harness follows idiomatic OSS-Fuzz patterns correctly \u2014 TestOneInput, atheris.Setup, atheris.Fuzz, and compile_python_fuzzer are all used properly. The harness comprehensively tests multiple PyYAML APIs (safe_load, safe_load_all, safe_dump, scan, parse, compose) with appropriate exception handling. Minor issues: the project.yaml is truncated (cut off at 'exp'), the exception handling is overly broad with repetitive try/except blocks that could be consolidated, and the missing `atheris.instrument_imports()` context manager before importing yaml means coverage instrumentation may not work optimally.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [
+                "atheris\\.FuzzedDataProvider"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with proper OSS-Fuzz conventions. All three required files (project.yaml, build.sh, fuzz_yaml_load.py) are present and well-structured. The harness correctly uses Atheris APIs (FuzzedDataProvider, instrument_imports, instrument_func, Setup/Fuzz pattern), properly catches expected exceptions (YAMLError, RecursionError, MemoryError, etc.), and the build.sh correctly uses compile_python_fuzzer. The inclusion of a Dockerfile and bonus fuzz_yaml_dump.py harness with round-trip testing adds value beyond the requirements. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language contamination. The Atheris fuzzing harness properly uses FuzzedDataProvider, instrument_imports, and instrument_func decorators idiomatically. The build.sh correctly uses compile_python_fuzzer as requested, and the project.yaml is well-structured for OSS-Fuzz. The harness comprehensively tests safe_load, safe_load_all, explicit SafeLoader, and lower-level scanner/parser/composer APIs while properly catching expected exceptions (YAMLError, ValueError, TypeError, etc.). The inclusion of a fuzzing dictionary, seed corpus, and Dockerfile goes beyond requirements, demonstrating production-quality work.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent OSS-Fuzz harness for PyYAML. All three required files (fuzz_yaml.py, build.sh, project.yaml \u2014 though project.yaml appears cut off at the end) are present and correctly structured. The Python harness properly uses Atheris with instrument_imports(), the TestOneInput convention, and comprehensive exception handling for expected YAML parsing errors while re-raising KeyboardInterrupt and SystemExit. The build.sh correctly uses compile_python_fuzzer and includes a well-crafted seed corpus. The code is idiomatic Python throughout with no cross-language contamination. The only minor note is the seed corpus's last file appears truncated, but this is cosmetic and doesn't affect functionality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 7,
+              "expected_hit_rate": 0.7142857142857143,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python (with appropriate bash for build.sh and YAML for project.yaml) with no cross-language contamination. The Atheris API usage is fully idiomatic \u2014 correct use of atheris.instrument_func, FuzzedDataProvider, Setup/Fuzz lifecycle, and compile_python_fuzzer in build.sh. The main harness (fuzz_yaml_load.py), project.yaml, and build.sh fully satisfy the task requirements with proper exception handling. However, the last harness (fuzz_yaml_emit.py) is truncated mid-function (cut off at 'except'), which slightly impacts completeness and quality. The inclusion of a seed corpus, dictionary, and multiple harnesses goes beyond minimum requirements.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with proper OSS-Fuzz conventions. The harness correctly uses Atheris APIs (instrument_imports, instrument_func, FuzzedDataProvider, Setup, Fuzz), tests multiple PyYAML entry points (safe_load, full_load, safe_load_all), and properly catches expected exceptions including YAMLError, RecursionError, and MemoryError. The build.sh correctly uses compile_python_fuzzer, the project.yaml is well-structured with appropriate engine/sanitizer choices, and the inclusion of a Dockerfile and YAML dictionary demonstrates thoroughness. The only minor nit is that the unused variable `e` in except clauses could be removed, and the `vendor_ccs` placeholder email is not ideal, but these are trivial.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent OSS-Fuzz harness implementation. The Python harness correctly uses Atheris with FuzzedDataProvider, properly catches all expected YAML parsing exceptions, and tests multiple parsing modes (safe_load, safe_load_all, scan, parse). The build.sh correctly uses compile_python_fuzzer and includes thoughtful seed corpus, dictionary, and options files. The project.yaml is well-formed with appropriate fields. All three requested files are complete and follow OSS-Fuzz conventions precisely with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [
+                "atheris\\.instrument_func|@atheris\\.instrument_func"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct OSS-Fuzz conventions. The harness file uses Atheris idiomatically with FuzzedDataProvider, proper instrumentation via atheris.instrument_all(), and correct atheris.Setup/Fuzz calls. The build.sh correctly uses compile_python_fuzzer and project.yaml is well-formed. The exception handling is somewhat overly broad (yaml.scanner.ScannerError etc. are subclasses of yaml.YAMLError, making those catches redundant), and the second harness (fuzz_yaml_dump.py) is truncated mid-function, which is a completeness issue. The Dockerfile was not explicitly requested but is a nice addition. Overall a solid, functional OSS-Fuzz integration.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with proper OSS-Fuzz conventions. The harness correctly uses Atheris APIs (instrument_imports, instrument_func, FuzzedDataProvider, Setup, Fuzz), handles expected exceptions (YAMLError, ValueError, RecursionError, MemoryError, TypeError) while re-raising unexpected ones, and tests multiple PyYAML entry points (safe_load, safe_load_all, safe_dump round-trip). The build.sh properly uses compile_python_fuzzer, includes a YAML dictionary and seed corpus support, and the project.yaml is well-structured. The Dockerfile (bonus) is also correct. All four requested deliverables are complete and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import atheris",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.instrument_func|@atheris\\.instrument_func",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.FuzzedDataProvider",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Setup",
+                  "matched": true
+                },
+                {
+                  "pattern": "atheris\\.Fuzz",
+                  "matched": true
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": true
+                },
+                {
+                  "pattern": "yaml\\.safe_load|yaml\\.load",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import atheris",
+                "atheris\\.instrument_func|@atheris\\.instrument_func",
+                "atheris\\.FuzzedDataProvider",
+                "atheris\\.Setup",
+                "atheris\\.Fuzz",
+                "compile_python_fuzzer",
+                "yaml\\.safe_load|yaml\\.load"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz",
+                  "matched": false
+                },
+                {
+                  "pattern": "extern.*int LLVMFuzzer",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "ossfuzz-04",
+      "task_type": "grounded",
+      "target_language": "bash",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The fixed bash script is entirely correct for the target language with no foreign patterns. It properly addresses all key OSS-Fuzz build issues: using $CXX instead of gcc, including $CXXFLAGS and $LIB_FUZZING_ENGINE, switching to static linking, and correctly setting up seed corpus directories following OSS-Fuzz naming conventions (<harness>_seed_corpus). The explanations are accurate and the defensive `|| true` on corpus copies is a nice touch.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in bash with no cross-language contamination. It correctly addresses all major issues in the original script: using $CXX/$CXXFLAGS instead of gcc, linking $LIB_FUZZING_ENGINE, switching to static libraries with --disable-shared, and using proper OSS-Fuzz corpus naming conventions. The only minor concern is that the corpus restructuring (assuming fuzz/corpus/parse/* and fuzz/corpus/validate/* subdirectories) is an assumption about directory structure that may differ from the original flat fuzz/corpus/* layout, and the zip requirement, while best practice for OSS-Fuzz, goes beyond what was strictly broken. The explanations and alternatives provided are thorough and demonstrate deep OSS-Fuzz expertise.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct bash and follows all OSS-Fuzz conventions precisely. It correctly fixes every issue in the original script: replacing gcc with $CXX, adding $CXXFLAGS and $LIB_FUZZING_ENGINE, switching from shared to static linking, adding autogen.sh, using parallel make, and properly packaging corpus files as zip archives with the correct naming convention. The addition of dictionary copying is a thoughtful bonus. The explanations are accurate and thorough.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct bash for an OSS-Fuzz build.sh script. It properly identifies and fixes all major issues: using $CXX instead of gcc for C++ compilation, adding $CXXFLAGS and $LIB_FUZZING_ENGINE (essential OSS-Fuzz environment variables), switching to static linking with --disable-shared and .a, and correctly setting up seed corpus directories following OSS-Fuzz naming conventions (<harness>_seed_corpus). The explanation is thorough and accurate. The only very minor nitpick is linking order\u2014typically sources come before libraries\u2014but the order shown ($CXX $CXXFLAGS -I. source.cc $LIB_FUZZING_ENGINE lib.a -o output) is standard practice in OSS-Fuzz projects.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The fixed bash script correctly addresses all the issues in the original build.sh. It properly uses OSS-Fuzz environment variables ($CXX, $CXXFLAGS, $LIB_FUZZING_ENGINE), switches from shared to static library linking, uses proper corpus zip formatting with the correct naming convention, and adds dictionary support. The code is entirely in bash with no cross-language contamination. The comprehensive explanations and alternative approaches demonstrate deep understanding of the OSS-Fuzz build system.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct bash and follows all OSS-Fuzz conventions idiomatically. It correctly fixes every issue in the original script: using $CXX instead of gcc for C++ compilation, including $CXXFLAGS and $LIB_FUZZING_ENGINE, switching from shared to static linking, adding autogen/bootstrap for autotools, and properly packaging corpus files as seed_corpus.zip. The addition of dictionary file handling and defensive checks (if-guarded corpus/dict copying) goes beyond the minimum fix and demonstrates production-quality OSS-Fuzz build script knowledge.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid bash and correctly follows OSS-Fuzz conventions. All key issues in the original script are identified and fixed: using $CXX instead of gcc, adding $CXXFLAGS and $LIB_FUZZING_ENGINE, switching to static linking with --disable-shared and .a, and properly organizing seed corpus directories. The addition of '|| true' for robustness and the clear explanatory comments demonstrate production-quality understanding of the OSS-Fuzz build system.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid bash and correctly addresses all major issues in the broken OSS-Fuzz build script: replacing gcc with $CXX, adding $CXXFLAGS and $LIB_FUZZING_ENGINE, switching to static linking with .a, configuring with --disable-shared --enable-static, and properly packaging seed corpora as zip files. The explanation is thorough and the additions (autogen.sh, dictionary handling, parallel build) are all idiomatic OSS-Fuzz patterns. The corpus directory names changed from the original, which is a minor assumption, but the overall approach is correct and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct bash and follows OSS-Fuzz conventions precisely. All key issues in the original script are properly identified and fixed: using $CXX instead of gcc, including $CXXFLAGS and $LIB_FUZZING_ENGINE, switching to static linking with .a, and packaging corpus files as seed corpus zip archives per OSS-Fuzz naming conventions. The explanation is thorough and accurate. No contamination from other languages or frameworks is present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "\\$CXX",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$CXXFLAGS",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\$LIB_FUZZING_ENGINE",
+                  "matched": true
+                },
+                {
+                  "pattern": "libmyproject\\.a|\\.a\\b",
+                  "matched": true
+                },
+                {
+                  "pattern": "--disable-shared|static",
+                  "matched": true
+                },
+                {
+                  "pattern": "seed_corpus\\.zip|_seed_corpus",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "\\$CXX",
+                "\\$CXXFLAGS",
+                "\\$LIB_FUZZING_ENGINE",
+                "libmyproject\\.a|\\.a\\b",
+                "--disable-shared|static",
+                "seed_corpus\\.zip|_seed_corpus"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "atheris",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo fuzz build",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip3 install",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\bgcc\\b",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "\\bgcc\\b"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "ossfuzz-05",
+      "task_type": "adjacent_domain",
+      "target_language": "dockerfile",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Setting CARGO_BUILD_TARGET and RUSTFLAGS manually in Dockerfile instead of letting OSS-Fuzz base-builder-rust handle it",
+                "Using 'cargo fuzz build -O' in build.sh instead of the standard OSS-Fuzz cargo-fuzz integration pattern",
+                "Hardcoded fuzz target list in build.sh rather than dynamically discovering targets",
+                "Duplicate keys in project.yaml (fuzzing_engines, sanitizers, main_repo) which is invalid YAML"
+              ],
+              "brief_assessment": "The Dockerfile correctly uses gcr.io/oss-fuzz-base/base-builder-rust and follows the general OSS-Fuzz project structure with Dockerfile, build.sh, and project.yaml. However, the build.sh manually sets RUSTFLAGS and CARGO_BUILD_TARGET which conflicts with how OSS-Fuzz's base-builder-rust manages the Rust compilation environment, and hardcodes fuzz target names rather than dynamically discovering them. The project.yaml contains duplicate keys (fuzzing_engines, sanitizers, main_repo) making it invalid YAML, and includes non-standard fields like 'labels.rust_toolchain' and 'disk_usage_limit' with empty value. The overall structure is reasonable but several details reveal unfamiliarity with actual OSS-Fuzz Rust project conventions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The Dockerfile correctly uses the `gcr.io/oss-fuzz-base/base-builder-rust` base image and follows standard OSS-Fuzz Rust project conventions. The project.yaml properly specifies Rust-specific constraints (libfuzzer engine, address sanitizer, vendor_crates). The build.sh follows idiomatic patterns for cargo-fuzz integration. The code goes well beyond the requirements by including example fuzz targets, corpus structure, and dictionaries. Minor issues: the git clone should target `$SRC/rust-crypto` explicitly, and the COPY build.sh placement assumes WORKDIR hasn't changed context. The inclusion of Rust source files and TOML alongside the Dockerfile is not a language contamination issue but rather supplementary material demonstrating the full setup.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The Dockerfile correctly uses the OSS-Fuzz base-builder-rust image and follows standard Dockerfile conventions. The project.yaml properly specifies Rust-specific constraints (libfuzzer only, address sanitizer). The build.sh is reasonable but has a minor issue: the git clone in the Dockerfile doesn't use `$SRC/` as the destination path (OSS-Fuzz convention is to clone into $SRC/), though WORKDIR is set to `crypto-lib` which may work depending on the base image's WORKDIR. The build.sh path for cargo-fuzz output binaries may not match the actual output location in newer cargo-fuzz versions. No cross-language contamination detected; all files use appropriate idioms for their respective formats.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "project.yaml contains many fabricated/non-existent OSS-Fuzz fields: build_type, rust_toolchain, rust_flags, cargo_features, corpus_prune, minimize_crash, max_len, timeout, run_tests, blackbox, disabled, coverage_extra_args, environment",
+                "build.sh uses 'cargo fuzz build -O' which is not how OSS-Fuzz Rust projects typically build; standard pattern uses cargo_fuzz_build_rs or compile_rust_fuzzer",
+                "Hardcoded fuzz target output path assumes x86_64-unknown-linux-gnu/release which may not match OSS-Fuzz build environment conventions"
+              ],
+              "brief_assessment": "The Dockerfile itself is well-structured and correctly uses gcr.io/oss-fuzz-base/base-builder-rust as the base image with appropriate system dependencies. However, the project.yaml is heavily contaminated with fabricated fields that don't exist in the OSS-Fuzz project.yaml schema (rust_toolchain, rust_flags, cargo_features, build_type, corpus_prune, etc.), suggesting hallucination of configuration options. The build.sh deviates from idiomatic OSS-Fuzz Rust build patterns which typically use compile_rust_fuzzer helper functions. The Cargo.toml is cut off mid-file, indicating truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The Dockerfile correctly uses the OSS-Fuzz base-builder-rust image, installs relevant system dependencies, clones the repository, and sets up the build environment. The project.yaml properly specifies Rust-specific constraints (libfuzzer engine, address sanitizer). The build.sh is well-structured for copying fuzz targets, corpora, and dictionaries. The code is cut off at the end ('For a mo...'), but the core deliverables (Dockerfile, project.yaml, build.sh) are complete. Minor issue: the git clone destination path doesn't use $SRC explicitly, though WORKDIR references it. The inclusion of extra files (Rust fuzz targets, directory structure) goes beyond the request but doesn't detract. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The Dockerfile correctly uses the OSS-Fuzz base-builder-rust image and follows standard patterns. The project.yaml properly specifies Rust-specific constraints (libfuzzer only, address sanitizer). The build.sh is well-structured but uses `cargo fuzz build -O --debug-assertions` which may not align with how OSS-Fuzz typically compiles Rust targets (the base-builder-rust image provides compile_rust_fuzzer or similar helpers). The Dockerfile is missing `COPY build.sh $SRC/` being after the WORKDIR which could cause path issues, and the git clone doesn't use `$SRC/` prefix explicitly. Overall it's a comprehensive and mostly correct setup with minor idiomatic deviations from typical OSS-Fuzz Rust project configurations.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Some project.yaml fields like 'build_type: release', 'main_build_script: build.sh', and 'experimental: false' are not standard OSS-Fuzz project.yaml fields, suggesting possible confusion with other CI/build systems",
+                "The build.sh uses 'cargo fuzz build --release' directly rather than the typical OSS-Fuzz Rust pattern of using compile_rust_fuzzer or cargo-fuzz integration via the base-builder-rust helpers"
+              ],
+              "brief_assessment": "The Dockerfile correctly uses the gcr.io/oss-fuzz-base/base-builder-rust base image and follows standard OSS-Fuzz conventions for structure and layout. The project.yaml includes some non-standard fields (build_type, main_build_script, experimental) that don't exist in the OSS-Fuzz schema, and the build.sh bypasses the standard OSS-Fuzz Rust build helpers in favor of direct cargo-fuzz invocations, which may not properly integrate with the OSS-Fuzz build infrastructure. The Cargo.toml at the end is truncated mid-line, leaving the fuzz target configuration incomplete. Overall the setup is reasonable and demonstrates good understanding of the fuzzing ecosystem, but has minor inaccuracies in OSS-Fuzz conventions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The Dockerfile correctly uses the OSS-Fuzz base-builder-rust image and follows standard patterns for OSS-Fuzz Rust projects. The project.yaml, Dockerfile, build.sh, and fuzz target examples are all well-structured and use appropriate idioms. The code is cut off at the end of the RSA fuzz target (mid-function), which is a minor completeness issue. The WORKDIR in the Dockerfile should likely be $SRC/rust-crypto-lib rather than just rust-crypto-lib, and the build.sh has some path inconsistencies (navigating into fuzz/ then referencing fuzz/target/), but overall this is a solid and realistic OSS-Fuzz integration example.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The Dockerfile correctly uses the OSS-Fuzz base-builder-rust image and follows standard Dockerfile conventions. The project.yaml and build.sh are appropriate companion files for the task. Minor issues: the Dockerfile clones into 'crypto-lib' but doesn't use $SRC prefix (standard OSS-Fuzz convention is `RUN git clone ... $SRC/crypto-lib`), and the WORKDIR should also reference $SRC. The claim that Rust only supports address sanitizer is incorrect \u2014 OSS-Fuzz Rust projects can also use memory sanitizer. The `vendor: True` field in project.yaml is non-standard. Overall, the code is well-structured and would largely accomplish the task with minor corrections needed.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                  "matched": true
+                },
+                {
+                  "pattern": "RUN.*git clone",
+                  "matched": true
+                },
+                {
+                  "pattern": "WORKDIR",
+                  "matched": true
+                },
+                {
+                  "pattern": "COPY build\\.sh",
+                  "matched": true
+                },
+                {
+                  "pattern": "language:\\s*rust",
+                  "matched": true
+                },
+                {
+                  "pattern": "address",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "FROM gcr\\.io/oss-fuzz-base/base-builder",
+                "RUN.*git clone",
+                "WORKDIR",
+                "COPY build\\.sh",
+                "language:\\s*rust",
+                "address"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "base-builder-python|base_builder_python",
+                  "matched": false
+                },
+                {
+                  "pattern": "apt-get.*install.*python",
+                  "matched": false
+                },
+                {
+                  "pattern": "compile_python_fuzzer",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$CXX.*\\$CXXFLAGS",
+                  "matched": false
+                },
+                {
+                  "pattern": "LLVMFuzzerTestOneInput",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

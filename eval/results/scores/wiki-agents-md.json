@@ -1,0 +1,3205 @@
+{
+  "skill_name": "wiki-agents-md",
+  "scored_at": "2026-02-16T07:23:24.826639+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.57,
+  "risk_level": "high",
+  "test_category": "high_risk_high_novelty",
+  "tasks": [
+    {
+      "task_id": "wiki-agents-md-01",
+      "task_type": "direct_target",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is well-structured Markdown with accurate Python/FastAPI code examples that are idiomatic and correctly use FastAPI patterns (Depends, APIRouter, Pydantic models, async handlers). It covers most of the six core areas (Project Overview, Development Guidelines, Testing, Building/Running, Common Tasks/Workflows) but the content is truncated mid-sentence in the 'Adding a New Dependency' section, meaning the sixth area (likely a section on architecture/debugging or similar) is missing. No cross-language contamination is detected; all code snippets are proper Python with correct FastAPI and pytest idioms.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown with no cross-language contamination. It covers all six core areas of the AGENTS.md specification: Overview/context, Build & Run instructions, Testing procedures, Project Structure (code map), Code Style conventions, Git Workflow, and Boundaries (always/ask/never). The embedded Python example code is idiomatic FastAPI with proper async patterns, Pydantic models, and dependency injection. The content is well-organized, comprehensive, and tailored accurately to the specified stack (Poetry, pytest, FastAPI, conventional commits, Makefile).",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It covers all six core areas (Overview/Build & Run, Testing, Project Structure, Code Style, Git Workflow, and Boundaries) with accurate FastAPI/Poetry/pytest commands and conventions. The embedded Python example is idiomatic with proper async/await, type hints, and Google-style docstrings. The conventional commits section, Makefile references, and src/api/ directory structure all match the project specifications. The bonus CLAUDE.md companion file is a nice touch. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in valid Markdown with no cross-language contamination. It covers project overview, directory structure, development workflows, and code standards comprehensively with appropriate Markdown syntax (headings, code blocks, lists, tables). However, the file is clearly truncated mid-code-block in section 4, cutting off during a Python import example, and sections 5 and 6 of the six core areas are missing entirely, which prevents a perfect functional correctness score. The content that is present is high quality, detailed, and contextually appropriate for a FastAPI/Poetry/pytest project.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown as requested. It covers all six core areas of the AGENTS.md specification: Overview, Build & Run, Testing, Code Style, Git Workflow, and Boundaries. The content is highly specific to the requested stack (FastAPI, Poetry, pytest, src/api/ structure, conventional commits, Makefile), with idiomatic Python examples and accurate tooling commands. The project structure section, code style guidelines with a realistic FastAPI example, and the well-organized boundaries section (always/ask first/never) demonstrate production-quality documentation. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown with appropriate embedded bash and Python code blocks. All six core areas are covered comprehensively: Build & Run, Testing, Project Structure, Code Style, Git Workflow, and Boundaries. The content is specific to the requested stack (FastAPI, Poetry, pytest, conventional commits, Makefile) with accurate commands, idiomatic Python examples, and no cross-language contamination. The three-tier boundary system and project-specific details like async/await patterns and Pydantic models demonstrate strong domain knowledge.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown with idiomatic Python/FastAPI code examples. It covers project overview, development guidelines, testing requirements, AI assistant guidelines, and Makefile commands well. However, the file appears truncated at the end (Makefile commands section is cut off mid-content), and the task specifically requested 'all six core areas from the AGENTS.md specification' \u2014 while most are covered, the truncation and slightly ambiguous mapping to exactly six named core areas (e.g., missing a dedicated 'Repository Structure' or 'CI/CD' section depending on the spec) prevent a perfect functional correctness score.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown with no cross-language contamination. It covers all six core areas of the AGENTS.md specification: Overview, Build & Run, Testing, Project Structure (code style included), Git Workflow, and Boundaries. The embedded Python code example is idiomatic FastAPI with proper async patterns, dependency injection, Pydantic v2 usage (model_validate), and correct type hints. The document is comprehensive, well-organized, and accurately reflects the specified tech stack (Poetry, pytest, FastAPI, Makefile, conventional commits, src/api/ structure).",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown with no cross-language contamination. All six core areas are clearly covered: Build & Run, Testing, Project Structure (which doubles as context/overview), Code Style, Git Workflow, and Boundaries. The embedded Python example is idiomatic FastAPI/Pydantic code with proper async patterns and type hints. The content is specific to the requested stack (Poetry, pytest, FastAPI, conventional commits, Makefile) and includes practical, actionable commands. The bonus CLAUDE.md companion file is a nice touch. No foreign patterns or syntax issues detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "poetry install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/api/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "poetry install",
+                "pytest",
+                "src/api/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo build|cargo test",
+                  "matched": false
+                },
+                {
+                  "pattern": "dotnet build|dotnet test",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "wiki-agents-md-02",
+      "task_type": "cross_language",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown as requested. It accurately covers all specified aspects: the Rust/cargo project structure with lib.rs entry point, integration tests in tests/, benchmarks in benches/ (with correct criterion setup), GitHub Actions CI pipeline, and rustfmt/clippy linting commands. All embedded code snippets use correct Rust syntax and idiomatic cargo commands. The document is comprehensive, well-organized, and includes additional useful sections like dependency management, documentation, release process, and best practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It comprehensively covers all specified aspects: Rust/cargo build commands, lib.rs entry point, integration tests in tests/, benchmarks in benches/, GitHub Actions CI, rustfmt, and clippy. The Rust code example and all cargo commands are idiomatic and correct. The document includes excellent organizational sections for build, testing, project structure, code style, git workflow, boundaries, and documentation \u2014 all appropriate for an agent instructions file guiding AI or developers working on this Rust project.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with no cross-language contamination. All cargo commands (build, test, bench, fmt, clippy) are correct and idiomatic for a Rust project. The file comprehensively covers every aspect requested: lib.rs entry point, integration tests in tests/, benchmarks in benches/, GitHub Actions CI references, and rustfmt/clippy linting. The document is well-structured with clear sections, proper Rust code style guidance, and practical boundaries for agent workflows.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested, with accurate Rust/cargo commands, idiomatic GitHub Actions CI configuration using dtolnay/rust-toolchain, and correct code examples for lib.rs, integration tests, and criterion benchmarks. The content comprehensively covers all requested aspects (lib.rs entry point, tests/, benches/, GitHub Actions, rustfmt, clippy). The only minor issues are: the file appears truncated at the very end (the 'Maintenance' section cuts off at 'c'), and it could be slightly more concise. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It correctly covers all specified aspects: Rust/cargo build commands, lib.rs entry point, integration tests in tests/, benchmarks in benches/, GitHub Actions CI, and rustfmt/clippy linting. The embedded Rust code examples are idiomatic (proper use of Result, ?, doc comments, #[cfg(test)], assert_eq!). The document is comprehensive with clear sections for build, test, project structure, code style, git workflow, and boundaries \u2014 all appropriate for a Rust project agent guide. The bonus CLAUDE.md companion is a nice touch. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with all embedded code snippets correctly using Rust/cargo syntax. It comprehensively covers every element specified in the task: lib.rs entry point, integration tests in tests/, benchmarks in benches/, GitHub Actions CI pipeline references, and rustfmt/clippy linting commands. The Rust conventions, cargo commands, and project structure are all idiomatic and accurate. The document is well-organized with clear sections, appropriate boundaries guidance, and a practical Rust code example demonstrating doc comments and error handling patterns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It accurately covers all specified aspects: Rust/cargo project with lib.rs entry point, integration tests in tests/, benchmarks in benches/ (with correct Criterion setup), GitHub Actions CI pipeline details, and rustfmt/clippy linting commands. All embedded code snippets use correct Rust syntax and idiomatic cargo commands. The document is comprehensive, well-organized, and production-ready with no cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It correctly covers all specified aspects: Rust/cargo build commands, lib.rs as entry point, integration tests in tests/, benchmarks in benches/, GitHub Actions CI pipeline references, and rustfmt/clippy linting instructions. The Rust code example embedded in the markdown is idiomatic Rust with proper conventions. The document is comprehensive, well-organized with clear sections for build, test, lint, project structure, git workflow, and boundaries \u2014 all appropriate for guiding an AI agent working on this Rust project.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with no foreign language contamination. All embedded code examples and commands are correct and idiomatic for a Rust/cargo project. The file comprehensively covers every aspect of the task: cargo build/test/bench commands, rustfmt and clippy linting, lib.rs entry point, tests/ and benches/ directories, GitHub Actions CI references, project structure, code style conventions, and clear operational boundaries. The content is well-organized, practical, and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "cargo build",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo test",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo clippy",
+                  "matched": true
+                },
+                {
+                  "pattern": "cargo fmt|rustfmt",
+                  "matched": true
+                },
+                {
+                  "pattern": "lib\\.rs",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "cargo build",
+                "cargo test",
+                "cargo clippy",
+                "cargo fmt|rustfmt",
+                "lib\\.rs"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm |yarn |pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|poetry|pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "mvn |gradle ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build|go test",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "go build|go test"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "wiki-agents-md-03",
+      "task_type": "similar_syntax",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown with appropriate TypeScript/TSX code examples. It correctly covers all requested technologies (pnpm, vitest, Tailwind CSS, App Router, src/components/). The content is idiomatic for a Next.js TypeScript project with accurate command references and code patterns. However, the file is truncated at the end (the 'Data Fetching' code block is cut off mid-line), which prevents it from being fully complete. The overall quality and organization are strong, with good coverage of project structure, conventions, and best practices.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown as requested. It comprehensively covers all specified technologies (TypeScript, Next.js App Router with app/ directory, pnpm, vitest, Tailwind CSS, src/components/) with accurate commands, idiomatic code examples, and well-organized sections. The embedded TypeScript/TSX examples are correct and idiomatic for the Next.js ecosystem. The only minor note is that the generation summary at the end appears slightly truncated, but the actual AGENTS.md content itself is complete and production-quality. The bonus CLAUDE.md companion file is a nice touch.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with no cross-language contamination. It comprehensively covers all specified technologies (TypeScript, Next.js App Router with app/ directory, pnpm, vitest, Tailwind CSS, src/components/) with accurate commands, idiomatic project structure, a well-written TypeScript/Tailwind code example, and sensible boundary rules. The embedded TypeScript snippet is idiomatic Next.js/React. The bonus CLAUDE.md companion file is a nice touch. Overall this is production-quality documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown with appropriate embedded TypeScript/bash code examples. It correctly covers the requested technologies (pnpm, vitest, Tailwind CSS, App Router, src/components/) with idiomatic usage patterns and accurate commands. The file is truncated at the end (the 'Troubleshooting' section cuts off mid-sentence about pnpm lock file conflicts), which slightly impacts completeness. The content is comprehensive, covering project structure, commands, coding conventions, and testing patterns relevant to the specified stack.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown as requested. It comprehensively covers all specified technologies (TypeScript, Next.js App Router with app/ directory, pnpm, vitest, Tailwind CSS, src/components/), with accurate commands, idiomatic code examples, proper project structure documentation, and well-organized sections for build/test/style/git conventions. The inclusion of a CLAUDE.md companion file and clear boundary guidelines (always/ask first/never) adds practical value. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with an embedded TypeScript example that is idiomatic Next.js/React. It covers all specified technologies (pnpm, vitest, Tailwind CSS, App Router with app/, src/components/) comprehensively, including build commands, testing commands, project structure, code style guidelines, git workflow, and clear boundary rules. The content is well-organized, practical, and production-ready. No cross-language contamination detected. The bonus CLAUDE.md is a minor addition beyond scope but doesn't detract.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown with embedded TypeScript/TSX code examples that are idiomatic and correct for the Next.js App Router, Vitest, Tailwind CSS, and pnpm ecosystem. No cross-language contamination is detected. The file is slightly truncated at the end (the 'Data Fetching' server component example is cut off mid-code block), which prevents a perfect functional correctness score, but overall it covers project structure, conventions, commands, testing patterns, and best practices comprehensively.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is an excellent AGENTS.md file written entirely in Markdown as requested. It comprehensively covers all specified technologies (TypeScript, Next.js App Router with app/ directory, pnpm, Vitest, Tailwind CSS, src/components/) with accurate commands and idiomatic patterns. The embedded TypeScript/TSX code examples are correct and idiomatic for the Next.js ecosystem. The document is well-structured with clear sections for build/run, testing, project structure, code style, git workflow, and boundaries \u2014 all hallmarks of a production-quality AGENTS.md file. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/",
+                "src/components/"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with no cross-language contamination. It comprehensively covers all specified technologies (TypeScript, Next.js App Router with app/ directory, pnpm, Vitest, Tailwind CSS, src/components/) with accurate and idiomatic commands and conventions. The file is well-structured with clear sections for build/run, testing, project structure, code style (including a relevant TypeScript/Tailwind example), git workflow, and boundaries. The bonus CLAUDE.md is a nice touch. The only very minor nitpick is the inclusion of bash commands at the top checking for an existing file, which is surrounding narrative rather than part of the deliverable, but the actual Markdown content itself is production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pnpm install",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm run dev|pnpm dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "pnpm test|vitest",
+                  "matched": true
+                },
+                {
+                  "pattern": "app/",
+                  "matched": true
+                },
+                {
+                  "pattern": "src/components/",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "pnpm install",
+                "pnpm run dev|pnpm dev",
+                "pnpm test|vitest",
+                "app/"
+              ],
+              "expected_misses": [
+                "src/components/"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "npm install|npm run ",
+                  "matched": true
+                },
+                {
+                  "pattern": "yarn install|yarn dev",
+                  "matched": false
+                },
+                {
+                  "pattern": "poetry|pip |pytest",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "npm install|npm run "
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "wiki-agents-md-04",
+      "task_type": "grounded",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It accurately reflects the provided directory structure, correctly documents all three npm scripts from package.json, describes each file's purpose appropriately, and includes helpful sections on making changes and best practices. There are no signs of cross-language contamination \u2014 the document is pure, idiomatic Markdown with no foreign syntax patterns. The content is thorough, covering project overview, structure, commands, key files, and development workflows.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress"
+              ],
+              "expected_misses": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "Mermaid|mermaid"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 8,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It accurately reflects the project's directory structure, build scripts from package.json, and VitePress-specific conventions. The document covers all expected sections for an AGENTS.md file \u2014 overview, build commands, structure, conventions, boundaries, and documentation pointers \u2014 with no cross-language contamination or foreign patterns. The content is comprehensive, well-organized, and immediately useful for AI agents working with this codebase.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress",
+                "Mermaid|mermaid"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Includes a bash command (`ls AGENTS.md 2>/dev/null`) as a preliminary check, which was not requested and is not markdown",
+                "Generates an unrequested CLAUDE.md file, going beyond the task scope",
+                "Nested bash code block inside the markdown file creates rendering issues with triple-backtick fencing"
+              ],
+              "brief_assessment": "The generated AGENTS.md is well-structured and covers the key aspects of the project: build commands, directory structure, content conventions, code style, and boundaries. The markdown is idiomatic and appropriate for the task. Minor issues include: the unnecessary bash check and CLAUDE.md generation go beyond scope, the nested code fences (bash block inside markdown) could cause rendering problems in some parsers, and some conventions (dark-mode Mermaid colors, citation patterns) appear fabricated rather than derived from the provided context. Overall a solid output with minor completeness and accuracy concerns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress",
+                "Mermaid|mermaid"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in idiomatic Markdown. It accurately reflects the project structure, correctly references all files and directories from the provided directory listing, documents the npm scripts from package.json, and provides clear guidance for AI agents on how to navigate and modify the VitePress documentation project. The content is comprehensive, well-organized with appropriate sections, and contains no foreign language patterns or contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress"
+              ],
+              "expected_misses": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "Mermaid|mermaid"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 8,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is entirely in Markdown as requested, with no cross-language contamination whatsoever. It comprehensively covers the project structure, build commands (correctly reflecting package.json scripts), content conventions (Mermaid dark-mode colors, frontmatter, citations), code style examples, and clear boundaries for agent behavior. The document is well-organized, production-quality, and fully addresses the task of generating an appropriate AGENTS.md for the given VitePress documentation project.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress",
+                "Mermaid|mermaid"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The generated AGENTS.md is well-structured Markdown that covers build commands, directory structure, content conventions, code style, and boundaries \u2014 all appropriate for the given VitePress project. No cross-language contamination is present. Minor deductions: the task only asked for AGENTS.md, but the response also generates an unsolicited CLAUDE.md, and some conventions (dark-mode Mermaid colors, citation formats) appear fabricated rather than inferred from the provided project files, which slightly reduces confidence in functional correctness. Overall, the output is clean, idiomatic Markdown with good organizational quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress",
+                "Mermaid|mermaid"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It accurately reflects the provided project structure, package.json scripts, and VitePress-specific details. The document covers project overview, directory structure, development commands, key files, workflow, documentation standards, and notes for AI agents \u2014 all relevant sections for an AGENTS.md file. There are no cross-language contamination signals; the content is idiomatic Markdown with appropriate formatting and no foreign patterns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress"
+              ],
+              "expected_misses": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "Mermaid|mermaid"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 8,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured AGENTS.md file written entirely in Markdown as requested. It correctly references the project's package.json scripts, directory structure, and VitePress conventions. The document covers all key sections expected in an AGENTS.md: overview, build/run commands, project structure, content conventions, code style examples, boundaries (do/ask/never), and documentation pointers. No cross-language contamination or foreign patterns are present \u2014 it is purely idiomatic Markdown documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress",
+                "Mermaid|mermaid"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Includes a bash command (`ls AGENTS.md 2>/dev/null`) that wasn't requested \u2014 the task said to check conceptually, not via shell",
+                "Generates an unrequested CLAUDE.md file, going beyond the task scope",
+                "Nested code fences (bash/yaml inside markdown) may cause rendering issues depending on parser"
+              ],
+              "brief_assessment": "The generated AGENTS.md is well-structured Markdown that covers the project's build commands, directory layout, content conventions, code style, and boundaries \u2014 all relevant to the VitePress documentation site described. The content is idiomatic Markdown with no cross-language contamination in the markup itself. Minor issues include the extraneous bash check, the unrequested CLAUDE.md, and speculative details (dark-mode Mermaid colors, frontmatter conventions) that aren't derivable from the provided inputs. Overall it's a solid, practical AGENTS.md with reasonable quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Wiki.*Agent Instructions|Agent Instructions",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run dev|vitepress dev",
+                  "matched": true
+                },
+                {
+                  "pattern": "npm run build|vitepress build",
+                  "matched": true
+                },
+                {
+                  "pattern": "onboarding/",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "llms-full\\.txt",
+                  "matched": true
+                },
+                {
+                  "pattern": "vitepress",
+                  "matched": true
+                },
+                {
+                  "pattern": "Mermaid|mermaid",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Wiki.*Agent Instructions|Agent Instructions",
+                "npm run dev|vitepress dev",
+                "npm run build|vitepress build",
+                "onboarding/",
+                "llms\\.txt",
+                "llms-full\\.txt",
+                "vitepress",
+                "Mermaid|mermaid"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 8,
+              "expected_total": 8,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "pytest|poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "go build",
+                  "matched": false
+                },
+                {
+                  "pattern": "You are a helpful",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "wiki-agents-md-05",
+      "task_type": "adjacent_domain",
+      "target_language": "markdown",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is pure Markdown as requested, with no cross-language contamination whatsoever. It fully accomplishes the task by providing a well-structured CLAUDE.md template that redirects to AGENTS.md, includes both a full and minimal version, and thoroughly documents when CLAUDE.md should NOT be generated. The content is well-organized with clear headings, appropriate use of Markdown features (checkmarks, code blocks, lists), and thoughtful guidance on key principles and integration with other repo files.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured Markdown document that fully addresses the task. It provides the exact CLAUDE.md template content, clearly explains when CLAUDE.md should and should not be generated, includes pre-generation checks, workflow diagrams, file placement examples, and anti-patterns. There are no cross-language contamination signals \u2014 the embedded bash snippets are appropriately used for illustrative checks and the rest is pure Markdown. The document is thorough, well-organized, and production-ready.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Markdown with no cross-language contamination. It accomplishes the core task: generating a CLAUDE.md that redirects to AGENTS.md, and thoroughly explains when CLAUDE.md should NOT be generated. The CLAUDE.md content itself is minimal but functional. Minor deductions: the actual CLAUDE.md file content is quite terse (a single redirect line), and the generation logic and 'when not to generate' guidance lives outside the code block rather than being part of the deliverable file itself, which slightly blurs the boundary of what's the actual artifact versus documentation about it.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is pure Markdown as requested, with no cross-language contamination whatsoever. The output fully accomplishes the task: it provides a clear CLAUDE.md template that redirects to AGENTS.md, an extended alternative version, and a thorough explanation of when CLAUDE.md should NOT be generated (covering six distinct scenarios). The document is well-structured with implementation notes and a verification checklist, making it production-ready documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is entirely in Markdown as requested, with no cross-language contamination. It provides the exact CLAUDE.md template content, clearly explains when CLAUDE.md should and should NOT be generated, includes generation guards, workflow logic, file-relationship diagrams, anti-patterns, and quality checks. The document is thorough, well-structured, and production-ready as a companion specification.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Markdown with no cross-language contamination. It accomplishes the core task: generating a CLAUDE.md that redirects to AGENTS.md and clearly explaining when CLAUDE.md should NOT be generated. The CLAUDE.md content itself is minimal but functional. Minor omissions include not explicitly mentioning scenarios like when Claude Code isn't used in the project or when AGENTS.md instructions explicitly supersede/replace CLAUDE.md, and the generation logic section feels slightly redundant given the 'when NOT to generate' section already covers it. Overall it's clean and well-organized.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is pure Markdown as requested, with no cross-language contamination whatsoever. The output fully addresses both parts of the task: it provides a well-structured CLAUDE.md file (with both a full and minimal variant) that redirects Claude Code to AGENTS.md, and it clearly enumerates when CLAUDE.md should NOT be generated with sound reasoning. The content is well-organized with checklists, headings, integration notes, and practical guidance, making it production-quality documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is a well-structured Markdown document that fully addresses the task. It provides the exact CLAUDE.md template content, clearly explains when to generate it (AGENTS.md exists, no existing CLAUDE.md), thoroughly covers when NOT to generate it (already exists, no AGENTS.md, skip-list folders), and includes helpful workflow diagrams, examples, and anti-patterns. The Markdown syntax is correct throughout with no cross-language contamination. The embedded bash snippets are appropriate illustrative examples rather than foreign language intrusions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Markdown with no cross-language contamination. It correctly generates a minimal CLAUDE.md that redirects to AGENTS.md and provides a thorough explanation of when CLAUDE.md should NOT be generated, covering existing files, missing AGENTS.md, and excluded directories. Minor deductions: the CLAUDE.md content itself is extremely terse (just one line of instruction), and some of the surrounding explanation (generation logic, bash snippets) is supplementary prose rather than the CLAUDE.md file content itself, which slightly blurs the deliverable. Overall it accomplishes the task well.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "CLAUDE\\.md",
+                  "matched": true
+                },
+                {
+                  "pattern": "read.*AGENTS\\.md|follow.*AGENTS",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "CLAUDE\\.md",
+                "read.*AGENTS\\.md|follow.*AGENTS"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 2,
+              "expected_total": 2,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "## Build & Run",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "## Project Structure",
+                  "matched": false
+                },
+                {
+                  "pattern": "npm |cargo |poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

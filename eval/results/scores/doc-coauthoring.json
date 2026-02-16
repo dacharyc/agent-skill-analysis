@@ -1,0 +1,3794 @@
+{
+  "skill_name": "doc-coauthoring",
+  "scored_at": "2026-02-16T13:30:00.945164+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.0,
+  "risk_level": "control",
+  "test_category": "negative_control_noncode",
+  "tasks": [
+    {
+      "task_id": "doc-coauthoring-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of argparse, pathlib, re, urllib, and standard library patterns. However, the code is truncated mid-function \u2014 the review_document function is cut off, and the export command and the argparse CLI setup (argument parser configuration with subcommands) are missing entirely. The init command and helper functions (parse_frontmatter, check_todos, check_incomplete_sections, check_links) are well-implemented. No cross-language contamination detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": false
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "argparse\\.ArgumentParser",
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response consists entirely of clarifying questions rather than an implementation. None of the requested functionality (argparse CLI, init/review/export commands, YAML frontmatter, markdown-to-HTML conversion, TODO/broken link checking) is present. This fails on every dimension as there is literally zero code to evaluate.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": false
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": false
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": false
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "TODO|\\[To be written\\]",
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of argparse (though the argparse setup is missing due to truncation), pathlib, re, and the markdown library. The code is well-structured with type hints, docstrings, and clean separation of concerns. However, the code is truncated mid-function \u2014 the review_document function is cut off, and the export command implementation and the argparse CLI setup (main function) are entirely missing, meaning roughly half the task is unimplemented. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python with correct use of argparse, yaml, re, pathlib, and standard library patterns. However, the code is truncated mid-function in _check_links(), meaning the review command's link checking is incomplete, and the entire 'export' command (HTML conversion with table of contents) and the argparse CLI setup are missing. The implemented portions (init and partial review) are well-structured with good docstrings, type hints, and a clean class-based design.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "<function_calls><invoke name=\"create_file\"> XML/tool-calling syntax wrapping the code, suggesting contamination from an AI assistant tool-use interface rather than pure Python output",
+                "The code is truncated mid-function, cutting off in the middle of the check_links method's external link checking block"
+              ],
+              "brief_assessment": "The code is written in Python and uses argparse idiomatically for what is present, but it is severely truncated \u2014 cutting off mid-string in the check_links method. Only the init and review commands are partially implemented; the export command and CLI argument parsing are missing entirely. The wrapping in XML function_call/invoke tags is a clear contamination signal from an AI tool-use framework, not from another programming language per se, but it indicates non-standard output formatting.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": false
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "argparse\\.ArgumentParser",
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": true
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "create_file"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of argparse, pathlib, re, and standard library modules. No cross-language contamination is detected. However, the code is clearly truncated \u2014 the review_document function is cut off mid-line, and the entire 'export' command (HTML conversion with table of contents) and the argparse CLI setup are missing. The implemented portions (init and partial review) are well-structured with good type hints, docstrings, and error handling, but roughly 40% of the required functionality is absent due to truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with idiomatic use of argparse, pathlib, re, yaml, and typing. However, the code is truncated mid-function (_check_links is cut off), and the export command and argparse CLI setup are completely missing, meaning less than half the task is implemented. What is present \u2014 init and review \u2014 is well-structured with good docstrings and clean class design, but the incompleteness severely limits functional correctness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response consists entirely of clarifying questions and proposed defaults, without any actual Python implementation. None of the requested features (argparse CLI, init/review/export commands, YAML frontmatter, markdown-to-HTML conversion) are implemented. This completely fails to accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": false
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": false
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": false
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python with correct use of argparse, pathlib, re, and typing. It correctly implements the 'init' and 'review' commands with YAML frontmatter parsing, TODO detection, placeholder detection, and basic link checking. However, the code is truncated mid-function during the 'export' command implementation \u2014 the generate_toc function and the export_document handler are incomplete, and the argparse CLI setup (main function) is missing entirely. This means roughly one-third of the requested functionality (export to HTML with TOC and the CLI wiring) is absent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import argparse",
+                  "matched": true
+                },
+                {
+                  "pattern": "import markdown|import re",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+init|def\\s+review|def\\s+export",
+                  "matched": true
+                },
+                {
+                  "pattern": "argparse\\.ArgumentParser",
+                  "matched": true
+                },
+                {
+                  "pattern": "TODO|\\[To be written\\]",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w|with open.*r",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import argparse",
+                "import markdown|import re",
+                "def\\s+init|def\\s+review|def\\s+export",
+                "argparse\\.ArgumentParser",
+                "TODO|\\[To be written\\]"
+              ],
+              "expected_misses": [
+                "with open.*w|with open.*r"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "doc-coauthoring-02",
+      "task_type": "cross_language",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with idiomatic use of the standard library (net/http, encoding/json, sync.RWMutex). It correctly implements the document store with version tracking, review workflow, and proper concurrency control. However, the code is truncated mid-function \u2014 the handleDocumentByID handler is cut off, meaning GET /documents/{id}, PUT /documents/{id}, GET /documents/{id}/versions, and POST /documents/{id}/review routing logic and the respondJSON/respondError helper methods are missing. The implemented portions (data model, store logic, POST /documents) are well-structured and correct.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": true
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": true
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational prompt asking the user for clarification rather than providing the requested Go HTTP server implementation. None of the five required endpoints are implemented, and there is zero Go code present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": false
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": false
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": false
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": false
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": false
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": true
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "brainstorm|curation"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses `s.pool.Exec` and `s.pool.Query` which suggest pgx/pgxpool patterns rather than standard library database/sql or in-memory store \u2014 the task asked for standard library net/http and encoding/json only",
+                "Uses `$1, $2` PostgreSQL-style placeholders instead of standard library sql `?` placeholders",
+                "References `github.com/google/uuid` and `github.com/user/project/internal/store` external packages when task specified standard library only",
+                "Uses `database/sql` import with pgx-style pool methods \u2014 mixed database driver idioms",
+                "Code is truncated mid-function \u2014 `GetDocument` handler and several endpoints (UpdateDocument, GetVersions, Review, main/routing) are missing"
+              ],
+              "brief_assessment": "The code is written in Go with correct syntax and reasonable struct definitions, but it is severely incomplete \u2014 cut off mid-function in the handler file, missing the UpdateDocument, GetVersions, and Review handlers, the routing setup, and the main function. This means less than half the required endpoints are implemented. The code also deviates from the task requirement to use only standard library packages by depending on external packages (uuid, pgx pool patterns) and using a database backend instead of an in-memory store, though a database isn't inherently wrong. The PostgreSQL placeholder style and pool API suggest patterns not aligned with standard library database/sql.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": true
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": true
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go with proper use of the standard library's net/http and encoding/json packages. The routing approach using ServeHTTP with string matching is idiomatic for stdlib-only Go. However, the code is truncated mid-function \u2014 handleGetDocument is cut off, and the handleUpdateDocument, version history endpoint (GET /documents/{id}/versions), and review endpoint (POST /documents/{id}/review) handlers are missing from the generated output, despite the underlying store methods being fully implemented. The data model, store layer with proper mutex usage, and the completed handlers are well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": true
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": true
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational prompt asking the user how they'd like to proceed, rather than providing the requested Go HTTP server implementation. None of the five required endpoints are implemented, and there is zero Go code present.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": false
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": false
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": false
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": false
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": false
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": true
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "brainstorm|curation"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 1,
+              "code_quality": 2,
+              "contamination_signals": [
+                "Uses pgx/v5 external database driver instead of requested standard library net/http and encoding/json",
+                "Tool-calling XML syntax (<read_file>, <write_file>) mixed into the response suggests agent framework contamination",
+                "No HTTP server or handler code present despite explicit requirement for net/http REST API",
+                "Project structure with migrations/ and internal/store/ suggests framework-heavy approach not matching the simple stdlib request"
+              ],
+              "brief_assessment": "The code is severely incomplete, cutting off mid-function, and fundamentally misses the task requirements. The task explicitly asked for a standard library net/http server with encoding/json, but the code only implements a partial PostgreSQL-backed store layer using an external driver (pgx). No HTTP handlers, routing, or the review workflow are implemented. The Go syntax that is present is correct but represents less than 20% of the requested functionality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": false
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": true
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": true
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal"
+              ],
+              "expected_misses": [
+                "package main",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go using standard library packages (net/http, encoding/json, sync) with idiomatic patterns like sync.RWMutex for concurrency safety and proper struct tags. The routing approach using string prefix matching in ServeHTTP is reasonable for the standard library, though a bit rudimentary. However, the code is clearly truncated mid-function \u2014 the handleCreateDocument method is cut off, and the handlers for GET /documents/{id}/versions and POST /documents/{id}/review endpoints, while implemented at the store level, appear to lack HTTP handler routing (the ServeHTTP switch doesn't distinguish version/review sub-paths properly). The store logic and data model are well-designed, but incompleteness significantly impacts the functional correctness score.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": true
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": true
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal"
+              ],
+              "expected_misses": [
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational prompt asking clarifying questions rather than providing any Go code. None of the requested endpoints or functionality are implemented. This completely fails to accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": false
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": false
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": false
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": false
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": false
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": true
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "brainstorm|curation"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses pgx/pgpool-style API (s.pool.Begin(ctx), tx.Rollback(ctx), tx.QueryRow(ctx, ...)) instead of standard library database/sql which uses different signatures",
+                "Uses $1, $2 PostgreSQL-style placeholders rather than being database-agnostic (not necessarily wrong but task asked for standard library)",
+                "Task explicitly asked for net/http and encoding/json only, but code uses a database driver with pgx-like API patterns",
+                "Code is structured as a multi-package project with internal/ directory structure - over-engineered for the task which asked for standard library usage"
+              ],
+              "brief_assessment": "The code is written in Go with correct syntax and good structural patterns (JSON tags, error wrapping, context usage). However, the code is significantly incomplete \u2014 it cuts off mid-function in the handler, missing the review endpoint, the GET/PUT/versions handlers, route registration, main function, and the respondError helper. The task explicitly requested using standard library net/http and encoding/json, but the store layer uses what appears to be a pgx pool API rather than an in-memory store or database/sql. Only about 40% of the required functionality is actually implemented before truncation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "package main",
+                  "matched": true
+                },
+                {
+                  "pattern": "net/http",
+                  "matched": true
+                },
+                {
+                  "pattern": "encoding/json",
+                  "matched": true
+                },
+                {
+                  "pattern": "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                  "matched": true
+                },
+                {
+                  "pattern": "json\\.NewDecoder|json\\.Marshal",
+                  "matched": true
+                },
+                {
+                  "pattern": "http\\.HandleFunc|mux\\.HandleFunc",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "package main",
+                "net/http",
+                "encoding/json",
+                "func.*http\\.ResponseWriter.*\\*http\\.Request",
+                "json\\.NewDecoder|json\\.Marshal",
+                "http\\.HandleFunc|mux\\.HandleFunc"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                },
+                {
+                  "pattern": "from fastapi|import flask",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "doc-coauthoring-03",
+      "task_type": "similar_syntax",
+      "target_language": "typescript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with correct usage of gray-matter, unified/remark-parse, and unist-util-visit APIs. The interfaces are well-defined and the approach is sound. However, the code is truncated mid-function \u2014 the main `parseMarkdown` function is cut off during link extraction, missing the final assembly of the `DocumentAnalysis` return object, word count per section integration, and the metadata summary. This means roughly 70-80% of the task is implemented. No cross-language contamination is detected.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": true
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": true
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": true
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [
+                "No code was generated at all; the response is entirely a conversational prompt asking clarifying questions instead of producing the requested TypeScript module"
+              ],
+              "brief_assessment": "No TypeScript code was generated whatsoever. The response is a meta-conversational reply offering a workflow rather than implementing the requested module. It fails on every dimension: no language to evaluate, no API usage, no functional implementation, and no code quality to assess.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": false
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": false
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": false
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": true
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "Reader Claude|Reader Testing",
+                "brainstorm|curation|refinement"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.3333333333333333,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct TypeScript with idiomatic use of gray-matter, unified/remark, and unist-util-visit APIs. It properly implements YAML frontmatter parsing, hierarchical TOC building, link extraction with URL validation, and per-section word counting. The code is truncated at the end (parseMarkdownFile is cut off mid-implementation), which is a minor completeness issue, though all core requested features are fully implemented in the main parseMarkdown function. The code quality is excellent with clear interfaces, JSDoc documentation, and well-structured helper functions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": true
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": true
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": true
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct TypeScript with proper type annotations and idiomatic use of gray-matter, unified/remark-parse, unist-util-visit, and mdast types. The API usage is fully idiomatic for the Node.js/TypeScript ecosystem. However, the code is truncated mid-implementation \u2014 the extractHeadings, extractLinks, and calculateWordCounts methods of the MarkdownParser class are missing, which means roughly half the core functionality is not present. What is implemented (frontmatter parsing, link validation, TOC hierarchy building, slug generation, word counting utility, and comprehensive type definitions) is well-structured and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": true
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": true
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": true
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [
+                "No code was generated at all; the response is entirely a conversational prompt asking the user to choose a workflow approach instead of producing the requested TypeScript module."
+              ],
+              "brief_assessment": "The response contains zero code. Instead of generating the requested TypeScript Node.js module, the AI produced a conversational meta-response asking the user which workflow they'd prefer. None of the requested features (YAML frontmatter parsing, TOC extraction, link validation, word counting, DocumentAnalysis object) are implemented. This is a complete failure to accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": false
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": false
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "frontmatter|metadata"
+              ],
+              "expected_misses": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "Reader Claude|Reader Testing"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper type annotations and idiomatic use of gray-matter, unified/remark-parse, and unist-util-visit APIs. It correctly parses YAML frontmatter, builds a hierarchical TOC, extracts links with URL validation, and counts words per section. Minor issues: the word counting for text that appears before any heading is added to totalWords but not tracked as a section, and the visit callback's accumulation of text content into sections has a subtle issue where text inside headings themselves gets counted in the previous section's content. The test file is truncated/incomplete, but the main module is fully implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": true
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": true
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": true
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with no foreign language contamination. It correctly uses gray-matter for YAML frontmatter parsing, unified/remark-parse for AST generation, and unist-util-visit for tree traversal \u2014 all idiomatic for the Node.js/TypeScript ecosystem. The code is truncated at the end (the return object is cut off mid-property 'linkC'), meaning the final method and module export are incomplete, which prevents a perfect functional correctness score. Overall the architecture is clean, well-typed, and well-documented with JSDoc comments.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": true
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": true
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": true
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational message asking the user for clarification rather than producing any TypeScript code. None of the requested features (YAML frontmatter parsing, heading extraction, link validation, word counting, DocumentAnalysis object) are implemented. There is nothing to evaluate on language correctness, API idiomaticity, or code quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": false
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": false
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": false
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": false
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "frontmatter|metadata"
+              ],
+              "expected_misses": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid TypeScript with proper type annotations and idiomatic use of gray-matter and unified/remark packages. The API usage is correct \u2014 using unified().use(remarkParse).parse(), visit() from unist-util-visit, and proper mdast types. However, the code is truncated mid-statement at the end (cutting off during word count handling for text before the first heading), meaning the function never returns a DocumentAnalysis object. The word-counting logic using positional indices from visit() is also questionable since index refers to sibling index, not a global document position, which would make the section-based word counting unreliable. Overall architecture and approach are solid but incomplete.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*gray-matter|import.*matter",
+                  "matched": true
+                },
+                {
+                  "pattern": "import.*unified|import.*remark",
+                  "matched": true
+                },
+                {
+                  "pattern": "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                  "matched": true
+                },
+                {
+                  "pattern": "export\\s+",
+                  "matched": true
+                },
+                {
+                  "pattern": "frontmatter|metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "async\\s+function|function\\s+",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*gray-matter|import.*matter",
+                "import.*unified|import.*remark",
+                "interface\\s+DocumentAnalysis|type\\s+DocumentAnalysis",
+                "export\\s+",
+                "frontmatter|metadata",
+                "async\\s+function|function\\s+"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|subAgent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "Stage 1|Stage 2|Stage 3",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "doc-coauthoring-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with no foreign language patterns. It fully implements all six requested improvements: YAML frontmatter, table of contents generation, empty section placeholder handling, section numbering, required section validation with ValueError, and file saving with UTF-8 encoding via pathlib. Code quality is excellent with type hints, comprehensive docstrings, separation of concerns (save_to_file as a separate function), proper error handling, and a clean main() entry point.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": true
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "The response contains no code whatsoever. Instead of providing the requested Python improvements, the model generated a conversational reply asking the user for clarification and proposing a workflow. None of the six requested improvements (YAML frontmatter, table of contents, empty section handling, section numbering, required section validation, file saving) were implemented. This is a complete failure to accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": false
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with no foreign language contamination. It correctly implements all six requested improvements: YAML frontmatter, table of contents with anchor links, placeholder text for empty sections, section numbering, required section validation via ValueError, and file saving with Path.write_text() and UTF-8 encoding. The code also adds valuable extras like TypedDict for section structure, comprehensive type hints, a thorough docstring, and proper error handling in the example usage. The use of pathlib, f-strings, set operations for validation, and enumerate with start=1 are all idiomatic Python patterns.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": true
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with no foreign language patterns. It fully implements all six requested improvements: YAML frontmatter, table of contents generation, empty section placeholder handling, section numbering, required section validation, and file saving with UTF-8 encoding. Code quality is excellent with type hints, docstrings, proper use of pathlib, separation of concerns (save_to_file as a separate function), and a guarded __main__ block with error handling.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": true
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "The response contains no code whatsoever. Instead of providing the requested Python improvements, the model generated a conversational prompt asking the user for clarification and offering a workflow. None of the six requested improvements were implemented, and no Python code was produced. This is a complete failure to accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": false
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "brainstorm|curation"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with no foreign language patterns. It fully implements all six requested improvements: YAML frontmatter, table of contents with anchor links, empty section placeholder text, section numbering, required section validation with ValueError, and file saving with UTF-8 encoding via pathlib. Code quality is high with type hints, a comprehensive docstring, proper use of pathlib, and a clean main guard. The only very minor nit is that 'TBD' isn't treated as empty, but that's arguably correct behavior since it's non-empty content.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": true
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python with no foreign language patterns. It correctly implements all six requested improvements: YAML frontmatter, table of contents with anchor links, empty/TBD section placeholder handling, section numbering, required section validation with ValueError, and file saving with UTF-8 encoding via pathlib. Code quality is production-grade with type hints, docstrings, proper error handling, directory creation, and a clean __main__ guard.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": true
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational reply asking clarifying questions and offering an alternative workflow, rather than providing any Python code. None of the six requested improvements were implemented. This is a complete failure to accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": false
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 6,
+              "expected_hit_rate": 0.16666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "brainstorm|curation"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Python, using appropriate standard library modules (pathlib, typing, datetime) and Pythonic patterns throughout. All six requested improvements are fully implemented: YAML frontmatter, table of contents with anchor links, empty section placeholder handling, section numbering, required section validation with ValueError, and file saving with UTF-8 encoding via Path.write_text. Code quality is excellent with type hints, a comprehensive docstring, proper error handling, and a guarded __main__ block.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "---\\\\n|frontmatter",
+                  "matched": true
+                },
+                {
+                  "pattern": "table.*of.*contents|toc|## Contents",
+                  "matched": true
+                },
+                {
+                  "pattern": "\\[To be written\\]|\\[TBD\\]|placeholder",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+generate",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open.*w.*encoding",
+                  "matched": false
+                },
+                {
+                  "pattern": "enumerate|\\d+\\.",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "---\\\\n|frontmatter",
+                "table.*of.*contents|toc|## Contents",
+                "\\[To be written\\]|\\[TBD\\]|placeholder",
+                "def\\s+generate",
+                "enumerate|\\d+\\."
+              ],
+              "expected_misses": [
+                "with open.*w.*encoding"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent|sub_agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "doc-coauthoring-05",
+      "task_type": "adjacent_domain",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic usage of markdown, PyYAML, Jinja2, and watchdog libraries. The architecture is well-structured with a clean class design, proper error handling, and fallback templates. However, the code is clearly truncated mid-function (cut off inside render_basic_post), meaning the index page generation, build directory writing, --watch flag implementation, and the main entry point are all missing. Only about half of the required functionality is visibly implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render",
+                "with open"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational meta-discussion about workflow preferences rather than any implementation. None of the requested features (Markdown parsing, YAML frontmatter, Jinja2 templating, index generation, --watch flag, error handling) are addressed. There is no code to evaluate for language correctness, API usage, or quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": false
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": false
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render",
+                "with open"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": true
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "Reader Claude|Reader Testing",
+                "brainstorm|curation|refinement"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.3333333333333333,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic use of markdown, yaml, Jinja2, pathlib, and watchdog APIs. However, the code is truncated mid-function \u2014 the render_index method, the build method, the --watch flag implementation, template creation/defaults, and the main entry point are all missing. The implemented portion (Post class, parsing, loading, render_post) is well-structured with proper error handling, logging, and type hints, but roughly half the required functionality is absent due to the cutoff.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render"
+              ],
+              "expected_misses": [
+                "with open"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with idiomatic usage of markdown, pyyaml, jinja2, and watchdog libraries. The implementation covers frontmatter parsing, Markdown-to-HTML conversion, post reading/sorting, and template rendering well. However, the code is clearly truncated mid-function (cut off in generate_post_page), so the index page generation, build directory writing, --watch flag implementation, and the main entry point are all missing, leaving significant portions of the task unimplemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render",
+                "with open"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational prompt asking clarifying questions rather than providing the requested Python script. None of the task requirements (reading .md files, parsing YAML frontmatter, converting Markdown to HTML, Jinja2 templates, index page, build directory output, error handling, --watch flag) are implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": false
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": false
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render",
+                "with open"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic use of libraries (markdown, jinja2, yaml, watchdog, pathlib). It correctly structures the Post class, frontmatter parsing, and template rendering. However, the code is truncated mid-function \u2014 the build() method is cut off, meaning the actual file writing to build/, the --watch flag implementation, the index generation output, and the CLI argument parsing/main block are missing. This leaves roughly 60% of the task implemented. The code that is present is well-structured with proper error handling, type hints, and clean class design.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render"
+              ],
+              "expected_misses": [
+                "with open"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with idiomatic use of markdown, PyYAML, Jinja2, and watchdog libraries. The frontmatter parsing, markdown conversion, post sorting, and template rendering logic are well-structured with proper error handling. However, the code is truncated mid-function (cuts off in render_fallback_post), so critical features like the index page generation, file writing to build/, the --watch flag implementation, and the main entry point are missing, leaving roughly half the task unimplemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render",
+                "with open"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 1,
+              "api_idiomaticity": 1,
+              "functional_correctness": 1,
+              "code_quality": 1,
+              "contamination_signals": [],
+              "brief_assessment": "No code was generated at all. The response is entirely a conversational prompt asking the user for clarification and offering alternative workflows, rather than fulfilling the request to write a Python static site generator script. None of the required functionality is implemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": false
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": false
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": false
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": false
+                },
+                {
+                  "pattern": "with open",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render",
+                "with open"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 6,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": true
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": true
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "Reader Claude|Reader Testing",
+                "brainstorm|curation|refinement"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.3333333333333333,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in idiomatic Python with correct usage of markdown, PyYAML, Jinja2, and watchdog APIs. The code structure is well-designed with a dataclass for Post, a SiteGenerator class, and proper error handling. However, the code is truncated mid-function (cuts off in load_posts), so critical functionality like template rendering, index page generation, build output, the --watch flag implementation, and the CLI entry point are missing, leaving approximately half the task unimplemented.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import markdown|from markdown",
+                  "matched": true
+                },
+                {
+                  "pattern": "from jinja2|import jinja2",
+                  "matched": true
+                },
+                {
+                  "pattern": "import yaml|from yaml",
+                  "matched": true
+                },
+                {
+                  "pattern": "os\\.walk|glob|pathlib",
+                  "matched": true
+                },
+                {
+                  "pattern": "def\\s+build|def\\s+render",
+                  "matched": true
+                },
+                {
+                  "pattern": "with open",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "import markdown|from markdown",
+                "from jinja2|import jinja2",
+                "import yaml|from yaml",
+                "os\\.walk|glob|pathlib",
+                "def\\s+build|def\\s+render"
+              ],
+              "expected_misses": [
+                "with open"
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "str_replace",
+                  "matched": false
+                },
+                {
+                  "pattern": "create_file",
+                  "matched": false
+                },
+                {
+                  "pattern": "sub-agent",
+                  "matched": false
+                },
+                {
+                  "pattern": "Reader Claude|Reader Testing",
+                  "matched": false
+                },
+                {
+                  "pattern": "brainstorm|curation|refinement",
+                  "matched": false
+                },
+                {
+                  "pattern": "context gathering|Stage [123]",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

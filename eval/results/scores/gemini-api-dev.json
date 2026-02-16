@@ -1,0 +1,3580 @@
+{
+  "skill_name": "gemini-api-dev",
+  "scored_at": "2026-02-16T07:37:52.479743+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.55,
+  "risk_level": "high",
+  "test_category": "multi_lang_api",
+  "tasks": [
+    {
+      "task_id": "gemini-api-dev-01",
+      "task_type": "direct_target",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses `google.generativeai` (old SDK) instead of `google-genai` SDK as requested",
+                "Model name is 'gemini-2.0-flash-exp' instead of the requested 'gemini-3-flash-preview'",
+                "The `google.generativeai` SDK uses `genai.GenerativeModel()` and `genai.configure()` patterns which belong to the older `google-generativeai` package, not the newer `google-genai` SDK which uses `from google import genai` and `client = genai.Client()`"
+              ],
+              "brief_assessment": "The code is valid Python with no foreign language contamination, but it uses the wrong SDK entirely. The task explicitly requests the `google-genai` SDK (which uses `from google import genai`, `client = genai.Client()`, and `client.models.generate_content()`), but the code uses the older `google-generativeai` package with `import google.generativeai as genai` and `genai.GenerativeModel()`. The model name also differs from what was requested (`gemini-2.0-flash-exp` vs `gemini-3-flash-preview`). The overall structure and logic for multimodal requests with structured JSON output is reasonable, but targeted at the wrong API surface.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "response\\.text"
+              ],
+              "expected_misses": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "import google\\.generativeai|from google\\.generativeai",
+                "genai\\.GenerativeModel",
+                "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with no foreign language patterns. It correctly uses the google-genai SDK's Client, types.GenerateContentConfig, types.Part.from_text(), and types.Part.from_bytes() with the appropriate config parameter. The minor API concern is that passing a list of Parts directly as 'contents' rather than wrapping them in a Content object may or may not work depending on the SDK version\u2014some versions expect the parts wrapped\u2014but this is a reasonable and commonly shown pattern. The schema includes extra fields beyond the minimum requested (currency, confidence) but all required features (multimodal input, structured JSON output with product name and price, parsed result printing) are present. Overall it is well-structured, documented, and production-quality.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview",
+                "response\\.text"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "Part.from_text(text=...) is not a standard google-genai Python SDK pattern \u2014 typically text strings are passed directly in the contents list rather than wrapped in Part.from_text",
+                "Part.from_bytes with data= and mime_type= keyword arguments may not exactly match the current SDK signature"
+              ],
+              "brief_assessment": "The code is entirely valid Python with no cross-language contamination. It correctly uses the google-genai SDK's Client, GenerateContentConfig for structured output, and the models.generate_content endpoint. Minor API idiomaticity issues: the standard Python SDK typically accepts plain strings in the contents list rather than wrapping them with Part.from_text(), and the Part.from_bytes constructor signature may differ slightly from the actual SDK. Overall the code is well-structured, includes good error handling, and would largely accomplish the stated task.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview",
+                "response\\.text"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Uses `google.generativeai` (the older SDK) instead of the requested `google-genai` SDK (`from google import genai`)",
+                "The model name is 'gemini-2.0-flash-exp' instead of the requested 'gemini-3-flash-preview'",
+                "API patterns like `genai.configure()`, `genai.GenerativeModel()`, `genai.upload_file()`, `model.generate_content()` belong to the `google-generativeai` package, not the newer `google-genai` SDK which uses `client = genai.Client()` and `client.models.generate_content()`",
+                "`uploaded_file.delete()` method pattern is from the older SDK"
+              ],
+              "brief_assessment": "The code is entirely valid Python with good structure, error handling, and documentation. However, it uses the older `google-generativeai` SDK (`google.generativeai`) rather than the requested `google-genai` SDK, which has a fundamentally different API surface (client-based with `genai.Client()` rather than module-level configuration). The model name also differs from the requested 'gemini-3-flash-preview'. The structured JSON output configuration approach is reasonable for the older SDK but would need to be adapted for the newer one.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "response\\.text"
+              ],
+              "expected_misses": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "import google\\.generativeai|from google\\.generativeai",
+                "genai\\.GenerativeModel",
+                "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely correct Python with no foreign language patterns. It uses the google-genai SDK idiomatically \u2014 Client(), types.Schema, types.GenerateContentConfig, client.models.generate_content, and client.files.upload are all correct API patterns. One minor concern: constructing contents as a flat list of Parts rather than wrapping them in a types.Content object may work but is slightly unconventional; also, the model name 'gemini-3-flash-preview' is used as requested but doesn't correspond to a known real model. The code is well-structured with docstrings, error handling, and clear output formatting, making it production-quality.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview",
+                "response\\.text"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "types.Part.from_text() and types.Part.from_bytes() usage - the google-genai SDK typically accepts content parts differently; the canonical approach is to pass a list containing strings and types.Part.from_bytes() directly, rather than wrapping text in types.Part.from_text()",
+                "GenerateContentConfig used correctly for response_mime_type and response_schema, but response_schema as a raw dict rather than using genai types is acceptable but less idiomatic"
+              ],
+              "brief_assessment": "The code is clean, well-structured Python that correctly uses the google-genai SDK's Client interface and GenerateContentConfig for structured output. The main contamination signal is the use of types.Part.from_text() \u2014 in the google-genai Python SDK, text can simply be passed as a string in the contents list rather than wrapping it. The Part.from_bytes() usage is correct. Overall the code would largely work with minor adjustments, covers all requested features (multimodal input, structured JSON schema, parsing), and includes good error handling and documentation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview",
+                "response\\.text"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Uses 'google.generativeai' (the older SDK) instead of 'google-genai' (the newer SDK requested in the task). The newer SDK uses 'from google import genai' and 'client = genai.Client()' pattern rather than 'import google.generativeai as genai' and 'genai.configure()'.",
+                "The model name 'gemini-2.0-flash-exp' is used instead of the requested 'gemini-3-flash-preview'.",
+                "The older SDK's GenerativeModel pattern is used instead of the newer google-genai SDK's client.models.generate_content() pattern."
+              ],
+              "brief_assessment": "The code is valid Python with no cross-language contamination, and the overall structure is well-organized with good error handling, file cleanup, and two alternative approaches. However, it uses the older 'google-generativeai' SDK (with `genai.configure()` and `GenerativeModel`) rather than the newer 'google-genai' SDK (with `genai.Client()` and `client.models.generate_content()`) as specified in the task. Additionally, the model name does not match the requested 'gemini-3-flash-preview'. The structured output configuration approach with `response_mime_type` and `response_schema` is plausible for the older SDK but doesn't match the newer SDK's API patterns.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "response\\.text"
+              ],
+              "expected_misses": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "import google\\.generativeai|from google\\.generativeai",
+                "genai\\.GenerativeModel",
+                "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "Part.from_text() and Part.from_uri() are used as standalone content items in the contents list rather than being wrapped in a Content object or passed as a simple list mixing types - the typical idiomatic pattern uses types.Content with parts, or passes raw strings/Part objects together; however, this is a minor deviation and may still work"
+              ],
+              "brief_assessment": "The code is entirely valid Python with no cross-language contamination. It correctly uses the google-genai SDK's client pattern (genai.Client(), client.models.generate_content, types.Schema, GenerateContentConfig with response_mime_type and response_schema). The contents list structure using Part.from_text() and Part.from_uri() is slightly non-standard \u2014 the more idiomatic approach would be to pass a list containing a string and the Part.from_uri, or wrap parts in a Content object \u2014 but this is a minor API usage deviation. The code is well-structured with documentation, error handling, cleanup, and all requested features (multimodal input, structured JSON schema, parsing).",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview",
+                "response\\.text"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "contents parameter receives a list of Part objects directly rather than wrapping them in a Content object, which works but the more common pattern in examples uses a simple list mixing strings and Part objects"
+              ],
+              "brief_assessment": "The code is entirely valid Python and uses the google-genai SDK correctly. The API usage is largely idiomatic \u2014 Client(), types.GenerateContentConfig with response_schema, types.Part.from_text/from_bytes, and client.models.generate_content are all correct patterns for the new google-genai SDK. Minor note: the contents could also be passed as a list with a plain string rather than Part.from_text, but both approaches work. The schema includes an extra 'currency' field beyond what was requested, which is a minor addition rather than an omission. Overall the code is well-structured with good error handling and documentation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "response\\.text",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview",
+                "response\\.text"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "import google\\.generativeai|from google\\.generativeai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0|gemini-1\\.5",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "gemini-api-dev-02",
+      "task_type": "cross_language",
+      "target_language": "rust",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Rust with proper use of reqwest, serde, tokio, and anyhow \u2014 no foreign language patterns detected. The Gemini REST API is called correctly using the v1beta generateContent endpoint, but the model is set to 'gemini-2.0-flash-exp' instead of the requested 'gemini-3-flash-preview', which is a notable deviation from the task specification. The code is well-structured with proper error handling, typed request/response structs, and a clean client abstraction. The blocking alternative section is truncated but the main async version is complete and functional.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [
+                "gemini-3-flash-preview"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Rust with no foreign language patterns. It correctly uses reqwest with async/tokio, serde for JSON serialization/deserialization, and anyhow for error handling \u2014 all standard Rust ecosystem choices. The REST API call targets the correct v1beta generateContent endpoint with the gemini-3-flash-preview model as requested, with proper request/response struct definitions matching the Gemini API schema. Error handling is thorough, including status code checks and context-enriched errors. The streaming example's parsing approach (splitting by lines) is a simplification of the actual SSE format but is presented as a supplementary example. Overall this is production-quality code that fully accomplishes the task.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Rust with proper use of reqwest, serde, anyhow, and tokio \u2014 no foreign language patterns detected. The REST API endpoint structure, request/response JSON shapes, and API key authentication via query parameter all correctly match the Gemini v1beta generateContent endpoint for the requested model. Minor issues: the example file uses `mod gemini;` which won't resolve correctly as an example (it would need to import from the library crate), and the response deserialization structs don't use `Option` for fields that could be absent (e.g., empty candidates), making it slightly fragile. Overall it is well-structured and would accomplish the task with a real API key.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "This is well-written, idiomatic Rust code that correctly uses reqwest for async HTTP requests, serde for JSON serialization/deserialization, and properly structures the Gemini API request/response types. The code correctly targets the v1beta generateContent endpoint with the gemini-3-flash-preview model as requested. Minor quality concerns: the Content-Type header is unnecessary when using .json(), mixing side effects (printing usage metadata) inside the generate_content method is not ideal for a library-style API, and the alternative main example at the end is truncated. Overall, the primary code is complete and functional.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is entirely idiomatic Rust code using reqwest, serde, tokio, and anyhow\u2014all standard choices for an async HTTP client application. The Gemini REST API is called correctly at the v1beta/models/gemini-3-flash-preview:generateContent endpoint with proper request/response struct definitions. Error handling is thorough (missing API key, HTTP failures, empty responses), and the code is well-structured with clear separation of concerns. No cross-language contamination or foreign API patterns are present.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is clean, idiomatic Rust code that correctly calls the Gemini REST API. It uses appropriate Rust crates (reqwest, serde, tokio, anyhow), properly structures the request/response types matching the v1beta generateContent endpoint, targets the gemini-3-flash-preview model as requested, and includes good error handling. The code is well-organized with a separate client module, proper async/await patterns, and no foreign language contamination. The only minor note is that the API key is passed as a query parameter in the URL (which is the correct approach for the Gemini API key-based auth), and the response deserialization could be more robust with Optional fields, but this is a minor production concern rather than a correctness issue.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Rust with proper use of reqwest, serde, tokio, and anyhow \u2014 all idiomatic choices for this task. The REST API endpoint structure and request/response JSON formats correctly match the Gemini API. However, the code uses 'gemini-2.0-flash-exp' instead of the requested 'gemini-3-flash-preview' model, and the enhanced version is truncated mid-function, cutting off the GeminiClient implementation. The first complete version is well-structured and would work correctly aside from the wrong model name.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [
+                "gemini-3-flash-preview"
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 5,
+              "expected_hit_rate": 0.8,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid, idiomatic Rust using reqwest, serde, tokio, and anyhow \u2014 all standard choices for async HTTP work in Rust. The REST API endpoint, request/response structures, and query-parameter-based API key usage correctly match the Gemini v1beta generateContent endpoint with the requested model. The main implementation is functionally complete and would work; however, the streaming example at the end is truncated mid-function, and the Content-Type header is redundant when using `.json()`. Overall it's clean, well-structured code with good error handling.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Rust with idiomatic use of reqwest, serde, anyhow, and tokio. The Gemini REST API endpoint structure (v1beta/models/{model}:generateContent?key=...) and request/response JSON shapes are correct. Minor issues: the binary file uses `mod gemini;` which won't compile as a bin target referencing a lib module that way \u2014 it should use the crate's library instead. The Cargo.toml includes unnecessary dependencies (sqlx, axum) unrelated to the task. The `#[serde(rename_all = \"camelCase\")]` on GenerateContentResponse is harmless but unnecessary since only `candidates` is present. Overall solid and functional with minor structural/project organization issues.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "generativelanguage\\.googleapis\\.com",
+                  "matched": true
+                },
+                {
+                  "pattern": "v1beta",
+                  "matched": true
+                },
+                {
+                  "pattern": "generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "reqwest|hyper|ureq",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "generativelanguage\\.googleapis\\.com",
+                "v1beta",
+                "generateContent",
+                "gemini-3-flash-preview",
+                "reqwest|hyper|ureq"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "com\\.google\\.genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install|go get",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "gemini-api-dev-03",
+      "task_type": "similar_syntax",
+      "target_language": "typescript",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Import from '@google/genai' but uses GoogleGenerativeAI class and getGenerativeModel() which are from the '@google/generative-ai' SDK, not the newer '@google/genai' SDK",
+                "The '@google/genai' SDK uses 'const ai = new GoogleGenAI()' and 'ai.models.generateContent()' pattern, not 'genAI.getGenerativeModel()' with 'model.startChat()'",
+                "FunctionDeclarationSchemaType is from '@google/generative-ai', not '@google/genai'",
+                "response.functionCalls() method is from the older '@google/generative-ai' SDK; the newer '@google/genai' SDK structures responses differently",
+                "Package.json correctly installs '@google/generative-ai' but the import statement says '@google/genai' - these are two different packages",
+                "Uses 'gemini-2.0-flash-exp' instead of the requested 'gemini-3-pro-preview' model"
+              ],
+              "brief_assessment": "The code is valid TypeScript with good structure and demonstrates the function calling flow conceptually well. However, there is significant SDK confusion: the import says '@google/genai' but the actual API patterns (GoogleGenerativeAI, getGenerativeModel, startChat, response.functionCalls()) all belong to the older '@google/generative-ai' SDK. The package.json even installs '@google/generative-ai' while the import references '@google/genai'. Additionally, the code uses 'gemini-2.0-flash-exp' instead of the requested 'gemini-3-pro-preview' model.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "@google/generative-ai",
+                "gemini-1\\.5|gemini-2\\.0"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.3333333333333333,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "FunctionDeclaration imported as a type and used directly as an object type annotation \u2014 in the actual @google/genai SDK, FunctionDeclaration has a slightly different structure and the type may not be directly importable this way",
+                "The 'role: function' in contents is a pattern from the Python SDK or REST API; the JS/TS @google/genai SDK typically expects role 'user' with functionResponse parts, not role 'function'",
+                "The 'config' field for tools is used (config.tools), which matches the newer @google/genai JS SDK pattern, but mixing it with role:'function' suggests some Python SDK contamination",
+                "GoogleGenAI constructor takes { apiKey } which is correct for the JS SDK, but the parameter schema using 'type: \"object\"' as a string rather than the SDK's Type enum (Type.OBJECT) suggests REST API or Python contamination",
+                "The parameters schema uses raw JSON Schema style (type: 'object', type: 'string') rather than the SDK's FunctionDeclarationSchemaType or Type enum values"
+              ],
+              "brief_assessment": "The code is entirely valid TypeScript with proper typing and structure. However, it exhibits several cross-SDK contamination signals: using 'role: \"function\"' instead of 'role: \"user\"' for function responses (a Python SDK pattern), and using raw string types ('object', 'string') in the parameter schema rather than the SDK's Type enum. The overall flow of function calling (send message \u2192 detect function call \u2192 execute \u2192 return result) is logically correct and well-structured, but the API details would likely cause runtime errors with the actual @google/genai JS SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": true
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview",
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "The parameter schema uses plain string types like \"object\" and \"string\" instead of the SDK's Type enum (Type.OBJECT, Type.STRING), which may reflect Python SDK patterns or raw REST API patterns rather than the idiomatic TypeScript SDK approach",
+                "The functionResponse role should be 'function' rather than 'user' in the @google/genai TypeScript SDK, though this varies across SDK versions"
+              ],
+              "brief_assessment": "The code is clean, well-structured TypeScript that correctly implements the full function-calling flow: defining a tool, sending an initial request, detecting the function call, executing it, and sending the result back for a final response. The main API concern is that the parameter schema uses raw string types (\"object\", \"string\") instead of the SDK's Type enum constants, which is a minor idiomatic deviation. The functionResponse part being sent under role 'user' rather than role 'function' could cause issues in some SDK versions, but the overall logic and structure are sound. The code is well-documented and production-quality.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": true
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview",
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Uses '@google/generative-ai' SDK instead of the requested '@google/genai' SDK",
+                "Uses 'genAI.getGenerativeModel()' pattern from the older @google/generative-ai SDK rather than the newer @google/genai GoogleGenAI client pattern",
+                "Uses 'response.functionCalls()' method and 'response.text()' which belong to the @google/generative-ai SDK, not @google/genai",
+                "Uses 'model.startChat()' and 'chat.sendMessage()' patterns from @google/generative-ai rather than the @google/genai client approach",
+                "Model name 'gemini-2.0-flash-exp' used instead of the requested 'gemini-3-pro-preview'",
+                "FunctionDeclarationSchemaType imported from '@google/generative-ai' instead of using Type from '@google/genai'"
+              ],
+              "brief_assessment": "The code is syntactically correct TypeScript and demonstrates a solid understanding of function calling patterns, but it uses the wrong SDK entirely \u2014 '@google/generative-ai' instead of the requested '@google/genai'. The @google/genai SDK has a different API surface (e.g., `new GoogleGenAI()`, `client.models.generateContent()`) compared to the older @google/generative-ai patterns used here. Additionally, the model name is 'gemini-2.0-flash-exp' rather than the requested 'gemini-3-pro-preview'. The functional flow (define tool, send message, handle function call, return result) is correct in spirit but tied to the wrong SDK's API.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "@google/generative-ai",
+                "gemini-1\\.5|gemini-2\\.0"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.3333333333333333,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "FunctionDeclaration type used directly as a standalone type for the variable declaration, but in @google/genai SDK the FunctionDeclaration is nested within the Type system differently",
+                "The parameters schema uses plain JSON-like { type: 'object', properties: {...} } which resembles the Python SDK's approach; the JS/TS SDK uses Type enum values like Type.OBJECT, Type.STRING from @google/genai",
+                "Accessing response.candidates?.[0]?.content?.parts?.[0]?.functionCall is a low-level pattern more typical of the REST API or Python SDK rather than using the JS SDK's helper properties like response.functionCalls()",
+                "The constructor pattern `new GoogleGenAI({ apiKey: ... })` is correct for the JS SDK, but the `ai.models.generateContent()` call pattern with `model` as a field in the request object is the correct JS SDK pattern - this part is fine",
+                "The role for function responses should be 'function' in some SDK versions, though 'user' with functionResponse part also works depending on version"
+              ],
+              "brief_assessment": "The code is valid TypeScript with no foreign language contamination. It correctly implements the two-step function calling flow (initial call, function execution, follow-up with results). However, there are API idiomaticity issues: the parameters schema should use the SDK's Type enum (Type.OBJECT, Type.STRING) rather than plain strings, and accessing function calls via response.candidates?.[0]?.content?.parts?.[0]?.functionCall is a low-level pattern when the SDK provides response.functionCalls(). The overall structure and logic are sound, and the code would likely work functionally despite these idiomatic deviations.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": true
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview",
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "The `as FunctionDeclaration` cast on the inline object suggests uncertainty about the exact TypeScript SDK type for parameter schemas \u2014 the schema uses raw JSON Schema style ('type: \"object\"') which is correct for the JS/TS SDK but the cast hints at possible confusion with Python SDK patterns",
+                "Using `response.candidates?.[0]` to extract parts is a lower-level pattern; the JS SDK's `generateContent` returns a `GenerateContentResponse` that has a convenience `.text` property (which the code does use later) but navigating candidates manually is not wrong, just less idiomatic",
+                "The `functionResponse` role is set to 'user' \u2014 in the @google/genai JS SDK, function responses should typically use role 'function' or be handled via the dedicated function response content part; using 'user' role may still work but is not fully idiomatic"
+              ],
+              "brief_assessment": "The code is entirely valid TypeScript and demonstrates a solid understanding of the function-calling flow: define tools, send initial request, detect function call, execute locally, send result back, and obtain the final text. The API usage is mostly correct for the @google/genai JS/TS SDK \u2014 `ai.models.generateContent` with `contents`, `tools`, and the convenience `.text` accessor are all proper. Minor concerns include the role used for the function response part (should arguably be 'function' rather than 'user' in some SDK versions) and the `as FunctionDeclaration` cast that papers over potential type mismatches. Overall it would likely work end-to-end with only minor adjustments.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": true
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview",
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Uses `GoogleGenerativeAI` class and `genAI.getGenerativeModel()` which is the pattern from `@google/generative-ai` (old SDK), not `@google/genai` (new SDK) which uses `GoogleGenAI` and `ai.models.generateContent()`",
+                "Imports `FunctionDeclarationSchemaType` from `@google/genai` \u2014 this enum exists in `@google/generative-ai`, not necessarily with the same export path in `@google/genai`",
+                "`model.startChat()` and `chat.sendMessage()` are patterns from `@google/generative-ai`; the `@google/genai` SDK uses `ai.chats.create()` or similar patterns",
+                "`response.functionCalls()` method call pattern is from `@google/generative-ai`; the new `@google/genai` SDK structures responses differently",
+                "Uses `gemini-2.0-flash-exp` instead of the requested `gemini-3-pro-preview` model"
+              ],
+              "brief_assessment": "The code is syntactically correct TypeScript and well-structured with good error handling and multiple examples. However, it fundamentally uses the `@google/generative-ai` SDK API patterns (GoogleGenerativeAI class, getGenerativeModel, startChat, sendMessage, response.functionCalls()) while claiming to use `@google/genai`, which has a different API surface (GoogleGenAI class, different method signatures). Additionally, the code uses `gemini-2.0-flash-exp` instead of the requested `gemini-3-pro-preview` model, failing to meet a specific requirement.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": false
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 1,
+              "expected_total": 5,
+              "expected_hit_rate": 0.2,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": true
+                }
+              ],
+              "anti_pattern_hits": [
+                "gemini-1\\.5|gemini-2\\.0"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.16666666666666666,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "FunctionDeclaration imported and used as a standalone type, but in @google/genai SDK it is typically nested within the Type system differently",
+                "Tool type imported directly - may not match actual SDK exports",
+                "parameters schema uses plain JSON Schema style ('type: \"object\"') rather than the SDK's SchemaType enum (SchemaType.OBJECT)",
+                "GoogleGenAI constructor takes { apiKey } object - correct for JS SDK",
+                "ai.models.generateContent() is the correct JS SDK pattern",
+                "initialResponse.functionCalls() method call - this is the correct JS SDK pattern",
+                "role: 'function' for function response part - in @google/genai JS SDK, the role should be 'user' with a functionResponse part, not role 'function' which is more of a Python SDK / REST API pattern",
+                "The contents format mixing string and array forms across calls may cause issues"
+              ],
+              "brief_assessment": "The code is entirely valid TypeScript with no cross-language syntax contamination. It correctly uses several @google/genai JS SDK patterns like `ai.models.generateContent()`, `response.functionCalls()`, and the `GoogleGenAI` constructor. However, there are notable API idiomaticity issues: the function response uses `role: 'function'` which is a Python SDK / REST API pattern rather than the JS SDK's `role: 'user'` convention, and the schema parameters use raw string types instead of the SDK's `SchemaType` enum. The overall flow of function calling (send message \u2192 detect function call \u2192 execute \u2192 send result back) is logically correct and would mostly accomplish the task, though the role mismatch in the second request could cause runtime issues.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": true
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview",
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "FunctionDeclaration type with plain object schema using 'type: \"object\"' and 'type: \"string\"' - the @google/genai SDK uses Type enum (Type.OBJECT, Type.STRING) from @google/genai rather than raw string types",
+                "Tool type imported but constructed as a plain object - the SDK's TypeScript types for FunctionDeclaration parameters expect SchemaType enum values, not string literals",
+                "Accessing functionCall.args.ticker directly as a typed property - in the JS/TS SDK, args is typically a Record<string, unknown> or similar generic object",
+                "The function response parts structure ({ functionResponse: { name, response } }) may reflect Python SDK patterns more than the JS/TS SDK's exact interface"
+              ],
+              "brief_assessment": "The code is entirely valid TypeScript with good structure, error handling, and clear logic flow for the function calling lifecycle. However, there are notable API idiomaticity issues: the schema definition uses string literals like 'type: \"object\"' and 'type: \"string\"' instead of the SDK's Type enum (Type.OBJECT, Type.STRING), which is a common contamination pattern from the Python SDK or REST API documentation. The overall approach to the multi-turn function calling conversation is correct and the code would likely work with minor adjustments to use the proper enum values. The code quality is good with proper separation of concerns, logging, and error handling.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "import.*GoogleGenAI.*from.*@google/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "new GoogleGenAI",
+                  "matched": true
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-pro-preview",
+                  "matched": true
+                },
+                {
+                  "pattern": "functionDeclarations|tools",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "import.*GoogleGenAI.*from.*@google/genai",
+                "new GoogleGenAI",
+                "ai\\.models\\.generateContent",
+                "gemini-3-pro-preview",
+                "functionDeclarations|tools"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": false
+                },
+                {
+                  "pattern": "@google/generative-ai",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "gemini-api-dev-04",
+      "task_type": "grounded",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly migrates from the deprecated google-generativeai SDK to the new google-genai SDK. All API patterns are idiomatic: Client initialization with api_key, client.models.generate_content() with model parameter, and client.chats.create() for chat sessions. The imports (from google import genai, from google.genai import types) are correct. The code is well-documented with clear explanations of each change and includes a useful alternative showing environment variable usage.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "client\\.models\\.generate_content"
+              ],
+              "expected_misses": [
+                "genai\\.Client\\(\\)",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 4,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly migrates from the deprecated google-generativeai SDK to the new google-genai SDK with proper imports, client initialization, and API call patterns. The client.models.generate_content() and client.chats.create() patterns are correct for the new SDK. The model name 'gemini-3-flash-preview' is a reasonable choice though 'gemini-2.0-flash' might be more standard currently; the original task's model was 'gemini-1.5-flash' so updating it is acceptable. The chat API uses client.chats.create() which aligns with the new SDK's documented patterns. The comprehensive documentation of changes adds significant value.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "GenerativeModel",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 4,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.8,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The migrated code is entirely correct Python using the new google-genai SDK. The import (`from google import genai`), client initialization (`genai.Client(api_key=...)`), content generation (`client.models.generate_content(model=..., contents=...)`), and chat creation (`client.chats.create(model=...)`) all follow the current idiomatic patterns of the new SDK. The model name update to a current model is a reasonable choice, and the code fully accomplishes the migration task including both single-turn generation and multi-turn chat. The supplementary explanation and environment variable alternative add good quality documentation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The migrated code correctly uses the new google-genai SDK patterns: `from google import genai`, `genai.Client(api_key=...)`, `client.models.generate_content(model=..., contents=...)`, and `client.chats.create(model=...)`. All API calls match the current google-genai SDK documentation. The code is entirely in Python with no foreign patterns, fully accomplishes the migration task including both single generation and chat functionality, and includes helpful explanatory notes and an alternative approach using environment variables.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "client\\.models\\.generate_content"
+              ],
+              "expected_misses": [
+                "genai\\.Client\\(\\)",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 4,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly migrates from the deprecated google-generativeai SDK to the new google-genai SDK with proper imports, client initialization, and API call patterns. The core patterns (Client instantiation, client.models.generate_content, client.chats.create, chat.send_message) are all idiomatic for the new SDK. Minor concerns: the streaming example conflates streaming (which requires generate_content_stream) with non-streaming generate_content, and the CreateChatConfig type name may not exist (history is typically passed directly). The model name update to gemini-3-flash-preview is a reasonable choice though the original task was about SDK migration, not model updates. Overall, this is a thorough and well-documented migration.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "GenerativeModel",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 4,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.8,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly migrates from the deprecated google-generativeai SDK to the new google-genai SDK with proper imports, client initialization, and API call patterns. The client.models.generate_content() and client.chats.create() patterns are idiomatic for the new SDK. The model name was updated to 'gemini-3-flash-preview' which is a reasonable choice but differs from the original 'gemini-1.5-flash' \u2014 a direct equivalent like 'gemini-2.0-flash' might have been more faithful to the migration task. The chat API uses client.chats.create() which aligns with the new SDK's documented patterns, though minor variations in the exact chat interface could exist across SDK versions.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "genai\\.Client\\(\\)",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": false
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 2,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.4,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The migrated code correctly uses the new google-genai SDK patterns: `from google import genai`, `genai.Client(api_key=...)`, `client.models.generate_content(model=..., contents=...)`, and `client.chats.create(model=...)`. All API calls match the documented google-genai SDK interface. The code is clean, well-documented with clear explanation of changes, and includes a helpful alternative pattern showing additional configuration options. No cross-language contamination detected.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "client\\.models\\.generate_content"
+              ],
+              "expected_misses": [
+                "genai\\.Client\\(\\)",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_hit_count": 2,
+              "expected_total": 4,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python with no cross-language contamination. The migration correctly updates imports (`from google import genai`), client initialization (`genai.Client`), and content generation (`client.models.generate_content`). The chat API uses `client.chats.create()` which is correct for the new SDK. The model name was updated to `gemini-3-flash-preview` which is a reasonable current choice, though the original task arguably just asked for a SDK migration rather than a model upgrade \u2014 using `gemini-2.0-flash` or keeping `gemini-1.5-flash` would also have been valid. The streaming example is slightly misleading as it shows a non-streaming call being iterated over (should use `generate_content_stream`), but the core migrated code is accurate and well-documented.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_misses": [
+                "genai\\.Client\\(\\)"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code correctly migrates from the deprecated google-generativeai SDK to the new google-genai SDK with proper imports, client initialization, and API call patterns. The generate_content call via client.models.generate_content() is fully idiomatic. The chat creation via client.chats.create() is correct for the new SDK. The model name was updated to 'gemini-3-flash-preview' which is a reasonable current model choice, though the original used 'gemini-1.5-flash' which still works. Minor note: client.chats.create() is the correct new SDK pattern, though some documentation examples use client.aio.chats or slightly different patterns. Overall this is a clean, well-documented migration with no cross-language contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.Client\\(\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-3-flash-preview|gemini-3-pro-preview",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "from google import genai",
+                "client\\.models\\.generate_content",
+                "gemini-3-flash-preview|gemini-3-pro-preview"
+              ],
+              "expected_misses": [
+                "genai\\.Client\\(\\)"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "google\\.generativeai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.configure",
+                  "matched": true
+                },
+                {
+                  "pattern": "GenerativeModel",
+                  "matched": false
+                },
+                {
+                  "pattern": "gemini-1\\.5-flash",
+                  "matched": true
+                },
+                {
+                  "pattern": "gemini-2\\.5|gemini-2\\.0",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "google\\.generativeai",
+                "genai\\.configure",
+                "gemini-1\\.5-flash"
+              ],
+              "anti_pattern_hit_count": 3,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.6,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "gemini-api-dev-05",
+      "task_type": "adjacent_domain",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Python string repetition syntax '\"=\" * 60' used multiple times instead of Go's strings.Repeat(\"=\", 60)",
+                "API pattern 'client.EmbeddingModel()' and 'model.EmbedContent()' appear to be from the older github.com/google/generative-ai-go SDK rather than the google.golang.org/genai SDK",
+                "The google.golang.org/genai SDK uses genai.NewClient with different constructor parameters (typically api key passed directly, not via option.WithAPIKey)",
+                "Result access pattern 'result.Embedding.Values' resembles the older generative-ai-go SDK; the genai SDK uses different embedding response structures",
+                "go.mod shows confusion between google.golang.org/genai and github.com/google/generative-ai-go with a replace directive, suggesting SDK conflation"
+              ],
+              "brief_assessment": "The code has a clear Python contamination signal with the '\"=\" * 60' string repetition syntax used multiple times, which would cause compilation errors in Go. The API usage conflates the older github.com/google/generative-ai-go SDK with the requested google.golang.org/genai SDK \u2014 methods like EmbeddingModel() and EmbedContent() belong to the older SDK, while the newer genai SDK has different patterns (e.g., models.EmbedContent with model name as parameter). The cosine similarity logic and overall program structure are sound, but the code would not compile as-is due to the Python syntax errors and likely API mismatches.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "\"=\" * 60 is Python string repetition syntax, not valid Go \u2014 should be strings.Repeat(\"=\", 60)",
+                "client.Close() \u2014 the genai.Client in the Go SDK does not have a Close method (that's a Python pattern)",
+                "genai.ClientConfig with implicit API key from env \u2014 the actual Go SDK uses option.WithAPIKey or reads GEMINI_API_KEY, and the constructor signature differs",
+                "genai.Text() \u2014 this is a Python SDK pattern; the Go SDK uses different content types for EmbedContent",
+                "resp.Embedding.Values \u2014 the actual Go SDK returns *genai.EmbedContentResponse with Embedding.Values as []float32, but the method signature Models.EmbedContent with genai.Text() is borrowed from Python patterns"
+              ],
+              "brief_assessment": "The code is mostly Go but contains a clear Python contamination: `\"=\" * 60` is Python string repetition and would cause a compile error. The API usage follows the general shape of the google.golang.org/genai SDK but borrows some patterns from the Python SDK (e.g., `genai.Text()` wrapper, `client.Close()`, `genai.ClientConfig` with implicit env key reading). The cosine similarity logic and overall program structure are correct in intent, but the compilation errors from Python syntax and uncertain API correctness reduce confidence in functional correctness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "genai.NewClient takes (ctx, *genai.ClientConfig) but the real Go SDK uses genai.NewClient(ctx, option.WithAPIKey(...)) - the ClientConfig pattern with APIKey field resembles Python's genai.configure(api_key=...) or genai.Client(api_key=...)",
+                "client.Models.EmbedContent with EmbedContentRequest struct and genai.Text() helper does not match the actual Go SDK API - the real SDK uses client.Models.EmbedContent with different parameter patterns",
+                "resp.Embedding.Values access pattern appears borrowed from the Python SDK where result.embedding.values is standard",
+                "String multiplication '\"=\"*60' is Python syntax, not valid Go - Go does not support the * operator on strings"
+              ],
+              "brief_assessment": "The code demonstrates a clear understanding of the task and implements cosine similarity correctly with good structure. However, it contains significant contamination from the Python Gemini SDK: the ClientConfig with APIKey field, the EmbedContentRequest struct pattern, and resp.Embedding.Values access all mirror Python patterns rather than the actual Go genai SDK. Additionally, '\"=\"*60' is Python string repetition syntax and would not compile in Go. The overall algorithmic logic is sound but the API calls and one syntax element would prevent compilation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "client.EmbeddingModel() is not a method in the google.golang.org/genai Go SDK \u2014 this pattern comes from the Python google-genai SDK (genai.Client.models.embed_content or similar)",
+                "genai.NewClient(ctx, option.WithAPIKey(apiKey)) uses google.golang.org/api/option which is the pattern for the older cloud.google.com/go/ai/generativelanguage client, not the google.golang.org/genai SDK which uses genai.NewClient(ctx, &genai.ClientConfig{APIKey: apiKey, Backend: genai.BackendGeminiAPI})",
+                "model.EmbedContent(ctx, genai.Text(text)) returning result.Embedding.Values is not the correct Go SDK pattern \u2014 the Go genai SDK uses client.Models.EmbedContent with EmbedContentConfig and returns EmbedContentResponse with Embeddings (plural) slice",
+                "genai.Text() is from the older cloud.google.com/go/genai or github.com/google/generative-ai-go SDK, not the google.golang.org/genai SDK",
+                "client.Close() \u2014 the google.golang.org/genai client may not have a Close method in the same way"
+              ],
+              "brief_assessment": "The Go code is syntactically correct and well-structured with clean cosine similarity logic and a complete document comparison pipeline. However, the API usage is heavily contaminated with patterns from the Python genai SDK and/or the older Go generative-ai-go SDK \u2014 the client construction, embedding model creation (client.EmbeddingModel), and embedding call (model.EmbedContent with genai.Text) do not match the google.golang.org/genai Go SDK's actual API surface. The functional logic for computing similarity is correct, but the embedding generation would not compile against the actual target SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "Python-style string repetition syntax: \"=\"*70 is not valid Go (should be strings.Repeat(\"=\", 70))",
+                "genai.NewClient(ctx, nil) - the Go genai SDK uses genai.NewClient(ctx, &genai.ClientConfig{...}) with explicit API key or project config, not a simple nil second argument",
+                "genai.Text() function may be borrowed from the older go-genai or Python patterns; the EmbedContent method in the google.golang.org/genai SDK takes a *genai.ContentEmbedding request differently",
+                "resp.Embedding.Values access pattern - in the Go SDK the response structure for EmbedContent returns Embeddings (plural) as a list, not a single Embedding field",
+                "TaskType constants like genai.TaskTypeRetrievalDocument follow the pattern but EmbedContentConfig struct and field names may not match the actual Go SDK exactly"
+              ],
+              "brief_assessment": "The code is structurally sound Go with good organization, proper error handling, and a correct cosine similarity implementation. However, it has Python contamination in the string repetition syntax (\"=\"*70 is Python, not Go), and the genai API usage shows several patterns that don't precisely match the actual google.golang.org/genai Go SDK - particularly around client initialization, the EmbedContent method signature, and response field access (Embedding vs Embeddings). The functional logic for computing pairwise similarities and finding the best pair is correct.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "\"=\"*60 is Python string repetition syntax, not valid Go",
+                "genai.Text() is not a known function in the google.golang.org/genai Go SDK",
+                "client.Models.EmbedContent() with EmbedContentRequest is not the correct Go SDK API pattern - the Go SDK uses client.Models.EmbedContent with model name and content parts as arguments, not a request struct",
+                "The ClientConfig with APIKey field and genai.NewClient signature appears to mix patterns from different SDK versions or languages",
+                "resp.Embeddings[0].Values structure may not match the actual Go SDK response type"
+              ],
+              "brief_assessment": "The code is structurally Go but contains a critical Python contamination (`\"=\"*60` string repetition) that would cause a compilation error. The API usage patterns for the google.golang.org/genai SDK are largely fabricated or borrowed from other language SDKs \u2014 the EmbedContent method signature with an EmbedContentRequest struct, genai.Text(), and the ClientConfig initialization don't match the actual Go SDK. The cosine similarity logic and overall program structure are sound, but the code would not compile or function as written.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "client.EmbeddingModel() is a Python SDK pattern; the Go genai SDK does not have an EmbeddingModel method on the client",
+                "model.EmbedContent(ctx, genai.Text(text)) follows the Python SDK's model.embed_content() pattern rather than the Go SDK's approach",
+                "result.Embedding.Values follows Python SDK's result.embedding.values structure",
+                "google.golang.org/api/option import with option.WithAPIKey() is from the older Google API client pattern; the new google.golang.org/genai SDK uses genai.NewClient(ctx, &genai.ClientConfig{APIKey: apiKey, Backend: genai.BackendGeminiAPI})",
+                "client.Close() may not exist on the genai.Client in the Go SDK"
+              ],
+              "brief_assessment": "The code is syntactically valid Go with good structure, clear logic for cosine similarity computation, and a nice similarity matrix output. However, the API usage is heavily contaminated by the Python Gemini SDK patterns \u2014 the Go genai SDK uses a different client initialization (ClientConfig instead of option.WithAPIKey), and embedding generation uses client.Models.EmbedContent rather than client.EmbeddingModel().EmbedContent(). The response structure also differs. While the algorithmic logic is correct, the code would not compile against the actual Go SDK.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "\"=\".repeat(60) is Python's string repetition syntax, not valid Go \u2014 Go uses strings.Repeat(\"=\", 60)",
+                "genai.Text() is not a known function in the google.golang.org/genai Go SDK for embedding; the Python SDK uses genai.embed_content with a 'content' parameter",
+                "client.Models.EmbedContent() call pattern with positional arguments (ctx, model, content, nil) may be influenced by the Python SDK's genai.Client().models.embed_content() pattern",
+                "resp.Embedding.Values access pattern \u2014 the actual Go SDK returns *EmbedContentResponse with Embeddings (plural) field containing a list",
+                "genai.NewClient(ctx, nil) \u2014 the Go SDK constructor signature may differ; this pattern mixes conventions"
+              ],
+              "brief_assessment": "The code is structurally sound Go with proper error handling, cosine similarity implementation, and clear organization. However, it contains a critical Python contamination: `\"=\".repeat(60)` which is Python string syntax and will not compile in Go. The embedding API usage (client.Models.EmbedContent with positional args, resp.Embedding.Values, genai.Text()) appears to approximate but not exactly match the actual google.golang.org/genai Go SDK interface, suggesting influence from the Python SDK. The overall task logic (embed documents, compute pairwise cosine similarity, find most similar pair) is correctly implemented.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [
+                "client.Close() - the genai.Client in the Go SDK does not have a Close method",
+                "resp.Embeddings.Values - the actual response structure from EmbedContent returns a list of ContentEmbedding objects, not a single Embeddings field with Values; the correct access pattern would be resp.Embeddings[0].Values",
+                "genai.Text() - this helper is not part of the Go genai SDK's EmbedContent API; EmbedContent expects a *genai.EmbedContentRequest or similar structured input, not a genai.Text wrapper",
+                "The EmbedContent method signature with (ctx, model, content, config) pattern may reflect Python SDK contamination where model and content are passed positionally"
+              ],
+              "brief_assessment": "The Go code is syntactically correct and well-structured with good cosine similarity logic and clear output formatting. However, several API patterns are incorrect: genai.Text() is not the correct way to pass content to EmbedContent, the response field access (resp.Embeddings.Values) doesn't match the actual SDK structure (should be resp.Embeddings[0].Values), and client.Close() doesn't exist on the Go genai client. These suggest contamination from the Python SDK's simpler interface patterns. The core algorithm is correct but the program would not run as-is due to API misuse.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "google\\.golang\\.org/genai",
+                  "matched": true
+                },
+                {
+                  "pattern": "genai\\.NewClient",
+                  "matched": true
+                },
+                {
+                  "pattern": "Embed|embedding",
+                  "matched": true
+                },
+                {
+                  "pattern": "func main\\(\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "cosine|similarity|dot",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "google\\.golang\\.org/genai",
+                "genai\\.NewClient",
+                "Embed|embedding",
+                "func main\\(\\)",
+                "cosine|similarity|dot"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "from google import genai",
+                  "matched": false
+                },
+                {
+                  "pattern": "GoogleGenAI",
+                  "matched": false
+                },
+                {
+                  "pattern": "client\\.models\\.generate_content",
+                  "matched": false
+                },
+                {
+                  "pattern": "ai\\.models\\.generateContent",
+                  "matched": false
+                },
+                {
+                  "pattern": "pip install|npm install",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3663 @@
+{
+  "skill_name": "claude-settings-audit",
+  "scored_at": "2026-02-16T06:44:21.571143+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.63,
+  "risk_level": "high",
+  "test_category": "high_risk_high_novelty",
+  "tasks": [
+    {
+      "task_id": "claude-settings-audit-01",
+      "task_type": "direct_target",
+      "target_language": "json",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is valid, well-structured JSON that serves as a Claude Code settings.json permissions allow list. It comprehensively covers all the requested stack components (Poetry, Django, Docker, Makefile, Sentry) with appropriate read-only commands. The commands are sensibly chosen \u2014 no write/modify operations are included. The only minor quibble is that the exact schema for Claude Code's settings.json (e.g., whether the top-level key is 'allowedCommands' or something else, and whether wildcard '*' patterns are supported) may not perfectly match the actual specification, but the overall structure and intent are correct and well-organized.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 7,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments used throughout the file), which is a pattern from JavaScript/TypeScript",
+                "The WebFetch permission format (WebFetch(domain:...)) appears to be fabricated - Claude Code settings.json does not use this syntax for web fetch permissions",
+                "Sentry Skills entries (Skill(sentry-skills:...)) are specific to Sentry's internal Claude Code configuration and not standard read-only commands; many are write operations (commit, create-pr, iterate-pr) which contradicts the read-only requirement",
+                "The gh api:* permission is not read-only - it can make POST/PUT/DELETE requests"
+              ],
+              "brief_assessment": "The code demonstrates good understanding of the project stack and includes relevant tooling (poetry, Docker, Django, Make, Sentry), with a well-organized structure and helpful documentation. However, it uses JavaScript-style comments (//) throughout the JSON, which makes it invalid JSON \u2014 a significant language correctness issue. The Sentry Skills section includes write operations like commit, create-pr, and iterate-pr, directly contradicting the read-only requirement. The WebFetch section uses a fabricated syntax not part of the actual Claude Code settings.json schema, and gh api:* is not inherently read-only.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "Sentry Skills entries appear to be from Sentry's internal Claude Code configuration rather than generic read-only commands appropriate for any project using Sentry",
+                "The .mcp.json and setup instructions go beyond the requested settings.json scope"
+              ],
+              "brief_assessment": "The code attempts to be a comprehensive Claude Code settings.json but contains a critical language correctness issue: JSON does not support comments, and the file is riddled with // style comments making it invalid JSON. The Bash permission entries for the detected stack are mostly well-chosen and read-only appropriate, covering poetry, Docker, Make, git, and Python. However, the Sentry section uses 'Skill(sentry-skills:*)' entries that appear to be from Sentry's own internal tooling rather than generic read-only Sentry CLI commands (like `sentry-cli releases list`), which is a form of API contamination from a specific vendor's configuration. The extra .mcp.json and setup instructions are helpful but go beyond the scope of the request.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically valid and well-structured for a Claude Code settings.json permissions allow list. It comprehensively covers all the requested stack components (Poetry, Django, Docker, Makefile, Sentry) with appropriate read-only commands. Minor concerns: the actual Claude Code settings schema uses a slightly different structure (permissions are typically nested under a different key path, and entries may include description fields or use a different format), and some commands like `grep`, `find`, `cat`, `echo` are very broad and could be used for write-like operations via redirection. The inclusion of generic Unix utilities and git commands goes somewhat beyond the strict request but is reasonable for a practical configuration.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 7,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are from JavaScript/TypeScript), making the output invalid JSON",
+                "The Sentry Skills section includes write operations like 'commit', 'create-pr', 'iterate-pr' which are not read-only as specified in the task"
+              ],
+              "brief_assessment": "The output is well-organized and covers all components of the requested tech stack (Python, Poetry, Django, Docker, Make, Sentry) with appropriate documentation domains and sensible command selections. However, the JSON contains JavaScript-style // comments throughout, which makes it syntactically invalid JSON \u2014 a clear cross-language contamination from JS/TS. Additionally, the Sentry Skills section includes several write/mutating operations (commit, create-pr, iterate-pr) that violate the read-only constraint specified in the task. The supplementary .mcp.json and setup instructions add value but go beyond what was requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The Sentry Skills entries appear to be from Sentry's internal MCP skills system rather than generic read-only Sentry CLI commands - this is a very specific/opinionated interpretation",
+                "gh api:* is not strictly read-only as it can make POST/PUT/DELETE requests"
+              ],
+              "brief_assessment": "The code provides a comprehensive and well-organized Claude Code settings.json that covers all requested stack components (Python, Poetry, Django, Docker, Make, Sentry). However, the JSON contains extensive // comments which are invalid JSON syntax, making the file unparseable by standard JSON parsers - this is a significant language correctness issue. The Sentry integration uses specific 'Skill' entries that appear to be from Sentry's internal tooling rather than generic read-only Sentry CLI commands, and 'gh api:*' is not strictly read-only. The surrounding markdown documentation is helpful but wasn't requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "This is valid, well-structured JSON that correctly represents a Claude Code settings.json permissions allow list. The commands are appropriately read-only and cover all requested stack components (Poetry, Django, Docker, Makefile). The omission of Sentry CLI commands is well-justified in the accompanying note. Minor points: the wildcard patterns (e.g., 'cat *', 'ls *') are quite broad for a 'read-only' allow list and could inadvertently expose sensitive files, and the exact schema (using 'allowedCommands' as the key) may not perfectly match Claude Code's actual settings format, but this is a reasonable interpretation of the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 7,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are from JavaScript/C-style languages)",
+                "The Sentry Skills entries appear to be Sentry's internal development tools rather than generic Sentry error tracking integration - suggests contamination from a specific Sentry internal project template"
+              ],
+              "brief_assessment": "The code is well-structured and comprehensive in covering the requested tech stack with appropriate read-only commands. However, the JSON contains JavaScript-style // comments which are invalid in standard JSON, making it syntactically incorrect as pure JSON. The Sentry section conflates Sentry as an error tracking service with Sentry's internal development Skills (like sentry-skills:commit, sentry-skills:create-pr), which are specific to Sentry's own codebase development rather than a project that merely uses Sentry for error monitoring. The core read-only commands for Python, Poetry, Docker, Make, and Git are well-chosen and appropriate.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are from JavaScript/TypeScript), making the settings.json technically invalid JSON",
+                "The Sentry Skills section includes many write/mutate operations (commit, create-pr, iterate-pr) which violate the read-only constraint specified in the task"
+              ],
+              "brief_assessment": "The code demonstrates strong understanding of the Claude Code settings.json structure and covers all requested stack components (Poetry, Django, Docker, Make, Sentry). However, it has two significant issues: (1) JSON does not support // comments, making the file syntactically invalid \u2014 this is a clear JavaScript/TypeScript contamination pattern; (2) several Sentry skills like 'commit', 'create-pr', and 'iterate-pr' are write operations, violating the explicit read-only constraint. The Bash permission entries for read-only commands are well-chosen and appropriate.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(poetry show",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(python3? --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(make -",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(poetry show",
+                "Bash\\(python3? --version",
+                "Bash\\(docker --version",
+                "Bash\\(make -",
+                "Bash\\(git status",
+                "WebFetch\\(domain:docs\\.djangoproject\\.com\\)",
+                "Skill\\(sentry-skills:"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "claude-settings-audit-02",
+      "task_type": "cross_language",
+      "target_language": "json",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses 'allowList' (camelCase) instead of the correct Claude Code settings.json key 'permissions.allow' which expects an array of objects with 'tool' and optionally 'command' fields",
+                "The actual Claude Code settings.json format uses structured permission entries like {\"tool\": \"Bash\", \"command\": \"cargo build\"} rather than flat string arrays",
+                "Missing the proper top-level 'permissions' key structure expected by Claude Code's .claude/settings.json schema",
+                "The flat string array format resembles a generic allowlist pattern rather than the specific Claude Code permissions format"
+              ],
+              "brief_assessment": "The JSON is syntactically valid and demonstrates good understanding of the Rust/Cargo/GitHub Actions stack by including appropriate commands and excluding Docker, web frameworks, and external services as specified. However, it does not follow the actual Claude Code settings.json permissions format, which uses a 'permissions.allow' key containing objects with 'tool' fields (e.g., {\"tool\": \"Bash\", \"command\": \"cargo build\"}). The camelCase 'allowList' key and flat string array structure suggest a generic or fabricated schema rather than the real Claude Code configuration format.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 5,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The output is split across multiple separate JSON blocks rather than providing a single unified settings.json file",
+                "Markdown-heavy presentation with tables and explanations suggests a documentation/tutorial format contamination rather than pure code generation"
+              ],
+              "brief_assessment": "The code demonstrates good understanding of the Claude Code settings.json structure and appropriate Rust/Cargo stack detection, with sensible permission scoping. However, the JSON contains // comments which are syntactically invalid in standard JSON, making the output non-parseable as-is. The response is also split into two separate JSON blocks rather than a single unified file, and key Cargo commands like `cargo build`, `cargo test`, `cargo check`, `cargo fmt`, and `cargo clippy` are notably absent \u2014 these are essential for a Rust CI project and their exclusion significantly reduces functional completeness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments used throughout the allow array)",
+                "WebFetch permissions presented in a separate JSON block with a different structure rather than integrated into the main settings.json",
+                "WebFetch entries use 'WebFetch(domain:...)' syntax mixed into a nested 'webFetch' object, which is inconsistent with the Bash() pattern used in the allow list"
+              ],
+              "brief_assessment": "The code provides a reasonable set of permissions for a Rust/Cargo/GitHub Actions stack, correctly excluding Docker, web frameworks, and external services. However, the JSON is invalid due to the use of // comments, which are not part of the JSON specification \u2014 this is a significant language correctness issue. The permissions are split across two separate JSON blocks rather than being a single coherent settings.json file, and the WebFetch structure appears inconsistent with the main allow list format. The Rust-specific commands are appropriate but limited \u2014 missing key commands like 'cargo build', 'cargo test', 'cargo check', 'cargo clippy', and 'cargo fmt' which would be expected for a CI-oriented Rust project.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The schema used (allowList, denyList, allowedCommands with allowedArgs) does not match the actual Claude Code settings.json permissions format, which uses 'permissions' with 'allow' and 'deny' arrays containing strings like 'Bash(cargo build)' or 'Bash(git:*)'",
+                "The nested allowedCommands structure with allowedArgs resembles a custom or invented permission schema rather than the documented Claude Code configuration format",
+                "The property names use camelCase (allowList, denyList, allowedCommands, allowedArgs) which may be borrowed from JavaScript/TypeScript configuration conventions rather than the actual Claude Code settings format"
+              ],
+              "brief_assessment": "The JSON is syntactically valid and the content is well-tailored to a Rust/Cargo/GitHub Actions stack, correctly excluding Docker, web frameworks, and external services. However, the schema structure does not match the actual Claude Code settings.json permissions format, which uses a simpler 'permissions.allow' array with entries like 'Bash(cargo:*)' rather than the nested allowList/allowedCommands/allowedArgs hierarchy shown here. The command and argument selections are thoughtful and appropriate for the described project stack, but the invented schema significantly reduces practical usefulness.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 5,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON with comments (// style comments) is not valid JSON - this is a JavaScript/TypeScript pattern (JSONC)",
+                "The webFetch structure with WebFetch(domain:...) strings nested inside permissions.webFetch.allow is not consistent with the Bash() pattern at the top level - unclear if this matches actual Claude Code settings schema",
+                "Multiple conflicting JSON blocks presented rather than a single definitive settings.json"
+              ],
+              "brief_assessment": "The code attempts to generate a Claude Code settings.json for a Rust/Cargo project with GitHub Actions, and the command selections are reasonable and well-scoped to the described stack. However, the first JSON block uses // comments which are invalid in standard JSON, representing JavaScript/JSONC contamination. The response also presents multiple overlapping JSON blocks rather than one clean, authoritative file, creating ambiguity. Key Cargo commands like `cargo build`, `cargo check`, `cargo test`, `cargo clippy`, and `cargo fmt --check` are notably absent, which significantly limits functional completeness for a Rust development workflow.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments used throughout are JavaScript/TypeScript syntax, not valid JSON)",
+                "The settings are split across two separate JSON blocks rather than being a single unified settings.json file",
+                "The comment style resembles TypeScript/JavaScript configuration files like tsconfig.json or VS Code settings"
+              ],
+              "brief_assessment": "The code demonstrates a reasonable understanding of Claude Code's settings.json permission format and covers appropriate commands for a Rust/Cargo/GitHub Actions stack. However, the JSON contains // comments throughout, which are invalid JSON syntax (a clear JavaScript/TypeScript contamination pattern). The response also splits the configuration into two separate JSON blocks instead of providing one complete file, meaning the WebFetch domains are not integrated into the main settings. The command selection is reasonable but notably missing important Cargo commands like `cargo build`, `cargo test`, `cargo check`, `cargo clippy`, and `cargo fmt` which would be essential for a Rust development workflow.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "The key 'allowList' uses camelCase which is not the documented Claude Code settings.json schema - the actual schema uses 'permissions' with 'allow' and 'deny' arrays containing objects with 'tool' and optionally 'command' fields",
+                "The structure is a flat list of command strings rather than the expected Claude Code permissions format which uses structured objects like {\"tool\": \"Bash\", \"command\": \"cargo build\"}",
+                "Missing the expected top-level 'permissions' key and nested 'allow' array structure used by Claude Code"
+              ],
+              "brief_assessment": "The JSON is syntactically valid and the command selections are well-tailored to a Rust/Cargo/GitHub Actions stack, correctly excluding Docker, web frameworks, and external services. However, the structure does not match the actual Claude Code settings.json permissions schema, which uses a 'permissions.allow' array of objects with 'tool' and 'command' fields rather than a flat 'allowList' of command strings. The choice of commands is comprehensive and appropriate, but the invented schema format means this would not function as a real Claude Code configuration file without significant restructuring.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 5,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 2,
+              "api_idiomaticity": 2,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments used throughout)",
+                "Two separate JSON blocks presented instead of a single unified settings.json",
+                "WebFetch permissions structure appears fabricated - mixing 'webFetch' as a nested object inside 'permissions' alongside 'allow' array is not a known Claude Code settings.json schema pattern",
+                "WebFetch entries use a different syntax pattern (WebFetch(domain:...)) that may not be the actual Claude Code format"
+              ],
+              "brief_assessment": "The code provides a reasonable conceptual permissions allow list for a Rust/Cargo/GitHub Actions stack, correctly identifying read-only commands and excluding state-modifying ones. However, the JSON is technically invalid due to pervasive use of // comments, which are not supported in standard JSON. The response also splits the configuration into two separate JSON blocks rather than providing one unified file, and the WebFetch configuration uses a structure and syntax that appears speculative rather than based on actual Claude Code settings.json schema. The overall approach is sound but the output is not valid JSON as requested.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The response is split across multiple disconnected JSON blocks rather than providing a single valid settings.json file",
+                "Markdown table and explanatory prose mixed in suggest a tutorial/documentation writing style rather than pure code generation"
+              ],
+              "brief_assessment": "The core structure and permission entries are reasonable and appropriate for the described Rust/Cargo/GitHub Actions stack, correctly excluding Docker, web framework, and external service commands. However, the JSON contains // comments which are invalid JSON syntax, making none of the provided blocks actually parseable. The response also splits the configuration across two separate JSON blocks rather than providing one complete, valid file, leaving the user to manually merge them. The command selections are sensible but the allow list is quite conservative, omitting potentially useful commands like `cargo build`, `cargo check`, `cargo test`, `cargo clippy`, and `cargo fmt` which are standard for Rust development workflows.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(rustc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo tree",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(cargo metadata",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git status",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(rustc --version",
+                "Bash\\(cargo --version",
+                "Bash\\(cargo tree",
+                "Bash\\(cargo metadata",
+                "Bash\\(git status"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 5,
+              "expected_total": 5,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(go ",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.djangoproject",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "claude-settings-audit-03",
+      "task_type": "similar_syntax",
+      "target_language": "json",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Claude Code settings.json uses 'permissions' with 'allow' array of strings, not 'allowList' with objects containing 'command' and 'description' fields",
+                "The actual Claude Code settings.json format uses simple string entries like 'Bash(pnpm install)' or 'Bash(vite build)' rather than structured command objects",
+                "Missing the correct top-level 'permissions' key structure expected by Claude Code"
+              ],
+              "brief_assessment": "The JSON is syntactically valid, but it does not match the actual Claude Code settings.json schema. Claude Code uses a 'permissions.allow' array of strings like 'Bash(pnpm:*)' or 'Bash(node:*)' rather than an 'allowList' of objects with 'command' and 'description' fields. The structure appears invented or confused with another tool's configuration format. While the tooling choices (pnpm, tsc, vite, no Python/Docker/Sentry) are appropriate for the stated requirements, the incorrect schema means this would not function as a valid Claude Code permissions configuration.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 4,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments used throughout the file), which is a pattern from JavaScript/TypeScript contamination",
+                "The webFetch section uses a non-standard format - 'WebFetch(domain:...)' entries inside a nested webFetch object rather than following Claude Code's actual settings.json schema",
+                "Two separate JSON blocks are provided rather than a single unified settings.json, creating ambiguity about the actual file content"
+              ],
+              "brief_assessment": "The code attempts to generate a Claude Code settings.json permissions allow list and covers the right tools (pnpm, TypeScript, Vite) while excluding Python, Docker, and Sentry as requested. However, the JSON contains // comments which are invalid in standard JSON (a clear JavaScript contamination signal), making the file unparseable as-is. The webFetch section uses a questionable nested structure and format that doesn't clearly align with Claude Code's documented schema. The permissions list is reasonable but conservative (read-only only), and splitting the output into two separate JSON blocks rather than one unified file reduces clarity.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 2,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 2,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The response is split into two separate JSON blocks rather than a single consolidated settings.json file",
+                "Comment syntax borrowed from JavaScript/TypeScript used throughout the JSON"
+              ],
+              "brief_assessment": "The code uses JavaScript-style // comments throughout, which are invalid in standard JSON and would cause parsing errors. This is a significant contamination from JavaScript/TypeScript habits. The response also splits the configuration into two separate JSON snippets rather than providing one complete, valid settings.json file. The permission patterns themselves (Bash(), WebFetch()) appear to follow the correct Claude Code settings format, and the choices are reasonable for the described Node.js/pnpm/TypeScript/Vite stack without Python/Docker/Sentry. However, the invalid JSON syntax is a critical issue that would prevent the file from being used as-is.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Claude Code settings.json uses 'permissions' with 'allow' array of strings, not 'allowList' with objects containing 'command' and 'description' fields",
+                "The actual Claude Code settings.json format expects entries like 'Bash(pnpm install)' or 'Bash(vite build)' as permission scope strings, not generic command names",
+                "The schema appears invented or based on a generic allowlist concept rather than the actual Claude Code settings.json specification"
+              ],
+              "brief_assessment": "The JSON is syntactically valid, which is good. However, the structure does not match the actual Claude Code settings.json format. Claude Code uses a 'permissions' object with an 'allow' array containing permission scope strings like 'Bash(pnpm:*)' rather than an 'allowList' of objects with 'command' and 'description' fields. The code also includes unnecessary commands (curl, wget) while missing the correct permission format, and doesn't properly exclude Python/Docker/Sentry as the task emphasizes. The schema appears fabricated rather than based on the real Claude Code configuration format.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 4,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The output includes two separate JSON blocks rather than a single unified settings.json file"
+              ],
+              "brief_assessment": "The code addresses the task well conceptually, providing a thoughtful and well-organized permissions allow list tailored to a pnpm/TypeScript/Vite project with no Python, Docker, or Sentry contamination. However, the JSON contains // comments throughout, which are invalid in standard JSON and represent a syntax error borrowed from JavaScript conventions. The split into two separate JSON blocks rather than one unified file also reduces practical usability. The accompanying notes and explanations are excellent and demonstrate good understanding of the security model.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The comment syntax used (// Baseline filesystem commands, etc.) is borrowed from JavaScript/TypeScript and makes this invalid JSON"
+              ],
+              "brief_assessment": "The code demonstrates a reasonable understanding of Claude Code's settings.json permission structure with appropriate tool entries for a Node.js/pnpm/TypeScript/Vite stack. However, the JSON contains numerous // comments which are not valid JSON syntax, making this file unparseable by any standard JSON parser. The permission entries themselves are sensible and correctly exclude Python, Docker, and Sentry-related commands, though the configuration is overly conservative (read-only only) and could include pnpm install, tsc build, and vite build commands that a developer would typically need.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 2,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Claude Code settings.json uses 'permissions' with 'allow' array of strings, not 'allowList' with objects containing 'command' and 'description' fields",
+                "The actual Claude Code settings.json format uses simple string entries like 'Bash(node *)' or 'Bash(pnpm *)' rather than structured objects",
+                "The schema appears invented or borrowed from a different tool's configuration format, possibly contaminated by ESLint or similar tool config patterns"
+              ],
+              "brief_assessment": "The JSON is syntactically valid, but the schema is incorrect for Claude Code's actual settings.json format. Claude Code uses a 'permissions.allow' array with string entries like 'Bash(pnpm install)' or 'Bash(vite build)', not an 'allowList' array of objects with 'command' and 'description' fields. The tool selections (pnpm, tsc, vite, git, common unix utilities) are reasonable for the described project and correctly exclude Python, Docker, and Sentry, but the wrong schema means this would not actually function as a Claude Code permissions configuration.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [],
+              "expected_misses": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_hit_count": 0,
+              "expected_total": 4,
+              "expected_hit_rate": 0.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments used in the first code block), which is a syntax contamination from JavaScript/TypeScript",
+                "The webFetch permissions structure is likely not the correct Claude Code settings.json schema - 'webFetch' nested under 'permissions' with 'WebFetch(domain:...)' strings is not a documented pattern and appears fabricated or confused with the Bash permission syntax",
+                "The 'WebFetch(domain:...)' syntax mimics the 'Bash(command:*)' pattern but there's no evidence this is the actual API for web fetch domains in Claude Code settings"
+              ],
+              "brief_assessment": "The code provides a reasonable set of read-only permissions for a Node.js/pnpm/TypeScript/Vite project and correctly excludes Python, Docker, and Sentry tooling. However, the first JSON block contains JavaScript-style comments which make it invalid JSON. The webFetch configuration uses a fabricated schema pattern that mirrors the Bash permission syntax but is not documented as the actual Claude Code settings format. The core allow list for Bash permissions is sensible but conservative \u2014 it omits common write operations like `pnpm install`, `pnpm build`, `vite build`, and `tsc` compilation that a developer would likely want in their allow list for a build-tool-focused project.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON does not support comments (// style comments are invalid JSON syntax)",
+                "The use of // comments throughout the JSON file is a pattern borrowed from JavaScript/TypeScript (JSONC), not valid standard JSON"
+              ],
+              "brief_assessment": "The code provides a well-thought-out permissions allow list for Claude Code that correctly targets a pnpm/TypeScript/Vite project while excluding Python, Docker, and Sentry. However, the JSON contains numerous // comments which are invalid in standard JSON \u2014 this is a significant language correctness issue as JSON does not support comments (this is a JavaScript/JSONC contamination pattern). The permission patterns themselves (Bash(), WebFetch()) appear to follow Claude Code's actual settings format correctly, and the functional coverage is good with appropriate read-only commands, though some users might want write commands like 'pnpm install' or 'pnpm run build' for a practical workflow.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(pnpm list",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(pnpm why",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(pnpm list",
+                "Bash\\(pnpm why",
+                "Bash\\(node --version",
+                "Bash\\(tsc --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(npm list",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(npm view",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(python",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry",
+                  "matched": false
+                },
+                {
+                  "pattern": "Skill\\(sentry-skills:",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch\\(domain:docs\\.sentry",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 7,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "claude-settings-audit-04",
+      "task_type": "grounded",
+      "target_language": "json",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is valid JSON with no foreign language contamination. It correctly preserves the three existing permissions without duplication and adds reasonable new permissions inferred from the detected project files (npm, tsc, docker, sentry-cli, and Read permissions). The permission format (e.g., 'Bash(command:*)' and 'Read(file)') is consistent with the existing conventions. Minor quibble: the exact set of added permissions is a judgment call\u2014some might argue certain commands are unnecessary or that others are missing\u2014but the approach is sound and well-documented with the summary.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)"
+              ],
+              "expected_misses": [
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 6,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON with comments (// style comments) - this is not valid JSON; comments are a JavaScript/TypeScript pattern that does not belong in standard JSON",
+                "Bash shell commands embedded in markdown instructions (cp, cat, heredoc syntax) - while supplementary, these are non-JSON languages mixed into the response",
+                "Markdown formatting and tables mixed throughout what should be a JSON output"
+              ],
+              "brief_assessment": "The core JSON structure is logically sound and accomplishes the task of merging permissions without duplicating existing entries, adding relevant commands for the detected tech stack. However, the JSON contains // comments which make it invalid JSON \u2014 this is a clear contamination from JavaScript/TypeScript conventions. The response is also heavily padded with markdown explanation, bash scripts, and a secondary .mcp.json file that weren't requested, making it more of a consulting document than a clean JSON deliverable. The actual merged settings.json would fail to parse in any standard JSON parser due to the comments.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)",
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The output is valid JSON with no foreign language contamination. It correctly preserves the three existing permissions without duplication and adds contextually relevant permissions based on the detected project files (TypeScript, Docker, Sentry, npm). The additions are reasonable but go well beyond what was strictly implied by the project structure \u2014 the extensive Sentry skills and GitHub CLI permissions are speculative rather than directly derived from the detected files. The Skill() and WebFetch() permission patterns appear to be specific to Claude Code's settings format, which is plausible but not universally standard, making some entries potentially fabricated.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)",
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is valid JSON with no foreign language contamination. It correctly preserves all three existing permissions without duplication and adds sensible new permissions derived from the detected project files (npm/npx for package.json, tsc for tsconfig.json, docker commands for Dockerfile, sentry-cli for .sentryclirc, and ReadFile entries for each config file). The permission format follows a consistent pattern; the only minor note is that the exact permission schema (e.g., 'Bash(\u2026:*)' and 'ReadFile(\u2026)') is assumed rather than standardized, but this is appropriate given the existing file's conventions. The accompanying summary is a helpful addition.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)"
+              ],
+              "expected_misses": [
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 6,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 2,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON comments (// style) are not valid JSON syntax - this is a JavaScript/TypeScript pattern contaminating the JSON output",
+                "The main settings.json output contains single-line comments which would cause JSON parse errors",
+                "Inclusion of bash shell scripts, markdown tables, and extensive markdown documentation goes well beyond the requested JSON output"
+              ],
+              "brief_assessment": "The primary deliverable \u2014 the merged settings.json \u2014 contains JavaScript-style comments (// ===) which are illegal in JSON, making it syntactically invalid. This is a clear cross-language contamination from JavaScript/TypeScript. Functionally, the code does a good job of identifying missing permissions based on the project structure and preserving existing ones without duplication, and the additional recommendations (webfetch.json, .mcp.json) are thoughtful extras. However, the task asked specifically to generate a merged settings.json, and the core output fails to be valid JSON.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)",
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The output is valid JSON with no foreign language contamination. It correctly preserves the three existing permissions without duplication and adds contextually relevant permissions based on the detected project files (npm, TypeScript, Docker, Sentry). However, the response goes well beyond what was strictly asked \u2014 adding many generic filesystem commands, GitHub CLI permissions, Sentry skills, and WebFetch domains that weren't directly implied by the project structure. The Sentry skills in particular are speculative (a .sentryclirc file doesn't necessarily imply a Claude skills plugin). The JSON itself is syntactically correct and well-structured.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)",
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The output is valid JSON with no foreign language contamination. It correctly preserves all three existing permissions without duplication and adds sensible new permissions based on the detected project files (npm/Node.js, TypeScript, Docker, Sentry). The permission format follows a consistent pattern. Minor concern: the exact permission schema (e.g., 'ReadFile', 'Bash(tsc:*)') is assumed rather than derived from a known specification, so some entries may not match a real tool's expected format, but this is a reasonable interpretation of the task. The accompanying summary is a nice touch for documentation.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)"
+              ],
+              "expected_misses": [
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 6,
+              "expected_hit_rate": 0.5,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 3,
+              "api_idiomaticity": 3,
+              "functional_correctness": 4,
+              "code_quality": 3,
+              "contamination_signals": [
+                "JSON with comments (// style comments are not valid JSON)",
+                "Markdown formatting and explanatory text surrounding the JSON suggests contamination from a documentation/chat format rather than pure code generation",
+                "The .mcp.json addition was not requested but was generated anyway"
+              ],
+              "brief_assessment": "The primary JSON output contains JavaScript-style comments (// comments), which are invalid in standard JSON and represent a significant language correctness issue. The functional goal of merging permissions without duplication is achieved well \u2014 existing permissions are preserved and contextually relevant new ones are added based on the detected project files. However, the output goes well beyond what was requested by including extensive Markdown documentation, a separate .mcp.json file, and Sentry-specific skills that aren't clearly warranted just from a .sentryclirc file. The comments in JSON suggest contamination from JavaScript/JSONC conventions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)",
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The output is valid JSON with no cross-language contamination. It correctly preserves the three existing permissions and adds many new ones based on the detected project files (npm/TypeScript/Docker/Sentry). The Sentry Skills entries and some GitHub CLI permissions are speculative\u2014they assume a specific Claude-based tooling ecosystem that may not match the user's actual setup\u2014which slightly reduces functional correctness confidence. The surrounding markdown explanation is helpful but the optional .mcp.json snippet goes beyond what was asked.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "Bash\\(git status:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(git log:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(npm list:\\*\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(docker --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(tsc --version",
+                  "matched": true
+                },
+                {
+                  "pattern": "Bash\\(node --version",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "Bash\\(git status:\\*\\)",
+                "Bash\\(git log:\\*\\)",
+                "Bash\\(npm list:\\*\\)",
+                "Bash\\(docker --version",
+                "Bash\\(tsc --version",
+                "Bash\\(node --version"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "Bash\\(yarn ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pnpm ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(pip ",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(poetry ",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "claude-settings-audit-05",
+      "task_type": "adjacent_domain",
+      "target_language": "json",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically valid and well-structured for an .mcp.json configuration file. The core mcpServers section follows the standard MCP configuration pattern correctly with command, args, and env fields for both Sentry and Linear servers. The Sentry org/project slugs are correctly included as specified. The 'environment' and 'metadata' sections are reasonable additions but are not part of a standard .mcp.json schema\u2014they appear to be invented for documentation purposes, which slightly reduces API idiomaticity. The 'description' field within each server entry is also non-standard but harmless. Overall this is high-quality, functional configuration with no cross-language contamination.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": false
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "linear"
+              ],
+              "expected_misses": [
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [
+                "The output is primarily Markdown documentation with embedded JSON, rather than a pure JSON file as requested"
+              ],
+              "brief_assessment": "The actual JSON configuration within the response is valid and well-structured, correctly configuring both Sentry (with the specified org/project slugs) and Linear MCP servers. The Sentry HTTP server configuration and Linear npx-based configuration follow realistic MCP patterns. However, the task asked for JSON output and the response is predominantly Markdown documentation wrapping the JSON, which is a format mismatch. The documentation itself is high quality and adds useful context, but the primary deliverable should have been the raw JSON file.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": true
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                "linear"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically valid and correctly structured as an .mcp.json configuration file. It includes both Sentry and Linear MCP server configurations with the required organization and project slugs for Sentry. The Sentry configuration uses the HTTP transport type with the correct URL pattern, and the Linear configuration uses the stdio/command pattern with npx. Minor concerns: the Sentry MCP server configuration style (type: 'http' with a url) is plausible but the exact URL format and transport type naming may vary from the actual Sentry MCP implementation. The Linear server configuration follows standard MCP stdio conventions well. The environment variable interpolation syntax ${LINEAR_API_KEY} is reasonable but implementation-dependent.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": true
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                "linear"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically valid and well-structured for an .mcp.json configuration file. The core mcpServers section follows the standard MCP configuration pattern correctly with appropriate command, args, and env fields for both Sentry and Linear. The environmentVariables and metadata sections are not part of the standard .mcp.json schema and may be ignored by MCP clients, but they don't break anything and could be considered helpful documentation. The Sentry org slug and project slug are correctly included as requested. Minor concern: the actual MCP server package names (e.g., @modelcontextprotocol/server-sentry, @modelcontextprotocol/server-linear) and their expected env variable names may differ from what's shown, but the overall structure is reasonable and conventional.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": false
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "linear"
+              ],
+              "expected_misses": [
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "permissions"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON configuration is syntactically correct and well-structured. It properly configures both Sentry and Linear MCP servers with appropriate patterns \u2014 HTTP-based for Sentry and stdio/npx-based for Linear. The Sentry URL correctly incorporates the organization slug 'acme-corp' and project slug 'backend-api'. The Linear server configuration uses the standard npx pattern with environment variable for the API key. Minor concern: Sentry's MCP endpoint URL format and the claim that 'no authentication is needed' may not be fully accurate, as Sentry typically requires auth tokens, but the overall structure follows MCP configuration conventions well. The surrounding documentation adds significant value.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": true
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                "linear"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "permissions"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically correct and well-structured. It properly configures both Sentry (as an HTTP-based MCP server with the correct org/project slugs in the URL) and Linear (as a stdio-based MCP server using npx). The Sentry MCP URL format embedding the project slug is plausible but may not exactly match the official Sentry MCP endpoint pattern (which typically uses just the org slug). The Linear configuration follows standard MCP conventions. The code is clean, minimal, and production-ready with helpful setup instructions.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": true
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                "linear"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically valid and well-structured for an MCP configuration file. It correctly configures both Sentry and Linear MCP servers with appropriate command, args, and env fields. The Sentry org slug and project slug are properly included as specified. The 'environment' and 'metadata' top-level keys are plausible additions but not part of the standard .mcp.json schema (which typically only has 'mcpServers'), representing a minor deviation. The 'description' field inside each server entry is also non-standard but harmless. Overall this is clean, well-organized, and would largely accomplish the task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": false
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "linear"
+              ],
+              "expected_misses": [
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api"
+              ],
+              "expected_hit_count": 3,
+              "expected_total": 4,
+              "expected_hit_rate": 0.75,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically correct and well-structured. The configuration follows the MCP server specification pattern with appropriate use of 'mcpServers' as the top-level key. The Sentry configuration uses the HTTP transport type with the correct URL incorporating the organization and project slugs. The Linear configuration uses the stdio/command pattern with npx. Minor concern: the Sentry MCP server's exact URL format and the claim that no authentication is needed may not be fully accurate in practice, and the Linear MCP server lacks a 'type' field for consistency, but overall this is a high-quality, complete configuration file.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": true
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                "linear"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": false
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The JSON is syntactically valid and follows the MCP configuration format correctly. The Sentry server is configured as an HTTP-type MCP server with the organization and project slugs embedded in the URL, while Linear uses the stdio-based npx command pattern. The Sentry MCP URL format (https://mcp.sentry.dev/mcp/acme-corp/backend-api) appears reasonable but may not exactly match the official Sentry MCP endpoint structure. The Linear server configuration lacks an explicit 'type' field (should arguably be 'stdio'), though this may be implicitly defaulted. Overall it's a clean, well-structured configuration file that accomplishes the stated task.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "mcpServers",
+                  "matched": true
+                },
+                {
+                  "pattern": "sentry",
+                  "matched": true
+                },
+                {
+                  "pattern": "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                  "matched": true
+                },
+                {
+                  "pattern": "linear",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "mcpServers",
+                "sentry",
+                "mcp\\.sentry\\.dev/mcp/acme-corp/backend-api",
+                "linear"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 4,
+              "expected_total": 4,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "github.*mcp",
+                  "matched": false
+                },
+                {
+                  "pattern": "Bash\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "permissions",
+                  "matched": true
+                },
+                {
+                  "pattern": "WebFetch",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "permissions"
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 4,
+              "anti_pattern_hit_rate": 0.25,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

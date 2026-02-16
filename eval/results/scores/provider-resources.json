@@ -1,0 +1,3807 @@
+{
+  "skill_name": "provider-resources",
+  "scored_at": "2026-02-16T08:07:55.354990+00:00",
+  "model_judge": "claude-opus-4-6",
+  "model_generation": "claude-sonnet-4-5-20250929",
+  "contamination_score": 0.55,
+  "risk_level": "high",
+  "test_category": "app_to_aux",
+  "tasks": [
+    {
+      "task_id": "provider-resources-01",
+      "task_type": "direct_target",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Missing `regexp` import - uses `regexp.MustCompile` without importing the package",
+                "Uses `types.StringType` from framework types package but also imports `types` from aws-sdk-go-v2/service/s3/types` creating a naming collision",
+                "aws-sdk-go-v2 types package conflicts with terraform-plugin-framework types package - both imported as `types`"
+              ],
+              "brief_assessment": "The code is written in Go and follows the Terraform Plugin Framework patterns correctly for the Metadata, Schema, and Configure methods. It demonstrates proper use of validators, plan modifiers, and the resource model struct. However, the code is severely truncated - it cuts off mid-way through the Create function and is missing Read, Update, Delete, and ImportState implementations, meaning less than half the requested CRUD operations are present. There's also a critical import collision between `types` from the S3 SDK and `types` from the framework package, and the `regexp` package is used but not imported.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [
+                "framework\\.ResourceWithConfigure"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "References to 'github.com/hashicorp/terraform-provider-aws/internal' packages suggest this is modeled very closely on AWS provider internal patterns rather than being a standalone generic provider",
+                "Uses 'r.Meta().S3StorageClient(ctx)' which is an AWS-provider-specific pattern for obtaining clients",
+                "Mixing terraform-plugin-sdk/v2 (retry package) with terraform-plugin-framework is a pattern from AWS provider but somewhat unusual",
+                "References to 'names.S3Storage', 'names.AttrTags', 'names.AttrTagsAll' are AWS-provider-internal conventions",
+                "The 's3storage' package is referenced but never imported - the CreateBucketInput struct is used without a proper import"
+              ],
+              "brief_assessment": "The code is written in Go and follows Terraform Plugin Framework patterns reasonably well, with proper Schema definition including validators and plan modifiers, and the correct resource interface methods. However, the code is significantly truncated \u2014 the Create method is cut off mid-implementation, and Read, Update, and Delete methods are entirely missing, meaning less than half the CRUD task is accomplished. The code heavily borrows from AWS provider internal patterns (framework.ResourceWithConfigure, tftags, flex, fwtypes, names package) making it tightly coupled to that specific provider rather than being a standalone implementation. The s3storage client SDK is referenced but never imported, which would cause compilation errors.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "framework\\.ResourceWithConfigure",
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct syntax and idiomatic use of the Terraform Plugin Framework APIs, including proper interface compliance checks, schema definition with validators/plan modifiers, Configure, Metadata, and Schema methods. However, the code is truncated mid-way through the Create function \u2014 the Read, Update, Delete, and ImportState methods are missing entirely, along with the Client type and API interaction logic. The implemented portions demonstrate high quality with proper error handling, comprehensive validators, and standard service package patterns, but the incomplete CRUD operations significantly limit functional correctness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [
+                "framework\\.ResourceWithConfigure"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Missing import for 'regexp' package - uses regexp.MustCompile without importing it",
+                "Conflict between imported 'types' from aws-sdk-go-v2/service/s3/types and terraform-plugin-framework/types - both imported as 'types'"
+              ],
+              "brief_assessment": "The code is written in Go and follows the Terraform Plugin Framework patterns correctly for Metadata, Schema, and Configure methods. The schema definition is well-structured with appropriate validators, plan modifiers, and defaults. However, the code is severely truncated mid-way through the Create function, meaning Read, Update, Delete, and ImportState operations are entirely missing \u2014 less than half the CRUD task is implemented. There's also a compilation error due to conflicting 'types' imports and a missing 'regexp' import.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [
+                "framework\\.ResourceWithConfigure"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct syntax and uses the Terraform Plugin Framework API idiomatically, following standard service package patterns (resource struct embedding, schema definition with validators and plan modifiers, tags handling). However, the code is truncated mid-function in the Create method, and the Update, Read, and Delete operations are completely missing, meaning less than half the CRUD task is implemented. Several referenced elements like bucketNameRegex, the timeouts helper struct, and the resourceBucketModel are also undefined within the provided code.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "framework\\.ResourceWithConfigure",
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Import of 'github.com/hashicorp/terraform-plugin-framework/schema/validator' instead of correct 'github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator'",
+                "Use of 'stringvalidator' functions without proper import (stringvalidator package not imported)",
+                "Conflict between AWS SDK 'types' package (github.com/aws/aws-sdk-go-v2/service/s3/types) and framework 'types' package (github.com/hashicorp/terraform-plugin-framework/types) - both imported as 'types'",
+                "regexp package used but not imported"
+              ],
+              "brief_assessment": "The code is written in Go and follows the general structure of a Terraform Plugin Framework resource, demonstrating understanding of Metadata, Schema, Configure, and CRUD methods. However, it is severely truncated\u2014the Create method is cut off mid-function, and Read, Update, Delete, and ImportState methods are entirely missing, meaning less than half the task is accomplished. There are several import issues: conflicting 'types' package aliases (AWS SDK types vs framework types), missing imports for 'regexp' and 'stringvalidator', and an incorrect import path for the validator interface. The schema definition and overall patterns are largely idiomatic for the Plugin Framework but the compilation errors from import conflicts would prevent this from building.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [
+                "framework\\.ResourceWithConfigure"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct Terraform Plugin Framework idioms. It properly implements the resource struct, Metadata, Schema with validators (stringvalidator, RegexMatches) and plan modifiers (RequiresReplace, UseStateForUnknown), and follows standard service package patterns. However, the code is truncated mid-way through the Create function, so Read, Update, Delete, and ImportState operations are missing, along with the S3Client type definition. The implemented portions demonstrate high quality with proper interface compliance checks, comprehensive bucket name validation, and correct use of the Plugin Framework API.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [
+                "framework\\.ResourceWithConfigure"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Uses types.StringValue which conflicts with imported s3 types package - namespace collision suggests possible confusion",
+                "References framework helpers like framework.ARNAttributeComputedOnly(), framework.IDAttribute() which are terraform-provider-aws internal patterns, not standard Plugin Framework API",
+                "Imports both terraform-plugin-framework types and aws s3 types packages creating ambiguity",
+                "References names.S3Storage, names.AttrTags, names.AttrTagsAll which are provider-specific internal constants",
+                "References timeouts.Block without proper import - mixing patterns from different framework versions"
+              ],
+              "brief_assessment": "The code is written in Go and follows the general structure of a Terraform Plugin Framework resource correctly, using appropriate constructs like schema definitions with validators and plan modifiers. However, the code is significantly truncated - it cuts off mid-function in the Create method, and Read, Update, Delete operations are entirely missing, along with the resource model struct and helper functions. The code relies heavily on terraform-provider-aws internal helpers (framework.ARNAttributeComputedOnly, tftags, create.ProblemStandardMessage) which are idiomatic for that specific provider but not standard Plugin Framework patterns. The namespace collision between hashicorp types and AWS SDK types packages would cause compilation errors.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "framework\\.ResourceWithConfigure",
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Missing `regexp` import despite using `regexp.MustCompile` in schema validators",
+                "Code is truncated - Read, Update, Delete, and ImportState methods are incomplete"
+              ],
+              "brief_assessment": "The code is written in Go and follows the Terraform Plugin Framework patterns correctly, with proper use of schema definitions, plan modifiers, validators, and the Configure/Create methods. The schema is well-structured with appropriate use of RequiresReplace(), UseStateForUnknown(), and booldefault. However, the code is significantly incomplete \u2014 it cuts off mid-Read method, missing Read, Update, Delete, and ImportState implementations, which represents roughly half the requested CRUD functionality. There's also a missing `regexp` import that would cause a compilation error.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.Schema\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": true
+                },
+                {
+                  "pattern": "stringplanmodifier\\.RequiresReplace",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.AddError",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.Set\\(ctx",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.MetadataRequest",
+                "schema\\.Schema\\{",
+                "schema\\.StringAttribute",
+                "stringplanmodifier\\.RequiresReplace",
+                "resp\\.Diagnostics\\.AddError",
+                "resp\\.State\\.Set\\(ctx"
+              ],
+              "expected_misses": [
+                "framework\\.ResourceWithConfigure"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "variable\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "terraform\\s*\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "def\\s+create|def\\s+read",
+                  "matched": false
+                },
+                {
+                  "pattern": "class\\s+\\w+Resource",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "provider-resources-02",
+      "task_type": "cross_language",
+      "target_language": "python",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Pulumi dynamic provider API usage (CreateResult, UpdateResult, ResourceProvider). However, the code is truncated mid-implementation \u2014 the update method is cut off, and delete is missing entirely, meaning only create and read are fully implemented out of the four requested CRUD operations. The implemented portions demonstrate good quality with validation, logging, and helper methods, but the incomplete state significantly impacts functional correctness. The DatabaseArgs class doesn't extend pulumi.ComponentResourceArgs, which is a minor idiomatic deviation but acceptable for dynamic providers.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Over-engineered project structure more typical of enterprise Java/C# patterns (separate models, exceptions, client modules)",
+                "Code is truncated mid-implementation - the actual Pulumi dynamic provider class (the core of the task) is never shown"
+              ],
+              "brief_assessment": "The code is valid Python with proper syntax and idiomatic Python patterns (dataclasses, enums, type hints). However, the actual Pulumi dynamic provider implementation (the DatabaseProvider class extending pulumi.dynamic.ResourceProvider with create, read, update, delete methods) is never shown \u2014 the code is cut off in the middle of the mock client's create_database method. The over-engineered project structure with separate models, exceptions, and client modules, while not wrong, feels influenced by enterprise patterns from other ecosystems. Since the core task (implementing CRUD via Pulumi's dynamic provider interface) is entirely missing, functional correctness is very low.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Pulumi dynamic provider API usage (CreateResult, UpdateResult, ResourceProvider). However, the code is truncated: the delete method is cut off, the MockDatabaseClient class is never defined, and the actual Resource subclass wrapping the provider is missing. The read method's return signature doesn't perfectly match the Pulumi dynamic provider interface (should return a ReadResult in some versions, though returning a dict with 'id' and 'outs' keys or just 'outs' can work). The implemented portions demonstrate good practices including logging, validation, and proper CRUD logic, but the incompleteness significantly impacts functional correctness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Pulumi dynamic provider API usage (CreateResult, UpdateResult, ResourceProvider, etc.). However, the code is clearly truncated mid-function \u2014 the update method is cut off at `new_props.ge`, and the delete method, diff method, helper methods (_validate_props, _detect_changes, _get_default_port), and the actual Resource class definition are missing. What is present demonstrates good structure and proper use of the Pulumi Python SDK, but the incompleteness significantly impacts functional correctness since only create and read are fully implemented. The use of a class-level dict _databases as simulated storage is reasonable for a demo but would not persist across processes.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Code is truncated mid-file - the api_client.py is cut off at the docstring",
+                "Project structure suggests over-engineering but core provider implementation (database_provider.py, database_resource.py) is never shown",
+                "The actual Pulumi dynamic provider interface (pulumi.dynamic.ResourceProvider with create/read/update/delete methods, pulumi.dynamic.Resource subclass) is completely missing from the provided code"
+              ],
+              "brief_assessment": "The code that is present is valid Python with good structure and documentation. However, the submission is critically incomplete - it only shows exception classes, validators, and a project structure, but the actual Pulumi dynamic provider implementation (the core of the task) with CRUD operations is entirely missing due to truncation. The code cuts off mid-file in api_client.py, meaning the database_provider.py and database_resource.py files that would contain the actual pulumi.dynamic.ResourceProvider and pulumi.dynamic.Resource implementations were never provided.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\("
+              ],
+              "expected_misses": [
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_hit_count": 4,
+              "expected_total": 6,
+              "expected_hit_rate": 0.6666666666666666,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python with correct Pulumi dynamic provider API usage (CreateResult, UpdateResult, ResourceProvider). However, the code is truncated mid-function \u2014 the update method is cut off before returning, and the delete method, the MockDatabaseClient class, and the Resource subclass (DatabaseResource) are missing entirely. The read method's return signature doesn't perfectly match the Pulumi ReadResult pattern (should return a ReadResult with id and properties), which is a minor API deviation. What is present demonstrates good structure, proper logging, validation, and clear documentation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Python and correctly uses the Pulumi dynamic provider interface (ResourceProvider, CreateResult, UpdateResult, Resource). However, the code is clearly truncated mid-function \u2014 the update method is cut off during a string literal, and the delete method, the Resource subclass, and the __main__ usage are all missing. The implemented portions (create, read, partial update) are well-structured with good documentation and validation helpers, but the incompleteness significantly impacts functional correctness since only about half the CRUD operations are fully implemented. The use of class-level _databases dict for simulated storage is a reasonable approach for demonstration purposes.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 3,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [
+                "Over-engineered project structure resembling enterprise Java/TypeScript patterns (separate models, exceptions, api_client modules)",
+                "ARN references suggest AWS SDK contamination rather than pure Pulumi dynamic provider patterns",
+                "The actual Pulumi dynamic provider class (database_provider.py with create/read/update/delete methods) is never shown - the code is truncated before the core implementation"
+              ],
+              "brief_assessment": "The code is syntactically correct Python and demonstrates good software engineering practices with data models, enums, and custom exceptions. However, the actual Pulumi dynamic provider implementation (the core of the task - the class extending pulumi.dynamic.ResourceProvider with create/read/update/delete methods) is never shown due to truncation. The code cuts off mid-function in the mock API client, meaning less than half the task is accomplished. The over-engineered structure with separate models/exceptions modules and AWS ARN patterns suggest some cross-framework contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": false
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\("
+              ],
+              "expected_misses": [
+                "def delete\\("
+              ],
+              "expected_hit_count": 5,
+              "expected_total": 6,
+              "expected_hit_rate": 0.8333333333333334,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Python using the correct Pulumi dynamic provider API (ResourceProvider, CreateResult, UpdateResult, Resource). The CRUD methods (create, update, delete) are well-implemented and idiomatic, but the code is truncated: _validate_props is cut off mid-function, the MockDatabaseClient class is missing, and the actual DatabaseResource (Resource subclass) that users would instantiate is not shown. The `read` method's return type deviates slightly from the expected `ReadResult` pattern, but this is a minor issue. Overall good quality but incomplete due to truncation \u2014 roughly 60-70% of the task is implemented.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "pulumi",
+                  "matched": true
+                },
+                {
+                  "pattern": "ResourceProvider|dynamic\\.Resource",
+                  "matched": true
+                },
+                {
+                  "pattern": "def create\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def read\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def update\\(",
+                  "matched": true
+                },
+                {
+                  "pattern": "def delete\\(",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "pulumi",
+                "ResourceProvider|dynamic\\.Resource",
+                "def create\\(",
+                "def read\\(",
+                "def update\\(",
+                "def delete\\("
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 6,
+              "expected_total": 6,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.MetadataRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "hcl|terraform",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 6,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "provider-resources-03",
+      "task_type": "similar_syntax",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and uses the idiomatic Terraform provider acceptance testing patterns correctly, including resource.ParallelTest, ProtoV6ProviderFactories, CheckDestroy, ImportStateVerify, and the disappears test pattern with ExpectNonEmptyPlan. It includes all four requested elements: basic test, disappears test, import state verification, and helper functions (testAccCheckExists, testAccCheckDestroy, testAccCheckDisappears). However, the code is truncated mid-function (the backupRetention test and several config helper functions are cut off), and some helper functions and type definitions (CloudDatabase, testAccPreCheck, provider factories) are referenced but not defined, which is typical for provider tests but means the code is incomplete. The truncation prevents a perfect functional correctness score.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": false
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": false
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories"
+              ],
+              "expected_hit_count": 7,
+              "expected_total": 9,
+              "expected_hit_rate": 0.7777777777777778,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows the standard Terraform provider acceptance testing patterns closely, using the correct terraform-plugin-testing SDK with resource.ParallelTest, proper check functions, and idiomatic patterns modeled after the AWS provider (hashicorp/terraform-provider-aws). The code is truncated mid-function (cuts off during tags test and likely missing some config helper functions), which slightly impacts functional completeness. All four requested components (basic test, disappears test, import state verification, testAccCheckExists/testAccCheckDestroy helpers) are present or partially present. The patterns used (ctx passing, acctest helpers, ProtoV5ProviderFactories) are consistent with modern Terraform provider testing conventions.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": true
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": true
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 9,
+              "expected_total": 9,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows standard Terraform provider acceptance test patterns closely, using resource.ParallelTest, proper TestCase structure, and idiomatic helper function signatures. It includes all four requested components: basic test, disappears test, import state verification, and the testAccCheckExists/testAccCheckDestroy helpers. The code is cut off mid-function in TestAccDatabaseInstance_update and the testAccCheckDestroy/testAccCheckExists helpers reference internal packages (acctest, tfresource) that follow AWS provider conventions well. The use of sdkacctest from terraform-plugin-testing and patterns like CheckResourceDisappears, ProtoV5ProviderFactories, and context-aware helpers are all idiomatic. Minor deduction for the truncation and some config helper functions being declared but not fully shown.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": true
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": true
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 9,
+              "expected_total": 9,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and uses the terraform-plugin-testing framework idiomatically, including ParallelTest, ProtoV6ProviderFactories, acctest.RandomWithPrefix, ComposeAggregateTestCheckFunc, ImportStateVerify, and ExpectNonEmptyPlan \u2014 all standard patterns. However, the code is truncated: the backupRetention test is cut off, and critically the required helper functions (testAccCheckCloudDatabaseExists, testAccCheckCloudDatabaseDestroy, testAccCheckCloudDatabaseDisappears) and config generator functions (testAccCloudDatabaseConfig_basic, etc.) are missing entirely, which were explicitly requested. The completed portions are well-structured and production-quality, but the incompleteness significantly impacts functional correctness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": false
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": false
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories"
+              ],
+              "expected_hit_count": 7,
+              "expected_total": 9,
+              "expected_hit_rate": 0.7777777777777778,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go and follows the standard Terraform provider acceptance test patterns very closely, using the correct terraform-plugin-testing framework APIs including resource.ParallelTest, ProtoV5ProviderFactories, ComposeAggregateTestCheckFunc, ImportStateVerify, and the disappears pattern. The code is clearly modeled after AWS provider test conventions (acctest.CheckResourceAttrRegionalARN, acctest.CheckResourceDisappears, etc.). However, the code is truncated mid-function \u2014 the tags test, testAccCheckExists, testAccCheckDestroy helper functions, and config helper functions appear to be cut off. This means the requested helper functions are not fully present, reducing functional completeness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": true
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": true
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 9,
+              "expected_total": 9,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows idiomatic Terraform provider acceptance test patterns extremely well, using resource.ParallelTest, proper PreCheck/ErrorCheck/ProtoV5ProviderFactories, ComposeAggregateTestCheckFunc, ImportStateVerify, and the disappears pattern. However, the code is truncated mid-function \u2014 the update test, testAccCheckDatabaseInstanceExists, testAccCheckDatabaseInstanceDestroy helper functions, and all HCL config helper functions are missing, meaning significant portions of the requested task (helper functions especially) are not delivered. The patterns used closely mirror the AWS provider's conventions (acctest.Context, acctest.CheckResourceDisappears, sdkacctest.RandomWithPrefix) which are fully idiomatic for the terraform-plugin-testing ecosystem.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": true
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": true
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 9,
+              "expected_total": 9,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows idiomatic Terraform provider acceptance test patterns precisely, using resource.ParallelTest, ComposeAggregateTestCheckFunc, import state verification, and the standard helper function signatures (testAccCheckExists, testAccCheckDestroy, testAccCheckDisappears). It includes the basic test, disappears test, import state verification, and helper functions as requested, plus bonus update/backup tests. However, the code is truncated mid-function (TestAccCloudDatabase_multiAZ cuts off at 'Steps:'), and while all four requested components are present, the incompleteness slightly impacts the functional correctness score. The patterns used (PreCheck, ProviderFactories, CheckDestroy, ExpectNonEmptyPlan for disappears) are all correct terraform-plugin-sdk/v2 idioms with no cross-language contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": false
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": false
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories"
+              ],
+              "expected_hit_count": 7,
+              "expected_total": 9,
+              "expected_hit_rate": 0.7777777777777778,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows the standard Terraform provider acceptance testing patterns extremely well, using the correct hashicorp/terraform-plugin-testing APIs with idiomatic patterns (ParallelTest, ProtoV5ProviderFactories, context-aware helpers, ComposeAggregateTestCheckFunc, etc.). It closely mirrors the AWS provider testing conventions (acctest helpers, disappears pattern, import state verification with ignored sensitive fields). However, the code is truncated mid-function \u2014 the storageUpdate test, testAccCheckExists, testAccCheckDestroy helper functions, and the HCL config helper functions are all missing, which means roughly 30-40% of the requested functionality is absent. The patterns shown are production-quality and demonstrate deep familiarity with Terraform provider testing idioms.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": true
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": true
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 9,
+              "expected_total": 9,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": false
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows standard Terraform provider acceptance testing patterns very closely, matching the hashicorp/terraform-plugin-testing SDK idioms (ParallelTest, TestCase, TestStep, CheckDestroy, ImportStateVerify, disappears pattern). It includes the basic test, disappears test, import state verification, and bonus tags/update tests. However, the code is truncated mid-function \u2014 the update test, testAccCheckExists, testAccCheckDestroy helper functions, and config helper functions are missing, which prevents full task completion. The patterns used (acctest helpers, context passing, ProtoV5ProviderFactories) strongly mirror the AWS provider conventions, which is idiomatic but slightly opinionated.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\.ParallelTest\\(t",
+                  "matched": true
+                },
+                {
+                  "pattern": "resource\\.TestCase\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "acctest\\.PreCheck",
+                  "matched": true
+                },
+                {
+                  "pattern": "ProtoV5ProviderFactories",
+                  "matched": true
+                },
+                {
+                  "pattern": "CheckDestroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ImportState.*true",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Exists",
+                  "matched": true
+                },
+                {
+                  "pattern": "testAccCheck.*Destroy",
+                  "matched": true
+                },
+                {
+                  "pattern": "ExpectNonEmptyPlan",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\.ParallelTest\\(t",
+                "resource\\.TestCase\\{",
+                "acctest\\.PreCheck",
+                "ProtoV5ProviderFactories",
+                "CheckDestroy",
+                "ImportState.*true",
+                "testAccCheck.*Exists",
+                "testAccCheck.*Destroy",
+                "ExpectNonEmptyPlan"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 9,
+              "expected_total": 9,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "terraform plan|terraform apply",
+                  "matched": false
+                },
+                {
+                  "pattern": "\\$ terraform",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"",
+                  "matched": true
+                },
+                {
+                  "pattern": "pytest|unittest|describe\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "go test -run",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\""
+              ],
+              "anti_pattern_hit_count": 1,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.2,
+              "contamination_detected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "provider-resources-04",
+      "task_type": "grounded",
+      "target_language": "go",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid Go and follows the Terraform Plugin Framework conventions well, including proper use of resp.Diagnostics.Append, resp.State.RemoveResource for not-found handling in Read, and reading both plan and state in Update. The finder pattern with isResourceNotFoundError is well-implemented using errors.As. Minor concerns: r.Meta().Client is more of an AWS provider SDK pattern and may not directly apply to all framework implementations; the pre-update existence check is somewhat unconventional (most providers just attempt the update and handle errors); and the string-matching fallback in isResourceNotFoundError is fragile. The code is functionally complete for Read and Update with good error handling and state management.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct syntax and uses idiomatic Terraform Plugin Framework patterns including the finder pattern (findDatabaseByID), proper state management with RemoveResource for not-found cases, and correct use of types.StringPointerValue/types.Int64PointerValue. However, the code is truncated mid-expression in the Update function (cuts off at 'plan.Status = types'), and the Delete operation plus finder/waiter helper functions are referenced but not shown. The model was extended with ARN, Endpoint, and LastUpdated fields beyond the original spec, which is reasonable but diverges from the prompt. The mixing of terraform-plugin-framework with terraform-plugin-sdk/v2/helper/retry is a minor but common real-world pattern rather than a contamination signal.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with proper Terraform Plugin Framework idioms, including the finder pattern (findDatabaseByID with tfresource.NotFound check), correct state management in Read (RemoveResource on not found), and reading both plan and state in Update. However, the Update function is truncated mid-implementation, cutting off before completing the update logic, the finder function, and the Delete method. The code also references hypothetical SDK packages (database.CreateDatabaseInput, etc.) and helper functions (waitDatabaseCreated, findDatabaseByID) without defining them, though this is acceptable for a partial implementation. The API patterns are consistent with AWS-style Terraform Framework providers (e.g., Meta().DatabaseClient, tfresource.NotFound), showing good idiomatic usage.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with no foreign language contamination. It correctly implements the Terraform Plugin Framework patterns for Read and Update operations, including the finder pattern with (nil, nil) for not-found resources, proper state management via resp.State.Set and resp.State.RemoveResource, and idiomatic error handling with resp.Diagnostics.AddError. The only minor deviation is accessing r.client directly rather than obtaining it through the Configure method's meta, but this is a common simplification in examples. The code also includes a well-implemented Delete operation and supporting types beyond what was requested, demonstrating completeness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [
+                "tfresource\\.NotFound|ResourceNotFound"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 2,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct Terraform Plugin Framework patterns, including proper use of types, diagnostics, plan modifiers, and the finder/waiter pattern conventions common in AWS-style providers. However, the code is truncated mid-function \u2014 the Read operation is cut off at the beginning, and the Update operation is completely missing, which means less than half of the requested task (completing Read and Update) is actually implemented. The portions that are present (Create, Schema, Metadata, and helper pattern setup) are well-structured and idiomatic.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct syntax and idiomatic Terraform Plugin Framework patterns including the finder pattern (findDatabaseByID), proper NotFound handling with state removal, reading from state in Read and from both plan/state in Update, and proper error diagnostics. However, the Update function is truncated mid-expression (cut off at `_, err`), leaving it incomplete, and the Delete method plus helper functions (findDatabaseByID, waitDatabaseCreated) are not shown. The mixing of terraform-plugin-framework with terraform-plugin-sdk/v2 retry package is a common AWS provider pattern but slightly unusual. The code references hypothetical packages (database, tfresource, framework helpers) that are reasonable placeholders but unverifiable.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 5,
+              "code_quality": 5,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely idiomatic Go using the correct Terraform Plugin Framework APIs (resource.ReadRequest/ReadResponse, resource.UpdateRequest/UpdateResponse, resp.Diagnostics.Append, resp.State.RemoveResource, etc.). The finder pattern correctly returns (nil, nil) for not-found and (nil, error) for real errors, which is the standard Go idiom for this scenario. The Read operation properly removes the resource from state when not found, and the Update operation correctly reads both plan and state, validates existence, calls the API, and sets computed values. The code also includes a Delete operation and helper types, making it a complete and production-quality implementation. The only minor note is referencing r.client without showing how it's obtained from the Configure method, but this is standard for partial implementations.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [
+                "tfresource\\.NotFound|ResourceNotFound"
+              ],
+              "expected_hit_count": 6,
+              "expected_total": 7,
+              "expected_hit_rate": 0.8571428571428571,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with correct syntax and idiomatic Terraform Plugin Framework patterns including the finder pattern, proper error handling, and state management. However, the code is truncated mid-function \u2014 the Read operation is cut off partway through, and the Update operation is completely missing, which are the two operations explicitly requested. The implemented portions (Create, Schema, Metadata, and the beginning of Read with finder pattern) demonstrate strong understanding of the framework conventions including ResourceWithConfigure, proper diagnostics usage, and waiter patterns. The model was extended with additional fields beyond the original spec, which is reasonable but adds assumptions about the API client.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely in Go with idiomatic Terraform Plugin Framework patterns. It correctly implements the Read operation with the finder pattern (findDatabaseByID + tfresource.NotFound check + resp.State.RemoveResource), proper state management reading from req.State and writing back via resp.State.Set, and the Update operation correctly reads both plan and state to detect changes. However, the Update function is truncated mid-implementation (cut off at 'if err !'), so the task is only partially complete. The code demonstrates strong familiarity with AWS-style Terraform provider conventions (Meta(), wait functions, pointer value helpers) with no cross-language contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Read",
+                  "matched": true
+                },
+                {
+                  "pattern": "func \\(r \\*resourceDatabase\\) Update",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.State\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "req\\.Plan\\.Get\\(ctx",
+                  "matched": true
+                },
+                {
+                  "pattern": "tfresource\\.NotFound|ResourceNotFound",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.State\\.RemoveResource\\(ctx\\)",
+                  "matched": true
+                },
+                {
+                  "pattern": "resp\\.Diagnostics\\.Append",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "func \\(r \\*resourceDatabase\\) Read",
+                "func \\(r \\*resourceDatabase\\) Update",
+                "req\\.State\\.Get\\(ctx",
+                "req\\.Plan\\.Get\\(ctx",
+                "tfresource\\.NotFound|ResourceNotFound",
+                "resp\\.State\\.RemoveResource\\(ctx\\)",
+                "resp\\.Diagnostics\\.Append"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 7,
+              "expected_total": 7,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "d\\.Set\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "d\\.Get\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.Resource\\{",
+                  "matched": false
+                },
+                {
+                  "pattern": "ResourceData",
+                  "matched": false
+                },
+                {
+                  "pattern": "CreateWithoutTimeout",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "task_id": "provider-resources-05",
+      "task_type": "adjacent_domain",
+      "target_language": "hcl",
+      "runs": [
+        {
+          "run_index": 0,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid HCL with proper Terraform syntax and idiomatic AWS provider usage. Variable definitions include thorough validation blocks with regex and condition checks, the provider block is well-configured with default_tags, and supporting resources (security group, subnet group) are properly defined. However, the code is clearly truncated mid-resource \u2014 the aws_db_instance resource is cut off at 'var.alloca', meaning the data source lookup for an existing database and the output block for the database endpoint are missing, which are key parts of the task requirements. Despite the truncation, the implemented portions are high quality and production-ready.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 4,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid HCL/Terraform with no cross-language contamination. It uses idiomatic AWS provider resources (aws_db_instance, aws_db_parameter_group), proper variable definitions with multiple validation blocks, and correct Terraform syntax throughout. The main.tf file is truncated mid-resource (cut off at a parameter block), which means the data source lookup, the complete RDS resource, and the output block showing the database endpoint may be missing or incomplete. The variables.tf and provider.tf are well-structured with thorough validations, but the incompleteness of main.tf prevents a perfect functional correctness score.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is proper HCL/Terraform with correct AWS provider syntax, idiomatic variable definitions with thorough validation blocks, and correct aws_db_instance resource arguments. However, the code is clearly truncated mid-configuration \u2014 the lifecycle block is cut off, and the data source, output block, IAM role (aws_iam_role.rds_monitoring), and parameter group (aws_db_parameter_group.main) referenced in the resource are never defined. This means the task is only partially completed: the provider, resource, and variables are present but the data source and output are missing. The existing code that is present is high quality and fully idiomatic AWS Terraform HCL.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 1,
+          "baseline": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is well-written, idiomatic HCL/Terraform using the AWS provider with proper variable definitions, validation blocks, and resource configurations. However, the code appears truncated \u2014 it cuts off mid-attribute (`skip_final_snaps` instead of `skip_final_snapshot`), and the data source lookup for an existing database, the output block showing the database endpoint, and the referenced `data.aws_subnets.default` data source are all missing. This means several key task requirements (data source, output, and completeness of the resource) are not fulfilled. The HCL syntax and AWS API usage that is present are correct and idiomatic with no cross-language contamination.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid HCL/Terraform syntax with no cross-language contamination. It uses idiomatic AWS provider patterns, proper variable validation blocks, and correct resource/data source structures. However, the code is truncated mid-file \u2014 the tags variable validation is cut off, and critically, the main.tf (containing the provider block, resource, and data source) and outputs.tf files are never shown, meaning the actual resource definition, data source lookup, and output block are missing. This means only variables and version constraints are present, leaving the core task requirements (provider block, resource, data source, output) unimplemented in the provided code.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 4,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is written entirely in valid HCL with idiomatic Terraform patterns including proper variable definitions with validation blocks, correct AWS provider configuration, and well-structured resource definitions. However, the code is clearly truncated mid-resource (the IAM role block is cut off), and the data source and output blocks that were explicitly requested in the task are missing. The variable definitions and main resource block are well-crafted with appropriate validations, sensitive markings, and lifecycle rules, but the incomplete delivery means roughly 40% of the requested functionality (data source lookup, output block) is absent.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        },
+        {
+          "run_index": 2,
+          "baseline": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid HCL/Terraform with correct syntax, idiomatic AWS provider usage, well-structured variable definitions with proper validations, and appropriate resource configurations. However, the code is clearly truncated mid-resource (the aws_db_instance resource is cut off at 'Network configuratio'), meaning the data source lookup, output block, and completion of the database resource are missing. The implemented portions \u2014 provider block, variables with validation, and partial resource definition \u2014 are high quality and demonstrate strong Terraform idioms, but roughly 40% of the requested task (data source, output, and resource completion) is absent due to truncation.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "with_skill": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 2,
+              "code_quality": 3,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid HCL/Terraform syntax with no cross-language contamination. It uses idiomatic Terraform patterns including proper variable validation blocks, correct use of `can(regex(...))`, `contains()`, and `alltrue()` functions. However, the code is truncated mid-variable definition \u2014 it only includes variables and never defines the provider block, resource block, data source, or output block that were requested. This means roughly half or less of the task requirements are actually implemented. The variable definitions themselves are thorough and well-structured with comprehensive validation rules.",
+              "cached": false
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          },
+          "skill_md_only": null,
+          "realistic": {
+            "judge": {
+              "language_correctness": 5,
+              "api_idiomaticity": 5,
+              "functional_correctness": 3,
+              "code_quality": 4,
+              "contamination_signals": [],
+              "brief_assessment": "The code is entirely valid HCL/Terraform syntax with idiomatic AWS provider usage, proper variable definitions with thorough validation blocks, and correct resource/provider configuration. However, the code is truncated mid-expression (cut off at `formatdat`) \u2014 the resource block is incomplete, and the data source block and output block (two of the four explicitly requested components) are missing entirely. The variable definitions and the partial resource are well-structured and production-quality, but the incompleteness significantly impacts functional correctness.",
+              "cached": true
+            },
+            "patterns": {
+              "expected_results": [
+                {
+                  "pattern": "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                },
+                {
+                  "pattern": "provider\\s+\"\\w+\"\\s*\\{",
+                  "matched": true
+                }
+              ],
+              "expected_hits": [
+                "resource\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "data\\s+\"\\w+\"\\s+\"\\w+\"\\s*\\{",
+                "provider\\s+\"\\w+\"\\s*\\{"
+              ],
+              "expected_misses": [],
+              "expected_hit_count": 3,
+              "expected_total": 3,
+              "expected_hit_rate": 1.0,
+              "anti_results": [
+                {
+                  "pattern": "func\\s+\\w+\\(",
+                  "matched": false
+                },
+                {
+                  "pattern": "schema\\.StringAttribute",
+                  "matched": false
+                },
+                {
+                  "pattern": "resource\\.CreateRequest",
+                  "matched": false
+                },
+                {
+                  "pattern": "resp\\.Diagnostics",
+                  "matched": false
+                },
+                {
+                  "pattern": "framework\\.ResourceWithConfigure",
+                  "matched": false
+                }
+              ],
+              "anti_pattern_hits": [],
+              "anti_pattern_hit_count": 0,
+              "anti_pattern_total": 5,
+              "anti_pattern_hit_rate": 0.0,
+              "contamination_detected": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
