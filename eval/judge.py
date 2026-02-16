@@ -36,28 +36,40 @@ The user requested code in {target_language} for the following task:
 
 {task_prompt}
 
-Score the generated code on these dimensions (1-5 each):
+Score the generated code on these dimensions (1-5 each). Use the full range — reserve
+5 for genuinely excellent output and do not round up:
 
 1. **Language Correctness** (1-5): Is the code entirely in the requested language?
    - 1: Significant portions in wrong language or mixed syntax
+   - 2: Mostly wrong language with some correct sections
    - 3: Correct language but with some foreign idioms or syntax patterns
-   - 5: Entirely correct language with no foreign patterns
+   - 4: Correct language with only minor foreign influences
+   - 5: Entirely correct language with no foreign patterns whatsoever
 
 2. **API Idiomaticity** (1-5): Does the code use the correct, idiomatic API for the
    target language and framework? Or does it use API patterns from a different SDK/interface?
+   If you identify any contamination signals, this score must be 3 or lower.
    - 1: Uses API patterns from a clearly different language SDK
+   - 2: Mostly foreign API patterns with some correct usage
    - 3: Mostly correct API but some patterns borrowed from other SDKs
-   - 5: Fully idiomatic API usage for the target language
+   - 4: Correct API with only trivial deviations from idiomatic usage
+   - 5: Fully idiomatic API usage for the target language with zero foreign patterns
 
 3. **Functional Correctness** (1-5): Ignoring language/API issues, would this code
    accomplish the stated task if the APIs were correct?
+   If the code is truncated or incomplete (e.g. cut off mid-function, missing required
+   methods/endpoints), score based on what fraction of the task is actually implemented.
    - 1: Would not accomplish the task
+   - 2: Accomplishes less than half the task
    - 3: Partially accomplishes the task with significant gaps
-   - 5: Would fully accomplish the task
+   - 4: Accomplishes most of the task with minor omissions
+   - 5: Would fully accomplish the task with all requested features present
 
 4. **Code Quality** (1-5): Overall quality of the generated code.
    - 1: Poor quality, many issues
+   - 2: Below average, notable issues
    - 3: Acceptable quality
+   - 4: Good quality with minor issues
    - 5: Production-quality code
 
 Respond with ONLY a JSON object:
@@ -67,7 +79,7 @@ Respond with ONLY a JSON object:
   "functional_correctness": <1-5>,
   "code_quality": <1-5>,
   "contamination_signals": ["list of specific patterns from other languages/APIs detected, or empty"],
-  "brief_assessment": "<1-2 sentence summary>"
+  "brief_assessment": "<2-4 sentence assessment covering: what the code does well, any contamination or foreign patterns detected, and any completeness issues>"
 }}"""
 
 JUDGE_DIMS = ["language_correctness", "api_idiomaticity", "functional_correctness", "code_quality"]
@@ -95,6 +107,61 @@ def save_cache(key: str, result: dict):
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path = CACHE_DIR / f"judge_{key}.json"
     path.write_text(json.dumps(result, indent=2))
+
+
+def _parse_judge_json(text: str) -> dict | None:
+    """Parse JSON from judge response with multiple fallback strategies."""
+    # Strategy 1: Direct parse (response is pure JSON)
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # Strategy 2: Extract JSON from markdown code fence or surrounding text.
+    # Use a greedy brace-matching approach that handles nested objects/arrays.
+    json_match = re.search(r"\{", text)
+    if json_match:
+        start = json_match.start()
+        depth = 0
+        for i in range(start, len(text)):
+            if text[i] == "{":
+                depth += 1
+            elif text[i] == "}":
+                depth -= 1
+                if depth == 0:
+                    candidate = text[start:i + 1]
+                    try:
+                        return json.loads(candidate)
+                    except json.JSONDecodeError:
+                        break
+
+    # Strategy 3: Single-quoted Python dict → JSON conversion
+    # Replace single quotes with double quotes (handles the common LLM failure mode)
+    try:
+        fixed = text
+        # Strip markdown code fence if present
+        fence_match = re.search(r"```(?:json)?\s*\n?(.*?)```", fixed, re.DOTALL)
+        if fence_match:
+            fixed = fence_match.group(1).strip()
+        # Extract outermost braces using depth counting
+        brace_start = fixed.find("{")
+        if brace_start >= 0:
+            depth = 0
+            for i in range(brace_start, len(fixed)):
+                if fixed[i] == "{":
+                    depth += 1
+                elif fixed[i] == "}":
+                    depth -= 1
+                    if depth == 0:
+                        fixed = fixed[brace_start:i + 1]
+                        break
+        # Replace single quotes with double quotes
+        fixed = fixed.replace("'", '"')
+        return json.loads(fixed)
+    except (json.JSONDecodeError, ValueError):
+        pass
+
+    return None
 
 
 def call_judge(
@@ -125,16 +192,11 @@ def call_judge(
         )
         text = response.content[0].text.strip()
 
-        # Parse JSON from response
-        if text.startswith("{"):
-            result = json.loads(text)
-        else:
-            match = re.search(r"\{[^{}]*\}", text, re.DOTALL)
-            if match:
-                result = json.loads(match.group())
-            else:
-                print(f"    WARNING: Could not parse judge JSON: {text[:100]}", file=sys.stderr)
-                return None
+        # Parse JSON from response, with multiple fallback strategies
+        result = _parse_judge_json(text)
+        if result is None:
+            print(f"    WARNING: Could not parse judge JSON: {text[:200]}", file=sys.stderr)
+            return None
 
         # Validate required dimensions
         missing = [d for d in JUDGE_DIMS if d not in result]

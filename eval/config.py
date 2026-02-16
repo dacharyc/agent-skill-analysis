@@ -25,7 +25,7 @@ MODEL_GENERATION = "claude-sonnet-4-5-20250929"
 MODEL_JUDGE = "claude-opus-4-6"
 TEMPERATURE = 0.3
 RUNS_PER_CONDITION = 3
-MAX_GENERATION_TOKENS = 2048
+MAX_GENERATION_TOKENS = 4096
 MAX_JUDGE_TOKENS = 1000
 
 # --- Skill registry ---
@@ -265,24 +265,17 @@ def get_full_skill_content(skill_name: str) -> str | None:
 #     (explore agent summary + file read) before the actual task prompt
 
 CC_SYSTEM_PREAMBLE = """\
-You are Claude Code, an interactive agent that helps users with software engineering tasks. \
-Use the instructions below and the tools available to you to assist the user.
-
-# Using your tools
-You have access to these tools:
-- Read: Read files from the filesystem
-- Write: Write files to the filesystem
-- Edit: Make targeted edits to existing files
-- Bash: Execute shell commands
-- Glob: Find files by pattern
-- Grep: Search file contents
-- Task: Launch sub-agents for complex tasks
+You are Claude Code, an interactive agent that helps users with software engineering tasks.
 
 # Doing tasks
 - Read code before modifying it. Understand existing patterns before suggesting changes.
 - Prefer editing existing files to creating new ones.
 - Be careful not to introduce security vulnerabilities.
 - Keep solutions simple and focused. Don't over-engineer.
+
+# Response format
+- Respond with code directly. Do not simulate tool calls or emit XML tags.
+- When asked to write code, output the code itself, not file-writing commands.
 
 # Environment
 - Working directory: /Users/dev/project

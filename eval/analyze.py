@@ -198,28 +198,35 @@ def analyze_skill(skill_name: str, score_data: dict) -> dict:
                 if patterns:
                     task_analysis["pattern_results"][cond_key].append(patterns)
 
-        # Per-task deltas
+        # Per-task deltas (skip when either side has no judge data)
         for dim in JUDGE_DIMS:
-            b_mean = mean(task_baseline[dim])
-            s_mean = mean(task_skill[dim])
-            r_mean = mean(task_realistic[dim]) if task_realistic[dim] else None
-            task_analysis["baseline_means"][dim] = round(b_mean, 3)
-            task_analysis["skill_means"][dim] = round(s_mean, 3)
-            task_analysis["deltas"][dim] = round(s_mean - b_mean, 3)
-            if r_mean is not None:
+            has_baseline = len(task_baseline[dim]) > 0
+            has_skill = len(task_skill[dim]) > 0
+            has_realistic = len(task_realistic[dim]) > 0
+
+            b_mean = mean(task_baseline[dim]) if has_baseline else None
+            s_mean = mean(task_skill[dim]) if has_skill else None
+            r_mean = mean(task_realistic[dim]) if has_realistic else None
+
+            task_analysis["baseline_means"][dim] = round(b_mean, 3) if b_mean is not None else None
+            task_analysis["skill_means"][dim] = round(s_mean, 3) if s_mean is not None else None
+            if b_mean is not None and s_mean is not None:
+                task_analysis["deltas"][dim] = round(s_mean - b_mean, 3)
+            else:
+                task_analysis["deltas"][dim] = None
+            if b_mean is not None and r_mean is not None:
                 task_analysis["realistic_means"][dim] = round(r_mean, 3)
                 task_analysis["deltas_realistic"][dim] = round(r_mean - b_mean, 3)
 
-        # Composite delta (B vs A)
-        dim_deltas = [task_analysis["deltas"][d] for d in JUDGE_DIMS]
-        task_analysis["delta_composite"] = round(mean(dim_deltas), 3)
+        # Composite delta (B vs A) — only from dimensions with valid data
+        dim_deltas = [task_analysis["deltas"][d] for d in JUDGE_DIMS
+                      if task_analysis["deltas"][d] is not None]
+        task_analysis["delta_composite"] = round(mean(dim_deltas), 3) if dim_deltas else None
 
         # Composite delta (D vs A)
-        if task_analysis["deltas_realistic"]:
-            dim_deltas_r = [task_analysis["deltas_realistic"][d] for d in JUDGE_DIMS]
-            task_analysis["delta_composite_realistic"] = round(mean(dim_deltas_r), 3)
-        else:
-            task_analysis["delta_composite_realistic"] = None
+        dim_deltas_r = [task_analysis["deltas_realistic"][d] for d in JUDGE_DIMS
+                        if task_analysis["deltas_realistic"].get(d) is not None]
+        task_analysis["delta_composite_realistic"] = round(mean(dim_deltas_r), 3) if dim_deltas_r else None
 
         # Anti-pattern summary
         baseline_anti = [p.get("anti_pattern_hit_rate", 0) for p in task_analysis["pattern_results"]["baseline"]]
@@ -231,10 +238,11 @@ def analyze_skill(skill_name: str, score_data: dict) -> dict:
 
         skill_results["tasks"].append(task_analysis)
 
-    # Per-skill aggregates
-    task_deltas = [t["delta_composite"] for t in skill_results["tasks"]]
-    skill_results["mean_delta_composite"] = round(mean(task_deltas), 3)
-    skill_results["stdev_delta_composite"] = round(stdev(task_deltas), 3)
+    # Per-skill aggregates (exclude tasks with missing judge data)
+    task_deltas = [t["delta_composite"] for t in skill_results["tasks"]
+                   if t["delta_composite"] is not None]
+    skill_results["mean_delta_composite"] = round(mean(task_deltas), 3) if task_deltas else None
+    skill_results["stdev_delta_composite"] = round(stdev(task_deltas), 3) if task_deltas else None
 
     # Realistic context aggregates
     task_deltas_r = [t["delta_composite_realistic"] for t in skill_results["tasks"]
@@ -246,9 +254,10 @@ def analyze_skill(skill_name: str, score_data: dict) -> dict:
     by_type_realistic = {}
     for t in skill_results["tasks"]:
         tt = t["task_type"]
-        if tt not in by_type:
-            by_type[tt] = []
-        by_type[tt].append(t["delta_composite"])
+        if t["delta_composite"] is not None:
+            if tt not in by_type:
+                by_type[tt] = []
+            by_type[tt].append(t["delta_composite"])
         if t["delta_composite_realistic"] is not None:
             if tt not in by_type_realistic:
                 by_type_realistic[tt] = []
@@ -358,10 +367,13 @@ def analyze_skill(skill_name: str, score_data: dict) -> dict:
 
 def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
     """Compute cross-skill correlations and comparisons."""
+    # Filter to skills with valid deltas for aggregate statistics
+    valid_analyses = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+
     # Correlation: structural score vs behavioral delta
     contam_scores = []
     behavioral_deltas = []
-    for sa in skill_analyses:
+    for sa in valid_analyses:
         contam_scores.append(sa["contamination_score"])
         behavioral_deltas.append(sa["mean_delta_composite"])
 
@@ -369,7 +381,7 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
 
     # By risk level
     by_risk = {}
-    for sa in skill_analyses:
+    for sa in valid_analyses:
         rl = sa["risk_level"]
         if rl not in by_risk:
             by_risk[rl] = []
@@ -382,7 +394,7 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
 
     # By test category
     by_category = {}
-    for sa in skill_analyses:
+    for sa in valid_analyses:
         cat = sa["test_category"]
         if cat not in by_category:
             by_category[cat] = []
@@ -395,8 +407,10 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
 
     # By task type (across all skills)
     by_task_type = {}
-    for sa in skill_analyses:
+    for sa in valid_analyses:
         for task in sa["tasks"]:
+            if task["delta_composite"] is None:
+                continue
             tt = task["task_type"]
             if tt not in by_task_type:
                 by_task_type[tt] = []
@@ -408,7 +422,7 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
     }
 
     # Net negative validation
-    net_neg_skills = [sa for sa in skill_analyses if sa["test_category"] == "net_negative"]
+    net_neg_skills = [sa for sa in valid_analyses if sa["test_category"] == "net_negative"]
     net_neg_summary = {
         "skills": [{"name": sa["skill_name"], "delta": sa["mean_delta_composite"]}
                     for sa in net_neg_skills],
@@ -427,7 +441,7 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
     ]
 
     # Realistic context: aggregate mitigation stats
-    realistic_skills = [sa for sa in skill_analyses if sa.get("mean_delta_composite_realistic") is not None]
+    realistic_skills = [sa for sa in valid_analyses if sa.get("mean_delta_composite_realistic") is not None]
     realistic_summary = {}
     if realistic_skills:
         skill_only_deltas = [sa["mean_delta_composite"] for sa in realistic_skills]
@@ -450,7 +464,7 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
 
     return {
         "correlation_structural_behavioral": round(r, 3),
-        "n_skills": len(skill_analyses),
+        "n_skills": len(valid_analyses),
         "by_risk_level": risk_summary,
         "by_test_category": category_summary,
         "by_task_type": task_type_summary,
@@ -466,6 +480,11 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
 
 def fig_correlation(skill_analyses: list[dict]):
     """Scatter: structural contamination score vs behavioral delta."""
+    skill_analyses = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+    if not skill_analyses:
+        print("  → behavioral_correlation.png (skipped, no valid data)")
+        return
+
     fig, ax = plt.subplots(figsize=(8, 6))
 
     colors = {"high": "#e74c3c", "medium": "#f39c12", "control": "#2ecc71"}
@@ -496,6 +515,8 @@ def fig_correlation(skill_analyses: list[dict]):
 
 def fig_deltas_by_risk(skill_analyses: list[dict]):
     """Box plot: deltas grouped by risk level."""
+    skill_analyses = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+
     fig, ax = plt.subplots(figsize=(8, 5))
 
     risk_groups = {}
@@ -540,7 +561,7 @@ def fig_task_types(skill_analyses: list[dict]):
             continue
         for task in sa["tasks"]:
             tt = task["task_type"]
-            if tt in data[rl]:
+            if tt in data[rl] and task["delta_composite"] is not None:
                 data[rl][tt].append(task["delta_composite"])
 
     x = range(len(TASK_TYPES))
@@ -600,9 +621,10 @@ def fig_hidden_contamination(skill_analyses: list[dict]):
 
 def fig_context_mitigation(skill_analyses: list[dict]):
     """Paired bar: skill-only delta vs realistic-context delta per skill."""
-    # Only include skills that have realistic data
+    # Only include skills that have both valid deltas and realistic data
     has_realistic = [sa for sa in skill_analyses
-                     if sa.get("mean_delta_composite_realistic") is not None]
+                     if sa.get("mean_delta_composite") is not None
+                     and sa.get("mean_delta_composite_realistic") is not None]
     if not has_realistic:
         print("  → behavioral_context_mitigation.png (skipped, no data)")
         return
@@ -638,7 +660,8 @@ def fig_context_mitigation(skill_analyses: list[dict]):
 
 def fig_net_negative(skill_analyses: list[dict]):
     """Bar: deltas for net-negative skills."""
-    net_neg = [sa for sa in skill_analyses if sa["test_category"] == "net_negative"]
+    net_neg = [sa for sa in skill_analyses
+               if sa["test_category"] == "net_negative" and sa.get("mean_delta_composite") is not None]
     if not net_neg:
         print("  → behavioral_net_negative.png (skipped, no data)")
         return
@@ -730,7 +753,9 @@ def print_summary(skill_analyses: list[dict], cross: dict):
         print(f"  {tt}: mean delta = {stats['mean_delta']:+.3f} (n={stats['n']})")
 
     print("\nPer-skill results:")
-    sorted_skills = sorted(skill_analyses, key=lambda s: s["mean_delta_composite"])
+    valid_skills = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is not None]
+    skipped_skills = [sa for sa in skill_analyses if sa.get("mean_delta_composite") is None]
+    sorted_skills = sorted(valid_skills, key=lambda s: s["mean_delta_composite"])
     for sa in sorted_skills:
         stats = sa["statistics"]
         sig = "*" if stats["paired_t_p"] < 0.05 else ""
@@ -738,6 +763,9 @@ def print_summary(skill_analyses: list[dict], cross: dict):
               f"delta={sa['mean_delta_composite']:+.3f}  "
               f"d={stats['cohens_d']:+.3f}  "
               f"p={stats['paired_t_p']:.3f}{sig}")
+    for sa in skipped_skills:
+        print(f"  {sa['skill_name']:40s} contam={sa['contamination_score']:.2f}  "
+              f"delta=N/A (insufficient judge data)")
 
     if cross["hidden_contamination"]:
         print("\nHidden contamination:")

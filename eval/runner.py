@@ -46,6 +46,7 @@ def cache_key(prompt: str, system: str | None, run_index: int) -> str:
         "system": system or "",
         "run_index": run_index,
         "temperature": TEMPERATURE,
+        "max_tokens": MAX_GENERATION_TOKENS,
     }, sort_keys=True)
     return hashlib.sha256(raw.encode()).hexdigest()[:20]
 
