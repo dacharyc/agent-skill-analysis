@@ -59,9 +59,25 @@ venv/bin/python3 eval/run_eval.py --skill upgrade-stripe --skill gemini-api-dev
 venv/bin/python3 eval/run_eval.py --stage generate --skill upgrade-stripe
 venv/bin/python3 eval/run_eval.py --stage judge --skill upgrade-stripe
 venv/bin/python3 eval/run_eval.py --stage analyze
+
+# Re-run deterministic pattern matching only (no LLM calls)
+venv/bin/python3 eval/run_eval.py --patterns-only
+venv/bin/python3 eval/run_eval.py --patterns-only --skill upgrade-stripe
 ```
 
 The `--stage` flag runs a single stage. The `analyze` stage always reads all available results, so partial runs still produce aggregate statistics.
+
+### `--patterns-only` mode
+
+The `--patterns-only` flag re-runs deterministic pattern matching against generation outputs without making any LLM API calls. This is useful when iterating on `expected_patterns` or `anti_patterns` in task JSON files — you can edit the patterns, re-run, and inspect results immediately.
+
+When used:
+- Generation is skipped entirely (existing outputs in `results/generations/` are reused)
+- Pattern matching runs against the current task definitions in `tasks/*.json`
+- Any existing LLM judge scores from a prior full run are preserved in the output
+- The analysis stage runs normally afterward, so figures and statistics update
+
+This flag also works when running `judge.py` directly: `venv/bin/python3 eval/judge.py --patterns-only`
 
 ## Pipeline Stages
 
@@ -172,6 +188,8 @@ Source identification involved a range of techniques, including:
 
 The goal of the rigorous pattern provenance documentation is to ensure that the LLM-generated patterns provided by Claude Opus 4.6 do not reflect stale or outdated APIs, and do not themselves reflect cross-contamination. Without domain expertise across the entirety of the skill subject areas, the deterministic pattern data set is the weakest part of the experiment, so provenance tracing is an attempt to support the validity of the deterministic validation.
 
+You can find artifacts from the pattern provenance iteration in [pattern-artifacts](pattern-artifacts/)
+
 ### Pattern matching in the scoring pipeline
 
 Pattern matching runs as a deterministic pre-judge layer in `judge.py`. Patterns are matched using `re.search()` (with fallback to literal substring match for invalid regex), so task patterns can use full regex syntax including alternation (`|`), escaped metacharacters (`\.`), and character classes.
@@ -217,3 +235,11 @@ Key settings in `config.py`:
 | `RUNS_PER_CONDITION` | 3 | Repetitions per task/condition pair |
 | `MAX_GENERATION_TOKENS` | 2048 | Output token limit for generation |
 | `MAX_JUDGE_TOKENS` | 1000 | Output token limit for judge |
+
+### Increasing the number of runs
+
+To run each task more times (e.g. for stronger statistical power), increase `RUNS_PER_CONDITION` in `config.py`. The cache is keyed on `run_index`, so previously completed runs are served from cache — only the new run indices trigger API calls. For example, changing from 3 to 6 re-uses runs 0–2 from cache and only generates/judges runs 3–5. The analysis pipeline reads whatever runs exist dynamically; no other code changes are needed.
+
+### Changing models
+
+`MODEL_GENERATION` and `MODEL_JUDGE` can be changed independently. Note that the generation and judge caches include the model name in their hash keys, so switching models triggers fresh API calls (the old model's cached results remain untouched in `.eval_cache/` and will be reused if you switch back).

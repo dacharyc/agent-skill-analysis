@@ -63,6 +63,11 @@ def main():
         help="Run only a specific pipeline stage"
     )
     parser.add_argument(
+        "--patterns-only", action="store_true",
+        help="Re-run only deterministic pattern matching (no LLM judge calls). "
+             "Preserves existing judge scores. Useful for iterating on expected/anti patterns."
+    )
+    parser.add_argument(
         "--list", action="store_true",
         help="List available skills and exit"
     )
@@ -88,8 +93,8 @@ def main():
     print(f"Skills: {len(valid_skills)}")
     print()
 
-    # Stage 1: Generate
-    if args.stage is None or args.stage == "generate":
+    # Stage 1: Generate (skipped in patterns-only mode)
+    if (args.stage is None or args.stage == "generate") and not args.patterns_only:
         print("--- Stage 1: Generation ---")
         from runner import run_all
         run_all(valid_skills)
@@ -97,9 +102,12 @@ def main():
 
     # Stage 2: Judge
     if args.stage is None or args.stage == "judge":
-        print("--- Stage 2: Judging ---")
+        if args.patterns_only:
+            print("--- Stage 2: Pattern Matching Only (no LLM calls) ---")
+        else:
+            print("--- Stage 2: Judging ---")
         from judge import judge_all
-        judge_all(valid_skills)
+        judge_all(valid_skills, patterns_only=args.patterns_only)
         print()
 
     # Stage 3: Analyze (always reads all available data)

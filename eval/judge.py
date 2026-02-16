@@ -325,12 +325,123 @@ def judge_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
     return result
 
 
-def judge_all(skill_names: list[str] | None = None) -> list[dict]:
+def judge_skill_patterns_only(skill_name: str) -> dict | None:
+    """Re-run only deterministic pattern matching for a skill.
+
+    Loads generation data to get outputs, loads current task definitions
+    to get patterns, and preserves any existing LLM judge scores from
+    a prior full judge run. No API calls are made.
+    """
+    gen_data = load_generation(skill_name)
+    if gen_data is None:
+        print(f"  WARNING: No generation data for {skill_name}", file=sys.stderr)
+        return None
+
+    tasks_data = load_tasks(skill_name)
+    if tasks_data is None:
+        print(f"  WARNING: No task definitions for {skill_name}", file=sys.stderr)
+        return None
+
+    # Load existing scored data to preserve judge scores
+    existing_scores = None
+    score_path = SCORES_DIR / f"{skill_name}.json"
+    if score_path.exists():
+        existing_scores = json.loads(score_path.read_text())
+
+    # Build lookups from task definitions
+    task_defs = {t["id"]: t for t in tasks_data["tasks"]}
+
+    # Build lookup from existing scores: (task_id, run_index, condition) -> judge dict
+    existing_judge: dict[tuple[str, int, str], dict | None] = {}
+    if existing_scores:
+        for task in existing_scores["tasks"]:
+            for run in task["runs"]:
+                ri = run["run_index"]
+                for cond in ["baseline", "with_skill", "skill_md_only", "realistic"]:
+                    cond_data = run.get(cond)
+                    if cond_data is not None and isinstance(cond_data, dict):
+                        existing_judge[(task["task_id"], ri, cond)] = cond_data.get("judge")
+
+    print(f"  Patterns-only: {skill_name} ({len(gen_data['tasks'])} tasks)")
+
+    scored_tasks = []
+    for task in gen_data["tasks"]:
+        task_id = task["task_id"]
+        task_def = task_defs.get(task_id, {})
+        target_lang = task["target_language"]
+        expected = task_def.get("expected_patterns", task.get("expected_patterns", []))
+        anti = task_def.get("anti_patterns", task.get("anti_patterns", []))
+
+        print(f"    Task: {task_id}")
+
+        scored_runs = []
+        for run in task["runs"]:
+            ri = run["run_index"]
+            run_scores = {"run_index": ri}
+
+            for cond_key, gen_key in [
+                ("baseline", "baseline"),
+                ("with_skill", "with_skill"),
+                ("skill_md_only", "skill_md_only"),
+                ("realistic", "realistic"),
+            ]:
+                cond_gen = run.get(gen_key)
+                if cond_gen is None or not cond_gen.get("output"):
+                    run_scores[cond_key] = None
+                    continue
+
+                output = cond_gen["output"]
+                patterns = pattern_match(output, expected, anti)
+                judge = existing_judge.get((task_id, ri, cond_key))
+
+                run_scores[cond_key] = {
+                    "judge": judge,
+                    "patterns": patterns,
+                }
+
+            scored_runs.append(run_scores)
+
+        scored_tasks.append({
+            "task_id": task_id,
+            "task_type": task["task_type"],
+            "target_language": target_lang,
+            "runs": scored_runs,
+        })
+
+    result = {
+        "skill_name": skill_name,
+        "scored_at": gen_data.get("generated_at", ""),
+        "model_judge": MODEL_JUDGE,
+        "model_generation": gen_data.get("model", ""),
+        "contamination_score": gen_data.get("contamination_score", 0),
+        "risk_level": gen_data.get("risk_level", ""),
+        "test_category": gen_data.get("test_category", ""),
+        "tasks": scored_tasks,
+    }
+
+    SCORES_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = SCORES_DIR / f"{skill_name}.json"
+    out_path.write_text(json.dumps(result, indent=2))
+    print(f"  → Saved {out_path}")
+    return result
+
+
+def judge_all(skill_names: list[str] | None = None, *, patterns_only: bool = False) -> list[dict]:
     """Score all generated outputs for specified skills (or all with data)."""
-    client = anthropic.Anthropic()
     names = skill_names or list(SKILLS.keys())
     results = []
 
+    if patterns_only:
+        for name in names:
+            if not (GENERATIONS_DIR / f"{name}.json").exists():
+                print(f"  Skipping {name}: no generation data")
+                continue
+            result = judge_skill_patterns_only(name)
+            if result:
+                results.append(result)
+        return results
+
+    client = anthropic.Anthropic()
     for name in names:
         if not (GENERATIONS_DIR / f"{name}.json").exists():
             print(f"  Skipping {name}: no generation data")
@@ -347,8 +458,12 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Run behavioral eval judging")
     parser.add_argument("--skill", action="append", help="Specific skill(s) to judge")
+    parser.add_argument("--patterns-only", action="store_true",
+                        help="Re-run only deterministic pattern matching (no LLM calls)")
     args = parser.parse_args()
 
     print("=== Behavioral Eval: Judging ===")
-    judge_all(args.skill)
+    if args.patterns_only:
+        print("  Mode: patterns-only (no LLM calls)")
+    judge_all(args.skill, patterns_only=args.patterns_only)
     print("Done.")
