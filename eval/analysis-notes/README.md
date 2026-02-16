@@ -24,6 +24,7 @@ The central finding is that **structural contamination scores do not predict beh
 | [claude-settings-audit.md](claude-settings-audit.md) | claude-settings-audit | Largest B-A (-0.483). Template propagation: `// comments` in JSON templates reproduced verbatim. Also demonstrates novelty pattern — helps on tasks where model lacks knowledge. |
 | [positive-delta-skills.md](positive-delta-skills.md) | gemini-api-dev, wiki-agents-md | Skills with genuinely post-training knowledge produce net-positive effects. Positive deltas concentrated on tasks requiring novel knowledge. |
 | [react-native-best-practices.md](react-native-best-practices.md) | react-native-best-practices | Largest degradation (B-A=-0.384) despite near-zero structural risk (0.07). Two mechanisms: textual frame leakage and token budget competition. Contrasted with sharp-edges. |
+| [provider-resources.md](provider-resources.md) | provider-resources | Third-largest degradation (B-A=-0.317). Output inflation (2x longer outputs hit token ceiling) and architectural pattern bleed (Go package structure causes over-engineering in Python). |
 | [template-propagation.md](template-propagation.md) | Multiple | Cross-cutting analysis of template and pattern propagation across skills. |
 
 ## Cross-Cutting Analyses
@@ -46,6 +47,5 @@ For methodology details (task design, scoring, conditions, selective reference l
 
 Some findings were noted during analysis but not pursued in depth:
 
-- **provider-resources** (B-A=-0.317, p=0.010): Significant negative delta for a Terraform/Go skill. App-to-auxiliary contamination category.
 - **azure-identity-java** and **azure-security-keyvault-secrets-java**: Both show B-A near zero but positive D-A deltas (+0.233, +0.384). Realistic context somehow helps these skills — mechanism unknown.
 - **Contamination density** (contamination score / token count): Not computed. Likely low value given r near 0 for both component metrics.
