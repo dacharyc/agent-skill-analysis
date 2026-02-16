@@ -213,6 +213,28 @@ Anti-patterns use the same per-pattern structure (`anti_results`) for inspectabi
 
 These metrics are computed independently for all conditions (baseline, with-skill, realistic context), enabling delta analysis. A skill that increases anti-pattern hit rate relative to baseline provides direct evidence that loading the skill introduces cross-language contamination. The pattern matching layer complements the LLM judge — it catches specific, known contamination vectors while the judge catches subtler idiom mixing that can't be expressed as string patterns.
 
+## Selective Reference Loading
+
+Four skills have large reference file sets where each task only uses a subset of the available references. Loading all references for every task dilutes the contamination vectors concentrated in specific files, potentially suppressing real cross-contamination signal.
+
+| Skill | Total Refs | Ref Content | Avg Refs/Task | Content Reduction |
+|-------|-----------|-------------|---------------|-------------------|
+| react-native-best-practices | 28 files | 151K chars | 3.2 | ~84% |
+| sharp-edges | 16 files | 115K chars | 2.4 | ~78% |
+| neon-postgres | 13 files | 79K chars | 2.4 | ~75% |
+| monitoring-observability | 8 files | 106K chars | 1.6 | ~60% |
+
+Each task in these skills specifies a `reference_files` array listing only the reference files relevant to that task's contamination vectors. The runner loads SKILL.md plus those specific files as the system prompt, rather than the full reference corpus.
+
+**Why this matters:** Consider a task testing whether Python patterns bleed into Go output. If the skill has 28 reference files but only 3 contain Python code, loading all 28 means the Python contamination vectors are ~10% of the reference content. With selective loading, those same vectors are ~60-80% of the reference content — a much stronger test of whether the model is susceptible to cross-contamination.
+
+**Reference mapping methodology:** Each task's `reference_files` were selected by:
+1. Reading the task prompt to identify what contamination vectors it targets
+2. Reading each skill's SKILL.md to find which reference files contain those vectors (all 4 skills have explicit reference tables in their SKILL.md)
+3. Including only files that contain relevant code examples, API patterns, or domain terminology for the task
+
+The remaining 16 skills are unaffected: 9 have no reference files, 6 have 1-2 broadly relevant refs that apply to all tasks, and 1 (upgrade-stripe) has 4 refs that are all relevant to every task.
+
 ## Cost Estimate
 
 Condition D adds a third generation + judge call for every task (alongside A and B), and hidden contamination skills add a fourth (C). Approximate call counts: 20 skills × 5 tasks × 3 runs × 3 conditions = ~900 generation calls, ~900 judge calls. Hidden contamination skills add ~30 more of each.

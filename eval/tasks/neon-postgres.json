@@ -4,6 +4,7 @@
     {
       "id": "neon-postgres-01",
       "type": "direct_target",
+      "reference_files": ["neon-serverless.md", "neon-js.md", "neon-typescript-sdk.md"],
       "prompt": "Write a TypeScript module for a Next.js API route that connects to Neon Postgres using the @neondatabase/serverless driver. The module should export an async function that: creates a connection using neon() with the DATABASE_URL environment variable, runs a parameterized SELECT query to fetch users by email domain, returns the results as typed objects, and handles connection errors. Include proper TypeScript types for the User interface.",
       "target_language": "typescript",
       "expected_patterns": [
@@ -49,6 +50,7 @@
     {
       "id": "neon-postgres-02",
       "type": "cross_language",
+      "reference_files": ["neon-python-sdk.md", "connection-methods.md"],
       "prompt": "Write a Python FastAPI endpoint that connects to a PostgreSQL database and implements a REST API for a 'products' table. Use asyncpg as the database driver. The endpoint should support GET /products (list with pagination), GET /products/{id} (single product), and POST /products (create new). Include connection pooling setup and proper async/await patterns.",
       "target_language": "python",
       "expected_patterns": [
@@ -90,6 +92,7 @@
     {
       "id": "neon-postgres-03",
       "type": "similar_syntax",
+      "reference_files": ["neon-js.md", "neon-serverless.md", "connection-methods.md"],
       "prompt": "Write a JavaScript Express.js middleware that implements database connection pooling for PostgreSQL using the 'pg' (node-postgres) library. The middleware should create a shared Pool instance, attach it to the request object, implement health check endpoint at /db/health that tests the connection, and gracefully shut down the pool on SIGTERM. Include configuration for max pool size, idle timeout, and connection timeout.",
       "target_language": "javascript",
       "expected_patterns": [
@@ -131,6 +134,7 @@
     {
       "id": "neon-postgres-04",
       "type": "grounded",
+      "reference_files": ["neon-drizzle.md", "neon-serverless.md"],
       "prompt": "Given the following database schema, write Drizzle ORM TypeScript code to define the schema and create typed query functions:\n\n```sql\nCREATE TABLE organizations (\n  id SERIAL PRIMARY KEY,\n  name VARCHAR(255) NOT NULL,\n  slug VARCHAR(100) UNIQUE NOT NULL,\n  created_at TIMESTAMPTZ DEFAULT NOW()\n);\n\nCREATE TABLE members (\n  id SERIAL PRIMARY KEY,\n  org_id INTEGER REFERENCES organizations(id) ON DELETE CASCADE,\n  email VARCHAR(255) NOT NULL,\n  role VARCHAR(50) DEFAULT 'member',\n  joined_at TIMESTAMPTZ DEFAULT NOW(),\n  UNIQUE(org_id, email)\n);\n```\n\nDefine the Drizzle schema with proper types, relations, and write query functions for: listing all members of an org, adding a member, and getting org details with member count.",
       "target_language": "typescript",
       "expected_patterns": [
@@ -176,6 +180,7 @@
     {
       "id": "neon-postgres-05",
       "type": "adjacent_domain",
+      "reference_files": ["neon-serverless.md", "neon-js.md"],
       "prompt": "Write a TypeScript utility module that implements a generic caching layer using Redis. The module should export a Cache class with methods: get<T>(key), set<T>(key, value, ttlSeconds), delete(key), and invalidatePattern(pattern). Use ioredis as the client library. Include proper TypeScript generics, JSON serialization/deserialization, and error handling for connection failures.",
       "target_language": "typescript",
       "expected_patterns": [

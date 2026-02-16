@@ -4,6 +4,7 @@
     {
       "id": "react-native-best-practices-01",
       "type": "direct_target",
+      "reference_files": ["js-lists-flatlist-flashlist.md", "js-react-compiler.md", "js-animations-reanimated.md"],
       "prompt": "Write a React Native component in TypeScript that renders a large list of product items using FlashList from @shopify/flash-list. Each item should display a product image, name, price, and rating. Implement proper estimatedItemSize, keyExtractor, and renderItem with React.memo to prevent unnecessary re-renders. Include a loading skeleton state and pull-to-refresh functionality.",
       "target_language": "typescript",
       "expected_patterns": [
@@ -41,6 +42,7 @@
     {
       "id": "react-native-best-practices-02",
       "type": "cross_language",
+      "reference_files": ["native-turbo-modules.md", "native-threading-model.md", "native-memory-patterns.md"],
       "prompt": "Write a Swift class for an iOS UIKit application that implements a custom UICollectionView with a compositional layout. The collection view should display a grid of photo thumbnails with sections for 'Recent', 'Favorites', and 'Albums'. Include proper cell registration, diffable data source setup, and memory-efficient image loading with prefetching.",
       "target_language": "swift",
       "expected_patterns": [
@@ -90,6 +92,7 @@
     {
       "id": "react-native-best-practices-03",
       "type": "similar_syntax",
+      "reference_files": ["native-turbo-modules.md", "native-memory-patterns.md", "native-measure-tti.md"],
       "prompt": "Write a Kotlin Android Activity that implements a RecyclerView with a ListAdapter for displaying a feed of social media posts. Each post should show author avatar, text content, timestamp, and like/comment counts. Use View Binding for view references, implement DiffUtil.ItemCallback for efficient updates, and handle click events with a lambda callback.",
       "target_language": "kotlin",
       "expected_patterns": [
@@ -131,6 +134,7 @@
     {
       "id": "react-native-best-practices-04",
       "type": "grounded",
+      "reference_files": ["js-lists-flatlist-flashlist.md", "js-react-compiler.md", "js-concurrent-react.md", "js-uncontrolled-components.md"],
       "prompt": "Given the following React Native component that has performance issues, identify the problems and refactor it:\n\n```tsx\nimport React, { useState, useEffect } from 'react';\nimport { ScrollView, View, Text, Image, StyleSheet } from 'react-native';\n\ninterface Item { id: string; title: string; imageUrl: string; description: string; }\n\nexport function ProductList({ items }: { items: Item[] }) {\n  const [filtered, setFiltered] = useState(items);\n  const [search, setSearch] = useState('');\n\n  useEffect(() => {\n    setFiltered(items.filter(i => i.title.includes(search)));\n  }, [search, items]);\n\n  return (\n    <ScrollView>\n      {filtered.map(item => (\n        <View key={item.id} style={styles.card}>\n          <Image source={{ uri: item.imageUrl }} style={styles.image} />\n          <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#333' }}>{item.title}</Text>\n          <Text>{item.description}</Text>\n        </View>\n      ))}\n    </ScrollView>\n  );\n}\n\nconst styles = StyleSheet.create({ card: { padding: 16 }, image: { width: 100, height: 100 } });\n```\n\nFix the performance issues: replace ScrollView with FlashList, extract inline styles, memoize the renderItem function, and use useDeferredValue for the search filter.",
       "target_language": "typescript",
       "expected_patterns": [
@@ -180,6 +184,7 @@
     {
       "id": "react-native-best-practices-05",
       "type": "adjacent_domain",
+      "reference_files": ["bundle-code-splitting.md", "js-lists-flatlist-flashlist.md", "js-concurrent-react.md"],
       "prompt": "Write a React web application component in TypeScript using React 18+ that implements an infinite-scroll data table. The table should fetch paginated data from a REST API, use React.lazy and Suspense for code splitting the table rows, implement virtualization with react-window, and include column sorting and filtering. Use proper React patterns (hooks, error boundaries).",
       "target_language": "typescript",
       "expected_patterns": [

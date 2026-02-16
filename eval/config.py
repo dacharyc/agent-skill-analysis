@@ -236,6 +236,31 @@ def get_skill_refs(skill_name: str) -> list[tuple[str, str]]:
     return refs
 
 
+def get_skill_content_with_refs(skill_name: str, ref_files: list[str]) -> str | None:
+    """Return SKILL.md + only the named reference files concatenated.
+
+    Falls back to full content if ref_files is empty.
+    """
+    if not ref_files:
+        return get_full_skill_content(skill_name)
+
+    skill_md = get_skill_md(skill_name)
+    if skill_md is None:
+        return None
+
+    skill_dir = get_skill_path(skill_name)
+    refs_dir = skill_dir / "references"
+
+    parts = [skill_md]
+    for fname in ref_files:
+        ref_path = refs_dir / fname
+        if ref_path.exists():
+            parts.append(f"\n\n---\n\n# Reference: {fname}\n\n{ref_path.read_text()}")
+        else:
+            print(f"  WARNING: Reference file not found: {fname}", file=__import__('sys').stderr)
+    return "\n".join(parts)
+
+
 def get_full_skill_content(skill_name: str) -> str | None:
     """Return SKILL.md + all reference files concatenated (mimics skill loading)."""
     skill_md = get_skill_md(skill_name)

@@ -32,6 +32,7 @@ from config import (
     TASKS_DIR,
     TEMPERATURE,
     get_full_skill_content,
+    get_skill_content_with_refs,
     get_skill_md,
     build_realistic_system,
     build_realistic_messages,
@@ -129,11 +130,11 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
     if tasks_data is None:
         return None
 
-    # Load skill content
-    full_content = get_full_skill_content(skill_name)
+    # Pre-load skill-md-only for Condition C (task-independent)
     skill_md_only = get_skill_md(skill_name) if skill_config["hidden_contamination"] else None
 
-    if full_content is None:
+    # Verify SKILL.md exists
+    if get_skill_md(skill_name) is None:
         print(f"  WARNING: Could not load SKILL.md for {skill_name}", file=sys.stderr)
         return None
 
@@ -146,14 +147,24 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
         target_lang = task["target_language"]
         print(f"    Task: {task_id}")
 
+        # Per-task skill content: selective refs if specified, else full
+        ref_files = task.get("reference_files")
+        if ref_files:
+            task_skill_content = get_skill_content_with_refs(skill_name, ref_files)
+        else:
+            task_skill_content = get_full_skill_content(skill_name)
+
+        # Build realistic system per-task (skill content varies)
+        realistic_system = build_realistic_system(task_skill_content)
+
         runs = []
         for run_idx in range(RUNS_PER_CONDITION):
             # Condition A: Baseline (no skill)
             baseline = generate(client, task["prompt"], system=None, run_index=run_idx)
             cached_b = "cached" if baseline.get("cached") else "new"
 
-            # Condition B: With full skill content
-            with_skill = generate(client, task["prompt"], system=full_content, run_index=run_idx)
+            # Condition B: With skill content (selective refs per task)
+            with_skill = generate(client, task["prompt"], system=task_skill_content, run_index=run_idx)
             cached_s = "cached" if with_skill.get("cached") else "new"
 
             # Condition C: SKILL.md only (hidden contamination skills)
@@ -165,7 +176,6 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
                 cached_m = "cached" if skill_md_result.get("cached") else "new"
 
             # Condition D: Realistic context (skill + CC preamble + codebase context)
-            realistic_system = build_realistic_system(full_content)
             realistic_msgs = build_realistic_messages(task["prompt"], target_lang)
             realistic_result = generate(
                 client, task["prompt"],

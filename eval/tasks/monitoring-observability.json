@@ -4,6 +4,7 @@
     {
       "id": "monitoring-observability-01",
       "type": "direct_target",
+      "reference_files": ["tracing_guide.md"],
       "prompt": "Write a Python script that uses the OpenTelemetry SDK to instrument a Flask web application. The script should create a tracer provider, set up a OTLP exporter to send traces to a collector at localhost:4317, and add automatic instrumentation for Flask routes. Include a sample route that creates a custom span with attributes for user_id and request_type.",
       "target_language": "python",
       "expected_patterns": [
@@ -45,6 +46,7 @@
     {
       "id": "monitoring-observability-02",
       "type": "cross_language",
+      "reference_files": ["metrics_design.md", "tool_comparison.md"],
       "prompt": "Write a Go service that exposes Prometheus metrics for a microservice. It should register custom metrics for HTTP request duration (histogram), request count (counter), and active connections (gauge). Include a /metrics endpoint using the promhttp handler and middleware that records metrics for each incoming request.",
       "target_language": "go",
       "expected_patterns": [
@@ -102,6 +104,7 @@
     {
       "id": "monitoring-observability-03",
       "type": "similar_syntax",
+      "reference_files": ["logging_guide.md"],
       "prompt": "Write a Node.js Express middleware module that implements structured JSON logging with correlation IDs. Each log entry should include timestamp, level, message, service name, and a request_id extracted from the x-request-id header or generated as a UUID. Use Winston as the logging library. Export the middleware function and the configured logger.",
       "target_language": "javascript",
       "expected_patterns": [
@@ -152,6 +155,7 @@
     {
       "id": "monitoring-observability-04",
       "type": "grounded",
+      "reference_files": ["alerting_best_practices.md", "metrics_design.md"],
       "prompt": "Given the following Prometheus alert rule file, audit it for best practices and rewrite it with improvements:\n\n```yaml\ngroups:\n  - name: api-alerts\n    rules:\n      - alert: HighErrorRate\n        expr: http_errors_total > 100\n        labels:\n          severity: critical\n      - alert: HighLatency\n        expr: http_request_duration_seconds > 2\n        annotations:\n          summary: Latency is high\n      - alert: DiskFull\n        expr: node_filesystem_avail_bytes / node_filesystem_size_bytes < 0.1\n        for: 1m\n        labels:\n          severity: warning\n```\n\nRewrite these alert rules following production best practices: use rate() for counters, add 'for' clauses to prevent flapping, include required labels (severity, team) and annotations (summary, description, runbook_url), and use histogram_quantile for latency.",
       "target_language": "yaml",
       "expected_patterns": [
@@ -189,6 +193,7 @@
     {
       "id": "monitoring-observability-05",
       "type": "adjacent_domain",
+      "reference_files": ["slo_sla_guide.md", "metrics_design.md"],
       "prompt": "Write a Python script that implements a health check aggregator service. It should periodically poll a list of microservice health endpoints (provided as a config list), track their status over time, calculate uptime percentages over the last 24 hours, and expose an aggregate health status endpoint using FastAPI. Include proper timeout handling and retry logic for the HTTP calls.",
       "target_language": "python",
       "expected_patterns": [
