@@ -35,6 +35,9 @@ paper.tex: paper.md references.bib
 		-V geometry:margin=1in \
 		-V fontsize=11pt \
 		-V colorlinks=true \
+		-V mainfont="Times New Roman" \
+		-V monofont="Menlo" \
+		-V mathfont="STIX Two Math" \
 		--standalone \
 		-o paper.tex
 

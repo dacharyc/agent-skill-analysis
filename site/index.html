@@ -16,6 +16,7 @@
             <span class="meta-chip">673 Skills</span>
             <span class="meta-chip">41 Repositories</span>
             <span class="meta-chip">February 2026</span>
+            <a href="paper.pdf" class="meta-chip meta-chip-link" download>Download Paper (PDF)</a>
         </div>
     </header>
 
@@ -220,7 +221,7 @@
             </div>
             <h3>Net Negative Risk</h3>
             <p>Skills that score low on novelty (score &le; 2) <em>and</em> medium-to-high on <a href="#contamination">structural contamination</a> (score &ge; 0.2). The idea: if a skill doesn't teach the model anything new but does add mixed-language complexity to the context window, it's all cost and no benefit. These skills are candidates for removal or consolidation.</p>
-            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 4 net-negative skills, the actual measured degradation was small (mean B&minus;A&nbsp;=&nbsp;&minus;0.046) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones.</p>
+            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 6 net-negative skills, the actual measured degradation was modest (mean B&minus;A&nbsp;=&nbsp;&minus;0.072) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones.</p>
             <div id="net-negative-summary" class="callout-box"></div>
             <div id="net-negative-cards"></div>
         </section>
