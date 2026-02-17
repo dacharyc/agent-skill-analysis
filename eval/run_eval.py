@@ -63,6 +63,12 @@ def main():
         help="Run only a specific pipeline stage"
     )
     parser.add_argument(
+        "--task", action="append", dest="tasks",
+        help="Specific task ID(s) to run (can be repeated). "
+             "Only the specified tasks are re-generated/re-judged; "
+             "others retain results from previous runs."
+    )
+    parser.add_argument(
         "--patterns-only", action="store_true",
         help="Re-run only deterministic pattern matching (no LLM judge calls). "
              "Preserves existing judge scores. Useful for iterating on expected/anti patterns."
@@ -77,13 +83,17 @@ def main():
         list_skills()
         return
 
-    # Resolve skill list
-    skill_names = args.skills or list(SKILLS.keys())
+    # Resolve skill list (exclude experimental skills unless explicitly named)
+    skill_names = args.skills or [
+        name for name, cfg in SKILLS.items() if not cfg.get("experimental")
+    ]
     valid_skills = validate_skills(skill_names)
 
     if not valid_skills and args.stage != "analyze":
         print("ERROR: No valid skills to process", file=sys.stderr)
         sys.exit(1)
+
+    task_ids = args.tasks
 
     print("=" * 60)
     print("BEHAVIORAL EVAL PIPELINE")
@@ -91,13 +101,15 @@ def main():
     if args.stage:
         print(f"Stage: {args.stage}")
     print(f"Skills: {len(valid_skills)}")
+    if task_ids:
+        print(f"Tasks: {', '.join(task_ids)}")
     print()
 
     # Stage 1: Generate (skipped in patterns-only mode)
     if (args.stage is None or args.stage == "generate") and not args.patterns_only:
         print("--- Stage 1: Generation ---")
         from runner import run_all
-        run_all(valid_skills)
+        run_all(valid_skills, task_ids=task_ids)
         print()
 
     # Stage 2: Judge
@@ -107,7 +119,7 @@ def main():
         else:
             print("--- Stage 2: Judging ---")
         from judge import judge_all
-        judge_all(valid_skills, patterns_only=args.patterns_only)
+        judge_all(valid_skills, patterns_only=args.patterns_only, task_ids=task_ids)
         print()
 
     # Stage 3: Analyze (always reads all available data)

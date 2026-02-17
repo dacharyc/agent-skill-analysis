@@ -1,8 +1,8 @@
 {
-  "skill_name": "upgrade-stripe",
+  "skill_name": "upgrade-stripe-comprehensive",
   "tasks": [
     {
-      "id": "upgrade-stripe-01",
+      "id": "upgrade-stripe-comprehensive-01",
       "type": "direct_target",
       "prompt": "Write a Python module that initializes a Stripe client pinned to the 2026-01-28.clover API version, creates a customer with email and metadata, then creates a subscription for that customer with a price ID. Include proper error handling with Stripe exceptions.",
       "target_language": "python",
@@ -54,7 +54,7 @@
       "notes": "Direct Python task matching skill's primary Python examples. Anti-patterns detect Ruby (Stripe.api_version, Stripe::Customer) or JavaScript (require/const/apiVersion) bleed from the skill's multi-language examples."
     },
     {
-      "id": "upgrade-stripe-02",
+      "id": "upgrade-stripe-comprehensive-02",
       "type": "cross_language",
       "prompt": "Write a Go function that initializes a Stripe client, retrieves a customer by ID, and updates their default payment method. Use the official stripe-go library with proper API version handling.",
       "target_language": "go",
@@ -100,7 +100,7 @@
       "notes": "Go is a strongly-typed language mentioned in the skill (should NOT set API version directly), but no Go code examples are provided. Tests whether Python/Ruby/JS API version patterns bleed into Go output, which the skill explicitly says to avoid for strongly-typed languages."
     },
     {
-      "id": "upgrade-stripe-03",
+      "id": "upgrade-stripe-comprehensive-03",
       "type": "similar_syntax",
       "prompt": "Write a Node.js Express middleware that initializes Stripe with explicit API versioning, verifies incoming webhook signatures using the raw request body, and dispatches events to handler functions based on event type.",
       "target_language": "javascript",
@@ -143,7 +143,7 @@
       "notes": "JavaScript is in the skill with code examples. Tests whether Python's stripe.api_version= or Ruby's Stripe::Webhook patterns contaminate JS webhook code. JS uses apiVersion in constructor, not assignment."
     },
     {
-      "id": "upgrade-stripe-04",
+      "id": "upgrade-stripe-comprehensive-04",
       "type": "grounded",
       "prompt": "Given the following existing payment integration code, upgrade it from Stripe API version 2024-12-18.acacia to 2026-01-28.clover. Update the API version, replace any deprecated patterns, and ensure the Stripe.js script tag uses the correct version.\n\n```python\nimport stripe\n\nstripe.api_key = 'sk_test_xxx'\nstripe.api_version = '2024-12-18.acacia'\n\ndef create_checkout_session(price_id, success_url, cancel_url):\n    session = stripe.checkout.Session.create(\n        mode='subscription',\n        line_items=[{'price': price_id, 'quantity': 1}],\n        success_url=success_url,\n        cancel_url=cancel_url,\n    )\n    return session\n```\n\n```html\n<script src=\"https://js.stripe.com/basil/stripe.js\"></script>\n```",
       "target_language": "python",
@@ -179,7 +179,7 @@
       "notes": "Grounded task with real code context. Tests correct version upgrade knowledge (acacia->clover, basil->clover for Stripe.js). Anti-patterns ensure old version strings are replaced and no cross-language contamination occurs."
     },
     {
-      "id": "upgrade-stripe-05",
+      "id": "upgrade-stripe-comprehensive-05",
       "type": "adjacent_domain",
       "prompt": "Write a Ruby service class that handles Stripe webhook events for subscription lifecycle changes (customer.subscription.created, customer.subscription.updated, customer.subscription.deleted). Parse the event, verify the signature, and update a local database record accordingly.",
       "target_language": "ruby",
@@ -224,7 +224,7 @@
       "notes": "Ruby is in the skill but webhook handling is adjacent to the upgrade focus. Tests whether JavaScript webhook patterns (stripe.webhooks.constructEvent) bleed into Ruby output. Ruby uses Stripe::Webhook.construct_event."
     },
     {
-      "id": "upgrade-stripe-06",
+      "id": "upgrade-stripe-comprehensive-06",
       "type": "grounded",
       "prompt": "Given the following legacy payment integration, upgrade it to use the new StripeClient pattern with proper API versioning. Preserve the same business logic.\n\n```python\nimport stripe\n\nstripe.api_key = 'sk_test_xxx'\nstripe.api_version = '2024-12-18.acacia'\n\ndef charge_customer(customer_id, amount_cents, currency='usd'):\n    intent = stripe.PaymentIntent.create(\n        amount=amount_cents,\n        currency=currency,\n        customer=customer_id,\n        payment_method_types=['card'],\n        confirm=True,\n        off_session=True,\n    )\n    return intent\n\ndef refund_payment(payment_intent_id, amount_cents=None):\n    params = {'payment_intent': payment_intent_id}\n    if amount_cents:\n        params['amount'] = amount_cents\n    return stripe.Refund.create(**params)\n```",
       "target_language": "python",
@@ -259,10 +259,10 @@
           "description": "Anti-patterns: Ruby Stripe::PaymentIntent.create pattern"
         }
       ],
-      "notes": "OUT-OF-BAND: Tests upgrade of PaymentIntent and Refund APIs — neither is covered by the targeted reference file. The reference only covers init, errors, webhooks, and versions. This tests whether the reference helps with init/versioning while the model must rely on pretrained knowledge for the specific API migration patterns."
+      "notes": "PARTIAL OUT-OF-BAND: PaymentIntent appears in comprehensive references (Python: client.v1.payment_intents.retrieve with expand, Go: PaymentIntentParams, Ruby: payment_intents.retrieve) but only in retrieve/expand examples — not create. Refund API is not covered in any reference. Targeted reference has zero PaymentIntent coverage. Tests whether comprehensive's incidental PaymentIntent mentions help with the create/refund migration vs targeted which must rely entirely on pretrained knowledge."
     },
     {
-      "id": "upgrade-stripe-07",
+      "id": "upgrade-stripe-comprehensive-07",
       "type": "adjacent_domain",
       "prompt": "Write a Node.js module that creates a Stripe Connect Express account for a marketplace seller, requests card_payments and transfers capabilities, then generates an onboarding link for the account. Use the current Stripe API version.",
       "target_language": "javascript",
@@ -303,10 +303,10 @@
           "description": "Anti-patterns: Ruby Stripe::Account.create pattern"
         }
       ],
-      "notes": "OUT-OF-BAND: Tests Connect account creation — not covered by any reference file. The targeted reference has no Connect APIs. Tests whether the skill's multi-language examples cause Python/Ruby account creation patterns to bleed into Node.js output, and whether the model fabricates Connect-specific API details."
+      "notes": "OUT-OF-BAND: Tests Connect account creation — comprehensive references mention 'stripe_account' as a request option (for acting on behalf of connected accounts) but contain no account creation, capabilities, or onboarding link APIs. Targeted reference has zero Connect coverage. This is the purest out-of-band test — all three variants are essentially equally uncovered for the actual task."
     },
     {
-      "id": "upgrade-stripe-08",
+      "id": "upgrade-stripe-comprehensive-08",
       "type": "adjacent_domain",
       "prompt": "Write a Ruby class that records usage-based billing meter events for an AI API product. The class should accept a customer ID and token count, create a Stripe meter event with the event name 'api_tokens_used', and handle errors gracefully. Use the current Stripe API version.",
       "target_language": "ruby",

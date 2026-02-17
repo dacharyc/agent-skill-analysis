@@ -32,7 +32,7 @@ The model's training data predates the Gemini SDK rename from `google-generative
 
 ### Implications for the Paper
 
-This is the strongest evidence that **contamination score and behavioral impact can be orthogonal**. The skill has a contamination score of 0.55 (high risk, multi-language API examples), yet it produces a +0.200 behavioral improvement. The "contaminating" multi-language content is precisely what makes the skill useful — it teaches the model the correct API patterns across languages.
+This is a clear case study illustrating that **contamination score and behavioral impact can be orthogonal**. The skill has a contamination score of 0.55 (high risk, multi-language API examples), yet it produces a +0.200 behavioral improvement. The "contaminating" multi-language content is precisely what makes the skill useful — it teaches the model the correct API patterns across languages.
 
 The paper's case study of gemini-api-dev as a contamination risk example needs reframing: structurally it is high-risk (Python/JS/Go/Java examples for the same API), but behaviorally it is net-positive because the content is genuinely novel.
 

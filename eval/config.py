@@ -206,6 +206,30 @@ SKILLS: dict[str, dict] = {
         "has_refs": False,
         "hidden_contamination": False,
     },
+
+    # === EXPERIMENTAL (partial knowledge hypothesis) ===
+    # Synthetic skill variants for testing whether targeted API reference
+    # files reduce fabrication. Not included in default eval runs.
+    # Level 1: Minimal ground truth — correct class names, signatures, versions.
+    "upgrade-stripe-targeted": {
+        "path": "eval/synthetic-skills/upgrade-stripe-targeted",
+        "contamination_score": 0.93,  # same SKILL.md as upgrade-stripe
+        "risk_level": "experimental",
+        "test_category": "partial_knowledge",
+        "has_refs": True,
+        "hidden_contamination": False,
+        "experimental": True,  # excluded from default --all runs
+    },
+    # Level 2: Full SDK docs — tests if extensive examples trigger over-engineering.
+    "upgrade-stripe-comprehensive": {
+        "path": "eval/synthetic-skills/upgrade-stripe-comprehensive",
+        "contamination_score": 0.93,  # same SKILL.md as upgrade-stripe
+        "risk_level": "experimental",
+        "test_category": "partial_knowledge",
+        "has_refs": True,
+        "hidden_contamination": False,
+        "experimental": True,  # excluded from default --all runs
+    },
 }
 
 
@@ -342,6 +366,39 @@ class BaseService(Generic[T]):
     async def create(self, instance: T) -> T:
         self.session.add(instance)
         await self.session.flush()
+        logger.info("Created %s id=%d", type(instance).__name__, instance.id)
+        return instance
+```''',
+
+    "python_sync": '''# Explore agent summary:
+The project is a Python web service using Flask with SQLAlchemy for database access.
+Key files: src/app.py (app entrypoint), src/models.py (DB models), src/services/ (business logic).
+Uses Poetry for dependency management, pytest for testing. Python 3.12.
+
+# File read: src/services/base.py
+```python
+"""Base service with common patterns used across the application."""
+import logging
+from typing import TypeVar, Generic
+from sqlalchemy.orm import Session
+from src.models import Base
+
+T = TypeVar("T", bound=Base)
+logger = logging.getLogger(__name__)
+
+class BaseService(Generic[T]):
+    def __init__(self, session: Session):
+        self.session = session
+
+    def get_by_id(self, model_class: type[T], id: int) -> T | None:
+        result = self.session.get(model_class, id)
+        if result is None:
+            logger.warning("Entity %s with id=%d not found", model_class.__name__, id)
+        return result
+
+    def create(self, instance: T) -> T:
+        self.session.add(instance)
+        self.session.flush()
         logger.info("Created %s id=%d", type(instance).__name__, instance.id)
         return instance
 ```''',
@@ -743,14 +800,20 @@ The project follows conventional structure with source code in src/, configurati
 and automation scripts in scripts/. See docs/ for architecture decisions.'''
 
 
-def get_codebase_context(target_language: str) -> str:
+def get_codebase_context(target_language: str, variant: str | None = None) -> str:
     """Return a representative codebase snippet for the target language.
 
     Simulates what an explore agent would return plus a file read — enough to
     anchor the model in the correct language context without biasing toward
     any specific API under test.
+
+    Args:
+        target_language: The target language key (e.g. "python", "go").
+        variant: Optional override key into _CODEBASE_SNIPPETS (e.g.
+            "python_sync"). When set, used instead of target_language.
     """
-    return _CODEBASE_SNIPPETS.get(target_language, _GENERIC_CODEBASE_SNIPPET)
+    key = variant or target_language
+    return _CODEBASE_SNIPPETS.get(key, _GENERIC_CODEBASE_SNIPPET)
 
 
 def build_realistic_system(skill_content: str) -> str:
@@ -758,7 +821,11 @@ def build_realistic_system(skill_content: str) -> str:
     return f"{CC_SYSTEM_PREAMBLE}\n\n---\n\n{skill_content}"
 
 
-def build_realistic_messages(task_prompt: str, target_language: str) -> list[dict]:
+def build_realistic_messages(
+    task_prompt: str,
+    target_language: str,
+    codebase_variant: str | None = None,
+) -> list[dict]:
     """Build a multi-turn message list simulating a real Claude Code session.
 
     The conversation simulates:
@@ -768,8 +835,14 @@ def build_realistic_messages(task_prompt: str, target_language: str) -> list[dic
 
     This places codebase context in the conversation history (as it would appear
     from tool results) rather than in the system prompt.
+
+    Args:
+        task_prompt: The user's task prompt.
+        target_language: The target language key.
+        codebase_variant: Optional override for the codebase snippet key
+            (e.g. "python_sync"). Passed through to get_codebase_context().
     """
-    codebase_ctx = get_codebase_context(target_language)
+    codebase_ctx = get_codebase_context(target_language, variant=codebase_variant)
     return [
         {
             "role": "user",

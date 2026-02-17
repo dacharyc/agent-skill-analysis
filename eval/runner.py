@@ -123,8 +123,20 @@ def load_tasks(skill_name: str) -> dict | None:
     return json.loads(task_file.read_text())
 
 
-def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
-    """Run all tasks for a single skill, returning results dict."""
+def run_skill(
+    client: anthropic.Anthropic,
+    skill_name: str,
+    task_ids: list[str] | None = None,
+) -> dict | None:
+    """Run all tasks for a single skill, returning results dict.
+
+    Args:
+        client: Anthropic API client.
+        skill_name: Name of the skill to run.
+        task_ids: Optional list of task IDs to run. When set, only tasks whose
+            ``id`` is in this list are re-generated; other tasks retain their
+            existing results from a previous run (if any).
+    """
     skill_config = SKILLS[skill_name]
     tasks_data = load_tasks(skill_name)
     if tasks_data is None:
@@ -138,6 +150,15 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
         print(f"  WARNING: Could not load SKILL.md for {skill_name}", file=sys.stderr)
         return None
 
+    # Load existing generation data for merge when filtering by task
+    existing_results: dict[str, dict] = {}
+    if task_ids is not None:
+        out_path = GENERATIONS_DIR / f"{skill_name}.json"
+        if out_path.exists():
+            existing_data = json.loads(out_path.read_text())
+            for t in existing_data.get("tasks", []):
+                existing_results[t["task_id"]] = t
+
     print(f"  Running {skill_name} ({len(tasks_data['tasks'])} tasks, "
           f"{RUNS_PER_CONDITION} runs/condition)...")
 
@@ -145,6 +166,16 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
     for task in tasks_data["tasks"]:
         task_id = task["id"]
         target_lang = task["target_language"]
+
+        # Skip tasks not in the filter list; preserve existing data
+        if task_ids is not None and task_id not in task_ids:
+            if task_id in existing_results:
+                task_results.append(existing_results[task_id])
+                print(f"    Task: {task_id} (preserved from previous run)")
+            else:
+                print(f"    Task: {task_id} (skipped, no previous data)")
+            continue
+
         print(f"    Task: {task_id}")
 
         # Per-task skill content: selective refs if specified, else full
@@ -156,6 +187,9 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
 
         # Build realistic system per-task (skill content varies)
         realistic_system = build_realistic_system(task_skill_content)
+
+        # Per-task codebase variant override
+        codebase_variant = task.get("codebase_variant")
 
         runs = []
         for run_idx in range(RUNS_PER_CONDITION):
@@ -176,7 +210,9 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
                 cached_m = "cached" if skill_md_result.get("cached") else "new"
 
             # Condition D: Realistic context (skill + CC preamble + codebase context)
-            realistic_msgs = build_realistic_messages(task["prompt"], target_lang)
+            realistic_msgs = build_realistic_messages(
+                task["prompt"], target_lang, codebase_variant=codebase_variant,
+            )
             realistic_result = generate(
                 client, task["prompt"],
                 system=realistic_system,
@@ -234,8 +270,16 @@ def run_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
     return result
 
 
-def run_all(skill_names: list[str] | None = None) -> list[dict]:
-    """Run generation for specified skills (or all)."""
+def run_all(
+    skill_names: list[str] | None = None,
+    task_ids: list[str] | None = None,
+) -> list[dict]:
+    """Run generation for specified skills (or all).
+
+    Args:
+        skill_names: Skills to run (default: all).
+        task_ids: Optional task ID filter passed through to ``run_skill()``.
+    """
     client = anthropic.Anthropic()
     names = skill_names or list(SKILLS.keys())
     results = []
@@ -244,7 +288,7 @@ def run_all(skill_names: list[str] | None = None) -> list[dict]:
         if name not in SKILLS:
             print(f"  WARNING: Unknown skill '{name}', skipping", file=sys.stderr)
             continue
-        result = run_skill(client, name)
+        result = run_skill(client, name, task_ids=task_ids)
         if result:
             results.append(result)
 
@@ -256,8 +300,9 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Run behavioral eval generation")
     parser.add_argument("--skill", action="append", help="Specific skill(s) to run")
+    parser.add_argument("--task", action="append", help="Specific task ID(s) to run")
     args = parser.parse_args()
 
     print("=== Behavioral Eval: Generation ===")
-    run_all(args.skill)
+    run_all(args.skill, task_ids=args.task)
     print("Done.")

@@ -4,7 +4,7 @@
 
 No single content quality dimension from the paper's LLM-as-judge scoring (clarity, actionability, token efficiency, scope discipline, directive precision, novelty) predicts behavioral degradation across the 19 evaluated skills. However, **novelty amplifies effect magnitude in both directions** — high-novelty skills show both the largest positive deltas (when the task matches) and the largest negative deltas (when it doesn't). This interacts with task type: high-novelty skills degrade more on cross-language tasks (r=-0.328) but improve more on similar-syntax and adjacent-domain tasks (r=+0.287, +0.289).
 
-This connects the paper's two main analyses: novelty determines whether the model pays attention to skill content, and that attention cuts both ways.
+This connects the paper's structural analysis with the exploratory behavioral evaluation: novelty may determine whether the model pays attention to skill content, and that attention could cut both ways.
 
 ## Per-Dimension Correlations (n=19)
 
@@ -38,7 +38,7 @@ Among skills that degrade, clarity and token efficiency moderate the severity �
 
 The negative novelty correlation (-0.421) in this subset reflects that the worst degraders (claude-settings-audit nov=5, react-native-best-practices nov=4) happen to be high-novelty skills. See the novelty amplification section below for interpretation.
 
-## Novelty Amplification: The Key Finding
+## Novelty Amplification (Exploratory)
 
 ### Novelty vs absolute delta
 
@@ -111,16 +111,16 @@ Novelty measures whether the skill teaches the model something beyond its traini
 
 This is the **attention allocation** mechanism: novelty makes content more salient, and salience cuts both ways.
 
-### Reframing the "net negative" risk category
+### Observations on the "net negative" risk category
 
-The paper identifies 35 skills with low novelty + high contamination as theoretically worst-case ("the agent gains no new information but is exposed to mixed-language interference"). The behavioral data suggests this framing is backwards:
+The paper identifies 35 skills with low novelty + high contamination as theoretically worst-case ("the agent gains no new information but is exposed to mixed-language interference"). In our exploratory sample (n=19), the pattern is more nuanced:
 
 - **Low-novelty + high-contamination** skills (e.g., upgrade-stripe nov=3, contam=0.93): modest degradation (B-A=-0.117). The model knows Stripe already and partially ignores the redundant multi-language examples.
 - **High-novelty + task-mismatch** skills: much worse degradation. copilot-sdk (nov=5, cross_language=-1.333), react-native-best-practices (nov=4, cross_language=-0.834), claude-settings-audit (nov=5, direct_target=-1.167).
 
-The actual risk profile isn't "low novelty + high contamination." It's **high novelty + content that's relevant enough to capture attention but wrong for the task context**. The model's learning ability — precisely what makes skills valuable — is also what makes them dangerous when misapplied.
+If this pattern holds in larger samples, the risk profile may not be "low novelty + high contamination" but rather **high novelty + content that's relevant enough to capture attention but wrong for the task context**. The model's learning ability — precisely what makes skills valuable — could also be what makes them dangerous when misapplied.
 
-This doesn't invalidate the net-negative category entirely (those skills still add no value), but the behavioral urgency is lower than suggested. The skills that actually cause the worst degradation are high-novelty ones whose novel content includes cross-language examples, template defects, or framework-specific patterns that bleed into non-target contexts.
+This doesn't invalidate the net-negative category entirely (those skills still add no value), but the behavioral case studies suggest the urgency may be lower than the structural analysis alone implies. However, confirming this requires testing with a larger behavioral sample — these observations are from n=19 skills with all the caveats that entails.
 
 ## Negative Results Worth Noting
 

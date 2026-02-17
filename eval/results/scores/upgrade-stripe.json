@@ -1,6 +1,6 @@
 {
   "skill_name": "upgrade-stripe",
-  "scored_at": "2026-02-16T05:53:30.645320+00:00",
+  "scored_at": "2026-02-16T23:35:55.960622+00:00",
   "model_judge": "claude-opus-4-6",
   "model_generation": "claude-sonnet-4-5-20250929",
   "contamination_score": 0.93,
@@ -165,18 +165,18 @@
           "skill_md_only": null,
           "realistic": {
             "judge": {
-              "language_correctness": 4,
+              "language_correctness": 5,
               "api_idiomaticity": 3,
               "functional_correctness": 3,
               "code_quality": 3,
               "contamination_signals": [
-                "StripeErrorWithParamCode is not a real class in stripe.error \u2014 likely hallucinated or confused with another SDK",
-                "stripe_version is not a valid keyword argument to stripe.Customer.create() or stripe.Subscription.create(); this is a module-level or client-level setting, not a per-call parameter",
-                "Methods are declared as async but call synchronous stripe SDK methods (stripe.Customer.create, stripe.Subscription.create) without await \u2014 mixing async declaration with sync calls",
-                "Importing from stripe.error is the older pattern; newer stripe-python versions use stripe instead, though stripe.error still works for backward compatibility"
+                "Import of 'StripeErrorWithParamCode' which is not a standard stripe-python exception class",
+                "Use of 'e.user_message' on InvalidRequestError \u2014 the Python SDK uses 'e.user_message' on CardError but InvalidRequestError typically doesn't have a meaningful 'user_message'; this may reflect confusion with another SDK",
+                "Setting stripe.api_key and stripe.api_version as module-level globals via self.stripe rather than using the newer StripeClient instance-based approach (though the older pattern is still valid, the task asked for a 'Stripe client')",
+                "Return type annotated as Optional but docstring says 'Raises' \u2014 the function never returns None since exceptions are re-raised, indicating inconsistency"
               ],
-              "brief_assessment": "The code is in Python and follows a reasonable structure with logging, docstrings, and layered error handling. However, it has notable issues: the methods are declared async but invoke synchronous Stripe API calls without awaiting anything, the `stripe_version` parameter is incorrectly passed as a keyword argument to individual API calls rather than being set at the client/module level, and `StripeErrorWithParamCode` is not a real Stripe exception class. The code is also truncated mid-function, leaving the `create_customer_with_subscription` method incomplete.",
-              "cached": true
+              "brief_assessment": "The code is entirely valid Python with proper typing, logging, and a class-based structure. However, it is truncated mid-function (create_customer_with_subscription is cut off), so the task is only partially completed. The import of 'StripeErrorWithParamCode' is not a real stripe-python exception, and using 'e.user_message' on InvalidRequestError is not standard for the Python SDK. The older module-level API key pattern works but doesn't align well with the task's request to initialize a 'Stripe client,' which in newer stripe-python versions means using stripe.StripeClient.",
+              "cached": false
             },
             "patterns": {
               "expected_results": [
@@ -396,18 +396,16 @@
           "skill_md_only": null,
           "realistic": {
             "judge": {
-              "language_correctness": 4,
-              "api_idiomaticity": 3,
-              "functional_correctness": 3,
-              "code_quality": 3,
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
+              "functional_correctness": 4,
+              "code_quality": 4,
               "contamination_signals": [
-                "Import of non-existent 'StripeErrorWithParamCode' from stripe.error",
-                "Methods are declared as 'async' but call synchronous stripe.Customer.create() and stripe.Subscription.create() without await \u2014 the stripe-python SDK's synchronous API doesn't return coroutines",
-                "stripe.error module path is outdated/incorrect in newer stripe-python versions (should be stripe.StripeError etc. for newer SDK, or stripe.error for older)",
-                "Use of e.user_message which is not a standard attribute on all Stripe exception classes (correct attribute is e.user_message for some but str(e) is more reliable)"
+                "StripeErrorWithParamCode is not a real class in stripe.error - possibly confused with another SDK or hallucinated",
+                "user_message attribute on exceptions is not standard in the Python Stripe SDK (the standard attribute is 'user_message' on some but more commonly the string representation or .error.message)"
               ],
-              "brief_assessment": "The code is valid Python and demonstrates good structure with logging, type hints, and docstrings. However, it has several issues: methods are declared async but call synchronous Stripe SDK methods without await, which means they won't actually work correctly as coroutines. It imports the non-existent 'StripeErrorWithParamCode'. The code is also truncated \u2014 the create_customer_with_subscription method is cut off mid-implementation, leaving the cleanup/rollback logic incomplete. The overall approach to error handling is reasonable but overly verbose with repetitive except blocks.",
-              "cached": true
+              "brief_assessment": "The code is entirely valid Python with proper use of the stripe Python SDK's module-level configuration and resource creation patterns. It correctly pins the API version, creates customers with email/metadata, and creates subscriptions with a price ID. Minor issues include importing the non-existent StripeErrorWithParamCode class, using `e.user_message` which is available on some Stripe errors but not consistently across all exception types (more idiomatic to use `str(e)` or `e.error.message`), and the code is truncated at the `create_customer_with_subscription` method. The core task requirements are met in the first two methods despite the truncation.",
+              "cached": false
             },
             "patterns": {
               "expected_results": [
@@ -627,18 +625,16 @@
           "skill_md_only": null,
           "realistic": {
             "judge": {
-              "language_correctness": 4,
-              "api_idiomaticity": 3,
+              "language_correctness": 5,
+              "api_idiomaticity": 4,
               "functional_correctness": 4,
               "code_quality": 4,
               "contamination_signals": [
-                "Methods are declared as `async` but call synchronous `stripe.Customer.create()` and `stripe.Subscription.create()` \u2014 the Python Stripe SDK does not have native async support for these methods, suggesting possible confusion with a Node.js/JS async pattern",
-                "Import of `StripeErrorWithParamCode` which is not a standard class in the `stripe.error` module",
-                "Passing `stripe_version` as a keyword argument to `stripe.Customer.create()` and `stripe.Subscription.create()` \u2014 the per-request version override in the Python SDK is done via `stripe_version` on the `stripe.api_key` or request options, not as a direct parameter to `.create()`. This may reflect patterns from the Node.js SDK where options are passed inline.",
-                "Use of `e.user_message` \u2014 the standard Python Stripe SDK exception attribute is `e.user_message` in some versions but more commonly accessed differently; this is minor but slightly suspect"
+                "Import of `StripeErrorWithParamCode` which is not a standard class in the Python stripe library's error module",
+                "Use of `e.user_message` attribute which is not the standard attribute on most Stripe Python exception classes (the standard attribute is `e.user_message` on CardError but generally `str(e)` or `e.message` is more common for others)"
               ],
-              "brief_assessment": "The code is valid Python and covers the requested task (customer creation, subscription creation, error handling, API version pinning). However, the methods are declared `async` while calling synchronous Stripe SDK methods, which is a significant idiom mismatch \u2014 likely influenced by Node.js patterns where Stripe calls are inherently async. The `stripe_version` parameter passed directly to `.create()` calls is not standard in the Python SDK (it should be passed via request options or set globally). The `StripeErrorWithParamCode` import doesn't exist in the standard library. Despite these issues, the overall structure, logging, docstrings, and error handling hierarchy are well done.",
-              "cached": true
+              "brief_assessment": "The code is entirely valid Python with well-structured class design, proper type hints, logging, and docstrings. The API version pinning via `stripe.api_version` and the use of `stripe.Customer.create()` and `stripe.Subscription.create()` are idiomatic for the Python Stripe SDK. However, the code is truncated \u2014 the `create_customer_with_subscription` method is cut off mid-signature, leaving the module incomplete. The import of `StripeErrorWithParamCode` is not a recognized class in the standard stripe Python package, and the consistent use of `e.user_message` across all exception types is slightly inaccurate for the Python SDK. Overall it demonstrates solid understanding but is incomplete.",
+              "cached": false
             },
             "patterns": {
               "expected_results": [

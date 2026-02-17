@@ -5,6 +5,29 @@ let DATA = null;
 let sortCol = "name";
 let sortAsc = true;
 
+// Hardcoded behavioral evaluation data (19 skills, excluding experimental)
+const BEHAVIORAL_DATA = [
+    { name: "azure-containerregistry-py", contamination_score: 0.33, ba_delta: -0.117, da_delta: -0.092, risk: "medium" },
+    { name: "azure-identity-dotnet", contamination_score: 0.33, ba_delta: -0.017, da_delta: 0.034, risk: "medium" },
+    { name: "azure-identity-java", contamination_score: 0.52, ba_delta: 0.05, da_delta: 0.233, risk: "high" },
+    { name: "azure-security-keyvault-secrets-java", contamination_score: 0.52, ba_delta: 0.0, da_delta: 0.384, risk: "high" },
+    { name: "claude-settings-audit", contamination_score: 0.63, ba_delta: -0.483, da_delta: -0.3, risk: "high" },
+    { name: "copilot-sdk", contamination_score: 0.63, ba_delta: -0.1, da_delta: 0.15, risk: "high" },
+    { name: "fastapi-router-py", contamination_score: 0.0, ba_delta: -0.133, da_delta: -0.667, risk: "control" },
+    { name: "gemini-api-dev", contamination_score: 0.55, ba_delta: 0.2, da_delta: 0.2, risk: "high" },
+    { name: "monitoring-observability", contamination_score: 0.5, ba_delta: -0.233, da_delta: -0.167, risk: "medium" },
+    { name: "neon-postgres", contamination_score: 0.0, ba_delta: 0.0, da_delta: -0.05, risk: "medium" },
+    { name: "ossfuzz", contamination_score: 0.53, ba_delta: 0.017, da_delta: 0.267, risk: "high" },
+    { name: "pdf", contamination_score: 0.33, ba_delta: -0.05, da_delta: 0.05, risk: "medium" },
+    { name: "prompt-agent", contamination_score: 0.48, ba_delta: 0.0, da_delta: 0.067, risk: "medium" },
+    { name: "provider-resources", contamination_score: 0.55, ba_delta: -0.317, da_delta: -0.15, risk: "high" },
+    { name: "react-native-best-practices", contamination_score: 0.075, ba_delta: -0.384, da_delta: 0.117, risk: "medium" },
+    { name: "sharp-edges", contamination_score: 0.62, ba_delta: -0.083, da_delta: -0.067, risk: "high" },
+    { name: "skill-creator", contamination_score: 0.46, ba_delta: 0.05, da_delta: 0.0, risk: "medium" },
+    { name: "upgrade-stripe", contamination_score: 0.93, ba_delta: -0.117, da_delta: -0.383, risk: "high" },
+    { name: "wiki-agents-md", contamination_score: 0.57, ba_delta: 0.2, da_delta: -0.067, risk: "high" },
+];
+
 const COLORS = {
     pass: "#2ecc71",
     fail: "#e74c3c",
@@ -18,6 +41,44 @@ const COLORS = {
         "trail-of-bits": "#9B59B6",
     },
 };
+
+// Dark mode: check localStorage, fall back to OS preference
+function getTheme() {
+    const stored = localStorage.getItem("theme");
+    if (stored === "dark" || stored === "light") return stored;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function applyTheme(theme) {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.classList.toggle("light", theme === "light");
+    const btn = document.getElementById("theme-toggle");
+    if (btn) btn.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
+}
+
+const currentTheme = getTheme();
+applyTheme(currentTheme);
+const isDark = currentTheme === "dark";
+
+if (isDark) {
+    Chart.defaults.color = "#b0b0b0";
+    Chart.defaults.borderColor = "rgba(255, 255, 255, 0.1)";
+    Chart.defaults.plugins.legend.labels.color = "#b0b0b0";
+    Chart.defaults.plugins.title.color = "#e0e0e0";
+}
+
+// Toggle handler — reload to re-render charts with correct colors
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("theme-toggle");
+    if (btn) {
+        btn.addEventListener("click", () => {
+            const next = getTheme() === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", next);
+            applyTheme(next);
+            location.reload();
+        });
+    }
+});
 
 // Load data
 async function loadData() {
@@ -36,7 +97,9 @@ async function loadData() {
 function render() {
     renderStats();
     renderCharts();
+    renderBehavioral();
     renderLLMCharts();
+    renderCraftNoveltyScatter();
     renderHighRisk();
     renderHiddenContamination();
     renderNetNegative();
@@ -414,10 +477,10 @@ function renderNetNegative() {
         </table>
     `;
 
-    // Top offender cards
+    // Highest-risk net-negative cards
     const container = document.getElementById("net-negative-cards");
     const offenders = nn.top_offenders || [];
-    container.innerHTML = '<h4>Top Offenders</h4>' + offenders.map(o => {
+    container.innerHTML = '<h4>Highest Net Negative Risk</h4>' + offenders.map(o => {
         const skill = DATA.skills.find(s => s.name === o.name && s.source === o.source);
         const link = skill && skill.github_url
             ? `<a href="${skill.github_url}" target="_blank" class="gh-link">View on GitHub</a>` : "";
@@ -495,6 +558,160 @@ function renderHiddenContamination() {
             </div>
         `;
     }).join("");
+}
+
+// Behavioral scatter: contamination score vs B-A delta
+function renderBehavioral() {
+    const canvas = document.getElementById("chart-behavioral-scatter");
+    if (!canvas) return;
+
+    const riskColors = {
+        high: "#e74c3c",
+        medium: "#f39c12",
+        control: "#3498db",
+    };
+
+    const datasets = [];
+    const byRisk = {};
+    BEHAVIORAL_DATA.forEach(d => {
+        if (!byRisk[d.risk]) byRisk[d.risk] = [];
+        byRisk[d.risk].push(d);
+    });
+
+    for (const [risk, skills] of Object.entries(byRisk)) {
+        datasets.push({
+            label: risk,
+            data: skills.map(s => ({ x: s.contamination_score, y: s.ba_delta })),
+            backgroundColor: riskColors[risk] || "#999",
+            pointRadius: 6,
+            pointHoverRadius: 8,
+        });
+    }
+
+    new Chart(canvas, {
+        type: "scatter",
+        data: { datasets },
+        options: {
+            plugins: {
+                title: { display: true, text: "Structural Contamination vs. Behavioral Delta (B-A)" },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const risk = ctx.dataset.label;
+                            const all = BEHAVIORAL_DATA.filter(d => d.risk === risk);
+                            const match = all[ctx.dataIndex];
+                            return match ? `${match.name}: contam=${match.contamination_score}, delta=${match.ba_delta}` : "";
+                        },
+                    },
+                },
+                annotation: undefined,
+            },
+            scales: {
+                x: { title: { display: true, text: "Structural Contamination Score" }, min: -0.05, max: 1.0 },
+                y: { title: { display: true, text: "B-A Delta (negative = degradation)" } },
+            },
+        },
+        plugins: [{
+            afterDraw: (chart) => {
+                const ctx = chart.ctx;
+                ctx.save();
+                ctx.font = "10px -apple-system, sans-serif";
+                ctx.fillStyle = isDark ? "#a0a0b0" : "#666";
+                BEHAVIORAL_DATA.forEach(d => {
+                    const xPixel = chart.scales.x.getPixelForValue(d.contamination_score);
+                    const yPixel = chart.scales.y.getPixelForValue(d.ba_delta);
+                    const short = d.name.length > 20 ? d.name.slice(0, 18) + "..." : d.name;
+                    ctx.fillText(short, xPixel + 6, yPixel - 4);
+                });
+                // Draw trend line
+                const xs = BEHAVIORAL_DATA.map(d => d.contamination_score);
+                const ys = BEHAVIORAL_DATA.map(d => d.ba_delta);
+                const n = xs.length;
+                const mx = xs.reduce((a, b) => a + b, 0) / n;
+                const my = ys.reduce((a, b) => a + b, 0) / n;
+                let num = 0, den = 0;
+                for (let i = 0; i < n; i++) {
+                    num += (xs[i] - mx) * (ys[i] - my);
+                    den += (xs[i] - mx) * (xs[i] - mx);
+                }
+                const slope = den !== 0 ? num / den : 0;
+                const intercept = my - slope * mx;
+                const x0 = 0, x1 = 1;
+                const y0 = intercept, y1 = slope + intercept;
+                const px0 = chart.scales.x.getPixelForValue(x0);
+                const py0 = chart.scales.y.getPixelForValue(y0);
+                const px1 = chart.scales.x.getPixelForValue(x1);
+                const py1 = chart.scales.y.getPixelForValue(y1);
+                ctx.beginPath();
+                ctx.strokeStyle = isDark ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.25)";
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([6, 4]);
+                ctx.moveTo(px0, py0);
+                ctx.lineTo(px1, py1);
+                ctx.stroke();
+                // Label
+                ctx.setLineDash([]);
+                ctx.fillStyle = isDark ? "#8a8a9a" : "#999";
+                ctx.font = "11px -apple-system, sans-serif";
+                ctx.fillText("r = 0.077 (no correlation)", px1 - 150, py1 - 8);
+                ctx.restore();
+            },
+        }],
+    });
+}
+
+// Craft vs Novelty scatter
+function renderCraftNoveltyScatter() {
+    const canvas = document.getElementById("chart-craft-novelty");
+    if (!canvas || !DATA) return;
+
+    const scored = DATA.skills.filter(s => s.llm_overall != null && s.llm_novelty != null);
+    if (scored.length === 0) return;
+
+    const sources = Object.keys(DATA.by_source).sort();
+    const datasets = sources.map(source => {
+        const skills = scored.filter(s => s.source === source);
+        return {
+            label: source,
+            data: skills.map(s => {
+                const craft = (
+                    (s.llm_clarity || 0) +
+                    (s.llm_actionability || 0) +
+                    (s.llm_token_efficiency || 0) +
+                    (s.llm_scope_discipline || 0) +
+                    (s.llm_directive_precision || 0)
+                ) / 5;
+                return { x: craft, y: s.llm_novelty };
+            }),
+            backgroundColor: COLORS.sources[source] || "#999",
+            pointRadius: 4,
+            pointHoverRadius: 6,
+        };
+    });
+
+    new Chart(canvas, {
+        type: "scatter",
+        data: { datasets },
+        options: {
+            plugins: {
+                title: { display: true, text: "Craft Composite vs. Novelty by Source" },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const source = ctx.dataset.label;
+                            const skills = scored.filter(s => s.source === source);
+                            const skill = skills[ctx.dataIndex];
+                            return skill ? `${skill.name}: craft=${ctx.parsed.x.toFixed(2)}, novelty=${ctx.parsed.y}` : "";
+                        },
+                    },
+                },
+            },
+            scales: {
+                x: { title: { display: true, text: "Craft Composite (mean of 5 non-novelty dims)" }, min: 1, max: 5 },
+                y: { title: { display: true, text: "Novelty Score" }, min: 0.5, max: 5.5 },
+            },
+        },
+    });
 }
 
 // Filters
@@ -623,9 +840,9 @@ function showDetail(name, source) {
     let alertHtml = "";
     if (skill.llm_novelty != null && skill.llm_novelty <= 2 && skill.contamination_score >= 0.2) {
         alertHtml += '<div class="detail-alert alert-high">'
-            + 'Net negative risk: Low novelty (' + skill.llm_novelty
-            + '/5) combined with medium-to-high contamination ('
-            + skill.contamination_score.toFixed(2) + '). This skill may worsen agent performance versus baseline.</div>';
+            + 'Theoretical net negative risk: Low novelty (' + skill.llm_novelty
+            + '/5) combined with elevated structural complexity ('
+            + skill.contamination_score.toFixed(2) + ') without novel information.</div>';
     }
 
     // Check for hidden contamination

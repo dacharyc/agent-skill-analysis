@@ -1,6 +1,6 @@
-# Behavioral Eval System for Cross-Contamination Validation
+# Behavioral Eval System for Mechanism Identification
 
-Tests whether structural cross-contamination risk scores predict actual code generation degradation when skills are loaded into an LLM's context.
+Explores what mechanisms drive code generation degradation when skills are loaded into an LLM's context, and whether structural cross-contamination risk scores capture them.
 
 ## How It Works
 
@@ -34,6 +34,14 @@ Condition D simulates this by:
 1. **System prompt**: A condensed Claude Code preamble (tool list, key instructions, environment info) prepended to the skill content — mirroring how skills sit alongside the CC system prompt in production.
 2. **Conversation history**: A multi-turn exchange where the assistant reports explore agent findings and a file read before the user provides the task. The codebase snippet is language-appropriate (selected by `target_language`) and contains generic infrastructure code (base services, loggers, API clients) unrelated to the API under test.
 
+#### `codebase_variant` override
+
+By default, the codebase snippet is selected by the task's `target_language` field. A task can override this by setting `"codebase_variant"` to a different key in the snippet registry (defined in `config.py:_CODEBASE_SNIPPETS`). For example, `"codebase_variant": "python_sync"` selects a synchronous Flask + SQLAlchemy snippet instead of the default async FastAPI snippet for Python tasks.
+
+This is useful when the default snippet's patterns (e.g., `async def`, `await`) could confound the judge's contamination assessment — the model may adopt snippet patterns that happen to overlap with contamination signals.
+
+Available variants: all keys in `_CODEBASE_SNIPPETS` (e.g., `python`, `python_sync`, `javascript`, `go`, etc.).
+
 Comparing B vs D measures **context mitigation** — how much of the skill-only effect is diluted by surrounding context. The analysis computes a per-skill mitigation ratio: `1 - (D_delta / B_delta)`. A value of 0.6 means 60% of the skill-only degradation is mitigated by realistic context.
 
 ## Skill Selection (20 skills)
@@ -60,12 +68,27 @@ venv/bin/python3 eval/run_eval.py --stage generate --skill upgrade-stripe
 venv/bin/python3 eval/run_eval.py --stage judge --skill upgrade-stripe
 venv/bin/python3 eval/run_eval.py --stage analyze
 
+# Re-run a single task (preserves other tasks from previous run)
+venv/bin/python3 eval/run_eval.py --skill upgrade-stripe --task upgrade-stripe-01 --stage generate
+venv/bin/python3 eval/run_eval.py --skill upgrade-stripe --task upgrade-stripe-01 --stage judge
+
 # Re-run deterministic pattern matching only (no LLM calls)
 venv/bin/python3 eval/run_eval.py --patterns-only
 venv/bin/python3 eval/run_eval.py --patterns-only --skill upgrade-stripe
 ```
 
 The `--stage` flag runs a single stage. The `analyze` stage always reads all available results, so partial runs still produce aggregate statistics.
+
+### `--task` filtering
+
+The `--task` flag restricts generation and judging to specific task IDs. It can be repeated to select multiple tasks. When used:
+
+- Only the specified tasks are re-generated or re-judged
+- Other tasks retain their existing results from previous runs (the output file is loaded first and unaffected tasks are merged back in)
+- If no previous run exists for unfiltered tasks, they are simply omitted from the output
+- The `--task` flag is available on `run_eval.py`, `runner.py`, and `judge.py`
+
+This is useful for re-running a single task after changing its configuration (e.g., updating `codebase_variant`) without re-running the entire skill.
 
 ### `--patterns-only` mode
 

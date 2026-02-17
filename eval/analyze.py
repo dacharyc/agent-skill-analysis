@@ -35,7 +35,11 @@ TASK_TYPES = ["direct_target", "cross_language", "similar_syntax", "grounded", "
 # (model follows skill's collaborative workflow instead of generating code).
 # Measures a different phenomenon than cross-contamination — see
 # eval/analysis-notes/doc-coauthoring.md for details.
-EXCLUDED_FROM_AGGREGATES = {"doc-coauthoring"}
+# Experimental skills (synthetic variants) are also excluded automatically.
+EXCLUDED_FROM_AGGREGATES = (
+    {"doc-coauthoring"}
+    | {name for name, cfg in SKILLS.items() if cfg.get("experimental")}
+)
 
 
 # ---------------------------------------------------------------------------
@@ -481,7 +485,9 @@ def cross_skill_analysis(skill_analyses: list[dict]) -> dict:
         "correlation_structural_behavioral": round(r, 3),
         "n_skills": len(valid_analyses),
         "excluded_from_aggregates": [
-            {"name": sa["skill_name"], "reason": "behavioral_override",
+            {"name": sa["skill_name"],
+             "reason": "experimental" if SKILLS.get(sa["skill_name"], {}).get("experimental")
+                       else "behavioral_override",
              "delta": sa["mean_delta_composite"]}
             for sa in excluded
         ],

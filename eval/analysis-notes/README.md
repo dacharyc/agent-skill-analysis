@@ -1,6 +1,6 @@
 # Behavioral Eval Analysis Notes
 
-Detailed analysis notes from the behavioral evaluation of 19 Agent Skills. These notes document the reasoning behind findings reported in the paper's Cross-Contamination Risk section and provide per-skill and cross-cutting analyses that go deeper than the paper itself.
+Detailed analysis notes from the behavioral evaluation of 19 Agent Skills. These notes document the reasoning behind findings reported in the paper's Behavioral Evaluation: Mechanism Identification section and provide per-skill and cross-cutting analyses that go deeper than the paper itself.
 
 ## High-Level Results
 
@@ -12,7 +12,7 @@ Detailed analysis notes from the behavioral evaluation of 19 Agent Skills. These
 | Mean mitigation ratio | -67.8% |
 | Statistically significant skills (p<0.05) | 6 of 19 |
 
-The central finding is that **structural contamination scores do not predict behavioral degradation**. The actual interference mechanisms — template propagation, textual frame leakage, API hallucination, token budget competition, and cross-language code bleed — are content-specific rather than language-mixing artifacts. Realistic agentic context mitigates roughly two-thirds of the measured degradation.
+The central finding is that **structural contamination scores do not predict behavioral degradation** in this sample. The actual interference mechanisms — template propagation, textual frame leakage, API hallucination, token budget competition, and cross-language code bleed — are content-specific rather than language-mixing artifacts. Preliminary evidence suggests that realistic agentic context may substantially attenuate measured degradation.
 
 ## Per-Skill Deep Dives
 
@@ -34,6 +34,7 @@ The central finding is that **structural contamination scores do not predict beh
 | [skill-size-vs-degradation.md](skill-size-vs-degradation.md) | Token overhead vs. behavioral delta | Weak correlation (r=-0.188), confounded by selective reference loading measurement artifact. Prior "internal dilution" hypothesis retracted. |
 | [quality-dimensions-vs-degradation.md](quality-dimensions-vs-degradation.md) | LLM-judge quality dimensions vs. behavioral delta | No single dimension predicts degradation (all \|r\| < 0.25). **Novelty amplification**: novelty vs \|B-A\| r=+0.327 — high-novelty skills have larger effects in both directions. |
 | [code-block-labels-vs-degradation.md](code-block-labels-vs-degradation.md) | Code block language labels vs. behavioral delta | **Negative result**: 100% labeled skills show *worse* mean degradation (-0.105) than partially labeled (-0.052). Labels don't address the actual interference mechanisms found. |
+| [judge-signals-analysis.md](judge-signals-analysis.md) | LLM judge contamination signals & assessments | Pervasive truncation confound (63.9% of baseline assessments). Three patterns: copilot-sdk pre-existing hallucination, upgrade-stripe fabrication escalation (1→12→32), gemini-api-dev error shift. |
 
 ## Eval Design
 

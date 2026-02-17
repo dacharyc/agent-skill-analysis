@@ -342,8 +342,20 @@ def load_tasks(skill_name: str) -> dict | None:
     return json.loads(task_file.read_text())
 
 
-def judge_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
-    """Score all generated outputs for a skill."""
+def judge_skill(
+    client: anthropic.Anthropic,
+    skill_name: str,
+    task_ids: list[str] | None = None,
+) -> dict | None:
+    """Score all generated outputs for a skill.
+
+    Args:
+        client: Anthropic API client.
+        skill_name: Name of the skill to judge.
+        task_ids: Optional list of task IDs to judge. When set, only matching
+            tasks are re-scored; other tasks retain their existing scores from
+            a previous run (if any).
+    """
     gen_data = load_generation(skill_name)
     if gen_data is None:
         print(f"  WARNING: No generation data for {skill_name}", file=sys.stderr)
@@ -357,11 +369,30 @@ def judge_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
     # Build prompt lookup from task definitions
     prompt_lookup = {t["id"]: t["prompt"] for t in tasks_data["tasks"]}
 
+    # Load existing scores for merge when filtering by task
+    existing_scored: dict[str, dict] = {}
+    if task_ids is not None:
+        score_path = SCORES_DIR / f"{skill_name}.json"
+        if score_path.exists():
+            existing_data = json.loads(score_path.read_text())
+            for t in existing_data.get("tasks", []):
+                existing_scored[t["task_id"]] = t
+
     print(f"  Judging {skill_name} ({len(gen_data['tasks'])} tasks)...")
 
     scored_tasks = []
     for task in gen_data["tasks"]:
         task_id = task["task_id"]
+
+        # Skip tasks not in the filter list; preserve existing scores
+        if task_ids is not None and task_id not in task_ids:
+            if task_id in existing_scored:
+                scored_tasks.append(existing_scored[task_id])
+                print(f"    Task: {task_id} (preserved from previous run)")
+            else:
+                print(f"    Task: {task_id} (skipped, no previous scores)")
+            continue
+
         task_prompt = prompt_lookup.get(task_id, "")
         target_lang = task["target_language"]
         expected = task.get("expected_patterns", [])
@@ -431,12 +462,21 @@ def judge_skill(client: anthropic.Anthropic, skill_name: str) -> dict | None:
     return result
 
 
-def judge_skill_patterns_only(skill_name: str) -> dict | None:
+def judge_skill_patterns_only(
+    skill_name: str,
+    task_ids: list[str] | None = None,
+) -> dict | None:
     """Re-run only deterministic pattern matching for a skill.
 
     Loads generation data to get outputs, loads current task definitions
     to get patterns, and preserves any existing LLM judge scores from
     a prior full judge run. No API calls are made.
+
+    Args:
+        skill_name: Name of the skill to judge.
+        task_ids: Optional list of task IDs to re-score. When set, only
+            matching tasks are re-scored; others are preserved from the
+            existing score file.
     """
     gen_data = load_generation(skill_name)
     if gen_data is None:
@@ -459,8 +499,10 @@ def judge_skill_patterns_only(skill_name: str) -> dict | None:
 
     # Build lookup from existing scores: (task_id, run_index, condition) -> judge dict
     existing_judge: dict[tuple[str, int, str], dict | None] = {}
+    existing_scored_tasks: dict[str, dict] = {}
     if existing_scores:
         for task in existing_scores["tasks"]:
+            existing_scored_tasks[task["task_id"]] = task
             for run in task["runs"]:
                 ri = run["run_index"]
                 for cond in ["baseline", "with_skill", "skill_md_only", "realistic"]:
@@ -473,6 +515,16 @@ def judge_skill_patterns_only(skill_name: str) -> dict | None:
     scored_tasks = []
     for task in gen_data["tasks"]:
         task_id = task["task_id"]
+
+        # Skip tasks not in the filter list; preserve existing scores
+        if task_ids is not None and task_id not in task_ids:
+            if task_id in existing_scored_tasks:
+                scored_tasks.append(existing_scored_tasks[task_id])
+                print(f"    Task: {task_id} (preserved from previous run)")
+            else:
+                print(f"    Task: {task_id} (skipped, no previous scores)")
+            continue
+
         task_def = task_defs.get(task_id, {})
         target_lang = task["target_language"]
         expected = task_def.get("expected_patterns", task.get("expected_patterns", []))
@@ -532,8 +584,19 @@ def judge_skill_patterns_only(skill_name: str) -> dict | None:
     return result
 
 
-def judge_all(skill_names: list[str] | None = None, *, patterns_only: bool = False) -> list[dict]:
-    """Score all generated outputs for specified skills (or all with data)."""
+def judge_all(
+    skill_names: list[str] | None = None,
+    *,
+    patterns_only: bool = False,
+    task_ids: list[str] | None = None,
+) -> list[dict]:
+    """Score all generated outputs for specified skills (or all with data).
+
+    Args:
+        skill_names: Skills to judge (default: all with generation data).
+        patterns_only: If True, only re-run deterministic pattern matching.
+        task_ids: Optional task ID filter passed through to judge functions.
+    """
     names = skill_names or list(SKILLS.keys())
     results = []
 
@@ -542,7 +605,7 @@ def judge_all(skill_names: list[str] | None = None, *, patterns_only: bool = Fal
             if not (GENERATIONS_DIR / f"{name}.json").exists():
                 print(f"  Skipping {name}: no generation data")
                 continue
-            result = judge_skill_patterns_only(name)
+            result = judge_skill_patterns_only(name, task_ids=task_ids)
             if result:
                 results.append(result)
         return results
@@ -552,7 +615,7 @@ def judge_all(skill_names: list[str] | None = None, *, patterns_only: bool = Fal
         if not (GENERATIONS_DIR / f"{name}.json").exists():
             print(f"  Skipping {name}: no generation data")
             continue
-        result = judge_skill(client, name)
+        result = judge_skill(client, name, task_ids=task_ids)
         if result:
             results.append(result)
 
@@ -564,6 +627,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Run behavioral eval judging")
     parser.add_argument("--skill", action="append", help="Specific skill(s) to judge")
+    parser.add_argument("--task", action="append", help="Specific task ID(s) to judge")
     parser.add_argument("--patterns-only", action="store_true",
                         help="Re-run only deterministic pattern matching (no LLM calls)")
     args = parser.parse_args()
@@ -571,5 +635,5 @@ if __name__ == "__main__":
     print("=== Behavioral Eval: Judging ===")
     if args.patterns_only:
         print("  Mode: patterns-only (no LLM calls)")
-    judge_all(args.skill, patterns_only=args.patterns_only)
+    judge_all(args.skill, patterns_only=args.patterns_only, task_ids=args.task)
     print("Done.")

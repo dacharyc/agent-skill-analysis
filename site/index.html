@@ -10,7 +10,13 @@
 <body>
     <header>
         <h1>Agent Skill Analysis</h1>
-        <p class="subtitle">Structural validation, content quality, and cross-contamination analysis across 673 Agent Skills</p>
+        <p class="subtitle-lead">The first ecosystem-wide audit of 673 Agent Skills</p>
+        <p class="subtitle">Structural compliance, content quality, context efficiency, and cross-contamination risk</p>
+        <div class="header-meta">
+            <span class="meta-chip">673 Skills</span>
+            <span class="meta-chip">41 Repositories</span>
+            <span class="meta-chip">February 2026</span>
+        </div>
     </header>
 
     <nav>
@@ -18,9 +24,10 @@
         <a href="#validation">Validation</a>
         <a href="#content">Content Quality</a>
         <a href="#contamination">Contamination</a>
-        <a href="#hidden-contamination-list">Hidden</a>
+        <a href="#behavioral">Behavioral</a>
         <a href="#llm-quality">LLM Quality</a>
         <a href="#table">All Skills</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode"></button>
     </nav>
 
     <main>
@@ -65,11 +72,22 @@
                     <canvas id="chart-risk"></canvas>
                 </div>
             </div>
+            <div class="key-findings">
+                <h3>Key Findings</h3>
+                <ol>
+                    <li><strong>22% fail validation</strong> &mdash; company-authored skills underperform community collections on structural compliance</li>
+                    <li><strong>52% of all tokens are nonstandard files</strong> wasting context window space (LICENSE, build artifacts, schemas)</li>
+                    <li><strong>Novelty is the key quality differentiator</strong> &mdash; most skills restate what the LLM already knows; craft dimensions cluster tightly but novelty varies independently</li>
+                    <li><strong>66 skills have hidden contamination</strong> invisible to SKILL.md-only analysis, carried in reference files</li>
+                    <li><strong>No correlation between structural risk and actual degradation</strong> (r&nbsp;=&nbsp;0.077, n&nbsp;=&nbsp;19) &mdash; content-specific mechanisms like template propagation and API hallucination drive observed effects</li>
+                </ol>
+            </div>
         </section>
 
         <!-- Validation Results -->
         <section id="validation">
             <h2>Validation Results by Source</h2>
+            <p>Validation checks whether each skill complies with the <a href="https://agentskills.io" target="_blank">Agent Skills specification</a> &mdash; required files present, correct structure, valid metadata, and properly formatted content. Skills that fail validation may not load correctly or may confuse the agent about how to use them.</p>
             <div class="chart-container wide">
                 <canvas id="chart-by-source"></canvas>
             </div>
@@ -86,6 +104,7 @@
         <!-- Content Quality -->
         <section id="content">
             <h2>Content Quality</h2>
+            <p>Two automated metrics assess how well a skill's instruction file communicates with the agent. <strong>Information density</strong> measures the ratio of actionable content (code blocks, specific instructions, structured data) to total text &mdash; higher values mean less filler. <strong>Instruction specificity</strong> measures how concrete and directive the language is versus vague advisory text like "consider" or "be careful."</p>
             <div class="chart-row">
                 <div class="chart-container">
                     <canvas id="chart-density"></canvas>
@@ -99,18 +118,83 @@
         <!-- Contamination Risk -->
         <section id="contamination">
             <h2>Cross-Contamination</h2>
-            <p>Skills that reference multi-interface tools or mix code examples across languages may cross-contaminate agent behavior.</p>
+            <p>Skills that reference multi-interface tools or mix code examples across languages carry structural complexity that may cross-contaminate agent behavior. These scores measure structural language complexity. An exploratory behavioral evaluation (n&nbsp;=&nbsp;19) found no correlation between these structural scores and measured degradation (r&nbsp;=&nbsp;0.077), suggesting content-specific factors may matter more than language mixing.</p>
             <div class="chart-container wide">
                 <canvas id="chart-risk-detail"></canvas>
             </div>
             <div id="high-risk-list">
                 <h3>High-Contamination Skills</h3>
+                <div class="contam-explainer-cards">
+                    <div class="contam-explainer-card">
+                        <h4>Why We Measure This</h4>
+                        <p>Skills scoring &ge;&nbsp;0.5 on our structural contamination metric. This dimension is motivated by research on <strong>Programming Language Confusion</strong> (Moumoula et al., 2025), which shows LLMs can generate code using patterns from the wrong language &mdash; particularly between syntactically similar pairs like C#/Java or JavaScript/TypeScript. Copy bias in in-context learning (Ali et al., 2024) and LLM susceptibility to irrelevant context (Shi et al., 2023) further support the concern that mixed-language skill content could interfere with code generation.</p>
+                    </div>
+                    <div class="contam-explainer-card">
+                        <h4>How the Score Works</h4>
+                        <p>The score combines three factors: <strong>multi-interface tools</strong> (e.g., a database with both shell and language SDKs), <strong>scope breadth</strong> (number of distinct technology categories referenced), and <strong>language mismatch</strong>. <strong>Mismatched categories</strong> are code language families that differ from the skill's primary language &mdash; each classified as <em>application</em> (Python, JavaScript, Java, .NET, mobile) or <em>auxiliary</em> (shell, config, query, markup). Mismatches are weighted by syntactic similarity, following the PLC finding that confusion occurs primarily between similar languages: application + application (e.g., Python + Java) carries weight 1.0, application + auxiliary (e.g., Python + shell) 0.25, and auxiliary + auxiliary just 0.1.</p>
+                    </div>
+                    <div class="contam-explainer-card">
+                        <h4>What We Actually Found</h4>
+                        <p>In theory, these mismatches could cause the model to bleed syntax or API patterns from one language into another. In practice, our <a href="#behavioral">behavioral evaluation</a> found that structural scores did not predict actual degradation &mdash; content-specific mechanisms like template propagation and API hallucination mattered more. Cross-language code bleed (the PLC mechanism) did appear in some cases, but accounted for a minority of the total degradation observed. These scores are best understood as a measure of structural complexity, not a direct predictor of harm.</p>
+                    </div>
+                </div>
                 <div id="high-risk-cards"></div>
             </div>
             <div id="hidden-contamination-list">
                 <h3>Hidden Contamination</h3>
-                <p>Skills where <code>SKILL.md</code> scores as low-risk but reference files carry medium or high contamination.</p>
+                <p>The contamination scoring <a href="#high-risk-list">described above</a> applies to <code>SKILL.md</code> content. But skills can also include reference files that are loaded into context alongside the instruction file. These 66 skills score as low-risk on their <code>SKILL.md</code> alone, yet carry medium or high contamination in their reference files &mdash; language mixing invisible to instruction-file-only analysis.</p>
                 <div id="hidden-contamination-cards"></div>
+            </div>
+        </section>
+
+        <!-- Behavioral Insights -->
+        <section id="behavioral">
+            <h2>Behavioral Insights</h2>
+            <p>An exploratory behavioral evaluation of 19 skills tested whether structural contamination scores predict actual code generation degradation. Each skill was evaluated across 5 task types under 3 conditions (baseline, skill-loaded, skill + realistic context), with 3 runs each at temperature 0.3.</p>
+            <div class="chart-container wide">
+                <canvas id="chart-behavioral-scatter"></canvas>
+            </div>
+            <div class="behavioral-callout">
+                <h4>The Disconnect</h4>
+                <p><strong>react-native-best-practices</strong> (contamination 0.07, B-A = &minus;0.384) produces the largest degradation despite near-zero structural risk. <strong>sharp-edges</strong> (contamination 0.62, B-A = &minus;0.083) has high structural risk but minimal behavioral impact. Structural scores alone don't predict what hurts.</p>
+            </div>
+            <h3>Content Interference Mechanisms</h3>
+            <p>Six distinct mechanisms drive degradation &mdash; only one (cross-language code bleed) is captured by structural contamination scoring:</p>
+            <div class="mechanism-cards">
+                <div class="mechanism-card">
+                    <h4>Template Propagation</h4>
+                    <p>Skill output templates reproduced verbatim in unrelated contexts. Invalid <code>// comments</code> in JSON templates bleed into all output.</p>
+                    <div class="mechanism-example">claude-settings-audit (B-A = &minus;0.483)</div>
+                </div>
+                <div class="mechanism-card">
+                    <h4>Textual Frame Leakage</h4>
+                    <p>Non-code skill content reshapes how the model frames responses, adding verbose commentary at the expense of code completeness.</p>
+                    <div class="mechanism-example">monitoring-observability (B-A = &minus;0.233)</div>
+                </div>
+                <div class="mechanism-card">
+                    <h4>Token Budget Competition</h4>
+                    <p>With skill loaded, outputs allocate more tokens to explanatory text and less to code, producing incomplete implementations under output limits.</p>
+                    <div class="mechanism-example">react-native-best-practices (B-A = &minus;0.384)</div>
+                </div>
+                <div class="mechanism-card">
+                    <h4>API Hallucination</h4>
+                    <p>The model invents plausible but nonexistent API methods that follow naming conventions seen in skill content. The code is in the <em>correct</em> language &mdash; the API surface is wrong.</p>
+                    <div class="mechanism-example">upgrade-stripe (B-A = &minus;0.117)</div>
+                </div>
+                <div class="mechanism-card">
+                    <h4>Cross-Language Code Bleed</h4>
+                    <p>The classic programming language confusion: shell syntax in JavaScript, mongosh operators in JSON. The <em>only</em> mechanism structural scoring detects.</p>
+                    <div class="mechanism-example">MongoDB skills</div>
+                </div>
+                <div class="mechanism-card">
+                    <h4>Architectural Pattern Bleed</h4>
+                    <p>Skill-specific architectural conventions (error handling, config patterns) propagate to unrelated code, even when the language is correct.</p>
+                    <div class="mechanism-example">provider-resources (B-A = &minus;0.317)</div>
+                </div>
+            </div>
+            <div class="behavioral-callout mitigation">
+                <h4>Context Mitigation</h4>
+                <p>When skills are loaded alongside realistic agentic context (system prompt, tools, conversation history), mean degradation drops from &minus;0.080 to &minus;0.023 &mdash; a ~62&ndash;75% attenuation. Real-world impact may be substantially smaller than isolated evaluation suggests.</p>
             </div>
         </section>
 
@@ -129,8 +213,14 @@
                     <canvas id="chart-llm-spread"></canvas>
                 </div>
             </div>
+            <h3>Craft vs. Novelty</h3>
+            <p>Skills cluster tightly on craft dimensions (clarity, actionability, efficiency, scope, precision) but spread independently on novelty &mdash; a two-factor quality structure.</p>
+            <div class="chart-container wide">
+                <canvas id="chart-craft-novelty"></canvas>
+            </div>
             <h3>Net Negative Risk</h3>
-            <p>Skills with low novelty (score &le; 2) <em>and</em> medium-to-high contamination (score &ge; 0.2) — they add interference risk without providing information the LLM doesn't already have.</p>
+            <p>Skills that score low on novelty (score &le; 2) <em>and</em> medium-to-high on <a href="#contamination">structural contamination</a> (score &ge; 0.2). The idea: if a skill doesn't teach the model anything new but does add mixed-language complexity to the context window, it's all cost and no benefit. These skills are candidates for removal or consolidation.</p>
+            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 4 net-negative skills, the actual measured degradation was small (mean B&minus;A&nbsp;=&nbsp;&minus;0.046) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones.</p>
             <div id="net-negative-summary" class="callout-box"></div>
             <div id="net-negative-cards"></div>
         </section>
@@ -197,7 +287,7 @@
     </main>
 
     <footer>
-        <p>Author: <a href="https://dacharycarey.com">Dachary Carey</a> | Data: <a href="https://github.com/dacharyc/skill-validator">skill-validator</a> | Analysis: February 2026</p>
+        <p>Author: <a href="https://dacharycarey.com">Dachary Carey</a> | Data: <a href="https://github.com/dacharyc/skill-validator">skill-validator</a> | <a href="https://github.com/dacharyc/agent-skill-analysis">Full paper &amp; analysis</a> | February 2026</p>
     </footer>
 
     <script src="app.js"></script>
