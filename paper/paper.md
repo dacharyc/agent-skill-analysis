@@ -1,5 +1,5 @@
 ---
-title: "Quality and Safety in the Agent Skills Ecosystem: A Structural, Behavioral, and Cross-Contamination Analysis of 673 Skills"
+title: "Quality in the Agent Skills Ecosystem: A Structural, Behavioral, and Cross-Contamination Analysis of 673 Skills"
 author: "Dachary Carey"
 date: "February 2026"
 abstract: |
@@ -233,7 +233,7 @@ Source rankings by overall LLM score diverge from structural compliance rankings
 
 Structural validation is largely orthogonal to LLM-judged quality: skills that passed validation average 3.81 overall versus 3.80 for those that failed. A structurally valid skill is not necessarily a *good* skill, and vice versa; the two assessment methods measure different quality dimensions.
 
-### Craft vs. Content: Per-Dimension Source Profiles
+### Quality by Source and Dimension
 
 Disaggregating overall scores into individual dimensions reveals a craft-versus-content tradeoff across source categories. Token efficiency shows the largest spread across sources (1.29 points between company at 3.86 and security at 2.57), while novelty shows a comparable spread (1.03 points), indicating that sources differentiate on both writing quality and informational uniqueness.
 
@@ -253,7 +253,7 @@ K-Dense and Trail of Bits lead on novelty, with 67% and 62% of their skills scor
 
 Novelty correlates only weakly with the five craft dimensions (r = 0.04–0.39), confirming that it measures something fundamentally different from writing quality. A skill can be clearly written, well-scoped, and concise (high craft scores) while still conveying information the LLM already knows (low novelty), a pattern common in community collection skills for popular frameworks.
 
-### Theoretical Risk: Low Novelty Meets High Contamination
+### Low-Novelty, High-Contamination Skills
 
 Combining LLM-judged novelty with contamination risk scores reveals a structural pattern: **51 skills (7.6%) across the ecosystem have both low novelty (score ≤ 2) and medium-to-high contamination risk (score ≥ 0.2)**. These skills add mixed-language content with elevated structural complexity while providing little information the LLM does not already possess. In theory, this combination should produce a negative net effect on agent performance, though our exploratory behavioral evaluation (n = 19) found no correlation between structural contamination scores and behavioral degradation (r = 0.077), and the relationship between these structural indicators and actual impact remains an open question.
 
@@ -273,7 +273,7 @@ Our cross-contamination analysis identified:
 - **147 medium-risk skills** (21.8%) — some multi-language or multi-technology mixing
 - **516 low-risk skills** (76.7%) — focused on a single technology or language
 
-These risk levels measure language complexity (the structural presence of mixed-language content) rather than demonstrated behavioral impact. Our exploratory behavioral evaluation (see Behavioral Evaluation: Mechanism Identification) found no correlation between these structural scores and measured degradation (r = 0.077, n = 19), suggesting that content-specific factors may matter more than language mixing per se.
+These risk levels measure language complexity (the structural presence of mixed-language content) rather than demonstrated behavioral impact. Our exploratory behavioral evaluation (see Behavioral Evaluation Results) found no correlation between these structural scores and measured degradation (r = 0.077, n = 19), suggesting that content-specific factors may matter more than language mixing per se.
 
 ![Contamination scores by source](figures/contamination_by_source.png)
 
@@ -304,11 +304,11 @@ To validate this observation experimentally, we constructed a controlled A/B eva
 - **Shell syntax in JSON Schema output**: A task requesting a pure JSON Schema document produced `db.` (mongosh shell prefix) references in 0/3 baseline runs but 3/3 with-skill runs; the skill's reference files contain `mongosh` examples that bleed into non-shell output contexts.
 - **Invalid JSON constructs in index definitions**: A task requesting valid JSON index definitions produced `ISODate()` function calls (a mongosh-specific construct invalid in JSON) in with-skill runs but not in baseline runs, alongside `//` comments (also invalid in JSON) sourced from the skill's reference examples.
 
-Overall, the skill slightly degraded output quality: baseline averaged 4.37/5.0 across judge dimensions versus 4.25/5.0 with the skill loaded. The model already knows MongoDB Search well from training data; the skill's primary effect was introducing shell-syntax contamination rather than filling knowledge gaps. The realistic context condition (skill loaded alongside a Claude Code system preamble and simulated conversation history) mitigated the contamination in some tasks, a pattern that generalizes across the broader behavioral evaluation (see Behavioral Evaluation: Mechanism Identification).
+Overall, the skill slightly degraded output quality: baseline averaged 4.37/5.0 across judge dimensions versus 4.25/5.0 with the skill loaded. The model already knows MongoDB Search well from training data; the skill's primary effect was introducing shell-syntax contamination rather than filling knowledge gaps. The realistic context condition (skill loaded alongside a Claude Code system preamble and simulated conversation history) mitigated the contamination in some tasks, a pattern that generalizes across the broader behavioral evaluation (see Behavioral Evaluation Results).
 
 This is consistent with documented LLM behaviors: code LLMs exhibit Programming Language Confusion, systematically defaulting to patterns from syntactically similar languages [@moumoula2025plc], and in-context examples bias the style of generated code toward reproducing the patterns present in the examples [@li2023lail]. The MongoDB case is particularly illustrative because the shell examples are syntactically valid JavaScript (MongoDB's Shell is JavaScript-based), making the interference subtle: the generated code *looks* correct but uses the wrong API for the target context. Research on attention dilution in code generation further suggests that as skill file content grows, the model pays less attention to the user's actual intent [@tian2024spa].
 
-### Illustrative Example: Gemini API Multi-Language Skill
+### Case Study: Gemini API Multi-Language Skill
 
 The **gemini-api-dev** skill (Google, risk: 0.55) provides a concrete illustration of the API shape differences that make cross-contamination hard to detect. The skill demonstrates a single operation, `generateContent`, in four languages, each with a subtly different API shape:
 
@@ -349,7 +349,7 @@ System.out.println(response.text());
 
 The differences are subtle but consequential: Python uses keyword arguments while Java uses positional parameters; Go wraps content in `genai.Text()` while others pass raw strings; Java accesses the result via a method call (`response.text()`) while Python and JavaScript use a property (`response.text`). An agent working on a Python project but primed with the JavaScript or Go patterns from this skill might generate code using positional arguments, or omit the keyword parameter names, producing code that would fail at runtime. This is exactly the kind of syntactically plausible but semantically incorrect output that Programming Language Confusion research predicts for syntactically similar languages sharing the same API surface [@moumoula2025plc].
 
-### Behavioral Evaluation: Mechanism Identification
+### Behavioral Evaluation Results
 
 To explore what mechanisms drive behavioral degradation when skills are loaded, we evaluated 19 skills using the methodology described in the Behavioral Evaluation subsection of Methodology. In this sample, **we found no correlation between structural contamination scores and behavioral degradation** (r = 0.077, n = 19). Skills with high structural risk scores did not consistently produce worse output than skills with low scores. Given the small sample size and targeted evaluation design, this is an exploratory finding, but the individual case studies below illustrate why content-specific mechanisms may matter more than structural language mixing.
 
@@ -397,7 +397,7 @@ This mitigation is consistent across most skills but not universal, and its effe
 
 If this pattern holds at scale, it would be reassuring for skill authors and platform maintainers: the degradation measured under the artificial skill-only condition (B) may substantially overestimate the interference that users experience in practice. Skills are not loaded in isolation; they compete with a rich context that anchors the model's behavior.
 
-### Exploratory Analysis: What Correlates with Behavioral Degradation
+### Exploring Predictors of Behavioral Degradation
 
 If structural contamination scores show no correlation with degradation in our sample, what does? The following correlations are exploratory: with n = 19 skills, none would survive multiple-comparison correction, and all should be treated as hypotheses for future testing rather than established findings.
 
@@ -512,7 +512,7 @@ Reference files tend to have **higher information density** than their correspon
 
 LLM-as-judge scoring confirms and quantifies this pattern. Across 412 skills with both SKILL.md and reference scores, reference files outscore their parent SKILL.md on every shared dimension: +0.48 overall, +0.66 on clarity, +0.62 on token efficiency, and +0.19 on novelty. References are more concise and information-dense (focused code examples and API documentation versus prose instructions), which the LLM judge rewards. The novelty gap is negligible, suggesting that while references contain more *efficiently presented* information, the *uniqueness* of that information relative to training data is comparable to SKILL.md content.
 
-### Contamination Risk and Hidden Contamination
+### Hidden Contamination in Reference Files
 
 Reference files introduce a distinct contamination vector. Because references often contain code examples for specific language SDKs, they may interfere with the agent's code generation when the user is working in a different language, a concern grounded in research showing that in-context code examples bias generated output toward the patterns present in those examples [@li2023lail; @ali2024copybias]. Our analysis found that reference contamination patterns differ from SKILL.md contamination:
 
@@ -548,9 +548,9 @@ The language distribution across reference files reveals how authors use referen
 
 # Recommendations for Skill Authors
 
-Based on our findings, we organize recommendations into three groups: practices where our data validates existing guidance from the specification maintainer (Anthropic), practices where our data extends that guidance with new specificity, and practices that address dimensions not covered by existing guidance.
+Based on our findings, we organize recommendations into three groups: practices where our data validates existing guidance from the specification maintainer (Anthropic), practices where our data suggests existing guidance needs more detail, and practices that address dimensions not covered by existing guidance.
 
-## Empirically Validated Existing Guidance
+## What Existing Guidance Gets Right
 
 Anthropic's `skill-creator` skill [@anthropic-skill-creator] provides sound authoring principles. Our analysis of 673 skills provides ecosystem-wide evidence for how well these principles are followed, and quantifies the consequences when they are not.
 
@@ -564,7 +564,7 @@ Anthropic's `skill-creator` skill [@anthropic-skill-creator] provides sound auth
 
 5. **Validate before publishing**: The specification provides validation tools and the skill-creator includes a packaging step that validates automatically. Despite this, 22.0% of published skills fail structural validation, including 21% of company-published skills. Run `skill-validator` on your skill and fix all errors before publishing.
 
-## Extending Existing Guidance with Empirical Specificity
+## Where Existing Guidance Needs More Detail
 
 These recommendations build on principles present in Anthropic's guidance but add data-driven specificity not found in the existing documentation.
 
@@ -572,7 +572,7 @@ These recommendations build on principles present in Anthropic's guidance but ad
 
 7. **Write a rich frontmatter description that naturally incorporates keywords**: The specification requires a description field and says it "should include specific keywords that help agents identify relevant tasks." The skill-creator emphasizes it as "the primary triggering mechanism." Our analysis adds a specific recommendation: 50–200 words of natural prose that weaves in relevant keywords organically. Avoid bare keyword lists (`MongoDB, Atlas, Vector Search, embeddings`); this comma-separated keyword pattern appears in 100 skills across the ecosystem. Explicit trigger phrase lists (`Triggers: "term1", "term2"`) are less harmful when accompanied by substantive prose but still less readable than descriptions that weave keywords naturally into sentences. The skill-creator also correctly notes that "When to Use" information belongs in the description rather than the body, since the body is only loaded after the skill triggers. Body-level scope sections (see recommendation #12) serve a different purpose: helping the agent apply the skill correctly once activated.
 
-## New Recommendations from Empirical Analysis
+## New Recommendations
 
 These practices address dimensions not covered by Anthropic's existing guidance, either entirely new concerns identified by our analysis or structural patterns derived from ecosystem-wide scoring.
 
@@ -602,7 +602,7 @@ The agentskills.io specification [@agentskills-spec] provides structural require
 
 2. **Define quality tiers with separate craft and novelty axes**: Introduce a quality score based on structural compliance, content metrics, contamination risk, and LLM-judged dimensions. Our analysis reveals a two-factor structure: five craft dimensions (clarity, actionability, token efficiency, scope discipline, directive precision) intercorrelate at r = 0.22–0.61, while novelty is largely independent (r = 0.04–0.39). Quality tiers should reflect both axes, since a skill can be well-crafted but unoriginal, or novel but poorly written, and the improvement path is different for each.
 
-3. **Require code block language annotations**: Make unlabeled code blocks a validation error, not just a warning. Language annotations improve readability, enable syntax highlighting, and aid programmatic analysis. Research shows explicit language keywords mitigate Programming Language Confusion within a single context [@moumoula2025plc], though our exploratory behavioral evaluation (n = 19) found no protective effect against the cross-task interference mechanisms observed in our sample (see Behavioral Evaluation: Mechanism Identification).
+3. **Require code block language annotations**: Make unlabeled code blocks a validation error, not just a warning. Language annotations improve readability, enable syntax highlighting, and aid programmatic analysis. Research shows explicit language keywords mitigate Programming Language Confusion within a single context [@moumoula2025plc], though our exploratory behavioral evaluation (n = 19) found no protective effect against the cross-task interference mechanisms observed in our sample (see Behavioral Evaluation Results).
 
 4. **Provide multi-language skill guidelines**: Neither the specification nor the skill-creator addresses skills that necessarily cover multiple languages (CI/CD, infrastructure, cross-platform tools). With 10 high-risk and 147 medium-risk skills in our sample, this is an important gap.
 

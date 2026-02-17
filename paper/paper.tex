@@ -146,7 +146,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Quality and Safety in the Agent Skills Ecosystem: A Structural{,} Behavioral{,} and Cross-Contamination Analysis of 673 Skills},
+  pdftitle={Quality in the Agent Skills Ecosystem: A Structural{,} Behavioral{,} and Cross-Contamination Analysis of 673 Skills},
   pdfauthor={Dachary Carey},
   colorlinks=true,
   linkcolor={Maroon},
@@ -155,8 +155,8 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{Quality and Safety in the Agent Skills Ecosystem: A Structural,
-Behavioral, and Cross-Contamination Analysis of 673 Skills}
+\title{Quality in the Agent Skills Ecosystem: A Structural, Behavioral,
+and Cross-Contamination Analysis of 673 Skills}
 \author{Dachary Carey}
 \date{February 2026}
 
@@ -853,8 +853,8 @@ that failed. A structurally valid skill is not necessarily a \emph{good}
 skill, and vice versa; the two assessment methods measure different
 quality dimensions.
 
-\subsubsection{Craft vs.~Content: Per-Dimension Source
-Profiles}\label{craft-vs.-content-per-dimension-source-profiles}
+\subsubsection{Quality by Source and
+Dimension}\label{quality-by-source-and-dimension}
 
 Disaggregating overall scores into individual dimensions reveals a
 craft-versus-content tradeoff across source categories. Token efficiency
@@ -923,8 +923,8 @@ well-scoped, and concise (high craft scores) while still conveying
 information the LLM already knows (low novelty), a pattern common in
 community collection skills for popular frameworks.
 
-\subsubsection{Theoretical Risk: Low Novelty Meets High
-Contamination}\label{theoretical-risk-low-novelty-meets-high-contamination}
+\subsubsection{Low-Novelty, High-Contamination
+Skills}\label{low-novelty-high-contamination-skills}
 
 Combining LLM-judged novelty with contamination risk scores reveals a
 structural pattern: \textbf{51 skills (7.6\%) across the ecosystem have
@@ -1002,9 +1002,9 @@ Our cross-contamination analysis identified:
 
 These risk levels measure language complexity (the structural presence
 of mixed-language content) rather than demonstrated behavioral impact.
-Our exploratory behavioral evaluation (see Behavioral Evaluation:
-Mechanism Identification) found no correlation between these structural
-scores and measured degradation (r = 0.077, n = 19), suggesting that
+Our exploratory behavioral evaluation (see Behavioral Evaluation
+Results) found no correlation between these structural scores and
+measured degradation (r = 0.077, n = 19), suggesting that
 content-specific factors may matter more than language mixing per se.
 
 \begin{figure}
@@ -1119,7 +1119,7 @@ than filling knowledge gaps. The realistic context condition (skill
 loaded alongside a Claude Code system preamble and simulated
 conversation history) mitigated the contamination in some tasks, a
 pattern that generalizes across the broader behavioral evaluation (see
-Behavioral Evaluation: Mechanism Identification).
+Behavioral Evaluation Results).
 
 This is consistent with documented LLM behaviors: code LLMs exhibit
 Programming Language Confusion, systematically defaulting to patterns
@@ -1134,8 +1134,8 @@ dilution in code generation further suggests that as skill file content
 grows, the model pays less attention to the user's actual intent (Tian
 and Zhang 2025).
 
-\subsubsection{Illustrative Example: Gemini API Multi-Language
-Skill}\label{illustrative-example-gemini-api-multi-language-skill}
+\subsubsection{Case Study: Gemini API Multi-Language
+Skill}\label{case-study-gemini-api-multi-language-skill}
 
 The \textbf{gemini-api-dev} skill (Google, risk: 0.55) provides a
 concrete illustration of the API shape differences that make
@@ -1204,8 +1204,8 @@ incorrect output that Programming Language Confusion research predicts
 for syntactically similar languages sharing the same API surface
 (Moumoula et al. 2026).
 
-\subsubsection{Behavioral Evaluation: Mechanism
-Identification}\label{behavioral-evaluation-mechanism-identification}
+\subsubsection{Behavioral Evaluation
+Results}\label{behavioral-evaluation-results}
 
 To explore what mechanisms drive behavioral degradation when skills are
 loaded, we evaluated 19 skills using the methodology described in the
@@ -1410,8 +1410,8 @@ skill-only condition (B) may substantially overestimate the interference
 that users experience in practice. Skills are not loaded in isolation;
 they compete with a rich context that anchors the model's behavior.
 
-\subsubsection{Exploratory Analysis: What Correlates with Behavioral
-Degradation}\label{exploratory-analysis-what-correlates-with-behavioral-degradation}
+\subsubsection{Exploring Predictors of Behavioral
+Degradation}\label{exploring-predictors-of-behavioral-degradation}
 
 If structural contamination scores show no correlation with degradation
 in our sample, what does? The following correlations are exploratory:
@@ -1829,8 +1829,8 @@ more \emph{efficiently presented} information, the \emph{uniqueness} of
 that information relative to training data is comparable to SKILL.md
 content.
 
-\subsubsection{Contamination Risk and Hidden
-Contamination}\label{contamination-risk-and-hidden-contamination}
+\subsubsection{Hidden Contamination in Reference
+Files}\label{hidden-contamination-in-reference-files}
 
 Reference files introduce a distinct contamination vector. Because
 references often contain code examples for specific language SDKs, they
@@ -1946,12 +1946,12 @@ Authors}\label{recommendations-for-skill-authors}
 
 Based on our findings, we organize recommendations into three groups:
 practices where our data validates existing guidance from the
-specification maintainer (Anthropic), practices where our data extends
-that guidance with new specificity, and practices that address
+specification maintainer (Anthropic), practices where our data suggests
+existing guidance needs more detail, and practices that address
 dimensions not covered by existing guidance.
 
-\subsection{Empirically Validated Existing
-Guidance}\label{empirically-validated-existing-guidance}
+\subsection{What Existing Guidance Gets
+Right}\label{what-existing-guidance-gets-right}
 
 Anthropic's \texttt{skill-creator} skill (Anthropic 2025) provides sound
 authoring principles. Our analysis of 673 skills provides ecosystem-wide
@@ -2010,8 +2010,8 @@ consequences when they are not.
   publishing.
 \end{enumerate}
 
-\subsection{Extending Existing Guidance with Empirical
-Specificity}\label{extending-existing-guidance-with-empirical-specificity}
+\subsection{Where Existing Guidance Needs More
+Detail}\label{where-existing-guidance-needs-more-detail}
 
 These recommendations build on principles present in Anthropic's
 guidance but add data-driven specificity not found in the existing
@@ -2051,8 +2051,7 @@ documentation.
   apply the skill correctly once activated.
 \end{enumerate}
 
-\subsection{New Recommendations from Empirical
-Analysis}\label{new-recommendations-from-empirical-analysis}
+\subsection{New Recommendations}\label{new-recommendations}
 
 These practices address dimensions not covered by Anthropic's existing
 guidance, either entirely new concerns identified by our analysis or
@@ -2221,8 +2220,7 @@ intervention would have the greatest impact.
   Programming Language Confusion within a single context (Moumoula et
   al. 2026), though our exploratory behavioral evaluation (n = 19) found
   no protective effect against the cross-task interference mechanisms
-  observed in our sample (see Behavioral Evaluation: Mechanism
-  Identification).
+  observed in our sample (see Behavioral Evaluation Results).
 \item
   \textbf{Provide multi-language skill guidelines}: Neither the
   specification nor the skill-creator addresses skills that necessarily
