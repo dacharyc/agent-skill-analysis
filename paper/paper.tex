@@ -163,29 +163,32 @@ Behavioral, and Cross-Contamination Analysis of 673 Skills}
 \begin{document}
 \maketitle
 \begin{abstract}
-We present the first systematic analysis of the Agent Skills ecosystem
-(modular instruction sets that extend AI coding agents), evaluating 673
-skills from 41 source repositories. Our structural audit finds that
-22.0\% of skills fail validation, with company-published skills (79.2\%
-pass rate) performing worse than community collections (94.0\%). A token
-budget analysis reveals that 52\% of all tokens across the ecosystem are
-nonstandard files wasting context window space. We identify 10 skills
-with high cross-contamination risk and 66 with ``hidden contamination''
-visible only in reference files. LLM-as-judge scoring across all 673
-skills reveals a two-factor quality structure: five craft dimensions
-intercorrelate strongly while novelty (information beyond training data)
-is largely independent, making it the key quality differentiator. An
-exploratory behavioral evaluation of 19 representative skills finds no
-correlation between structural contamination scores and measured
-behavioral degradation (r = 0.077, n = 19), and identifies six
-content-specific interference mechanisms through case studies: template
-propagation, textual frame leakage, token budget competition, API
-hallucination, cross-language code bleed, and architectural pattern
-bleed. These case studies suggest that the drivers of degradation are
-content-specific rather than language-mixing artifacts, and that
-realistic agentic context may substantially attenuate interference. We
-propose quality criteria for skill authors and recommendations for
-specification maintainers.
+We present a systematic quality and content analysis of the Agent Skills
+ecosystem (modular instruction sets that extend AI coding agents),
+evaluating 673 skills from 41 source repositories. Complementing recent
+security-focused work that found 26.1\% of skills contain security
+vulnerabilities (Liu et al. 2026), we focus on structural compliance,
+content quality, and cross-contamination risk. Our structural audit
+finds that 22.0\% of skills fail validation, with company-published
+skills (79.2\% pass rate) performing worse than community collections
+(94.0\%). A token budget analysis reveals that 52\% of all tokens across
+the ecosystem are nonstandard files wasting context window space. We
+identify 10 skills with high cross-contamination risk and 66 with
+``hidden contamination'' visible only in reference files. LLM-as-judge
+scoring across all 673 skills reveals a two-factor quality structure:
+five craft dimensions intercorrelate strongly while novelty (information
+beyond training data) is largely independent, making it the key quality
+differentiator. An exploratory behavioral evaluation of 19
+representative skills finds no correlation between structural
+contamination scores and measured behavioral degradation (r = 0.077, n =
+19), and identifies six content-specific interference mechanisms through
+case studies: template propagation, textual frame leakage, token budget
+competition, API hallucination, cross-language code bleed, and
+architectural pattern bleed. These case studies suggest that the drivers
+of degradation are content-specific rather than language-mixing
+artifacts, and that realistic agentic context may substantially
+attenuate interference. We propose quality criteria for skill authors
+and recommendations for specification maintainers.
 \end{abstract}
 
 {
@@ -219,8 +222,15 @@ We catalog 673 skills from 41 source repositories in our primary
 analysis, with an additional 800+ skills identified across the broader
 ecosystem.
 
-However, this growth has outpaced quality assurance. No prior work has
-systematically evaluated skill quality. We identified three concerns:
+However, this growth has outpaced quality assurance. Recent work has
+begun to address the security dimension: Liu et al. (Liu et al. 2026)
+analyzed 31,132 skills from marketplace aggregators and found that
+26.1\% contain security vulnerabilities spanning prompt injection, data
+exfiltration, privilege escalation, and supply chain risks. No prior
+work has systematically evaluated skill \emph{quality}: the structural
+compliance, content effectiveness, and cross-contamination
+characteristics that determine whether skills actually improve agent
+output. We identified three concerns:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -252,11 +262,13 @@ capture them. Our key contributions are:
 \begin{itemize}
 \tightlist
 \item
-  The first comprehensive structural audit of the Agent Skills ecosystem
-  using the \texttt{skill-validator} tool (Carey 2026), covering 673
-  skills from 41 repositories, with a two-pass validation approach that
-  separates deterministic structural checks from environment-dependent
-  link validation
+  A comprehensive structural and quality audit of the Agent Skills
+  ecosystem using the \texttt{skill-validator} tool (Carey 2026),
+  covering 673 skills from 41 repositories, with a two-pass validation
+  approach that separates deterministic structural checks from
+  environment-dependent link validation. This complements the
+  security-focused analysis of Liu et al. (Liu et al. 2026), which
+  examined a larger sample (31,132 skills) for vulnerability patterns
 \item
   A token budget composition analysis revealing that 52\% of all tokens
   across the ecosystem are nonstandard files wasting context window
@@ -692,10 +704,14 @@ The agentskills.io specification defines three categories of skill
 content: the primary \texttt{SKILL.md} instruction file, supplementary
 \texttt{references/} files, and binary \texttt{assets/} files. Any file
 outside these categories (placed at the skill root or in non-standard
-directories) is loaded into the agent's context window but provides no
-instructional value, and research demonstrates that irrelevant context
-actively degrades LLM task performance (Shi et al. 2023; Liu et al.
-2024). We term these \textbf{nonstandard tokens}.
+directories) may be loaded into the agent's context window depending on
+the platform's loading behavior. The specification does not explicitly
+prohibit loading nonstandard files, and agent platforms vary in whether
+they load the full skill directory or only recognized categories. When
+loaded, these files provide no instructional value, and research
+demonstrates that irrelevant context actively degrades LLM task
+performance (Shi et al. 2023; Liu et al. 2024). We term these
+\textbf{nonstandard tokens}.
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lllll@{}}
@@ -907,23 +923,25 @@ well-scoped, and concise (high craft scores) while still conveying
 information the LLM already knows (low novelty), a pattern common in
 community collection skills for popular frameworks.
 
-\subsubsection{Net Negative Risk: Low Novelty Meets High
-Contamination}\label{net-negative-risk-low-novelty-meets-high-contamination}
+\subsubsection{Theoretical Risk: Low Novelty Meets High
+Contamination}\label{theoretical-risk-low-novelty-meets-high-contamination}
 
 Combining LLM-judged novelty with contamination risk scores reveals a
 structural pattern: \textbf{51 skills (7.6\%) across the ecosystem have
 both low novelty (score ≤ 2) and medium-to-high contamination risk
 (score ≥ 0.2)}. These skills add mixed-language content with elevated
 structural complexity while providing little information the LLM does
-not already possess, a combination where the theoretical net effect on
-agent performance is negative, though our exploratory behavioral
-evaluation (n = 19) suggests the relationship between structural risk
-and behavioral impact is not straightforward.
+not already possess. In theory, this combination should produce a
+negative net effect on agent performance, though our exploratory
+behavioral evaluation (n = 19) found no correlation between structural
+contamination scores and behavioral degradation (r = 0.077), and the
+relationship between these structural indicators and actual impact
+remains an open question.
 
 Company-published skills are disproportionately represented: 29 of 288
-(10.1\%) fall into this ``net negative'' quadrant. Expanding the
-threshold to novelty ≤ 3 captures 45 company skills (15.6\%). The top
-offenders are Azure SDK skills (\texttt{azure-identity-java},
+(10.1\%) fall into this quadrant. Expanding the threshold to novelty ≤ 3
+captures 45 company skills (15.6\%). The most prominent cases are Azure
+SDK skills (\texttt{azure-identity-java},
 \texttt{azure-security-keyvault-secrets-java}, and similar) with
 contamination scores above 0.50 but novelty scores of only 2. These are
 well-documented APIs whose documentation is heavily represented in LLM
@@ -933,21 +951,19 @@ structural conditions for language confusion.
 Novelty and contamination show near-zero correlation in our dataset (r =
 0.00 for company skills, r = 0.07 across all skills, n = 673). There is
 no natural self-correction where contaminated skills compensate by being
-more novel. The two risks stack additively: a skill that mixes Python,
-Java, and TypeScript examples for the same API \emph{and} provides only
-information the LLM already knows offers the worst of both worlds. Among
-skills with medium or high contamination, company skills have the lowest
-mean novelty (3.12) compared to the non-company average (3.32); they are
-not making up for contamination risk with informational value.
+more novel. Among skills with medium or high contamination, company
+skills have the lowest mean novelty (3.12) compared to the non-company
+average (3.32); they are not making up for contamination risk with
+informational value.
 
 The theoretical basis for concern is well-established: irrelevant
 context degrades LLM task performance (Shi et al. 2023), mixed-language
 content causes systematic programming language confusion (Moumoula et
 al. 2026), and in-context examples bias generated code toward the
 patterns they contain (Ali et al. 2024). A skill that introduces these
-interference risks without contributing novel information is, by this
-reasoning, strictly worse than no skill at all: the agent pays the
-contamination cost without receiving informational benefit. Our
+interference risks without contributing novel information would, by this
+reasoning, be worse than no skill at all: the agent pays the
+contamination cost without receiving informational benefit. However, our
 exploratory behavioral evaluation (n = 19) complicates this prediction:
 we observed a suggestive pattern where novelty correlates with the
 \emph{magnitude} of behavioral effects in both directions (r = +0.267
@@ -956,7 +972,9 @@ skills showed smaller degradation than expected, as if the model largely
 ignores content it already knows. If this pattern holds in larger
 samples, the real risk may be high-novelty skills loaded for mismatched
 tasks, where the model pays attention to genuinely novel content that
-happens to be irrelevant to the current task.
+happens to be irrelevant to the current task. Confirming whether
+low-novelty/high-contamination skills actually degrade performance in
+practice requires behavioral testing of this specific subpopulation.
 
 \subsection{Cross-Contamination Risk}\label{cross-contamination-risk}
 
@@ -1221,7 +1239,7 @@ cases: \textbf{upgrade-stripe} (highest structural risk at 0.93) shows
 only modest behavioral degradation (B-A = -0.117, not significant),
 while \textbf{react-native-best-practices} (structural risk 0.07, the
 second-lowest in our sample) produces the largest degradation (B-A =
--0.384, p = 0.001).
+-0.383, p = 0.001).
 
 \subsubsection{Content Interference
 Mechanisms}\label{content-interference-mechanisms}
@@ -1306,7 +1324,7 @@ react-native-best-practices}\label{case-study-react-native-best-practices}
 
 The \textbf{react-native-best-practices} skill is the most instructive
 case because it produces the largest behavioral degradation (B-A =
--0.384) despite having essentially zero structural contamination risk
+-0.383) despite having essentially zero structural contamination risk
 (0.07). The skill's 281 code blocks are 94\% language-labeled, spanning
 8 application languages (C++, JavaScript, JSX, Kotlin, Objective-C,
 Swift, TSX, TypeScript). By every structural metric, it should be
@@ -1527,9 +1545,11 @@ skill-induced pattern: 0 fabrication signals at baseline, 5 with the
 skill loaded, 9 under realistic context. The skill's migration
 vocabulary (version pinning, per-request overrides, SDK-specific
 exception hierarchies) gives the model enough conceptual scaffolding to
-construct plausible-sounding but nonexistent API calls
-(\texttt{StripeErrorWithParamCode}, \texttt{params.SetStripeVersion()},
-\texttt{stripe-go/v81}).
+construct plausible-sounding but incorrect API calls (fabricated version
+strings like \texttt{stripe-go/v81} and \texttt{2026-01-28.clover},
+nonexistent Go constants like \texttt{stripe.ErrorTypeConnection}, and
+incorrect method signatures like passing \texttt{toleranceSeconds} as a
+positional argument to \texttt{constructEvent}).
 
 This pattern is consistent with a \textbf{partial knowledge hypothesis}:
 skills that teach API \emph{vocabulary} (naming patterns, architectural
@@ -1800,8 +1820,8 @@ instructional content.
 
 LLM-as-judge scoring confirms and quantifies this pattern. Across 412
 skills with both SKILL.md and reference scores, reference files outscore
-their parent SKILL.md on every shared dimension: +0.48 overall, +0.67 on
-token efficiency, +0.70 on clarity, and +0.03 on novelty. References are
+their parent SKILL.md on every shared dimension: +0.48 overall, +0.66 on
+clarity, +0.62 on token efficiency, and +0.19 on novelty. References are
 more concise and information-dense (focused code examples and API
 documentation versus prose instructions), which the LLM judge rewards.
 The novelty gap is negligible, suggesting that while references contain
@@ -1934,9 +1954,9 @@ dimensions not covered by existing guidance.
 Guidance}\label{empirically-validated-existing-guidance}
 
 Anthropic's \texttt{skill-creator} skill (Anthropic 2025) provides sound
-authoring principles. Our analysis of 673 skills provides the first
-ecosystem-wide evidence for how well these principles are followed, and
-quantifies the consequences when they are not.
+authoring principles. Our analysis of 673 skills provides ecosystem-wide
+evidence for how well these principles are followed, and quantifies the
+consequences when they are not.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1967,7 +1987,7 @@ quantifies the consequences when they are not.
   detailed progressive disclosure patterns (domain-specific
   organization, conditional detail loading, and high-level guides with
   references). Our LLM-as-judge data validates this approach: reference
-  files consistently outscore SKILL.md (+0.39 overall, +0.52 on token
+  files consistently outscore SKILL.md (+0.48 overall, +0.62 on token
   efficiency). Keep SKILL.md at 100--300 lines as a concise action guide
   and delegate detailed examples, API docs, and extended patterns to
   \texttt{references/}. Top-scoring skills use this pattern;
@@ -2094,9 +2114,9 @@ structural patterns derived from ecosystem-wide scoring.
   expense of code completeness. The \textbf{upgrade-stripe} skill
   (Stripe) demonstrates a distinct enterprise risk: its detailed API
   versioning and migration content causes the model to fabricate
-  plausible but nonexistent SDK methods (e.g.,
-  \texttt{StripeErrorWithParamCode},
-  \texttt{params.SetStripeVersion()}), and this fabrication
+  plausible but incorrect SDK calls (e.g., nonexistent version strings
+  like \texttt{stripe-go/v81}, incorrect method signatures, and
+  hallucinated Go error constants), and this fabrication
   \emph{intensifies} under realistic agentic context (D-A = -0.383
   vs.~B-A = -0.117), the opposite of the typical mitigation pattern. The
   mechanism holds up: we validated it by controlling for a codebase
@@ -2224,10 +2244,10 @@ intervention would have the greatest impact.
 \item
   \textbf{Engage company publishers on novelty, community authors on
   craft}: Company-published skills lead on craft quality (scope
-  discipline 4.81, clarity 4.55, token efficiency 4.15) but rank \#7 of
-  8 sources on novelty (3.53); they are polished documentation for tools
+  discipline 4.74, clarity 4.13, token efficiency 3.86) but rank \#5 of
+  8 sources on novelty (3.12); they are polished documentation for tools
   the LLM already knows. Community collections show the inverse: weakest
-  on novelty (3.19) but reasonably actionable. The improvement path
+  on novelty (2.83) but reasonably actionable. The improvement path
   differs by source: company publishers should focus on non-obvious
   integration patterns and gotchas rather than restating their public
   API docs, while community authors would benefit most from structural
@@ -2476,7 +2496,7 @@ behavioral degradation} (r = 0.077, n = 19). While the sample is too
 small for definitive cross-skill conclusions, the individual case
 studies are instructive: a skill with near-zero structural risk
 (react-native-best-practices, score 0.07) produced the largest
-behavioral degradation (B-A = -0.384), while a skill with 12 application
+behavioral degradation (B-A = -0.383), while a skill with 12 application
 languages and 100\% code block labeling (sharp-edges, score 0.62) showed
 minimal effect (-0.083). The interference mechanisms we identified
 (template propagation, textual frame leakage, API hallucination, and
@@ -2509,7 +2529,11 @@ Quality standards, validation tooling, and authoring guidelines can
 address these issues. The behavioral case studies suggest that
 validation should expand from structural language-mixing heuristics
 toward content-specific checks: template syntax validation,
-framework-specificity assessment, and reference file scope analysis. As
+framework-specificity assessment, and reference file scope analysis.
+Combined with the security vulnerabilities identified by Liu et al. (Liu
+et al. 2026) (26.1\% of skills containing prompt injection, data
+exfiltration, or privilege escalation risks), the picture is clear: the
+ecosystem faces quality and safety challenges on multiple fronts. As
 skills become a core part of the AI development workflow, the community
 benefits from treating them as first-class software artifacts deserving
 of the same quality discipline we apply to libraries and APIs.
@@ -2721,9 +2745,14 @@ Liu, Nelson F., Kevin Lin, John Hewitt, et al. 2024. {``Lost in the
 Middle: How Language Models Use Long Contexts.''} \emph{Transactions of
 the Association for Computational Linguistics} 12: 157--73.
 
+\bibitem[\citeproctext]{ref-liu2026skillswild}
+Liu, Yi, Weizhe Wang, Ruitao Feng, et al. 2026. {``Agent Skills in the
+Wild: An Empirical Study of Security Vulnerabilities at Scale.''}
+\emph{arXiv Preprint arXiv:2601.10338}.
+
 \bibitem[\citeproctext]{ref-moumoula2025plc}
 Moumoula, Micheline Bénédicte, Serge Lionel Nikiema, Abdoul Kader
-Kabore, Jacques Klein, and Tegawendé F. Bissyande. 2026. {``Programming
+Kaboré, Jacques Klein, and Tegawendé F. Bissyande. 2026. {``Programming
 Language Confusion: When Code {LLMs} Can't Keep Their Languages
 Straight.''} \emph{Proceedings of the IEEE International Conference on
 Software Analysis, Evolution and Reengineering (SANER)}.

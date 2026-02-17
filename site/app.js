@@ -467,7 +467,7 @@ function renderNetNegative() {
 
     summaryEl.innerHTML = `
         <div class="callout-stats">
-            <div><strong>${nn.strict_count}</strong> skills (${nn.strict_pct}%) in net negative quadrant</div>
+            <div><strong>${nn.strict_count}</strong> skills (${nn.strict_pct}%) in low value-add quadrant</div>
             <div>Novelty-contamination correlation: <strong>r = ${nn.novelty_contamination_corr}</strong> (independent)</div>
             <div>Mean novelty among contaminated skills: company <strong>${nn.mean_novelty_contaminated_company}</strong> vs non-company <strong>${nn.mean_novelty_contaminated_non_company}</strong></div>
         </div>
@@ -480,7 +480,7 @@ function renderNetNegative() {
     // Highest-risk net-negative cards
     const container = document.getElementById("net-negative-cards");
     const offenders = nn.top_offenders || [];
-    container.innerHTML = '<h4>Highest Net Negative Risk</h4>' + offenders.map(o => {
+    container.innerHTML = '<h4>Lowest Value-Add Skills</h4>' + offenders.map(o => {
         const skill = DATA.skills.find(s => s.name === o.name && s.source === o.source);
         const link = skill && skill.github_url
             ? `<a href="${skill.github_url}" target="_blank" class="gh-link">View on GitHub</a>` : "";
@@ -840,7 +840,7 @@ function showDetail(name, source) {
     let alertHtml = "";
     if (skill.llm_novelty != null && skill.llm_novelty <= 2 && skill.contamination_score >= 0.2) {
         alertHtml += '<div class="detail-alert alert-high">'
-            + 'Theoretical net negative risk: Low novelty (' + skill.llm_novelty
+            + 'Low value-add risk: Low novelty (' + skill.llm_novelty
             + '/5) combined with elevated structural complexity ('
             + skill.contamination_score.toFixed(2) + ') without novel information.</div>';
     }

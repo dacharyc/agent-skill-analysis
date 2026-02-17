@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>Agent Skill Analysis</h1>
-        <p class="subtitle-lead">The first ecosystem-wide audit of 673 Agent Skills</p>
+        <p class="subtitle-lead">A systematic ecosystem-wide audit of 673 Agent Skills</p>
         <p class="subtitle">Structural compliance, content quality, context efficiency, and cross-contamination risk</p>
         <div class="header-meta">
             <span class="meta-chip">673 Skills</span>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="stat-card net-neg">
                     <div class="stat-value" id="stat-net-negative">—</div>
-                    <div class="stat-label">Net Negative Risk</div>
+                    <div class="stat-label">Low Value-Add</div>
                 </div>
             </div>
             <div class="chart-row">
@@ -219,9 +219,9 @@
             <div class="chart-container wide">
                 <canvas id="chart-craft-novelty"></canvas>
             </div>
-            <h3>Net Negative Risk</h3>
-            <p>Skills that score low on novelty (score &le; 2) <em>and</em> medium-to-high on <a href="#contamination">structural contamination</a> (score &ge; 0.2). The idea: if a skill doesn't teach the model anything new but does add mixed-language complexity to the context window, it's all cost and no benefit. These skills are candidates for removal or consolidation.</p>
-            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 6 net-negative skills, the actual measured degradation was modest (mean B&minus;A&nbsp;=&nbsp;&minus;0.072) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones.</p>
+            <h3>Low Value-Add Risk</h3>
+            <p>Skills that score low on novelty (score &le; 2) <em>and</em> medium-to-high on <a href="#contamination">structural contamination</a> (score &ge; 0.2). The idea: if a skill doesn't teach the model anything new but does add mixed-language complexity to the context window, the theoretical cost-benefit is unfavorable. These skills are candidates for removal or consolidation.</p>
+            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 6 low value-add skills, the actual measured degradation was modest (mean B&minus;A&nbsp;=&nbsp;&minus;0.072) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones.</p>
             <div id="net-negative-summary" class="callout-box"></div>
             <div id="net-negative-cards"></div>
         </section>
