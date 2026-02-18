@@ -52,7 +52,7 @@ The company category includes skills from Microsoft (143), OpenAI (32), Sentry (
 
 Each source repository is tracked as a git submodule pinned to a specific commit, ensuring reproducibility. Snapshot metadata (commit SHA, date, remote URL) is recorded for every source.
 
-Skills were validated using `skill-validator` v1.0 [@skill-validator], a Go CLI tool that checks skills against the agentskills.io specification [@agentskills-spec].
+Skills were validated using `skill-validator` v0.4.0 [@skill-validator], a Go CLI tool that checks skills against the agentskills.io specification [@agentskills-spec].
 
 ## Structural Validation
 
@@ -654,6 +654,10 @@ Preliminary evidence from this sample also suggests that realistic agentic conte
 LLM-as-judge scoring across all 673 skills reveals that novelty, the degree to which a skill provides information beyond training data, is the key quality differentiator, correlating only weakly (r = 0.04–0.39) with craft dimensions like clarity and conciseness. This two-factor structure (craft vs. novelty) has practical implications: the improvement path differs by source category, with company publishers needing more novel content and community authors needing better craft. The behavioral evaluation provides suggestive evidence that novelty may also relate to behavioral effects (r = +0.267 for |B-A|, n = 19, not significant), but confirming this requires larger samples.
 
 Quality standards, validation tooling, and authoring guidelines can address these issues. The behavioral case studies suggest that validation should expand from structural language-mixing heuristics toward content-specific checks: template syntax validation, framework-specificity assessment, and reference file scope analysis. Combined with the security vulnerabilities identified by Liu et al. [@liu2026skillswild] (26.1% of skills containing prompt injection, data exfiltration, or privilege escalation risks), the picture is clear: the ecosystem faces quality and safety challenges on multiple fronts. As skills become a core part of the AI development workflow, the community benefits from treating them as first-class software artifacts deserving of the same quality discipline we apply to libraries and APIs.
+
+## AI Assistance Disclosure
+
+The analysis pipeline (data collection, validation, statistical computation, and behavioral evaluation infrastructure) was developed with AI assistance from Claude (Anthropic). The LLM-as-judge scoring was performed by Claude Sonnet. The author designed the study, curated the dataset, interpreted all findings, and wrote the paper; AI tools were used for implementation support, statistical analysis, and iterative refinement of methodology.
 
 \newpage
 

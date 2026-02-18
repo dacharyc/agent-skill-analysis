@@ -349,8 +349,8 @@ Each source repository is tracked as a git submodule pinned to a
 specific commit, ensuring reproducibility. Snapshot metadata (commit
 SHA, date, remote URL) is recorded for every source.
 
-Skills were validated using \texttt{skill-validator} v1.0 (Carey 2026),
-a Go CLI tool that checks skills against the agentskills.io
+Skills were validated using \texttt{skill-validator} v0.4.0 (Carey
+2026), a Go CLI tool that checks skills against the agentskills.io
 specification ({``Agent Skills Specification''} 2025).
 
 \subsection{Structural Validation}\label{structural-validation}
@@ -2535,6 +2535,16 @@ ecosystem faces quality and safety challenges on multiple fronts. As
 skills become a core part of the AI development workflow, the community
 benefits from treating them as first-class software artifacts deserving
 of the same quality discipline we apply to libraries and APIs.
+
+\subsection{AI Assistance Disclosure}\label{ai-assistance-disclosure}
+
+The analysis pipeline (data collection, validation, statistical
+computation, and behavioral evaluation infrastructure) was developed
+with AI assistance from Claude (Anthropic). The LLM-as-judge scoring was
+performed by Claude Sonnet. The author designed the study, curated the
+dataset, interpreted all findings, and wrote the paper; AI tools were
+used for implementation support, statistical analysis, and iterative
+refinement of methodology.
 
 \newpage
 
