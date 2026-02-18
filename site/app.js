@@ -776,7 +776,7 @@ function renderTable() {
             <td>${s.information_density.toFixed(3)}</td>
             <td>${s.instruction_specificity.toFixed(3)}</td>
             <td><span class="badge badge-${s.contamination_level}">${s.contamination_level} (${s.contamination_score.toFixed(2)})</span></td>
-            <td>${s.llm_overall != null ? s.llm_overall.toFixed(2) : "—"}${s.llm_novelty != null && s.llm_novelty <= 2 && s.contamination_score >= 0.2 ? ' <span class="badge badge-net-neg">net neg</span>' : ""}</td>
+            <td>${s.llm_overall != null ? s.llm_overall.toFixed(2) : "—"}${s.llm_novelty != null && s.llm_novelty <= 2 && s.contamination_score >= 0.2 ? ' <span class="badge badge-net-neg">evaluate</span>' : ""}</td>
             <td>${s.llm_novelty != null ? s.llm_novelty : "—"}</td>
         </tr>
     `).join("");

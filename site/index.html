@@ -44,9 +44,15 @@
         <a href="#contamination">Contamination</a>
         <a href="#behavioral">Behavioral</a>
         <a href="#llm-quality">LLM Quality</a>
+        <a href="#open-questions">Practitioner</a>
         <a href="#table">All Skills</a>
         <button id="theme-toggle" aria-label="Toggle dark mode"></button>
     </nav>
+
+    <div class="intro-context">
+        <p>Agent Skills are the primary way to extend what coding agents know. But the ecosystem is growing faster than anyone's ability to evaluate it. If you're <strong>installing skills</strong>, how do you know which ones are worth the context window cost? If you're <strong>building skills</strong>, what actually makes one useful versus noise?</p>
+        <p>This report explores those questions across 673 published skills. The structural data is comprehensive. The behavioral data is exploratory (n&nbsp;=&nbsp;19). The uncomfortable finding: the things that are easy to measure don't predict the things that matter. We can't make a deterministic checklist, but we can help you focus on key considerations.</p>
+    </div>
 
     <main>
         <!-- Overview Dashboard -->
@@ -117,6 +123,10 @@
             <div class="chart-container wide">
                 <canvas id="chart-token-budget"></canvas>
             </div>
+            <div class="practitioner-callout">
+                <h4>If you're evaluating skills</h4>
+                <p><strong>Validation is a necessary first filter.</strong> The 22% of skills that don't match the spec may not load correctly, so checking compliance saves you from obvious failures. But passing validation tells you nothing about whether a skill improves agent output. Think of it like type checking: it catches a class of errors, but doesn't tell you whether the program does what you want.</p>
+            </div>
         </section>
 
         <!-- Content Quality -->
@@ -130,6 +140,10 @@
                 <div class="chart-container">
                     <canvas id="chart-specificity"></canvas>
                 </div>
+            </div>
+            <div class="practitioner-callout">
+                <h4>If you're building skills</h4>
+                <p>Every token your skill consumes is a token unavailable for the user's actual task&mdash;their codebase context, conversation history, tool definitions. The 52% waste figure is mostly a packaging problem, not a content problem, which means it's straightforward to fix. Remove LICENSE files, build artifacts, etc. from your skills. Beyond that, writing for high information density and specificity means writing the way you'd write a good API reference: concrete, directive, minimal preamble.</p>
             </div>
         </section>
 
@@ -162,6 +176,10 @@
                 <h3>Hidden Contamination</h3>
                 <p>The contamination scoring <a href="#high-risk-list">described above</a> applies to <code>SKILL.md</code> content. But skills can also include reference files that are loaded into context alongside the instruction file. These 66 skills score as low-risk on their <code>SKILL.md</code> alone, yet carry medium or high contamination in their reference files &mdash; language mixing invisible to instruction-file-only analysis.</p>
                 <div id="hidden-contamination-cards"></div>
+            </div>
+            <div class="practitioner-callout">
+                <h4>If you're building for multi-language tools</h4>
+                <p>If your tool has a CLI, multiple language SDKs, and a query language (think databases, cloud providers, observability platforms), these structural scores flag complexity worth being intentional about. Our behavioral data didn't find that structural complexity alone predicted problems, but the content interference mechanisms we <em>did</em> observe (API hallucination, cross-language bleed) tend to appear in exactly these kinds of skills. The structural score won't tell you if your skill will cause harm, but it can tell you where to focus your testing.</p>
             </div>
         </section>
 
@@ -214,6 +232,10 @@
                 <h4>Context Mitigation</h4>
                 <p>When skills are loaded alongside realistic agentic context (system prompt, tools, conversation history), mean degradation drops from &minus;0.080 to &minus;0.023 &mdash; a ~62&ndash;75% attenuation. Real-world impact may be substantially smaller than isolated evaluation suggests.</p>
             </div>
+            <div class="practitioner-callout">
+                <h4>If you're debugging unexpected agent behavior</h4>
+                <p>The six interference mechanisms above are hypotheses drawn from a small evaluation, not proven failure modes. But they describe recognizable patterns. If you've added a skill and noticed your agent suddenly producing verbose commentary instead of code, or inventing API methods that don't exist, or using shell syntax in your JavaScript&mdash;these categories give you a vocabulary for diagnosing what's happening. The context mitigation finding also matters: in realistic conditions, the effects attenuate substantially, so isolated testing may overstate real-world impact.</p>
+            </div>
         </section>
 
         <!-- LLM Quality -->
@@ -238,9 +260,44 @@
             </div>
             <h3>Low Value-Add Risk</h3>
             <p>Skills that score low on novelty (score &le; 2) <em>and</em> medium-to-high on <a href="#contamination">structural contamination</a> (score &ge; 0.2). The idea: if a skill doesn't teach the model anything new but does add mixed-language complexity to the context window, the theoretical cost-benefit is unfavorable. These skills are candidates for removal or consolidation.</p>
-            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 6 low value-add skills, the actual measured degradation was modest (mean B&minus;A&nbsp;=&nbsp;&minus;0.072) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones.</p>
+            <p>That said, in our <a href="#behavioral">behavioral evaluation</a> of 6 low value-add skills, the actual measured degradation was modest (mean B&minus;A&nbsp;=&nbsp;&minus;0.072) &mdash; suggesting that while these skills aren't helping, they may not be actively hurting as much as the structural scores imply. The strongest degradation we observed came from high-novelty skills with content-specific interference mechanisms, not from low-novelty ones. Skills in this quadrant are tagged <span class="badge badge-net-neg">evaluate</span> in the <a href="#table">skills table</a>&mdash;if you're considering using one, it's worth testing its impact on your agent's output for your specific tasks before committing to it.</p>
             <div id="net-negative-summary" class="callout-box"></div>
             <div id="net-negative-cards"></div>
+            <div class="practitioner-callout">
+                <h4>If you're deciding what to put in a skill</h4>
+                <p>The craft dimensions (clarity, actionability, efficiency) are table stakes&mdash;most skills score similarly on them, and they're the kind of thing you can get right with careful editing. Novelty is harder and appears to matter more. A skill that restates what the model already knows is, at best, an expensive no-op. If you're considering whether a skill is worth creating and maintaining, the first question to ask is: does this teach the agent something it genuinely doesn't know? If the answer is no, the maintenance cost probably isn't justified, even if the skill is well-written.</p>
+            </div>
+        </section>
+
+        <section id="open-questions">
+            <h2>Open Questions for Practitioners</h2>
+            <p>This analysis raises questions we think are worth sitting with, even where the data doesn't yet support definitive answers.</p>
+            <div class="mechanism-cards">
+                <div class="mechanism-card">
+                    <h4>How should you evaluate a skill before installing it?</h4>
+                    <p>Structural validation catches broken skills. LLM-as-judge scoring can flag low-novelty content. But neither predicted behavioral degradation in our evaluation. The honest answer may be that there isn't a reliable shortcut. Skills that look good on paper can still interfere with agent output in ways you'll only catch by testing on your own tasks.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h4>What predicts whether a skill actually helps?</h4>
+                    <p>Our data points toward novelty as the strongest signal (r&nbsp;=&nbsp;+0.327 for degradation magnitude), but this is from 19 skills. This is a direction to investigate, not a conclusion to rely on. If novelty does turn out to be the key variable, it would reframe skill creation: the goal isn't to write well, it's to teach something new.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h4>Can you generate skills from existing published content?</h4>
+                    <p>If most skills restate what the model already knows, and novelty is what differentiates useful ones, then auto-generating skills from documentation, articles, or other published content may produce exactly the kind of low-novelty content the ecosystem already has too much of. The skills that scored highest on novelty in our analysis tend to encode operational knowledge; the kind of hard-won expertise that doesn't live in docs.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h4>When is a skill not worth maintaining?</h4>
+                    <p>A skill has ongoing costs: it consumes context tokens on every invocation, it needs updating as APIs and tools change, and it can interfere with the agent in ways that are hard to detect. If the skill doesn't teach the model something new&mdash;and especially if it adds structural complexity from mixed languages or multi-interface tools&mdash;the cost-benefit may not justify keeping it active.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h4>How can you test skills?</h4>
+                    <p>If you're planning to distribute skills&mdash;especially as official company-provided resources&mdash;structural validation and manual review aren't enough. Our behavioral evaluation found interference patterns that no static analysis would catch: templates bleeding into unrelated output, plausible-but-wrong API methods, architectural conventions propagating where they don't belong. The only way to know if a skill helps or hurts is to test it against representative tasks with and without the skill loaded, and compare the outputs. That's expensive, but so is distributing a skill that degrades your users' experience in ways neither you nor they will easily trace back to the skill.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h4>How can you decide whether to install a skill?</h4>
+                    <p>There's no reliable shortcut yet. Validation tells you if a skill is structurally sound. Novelty scoring can flag whether it's likely to teach the model something new. But the gap between "looks good" and "actually helps" is real&mdash;our best structural metrics didn't predict behavioral outcomes. If you're adopting a skill for your team or organization, treat it like any other dependency: try it on your actual workloads, watch for the <a href="#behavioral">interference patterns</a> described above, and be willing to remove it if the results don't justify the context window cost. The ecosystem will get better tooling for this over time, but right now, informed skepticism is your best filter.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Filterable Table -->
@@ -275,6 +332,18 @@
                     <input type="text" id="filter-search" placeholder="Skill name...">
                 </label>
                 <button id="btn-download-csv">Download CSV</button>
+            </div>
+            <div class="table-key">
+                <h4>Column Key</h4>
+                <dl>
+                    <div><dt>Tokens</dt><dd>Total context window tokens consumed by all skill files</dd></div>
+                    <div><dt>Density</dt><dd><a href="#content">Information density</a> &mdash; ratio of actionable content to total text (higher = less filler)</dd></div>
+                    <div><dt>Specificity</dt><dd><a href="#content">Instruction specificity</a> &mdash; how concrete and directive the language is (higher = more precise)</dd></div>
+                    <div><dt>Contamination</dt><dd><a href="#contamination">Structural contamination score</a> &mdash; language mixing complexity (higher = more mixed)</dd></div>
+                    <div><dt>LLM Score</dt><dd><a href="#llm-quality">Overall LLM-as-judge quality</a> &mdash; mean of 6 dimensions scored 1&ndash;5</dd></div>
+                    <div><dt>Novelty</dt><dd><a href="#llm-quality">Novelty score</a> (1&ndash;5) &mdash; does the skill teach the model something it doesn't already know?</dd></div>
+                    <div><dt><span class="badge badge-net-neg">evaluate</span></dt><dd>Low novelty (&le;&nbsp;2) + medium-to-high contamination (&ge;&nbsp;0.2) &mdash; <a href="#llm-quality">worth testing</a> before adopting</dd></div>
+                </dl>
             </div>
             <div class="table-wrapper">
                 <table id="skills-table">
