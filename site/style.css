@@ -187,14 +187,24 @@ header h1::after {
 .header-meta a.meta-chip-link {
     text-decoration: none;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.3);
-    transition: background 0.2s, border-color 0.2s;
+    background: rgba(52, 152, 219, 0.85);
+    border-color: rgba(52, 152, 219, 0.9);
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
 
 .header-meta a.meta-chip-link:hover {
-    background: rgba(255, 255, 255, 0.28);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(41, 128, 185, 0.95);
+    border-color: rgba(41, 128, 185, 1);
+    transform: translateY(-1px);
+}
+
+.nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--nav-bg);
 }
 
 nav {
@@ -203,9 +213,7 @@ nav {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    align-items: center;
 }
 
 nav a {
@@ -223,16 +231,14 @@ nav a:hover {
 
 #theme-toggle {
     background: none;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none;
     color: #ecf0f1;
-    font-size: 0.9rem;
-    padding: 0.25rem 0.6rem;
+    font-size: 1.15rem;
+    padding: 0.2rem 0.4rem;
     border-radius: 4px;
     cursor: pointer;
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
+    flex-shrink: 0;
+    line-height: 1;
     transition: background 0.2s;
 }
 
@@ -275,7 +281,7 @@ main p:last-child {
 /* Stats Grid */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -294,6 +300,7 @@ main p:last-child {
 .stat-card.warn { border-left-color: #f39c12; }
 .stat-card.waste { border-left-color: #9b59b6; }
 .stat-card.llm { border-left-color: #1abc9c; }
+.stat-card.hidden-contam { border-left-color: #f39c12; }
 .stat-card.net-neg { border-left-color: #c0392b; }
 
 .stat-value {
@@ -321,6 +328,8 @@ main p:last-child {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 4px var(--shadow);
+    position: relative;
+    overflow: hidden;
 }
 
 .chart-container.wide {
@@ -866,7 +875,80 @@ main a {
     color: var(--link);
 }
 
+/* Nav fade overlays — hidden on desktop */
+.nav-fade {
+    display: none;
+}
+
 @media (max-width: 768px) {
+    .nav-wrapper {
+        position: relative;
+    }
+
+    .nav-fade {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4rem;
+        z-index: 10;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .nav-fade-left {
+        left: 0;
+        background: linear-gradient(to right, var(--nav-bg) 30%, transparent);
+    }
+
+    .nav-fade-right {
+        right: 0;
+        background: linear-gradient(to left, var(--nav-bg) 30%, transparent);
+    }
+
+    .nav-fade.visible {
+        opacity: 1;
+    }
+
+    nav {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a,
+    nav #theme-toggle {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .chart-container {
+        min-height: 220px;
+    }
+
+    .chart-container.tall {
+        min-height: 400px;
+    }
+
+    .chart-container.extra-tall {
+        min-height: 500px;
+    }
+
+    .chart-container canvas {
+        min-height: inherit;
+    }
+
     .chart-row {
         grid-template-columns: 1fr;
     }

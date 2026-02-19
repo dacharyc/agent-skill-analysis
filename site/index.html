@@ -37,17 +37,21 @@
         </div>
     </header>
 
-    <nav>
-        <a href="#overview">Overview</a>
-        <a href="#validation">Validation</a>
-        <a href="#content">Content Quality</a>
-        <a href="#contamination">Contamination</a>
-        <a href="#behavioral">Behavioral</a>
-        <a href="#llm-quality">LLM Quality</a>
-        <a href="#open-questions">Practitioner</a>
-        <a href="#table">All Skills</a>
-        <button id="theme-toggle" aria-label="Toggle dark mode"></button>
-    </nav>
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#validation">Validation</a>
+            <a href="#content">Content Quality</a>
+            <a href="#contamination">Contamination</a>
+            <a href="#behavioral">Behavioral</a>
+            <a href="#llm-quality">LLM Quality</a>
+            <a href="#open-questions">Practitioner</a>
+            <a href="#table">All Skills</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode"></button>
+        </nav>
+        <div class="nav-fade nav-fade-left" aria-hidden="true"></div>
+        <div class="nav-fade nav-fade-right" aria-hidden="true"></div>
+    </div>
 
     <div class="intro-context">
         <p>Agent Skills are the primary way to extend what coding agents know. But the ecosystem is growing faster than anyone's ability to evaluate it. If you're <strong>installing skills</strong>, how do you know which ones are worth the context window cost? If you're <strong>building skills</strong>, what actually makes one useful versus noise?</p>
@@ -87,6 +91,10 @@
                     <div class="stat-value" id="stat-net-negative">—</div>
                     <div class="stat-label">Low Value-Add</div>
                 </div>
+                <div class="stat-card hidden-contam">
+                    <div class="stat-value" id="stat-hidden-contam">—</div>
+                    <div class="stat-label">Hidden Contamination</div>
+                </div>
             </div>
             <div class="chart-row">
                 <div class="chart-container">
@@ -112,15 +120,15 @@
         <section id="validation">
             <h2>Validation Results by Source</h2>
             <p>Validation checks whether each skill complies with the <a href="https://agentskills.io" target="_blank">Agent Skills specification</a> &mdash; required files present, correct structure, valid metadata, and properly formatted content. Skills that fail validation may not load correctly or may confuse the agent about how to use them.</p>
-            <div class="chart-container wide">
+            <div class="chart-container wide tall">
                 <canvas id="chart-by-source"></canvas>
             </div>
-            <div class="chart-container wide">
+            <div class="chart-container wide tall">
                 <canvas id="chart-tokens"></canvas>
             </div>
             <h3>Token Budget Composition</h3>
             <p>How token budgets break down across SKILL.md, references, assets, and nonstandard files. Nonstandard files (LICENSE, build artifacts, schemas) waste context window space.</p>
-            <div class="chart-container wide">
+            <div class="chart-container wide tall">
                 <canvas id="chart-token-budget"></canvas>
             </div>
             <div class="practitioner-callout">
@@ -151,7 +159,7 @@
         <section id="contamination">
             <h2>Cross-Contamination</h2>
             <p>Skills that reference multi-interface tools or mix code examples across languages carry structural complexity that may cross-contaminate agent behavior. These scores measure structural language complexity. An exploratory behavioral evaluation (n&nbsp;=&nbsp;19) found no correlation between these structural scores and measured degradation (r&nbsp;=&nbsp;0.077), suggesting content-specific factors may matter more than language mixing.</p>
-            <div class="chart-container wide">
+            <div class="chart-container wide tall">
                 <canvas id="chart-risk-detail"></canvas>
             </div>
             <div id="high-risk-list">
@@ -187,7 +195,7 @@
         <section id="behavioral">
             <h2>Behavioral Insights</h2>
             <p>An exploratory behavioral evaluation of 19 skills tested whether structural contamination scores predict actual code generation degradation. Each skill was evaluated across 5 task types under 3 conditions (baseline, skill-loaded, skill + realistic context), with 3 runs each at temperature 0.3.</p>
-            <div class="chart-container wide">
+            <div class="chart-container wide tall">
                 <canvas id="chart-behavioral-scatter"></canvas>
             </div>
             <div class="behavioral-callout">
@@ -242,11 +250,11 @@
         <section id="llm-quality">
             <h2>LLM-as-Judge Quality</h2>
             <p>All 673 skills scored by Claude Sonnet across 6 dimensions (1-5 scale): clarity, actionability, token efficiency, scope discipline, directive precision, and novelty.</p>
-            <div class="chart-container wide">
+            <div class="chart-container wide extra-tall">
                 <canvas id="chart-llm-by-source"></canvas>
             </div>
             <div class="chart-row">
-                <div class="chart-container">
+                <div class="chart-container tall">
                     <canvas id="chart-novelty-dist"></canvas>
                 </div>
                 <div class="chart-container">
@@ -255,7 +263,7 @@
             </div>
             <h3>Craft vs. Novelty</h3>
             <p>Skills cluster tightly on craft dimensions (clarity, actionability, efficiency, scope, precision) but spread independently on novelty &mdash; a two-factor quality structure.</p>
-            <div class="chart-container wide">
+            <div class="chart-container wide tall">
                 <canvas id="chart-craft-novelty"></canvas>
             </div>
             <h3>Low Value-Add Risk</h3>

@@ -53,7 +53,7 @@ function applyTheme(theme) {
     document.documentElement.classList.toggle("dark", theme === "dark");
     document.documentElement.classList.toggle("light", theme === "light");
     const btn = document.getElementById("theme-toggle");
-    if (btn) btn.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
+    if (btn) btn.textContent = theme === "dark" ? "\u2600\uFE0F" : "\uD83C\uDF19";
 }
 
 const currentTheme = getTheme();
@@ -77,6 +77,22 @@ document.addEventListener("DOMContentLoaded", () => {
             applyTheme(next);
             location.reload();
         });
+    }
+
+    // Nav scroll fade indicators
+    const fadeLeft = document.querySelector(".nav-fade-left");
+    const fadeRight = document.querySelector(".nav-fade-right");
+    const nav = document.querySelector("nav");
+    if (fadeLeft && fadeRight && nav) {
+        function updateNavFades() {
+            const scrollLeft = nav.scrollLeft;
+            const maxScroll = nav.scrollWidth - nav.clientWidth;
+            fadeLeft.classList.toggle("visible", scrollLeft > 4);
+            fadeRight.classList.toggle("visible", maxScroll - scrollLeft > 4);
+        }
+        nav.addEventListener("scroll", updateNavFades, { passive: true });
+        window.addEventListener("resize", updateNavFades);
+        updateNavFades();
     }
 });
 
@@ -131,6 +147,14 @@ function renderStats() {
         document.getElementById("stat-llm-overall").textContent = mean.toFixed(2);
     }
 
+    // Hidden contamination count
+    const hiddenContam = DATA.skills.filter(s =>
+        s.ref_file_count > 0
+        && s.contamination_level === "low"
+        && (s.ref_contamination_level === "medium" || s.ref_contamination_level === "high")
+    ).length;
+    document.getElementById("stat-hidden-contam").textContent = hiddenContam;
+
     // Net negative count
     const nn = DATA.summary.net_negative_risk;
     if (nn) {
@@ -151,6 +175,7 @@ function renderCharts() {
             }],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: {
                 title: { display: true, text: "Validation Results" },
                 legend: { position: "bottom" },
@@ -170,6 +195,7 @@ function renderCharts() {
             }],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: {
                 title: { display: true, text: "Cross-Contamination" },
                 legend: { position: "bottom" },
@@ -197,6 +223,7 @@ function renderCharts() {
             ],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: { title: { display: true, text: "Pass/Fail by Source" } },
             scales: {
                 x: { stacked: false },
@@ -231,6 +258,7 @@ function renderCharts() {
             }],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: { title: { display: true, text: "SKILL.md Token Distribution (capped at 50k)" } },
             scales: {
                 x: { title: { display: true, text: "Tokens" } },
@@ -258,6 +286,7 @@ function renderCharts() {
             }],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: { title: { display: true, text: "Information Density Distribution" } },
             scales: {
                 x: { title: { display: true, text: "Density" } },
@@ -285,6 +314,7 @@ function renderCharts() {
             }],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: { title: { display: true, text: "Instruction Specificity Distribution" } },
             scales: {
                 x: { title: { display: true, text: "Specificity" } },
@@ -311,7 +341,11 @@ function renderCharts() {
         type: "scatter",
         data: { datasets: contaminationDatasets },
         options: {
-            plugins: { title: { display: true, text: "Contamination Score by Source" } },
+            maintainAspectRatio: window.innerWidth > 768,
+            plugins: {
+                title: { display: true, text: "Contamination Score by Source" },
+                legend: { position: "bottom" },
+            },
             scales: {
                 x: {
                     type: "linear",
@@ -358,6 +392,7 @@ function renderCharts() {
             ],
         },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: { title: { display: true, text: "Token Budget Composition by Source (%)" } },
             scales: {
                 x: { stacked: true },
@@ -394,7 +429,11 @@ function renderLLMCharts() {
             })),
         },
         options: {
-            plugins: { title: { display: true, text: "LLM Judge Scores by Source (1-5)" } },
+            maintainAspectRatio: window.innerWidth > 768,
+            plugins: {
+                title: { display: true, text: "LLM Judge Scores by Source (1-5)" },
+                legend: { position: "bottom" },
+            },
             scales: {
                 y: { beginAtZero: false, min: 1, max: 5.3, title: { display: true, text: "Mean Score" } },
             },
@@ -418,7 +457,11 @@ function renderLLMCharts() {
         type: "bar",
         data: { labels: sources, datasets: noveltyDatasets },
         options: {
-            plugins: { title: { display: true, text: "Novelty Score Distribution by Source" } },
+            maintainAspectRatio: window.innerWidth > 768,
+            plugins: {
+                title: { display: true, text: "Novelty Score Distribution by Source" },
+                legend: { position: "bottom" },
+            },
             scales: {
                 x: { stacked: true, ticks: { maxRotation: 45 } },
                 y: { stacked: true, beginAtZero: true, max: 100, title: { display: true, text: "% of Skills" } },
@@ -444,6 +487,7 @@ function renderLLMCharts() {
         },
         options: {
             indexAxis: "y",
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: { title: { display: true, text: "Dimension Spread Across Sources" }, legend: { display: false } },
             scales: {
                 x: { beginAtZero: true, title: { display: true, text: "Spread (points)" } },
@@ -592,8 +636,10 @@ function renderBehavioral() {
         type: "scatter",
         data: { datasets },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: {
                 title: { display: true, text: "Structural Contamination vs. Behavioral Delta (B-A)" },
+                legend: { position: "bottom" },
                 tooltip: {
                     callbacks: {
                         label: (ctx) => {
@@ -693,8 +739,10 @@ function renderCraftNoveltyScatter() {
         type: "scatter",
         data: { datasets },
         options: {
+            maintainAspectRatio: window.innerWidth > 768,
             plugins: {
                 title: { display: true, text: "Craft Composite vs. Novelty by Source" },
+                legend: { position: "bottom" },
                 tooltip: {
                     callbacks: {
                         label: (ctx) => {
@@ -931,6 +979,20 @@ function downloadCSV() {
     a.click();
     URL.revokeObjectURL(url);
 }
+
+// Force all charts to resize when viewport changes
+// Chart.js can shrink but won't grow back without this
+let resizeTimeout;
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        const canvases = document.querySelectorAll(".chart-container canvas");
+        canvases.forEach(canvas => {
+            const chart = Chart.getChart(canvas);
+            if (chart) chart.resize();
+        });
+    }, 100);
+});
 
 // Initialize
 loadData();
