@@ -34,7 +34,7 @@ git submodule update --init --recursive
 pip install -r analysis/requirements.txt
 ```
 
-You also need the [skill-validator](https://github.com/dacharyc/skill-validator) binary. Build it from source or download a release, then update the `VALIDATOR` path in `analysis/collect.py` if it's not at `~/workspace/skill-validator/skill-validator`.
+You also need the [skill-validator](https://github.com/agent-ecosystem/skill-validator) binary. Build it from source or download a release, then update the `VALIDATOR` path in `analysis/collect.py` if it's not at `~/workspace/skill-validator/skill-validator`.
 
 ### 3. Run the data pipeline
 
@@ -177,6 +177,6 @@ Content analysis and contamination risk metrics are computed by the `skill-valid
 
 ## Tools
 
-- [skill-validator](https://github.com/dacharyc/skill-validator) — Go CLI for structural validation, content analysis, and contamination risk
+- [skill-validator](https://github.com/agent-ecosystem/skill-validator) — Go CLI for structural validation, content analysis, and contamination risk
 - Python 3.9+ with `anthropic`, `tiktoken`, `matplotlib`
 - Pandoc for PDF generation
